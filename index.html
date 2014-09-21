@@ -35,7 +35,6 @@
                 <li><a href="https://github.com/ncteisen">My GitHub</a></li>
               </ul>
             </li>
-            <li><a href="#pic" data-toggle="modal">Who Am I?</a></li>
             <li><a href="#email" data-toggle="modal">Contact</a></li>
           </ul>
   			</div>
@@ -45,26 +44,39 @@
 
   	<div class="container">
       <div class="jumbotron">
+        <div class="row">
+        <div class="col-md-6">
         <h1 class="text-center">Welcome!</h1>
-          <p>Cheers! My name is Noah Eisen, thank you for visiting my website. I am currently a junior at the University of Michigan. I am pursuing a Bachelors of Science in Engineering for Computer Science, and a Bachelors of Science for Mathematics. Please find out more about me and take a look at some of my projects below!</p>
-
+          <p>Cheers! My name is Noah Eisen. Thank you for visiting my website! I am currently a junior at the University of Michigan. I am pursuing a Bachelors of Science in Engineering for Computer Science, and a Bachelors of Science for Mathematics. Please find out more about me and take a look at some of my projects below!</p>
+        </div>
+        <div class="col-md-6">
+            <img src="graphics/NoahEisenPic.jpg" class="img-responsive  center" alt="Noah Eisen">
+        </div>
+      </div>
       </div>
   	</div>
 
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h3>About Me</a></h3>
-          <p>My interests are broad and ever-expanding. I am a master magician, an origami expert, a talented juggler, a dabbling thespian, a chemistry nerd, a runner, an advocate of social justice and equality, a small-time pianist, a chess novice, and much more.</p>
+          <h3 class="text-center">Why I Love Computer Science</h3>
+          <p class="text-center">To me, the beauty of computer science lies in the principle of abstraction. What do I mean by that? Well when I try to imagine how a bunch of arranged circuits, communicating by simply turning on and off, can be combined in a way to create the brain behind the computer that I am currently typing on, it seems like magic. I can finally unlock the secret behind this enigma by understanding the power of abstraction. Simple units are used as building blocks to create the complex, and then these complex creations are then abstracted to become the simple units for the next level of design. Transistor interactions are abstracted to logic gates, logic gates are abstracted to arithmetic logic units, and so on. </p>
+          <p class="text-center">Newton once said, “If I have seen further it is by standing on the shoulders of giants.” Well my version of that quote is, “If I have created more powerful programs, it is by using the abstractions and tools provided to me by others.”
+        </p>
         </div>
         <div class="col-md-4">
-          <h3>What Should I Put Here?</h3>
-          <p>Morbi blandit sem eget sem accumsan, vel sollicitudin libero volutpat. Mauris cursus, magna at tempor tincidunt, purus neque dignissim diam, ac elementum enim orci vel orci. Praesent erat massa, bibendum eu dui ut, eleifend mollis purus. Pellentesque eleifend arcu est. Vivamus quis ligula euismod, iaculis tellus vitae, tincidunt tortor. Sed pulvinar mattis odio eu pellentesque. Cras euismod eros lectus. Proin dignissim urna libero, non porta ante facilisis non. Nunc libero arcu, faucibus eu sem a, imperdiet malesuada leo.</p>
+          <h3 class="text-center">Why I Love Math</h3>
+          <p class="text-center">Mathematics is pure beyond pure. Numbers are our way of describing something so intrinsic that it is almost a tautology. Do three people, three dogs, three cars, three tables all have the exact same ‘three-ness’ about them? Yes they do, and that ‘three-ness’ is more universally understood than any language will ever be able to convey. Similarly, is taking a pile of nine buttons and dividing it into three groups the same metaphysical action as splitting a class of nine high-school students into three project groups? The movie Mean Girls hit on a profound point when Cady explains that Math is the same in every country.</p>
+          <p class="text-center">I like Computer Science because I am making real and tangible things directly from my thought; my programs are a manifestation of my ‘thought-stuff.’ Math takes that one step further, for the only thing I have to do to complete a proof is to think it. As soon as the reasoning is in my head I have done it, the proof exists. 
+          </p>
         </div>
         <div class="col-md-4">
-          <h3>And Here?</h3>
-          <p>Morbi blandit sem eget sem accumsan, vel sollicitudin libero volutpat. Mauris cursus, magna at tempor tincidunt, purus neque dignissim diam, ac elementum enim orci vel orci. Praesent erat massa, bibendum eu dui ut, eleifend mollis purus. Pellentesque eleifend arcu est. Vivamus quis ligula euismod, iaculis tellus vitae, tincidunt tortor. Sed pulvinar mattis odio eu pellentesque. Cras euismod eros lectus. Proin dignissim urna libero, non porta ante facilisis non. Nunc libero arcu, faucibus eu sem a, imperdiet malesuada leo.</p>
+          <h3 class="text-center">More About Me</a></h3>
+          <p class="text-center">I am a Math and Computer Science kid, but I like to give the right side of my brain exercise as well. My favorite book is 100 Years of Solitude, although Ficciones by Jorge Luis Borges is a close second. I absolutely love watching and discussing movies so it is a pretty tall order for me to pick a favorite, but if I had to I would say The Prestige is one movie I can watch again and again and pull new meaning from it every time (Christopher Nolan also happens to be my favorite director). I am eternally entertained by xkcd, and I check youtube every week for new videos from Vsauce or Vi Hart.</p>
+          <p class="text-center">My interests are broad and ever-expanding. I am a master magician, an origami expert, a talented juggler, a dabbling thespian, a chemistry nerd, an advocate of social justice and equality, a small-time pianist, a chess enthusiast, an avid runner, and much more.
+          </p>
         </div>
+
       </div>
     </div>
 
@@ -75,7 +87,7 @@
             <h4 class="text-center">Contact Noah Eisen</h4>
           </div>
           <div class="modal-body">
-            <p>Just shoot me an email at ncteisen@umich.edu! This is website in development, and my next project will be implementing a server-side email handling service ;)</p>
+            <p>Just shoot me an email at ncteisen@umich.edu! I am looking for a good cheap web host that would support a PHP script to handle sending me emails automatically. But until then let's do this the new-old-fasion way ;)</p>
           </div>
           <div class="modal-footer">
             <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
@@ -87,62 +99,8 @@
     <div class="modal fade" id="resume" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="text-center">My Resume</h4>
-          </div>
           <div class="modal-body">
-            <img src="graphics/NoahEisen_Resume2014.jpg" class="img-responsive" alt="Responsive image">
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="pic" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="text-center">Hi, Nice to Meet You!</h3>
-          </div>
-          <div class="modal-body">
-            <img src="graphics/NoahEisenPic.jpg" class="img-responsive center" alt="Responsive image">
-          </div>
-          <div class="modal-footer">
-            <a href="#pic2" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Want to see another?</a>
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="pic2" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="text-center">I Usually Look Better When I Run...</h3>
-            <h5 class="text-center">(and I stole my cousin's race number, I'm not Elias)</h5>
-          </div>
-          <div class="modal-body">
-            <img src="graphics/NoahEisenPic2.jpg" class="img-responsive center" alt="Responsive image">
-          </div>
-          <div class="modal-footer">
-            <a href="#pic3" class="btn btn-default" data-dismiss="modal" data-toggle="modal">One more?</a>
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="pic3" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="text-center">My Little Sister is Photography Master!</h3>
-          </div>
-          <div class="modal-body">
-            <img src="graphics/NoahEisenPic3.jpg" class="img-responsive center" alt="Responsive image">
+            <img src="graphics/NoahEisen_Resume2014.jpg" class="img-responsive" alt="Noah Eisen Resume 2014">
           </div>
           <div class="modal-footer">
             <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
