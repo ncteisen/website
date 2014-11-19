@@ -8,7 +8,7 @@ $(document).ready(function () {
 	this.add_paragraph = function(text) {
 		$('#old_text').append("<p class=\"text-center\">" + text + "</p>");
 	}
-
+	
 	this.done = function() {
 		$('#cmd').addClass('hide')
 		$('#buttons').removeClass('hide')

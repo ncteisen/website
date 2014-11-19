@@ -16,8 +16,12 @@ var Lacey = function(view) {
 			this.handle_denial()
 		}
 
-		if ((resp.indexOf("cam") > -1) || (resp.indexOf("Cam") > -1)) {
+		else if ((resp.indexOf("cam") > -1) || (resp.indexOf("Cam") > -1)) {
 			this.handle_cam()
+		}
+
+		else if (this.easter_egg(resp)) {
+			this.handle_easter_egg()
 		}
 
 		else {
@@ -39,7 +43,39 @@ var Lacey = function(view) {
 			(resp.indexOf(" anything") > -1) && (resp.indexOf(" not ") > -1))
 			return true
 
+		if ((resp.indexOf("I ") > -1) && (resp.indexOf(" don't ") > -1) && 
+			(resp.indexOf(" know") > -1))
+			return true
+
+		if ((resp.indexOf("i ") > -1) && (resp.indexOf(" don't ") > -1) && 
+			(resp.indexOf(" know") > -1))
+			return true
+
 		return false
+	}
+
+	this.easter_egg = function(resp) {
+
+		if ((resp.indexOf("made") > -1) && (resp.indexOf(" this ") > -1) && 
+			(resp.indexOf(" website") > -1))
+			return true
+
+		if ((resp.indexOf("i") > -1) && (resp.indexOf(" made ") > -1) && 
+			(resp.indexOf(" this") > -1))
+			return true
+
+		if ((resp.indexOf("I") > -1) && (resp.indexOf(" made ") > -1) && 
+			(resp.indexOf(" this") > -1))
+			return true
+
+		if ((resp.indexOf("made") > -1) && (resp.indexOf(" a ") > -1) && 
+			(resp.indexOf(" website ") > -1) && (resp.indexOf(" lacey ") > -1))
+			return true
+
+		if ((resp.indexOf("made") > -1) && (resp.indexOf(" a ") > -1) && 
+			(resp.indexOf(" website ") > -1) && (resp.indexOf(" Lacey ") > -1))
+			return true
+		
 	}
 
 	this.handle_denial = function() {
@@ -87,5 +123,15 @@ var Lacey = function(view) {
 	        view.add_paragraph("\nYou shouldn't have done anything to Cam\n");
 	    else if (rand === 3)
 	        view.add_paragraph("\nWhy would you think it was ok to do that to her brother?\n");
+
+	    view.done()
 	}
+
+	this.handle_easter_egg = function() {
+
+		view.add_paragraph("\nYou made this website? Jesus that's bad... I can't help you man.\n");
+
+		view.done()
+	}
+
 }
