@@ -13,6 +13,9 @@ var Room3 = function(controller) {
 		else if (this.examine_walkman(resp))
 			this.handle_examine_walkman()
 
+		else if (this.go_back(resp))
+			this.handle_go_back()
+
 		else if (this.open_walkman(resp))
 			this.handle_open_walkman()
 
@@ -57,6 +60,19 @@ var Room3 = function(controller) {
 			"dark red substance on the wall. It reads,<br><br>&nbsp&nbspBeware the dark, beware " +
 			"the painless,<br>&nbsp&nbspA cowardly quester will wander aimless.<br>&nbsp&nbspThe sacrificial " +
 			"yield become the pen,<br>&nbsp&nbspThe signer continues, on and again.<br>&nbsp&nbspX_________________")
+	}
+
+	this.go_back = function(resp) {
+
+		if (resp.contains(["go "," back"]))
+			return true
+
+		return false
+	}
+
+	this.handle_go_back = function() {
+		controller.add_paragraph("You gingerly step back into the second room.")
+		controller.room = 2
 	}
 
 	this.look_note = function(resp) {
@@ -129,6 +145,18 @@ var Room3 = function(controller) {
 		if (resp.contains(["remove", "cd"]))
 			return true
 
+		if (resp.contains(["take", "disc"]))
+			return true
+
+		if (resp.contains(["pick up", "disc"]))
+			return true
+
+		if (resp.contains(["grab", "disc"]))
+			return true
+
+		if (resp.contains(["remove", "disc"]))
+			return true
+
 		if (resp.contains(["take", "CD"]))
 			return true
 
@@ -165,6 +193,9 @@ var Room3 = function(controller) {
 			return true
 
 		if (resp.contains(["play", "cd"]))
+			return true
+
+		if (resp.contains(["play", "disc"]))
 			return true
 
 		if (resp.contains(["play", "CD"]))
@@ -219,6 +250,12 @@ var Room3 = function(controller) {
 			return true
 
 		if (resp.contains(["snap", "CD"]))
+			return true
+
+		if (resp.contains(["break", "disc"]))
+			return true
+
+		if (resp.contains(["snap", "disc"]))
 			return true
 
 		return false

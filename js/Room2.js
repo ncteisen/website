@@ -23,11 +23,17 @@ var Room2 = function(controller) {
 		else if (this.read_note(resp))
 			this.handle_read_note()
 
+		else if (this.look_walls(resp))
+			this.handle_look_walls()
+
 		else if(this.introspection(resp))
 			this.handle_introspection()
 
 		else if(this.spider(resp))
 			this.handle_spider()
+
+		else if (this.look_bug(resp))
+			this.handle_look_bug()
 
 		else if (this.eat_bug(resp))
 			this.handle_eat_bug()
@@ -76,12 +82,43 @@ var Room2 = function(controller) {
 		controller.room = 1
 	}
 
+	this.look_bug = function(resp) {
+
+		if (resp.examines("bug"))
+			return true
+
+		if (resp.examines("ant"))
+			return true
+
+		return false
+	}
+
+	this.handle_look_bug = function(resp) {
+		if (this.num_bugs)
+			controller.add_paragraph("upon closer inspection that ants look a little bit blue-er than " +
+				" any ants you have ever seen before. The spider regards you with spite.")
+		else 
+			controller.add_paragraph("There are no more ants. You killed them all.")
+	}
+
 	this.look_under_bed = function(resp) {
 
 		if (resp.examines("bed"))
 			return true
 
 		return false
+	}
+
+	this.look_walls = function(resp) {
+
+		if (resp.examines("wall"))
+			return true
+
+		return false
+	}
+
+	this.handle_look_walls = function() {
+		controller.add_paragraph("The walls are green and slimy")
 	}
 
 	this.handle_look_bed = function() {
