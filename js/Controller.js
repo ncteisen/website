@@ -7,6 +7,7 @@ var Controller = function(view) {
 	this.room1 = new Room1(this)
 	this.room2 = new Room2(this)
 	this.room3 = new Room3(this)
+	this.room4 = new Room4(this)
 
 	String.prototype.contains = function(str) {
 		
@@ -98,8 +99,8 @@ var Controller = function(view) {
 			this.room2.run(resp);
 		else if (this.room === 3)
 			this.room3.run(resp);
-		else if (this.room ===4)
-			view.add_paragraph("Done for now.... Updates to come")
+		else if (this.room === 4)
+			this.room4.run(resp)
 	}
 
 }
