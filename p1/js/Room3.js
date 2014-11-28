@@ -22,6 +22,12 @@ var Room3 = function(controller) {
 		else if (this.play_music(resp))
 			this.handle_play_music()
 
+		else if (this.look_cd(resp))
+			this.handle_look_cd()
+
+		else if (this.take_walkman(resp))
+			this.handle_take_walkman()
+
 		else if (this.take_cd(resp))
 			this.handle_take_cd()
 
@@ -70,6 +76,25 @@ var Room3 = function(controller) {
 		return false
 	}
 
+	this.take_walkman = function(resp) {
+
+		if (resp.contains(["take ", "walkman"]))
+			return true
+
+		if (resp.contains(["pick up ", "walkman"]))
+			return true
+
+		if (resp.contains(["grab ", "walkman"]))
+			return true
+
+		return false
+	}
+
+	this.handle_take_walkman = function() {
+		controller.add_paragraph("Huh it is actually nailed to the ground. " +
+			"Maybe try doing other things to it.")
+	}
+
 	this.handle_go_back = function() {
 		controller.add_paragraph("You gingerly step back into the second room.")
 		controller.room = 2
@@ -81,6 +106,30 @@ var Room3 = function(controller) {
 			return true
 
 		return false
+	}
+
+	this.look_cd = function(resp) {
+
+		if (resp.examines("cd"))
+			return true
+
+		if (resp.examines("CD"))
+			return true
+
+		if (resp.examines("disc"))
+			return true
+
+		return false
+	}
+
+	this.handle_look_cd = function() {
+
+		if (this.has_cd)
+			controller.add_paragraph("The CD is by Marvin Gaye. It's the album \"Let's Get " +
+				"It On\", which is arguably his sexiest")
+
+		else
+			controller.add_paragraph("You can't. It seems to be in a walkman or something.")
 	}
 
 	this.handle_look_note = function() {
@@ -350,7 +399,28 @@ var Room3 = function(controller) {
 		if (resp.contains(["slice", "leg"]))
 			return true
 
-		if (resp.contains(["slice", "self"]))
+		if (resp.contains(["stab", "self"]))
+			return true
+
+		if (resp.contains(["stab", "self"]))
+			return true
+
+		if (resp.contains(["stab", "your"]))
+			return true
+
+		if (resp.contains(["stab", "self"]))
+			return true
+
+		if (resp.contains(["stab", "arm"]))
+			return true
+
+		if (resp.contains(["stab", "hand"]))
+			return true
+
+		if (resp.contains(["stab", "finger"]))
+			return true
+
+		if (resp.contains(["stab", "leg"]))
 			return true
 
 		return false

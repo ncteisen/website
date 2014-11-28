@@ -262,6 +262,12 @@ var Room2 = function(controller) {
 		if (resp.contains(["lie on ", " bed"]))
 			return true
 
+		if (resp.contains(["lay on ", " bed"]))
+			return true
+
+		if (resp.contains(["lay down", " bed"]))
+			return true
+
 		if (resp.contains(["rest on ", " bed"]))
 			return true
 
