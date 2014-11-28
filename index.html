@@ -7,15 +7,15 @@
     <title>Noah Eisen | Software Engineer</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/p1_style.css" rel="stylesheet">
 
   </head>
   <body>
 
   	<div class="navbar navbar-inverse navbar-static-top">
   		<div class="container">
-  			<a href="#" class="navbar-brand">Noah Eisen | Software Engineer</a>
+  			<a href="../" class="navbar-brand">Noah Eisen | Software Engineer</a>
 
   			<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
   				<span class="icon-bar"></span>
@@ -35,7 +35,7 @@
                 <li><a href="https://github.com/ncteisen">My GitHub</a></li>
               </ul>
             </li>
-            <li><a href="p1/">My Game</a></li>
+            <li><a href="../">Home</a></li>
             <li><a href="#email" data-toggle="modal">Contact</a></li>
           </ul>
   			</div>
@@ -43,43 +43,25 @@
   		</div>
   	</div>
 
-  	<div class="container">
-      <div class="jumbotron">
-        <div class="row">
-        <div class="col-md-6">
-        <h1 class="text-center">Welcome!</h1>
-          <p>Cheers! My name is Noah Eisen. Thank you for visiting my website! I am currently a junior at the University of Michigan, pursuing a Bachelors of Science in Engineering for Computer Science and a Bachelors of Science for Mathematics. Please find out more about me below!</p>
-        </div>
-        <div class="col-md-6">
-            <img src="graphics/NoahEisenPic.jpg" class="img-responsive center" alt="Noah Eisen">
-        </div>
-      </div>
-      </div>
-  	</div>
-
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h3 class="text-center">Why I Love Computer Science</h3>
-          <p class="text-center">To me, the beauty of computer science lies in the principle of abstraction. What do I mean by that? Well when I try to imagine how a bunch of arranged circuits, communicating by simply turning on and off, can be combined in a way to create the brain behind the computer that I am currently typing on, it seems like magic. I can finally unlock the secret behind this enigma by understanding the power of abstraction. Simple units are used as building blocks to create the complex, and then these complex creations are then abstracted to become the simple units for the next level of design. Transistor interactions are abstracted to logic gates, logic gates are abstracted to arithmetic logic units, and so on. </p>
-          <p class="text-center">Newton once said, “If I have seen further it is by standing on the shoulders of giants.” Well my version of that quote is, “If I have created more powerful programs, it is by using the abstractions and tools provided to me by others.”
-        </p>
+      <div class="col-md-8 col-md-offset-2" id="console">
+        <div id="old_text">
+          <p>Welcome. The journey ahead of you is tough, but with determination
+  you will succeed. Try to use simple text commands to work through
+  each puzzle. My hint would be to start each puzzle by looking around
+  with the command 'look'. After that, keep your commands as simple as
+  possible; use words like 'examine &lt;object&gt;' and 'take &lt;object&gt;' and
+  so on. Remember, those are just examples, the command words can be
+  anything. if you are ever confused, try typing 'help'</p>
         </div>
-        <div class="col-md-4">
-          <h3 class="text-center">Why I Love Math</h3>
-          <p class="text-center">Mathematics is pure beyond pure. Numbers are our way of describing something so intrinsic that it is almost a tautology. Do three people, three dogs, three cars, three tables all have the exact same ‘three-ness’ about them? Yes they do, and that ‘three-ness’ is more universally understood than any language will ever be able to convey. Similarly, is taking a pile of nine buttons and dividing it into three groups the same metaphysical action as splitting a class of nine high-school students into three project groups? The movie Mean Girls hit on a profound point when Cady explains that Math is the same in every country.</p>
-          <p class="text-center">I like Computer Science because I am making real and tangible things directly from my thought; my programs are a manifestation of my ‘thought-stuff’. Math takes that one step further, for the only thing I have to do to complete a proof is to think it. As soon as the reasoning is in my head I have done it, the proof exists. 
-          </p>
+        <br>
+        <div class="form-group">
+          <input type="text" class="form-control" id="cmd" placeholder="Enter a command">
         </div>
-        <div class="col-md-4">
-          <h3 class="text-center">Other Stuff I Love</a></h3>
-          <p class="text-center">I am a Math and Computer Science kid, but I like to give the right side of my brain exercise as well. My favorite book is <i>100 Years of Solitude</i>, although <i>Ficciones</i> by Jorge Luis Borges is a close second. I absolutely love watching and discussing movies so it is a pretty tall order for me to pick a favorite, but if I had to I would say <i>The Prestige</i> is one movie I can watch again and again and pull new meaning from it every time (Christopher Nolan also happens to be my favorite director). I am eternally entertained by <a href="http://xkcd.com/">xkcd</a>, and I check youtube every week for new videos from <a href="https://www.youtube.com/user/Vsauce">Vsauce</a> or <a href="https://www.youtube.com/user/Vihart">Vi Hart</a>.</p>
-          <p class="text-center">My interests are broad and ever-expanding. I am a master magician, an origami expert, a talented juggler, a dabbling thespian, a chemistry nerd, an advocate of social justice and equality, a small-time pianist, a chess enthusiast, an avid runner, and much more.
-          </p>
-        </div>
-
       </div>
     </div>
+
+
 
     <div class="modal fade" id="email" role="dialog">
       <div class="modal-dialog">
@@ -101,7 +83,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <img src="graphics/NoahEisen_Resume2014.jpg" class="img-responsive" alt="Noah Eisen Resume 2014">
+            <img src="../graphics/NoahEisen_Resume2014.jpg" class="img-responsive" alt="Noah Eisen Resume 2014">
           </div>
           <div class="modal-footer">
             <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
@@ -111,6 +93,12 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/Room1.js"></script>
+    <script type="text/javascript" src="js/Room2.js"></script>
+    <script type="text/javascript" src="js/Room3.js"></script>
+    <script type="text/javascript" src="js/Room4.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/p1_main.js"></script>
   </body>
 </html>
