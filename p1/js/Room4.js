@@ -9,7 +9,7 @@ var Room4 = function(controller) {
 				"to the oppressive brightness you hear the omnipresent buzz of " +
 				"civilization all around you. You turn back and see the room you just " +
 				"exited fading from view. Now that you can see you realize that you are " +
-				"sitting in front of your computer, back in the real world. Congradulations, " +
+				"sitting in front of your computer, back in the real world. Congratulations, " +
 				"you have escaped the mysterious challenges. Or have you...")
 			this.state = 0
 		}
