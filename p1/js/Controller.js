@@ -92,6 +92,8 @@ var Controller = function(view) {
 		// users input --> output
 		view.add_paragraph_simple("> " + resp)
 
+		resp = resp.toLowerCase();
+
 		// create our output
 		if (this.room === 1)
 			this.room1.run(resp);
