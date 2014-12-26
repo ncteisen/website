@@ -43,7 +43,7 @@ $(document).ready(function () {
 
   			// get user response
         	var resp = $('#cmd').val();
-
+		resp = resp.toLowerCase();
         	// reset input box
         	$('#cmd').val('');
 
