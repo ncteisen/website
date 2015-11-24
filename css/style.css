@@ -3,3 +3,60 @@
 	margin-right: auto;
 	margin-left: auto;
 }
+
+body {
+	background-color: #2F4F4F;
+}
+
+.jumbotron {
+	background-color: #C1CDCD;
+}
+
+.container {
+	width: auto;
+}
+
+#story-wrapper {
+	background-color: darkgrey;
+	border-radius: 5px;
+	margin: 3%;
+}
+
+#story-wrapper:hover {
+	background-color: #b0e0e6;
+	border-radius: 5px;
+	margin: 3%;
+}
+
+#story-inner-wrapper {
+	padding: 5%;
+}
+
+#img-inner-wrapper {
+	padding: 2%;
+}
+
+#outer-navbar-container {
+	padding-right: 7%;
+	padding-left: 7%;
+}
+
+#total-navbar-wrapper {
+	border-radius: 15px;
+}
+
+#img-wrapper {
+	background-color: darkgrey;
+	border-radius: 15px;
+}
+
+#outer-container {
+	padding-right: 7%;
+	padding-left: 7%;
+}
+
+
+#total-wrapper {
+	background-color: #E0EEEE;
+	border-radius: 15px;
+}

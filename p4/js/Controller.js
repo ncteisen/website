@@ -5,10 +5,10 @@ var Controller = function(view) {
 
 	// create the user and map
 	user = new User()
-	map = new Map(user, this)
+	//map = new Map(user, this)
 
 	// create the rooms
-	room1 = new Room1(map, this)
+	room1 = new Room1(user, this)
 
 	String.prototype.contains = function(str) {
 		
@@ -40,8 +40,12 @@ var Controller = function(view) {
 		return false
 	}
 
-	this.add_paragraph = function(text) {
-		view.add_paragraph(text)
+	this.add_paragraph = function(text, color) {
+		view.add_paragraph(text, color)
+	}
+
+	this.fade_out = function() {
+		view.fade_out()
 	}
 
 	// handles unrecognized input
@@ -91,10 +95,14 @@ var Controller = function(view) {
 	this.run = function(resp) {
 
 		// users input --> output
-		view.add_paragraph("> " + resp)
-		// test
-		// create our output
-		map.draw()
+		view.add_paragraph(resp)
+
+		resp = resp.toLowerCase();
+
+		if (this.room == 1)
+			room1.run(resp)
+		else 
+			view.add_paragraph("Done")
 	}
 
 }
