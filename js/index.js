@@ -15,7 +15,6 @@ function konami()
 
 	for (var i = 0; i < konami_code.length; ++i) {
 		if (press_list[i] !== konami_code[i]) {
-			console.log(press_list[i], konami_code[i])
 			return false
 		}
 	}
@@ -29,7 +28,6 @@ function handle_konami()
 }
 
 $(document).on("keydown", function (e) {
-    console.log(e.which)
     press_list.unshift(e.which)
     if (konami()) {
     	handle_konami()
