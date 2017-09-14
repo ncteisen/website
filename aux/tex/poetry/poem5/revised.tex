@@ -1,0 +1,92 @@
+
+%-------------------------%
+%-----Document Setup------%
+%-------------------------%
+\documentclass[12pt,oneside,openany]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{savetrees, verse}
+\usepackage{ifthen}
+\linespread{1.4}
+\setlength{\footskip}{20pt}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=2cm,left=2cm,right=2cm,bottom=2cm} }
+        {\geometry{top=2cm,left=2cm,right=2cm,bottom=2cm} }
+    }
+
+%-------------------------%
+%------Document Code------%
+%-------------------------%
+\newcommand{\thought}[1]{\textit{#1}}
+
+\newcommand{\scenechange}{
+  \par
+  \vspace{\baselineskip}
+  \par
+\noindent}
+%Creates a line break for a change of scene
+
+\newcommand{\majorchange}{
+  \par
+  \vspace{\baselineskip}
+  \hfill
+  \textasteriskcentered
+  \hfill
+  \vspace{\baselineskip}
+\noindent}
+%creates a major line break, split by an asterisk for scene changes at the end of a page of where a sense of a major change is required. 
+
+\setlength{\parindent}{30pt}
+
+\newcommand{\attrib}[1]{%
+\nopagebreak{\raggedleft\footnotesize #1\par}}
+
+%-------------------------%
+%------Main Document------%
+%-------------------------%
+\begin{document}
+%\title{I Face Mortality When I’m on Planes}
+\author{Noah Eisen}
+%\date{}
+%\maketitle
+\thispagestyle{empty}
+
+\poemtitle{Am I Losing You?}
+\bigskip
+\settowidth{\versewidth}{And I just don’t ever figure to say}
+\begin{verse}[\versewidth]
+Can you hear me?\\
+\bigskip
+\vin I just think that when we thought\\
+\vin about how to even start even to be\\
+\vin more than what we had been to.\\
+\bigskip
+Do you understand?\\
+\bigskip
+\vin Before we were trying once at\\
+\vin last to be figured by the time\\
+\vin that time was coming to them.\\
+\bigskip
+Are you with me here?\\
+\bigskip
+\vin And I just don’t ever figure to say\\
+\vin that I haven’t said what I figured\\
+\vin out that now it loved to be there.\\
+\bigskip
+How is this not clear?\\
+\bigskip
+\vin We should have been with that\\
+\vin other that we decided ever to\\
+\vin become from our further selves.\\
+\bigskip
+Well? Well??
+\end{verse}
+\attrib{Noah Eisen}
+
+
+
+\end{document}

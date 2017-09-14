@@ -1,0 +1,237 @@
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ : \hmwkTitle} % Top center header
+\rhead{\topRight} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\newcommand{\Proof}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\Def}[1]{\textbf{Def}:#1}
+\newcommand{\Note}[1]{\textbf{Note}:#1}
+\newcommand{\Ex}[1]{\textbf{Example}:#1}
+\newcommand{\Cor}[1]{\textbf{Corollary}:#1}
+\newcommand{\Thm}[1]{\textbf{Theorem}:#1}
+\newcommand{\RR}{$\mathbb{R}$}
+\newcommand{\NN}{$\mathbb{N}$}
+\newcommand{\ZZ}{$\mathbb{Z}$}
+\newcommand{\QQ}{$\mathbb{Q}$}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkAuthorName}{Noah Eisen} % Your name
+\newcommand{\topRight}{Section \thesection}
+\newcommand{\hmwkTitle}{Notes} % Assignment title
+
+\newcommand{\hmwkClass}{EECS\ 484} % Course/class
+
+\begin{document}
+
+\section{Introduction}
+
+Databases are ubiquitous in just about everything (i.e. phones, computers, websites, etc etc). They are a detailed and structured way to store and retrieve large sets of data efficiently and reliably.
+
+\subsection{Definitions}
+\begin{itemize}
+\item \textbf{DBSM}: Database Management System.
+\item \textbf{Database}: Large, integrated collection of data. 
+\end{itemize}
+
+Databases provide a manner of abstracting the representation of entities (Noah Eisen, EECS484, Braid) and relations (Noah Eisen is enrolled in EECS484, Noah Eisen bought Braid).
+
+\subsection{More Definitions}
+\begin{itemize}
+\item \textbf{Data Model}: collection of ideas and concepts that declare a manner for describing data in a structured manner. Examples include the relational model, the entity-relation model, the network model, the object model.
+\item \textbf{Schema}: a description of a certain dataset using a particular \textit{data model}.
+\item \textbf{Relation Model}: a popular \textit{data model} in which data is stored in rigidly defined tables.
+\item \textbf{Entity-Relation Model}: another type of \textit{data model}. This is 'higher level' and any ER schema must be translated into a respective relational schema.
+\end{itemize}
+
+\subsection{Levels of Abstraction}
+
+The Three Schema approach to data description realizes data at three distinct levels of abstraction:
+\begin{itemize}
+\item \textbf{External Schema}: describes how different users may views the data. There can be multiple external schemas for a particular dataset.
+\item \textbf{Conceptual Schema}: defines the logical schema of the data. i.e. a relational schema or an ER schema. There may only be one conceptual schema.
+\item \textbf{Physical Schema}: describes how the data is physically stored on disks. i.e files and indicies. There may be only one physical schema.
+\end{itemize}
+
+\subsection{Benefits of Databases}
+
+Databases provide several useful qualities:
+\begin{itemize}
+\item \textbf{Data Independence}: applications are insulated from the implementation of the database. They need only focus on the entity relations, not the relational model or physical storage.
+\item \textbf{Transactions}: applications do not need to worry about concurrency issues, for databases provide a 'single-user' system.
+\end{itemize}
+\pagebreak
+\section{The Entity-Relation Model}
+
+There are several conventions used for describing ER models. These are used to enforce various constraints on the data. In these diagrams, entities are drawn as squares, relations as diamonds, and attributes as ovals.
+\begin{itemize}
+\item \textbf{One-to-Many}: an arrow from an entity towards a relation means that an entity may only be involved in one of those relations.
+\item \textbf{Many-to-Many}: a line from entity to a relation puts no constraints on the number of connections that can exist. It may range from 0 to anything.
+\item \textbf{One-to-One}: if an relation has arrows towards it from both sides, then it represents a one-to-one connection.
+\item \textbf{Participation}: a bolded line enforces that at least one relation exists. When combine with an arrow, it enforces that exactly one relation exists.
+\end{itemize}
+
+\subsection{Definitions}
+\begin{itemize}
+\item \textbf{Key}: a \textit{minimal} set of one or more attribute that has a unique value for each record. If a particular table exists that has multiple keys, then they are all \textit{candidate keys}
+\item \textbf{Primary Key}: One of the candidate keys.
+\end{itemize}
+
+\subsection{Advanced ER Topics}
+
+\begin{itemize}
+\item \textbf{Weak Entities}: this is an entity that does not itself have a uniquely identifying attribute. It can only be uniquely identified in conjugation with a parent entity. Therefore the weak entity must have a single parent entity (one-to-many relation), and must have total participation (i.e. a think arrow relation).
+\item \textbf{ISA Relation}: a inheriting style of relation in which the subclasses do not need primary keys, for they inherit them from the base class. The subclasses may add additional attributes to the entity.
+\item \textbf{Aggregation}: a relationship may be treated as an entity. A box is drawn around the relationship and an arrow is drawn from the box.
+\end{itemize}
+
+\subsection{Entity Vs Attribute}
+
+When creating an ER schema, there may come several instances in which you must choose to use either an entity or attribute. Here are some tips in those situations:
+
+\begin{itemize}
+\item if an entity can have more than one of a particular attribute/entity, it must be represented as an entity.
+\item if the structure of the attribute/entity is important, then it must be stored as an entity.
+\end{itemize}
+\pagebreak
+\section{The Relational Model}
+
+Once we have realized our data in terms of an Entity-Relation model, we must translate that model to be a relational model so that we may implement it in SQL. There are usually multiple ways to do this, however some solutions will be superior to others, so we will establish some guidelines:
+\begin{itemize}
+\item \textbf{Avoid Redundancy}: if there is certain data that is repeated unnecessarily, the relational model probably should be rethought. Think about the poor relational model given to us in project 1.
+\item \textbf{Enforce Constraints}: there are only certain relational models that will be able to enforce all of the constraints from the ER diagram. For example, if there was a bold arrow connection, the entity and relation should be folded into one table. Similarly a one-to-one relation can be entirely described by one table using a \texttt{UNIQUE} and \texttt{NOT NULL} constraint.
+\item \textbf{Fold Weak Entities In}: weak entities should be folded into their categorizing relation. They should also be deleted when there parent entity is deleted. This is accomplished with an \texttt{ON DELETE CASCADE}.
+\item \textbf{ISA Uses 3 Relations}: use three tables to avoid data repetition and overshadowing.
+\item \textbf{Fold Aggregation Object into Relation}: use one table to represent both the initial relation, and then that relation's relations to another entity.
+\end{itemize}
+
+\subsection{Constraints and Triggers}
+
+Beside primary key constraints, we can also describe much more complex restraints using \texttt{CHECK}. Note that these are can be very slow if they involve nested queries (which is why Oracle does not allow nested check constraints).
+\\\\
+We can use triggers to do complex enforcing when a constraint is unwieldy. Be cautious though, for triggers are very complex, and can lead to strange recursive errors.
+\pagebreak
+\section{SQL Syntax}
+
+\subsection{Table Creation and Manipulation}
+
+\begin{verbatim}
+CREATE TABLE athlete (
+    aid      INTEGER PRIMARY KEY,
+    name     VARCHAR(30) NOT NULL,
+    country  VARCHAR(20) NOT NULL,
+    sport    VARCHAR(20) NOT NULL,
+    UNIQUE   (country, sport)
+);
+\end{verbatim}
+Note that the primary key automatically  enforces a not null constraint on the attribute. In this example country and sport are treated as attributes, but in a more comprehensive design, we could treat them as entities and then foreign reference them. This model also enforces that each country will have only one athlete of a particular name, maybe not the best design.
+
+\begin{verbatim}
+CREATE TABLE olympic (
+    oid     INTEGER PRIMARY KEY,
+    city	   VARCHAR(20) NOT NULL,
+    year	   INTEGER NOT NULL
+);
+\end{verbatim}
+Again, we could have made a choice somewhere to represent locations in a different manner. We also could have enforced that the \texttt{(city, year)} be unique.
+
+\begin{verbatim}
+CREATE TABLE compete (
+    aid INTEGER, oid INTEGER,
+    PRIMARY KEY (aid, oid),
+    FOREIGN KEY (oid) REFERENCES olympic,
+    FOREIGN KEY (aid) REFERENCES athlete
+    ON DELETE CASCADE ON UPDATE SET NULL
+);
+\end{verbatim}
+
+The foreign keys must refer to a primary key of the foreign table. They enforce referential integrity (i.e. no dangling pointers). If an athlete is deleted, any corresponding compete entries will be deleted. If an athlete is updated, any corresponding compete entries would be set to \texttt{NULL}. The other options were \texttt{NO ACTION} or \texttt{RESTRICT}, which are the defaults choices for Oracle. The would not let the change take place.
+\pagebreak
+\subsection{Creating Views}
+
+View can be used to only expose a subset of the data in a table to the end user. They can also be used to void multiple tables into one bigger virtual table. Lastly, they can be used to include build in SQL aggregation tools such as \texttt{COUNT} and \texttt{SUM} into a dataset.
+
+
+\begin{verbatim}
+CREATE VIEW athens_olympians
+AS SELECT
+    a.aid, a.name, a.country
+FROM
+    athlete a
+    INNER JOIN compete c ON a.aid = c.aid
+    INNER JOIN olympic o ON o.oid = c.oid
+WHERE
+    o.city = `Athens';
+\end{verbatim}
+
+
+\section{Relational Algebra}
+
+Relational algebra allows us to describe give relational instances as input, and then retrieve relational instances as output. It is a formal language defined with the following operations:
+
+\begin{itemize}
+\item \textbf{selection} ($\sigma$): selects a subset of rows from a table based on a predicate.
+\item \textbf{projection} ($\pi$): selects a subset of columns from a set of rows.
+\item \textbf{cross-product} ($\times$): takes the cross product of two relations.
+\item \textbf{set-difference} ($-$): takes set difference.
+\item \textbf{union} ($\cup$): unions two sets.
+\end{itemize}
+
+These are the basic operations. using them we can create several more complex operations:
+
+\begin{itemize}
+\item \textbf{renaming} ($\rho$): renames a selection from a table as an aliased name. Can be useful to join a table with itself
+\item \textbf{joins} ($\bowtie$): joins two tables based on a predicate. Given predicate $c$, we have $R\bowtie_c S \equiv \sigma_c(R\times S)$
+\item \textbf{division} ($\slash$): selects all rows from the first table such that an element in the row matches an element in a row of the second table.
+\end{itemize}
+
+\subsection{Examples}
+
+\begin{verbatim}
+Sailors(sid, sname, rating, age)
+Reserves(sid, bid, day);
+Boats(bid, bname, color);
+\end{verbatim}
+
+$\pi_{sname}\Big((\sigma_{color=`red'}Boats)\bowtie Reserves \bowtie Sailors\Big)$ // selects names of sailors who reserved red boats
+\\\\
+$\pi_{sname}(Reserves \bowtie Sailors)$ // selects names of sailors who have reserved at least one boat
+\\\\
+$\rho\Big(TempBoats, (\sigma_{color=`blue'\vee color=`red'}Boats)\Big)$\\
+$\pi_{sname}(TempBoats \bowtie Reserves \bowtie Sailors)$ // selects all names of sailors who've rented red or blue boats
+
+\end{document}

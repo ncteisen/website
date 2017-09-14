@@ -1,0 +1,87 @@
+
+%-------------------------%
+%-----Document Setup------%
+%-------------------------%
+\documentclass[12pt,oneside,openany]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{savetrees, verse}
+\usepackage{ifthen}
+\linespread{1.4}
+\setlength{\footskip}{20pt}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=2cm,left=2cm,right=2cm,bottom=2cm} }
+        {\geometry{top=2cm,left=2cm,right=2cm,bottom=2cm} }
+    }
+
+%-------------------------%
+%------Document Code------%
+%-------------------------%
+\newcommand{\thought}[1]{\textit{#1}}
+
+\newcommand{\scenechange}{
+  \par
+  \vspace{\baselineskip}
+  \par
+\noindent}
+%Creates a line break for a change of scene
+
+\newcommand{\majorchange}{
+  \par
+  \vspace{\baselineskip}
+  \hfill
+  \textasteriskcentered
+  \hfill
+  \vspace{\baselineskip}
+\noindent}
+%creates a major line break, split by an asterisk for scene changes at the end of a page of where a sense of a major change is required. 
+
+\setlength{\parindent}{30pt}
+
+\newcommand{\attrib}[1]{%
+\nopagebreak{\raggedleft\footnotesize #1\par}}
+
+%-------------------------%
+%------Main Document------%
+%-------------------------%
+\begin{document}
+%\title{I Face Mortality When I’m on Planes}
+\author{Noah Eisen}
+%\date{}
+%\maketitle
+\thispagestyle{empty}
+
+\poemtitle{But When}
+\bigskip
+\settowidth{\versewidth}{Their young lives filled with matching choices.}
+\begin{verse}[\versewidth]
+They met one day in in early May,\\
+\vin entranced within each other’s voices.\\
+The time was passed with conversation,\\
+\vin young lives filled with matching choices.\\
+\bigskip
+But try, he did, to venture forward,\\
+\vin and risk into romance unknown,\\
+Shunned and scorned and then shot down,\\
+\vin his dreamt up hopes were overgrown.\\
+\bigskip
+He fell back hard, but soon stood up,\\
+\vin and found her there, her ego sated.\\
+Friends again for just the moment,\\
+\vin carefully, he stayed, and waited.\\
+\bigskip
+\vin Is this a romantic story? \\
+\vin \vin \vin Is it unrequited feelings?\\
+\bigskip
+\vin Ah... Too soon to say.\\
+\vin \vin \vin I’ll tell you on another day
+\end{verse}
+\attrib{Noah Eisen}
+
+
+
+\end{document}
