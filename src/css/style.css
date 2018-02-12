@@ -12,6 +12,15 @@ body {
 	background-color: #C1CDCD;
 }
 
+.jumbotron-a:link, .jumbotron-a:visited {
+    color: #67818a;
+    text-decoration: none;
+}
+
+.jumbotron-a:link:active, .jumbotron-a:visited:active { 
+    color: green;
+}
+
 .container {
 	width: auto;
 }
