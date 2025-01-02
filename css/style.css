@@ -82,28 +82,24 @@ body {
 	border-radius: 15px;
 }
 
-/* General Navbar Styling */
-.navbar {
-    background-color: #333; /* Dark background for the navbar */
-    border: none;
-    border-radius: 0;
+/* Dropdown Animation */
+.navbar .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 
-.navbar .navbar-brand {
-    color: #fff;
-    font-weight: bold;
-    /* font-size: 18px; */
+.navbar .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.navbar .navbar-brand:hover {
-    color: #00bcd4; /* Accent color for hover effect */
-}
-
-/* Navbar Links */
+/* Hover Effects for Links */
 .navbar .nav > li > a {
     color: #ddd;
-    padding: 15px;
-    font-size: 14px;
+    text-transform: capitalize;
     transition: color 0.3s ease;
 }
 
@@ -111,18 +107,6 @@ body {
     color: #00bcd4; /* Accent color for hover effect */
 }
 
-/* Navbar Dropdown */
-.navbar .dropdown-menu {
-    background: linear-gradient(135deg, #f9f9f9, #eaeaea); /* Light gradient */
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    padding: 10px 0;
-    margin-top: 8px;
-    transition: all 0.3s ease;
-}
-
-/* Dropdown Menu Items */
 .navbar .dropdown-menu > li > a {
     color: #333;
     padding: 10px 20px;
@@ -135,41 +119,6 @@ body {
     background-color: #00bcd4; /* Highlighted background */
     color: #fff;
     border-radius: 4px;
-}
-
-/* Dropdown Toggle */
-.navbar .dropdown-toggle {
-    color: #ddd;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.navbar .dropdown-toggle:hover {
-    color: #00bcd4; /* Accent color */
-}
-
-.navbar .dropdown-toggle b.caret {
-    margin-left: 5px;
-    border-top: 4px solid #ddd;
-    transition: transform 0.3s ease;
-}
-
-.navbar .dropdown-toggle:hover b.caret {
-    border-top-color: #00bcd4; /* Accent color for caret */
-    transform: rotate(180deg);
-}
-
-/* Dropdown Animation */
-.navbar .dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-}
-
-.navbar .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 /* Mobile Menu Toggle */
