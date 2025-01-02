@@ -6,8 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noah Eisen | Software Engineer</title>
-  <!-- <link rel="shortcut icon" href="graphics/icon.ico" /> -->
-  <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="graphics/code.ico" />
@@ -15,43 +13,7 @@
 </head>
 
 <body>
-
-  <div class="navbar navbar-inverse navbar-static-top">
-    <div id="outer-navbar-container" class="container">
-      <div id="total-navbar-wrapper">
-        <div class="container">
-          <a href="/" class="navbar-brand">Noah Eisen | Software Engineer</a>
-
-          <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <div class="collapse navbar-collapse navHeaderCollapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="resume.pdf" target="_blank">My Resume</a></li>
-              <li><a href="stories/">My Short Stories</a></li>
-              <li><a href="notes/">My Math Notes</a></li>
-              <li><a href="projects/">My Side Projects</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Links<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="https://www.facebook.com/ncteisen" target="_blank">My Facebook</a></li>
-                  <li><a href="https://twitter.com/ncteisen" target="_blank">My Twitter</a></li>
-                  <li><a href="https://www.linkedin.com/profile/view?id=305916789&trk=nav_responsive_tab_profile"
-                      target="_blank">My LinkedIn</a></li>
-                  <li><a href="https://github.com/ncteisen" target="_blank">My GitHub</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <div id="navbar-placeholder"></div>
   <div id="outer-container" class="container">
     <div id="total-wrapper">
       <div class="container">
@@ -81,32 +43,6 @@
             </div>
           </div>
         </div>
-
-        <!--           <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <h3 class="text-center">Why I Love Computer Science</h3>
-                <p class="text-center">To me, the beauty of computer science lies in the principle of abstraction. What do I mean by that? Well when I try to imagine how a bunch of arranged circuits, communicating by simply turning on and off, can be combined in a way to create the brain behind the computer that I am currently typing on, it seems like magic. I can finally unlock the secret behind this enigma by understanding the power of abstraction. Simple units are used as building blocks to create the complex, and then these complex creations are then abstracted to become the simple units for the next level of design. Transistor interactions are abstracted to logic gates, logic gates are abstracted to arithmetic logic units, and so on. </p>
-                <p class="text-center">Newton once said, “If I have seen further it is by standing on the shoulders of giants.” Well my version of that quote is, “If I have created more powerful programs, it is by using the abstractions and tools provided to me by others.”
-              </p>
-              </div>
-              <div class="col-md-4">
-                <h3 class="text-center">Why I Love Math</h3>
-                <p class="text-center">Mathematics is pure beyond pure. Numbers are our way of describing something so intrinsic that it is almost a tautology. Do three people, three dogs, three cars, three tables all have the exact same ‘three-ness’ about them? Yes they do, and that ‘three-ness’ is more universally understood than any language will ever be able to convey. Similarly, is taking a pile of nine buttons and dividing it into three groups the same metaphysical action as splitting a class of nine high-school students into three project groups? The movie Mean Girls hit on a profound point when Cady explains that Math is the same in every country.</p>
-                <p class="text-center">I like Computer Science because I am making real and tangible things directly from my thought; my programs are a manifestation of my ‘thought-stuff’. Math takes that one step further, for the only thing I have to do to complete a proof is to think it. As soon as the reasoning is in my head I have done it, the proof exists. 
-                </p>
-              </div>
-              <div class="col-md-4">
-                <h3 class="text-center">Other Stuff I Love</a></h3>
-                <p class="text-center">I am a Math and Computer Science kid, but I like to give the right side of my brain exercise as well. My favorite book is <i>100 Years of Solitude</i>, although <i>Ficciones</i> by Jorge Luis Borges is a close second. I have also tried my hand at writing some short stories, you can find them on this site!</p>
-                <p>I absolutely love watching and discussing movies so it is a pretty tall order for me to pick a favorite, but if I had to I would say <i>The Prestige</i> is one movie I can watch again and again and pull new meaning from it every time (Christopher Nolan also happens to be my favorite director). I am eternally entertained by <a href="http://xkcd.com/" target="_blank">xkcd</a>, and I check youtube every week for new videos from <a href="https://www.youtube.com/user/Vsauce" target="_blank">Vsauce</a> or <a href="https://www.youtube.com/user/Vihart" target="_blank">Vi Hart</a>.</p>
-                <p class="text-center">My interests are broad and ever-expanding. I am a master magician, an origami expert, a talented juggler, a dabbling thespian, a chemistry nerd, an advocate of social justice and equality, a small-time pianist, a chess enthusiast, an avid runner, and much more.
-                </p>
-              </div>
-
-            </div>
-          </div> -->
-
       </div>
     </div>
   </div>
@@ -115,6 +51,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 
 </html>
