@@ -8,108 +8,407 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Noah Eisen - Website Coming Soon</title>
+		<title>Noah Eisen</title>
+		<meta name="description" content="Noah Eisen is an engineer based in San Francisco, focused on building creative tools, fast prototypes, and playful side projects." />
 		<style>
 			:root {
-				--primary-color: #2563eb;
-				--text-color: #1f2937;
-				--background-color: #f9fafb;
-				--link-color: #3b82f6;
-				--link-hover-color: #1d4ed8;
+				--primary-color: #3b82f6;
+				--accent-color: #10b981;
+				--gold-color: #f59e0b;
+				--text-color: #e5e7eb;
+				--text-muted: #9ca3af;
+				--background-color: #111827;
+				--card-bg: #1f2937;
+				--card-border: #374151;
+				--link-color: #60a5fa;
+				--link-hover-color: #93c5fd;
+				--glow-color: rgba(59, 130, 246, 0.5);
 			}
 
 			body {
 				margin: 0;
 				padding: 0;
 				min-height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 				background-color: var(--background-color);
 				color: var(--text-color);
+				line-height: 1.6;
 			}
 
 			.container {
-				text-align: center;
+				max-width: 900px;
+				margin: 0 auto;
 				padding: 2rem;
-				max-width: 600px;
+			}
+
+			header {
+				margin-bottom: 4rem;
+				display: flex;
+				align-items: center;
+				gap: 3rem;
+			}
+
+			.header-content {
+				flex: 1;
+			}
+
+			.profile-image-container {
+				flex-shrink: 0;
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				overflow: hidden;
+				border: 2px solid var(--primary-color);
+				box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+			}
+
+			.profile-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 
 			h1 {
 				font-size: 2.5rem;
+				font-weight: 700;
 				margin-bottom: 1rem;
-				color: var(--primary-color);
+				background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			h2 {
+				font-size: 1.75rem;
+				font-weight: 600;
+				margin-bottom: 1.5rem;
+				color: var(--text-color);
 			}
 
 			p {
-				font-size: 1.25rem;
-				line-height: 1.6;
-				margin-bottom: 1rem;
+				font-size: 1.1rem;
+				margin-bottom: 1.5rem;
+				color: var(--text-muted);
 			}
 
-			.old-site-link {
-				display: inline-block;
-				margin-top: 1rem;
+			section {
+				margin-bottom: 4rem;
+			}
+
+			.social-links {
+				display: flex;
+				gap: 1.5rem;
+				margin-top: 1.5rem;
+			}
+
+			.social-link {
 				color: var(--link-color);
 				text-decoration: none;
 				font-weight: 500;
-				transition: color 0.2s ease;
-			}
-
-			.old-site-link:hover {
-				color: var(--link-hover-color);
-			}
-
-			.progress-dots {
+				transition: all 0.2s ease;
 				display: flex;
-				justify-content: center;
+				align-items: center;
 				gap: 0.5rem;
-				margin-top: 2rem;
 			}
 
-			.dot {
-				width: 12px;
-				height: 12px;
-				background-color: var(--primary-color);
-				border-radius: 50%;
-				animation: bounce 1.4s infinite ease-in-out;
+			.social-link:hover {
+				color: var(--link-hover-color);
+				text-shadow: 0 0 8px var(--glow-color);
 			}
 
-			.dot:nth-child(1) { animation-delay: -0.32s; }
-			.dot:nth-child(2) { animation-delay: -0.16s; }
-
-			@keyframes bounce {
-				0%, 80%, 100% { transform: scale(0); }
-				40% { transform: scale(1); }
+			.career-highlights {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2rem;
+				margin-top: 1.5rem;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 
-			@media (max-width: 640px) {
+			.highlight-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.highlight-card h3 {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 0.25rem;
+				color: var(--primary-color);
+			}
+
+			.highlight-card .job-title {
+				font-size: 1.1rem;
+				font-weight: 500;
+				margin-bottom: 0.25rem;
+				color: var(--text-color);
+			}
+
+			.highlight-card .date-range {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				margin-bottom: 0.75rem;
+				font-style: italic;
+			}
+
+			.highlight-card p {
+				font-size: 0.95rem;
+				line-height: 1.6;
+				margin-bottom: 0;
+				color: var(--text-muted);
+			}
+
+			.highlight-card a {
+				color: var(--text-muted);
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 2px;
+				transition: all 0.2s ease;
+			}
+
+			.highlight-card a:hover {
+				color: var(--text-color);
+				text-decoration-thickness: 2px;
+			}
+
+			.highlight-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin-top: 1.5rem;
+			}
+
+			.project-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				color: var(--text-color);
+				display: block;
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+				border-color: var(--primary-color);
+			}
+
+			.project-title {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: var(--primary-color);
+			}
+
+			.project-description {
+				font-size: 0.95rem;
+				color: var(--text-muted);
+			}
+
+			#projects a {
+				color: var(--link-color);
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.2s ease;
+			}
+
+			#projects a:hover {
+				color: var(--link-hover-color);
+				text-shadow: 0 0 8px var(--glow-color);
+			}
+
+			footer {
+				text-align: center;
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--card-border);
+				color: var(--text-muted);
+				font-size: 0.9rem;
+			}
+
+			@media (max-width: 768px) {
 				.container {
-					padding: 1rem;
+					padding: 1.5rem;
+				}
+
+				header {
+					flex-direction: column-reverse;
+					text-align: center;
+					gap: 2rem;
+				}
+
+				.profile-image-container {
+					width: 150px;
+					height: 150px;
+				}
+
+				.social-links {
+					justify-content: center;
 				}
 
 				h1 {
 					font-size: 2rem;
 				}
 
-				p {
-					font-size: 1.1rem;
+				h2 {
+					font-size: 1.5rem;
+				}
+
+				.career-highlights, .projects-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 900px) {
+				.career-highlights {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<main class="container" role="main">
-			<h1>Hi, I'm Noah Eisen</h1>
-			<p>I'm currently working on a new website to showcase my work and ideas.</p>
-			<p>Please check back soon for updates!!</p>
-			<a href="/old" class="old-site-link" tabindex="0" aria-label="Visit my old website">Visit my old website →</a>
-			<div class="progress-dots" role="status" aria-label="Loading">
-				<div class="dot"></div>
-				<div class="dot"></div>
-				<div class="dot"></div>
-			</div>
+			<header>
+				<div class="header-content">
+					<h1>Noah Eisen</h1>
+					<p>
+						Hi, I'm Noah, an engineer based in San Francisco with a 
+						background in Computer Science and Mathematics from the 
+						University of Michigan. Over the past decade, I've led 
+						teams and shipped infrastructure at companies like 
+						Google, Waymo, and Faire - where I've worked across 
+						internal tooling, platform architecture, and 
+						customer-facing features.</p>
+					<div class="social-links">
+						<a href="https://github.com/ncteisen" class="social-link" tabindex="0" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
+							GitHub
+						</a>
+						<a href="https://linkedin.com/in/ncteisen" class="social-link" tabindex="0" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
+							LinkedIn
+						</a>
+						<a href="mailto:ncteisen@gmail.com" class="social-link" tabindex="0" aria-label="Email">
+							Email
+						</a>
+						<a href="/resume.pdf" class="social-link" tabindex="0" aria-label="Resume PDF" target="_blank" rel="noopener noreferrer">
+							Resume
+						</a>
+					</div>
+				</div>
+				<div class="profile-image-container">
+					<img 
+						src="/images/profile-placeholder.jpg" 
+						alt="Noah Eisen" 
+						class="profile-image"
+						width="200"
+						height="200"
+					/>
+				</div>
+			</header>
+
+			<section id="career">
+				<h2>Career Snapshot</h2>
+				<div class="career-highlights">
+					<div class="highlight-card">
+						<h3>Faire</h3>
+						<div class="job-title">Staff Engineer</div>
+						<div class="date-range">Feb 2022 - Present</div>
+						<p>
+							At Faire - a fast-moving, high-growth startup - I've worn many hats: hands-on engineer, 
+							system architect, tech lead, and senior engineering manager. I've led platform work 
+							across shipping, payments, and third-party integrations, delivering high-impact 
+							features like multi-user account infrastructure, SQL-based invariant validation, 
+							and guaranteed shipping pricing. I authored Faire's long-term technical vision 
+							for shipping and oversaw complex service extractions in payments. Whether driving 
+							strategy or writing critical path code, my focus has been on close patnership with 
+							prodcut and building scalable systems that move fast without compromising on reliability.
+						</p>
+					</div>
+					<div class="highlight-card">
+						<h3>Waymo</h3>
+						<div class="job-title">Senior Software Engineer</div>
+						<div class="date-range">Feb 2019 - Feb 2022</div>
+						<p>
+							At Waymo, I was on the Fleet Infrastructure team, leading development of OpsApp, an 
+							internal Android application used daily by over 1,000 safety drivers. I managed a 
+							cross-functional team spanning engineering, product, UX, and operations, and drove 
+							initiatives to ensure safety, speed, and reliability across the self-driving fleet. 
+							I built systems to stream real-time telemetry with sub-300ms latency, integrated 
+							compliance checklists directly into vehicle startup logic, and designed roadside 
+							support tooling that enabled responders to locate vehicles within minutes of an 
+							incident. I co-authored 
+							<a href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">
+								a patent
+							</a> 
+							for my work on the subject.
+						</p>
+					</div>
+					<div class="highlight-card">
+						<h3>Google</h3>
+						<div class="job-title">Software Engineer</div>
+						<div class="date-range">Aug 2016 - Feb 2019</div>
+						<p>
+							I started my full-time career at Google as part of the gRPC team, contributing to core C, C++, 
+							and Python libraries that power Google's internal and external services. I built 
+							benchmarking and regression detection tools, helped migrate TensorFlow's distributed 
+							runtime to gRPC, and gave a 
+							<a href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">
+								tech talk at KubeCon on tuning RPC performance
+							</a>.
+						</p>
+					</div>
+					<div class="highlight-card">
+						<h3>Bloomberg</h3>
+						<div class="job-title">Software Engineering Intern</div>
+						<div class="date-range">Summer 2015</div>
+						<p>
+							Full stack internship on the infrastructure team. Built internal tooling to help debug and kill
+							processes running on production machines.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects">
+				<h2>Side Projects</h2>
+				<p>New projects coming soon! In the meantime, you can check out my <a href="/old">old website</a> for projects I made many years ago.</p>
+				<!-- Commented out project cards for future use
+				<div class="projects-grid">
+					<a href="/projects/weird-physics-sim" class="project-card" tabindex="0">
+						<h3 class="project-title">Weird Physics Sim</h3>
+						<p class="project-description">An interactive physics simulation with unusual properties and behaviors.</p>
+					</a>
+					<a href="/projects/strava-stats" class="project-card" tabindex="0">
+						<h3 class="project-title">Strava Stats Visualizer</h3>
+						<p class="project-description">Visualize your running and cycling data with beautiful charts and insights.</p>
+					</a>
+					<a href="/projects/creative-coding" class="project-card" tabindex="0">
+						<h3 class="project-title">Creative Coding Experiments</h3>
+						<p class="project-description">A collection of generative art and interactive visualizations.</p>
+					</a>
+					<a href="/projects/dev-tools" class="project-card" tabindex="0">
+						<h3 class="project-title">Developer Tools</h3>
+						<p class="project-description">Utilities and extensions to enhance the development workflow.</p>
+					</a>
+				</div>
+				-->
+			</section>
+
+			<footer>
+				<p>© {new Date().getFullYear()} Noah Eisen. All rights reserved.</p>
+			</footer>
 		</main>
 	</body>
 </html>
