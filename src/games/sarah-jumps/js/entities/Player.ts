@@ -28,7 +28,7 @@ export class Player {
     this.speed = 5;
     this.velocityY = 0;
     this.gravity = 0.2;
-    this.jumpForce = -8;
+    this.jumpForce = -9;
     this.color = '#FF69B4';
     this.airResistance = 0.01;
     this.maxFallSpeed = 8;
@@ -133,12 +133,19 @@ export class Player {
    * Check if the player is colliding with a platform
    */
   public checkPlatformCollision(platform: any): boolean {
+    // Only check collision when falling
+    if (this.velocityY <= 0) return false;
+
+    // Calculate the player's feet position
+    const feetY = this.y + this.height / 2;
+    const platformTop = platform.getY();
+
+    // Check if player is within the landing zone (just above the platform)
     return (
-      this.velocityY > 0 && 
-      this.y + this.height / 2 > platform.getY() &&
-      this.y - this.height / 2 < platform.getY() + platform.getHeight() &&
-      this.x + this.width / 2 > platform.getX() && 
-      this.x - this.width / 2 < platform.getX() + platform.getWidth()
+      feetY >= platformTop && 
+      feetY <= platformTop + 15 && // Landing zone height
+      this.x + this.width / 2 >= platform.getX() && 
+      this.x - this.width / 2 <= platform.getX() + platform.getWidth()
     );
   }
   
@@ -146,7 +153,9 @@ export class Player {
    * Handle platform collision
    */
   public handlePlatformCollision(platform: any): void {
+    // Position player exactly on the platform
     this.y = platform.getY() - this.height / 2;
+    this.velocityY = 0;
     this.jump();
   }
   
