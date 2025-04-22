@@ -8,6 +8,7 @@ export class GameEngine {
   private lastTime: number = 0;
   private gameState: 'start' | 'playing' | 'gameOver' = 'start';
   private score: number = 0;
+  private highScore: number = 0;
   private viewOffset: number = 0;
   private highestY: number = 500; // Player starts at canvas.height - 100
   
@@ -26,6 +27,9 @@ export class GameEngine {
     if (!this.ctx) {
       throw new Error('Could not get 2D context from canvas');
     }
+
+    // Load high score from localStorage
+    this.highScore = parseInt(localStorage.getItem('sarahJumpsHighScore') || '0', 10);
   }
   
   /**
@@ -161,7 +165,8 @@ export class GameEngine {
     this.ctx.fillText('Game Over!', this.canvas.width / 2, this.canvas.height / 2);
     this.ctx.font = '24px Arial';
     this.ctx.fillText(`Final Score: ${this.score}`, this.canvas.width / 2, this.canvas.height / 2 + 40);
-    this.ctx.fillText('Click to restart', this.canvas.width / 2, this.canvas.height / 2 + 80);
+    this.ctx.fillText(`High Score: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 70);
+    this.ctx.fillText('Space to restart', this.canvas.width / 2, this.canvas.height / 2 + 110);
   }
   
   /**
@@ -186,6 +191,11 @@ export class GameEngine {
    */
   public endGame(): void {
     this.gameState = 'gameOver';
+    // Update high score if current score is higher
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      localStorage.setItem('sarahJumpsHighScore', this.highScore.toString());
+    }
   }
   
   /**
@@ -245,6 +255,8 @@ export class GameEngine {
       this.highestY = playerY;
       if (playerY < this.canvas.height / 2) {
         this.viewOffset = this.canvas.height / 2 - playerY;
+        // Calculate score based on view offset (1 point per 100 pixels)
+        this.score = Math.floor(this.viewOffset / 100);
       }
     }
   }
@@ -263,7 +275,7 @@ export class GameEngine {
     this.gameState = 'start';
     this.score = 0;
     this.viewOffset = 0;
-    this.highestY = 500; // Reset to initial player position
+    this.highestY = 500;
     this.entities.forEach(entity => {
       if (entity.reset) {
         entity.reset();
