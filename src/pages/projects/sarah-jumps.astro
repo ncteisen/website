@@ -145,8 +145,7 @@
 			</div>
 
 			<div class="game-controls">
-				<p>Use arrow keys or A/D to move left/right</p>
-				<p>Press Space to start/restart the game</p>
+				<p id="controls-text">Loading controls...</p>
 			</div>
 		</main>
 
@@ -158,6 +157,17 @@
 			document.addEventListener('DOMContentLoaded', () => {
 				const game = new SarahJumps('gameCanvas');
 				game.start();
+				
+				// Update controls text based on device type
+				const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+				const controlsText = document.getElementById('controls-text');
+				if (controlsText) {
+					if (isMobile) {
+						controlsText.innerHTML = 'Touch left or right to move<br>Tap to start/restart the game';
+					} else {
+						controlsText.innerHTML = 'Use arrow keys or A/D to move left/right<br>Press Space to start/restart the game';
+					}
+				}
 				
 				// Clean up when the page is unloaded
 				window.addEventListener('unload', () => {

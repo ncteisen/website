@@ -11,6 +11,7 @@ export class GameEngine {
   private highScore: number = 0;
   private viewOffset: number = 0;
   private highestY: number = 500; // Player starts at canvas.height - 100
+  private isMobile: boolean = false;
   
   // Game entities
   private entities: any[] = [];
@@ -27,6 +28,9 @@ export class GameEngine {
     if (!this.ctx) {
       throw new Error('Could not get 2D context from canvas');
     }
+
+    // Check if user is on mobile
+    this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     // Load high score from localStorage
     this.highScore = parseInt(localStorage.getItem('sarahJumpsHighScore') || '0', 10);
@@ -137,10 +141,14 @@ export class GameEngine {
     this.ctx.fillText('Sarah Jumps', this.canvas.width / 2, this.canvas.height / 2 - 30);
     
     this.ctx.font = '20px Arial';
-    this.ctx.fillText('Press Space to Start', this.canvas.width / 2, this.canvas.height / 2 + 10);
+    this.ctx.fillText(this.isMobile ? 'Tap to Start' : 'Press Space to Start', this.canvas.width / 2, this.canvas.height / 2 + 10);
     
     this.ctx.font = '16px Arial';
-    this.ctx.fillText('Use Arrow Keys or A/D to Move', this.canvas.width / 2, this.canvas.height / 2 + 50);
+    if (this.isMobile) {
+      this.ctx.fillText('Touch left or right to move', this.canvas.width / 2, this.canvas.height / 2 + 50);
+    } else {
+      this.ctx.fillText('Use Arrow Keys or A/D to Move', this.canvas.width / 2, this.canvas.height / 2 + 50);
+    }
   }
   
   /**
@@ -166,7 +174,7 @@ export class GameEngine {
     this.ctx.font = '24px Arial';
     this.ctx.fillText(`Final Score: ${this.score}`, this.canvas.width / 2, this.canvas.height / 2 + 40);
     this.ctx.fillText(`High Score: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 70);
-    this.ctx.fillText('Space to restart', this.canvas.width / 2, this.canvas.height / 2 + 110);
+    this.ctx.fillText(this.isMobile ? 'Tap to restart' : 'Space to restart', this.canvas.width / 2, this.canvas.height / 2 + 110);
   }
   
   /**
@@ -281,5 +289,12 @@ export class GameEngine {
         entity.reset();
       }
     });
+  }
+
+  /**
+   * Check if the game is running on a mobile device
+   */
+  public isMobileDevice(): boolean {
+    return this.isMobile;
   }
 } 

@@ -155,6 +155,7 @@ export class PlatformManager {
           platform.startDissolving();
         }
         player.handlePlatformCollision(platform);
+        game.incrementScore();
       }
     });
   }
