@@ -9,7 +9,7 @@ export class GameEngine {
   private gameState: 'start' | 'playing' | 'gameOver' = 'start';
   private score: number = 0;
   private viewOffset: number = 0;
-  private highestY: number = 0;
+  private highestY: number = 500; // Player starts at canvas.height - 100
   
   // Game entities
   private entities: any[] = [];
@@ -171,7 +171,7 @@ export class GameEngine {
     this.gameState = 'playing';
     this.score = 0;
     this.viewOffset = 0;
-    this.highestY = 0;
+    this.highestY = 500; // Reset to initial player position
     
     // Reset entities
     this.entities.forEach(entity => {
@@ -263,7 +263,7 @@ export class GameEngine {
     this.gameState = 'start';
     this.score = 0;
     this.viewOffset = 0;
-    this.highestY = 0;
+    this.highestY = 500; // Reset to initial player position
     this.entities.forEach(entity => {
       if (entity.reset) {
         entity.reset();

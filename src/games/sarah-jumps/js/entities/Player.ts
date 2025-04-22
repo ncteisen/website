@@ -62,8 +62,8 @@ export class Player {
     
     this.y += this.velocityY;
     
-    // Check if player fell off the bottom
-    if (this.y > this.canvas.height) {
+    // Check if player fell off the bottom. Give a buffer of 100 pixels.
+    if (this.y + game.getViewOffset() > this.canvas.height + 100) {
       game.endGame();
     }
   }
