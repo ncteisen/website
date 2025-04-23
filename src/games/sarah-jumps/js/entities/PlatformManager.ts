@@ -98,14 +98,20 @@ export class PlatformManager {
     const player = game.getPlayer() as Player;
     if (!player) return;
     
-    // Update all platforms
+    const viewOffset = game.getViewOffset();
+    const canvasHeight = this.canvas.height;
+    
+    // Update only platforms that are near the player
     this.platforms.forEach(platform => {
-      platform.update(deltaTime);
+      const platformY = platform.getY() + viewOffset;
+      if (platformY >= -platform.getHeight() && platformY <= canvasHeight + 100) {
+        platform.update(deltaTime);
+      }
     });
     
     // Remove platforms that are below the screen or fully dissolved
     this.platforms = this.platforms.filter(platform => 
-      platform.getY() < player.getY() + this.canvas.height && !platform.isFullyDissolved()
+      platform.getY() < player.getY() + canvasHeight && !platform.isFullyDissolved()
     );
     
     // Add new platforms at the top
@@ -150,11 +156,14 @@ export class PlatformManager {
     
     // Check for collisions with the player
     this.platforms.forEach(platform => {
-      if (player.checkPlatformCollision(platform)) {
-        if (platform.getPlatformType() === 'dissolving') {
-          platform.startDissolving();
+      const platformY = platform.getY() + viewOffset;
+      if (platformY >= -platform.getHeight() && platformY <= canvasHeight + 100) {
+        if (player.checkPlatformCollision(platform)) {
+          if (platform.getPlatformType() === 'dissolving') {
+            platform.startDissolving();
+          }
+          player.handlePlatformCollision(platform);
         }
-        player.handlePlatformCollision(platform);
       }
     });
   }
@@ -163,13 +172,20 @@ export class PlatformManager {
    * Render the platform manager
    */
   public render(ctx: CanvasRenderingContext2D, game: any): void {
+    const viewOffset = game.getViewOffset();
+    const canvasHeight = this.canvas.height;
+    
+    // Only render platforms that are visible on screen
     this.platforms.forEach(platform => {
-      // Apply camera offset for rendering
-      const originalY = platform.getY();
-      platform.setY(originalY + game.getViewOffset());
-      platform.render(ctx);
-      // Reset platform position
-      platform.setY(originalY);
+      const platformY = platform.getY() + viewOffset;
+      if (platformY >= -platform.getHeight() && platformY <= canvasHeight) {
+        // Apply camera offset for rendering
+        const originalY = platform.getY();
+        platform.setY(originalY + viewOffset);
+        platform.render(ctx);
+        // Reset platform position
+        platform.setY(originalY);
+      }
     });
   }
   

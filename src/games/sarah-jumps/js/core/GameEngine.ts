@@ -1,20 +1,28 @@
 /**
  * GameEngine - Core game engine that handles the game loop and state management
  */
+import { Player } from '../entities/Player';
+import { PlatformManager } from '../entities/PlatformManager';
+import { InputHandler } from '../utils/InputHandler';
+
 export class GameEngine {
   private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D | null;
+  private ctx: CanvasRenderingContext2D;
   private isRunning: boolean = false;
-  private lastTime: number = 0;
+  private isPaused: boolean = false;
+  private isGameOver: boolean = false;
+  private lastTimestamp: number = 0;
   private gameState: 'start' | 'playing' | 'gameOver' = 'start';
   private score: number = 0;
   private highScore: number = 0;
   private viewOffset: number = 0;
-  private highestY: number = 500; // Player starts at canvas.height - 100
+  private highestY: number = 0;
   private isMobile: boolean = false;
   
   // Game entities
-  private entities: any[] = [];
+  private player: Player;
+  private platformManager: PlatformManager;
+  private inputHandler: InputHandler;
   
   constructor(canvasId: string) {
     const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -23,17 +31,20 @@ export class GameEngine {
     }
     
     this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
-    
-    if (!this.ctx) {
-      throw new Error('Could not get 2D context from canvas');
-    }
+    const context = canvas.getContext('2d');
+    if (!context) throw new Error('Could not get canvas context');
+    this.ctx = context;
 
     // Check if user is on mobile
     this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     // Load high score from localStorage
     this.highScore = parseInt(localStorage.getItem('sarahJumpsHighScore') || '0', 10);
+
+    // Initialize game entities
+    this.player = new Player(canvas);
+    this.platformManager = new PlatformManager(canvas);
+    this.inputHandler = new InputHandler(this, this.player);
   }
   
   /**
@@ -41,52 +52,44 @@ export class GameEngine {
    */
   public init(): void {
     // Initialize game entities
-    this.entities.forEach(entity => {
-      if (entity.init) {
-        entity.init(this);
-      }
-    });
+    this.player.init();
+    this.platformManager.init();
     
     // Start the game loop
     this.isRunning = true;
-    this.lastTime = performance.now();
-    this.gameLoop();
+    this.isPaused = false;
+    this.isGameOver = false;
+    this.score = 0;
+    this.lastTimestamp = performance.now();
+    requestAnimationFrame((t) => this.gameLoop(t));
   }
   
   /**
    * Main game loop
    */
-  private gameLoop = (currentTime: number = 0): void => {
+  private gameLoop(timestamp: number = performance.now()): void {
     if (!this.isRunning) return;
-    
+
     // Calculate delta time
-    const deltaTime = currentTime - this.lastTime;
-    this.lastTime = currentTime;
-    
-    // Clear canvas
-    if (this.ctx) {
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    const deltaTime = timestamp - this.lastTimestamp;
+    this.lastTimestamp = timestamp;
+
+    // Cap delta time to prevent large jumps
+    const cappedDeltaTime = Math.min(deltaTime, 1000 / 30);
+
+    if (!this.isPaused && !this.isGameOver) {
+      this.update(cappedDeltaTime);
     }
-    
-    // Update and render based on game state
-    switch (this.gameState) {
-      case 'start':
-        this.updateStartScreen(deltaTime);
-        this.renderStartScreen();
-        break;
-      case 'playing':
-        this.update(deltaTime);
-        this.render();
-        break;
-      case 'gameOver':
-        this.updateGameOver(deltaTime);
-        this.renderGameOver();
-        break;
+
+    // Only render if we're not in the start or game over state
+    if (this.gameState === 'playing') {
+      this.render();
+    } else {
+      this.renderGameState();
     }
-    
-    // Request next frame
-    requestAnimationFrame(this.gameLoop);
-  };
+
+    requestAnimationFrame((t) => this.gameLoop(t));
+  }
   
   /**
    * Update game state
@@ -94,36 +97,58 @@ export class GameEngine {
   private update(deltaTime: number): void {
     if (this.gameState !== 'playing') return;
 
-    const player = this.getPlayer();
-    if (player) {
-      this.updateViewOffset(player.getY());
-    }
+    // Update input handler
+    this.inputHandler.update(deltaTime, this);
 
-    // Update all entities
-    this.entities.forEach(entity => {
-      if (entity.update) {
-        entity.update(deltaTime, this);
-      }
-    });
+    // Update player
+    this.player.update(deltaTime, this);
+
+    // Update view offset based on player position
+    this.updateViewOffset(this.player.getY());
+
+    // Update platform manager
+    this.platformManager.update(deltaTime, this);
+
+    // Update score based on view offset
+    this.score = Math.floor(this.viewOffset / 100);
+
+    // Check collisions
+    this.checkCollisions();
   }
   
   /**
    * Render game
    */
   private render(): void {
-    // Render all entities
-    this.entities.forEach(entity => {
-      if (entity.render && this.ctx) {
-        entity.render(this.ctx, this);
-      }
-    });
+    if (!this.ctx) return;
+
+    // Clear the entire visible area
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // Render platforms
+    this.platformManager.render(this.ctx, this);
+
+    // Render player
+    this.player.render(this.ctx, this);
+
+    // Render score
+    this.ctx.fillStyle = 'black';
+    this.ctx.font = '20px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText(`Score: ${this.score}`, this.canvas.width / 2, 30);
   }
   
   /**
-   * Update start screen
+   * Render game state screens
    */
-  private updateStartScreen(deltaTime: number): void {
-    // Update start screen entities
+  private renderGameState(): void {
+    if (!this.ctx) return;
+
+    if (this.gameState === 'start') {
+      this.renderStartScreen();
+    } else if (this.gameState === 'gameOver') {
+      this.renderGameOver();
+    }
   }
   
   /**
@@ -152,13 +177,6 @@ export class GameEngine {
   }
   
   /**
-   * Update game over screen
-   */
-  private updateGameOver(deltaTime: number): void {
-    // Update game over entities
-  }
-  
-  /**
    * Render game over screen
    */
   private renderGameOver(): void {
@@ -184,14 +202,11 @@ export class GameEngine {
     this.gameState = 'playing';
     this.score = 0;
     this.viewOffset = 0;
-    this.highestY = 500; // Reset to initial player position
+    this.highestY = this.canvas.height / 2;
     
     // Reset entities
-    this.entities.forEach(entity => {
-      if (entity.reset) {
-        entity.reset();
-      }
-    });
+    this.player.reset();
+    this.platformManager.reset();
   }
   
   /**
@@ -204,13 +219,6 @@ export class GameEngine {
       this.highScore = this.score;
       localStorage.setItem('sarahJumpsHighScore', this.highScore.toString());
     }
-  }
-  
-  /**
-   * Add an entity to the game
-   */
-  public addEntity(entity: any): void {
-    this.entities.push(entity);
   }
   
   /**
@@ -242,30 +250,20 @@ export class GameEngine {
   }
   
   /**
-   * Increment the score
-   */
-  public incrementScore(amount: number = 1): void {
-    this.score += amount;
-  }
-  
-  /**
    * Get the player entity
    */
-  public getPlayer(): any {
-    return (this as any).player;
+  public getPlayer(): Player {
+    return this.player;
   }
   
   /**
    * Update the view offset based on player position
    */
   private updateViewOffset(playerY: number): void {
+    // If player is above the highest point reached, update the view
     if (playerY < this.highestY) {
       this.highestY = playerY;
-      if (playerY < this.canvas.height / 2) {
-        this.viewOffset = this.canvas.height / 2 - playerY;
-        // Calculate score based on view offset (1 point per 100 pixels)
-        this.score = Math.floor(this.viewOffset / 100);
-      }
+      this.viewOffset = this.canvas.height / 2 - playerY;
     }
   }
 
@@ -277,24 +275,21 @@ export class GameEngine {
   }
 
   /**
-   * Reset the game state
-   */
-  public reset(): void {
-    this.gameState = 'start';
-    this.score = 0;
-    this.viewOffset = 0;
-    this.highestY = 500;
-    this.entities.forEach(entity => {
-      if (entity.reset) {
-        entity.reset();
-      }
-    });
-  }
-
-  /**
    * Check if the game is running on a mobile device
    */
   public isMobileDevice(): boolean {
     return this.isMobile;
+  }
+
+  /**
+   * Check for collisions
+   */
+  private checkCollisions(): void {
+    const platforms = this.platformManager.getPlatforms();
+    for (const platform of platforms) {
+      if (this.player.checkPlatformCollision(platform)) {
+        this.player.handlePlatformCollision(platform);
+      }
+    }
   }
 } 
