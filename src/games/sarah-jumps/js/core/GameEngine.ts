@@ -52,7 +52,6 @@ export class GameEngine {
    */
   public init(): void {
     // Initialize game entities
-    this.player.init();
     this.platformManager.init();
     
     // Start the game loop
