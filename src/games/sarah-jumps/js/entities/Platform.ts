@@ -143,22 +143,7 @@ export class Platform {
   public render(ctx: CanvasRenderingContext2D): void {
     ctx.globalAlpha = this.alpha / 255;
     ctx.fillStyle = this.color;
-    
-    // Draw rounded rectangle
-    const radius = 5; // Corner radius
-    ctx.beginPath();
-    ctx.moveTo(this.x + radius, this.y);
-    ctx.lineTo(this.x + this.width - radius, this.y);
-    ctx.arcTo(this.x + this.width, this.y, this.x + this.width, this.y + radius, radius);
-    ctx.lineTo(this.x + this.width, this.y + this.height - radius);
-    ctx.arcTo(this.x + this.width, this.y + this.height, this.x + this.width - radius, this.y + this.height, radius);
-    ctx.lineTo(this.x + radius, this.y + this.height);
-    ctx.arcTo(this.x, this.y + this.height, this.x, this.y + this.height - radius, radius);
-    ctx.lineTo(this.x, this.y + radius);
-    ctx.arcTo(this.x, this.y, this.x + radius, this.y, radius);
-    ctx.closePath();
-    ctx.fill();
-    
+    ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.globalAlpha = 1;
   }
   

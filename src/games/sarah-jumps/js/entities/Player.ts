@@ -28,6 +28,8 @@ export class Player {
   private spritesLoaded: boolean = false;
   private currentSprite: 'jumping' | 'peaking' = 'jumping';
   private isFacingLeft: boolean = false;
+  private jumpSound: HTMLAudioElement;
+  private loseSound: HTMLAudioElement;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -44,6 +46,12 @@ export class Player {
     this.color = '#FF69B4';
     this.airResistance = 0.01;
     this.maxFallSpeed = 8;
+
+    // Initialize sounds
+    this.jumpSound = new Audio('/games/sarah-jumps/sounds/jump.wav');
+    this.jumpSound.volume = 0.5;
+    this.loseSound = new Audio('/games/sarah-jumps/sounds/lose.wav');
+    this.loseSound.volume = 0.5;
 
     // Initialize sprites
     this.sprites = {
@@ -111,6 +119,11 @@ export class Player {
     
     // Check if player fell off the bottom. Give a buffer of 100 pixels.
     if (this.y + game.getViewOffset() > this.canvas.height + 100) {
+      // Play lose sound before ending game
+      this.loseSound.currentTime = 0;
+      this.loseSound.play().catch(error => {
+        console.warn('Failed to play lose sound:', error);
+      });
       game.endGame();
     }
   }
@@ -188,6 +201,12 @@ export class Player {
     this.y = platform.getY() - this.height / 2;
     this.velocityY = 0;
     this.jump();
+    
+    // Play jump sound
+    this.jumpSound.currentTime = 0;
+    this.jumpSound.play().catch(error => {
+      console.warn('Failed to play jump sound:', error);
+    });
   }
 
   public getX(): number {
