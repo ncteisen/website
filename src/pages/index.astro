@@ -13,6 +13,13 @@ interface MovieReview {
 	image_url: string;
 	link: string;
 }
+
+function getStarRating(rating: number): string {
+	const fullStars = Math.floor(rating);
+	const hasHalfStar = rating % 1 >= 0.5;
+	
+	return '★'.repeat(fullStars) + (hasHalfStar ? '½' : '');
+}
 ---
 
 <html lang="en">
@@ -331,6 +338,8 @@ interface MovieReview {
 				margin-bottom: 1.5rem;
 				padding-bottom: 1.5rem;
 				border-bottom: 1px solid var(--card-border);
+				display: flex;
+				gap: 1rem;
 			}
 
 			.movie-card:last-child {
@@ -340,14 +349,20 @@ interface MovieReview {
 			}
 
 			.movie-card img {
-				width: 100%;
-				max-width: 200px;
+				width: 100px;
+				height: 150px;
 				border-radius: 4px;
-				margin-bottom: 1rem;
+				object-fit: cover;
+			}
+
+			.movie-info {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.movie-info h4 {
-				margin: 0 0 0.5rem 0;
+				margin: 0 0 0.25rem 0;
 				font-size: 1.1rem;
 				color: var(--text-color);
 			}
@@ -355,31 +370,59 @@ interface MovieReview {
 			.rating {
 				color: var(--gold-color);
 				font-weight: bold;
-				margin: 0.5rem 0;
+				margin: 0 0 0.25rem 0;
+				letter-spacing: 2px;
 			}
 
 			.review {
 				font-style: italic;
 				margin: 0.5rem 0;
 				color: var(--text-muted);
+				font-size: 0.95rem;
 			}
 
 			.watched-date {
-				font-size: 0.9rem;
+				font-size: 0.8rem;
 				color: var(--text-muted);
-				margin: 0.5rem 0;
+				margin: 0 0 0.5rem 0;
 			}
 
-			.movie-link, .profile-link {
+			.movie-link {
+				color: var(--link-color);
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.2s ease;
+				font-size: 0.9rem;
+				margin-top: auto;
+			}
+
+			.movie-link:hover {
+				color: var(--link-hover-color);
+				text-shadow: 0 0 8px var(--glow-color);
+			}
+
+			.profile-separator {
+				border: none;
+				border-top: 1px solid var(--card-border);
+				margin: 2rem 0;
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.profile-link-container {
+				text-align: center;
+			}
+
+			.profile-link {
 				color: var(--link-color);
 				text-decoration: none;
 				font-weight: 500;
 				transition: all 0.2s ease;
 				display: inline-block;
-				margin-top: 0.5rem;
 			}
 
-			.movie-link:hover, .profile-link:hover {
+			.profile-link:hover {
 				color: var(--link-hover-color);
 				text-shadow: 0 0 8px var(--glow-color);
 			}
@@ -390,10 +433,15 @@ interface MovieReview {
 				}
 
 				.movie-card {
-					display: flex;
 					flex-direction: column;
-					align-items: center;
-					text-align: center;
+					align-items: flex-start;
+				}
+
+				.movie-card img {
+					width: 100%;
+					max-width: 200px;
+					height: auto;
+					aspect-ratio: 2/3;
 				}
 			}
 		</style>
@@ -529,7 +577,7 @@ interface MovieReview {
 									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
 									<div class="movie-info">
 										<h4>{movie.title} ({movie.year})</h4>
-										<p class="rating">★ {movie.rating}/5</p>
+										<p class="rating">{getStarRating(movie.rating)}</p>
 										<p class="review">{movie.review}</p>
 										<p class="watched-date">Watched on {movie.watched_date}</p>
 										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
@@ -537,9 +585,12 @@ interface MovieReview {
 								</div>
 							))}
 						</div>
-						<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
-							View my full Letterboxd profile
-						</a>
+						<hr class="profile-separator" />
+						<div class="profile-link-container">
+							<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
+								View my full Letterboxd profile
+							</a>
+						</div>
 					</div>
 
 					<div class="interest-card">
