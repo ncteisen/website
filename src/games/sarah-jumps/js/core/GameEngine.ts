@@ -24,6 +24,9 @@ export class GameEngine {
   private platformManager: PlatformManager;
   private inputHandler: InputHandler;
   
+  private clouds: { x: number; y: number; radius: number; speed: number }[] = [];
+  private lastHighestY: number = 0; // Track player's previous highest Y position
+  
   constructor(canvasId: string) {
     const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     if (!canvas) {
@@ -35,6 +38,16 @@ export class GameEngine {
     if (!context) throw new Error('Could not get canvas context');
     this.ctx = context;
 
+    // Initialize clouds
+    for (let i = 0; i < 5; i++) {
+      this.clouds.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        radius: 50 + Math.random() * 100,
+        speed: 0.1 + Math.random() * 0.2 // Slow movement speed
+      });
+    }
+
     // Check if user is on mobile
     this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -45,6 +58,9 @@ export class GameEngine {
     this.player = new Player(canvas);
     this.platformManager = new PlatformManager(canvas);
     this.inputHandler = new InputHandler(this, this.player);
+    
+    // Initialize lastHighestY with starting position
+    this.lastHighestY = this.canvas.height / 2;
   }
   
   /**
@@ -82,7 +98,7 @@ export class GameEngine {
 
     // Only render if we're not in the start or game over state
     if (this.gameState === 'playing') {
-      this.render();
+      this.render(timestamp);
     } else {
       this.renderGameState();
     }
@@ -118,16 +134,24 @@ export class GameEngine {
   /**
    * Render game
    */
-  private render(): void {
+  private render(timestamp: number): void {
     if (!this.ctx) return;
 
-    // Clear the entire visible area
+    // Clear the canvas
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Render platforms
-    this.platformManager.render(this.ctx, this);
+    // Draw sky background with gradient
+    const skyGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+    skyGradient.addColorStop(0, '#87CEEB');    // Sky blue at top
+    skyGradient.addColorStop(1, '#E0F7FF');    // Lighter blue at bottom
+    
+    this.ctx.fillStyle = skyGradient;
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    // Draw clouds
+    this.updateClouds(timestamp);
 
-    // Render player
+    // Render game entities
+    this.platformManager.render(this.ctx, this);
     this.player.render(this.ctx, this);
 
     // Render score
@@ -290,5 +314,40 @@ export class GameEngine {
         this.player.handlePlatformCollision(platform);
       }
     }
+  }
+
+  private updateClouds(timestamp: number): void {
+    const isMovingUp = this.highestY < this.lastHighestY;
+    this.lastHighestY = this.highestY;
+
+    this.clouds.forEach(cloud => {
+      // Move cloud horizontally
+      cloud.x += cloud.speed;
+      
+      // Only move cloud downward if player is moving upward
+      if (isMovingUp) {
+        cloud.y += 1; // Move clouds down at a constant rate when player is climbing
+      }
+      
+      // Wrap around when cloud moves off screen
+      if (cloud.x > this.canvas.width + cloud.radius) {
+        cloud.x = -cloud.radius;
+        cloud.y = Math.random() * this.canvas.height;
+      }
+      
+      // Reset cloud position if it moves too far down
+      if (cloud.y > this.canvas.height + cloud.radius) {
+        cloud.y = -cloud.radius;
+        cloud.x = Math.random() * this.canvas.width;
+      }
+    });
+
+    // Draw clouds
+    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    this.clouds.forEach(cloud => {
+      this.ctx.beginPath();
+      this.ctx.arc(cloud.x, cloud.y, cloud.radius, 0, Math.PI * 2);
+      this.ctx.fill();
+    });
   }
 } 
