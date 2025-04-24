@@ -29,6 +29,9 @@ export class Platform {
   private dissolveStartTime: number | null;
   private dissolveDuration: number;
   private alpha: number;
+  private transitionZone: number; // Distance from edge where speed starts to change
+  private currentSpeed: number; // Current actual speed after easing
+  private acceleration: number; // Rate at which speed changes
   
   constructor(props: PlatformProps) {
     this.x = props.x;
@@ -46,6 +49,9 @@ export class Platform {
     this.dissolveStartTime = null;
     this.dissolveDuration = 1000; // 1 second in milliseconds
     this.alpha = 255;
+    this.transitionZone = 20; // Start easing 20 pixels from the edge
+    this.currentSpeed = this.moveSpeed;
+    this.acceleration = 0.05; // Speed changes by 0.1 per frame
   }
   
   private getPlatformColor(): string {
@@ -73,12 +79,38 @@ export class Platform {
    */
   public update(deltaTime: number): void {
     if (this.platformType === 'horizontal') {
-      this.x += this.moveSpeed * this.moveDirection;
+      const distanceFromStart = Math.abs(this.x - this.startX);
+      const distanceFromEdge = this.moveRange - distanceFromStart;
+      
+      // If we're in the transition zone, ease the speed
+      if (distanceFromEdge < this.transitionZone) {
+        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration);
+      } else {
+        // Accelerate back to full speed
+        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration);
+      }
+      
+      this.x += this.currentSpeed * this.moveDirection;
+      
+      // Check if we've reached the edge and need to change direction
       if (Math.abs(this.x - this.startX) >= this.moveRange) {
         this.moveDirection *= -1;
       }
     } else if (this.platformType === 'vertical') {
-      this.y += this.moveSpeed * this.moveDirection;
+      const distanceFromStart = Math.abs(this.y - this.startY);
+      const distanceFromEdge = this.moveRange - distanceFromStart;
+      
+      // If we're in the transition zone, ease the speed
+      if (distanceFromEdge < this.transitionZone) {
+        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration);
+      } else {
+        // Accelerate back to full speed
+        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration);
+      }
+      
+      this.y += this.currentSpeed * this.moveDirection;
+      
+      // Check if we've reached the edge and need to change direction
       if (Math.abs(this.y - this.startY) >= this.moveRange) {
         this.moveDirection *= -1;
       }
