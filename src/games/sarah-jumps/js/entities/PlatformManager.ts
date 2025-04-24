@@ -99,9 +99,10 @@ export class PlatformManager {
     });
     
     // Remove platforms that are below the screen or fully dissolved
-    this.platforms = this.platforms.filter(platform => 
-      platform.getY() < player.getY() + canvasHeight && !platform.isFullyDissolved()
-    );
+    this.platforms = this.platforms.filter(platform => {
+      const platformY = platform.getY() + viewOffset;
+      return platformY < canvasHeight + platform.getHeight() && !platform.isFullyDissolved();
+    });
     
     // Add new platforms at the top
     while (this.platforms.length < this.minPlatforms) {
