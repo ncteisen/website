@@ -4,6 +4,7 @@
 import { Player } from '../entities/Player';
 import { PlatformManager } from '../entities/PlatformManager';
 import { InputHandler } from '../utils/InputHandler';
+import { ScoreSharer } from '../utils/ScoreSharer';
 
 export class GameEngine {
   private canvas: HTMLCanvasElement;
@@ -18,6 +19,7 @@ export class GameEngine {
   private viewOffset: number = 0;
   private highestY: number = 0;
   private isMobile: boolean = false;
+  private scoreSharer: ScoreSharer;
   
   // Game entities
   private player: Player;
@@ -37,6 +39,9 @@ export class GameEngine {
     const context = canvas.getContext('2d');
     if (!context) throw new Error('Could not get canvas context');
     this.ctx = context;
+
+    // Initialize score sharer
+    this.scoreSharer = new ScoreSharer();
 
     // Initialize clouds
     for (let i = 0; i < 5; i++) {
@@ -246,6 +251,8 @@ export class GameEngine {
       this.highScore = this.score;
       localStorage.setItem('sarahJumpsHighScore', this.highScore.toString());
     }
+    // Show score sharing UI
+    this.scoreSharer.show(this.score);
   }
   
   /**
