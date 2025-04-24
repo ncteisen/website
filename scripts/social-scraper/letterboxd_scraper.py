@@ -80,7 +80,7 @@ class LetterboxdScraper:
                     reviews.append(review)
             
             # Get last 3 reviews
-            recent_reviews = reviews[:3]
+            recent_reviews = reviews[:8]
             
             return {
                 'username': self.username,

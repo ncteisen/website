@@ -30,6 +30,24 @@ function getStarRating(rating: number): string {
 		<meta name="generator" content={Astro.generator} />
 		<title>Noah Eisen</title>
 		<meta name="description" content="Noah Eisen is an engineer based in San Francisco, focused on building creative tools, fast prototypes, and playful side projects." />
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const seeMoreButton = document.querySelector('.see-more-button');
+				const moreMovies = document.getElementById('more-movies');
+				
+				if (seeMoreButton && moreMovies) {
+					seeMoreButton.addEventListener('click', function() {
+						if (moreMovies.classList.contains('hidden')) {
+							moreMovies.classList.remove('hidden');
+							seeMoreButton.textContent = 'Show less';
+						} else {
+							moreMovies.classList.add('hidden');
+							seeMoreButton.textContent = 'See more of my recent movies';
+						}
+					});
+				}
+			});
+		</script>
 		<style>
 			:root {
 				--primary-color: #3b82f6;
@@ -325,34 +343,43 @@ function getStarRating(rating: number): string {
 			}
 
 			.interest-card p {
-				font-size: 1rem;
 				color: var(--text-muted);
-				margin-bottom: 1rem;
 			}
 
 			.recent-movies {
 				margin-top: 1rem;
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
 			}
 
 			.movie-card {
-				margin-bottom: 1.5rem;
-				padding-bottom: 1.5rem;
-				border-bottom: 1px solid var(--card-border);
+				margin-bottom: 0;
+				padding: 1.5rem;
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				background-color: rgba(31, 41, 55, 0.5);
 				display: flex;
 				gap: 1rem;
+				transition: all 0.3s ease;
+			}
+
+			.movie-card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+				border-color: var(--primary-color);
 			}
 
 			.movie-card:last-child {
-				border-bottom: none;
 				margin-bottom: 0;
-				padding-bottom: 0;
 			}
 
 			.movie-card img {
-				width: 100px;
-				height: 150px;
+				width: 150px;
+				height: 225px;
 				border-radius: 4px;
 				object-fit: cover;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 			}
 
 			.movie-info {
@@ -370,21 +397,51 @@ function getStarRating(rating: number): string {
 			.rating {
 				color: var(--gold-color);
 				font-weight: bold;
-				margin: 0 0 0.25rem 0;
+				margin: 0;
+				margin-bottom: 0.5rem;
 				letter-spacing: 2px;
+				line-height: 1;
 			}
 
 			.review {
-				font-style: italic;
-				margin: 0.5rem 0;
+				margin: -1rem 0rem 0rem 0rem;
 				color: var(--text-muted);
 				font-size: 0.95rem;
 			}
 
+			.review p {
+				margin: 0;
+			}
+
+			.review em {
+				font-style: italic;
+			}
+
+			.review strong {
+				font-weight: bold;
+			}
+
+			.review a {
+				color: var(--link-color);
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.2s ease;
+			}
+
+			.review a:hover {
+				color: var(--link-hover-color);
+				text-shadow: 0 0 8px var(--glow-color);
+			}
+
 			.watched-date {
-				font-size: 0.8rem;
+				font-size: 0.75rem;
 				color: var(--text-muted);
-				margin: 0 0 0.5rem 0;
+				opacity: 0.5;
+				margin-top: 0.15rem;
+				margin-bottom: 0.5rem;
+				font-style: italic;
+				letter-spacing: 0.5px;
+				font-weight: 300;
 			}
 
 			.movie-link {
@@ -443,6 +500,43 @@ function getStarRating(rating: number): string {
 					height: auto;
 					aspect-ratio: 2/3;
 				}
+
+				.recent-movies {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.see-more-container {
+				text-align: center;
+				margin: 1.5rem 0;
+			}
+
+			.see-more-button {
+				background: none;
+				border: 1px solid var(--primary-color);
+				color: var(--primary-color);
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				font-size: 0.9rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.2s ease;
+			}
+
+			.see-more-button:hover {
+				background-color: var(--primary-color);
+				color: var(--text-color);
+			}
+
+			.more-movies {
+				margin-top: 1.5rem;
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: .75rem;
+			}
+
+			.hidden {
+				display: none;
 			}
 		</style>
 	</head>
@@ -572,14 +666,31 @@ function getStarRating(rating: number): string {
 						<h3>Movies</h3>
 						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd.</p>
 						<div class="recent-movies">
-							{letterboxdData.recent_reviews.map((movie: MovieReview) => (
+							{letterboxdData.recent_reviews.slice(0, 1).map((movie: MovieReview) => (
 								<div class="movie-card">
 									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
 									<div class="movie-info">
 										<h4>{movie.title} ({movie.year})</h4>
 										<p class="rating">{getStarRating(movie.rating)}</p>
-										<p class="review">{movie.review}</p>
 										<p class="watched-date">Watched on {movie.watched_date}</p>
+										<div class="review" set:html={movie.review}></div>
+										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
+									</div>
+								</div>
+							))}
+						</div>
+						<div class="see-more-container">
+							<button class="see-more-button">See more of my recent movies</button>
+						</div>
+						<div id="more-movies" class="more-movies hidden">
+							{letterboxdData.recent_reviews.slice(1).map((movie: MovieReview) => (
+								<div class="movie-card">
+									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
+									<div class="movie-info">
+										<h4>{movie.title} ({movie.year})</h4>
+										<p class="rating">{getStarRating(movie.rating)}</p>
+										<p class="watched-date">Watched on {movie.watched_date}</p>
+										<div class="review" set:html={movie.review}></div>
 										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
 									</div>
 								</div>
@@ -591,21 +702,6 @@ function getStarRating(rating: number): string {
 								View my full Letterboxd profile
 							</a>
 						</div>
-					</div>
-
-					<div class="interest-card">
-						<h3>Books</h3>
-						<p>I enjoy reading a variety of genres, from science fiction to historical non-fiction.</p>
-					</div>
-
-					<div class="interest-card">
-						<h3>Running</h3>
-						<p>I'm training for my next half marathon and enjoy exploring new routes in the city.</p>
-					</div>
-
-					<div class="interest-card">
-						<h3>Biking</h3>
-						<p>I love cycling through the city and exploring new trails on weekends.</p>
 					</div>
 				</div>
 			</section>
