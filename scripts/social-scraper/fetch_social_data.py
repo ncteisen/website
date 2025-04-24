@@ -17,7 +17,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-OUTPUT_DIR = Path('public/data')
+OUTPUT_DIR = Path('src/data')
 OUTPUT_FILE = OUTPUT_DIR / 'social_data.json'
 
 def ensure_output_directory() -> None:

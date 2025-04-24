@@ -1,6 +1,7 @@
 ---
-// Fetch the social data JSON file
-const socialData = await fetch(new URL('data/social_data.json', Astro.url.origin).href).then(res => res.json());
+// Import the social data JSON file
+const socialDataModules = await import.meta.glob('../data/social_data.json');
+const socialData = (await socialDataModules['../data/social_data.json']()) as { letterboxd: { recent_reviews: MovieReview[] } };
 const letterboxdData = socialData.letterboxd;
 
 interface MovieReview {
