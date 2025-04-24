@@ -5,6 +5,11 @@ on:
     branches: [ master ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
+  # Makes sure we deploy after the social data fetch workflow has completed
+  workflow_run: 
+    workflows: ["Fetch Social Data"]
+    types:
+      - completed
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
