@@ -63,24 +63,13 @@ export class PlatformManager {
       const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(currentX + this.maxHorizontalDistance));
       const platformX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
       
-      // Determine platform type
-      const rand = Math.random();
-      let platformType: 'normal' | 'horizontal' | 'vertical' | 'dissolving' = 'normal';
-      if (rand < 0.2) {
-        platformType = 'horizontal';
-      } else if (rand < 0.3) {
-        platformType = 'vertical';
-      } else if (rand < 0.4) {
-        platformType = 'dissolving';
-      }
-      
-      // Create the platform
+      // Create the platform (always normal type for initial platforms)
       const platform = new Platform({
         x: platformX,
         y: platformY,
         width: this.platformWidth,
         height: this.platformHeight,
-        platformType
+        platformType: 'normal'
       });
       
       this.platforms.push(platform);
@@ -131,16 +120,42 @@ export class PlatformManager {
       const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(highestPlatform.getX() + this.maxHorizontalDistance));
       const newX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
       
-      // Determine platform type
-      const rand = Math.random();
+      // Determine platform type based on score
+      const score = game.getScore();
+      const rand = Math.random() * 100;
       let platformType: 'normal' | 'horizontal' | 'vertical' | 'dissolving' = 'normal';
-      if (rand < 0.2) {
-        platformType = 'horizontal';
-      } else if (rand < 0.3) {
-        platformType = 'vertical';
-      } else if (rand < 0.4) {
-        platformType = 'dissolving';
+
+      if (score >= 50) {
+        // Score 50+: 60% normal, 20% horizontal, 10% vertical, 10% dissolving
+        if (rand < 60) {
+          platformType = 'normal';
+        } else if (rand < 80) {
+          platformType = 'horizontal';
+        } else if (rand < 90) {
+          platformType = 'vertical';
+        } else {
+          platformType = 'dissolving';
+        }
+      } else if (score >= 25) {
+        // Score 25+: 70% normal, 20% horizontal, 10% vertical
+        if (rand < 70) {
+          platformType = 'normal';
+        } else if (rand < 90) {
+          platformType = 'horizontal';
+        } else {
+          platformType = 'vertical';
+        }
+      } else if (score >= 10) {
+        // Score 10+: 85% normal, 10% horizontal, 5% vertical
+        if (rand < 85) {
+          platformType = 'normal';
+        } else if (rand < 95) {
+          platformType = 'horizontal';
+        } else {
+          platformType = 'vertical';
+        }
       }
+      // Score 0+: 100% normal (default)
       
       // Create new platform
       const newPlatform = new Platform({
