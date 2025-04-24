@@ -1,5 +1,18 @@
 ---
+// Fetch the social data JSON file
+const socialData = await fetch(new URL('data/social_data.json', Astro.url.origin).href).then(res => res.json());
+const letterboxdData = socialData.letterboxd;
 
+interface MovieReview {
+	title: string;
+	year: number;
+	rating: number;
+	watched_date: string;
+	is_rewatch: boolean;
+	review: string;
+	image_url: string;
+	link: string;
+}
 ---
 
 <html lang="en">
@@ -277,6 +290,112 @@
 					gap: 1.5rem;
 				}
 			}
+
+			#other-interests {
+				margin-bottom: 4rem;
+			}
+
+			.interests-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 1.5rem;
+			}
+
+			.interest-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+			}
+
+			.interest-card h3 {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+				color: var(--primary-color);
+			}
+
+			.interest-card p {
+				font-size: 1rem;
+				color: var(--text-muted);
+				margin-bottom: 1rem;
+			}
+
+			.recent-movies {
+				margin-top: 1rem;
+			}
+
+			.movie-card {
+				margin-bottom: 1.5rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid var(--card-border);
+			}
+
+			.movie-card:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			.movie-card img {
+				width: 100%;
+				max-width: 200px;
+				border-radius: 4px;
+				margin-bottom: 1rem;
+			}
+
+			.movie-info h4 {
+				margin: 0 0 0.5rem 0;
+				font-size: 1.1rem;
+				color: var(--text-color);
+			}
+
+			.rating {
+				color: var(--gold-color);
+				font-weight: bold;
+				margin: 0.5rem 0;
+			}
+
+			.review {
+				font-style: italic;
+				margin: 0.5rem 0;
+				color: var(--text-muted);
+			}
+
+			.watched-date {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				margin: 0.5rem 0;
+			}
+
+			.movie-link, .profile-link {
+				color: var(--link-color);
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.2s ease;
+				display: inline-block;
+				margin-top: 0.5rem;
+			}
+
+			.movie-link:hover, .profile-link:hover {
+				color: var(--link-hover-color);
+				text-shadow: 0 0 8px var(--glow-color);
+			}
+
+			@media (max-width: 768px) {
+				.interests-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.movie-card {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -396,7 +515,48 @@
 						<p class="project-description">Simple text-based game I made in college to teach myself JavaScript.</p>
 					</a>
 				</div>
-				
+			</section>
+
+			<section id="other-interests">
+				<h2>Other Interests</h2>
+				<div class="interests-grid">
+					<div class="interest-card">
+						<h3>Movies</h3>
+						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd.</p>
+						<div class="recent-movies">
+							{letterboxdData.recent_reviews.map((movie: MovieReview) => (
+								<div class="movie-card">
+									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
+									<div class="movie-info">
+										<h4>{movie.title} ({movie.year})</h4>
+										<p class="rating">★ {movie.rating}/5</p>
+										<p class="review">{movie.review}</p>
+										<p class="watched-date">Watched on {movie.watched_date}</p>
+										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
+									</div>
+								</div>
+							))}
+						</div>
+						<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
+							View my full Letterboxd profile
+						</a>
+					</div>
+
+					<div class="interest-card">
+						<h3>Books</h3>
+						<p>I enjoy reading a variety of genres, from science fiction to historical non-fiction.</p>
+					</div>
+
+					<div class="interest-card">
+						<h3>Running</h3>
+						<p>I'm training for my next half marathon and enjoy exploring new routes in the city.</p>
+					</div>
+
+					<div class="interest-card">
+						<h3>Biking</h3>
+						<p>I love cycling through the city and exploring new trails on weekends.</p>
+					</div>
+				</div>
 			</section>
 
 			<footer>
