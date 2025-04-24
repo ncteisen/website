@@ -194,6 +194,10 @@ export class GameEngine {
     this.ctx.font = '16px Arial';
     if (this.isMobile) {
       this.ctx.fillText('Touch left or right to move', this.canvas.width / 2, this.canvas.height / 2 + 50);
+      // Add warning for mobile users
+      this.ctx.fillStyle = '#ff0000';
+      this.ctx.font = '14px Arial';
+      this.ctx.fillText('Warning: Game runs slowly on mobile devices', this.canvas.width / 2, this.canvas.height / 2 + 80);
     } else {
       this.ctx.fillText('Use Arrow Keys or A/D to Move', this.canvas.width / 2, this.canvas.height / 2 + 50);
     }
