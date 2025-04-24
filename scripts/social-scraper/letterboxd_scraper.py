@@ -30,7 +30,18 @@ class LetterboxdScraper:
             # Extract review text from description
             description = item.find('description').text
             soup = BeautifulSoup(description, 'html.parser')
-            review_text = soup.find('p', text=True).text if soup.find('p', text=True) else ""
+            
+            # Find the image and get all paragraphs after it
+            img = soup.find('img')
+            review_paragraphs = []
+            if img:
+                current = img.find_next('p')
+                while current and current.name == 'p':
+                    review_paragraphs.append(current)
+                    current = current.find_next_sibling()
+            
+            # Combine all review paragraphs
+            review_text = ''.join(str(p) for p in review_paragraphs)
             
             # Extract image URL
             img_tag = soup.find('img')
