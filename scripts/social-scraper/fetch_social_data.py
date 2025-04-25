@@ -7,7 +7,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
 
-from letterboxd_scraper import create_scraper
+from letterboxd_scraper import create_letterboxd_scraper
+from goodreads_scraper import fetch_goodreads_reviews
 
 # Set up logging
 logging.basicConfig(
@@ -49,18 +50,24 @@ def main() -> None:
         data = {
             'last_updated': datetime.utcnow().isoformat(),
             'letterboxd': {},
-            'github': {},
-            'twitter': {},
-            'linkedin': {}
+            'goodreads': {},
         }
 
         # Fetch Letterboxd data
         try:
-            letterboxd_scraper = create_scraper()  # Using default username
+            letterboxd_scraper = create_letterboxd_scraper()  # Using default username
             data['letterboxd'] = letterboxd_scraper.fetch_data()
             logger.info("Successfully fetched Letterboxd data")
         except Exception as e:
             logger.error(f"Failed to fetch Letterboxd data: {e}")
+            # Continue with other platforms even if one fails
+
+        # Fetch Goodreads data
+        try:
+            data['goodreads'] = fetch_goodreads_reviews()
+            logger.info("Successfully fetched Goodreads data")
+        except Exception as e:
+            logger.error(f"Failed to fetch Goodreads data: {e}")
             # Continue with other platforms even if one fails
 
         # Save the data

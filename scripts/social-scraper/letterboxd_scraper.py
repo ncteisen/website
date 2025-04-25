@@ -84,13 +84,12 @@ class LetterboxdScraper:
             
             return {
                 'username': self.username,
-                'last_updated': datetime.utcnow().isoformat(),
                 'recent_reviews': recent_reviews
             }
         except Exception as e:
             logger.error(f"Failed to fetch Letterboxd data: {e}")
             raise
 
-def create_scraper(username: str = LETTERBOXD_USERNAME) -> LetterboxdScraper:
+def create_letterboxd_scraper(username: str = LETTERBOXD_USERNAME) -> LetterboxdScraper:
     """Factory function to create a Letterboxd scraper."""
     return LetterboxdScraper(username) 
