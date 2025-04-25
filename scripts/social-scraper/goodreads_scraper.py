@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Constants
 GOODREADS_RSS_URL = "https://www.goodreads.com/review/list_rss/44763252-noah-eisen"
+GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/44763252-noah-eisen"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -34,8 +35,10 @@ def extract_book_data(item: ET.Element) -> Dict:
         read_at_match = re.search(r'read at:\s*([^\n<]+)', description)
         read_at = read_at_match.group(1).strip() if read_at_match else None
         
-        # Extract book image URL
+        # Extract book image URL and clean it up
         image_url = item.find('book_image_url').text.strip()
+        # Remove size patterns like ._SY75_ or _SX50_ from the URL
+        image_url = re.sub(r'\.?_S[XY]\d+_', '', image_url)
         
         # Extract book link
         link = item.find('link').text.strip()
@@ -79,11 +82,13 @@ def fetch_goodreads_reviews() -> Dict:
         # Structure the data similar to Letterboxd
         return {
             'recent_reviews': reviews[:8],  # Get the 8 most recent reviews
+            'profile_url': GOODREADS_PROFILE_URL,
         }
     except Exception as e:
         logger.error(f"Error fetching Goodreads reviews: {e}")
         return {
             'recent_reviews': [],
+            'profile_url': GOODREADS_PROFILE_URL,
         }
 
 def main():
