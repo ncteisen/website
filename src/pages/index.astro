@@ -1,8 +1,12 @@
 ---
 // Import the social data JSON file
 const socialDataModules = await import.meta.glob('../data/social_data.json');
-const socialData = (await socialDataModules['../data/social_data.json']()) as { letterboxd: { recent_reviews: MovieReview[] } };
+const socialData = (await socialDataModules['../data/social_data.json']()) as { 
+	letterboxd: { recent_reviews: MovieReview[] },
+	goodreads: { recent_reviews: BookReview[] }
+};
 const letterboxdData = socialData.letterboxd;
+const goodreadsData = socialData.goodreads;
 
 interface MovieReview {
 	title: string;
@@ -10,6 +14,16 @@ interface MovieReview {
 	rating: number;
 	watched_date: string;
 	is_rewatch: boolean;
+	review: string;
+	image_url: string;
+	link: string;
+}
+
+interface BookReview {
+	title: string;
+	author: string;
+	rating: number;
+	read_at: string;
 	review: string;
 	image_url: string;
 	link: string;
@@ -44,6 +58,22 @@ function getStarRating(rating: number): string {
 						} else {
 							moreMovies.classList.add('hidden');
 							seeMoreButton.textContent = 'See more of my recent movies';
+						}
+					});
+				}
+
+				// Books button
+				const seeMoreBooksButton = document.querySelectorAll('.see-more-button')[1];
+				const moreBooks = document.getElementById('more-books');
+				
+				if (seeMoreBooksButton && moreBooks) {
+					seeMoreBooksButton.addEventListener('click', function() {
+						if (moreBooks.classList.contains('hidden')) {
+							moreBooks.classList.remove('hidden');
+							seeMoreBooksButton.textContent = 'Show less';
+						} else {
+							moreBooks.classList.add('hidden');
+							seeMoreBooksButton.textContent = 'See more of my recent books';
 						}
 					});
 				}
@@ -323,7 +353,7 @@ function getStarRating(rating: number): string {
 
 			.interests-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				grid-template-columns: 1fr;
 				gap: 2rem;
 				margin-top: 1.5rem;
 			}
@@ -701,6 +731,48 @@ function getStarRating(rating: number): string {
 						<div class="profile-link-container">
 							<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Letterboxd profile
+							</a>
+						</div>
+					</div>
+
+					<div class="interest-card">
+						<h3>Books</h3>
+						<p>I love reading and track my reading progress on Goodreads.</p>
+						<div class="recent-movies">
+							{goodreadsData.recent_reviews.slice(0, 1).map((book: BookReview) => (
+								<div class="movie-card">
+									<img src={book.image_url} alt={`Cover of ${book.title}`} width="200" height="300" />
+									<div class="movie-info">
+										<h4>{book.title}</h4>
+										<p class="rating">{getStarRating(book.rating)}</p>
+										<p class="watched-date">Read on {book.read_at}</p>
+										<div class="review" set:html={book.review}></div>
+										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
+									</div>
+								</div>
+							))}
+						</div>
+						<div class="see-more-container">
+							<button class="see-more-button">See more of my recent books</button>
+						</div>
+						<div id="more-books" class="more-movies hidden">
+							{goodreadsData.recent_reviews.slice(1).map((book: BookReview) => (
+								<div class="movie-card">
+									<img src={book.image_url} alt={`Cover of ${book.title}`} width="200" height="300" />
+									<div class="movie-info">
+										<h4>{book.title}</h4>
+										<p class="rating">{getStarRating(book.rating)}</p>
+										<p class="watched-date">Read on {book.read_at}</p>
+										<div class="review" set:html={book.review}></div>
+										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
+									</div>
+								</div>
+							))}
+						</div>
+						<hr class="profile-separator" />
+						<div class="profile-link-container">
+							<a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" class="profile-link">
+								View my full Goodreads profile
 							</a>
 						</div>
 					</div>
