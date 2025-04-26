@@ -9,6 +9,7 @@ from typing import Dict, Any
 
 from letterboxd_scraper import create_letterboxd_scraper
 from goodreads_scraper import fetch_goodreads_reviews
+from strava_scraper import StravaScraper
 
 # Set up logging
 logging.basicConfig(
@@ -51,6 +52,7 @@ def main() -> None:
             'last_updated': datetime.utcnow().isoformat(),
             'letterboxd': {},
             'goodreads': {},
+            'strava': {},
         }
 
         # Fetch Letterboxd data
@@ -68,6 +70,15 @@ def main() -> None:
             logger.info("Successfully fetched Goodreads data")
         except Exception as e:
             logger.error(f"Failed to fetch Goodreads data: {e}")
+            # Continue with other platforms even if one fails
+
+        # Fetch Strava data
+        try:
+            strava_scraper = StravaScraper()
+            data['strava'] = strava_scraper.get_recent_activities_data()
+            logger.info("Successfully fetched Strava data")
+        except Exception as e:
+            logger.error(f"Failed to fetch Strava data: {e}")
             # Continue with other platforms even if one fails
 
         # Save the data

@@ -114,11 +114,10 @@ class StravaScraper:
         hikes = [a for a in activities if a['type'] == 'Hike'][:8]
         
         return {
-            'strava': {
-                'recent_runs': [self.format_activity(run) for run in runs],
-                'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
-                'recent_hikes': [self.format_activity(hike) for hike in hikes]
-            }
+            'recent_runs': [self.format_activity(run) for run in runs],
+            'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
+            'recent_hikes': [self.format_activity(hike) for hike in hikes]
+
         }
 
 def main():
