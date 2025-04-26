@@ -645,6 +645,52 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-color);
 				font-weight: 500;
 			}
+
+			.strava-embed {
+				width: 100%;
+				max-width: 590px;
+				height: 405px;
+				margin: 1rem 0;
+				border-radius: 4px;
+				overflow: hidden;
+			}
+
+			.stat-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 1rem;
+				margin: 1rem 0;
+			}
+
+			.stat-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 0.75rem;
+				background-color: rgba(31, 41, 55, 0.5);
+				border-radius: 4px;
+				border: 1px solid var(--card-border);
+			}
+
+			.stat-label {
+				font-size: 0.75rem;
+				color: var(--text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.25rem;
+			}
+
+			.stat-value {
+					font-size: 1.1rem;
+				color: var(--text-color);
+				font-weight: 500;
+			}
+
+			@media (max-width: 768px) {
+				.stat-grid {
+					grid-template-columns: 1fr;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -863,12 +909,24 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>🏃‍♂️ {stravaData.recent_runs[0].name}</h4>
 										<p class="activity-date">{formatDate(stravaData.recent_runs[0].start_date)}</p>
 										<div class="activity-stats">
-											<p>
-												<strong>Distance:</strong> {stravaData.recent_runs[0].distance} miles<br />
-												<strong>Time:</strong> {formatDuration(stravaData.recent_runs[0].moving_time)}<br />
-												<strong>Elevation:</strong> {stravaData.recent_runs[0].elevation_gain} ft<br />
-												<strong>Pace:</strong> {stravaData.recent_runs[0].average_pace} min/mile
-											</p>
+											<div class="stat-grid">
+												<div class="stat-item">
+													<span class="stat-label">Distance</span>
+													<span class="stat-value">{stravaData.recent_runs[0].distance} miles</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Time</span>
+													<span class="stat-value">{formatDuration(stravaData.recent_runs[0].moving_time)}</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Elevation</span>
+													<span class="stat-value">{stravaData.recent_runs[0].elevation_gain} ft</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Pace</span>
+													<span class="stat-value">{stravaData.recent_runs[0].average_pace} min/mile</span>
+												</div>
+											</div>
 										</div>
 										<a href={`https://www.strava.com/activities/${stravaData.recent_runs[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
@@ -880,12 +938,24 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>🚴‍♂️ {stravaData.recent_bikes[0].name}</h4>
 										<p class="activity-date">{formatDate(stravaData.recent_bikes[0].start_date)}</p>
 										<div class="activity-stats">
-											<p>
-												<strong>Distance:</strong> {stravaData.recent_bikes[0].distance} miles<br />
-												<strong>Time:</strong> {formatDuration(stravaData.recent_bikes[0].moving_time)}<br />
-												<strong>Elevation:</strong> {stravaData.recent_bikes[0].elevation_gain} ft<br />
-												<strong>Speed:</strong> {formatSpeed(stravaData.recent_bikes[0].distance, stravaData.recent_bikes[0].moving_time)} mph
-											</p>
+											<div class="stat-grid">
+												<div class="stat-item">
+													<span class="stat-label">Distance</span>
+													<span class="stat-value">{stravaData.recent_bikes[0].distance} miles</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Time</span>
+													<span class="stat-value">{formatDuration(stravaData.recent_bikes[0].moving_time)}</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Elevation</span>
+													<span class="stat-value">{stravaData.recent_bikes[0].elevation_gain} ft</span>
+												</div>
+												<div class="stat-item">
+													<span class="stat-label">Speed</span>
+													<span class="stat-value">{formatSpeed(stravaData.recent_bikes[0].distance, stravaData.recent_bikes[0].moving_time)} mph</span>
+												</div>
+											</div>
 										</div>
 										<a href={`https://www.strava.com/activities/${stravaData.recent_bikes[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
@@ -899,7 +969,7 @@ function formatSpeed(distance: number, time: number): string {
 							</a>
 						</div>
 					</div>
-				</div>
+			</div>
 			</section>
 
 			<footer>
