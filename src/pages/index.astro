@@ -102,6 +102,21 @@ function formatSpeed(distance: number, time: number): string {
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
+		<script>
+			// TypeScript declarations
+			interface Window {
+				dataLayer: any[];
+				gtag: (...args: any[]) => void;
+			}
+
+			// Initialize GA4
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function() { window.dataLayer.push(arguments); };
+			window.gtag('js', new Date());
+			window.gtag('config', 'G-DW532NM54T');
+		</script>
 		<script define:vars={{ stravaData }}>
 			// Make Strava data available to the client-side script
 			window.__STRAVA_DATA__ = stravaData;
@@ -116,6 +131,10 @@ function formatSpeed(distance: number, time: number): string {
 						if (moreMovies.classList.contains('hidden')) {
 							moreMovies.classList.remove('hidden');
 							seeMoreButton.textContent = 'Show less';
+							window.gtag('event', 'see_more_movies', {
+								'event_category': 'engagement',
+								'event_label': 'movies'
+							});
 						} else {
 							moreMovies.classList.add('hidden');
 							seeMoreButton.textContent = 'See more of my recent movies';
@@ -132,12 +151,62 @@ function formatSpeed(distance: number, time: number): string {
 						if (moreBooks.classList.contains('hidden')) {
 							moreBooks.classList.remove('hidden');
 							seeMoreBooksButton.textContent = 'Show less';
+							window.gtag('event', 'see_more_books', {
+								'event_category': 'engagement',
+								'event_label': 'books'
+							});
 						} else {
 							moreBooks.classList.add('hidden');
 							seeMoreBooksButton.textContent = 'See more of my recent books';
 						}
 					});
 				}
+
+				// Track social link clicks
+				document.querySelectorAll('.social-link').forEach(link => {
+					link.addEventListener('click', function(this: HTMLElement) {
+						const href = this.getAttribute('href');
+						if (href?.includes('github.com')) {
+							window.gtag('event', 'click', {
+								'event_category': 'social',
+								'event_label': 'github'
+							});
+						} else if (href?.includes('linkedin.com')) {
+							window.gtag('event', 'click', {
+								'event_category': 'social',
+								'event_label': 'linkedin'
+							});
+						} else if (href?.includes('resume.pdf')) {
+							window.gtag('event', 'click', {
+								'event_category': 'social',
+								'event_label': 'resume'
+							});
+						}
+					});
+				});
+
+				// Track profile link clicks
+				document.querySelectorAll('.profile-link').forEach(link => {
+					link.addEventListener('click', function(this: HTMLElement) {
+						const href = this.getAttribute('href');
+						if (href?.includes('letterboxd.com')) {
+							window.gtag('event', 'click', {
+								'event_category': 'profile',
+								'event_label': 'letterboxd'
+							});
+						} else if (href?.includes('goodreads.com')) {
+							window.gtag('event', 'click', {
+								'event_category': 'profile',
+								'event_label': 'goodreads'
+							});
+						} else if (href?.includes('strava.com')) {
+							window.gtag('event', 'click', {
+								'event_category': 'profile',
+								'event_label': 'strava'
+							});
+						}
+					});
+				});
 
 				try {
 					// Import dependencies
