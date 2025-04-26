@@ -449,6 +449,35 @@ function formatSpeed(distance: number, time: number): string {
 				.career-highlights, .projects-grid {
 					grid-template-columns: 1fr;
 				}
+
+				.interests-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.movie-card {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.movie-card img {
+					width: 100%;
+					max-width: 200px;
+					height: auto;
+					aspect-ratio: 2/3;
+				}
+
+				.recent-movies {
+					grid-template-columns: 1fr;
+				}
+
+				.stat-grid {
+					grid-template-columns: 1fr;
+				}
+
+				/* Make fitness activity cards stack vertically on mobile */
+				.interest-card:nth-child(3) .recent-movies {
+					grid-template-columns: 1fr;
+				}
 			}
 
 			@media (max-width: 900px) {
@@ -626,28 +655,6 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
-			@media (max-width: 768px) {
-				.interests-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.movie-card {
-					flex-direction: column;
-					align-items: flex-start;
-				}
-
-				.movie-card img {
-					width: 100%;
-					max-width: 200px;
-					height: auto;
-					aspect-ratio: 2/3;
-				}
-
-				.recent-movies {
-					grid-template-columns: 1fr;
-				}
-			}
-
 			.see-more-container {
 				text-align: center;
 				margin: 1.5rem 0;
@@ -744,12 +751,6 @@ function formatSpeed(distance: number, time: number): string {
 				font-weight: 500;
 			}
 
-			@media (max-width: 768px) {
-				.stat-grid {
-					grid-template-columns: 1fr;
-				}
-			}
-
 			.activity-map {
 				width: 100%;
 				height: 300px;
@@ -757,6 +758,18 @@ function formatSpeed(distance: number, time: number): string {
 				border-radius: 4px;
 				overflow: hidden;
 				border: 1px solid var(--card-border);
+			}
+
+			.fitness-activities {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
+
+			@media (max-width: 768px) {
+				.fitness-activities {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
@@ -969,7 +982,7 @@ function formatSpeed(distance: number, time: number): string {
 					<div class="interest-card">
 						<h3>Fitness</h3>
 						<p>I enjoy running and cycling around San Francisco. Here are my most recent workouts:</p>
-						<div class="recent-movies" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+						<div class="recent-movies fitness-activities">
 							{stravaData.recent_runs[0] && (
 								<div class="movie-card">
 									<div class="movie-info">
