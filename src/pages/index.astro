@@ -3,10 +3,12 @@
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as { 
 	letterboxd: { recent_reviews: MovieReview[] },
-	goodreads: { recent_reviews: BookReview[] }
+	goodreads: { recent_reviews: BookReview[] },
+	strava: { latest_run: StravaActivity, latest_bike: StravaActivity }
 };
 const letterboxdData = socialData.letterboxd;
 const goodreadsData = socialData.goodreads;
+const stravaData = socialData.strava;
 
 interface MovieReview {
 	title: string;
@@ -29,11 +31,53 @@ interface BookReview {
 	link: string;
 }
 
+interface StravaActivity {
+	id: number;
+	name: string;
+	type: string;
+	distance: number;
+	moving_time: number;
+	elapsed_time: number;
+	elevation_gain: number;
+	average_pace: number;
+	average_heartrate: number | null;
+	max_heartrate: number | null;
+	average_cadence: number | null;
+	average_watts: number | null;
+	start_date: string;
+	description: string | null;
+	commute: boolean;
+	map: {
+		id: string;
+		summary_polyline: string;
+		resource_state: number;
+	};
+}
+
 function getStarRating(rating: number): string {
 	const fullStars = Math.floor(rating);
 	const hasHalfStar = rating % 1 >= 0.5;
 	
 	return '★'.repeat(fullStars) + (hasHalfStar ? '½' : '');
+}
+
+function formatDuration(seconds: number): string {
+	const hours = Math.floor(seconds / 3600);
+	const minutes = Math.floor((seconds % 3600) / 60);
+	
+	if (hours > 0) {
+		return `${hours}h ${minutes}m`;
+	}
+	return `${minutes}m`;
+}
+
+function formatDate(dateString: string): string {
+	const date = new Date(dateString);
+	return date.toLocaleDateString('en-US', { 
+		year: 'numeric', 
+		month: 'long', 
+		day: 'numeric' 
+	});
 }
 ---
 
@@ -773,6 +817,53 @@ function getStarRating(rating: number): string {
 						<div class="profile-link-container">
 							<a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Goodreads profile
+							</a>
+						</div>
+					</div>
+
+					<div class="interest-card">
+						<h3>Fitness</h3>
+						<p>I enjoy running and cycling around San Francisco. Here are my most recent workouts:</p>
+						<div class="recent-movies">
+							{stravaData.latest_run && (
+								<div class="movie-card">
+									<div class="movie-info">
+										<h4>🏃‍♂️ {stravaData.latest_run.name}</h4>
+										<p class="watched-date">{formatDate(stravaData.latest_run.start_date)}</p>
+										<div class="review">
+											<p>
+												<strong>Distance:</strong> {stravaData.latest_run.distance} miles<br />
+												<strong>Time:</strong> {formatDuration(stravaData.latest_run.moving_time)}<br />
+												<strong>Elevation:</strong> {stravaData.latest_run.elevation_gain} ft<br />
+												<strong>Pace:</strong> {stravaData.latest_run.average_pace} min/mile
+											</p>
+										</div>
+										<a href={`https://www.strava.com/activities/${stravaData.latest_run.id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
+									</div>
+								</div>
+							)}
+							{stravaData.latest_bike && (
+								<div class="movie-card">
+									<div class="movie-info">
+										<h4>🚴‍♂️ {stravaData.latest_bike.name}</h4>
+										<p class="watched-date">{formatDate(stravaData.latest_bike.start_date)}</p>
+										<div class="review">
+											<p>
+												<strong>Distance:</strong> {stravaData.latest_bike.distance} miles<br />
+												<strong>Time:</strong> {formatDuration(stravaData.latest_bike.moving_time)}<br />
+												<strong>Elevation:</strong> {stravaData.latest_bike.elevation_gain} ft<br />
+												<strong>Speed:</strong> {(stravaData.latest_bike.distance / (stravaData.latest_bike.moving_time / 3600)).toFixed(1)} mph
+											</p>
+										</div>
+										<a href={`https://www.strava.com/activities/${stravaData.latest_bike.id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
+									</div>
+								</div>
+							)}
+						</div>
+						<hr class="profile-separator" />
+						<div class="profile-link-container">
+							<a href="https://www.strava.com/athletes/45134" target="_blank" rel="noopener noreferrer" class="profile-link">
+								View my full Strava profile
 							</a>
 						</div>
 					</div>
