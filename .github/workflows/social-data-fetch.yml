@@ -22,8 +22,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Create .env file
+      run: |
+        echo "STRAVA_CLIENT_ID=${{ secrets.STRAVA_CLIENT_ID }}" > .env
+        echo "STRAVA_CLIENT_SECRET=${{ secrets.STRAVA_CLIENT_SECRET }}" >> .env
+        echo "STRAVA_REFRESH_TOKEN=${{ secrets.STRAVA_REFRESH_TOKEN }}" >> .env
+    
     - name: Run fetch script
       run: python scripts/social-scraper/fetch_social_data.py
+    
+    - name: Clean up .env file
+      run: rm .env
     
     - name: Commit and push if changed
       run: |
