@@ -4,7 +4,11 @@ const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as { 
 	letterboxd: { recent_reviews: MovieReview[] },
 	goodreads: { recent_reviews: BookReview[] },
-	strava: { latest_run: StravaActivity, latest_bike: StravaActivity }
+	strava: { 
+		recent_runs: StravaActivity[],
+		recent_bikes: StravaActivity[],
+		recent_hikes: StravaActivity[]
+	}
 };
 const letterboxdData = socialData.letterboxd;
 const goodreadsData = socialData.goodreads;
@@ -78,6 +82,11 @@ function formatDate(dateString: string): string {
 		month: 'long', 
 		day: 'numeric' 
 	});
+}
+
+function formatSpeed(distance: number, time: number): string {
+	const speed = distance / (time / 3600);
+	return speed.toFixed(1);
 }
 ---
 
@@ -613,6 +622,29 @@ function formatDate(dateString: string): string {
 			.hidden {
 				display: none;
 			}
+
+			.activity-date {
+				font-size: 0.75rem;
+				color: var(--text-muted);
+				opacity: 0.7;
+				margin-top: 0.15rem;
+				margin-bottom: 0.5rem;
+				font-style: italic;
+				letter-spacing: 0.5px;
+				font-weight: 300;
+			}
+
+			.activity-stats {
+				margin-top: -1rem;;
+				color: var(--text-muted);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+
+			.activity-stats strong {
+				color: var(--text-color);
+				font-weight: 500;
+			}
 		</style>
 	</head>
 	<body>
@@ -824,45 +856,45 @@ function formatDate(dateString: string): string {
 					<div class="interest-card">
 						<h3>Fitness</h3>
 						<p>I enjoy running and cycling around San Francisco. Here are my most recent workouts:</p>
-						<div class="recent-movies">
-							{stravaData.latest_run && (
+						<div class="recent-movies" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+							{stravaData.recent_runs[0] && (
 								<div class="movie-card">
 									<div class="movie-info">
-										<h4>🏃‍♂️ {stravaData.latest_run.name}</h4>
-										<p class="watched-date">{formatDate(stravaData.latest_run.start_date)}</p>
-										<div class="review">
+										<h4>🏃‍♂️ {stravaData.recent_runs[0].name}</h4>
+										<p class="activity-date">{formatDate(stravaData.recent_runs[0].start_date)}</p>
+										<div class="activity-stats">
 											<p>
-												<strong>Distance:</strong> {stravaData.latest_run.distance} miles<br />
-												<strong>Time:</strong> {formatDuration(stravaData.latest_run.moving_time)}<br />
-												<strong>Elevation:</strong> {stravaData.latest_run.elevation_gain} ft<br />
-												<strong>Pace:</strong> {stravaData.latest_run.average_pace} min/mile
+												<strong>Distance:</strong> {stravaData.recent_runs[0].distance} miles<br />
+												<strong>Time:</strong> {formatDuration(stravaData.recent_runs[0].moving_time)}<br />
+												<strong>Elevation:</strong> {stravaData.recent_runs[0].elevation_gain} ft<br />
+												<strong>Pace:</strong> {stravaData.recent_runs[0].average_pace} min/mile
 											</p>
 										</div>
-										<a href={`https://www.strava.com/activities/${stravaData.latest_run.id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
+										<a href={`https://www.strava.com/activities/${stravaData.recent_runs[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
 								</div>
 							)}
-							{stravaData.latest_bike && (
+							{stravaData.recent_bikes[0] && (
 								<div class="movie-card">
 									<div class="movie-info">
-										<h4>🚴‍♂️ {stravaData.latest_bike.name}</h4>
-										<p class="watched-date">{formatDate(stravaData.latest_bike.start_date)}</p>
-										<div class="review">
+										<h4>🚴‍♂️ {stravaData.recent_bikes[0].name}</h4>
+										<p class="activity-date">{formatDate(stravaData.recent_bikes[0].start_date)}</p>
+										<div class="activity-stats">
 											<p>
-												<strong>Distance:</strong> {stravaData.latest_bike.distance} miles<br />
-												<strong>Time:</strong> {formatDuration(stravaData.latest_bike.moving_time)}<br />
-												<strong>Elevation:</strong> {stravaData.latest_bike.elevation_gain} ft<br />
-												<strong>Speed:</strong> {(stravaData.latest_bike.distance / (stravaData.latest_bike.moving_time / 3600)).toFixed(1)} mph
+												<strong>Distance:</strong> {stravaData.recent_bikes[0].distance} miles<br />
+												<strong>Time:</strong> {formatDuration(stravaData.recent_bikes[0].moving_time)}<br />
+												<strong>Elevation:</strong> {stravaData.recent_bikes[0].elevation_gain} ft<br />
+												<strong>Speed:</strong> {formatSpeed(stravaData.recent_bikes[0].distance, stravaData.recent_bikes[0].moving_time)} mph
 											</p>
 										</div>
-										<a href={`https://www.strava.com/activities/${stravaData.latest_bike.id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
+										<a href={`https://www.strava.com/activities/${stravaData.recent_bikes[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
 								</div>
 							)}
 						</div>
 						<hr class="profile-separator" />
 						<div class="profile-link-container">
-							<a href="https://www.strava.com/athletes/45134" target="_blank" rel="noopener noreferrer" class="profile-link">
+							<a href="https://www.strava.com/athletes/33004088" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Strava profile
 							</a>
 						</div>

@@ -63,7 +63,7 @@ class StravaScraper:
         self.expires_at = data['expires_at']
         return self.access_token
 
-    def get_recent_activities(self, per_page: int = 30) -> List[StravaActivity]:
+    def get_recent_activities(self, per_page: int = 100) -> List[StravaActivity]:
         """Get recent activities from Strava."""
         access_token = self.get_access_token()
         headers = {'Authorization': f'Bearer {access_token}'}
@@ -108,18 +108,16 @@ class StravaScraper:
         """Get recent activities and format them into a consistent structure."""
         activities = self.get_recent_activities()
         
-        # Find the most recent run
-        runs = [a for a in activities if a['type'] == 'Run']
-        latest_run = self.format_activity(runs[0]) if runs else None
-        
-        # Find the most recent non-commute bike ride
-        bike_rides = [a for a in activities if a['type'] == 'Ride' and not a['commute']]
-        latest_bike = self.format_activity(bike_rides[0]) if bike_rides else None
+        # Filter and get the latest 8 of each type, excluding commutes
+        runs = [a for a in activities if a['type'] == 'Run' and not a['commute']][:8]
+        bike_rides = [a for a in activities if a['type'] == 'Ride' and not a['commute']][:8]
+        hikes = [a for a in activities if a['type'] == 'Hike'][:8]
         
         return {
             'strava': {
-                'latest_run': latest_run,
-                'latest_bike': latest_bike
+                'recent_runs': [self.format_activity(run) for run in runs],
+                'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
+                'recent_hikes': [self.format_activity(hike) for hike in hikes]
             }
         }
 
