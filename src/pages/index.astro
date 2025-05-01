@@ -740,6 +740,15 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
+			.last-updated {
+				text-align: center;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+				opacity: 0.7;
+				margin-top: 0.5rem;
+				font-style: italic;
+			}
+
 			.see-more-container {
 				text-align: center;
 				margin: 1.5rem 0;
@@ -1019,6 +1028,9 @@ function formatSpeed(distance: number, time: number): string {
 							))}
 						</div>
 						<hr class="profile-separator" />
+						<div class="last-updated">
+							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+						</div>
 						<div class="profile-link-container">
 							<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Letterboxd profile
@@ -1061,6 +1073,9 @@ function formatSpeed(distance: number, time: number): string {
 							))}
 						</div>
 						<hr class="profile-separator" />
+						<div class="last-updated">
+							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+						</div>
 						<div class="profile-link-container">
 							<a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Goodreads profile
@@ -1134,13 +1149,16 @@ function formatSpeed(distance: number, time: number): string {
 							)}
 						</div>
 						<hr class="profile-separator" />
+						<div class="last-updated">
+							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+						</div>
 						<div class="profile-link-container">
 							<a href="https://www.strava.com/athletes/33004088" target="_blank" rel="noopener noreferrer" class="profile-link">
 								View my full Strava profile
 							</a>
 						</div>
 					</div>
-			</div>
+				</div>
 			</section>
 
 			<footer>
