@@ -589,6 +589,7 @@ function formatSpeed(distance: number, time: number): string {
 				border-radius: 8px;
 				padding: 1.5rem;
 				transition: all 0.3s ease;
+				position: relative;
 			}
 
 			.interest-card h3 {
@@ -596,6 +597,20 @@ function formatSpeed(distance: number, time: number): string {
 				font-weight: 600;
 				margin-bottom: 1rem;
 				color: var(--primary-color);
+			}
+
+			.interest-card .section-icon {
+				position: absolute;
+				top: 1.5rem;
+				right: 1.5rem;
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				opacity: 0.7;
+			}
+
+			.interest-card:hover .section-icon {
+				opacity: 1;
+				transform: scale(1.1);
 			}
 
 			.interest-card p {
@@ -805,6 +820,11 @@ function formatSpeed(distance: number, time: number): string {
 				font-weight: 500;
 			}
 
+			.activity-icon {
+				margin-right: 0.5rem;
+				color: var(--primary-color);
+			}
+
 			.strava-embed {
 				width: 100%;
 				max-width: 590px;
@@ -995,6 +1015,7 @@ function formatSpeed(distance: number, time: number): string {
 				<div class="interests-grid">
 					<div class="interest-card">
 						<h3>Movies</h3>
+						<i class="fas fa-film section-icon" aria-hidden="true"></i>
 						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd.</p>
 						<div class="recent-movies">
 							{letterboxdData.recent_reviews.slice(0, 1).map((movie: MovieReview) => (
@@ -1040,6 +1061,7 @@ function formatSpeed(distance: number, time: number): string {
 
 					<div class="interest-card">
 						<h3>Books</h3>
+						<i class="fas fa-book section-icon" aria-hidden="true"></i>
 						<p>I love reading and track my reading progress on Goodreads.</p>
 						<div class="recent-movies">
 							{goodreadsData.recent_reviews.slice(0, 1).map((book: BookReview) => (
@@ -1085,12 +1107,13 @@ function formatSpeed(distance: number, time: number): string {
 
 					<div class="interest-card">
 						<h3>Fitness</h3>
+						<i class="fas fa-heartbeat section-icon" aria-hidden="true"></i>
 						<p>I enjoy running and cycling around San Francisco. Here are my most recent workouts:</p>
 						<div class="recent-movies fitness-activities">
 							{stravaData.recent_runs[0] && (
 								<div class="movie-card">
 									<div class="movie-info">
-										<h4>🏃‍♂️ {stravaData.recent_runs[0].name}</h4>
+										<h4><i class="fas fa-running activity-icon" aria-hidden="true"></i>{stravaData.recent_runs[0].name}</h4>
 										<p class="activity-date">{formatDate(stravaData.recent_runs[0].start_date)}</p>
 										<div id="run-map" class="activity-map"></div>
 										<div class="activity-stats">
@@ -1120,7 +1143,7 @@ function formatSpeed(distance: number, time: number): string {
 							{stravaData.recent_bikes[0] && (
 								<div class="movie-card">
 									<div class="movie-info">
-										<h4>🚴‍♂️ {stravaData.recent_bikes[0].name}</h4>
+										<h4><i class="fas fa-biking activity-icon" aria-hidden="true"></i>{stravaData.recent_bikes[0].name}</h4>
 										<p class="activity-date">{formatDate(stravaData.recent_bikes[0].start_date)}</p>
 										<div id="bike-map" class="activity-map"></div>
 										<div class="activity-stats">
