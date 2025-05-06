@@ -1,8 +1,38 @@
 {
-  "last_updated": "2025-05-06T10:27:29.844111",
+  "last_updated": "2025-05-06T19:02:21.383769",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Presence",
+        "year": 2024,
+        "rating": 3.5,
+        "watched_date": "2025-05-05",
+        "is_rewatch": false,
+        "review": "<p>We \ud83d\udc4f\ud83c\udffc love \ud83d\udc4f\ud83c\udffc a \ud83d\udc4f\ud83c\udffc tight \ud83d\udc4f\ud83c\udffc runtime</p><p>Can always count on Soderbergh for a no-wasted-moments film with creative camera work and interesting ideas</p><p>Brutal mis-marketing campaign though, this was absolutely not \"one of the scariest movies you will see all year\" as the trailer claimed. Is the rise of prestige horror causing it to become a victim of its own success??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/7/9/3/7/1027937-presence-2024-0-600-0-900-crop.jpg?v=e47f97445a",
+        "link": "https://letterboxd.com/ncteisen/film/presence-2024/"
+      },
+      {
+        "title": "One of Them Days",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-05-05",
+        "is_rewatch": false,
+        "review": "<p>Fever dream screwball comedy and I loved it. More of this please!!</p><p>Keke and SZA were really funny but all of the minor characters had me <b>howling</b> (esp Katt Williams and Keyla Mejia)</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/6/4/4/4/0/1164440-one-of-them-days-0-600-0-900-crop.jpg?v=c538699ae1",
+        "link": "https://letterboxd.com/ncteisen/film/one-of-them-days/"
+      },
+      {
+        "title": "A Complete Unknown",
+        "year": 2024,
+        "rating": 3.0,
+        "watched_date": "2025-05-05",
+        "is_rewatch": false,
+        "review": "<p>This was solid but musical biopics have such a low ceiling for me</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/8/6/5/8/3/586583-a-complete-unknown-0-600-0-900-crop.jpg?v=f14ab6ecf6",
+        "link": "https://letterboxd.com/ncteisen/film/a-complete-unknown/"
+      },
       {
         "title": "Sinners",
         "year": 2025,
@@ -52,36 +82,6 @@
         "review": "<p>You know what, hell yeah Latvia</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/7/3/9/4/5/1/739451-flow-2024-0-600-0-900-crop.jpg?v=32f49339d9",
         "link": "https://letterboxd.com/ncteisen/film/flow-2024/"
-      },
-      {
-        "title": "Companion",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2025-03-15",
-        "is_rewatch": false,
-        "review": "<p><em>This review may contain spoilers.</em></p><p>Ex Machina and Bodies Bodies Bodies had a baby</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/7/1/7/2/977172-companion-2025-0-600-0-900-crop.jpg?v=66c5c946ec",
-        "link": "https://letterboxd.com/ncteisen/film/companion-2025/"
-      },
-      {
-        "title": "Mickey 17",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2025-03-09",
-        "is_rewatch": false,
-        "review": "<p>First off, my utter adoration for Robert Pattinson is reaffirmed (not that it needed any reaffirmation), but that is where my positive commentary ends. </p><p>This had me hooked at first with its campy tone and interesting, heady ideas (the many yous you are), but then it didn't follow through on anything, got strange and flat-feeling and lost me completely. It was still entertaining throughout so I'll give it three bags of popcorn.</p><p>I also don't need any more Trump-ed up caricatures in the movies I watch - I get enough of that from the news.</p><p>Also also the creepers were totally Ohmus</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/2/0/2/8/1/620281-mickey-17-0-600-0-900-crop.jpg?v=93e4d2af6d",
-        "link": "https://letterboxd.com/ncteisen/film/mickey-17/"
-      },
-      {
-        "title": "I'm Still Here",
-        "year": 2024,
-        "rating": 4.0,
-        "watched_date": "2025-03-04",
-        "is_rewatch": false,
-        "review": "<p>No shade to my girl Mikey, but how tf did Fernanda not win...</p><p>MILD SPOILER BELOW</p><p>A fire alarm went off in our theater the exact moment that Rubens was being taken away by the police and it interrupted a critical vibe shift.</p><p>When we got back in our seats 30 minutes later the restart was abrupt and felt disjointed from the idyllic exposition of the first third of the movie.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/0/1/6/7/1/901671-im-still-here-2024-0-600-0-900-crop.jpg?v=62be7ea503",
-        "link": "https://letterboxd.com/ncteisen/film/im-still-here-2024/"
       }
     ]
   },
@@ -146,7 +146,7 @@
         "author": "Shirley Jackson",
         "rating": 2.0,
         "read_at": "2024/12/26",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704229774l/89724.jpg",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746532708l/89724.jpg",
         "link": "https://www.goodreads.com/review/show/7122621083?utm_medium=api&utm_source=rss",
         "review": "<br/>I did not like this very much - but it broke my multi month reading dry spell so it has that going for it<br/>"
       },
@@ -164,6 +164,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 14395901837,
+        "name": "\ud83e\udd22\ud83e\udd22\ud83e\udd22",
+        "type": "Run",
+        "distance": 4.88,
+        "moving_time": 2476,
+        "elapsed_time": 2681,
+        "elevation_gain": 233.0,
+        "average_pace": 8.45,
+        "average_heartrate": 140.6,
+        "max_heartrate": 161.0,
+        "average_cadence": 89.9,
+        "average_watts": null,
+        "start_date": "2025-05-06T14:56:57Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14395901837",
+          "summary_polyline": "krpeFvlhjVP`EG`@Rp@Br@Jv@@`@Ar@Z|B@l@L`C@TCHF|@Gj@?JTrADl@?bB@`@Ef@Oh@ETF|@Ch@Mz@Ff@b@x@n@`ANd@RxBBr@Db@Bx@IxABXEr@BPRh@Ff@R^H`@FbC\\pC@p@S`BB^RxAExAET@\\Jt@Rh@`@x@Hj@Cf@m@dBEb@VtA@NSJXbAPd@t@zCL|@JxAAl@Gt@Mx@EBQF[Ao@Q]k@CCQe@s@_AUg@QUECo@Iq@Bg@f@YL{@p@Qd@UrAC|@@h@Fn@BTd@nBL`AZzAFb@Dz@?ZHnANnALp@f@z@d@d@d@Zf@h@Zx@h@dA@LCb@Md@k@fDU|@o@pEEh@?t@DbER^`@FpCo@v@Wd@M`@?^N~@`AlDpFRJL@l@x@XV`@JVQrAyCBMFg@Gs@c@mAe@{@iAmB]W[[[o@Kg@Ys@a@aB]mBc@wD[kAIk@M{A?y@JyABsA@ENGd@ELKZ@XEXSl@{@n@yABOAi@Mi@c@k@Qe@K_Aa@cB?EFk@r@oCR_@v@iADQJ}@IqBGe@I[u@o@a@eAe@e@ICOCc@?MEGIEUCuAS}CSeCGuAS{@GoBIm@C}@I{@YyEa@gFMcDIq@ImBMw@AcBSgD]yDc@yGWuCg@sHO}C]sFKq@AKDQa@uG",
+          "resource_state": 2
+        }
+      },
       {
         "id": 14357940556,
         "name": "Bad one",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14257969717",
           "summary_polyline": "orpeFdmhjVLtAA`@HlAP`A@`@C`@BTBj@Lp@NbDHp@HrC?ZC\\TlBHfB?`BWvAB~@GlAJdAFXz@|ALd@T~ADdBFt@AxDJnAVjA?h@HtBNpALd@BV@|BNvA?dACp@?ZNjALl@^dABTBj@Ej@Mf@Ql@A`@NzARr@l@LVO^Ep@UbFy@hBQlA]d@IxDWtC]l@ADFLv@F|AB|Ao@~AAJRt@?p@Bp@KkAUg@QOYGUBg@XU`@Ir@B`EF`@JT`@^f@Dj@QVg@Bi@?{DAk@EOQ[KIc@Me@JWNKPMp@AhDBn@Nf@RTXLf@?`@UPa@Bi@@aDCy@Sg@[Um@Ca@RUh@EV@lD?VJt@\\`@f@Hd@OXa@Hm@AkECWSa@UOk@Ea@VYj@Ct@?~BDv@DVFLXXXHL@^OZa@Fo@@q@CyCMk@SU]M_@?WNKJKTEVG`B@lBBZNb@b@\\`@BTETMRa@Fi@CoEKg@SWYKUAe@NS^GVCT?`EHn@\\`@d@Jb@OXa@Jq@@uBEwAOi@_@Yc@C[L[d@Ij@@pCDfARb@FHVJf@?`@YNc@Ba@CwDCg@GO_@_@g@Cc@RGJK\\Ej@BfDBf@Pb@b@V^A`@UFKJ]Dw@CkDKm@KMe@U_@DQHKLM\\GXAxD@f@BJX`@n@Jh@UN[Hq@AoAGcCWi@WMKA_@F]ZM^CV@vDBf@DLJPd@X`@AVMHKN]BQ@{@CwCMq@[Yc@GK@WNY\\CNC`@BdETv@TP\\D^ITYHSBW?mEGi@GMWWKE]AOBYXQ^Cf@FbEJj@ZZf@B`@UTg@B{ACqCC[MYSQQGMAYDWNMRIZAZ@vAGnB?`ALb@^j@v@b@BHWt@Op@i@f@KRRn@WBe@ZKVaACg@GKEY]Ue@Sq@uCsFKy@]aB_@i@]Qe@KgAa@a@Co@D_@W]I[@CCK]Gi@[_B{@iCXKFWKwAb@uADg@?a@Ka@]}@a@}B?WJk@@q@Q{A?}@IqAKw@YmAAc@D{BCi@Eu@Ka@Io@Ds@EyAc@gHKm@O_@Yc@G[Um@A[Am@EuATgAB[?k@MeCOq@Es@HsAEuA]kGKGEWKaAQ}@Eu@@]Ig@B_@?g@Cm@IsA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14248751873,
-        "name": "Evening Run",
-        "type": "Run",
-        "distance": 4.54,
-        "moving_time": 2408,
-        "elapsed_time": 2751,
-        "elevation_gain": 171.0,
-        "average_pace": 8.84,
-        "average_heartrate": 123.6,
-        "max_heartrate": 144.0,
-        "average_cadence": 88.8,
-        "average_watts": null,
-        "start_date": "2025-04-22T01:31:41Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14248751873",
-          "summary_polyline": "slpeFrghjV`@jG@r@VjEAf@@BB@Hp@ZhFZvDRjH`@bEBHPnBTlDJv@b@bH`@nFBv@NfBXxFLfADfAJ`AJnBPrB`@xDNfCFRFBd@@\\F\\\\d@lA`@\\TZHhANnAC`CDl@Jx@MRM`@D\\t@rALb@\\t@Pv@r@hA`@\\Lz@ZbARd@F`@DhBD^HZj@zAf@lAPl@@^EvBFdARdALd@Hh@Rr@XtA\\`CHv@?h@OjBGZINUDcCHa@FmA\\]TSXi@hAg@nA_A|AY~@g@fAKf@KjAKl@Cd@C@WGw@[u@Q_@O_@a@c@o@s@{@{BeDyAgCQa@W[eAg@CEM_@Gk@?oBBkBDi@VwB`@aC|@qEJ{AEqAY_A]q@[a@UUSGHKFe@KcBCwA?UDa@AmABq@J]b@[XG\\An@M^CVUDKX{BHu@@u@Jm@LoA?oAKkA[cBc@kBWq@Z]Qu@MuA@c@Tq@Je@Fm@AOMo@y@iCCg@Fk@Lw@SoA@}ABm@OgA[sAGk@IsDMm@K{@Ae@Bm@A}@MyCO}@GqAWy@g@}@Wo@?i@D{@IkABWLa@@gACgAEk@OaAGw@Ag@Fc@@{@Cq@c@_GEQy@?sC^ODYFaADIUCSA}BWgA",
           "resource_state": 2
         }
       }
