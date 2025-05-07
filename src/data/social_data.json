@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-05-06T19:02:21.383769",
+  "last_updated": "2025-05-07T10:28:02.429269",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Bring Her Back",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-05-06",
+        "is_rewatch": false,
+        "review": "<p>Letterboxd Offers come through!! Got to see a free screening of this a month before its release.</p><p>Like Talk to Me, this was well shot and filled with horribly disturbing visual imagery. Unlike its predecessor however, it was loose and messy and fell into too many horror tropes for me to fully enjoy it.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/6/2/7/1037627-bring-her-back-0-600-0-900-crop.jpg?v=e905e86301",
+        "link": "https://letterboxd.com/ncteisen/film/bring-her-back/"
+      },
       {
         "title": "Presence",
         "year": 2024,
@@ -72,16 +82,6 @@
         "review": "<p>If I start talking to Sarah the way Peter talks to Ellie what do you think would happen?</p><p>Also,</p><p>Idiot me, seeing Peter eating carrots raw and being called Doc: \"I wonder if that is based on bugs bunny\" \ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/8/9/3/49893-it-happened-one-night-0-600-0-900-crop.jpg?v=295aec1a60",
         "link": "https://letterboxd.com/ncteisen/film/it-happened-one-night/"
-      },
-      {
-        "title": "Flow",
-        "year": 2024,
-        "rating": 4.5,
-        "watched_date": "2025-03-19",
-        "is_rewatch": false,
-        "review": "<p>You know what, hell yeah Latvia</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/3/9/4/5/1/739451-flow-2024-0-600-0-900-crop.jpg?v=32f49339d9",
-        "link": "https://letterboxd.com/ncteisen/film/flow-2024/"
       }
     ]
   },
