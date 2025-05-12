@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-11T10:24:09.262090",
+  "last_updated": "2025-05-12T10:28:45.963496",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -10,7 +10,7 @@
         "watched_date": "2025-05-06",
         "is_rewatch": false,
         "review": "<p>Letterboxd Offers come through!! Got to see a free screening of this a month before its release.</p><p>Like Talk to Me, this was well shot and filled with horribly disturbing visual imagery. Unlike its predecessor however, it was loose and messy and fell into too many horror tropes for me to fully enjoy it.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/6/2/7/1037627-bring-her-back-0-600-0-900-crop.jpg?v=e905e86301",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/6/2/7/1037627-bring-her-back-0-600-0-900-crop.jpg?v=defe1dae77",
         "link": "https://letterboxd.com/ncteisen/film/bring-her-back/"
       },
       {
@@ -165,6 +165,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 14452200110,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.71,
+        "moving_time": 2506,
+        "elapsed_time": 2895,
+        "elevation_gain": 174.0,
+        "average_pace": 8.87,
+        "average_heartrate": 129.9,
+        "max_heartrate": 144.0,
+        "average_cadence": 88.7,
+        "average_watts": null,
+        "start_date": "2025-05-11T21:57:01Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14452200110",
+          "summary_polyline": "}ppeF`lhjV@LKZ?XENAh@Ff@RhACj@@JJt@N|Bf@bDBX@l@DXe@hBDXKp@B`ALn@Bh@FvBAh@SjA?XBVBf@El@?LFj@BNr@|AV~@Bh@XhCFvBEp@D~ARpANj@?\\DlA?z@N~@RzBCn@?p@L|@Dr@?h@Ex@Fd@ZfB\\hABR?l@Gh@Y|@IX?JPxATv@OTAVDVb@zAZzAHn@DbA@lAIvABp@SjEg@nGu@vHOrC]rCOf@[|A}AfJGn@MlB@lBJd@ZVfAZZXzE|Ht@fA`BrBZX^Lr@RXDT?Nc@XqADi@Pm@bBsDj@iARo@p@iATYZU^QxBUn@Af@KXy@Fc@Bi@Ci@g@mEg@gCW{@WqBCiAFqAEu@s@wBK[{@mAQS[WeByBm@OSQ?a@Ck@UiBMW}@PU?QMk@y@GG]Ia@@YIc@{@_@cAi@q@Og@MS]SA]MwAE_AMi@WuBWkAQk@Ki@K[Ga@Oc@RKH]Eq@Ae@Z}@Hg@@OAc@]iAQq@Kg@Io@@UHa@Fq@Ci@QsBBe@AcBOaASi@C_AGq@Cy@]uBEa@B}AG{@IgB@_AAa@SqAOm@}@yBCY?QBs@?q@PwBM}DOo@Ku@LoACcAMwAGUKwCO}AKe@IsAEyBXUGoAAoB",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 14438331931,
         "name": "Careful stepping",
         "type": "Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14323374286",
           "summary_polyline": "mrpeFfmhjVHn@JdBCf@Bd@H\\At@Hx@@b@R`@Jt@H`CL|BAbAEt@?^Lj@LXDtABV?jBQxABdAMjA@VBTRp@f@x@P`@^pCN|DAf@@bAJjA?ZV|@C`@?l@Bj@PnA`@fBF`@?NGf@C~@FfBMhBZvA^n@Nb@Hj@Et@i@pCLnAHEOuAe@aBG][}@QuAGyBMq@Gg@AsDFq@Do@AQGm@I]e@eAKg@C]?k@Ea@[gB?g@P{AAUKq@Ye@[wB@mAEc@CeBOuA@u@G{BD{@Eu@[sBEm@WwACYUs@Km@Ck@SwAOmBAg@EGGi@IwDOk@Ig@[CCYA_@E]GO",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14294540007,
-        "name": "POTA by feet",
-        "type": "Run",
-        "distance": 9.0,
-        "moving_time": 5497,
-        "elapsed_time": 5882,
-        "elevation_gain": 1601.0,
-        "average_pace": 10.18,
-        "average_heartrate": 129.9,
-        "max_heartrate": 160.0,
-        "average_cadence": 84.7,
-        "average_watts": null,
-        "start_date": "2025-04-26T16:43:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14294540007",
-          "summary_polyline": "m}jdFbppjVR|@@zAr@zC@r@QpAq@xB_@xJq@xF?dAb@nBJzBWpC{@lEgBnCuCdI_AdAk@fAwAzHQrEoJxSWdAlJtHVIlAyCRcAx@sKRq@h@i@CiAd@yBn@i@b@_AJoC~@iDXUrBTX{@XMXN\\fAzAl@Jb@A|Ac@fB@Vp@n@Tj@AdBnAf@Tz@y@pBAl@\\nASz@HrAGZy@v@Ed@?j@f@vAArAg@|Al@hGClFc@zALpBqA~@Ct@Ll@~@f@L\\jBvJzBvCj@JVi@}@qCEo@Le@jEe@fBVd@f@^Bb@aAhAmAC[a@Y}BMU[ImAMYa@UgAD_@QI_@ViAVQ~DM|@e@^{AE[k@cAEe@Ro@|@KbAPzBsALiCM]kAgAEc@Dm@`@YhCKtANj@r@?vA^r@zALbAzArAJfA`Bt@XTI`@cAj@o@d@qBDyBW}AHa@n@[`@B~@j@`E`EH`@D|A`BKXn@AdALX|@b@N\\b@rB^N|@DjArBXNxA{@Vb@`@pB\\T\\EhAaAh@iA|@w@f@f@X|AXJ`AQNZP~AMbBZx@^^VAnAk@B]O]mByB@s@t@iAC[gAu@[iBBk@v@i@Ea@_@UiAn@]C_AwAw@i@MuAc@i@eEaBUe@[gCoC{@aBkBwAmH`@yBh@{@TmAVmDn@yD@sA}@cBQcBNeAl@{An@y@DYgAsAAc@\\k@jBq@eA^_Az@Dn@r@x@Fd@m@p@k@vAI}@FcAu@o@k@_ByAPy@_@Es@`@iAIgBf@m@Bq@\\{@]S}@ROIa@m@j@w@gAKmAgACaA`@u@q@j@Wh@Hz@Oy@b@yAs@Ve@vATqAo@b@GNFv@m@]cAh@uApB{ApAs@I{@Vq@QMQGuCg@mAGw@g@aAMyE[mACkAu@NkB}@oAWMa@BgCxAW{AY_Ai@WPFhAKR_@@cBqAe@aB]k@Cs@\\i@FcAUsBh@MAY]k@qAs@aBeDLi@jAo@{DCg@l@k@oA\\m@EKw@H_@TGXHuBL_@RESC]AaAl@Ur@XlAw@s@_@mDb@kCd@c@?OqAZK{@z@aAn@MfCp@c@gAyAk@gAHgAMkAr@yBrD{@fDKlCP|Dp@fCExATcBaAqEEuB",
           "resource_state": 2
         }
       }
