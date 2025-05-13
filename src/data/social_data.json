@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-12T10:28:45.963496",
+  "last_updated": "2025-05-13T10:28:32.791549",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -165,6 +165,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 14462445363,
+        "name": "The Stairs of Sutro",
+        "type": "Run",
+        "distance": 6.75,
+        "moving_time": 4162,
+        "elapsed_time": 5153,
+        "elevation_gain": 1148.0,
+        "average_pace": 10.28,
+        "average_heartrate": 137.7,
+        "max_heartrate": 183.0,
+        "average_cadence": 85.9,
+        "average_watts": null,
+        "start_date": "2025-05-13T01:09:54Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14462445363",
+          "summary_polyline": "_lpeFlfhjVTjAHpAH`A[r@AXFn@Jj@HxAFj@BB@\\Hh@LbBR~AEbADj@Jd@LfBb@nCHpBNzADbC^hFFtCAj@Bp@v@tELJd@G`@MVJd@D`AUx@Dr@EZIT@x@Kn@UvAS`@Ap@MTKZ?vAOhBEzAMt@ObAGtAU`@OR@zAXf@V`@\\xA|@bAPr@PDDx@Fp@@bA]XEb@]p@Ux@?NTRLRDv@`@x@Fv@Xf@XTTb@Td@z@V`ABj@Hr@?jAJfA@|@XbC@b@Fn@FnAEt@Rn@b@jBh@dDb@bAn@lA`B`Br@d@LNRt@BdAXfBLjAAjAWjA?j@Bb@BLTXRRJD~@OnAVHMD[L]?GJS@QFMAIBELJIw@FMRAv@TrAj@|@l@lAh@JFf@t@JDMPDl@CJWF_@BUHYX[LOBw@h@u@HIPGZGRqAfCg@Z[FGHBPNPx@d@^ZpA~ARd@r@~@@JCDcAn@YFWAu@Uk@CuCVw@@[HKGKq@EK?IGS@IKY?QGWCMEAAMEOOM@IDACQ@DBGIIAQOIU`@[Zg@VaA`AQABMAQVe@Hi@EWF]JUNDVARO\\_@T_@`@]^CrAe@rA[ZSFOk@[mBGm@OMDUPS@KCGIKOAIAXCBEEMYIe@_@y@Ka@Fg@A[GSGMgAo@@OXG?ESK]?AELUHE`@@AKGEBCv@I?MKKa@OaA?OHOBACBQHKOMQCHOJ?PKOO@IN@OW[cAU[H?NRBCEi@M_A@i@M}@IAGRB^C`@MTYVOXCRB|@EVAh@K|@IxAM^IDDQ@q@A?ET[j@GBOC?ETGJWO?CGDO?e@GyAHWKk@Sm@DUNa@Ce@i@]i@i@w@}@Mg@C?AJXr@R`AHn@CHQKIk@Qa@OISC][c@{AIUIg@Og@McB?y@Eg@EQgB\\qCNoC\\sAEo@Po@Z]@[EQFkAJe@NOL]G_@BcBReBl@c@@]J_@Be@Cm@De@Ro@Ba@LmEd@y@BkC\\QSEWY?}AJc@TcAJKEOa@Ku@Hk@Pe@Hk@Ay@a@qBU{@Ae@N}AM_AUmFG]Us@MaABq@AuAMm@MqAASFq@?]QqAIqABi@UcCO{@i@mAMw@IcA@c@Ec@LqACg@?}BOaBEiA@gACeBSeB[uDPQEiA[qBG_ASeBIcB",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 14452200110,
         "name": "Afternoon Run",
         "type": "Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14345550920",
           "summary_polyline": "",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14323374286,
-        "name": "Ankle Test",
-        "type": "Run",
-        "distance": 2.57,
-        "moving_time": 1379,
-        "elapsed_time": 1543,
-        "elevation_gain": 141.0,
-        "average_pace": 8.94,
-        "average_heartrate": 129.6,
-        "max_heartrate": 163.0,
-        "average_cadence": 89.8,
-        "average_watts": null,
-        "start_date": "2025-04-29T14:19:14Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14323374286",
-          "summary_polyline": "mrpeFfmhjVHn@JdBCf@Bd@H\\At@Hx@@b@R`@Jt@H`CL|BAbAEt@?^Lj@LXDtABV?jBQxABdAMjA@VBTRp@f@x@P`@^pCN|DAf@@bAJjA?ZV|@C`@?l@Bj@PnA`@fBF`@?NGf@C~@FfBMhBZvA^n@Nb@Hj@Et@i@pCLnAHEOuAe@aBG][}@QuAGyBMq@Gg@AsDFq@Do@AQGm@I]e@eAKg@C]?k@Ea@[gB?g@P{AAUKq@Ye@[wB@mAEc@CeBOuA@u@G{BD{@Eu@[sBEm@WwACYUs@Km@Ck@SwAOmBAg@EGGi@IwDOk@Ig@[CCYA_@E]GO",
           "resource_state": 2
         }
       }
