@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-13T10:28:32.791549",
+  "last_updated": "2025-05-14T10:27:39.799861",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -165,6 +165,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 14473266044,
+        "name": "Evening Buzz",
+        "type": "Run",
+        "distance": 4.26,
+        "moving_time": 1984,
+        "elapsed_time": 2220,
+        "elevation_gain": 201.0,
+        "average_pace": 7.77,
+        "average_heartrate": null,
+        "max_heartrate": null,
+        "average_cadence": null,
+        "average_watts": null,
+        "start_date": "2025-05-14T00:38:36Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14473266044",
+          "summary_polyline": "aqpeFtkhjVCRFVC\\BXJVAPa@F@p@Nz@EZBV@@PHFN?TIf@DDAFBDA^DVCFBXAFNXAn@DVERBTAFHj@?ZFDAVB`@AVHdAI\\CF?NFH?VJ|@FLHH?PKV@JDDDZARBb@AZ?PQn@C`@AXF`AIrADZPV@LDD\\x@DDFLDTFJB^BF?N@DANX|BCLDT?n@NJEFIZBZAb@CL@f@Nf@ARBPRd@@JEr@BP?TCNFx@DTFJ@TJ^?NBD?NH`@@f@APBF?FGf@HLCVNzA?VCF?NEL@LIf@FJB^JTDVLVRl@Nt@ATEREh@GRQ^EV?THt@EXKDDAC@\\rBBFFB@`@^`BJn@Hr@BHANDJ?X@DCXB~@Mr@EHGBo@@QGa@[AGUKCMQQQSOYECIYKGU_@EAMM?Ca@Ka@BKLOFMLMBSTQH_@`@Wp@?FMf@IbBFl@@d@JnATzADHF\\?NDNFt@Fb@TlCFb@@d@Hr@Rr@b@f@JBDFz@n@Zb@b@fAX`@Vn@JJLARM\\GJ?JGRFDJ@@VGHBBDR?TOBUAG?GP[?]DIAMF]f@MDI?OLU@UA[Ba@Ek@?IFQNGj@Fx@AZOLCDEFQHEHOb@aAHYBMCUFm@EEIo@QUU_@MOGOCOA_@CWI]O]Ic@Fm@\\uAVw@JOXs@BE?GPIT_@L{@Ek@EQA[AE?SCK?WAGQMEMDQKOI?OGIKWaAMOYQIOKCKAQBODM?EEAk@Gm@?S@GCEE_@C_@@YEU?e@IU@_@ECAE?w@GW@[EW?YEUA}@GK@GAg@GGAi@EWEk@ECCG@i@CG?O@ECWBSAIEUAe@Iq@Ck@COCG?SGc@@UG_@Am@MkA?WEM@WEa@A[E_@CeAIk@@a@IYCk@Im@@_@E]A[ISDc@EME]?QCM@OCGEw@ES?k@W{BBWEU@_@IM?SGSG]@g@K_AGeBGUA{@GUBWEMKuACMKaCGq@KyBKWBK?GMsB@MYuC?UKoAGqA",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 14462445363,
         "name": "The Stairs of Sutro",
         "type": "Run",
@@ -314,28 +336,6 @@
         "commute": false,
         "map": {
           "id": "a14357940556",
-          "summary_polyline": "",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14345550920,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 2.01,
-        "moving_time": 1103,
-        "elapsed_time": 1103,
-        "elevation_gain": 0.0,
-        "average_pace": 9.16,
-        "average_heartrate": 130.4,
-        "max_heartrate": 146.0,
-        "average_cadence": 85.7,
-        "average_watts": null,
-        "start_date": "2025-05-01T15:25:26Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14345550920",
           "summary_polyline": "",
           "resource_state": 2
         }
