@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-15T10:28:32.437902",
+  "last_updated": "2025-05-16T10:27:24.841621",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -165,6 +165,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 14489222157,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.93,
+        "moving_time": 2563,
+        "elapsed_time": 2759,
+        "elevation_gain": 246.0,
+        "average_pace": 8.66,
+        "average_heartrate": 135.7,
+        "max_heartrate": 155.0,
+        "average_cadence": 89.7,
+        "average_watts": null,
+        "start_date": "2025-05-15T14:17:37Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14489222157",
+          "summary_polyline": "eqpeF~khjVAjBTrEAjABj@JfA?h@FnA?d@Fd@Bf@THUl@DbAE\\Ab@XrBD~AGfAUtA?RJl@An@Gv@Ff@Nb@t@|AJ\\XhCFrABfAEbC`@rCHfB?l@^lCCjBH|@FVBr@EpA@x@LhAl@jBJj@@NCn@Kf@]z@@\\NfAQf@NRJf@z@~CRfARpB?p@MlAKZODQ?a@E[Me@k@QWYo@_@_@O_@UWUGe@Ae@Hs@Zg@f@e@j@Qb@Op@CT?r@\\|Cn@pDD`@Vl@THQLADE`@Bl@^xDH^N^b@f@j@\\f@`@PT\\bAZd@Xj@PJpAM`@ATDT?HEDKb@wC\\EHGH_@NmAAyAPK^Ad@D^?VGVa@~@cBFI`@Qh@At@J^@rBMVEDQHg@HcAJUVQFQDo@h@i@DKDg@J_@Na@h@WXWVc@DYFwAEqB@sACoAGYQ]WUa@Oe@CQBYFc@T_@h@CJF~FAjADn@DPLNh@^n@P`@DJA`@OXWNc@BQBeA?mBC_EKa@S]Zw@EaAKc@I_@We@JkACm@ACk@A}@D[Fc@FsBNk@RUmBEK_@o@Ca@Ok@Ce@CK]@qAJa@EqCZc@?OOCYISUgCOwDS{CQuBIwBS{BUsDIg@OiBDYM_AMgDK{@GoBWsDIq@GcAUkCY}EWcCCu@IcACyAKaAOsCIe@BGKy@SiE",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 14473266044,
         "name": "Evening Buzz",
         "type": "Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14395901837",
           "summary_polyline": "krpeFvlhjVP`EG`@Rp@Br@Jv@@`@Ar@Z|B@l@L`C@TCHF|@Gj@?JTrADl@?bB@`@Ef@Oh@ETF|@Ch@Mz@Ff@b@x@n@`ANd@RxBBr@Db@Bx@IxABXEr@BPRh@Ff@R^H`@FbC\\pC@p@S`BB^RxAExAET@\\Jt@Rh@`@x@Hj@Cf@m@dBEb@VtA@NSJXbAPd@t@zCL|@JxAAl@Gt@Mx@EBQF[Ao@Q]k@CCQe@s@_AUg@QUECo@Iq@Bg@f@YL{@p@Qd@UrAC|@@h@Fn@BTd@nBL`AZzAFb@Dz@?ZHnANnALp@f@z@d@d@d@Zf@h@Zx@h@dA@LCb@Md@k@fDU|@o@pEEh@?t@DbER^`@FpCo@v@Wd@M`@?^N~@`AlDpFRJL@l@x@XV`@JVQrAyCBMFg@Gs@c@mAe@{@iAmB]W[[[o@Kg@Ys@a@aB]mBc@wD[kAIk@M{A?y@JyABsA@ENGd@ELKZ@XEXSl@{@n@yABOAi@Mi@c@k@Qe@K_Aa@cB?EFk@r@oCR_@v@iADQJ}@IqBGe@I[u@o@a@eAe@e@ICOCc@?MEGIEUCuAS}CSeCGuAS{@GoBIm@C}@I{@YyEa@gFMcDIq@ImBMw@AcBSgD]yDc@yGWuCg@sHO}C]sFKq@AKDQa@uG",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14357940556,
-        "name": "Bad one",
-        "type": "Run",
-        "distance": 1.68,
-        "moving_time": 926,
-        "elapsed_time": 926,
-        "elevation_gain": 0.0,
-        "average_pace": 9.2,
-        "average_heartrate": 117.3,
-        "max_heartrate": 130.0,
-        "average_cadence": 87.0,
-        "average_watts": null,
-        "start_date": "2025-05-02T20:18:57Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14357940556",
-          "summary_polyline": "",
           "resource_state": 2
         }
       }
