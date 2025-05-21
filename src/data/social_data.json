@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-05-20T10:28:03.000541",
+  "last_updated": "2025-05-21T10:28:10.184987",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Friendship",
+        "year": 2024,
+        "rating": 4.5,
+        "watched_date": "2025-05-19",
+        "is_rewatch": false,
+        "review": "<p>When the entire theater (except Sarah) cracked up at the very first micro facial expression Tim Robinson made in the opening seconds of the movie I knew we were in for a trip.</p><p>Hands down the most laughs I've ever heard in a movie theater (again, except for stony faced Sarah)</p><p>What I've always loved from ITYSL sketched is that never know if Tim is going to be the psycho and the other characters will be foils or vice versa (e.g. Hot Dog and Car Focus Group respectively). In this movie you get it both ways - you never know if a character will be in normal mode or psycho mode and that leads to some all-time lines like the sewer-gasm.</p><p>Can someone with a psychology of humor degree explain to me why Jimp is the funniest thing I've ever heard?</p><p>Exited to quote this ad nauseam for the rest of my life. </p><p>By the way did I mention how much Sarah hated this movie??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/2/6/9/1/1122691-friendship-2024-0-600-0-900-crop.jpg?v=9ea74152f4",
+        "link": "https://letterboxd.com/ncteisen/film/friendship-2024/"
+      },
+      {
+        "title": "Sideways",
+        "year": 2004,
+        "rating": 4.0,
+        "watched_date": "2025-05-18",
+        "is_rewatch": false,
+        "review": "<p>Immediately after watching: \"cute sad/funny movie! Probably won't think about it too much after watching\"</p><p>The next day: \"hmm I am still thinking about some scenes\"</p><p>The next day: *browsing Etsy for a shirt that says \"I'm not drinking any <b>fucking</b> merlot*</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/tl/8f/2j/rx/k8UfdLAP07SDfilmWOHFPv23tu7-0-600-0-900-crop.jpg?v=d63207112a",
+        "link": "https://letterboxd.com/ncteisen/film/sideways/"
+      },
       {
         "title": "Bring Her Back",
         "year": 2025,
@@ -62,26 +82,6 @@
         "review": "<p>Just enough cinematic and directorial flair to make up for the run-of-the-mill spy plot.</p><p>Top wins<br/>- 93 minute runtime<br/>- Marisa Abela<br/>- Black Bag becoming a part of my everyday conversations with my wife (\"did you eat <b>all</b> of the leftovers we were saving for lunch?\" \"sorry sweetie, black bag\")</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/6/7/5/5/1116755-black-bag-2025-0-600-0-900-crop.jpg?v=7dbc1baf6f",
         "link": "https://letterboxd.com/ncteisen/film/black-bag-2025/"
-      },
-      {
-        "title": "Heretic",
-        "year": 2024,
-        "rating": 3.0,
-        "watched_date": "2025-03-26",
-        "is_rewatch": false,
-        "review": "<p>The curse of the underwhelming third act horror movie continues! Why is it so hard to stick the landing with this genre?</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/5/3/3/1/1025331-heretic-2024-0-600-0-900-crop.jpg?v=c79c5c8121",
-        "link": "https://letterboxd.com/ncteisen/film/heretic-2024/"
-      },
-      {
-        "title": "It Happened One Night",
-        "year": 1934,
-        "rating": 4.0,
-        "watched_date": "2025-03-22",
-        "is_rewatch": false,
-        "review": "<p>If I start talking to Sarah the way Peter talks to Ellie what do you think would happen?</p><p>Also,</p><p>Idiot me, seeing Peter eating carrots raw and being called Doc: \"I wonder if that is based on bugs bunny\" \ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffc\u200d\u2642\ufe0f</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/8/9/3/49893-it-happened-one-night-0-600-0-900-crop.jpg?v=295aec1a60",
-        "link": "https://letterboxd.com/ncteisen/film/it-happened-one-night/"
       }
     ]
   },
@@ -164,6 +164,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 14539848223,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.0,
+        "moving_time": 2058,
+        "elapsed_time": 2196,
+        "elevation_gain": 180.0,
+        "average_pace": 8.57,
+        "average_heartrate": 129.2,
+        "max_heartrate": 152.0,
+        "average_cadence": 90.9,
+        "average_watts": null,
+        "start_date": "2025-05-20T13:35:58Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14539848223",
+          "summary_polyline": "grpeFvmhjVHbAFvBDVB^@dAFn@AZNpANt@D^Bl@RrB?JERDp@?b@Gl@@l@Lh@Fl@DbAEpAQnBDn@AVEp@@p@Nl@x@dBj@|DJbHPjALf@Ab@FtDHr@Lf@DHDj@Ar@Bl@NlAAr@IdBBl@Ll@h@bBJj@ChAIZYt@?LDf@Jf@WVLXd@`Bj@pCPlAFvAKtBQVY?i@OWMUYiA}Aq@iA]IM?e@FiAd@s@z@[~@Mt@Cx@@n@LtA|@vFH~@JhBXjCZlAV^\\Vf@Xn@n@fApCTPL?t@OZFl@@XEFGd@}CJI\\IFWJ}AAiAFEbBL^Kb@e@Rq@Jo@Vk@Le@Ek@Kg@Ye@[y@IcAWeAA[^yBPe@Zk@^q@Z_@DQDk@QgCGc@KUe@k@KUSs@m@m@UE_@ASAISCSC{AUsCAm@_@kEKi@GcBCGEu@CiBEYY}@O_AKcAQcAKY]qAPsBOs@Iq@DyA?WMm@Ak@@qAMuBESGg@A_AGk@WmAQgA@MEi@A}CIe@ImAAw@K{@EyBSaAIoAIsBDiBCsAUcCKa@AmAUgE",
+          "resource_state": 2
+        }
+      },
       {
         "id": 14522072111,
         "name": "Spontaneous b2b bandit-ing",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14452200110",
           "summary_polyline": "}ppeF`lhjV@LKZ?XENAh@Ff@RhACj@@JJt@N|Bf@bDBX@l@DXe@hBDXKp@B`ALn@Bh@FvBAh@SjA?XBVBf@El@?LFj@BNr@|AV~@Bh@XhCFvBEp@D~ARpANj@?\\DlA?z@N~@RzBCn@?p@L|@Dr@?h@Ex@Fd@ZfB\\hABR?l@Gh@Y|@IX?JPxATv@OTAVDVb@zAZzAHn@DbA@lAIvABp@SjEg@nGu@vHOrC]rCOf@[|A}AfJGn@MlB@lBJd@ZVfAZZXzE|Ht@fA`BrBZX^Lr@RXDT?Nc@XqADi@Pm@bBsDj@iARo@p@iATYZU^QxBUn@Af@KXy@Fc@Bi@Ci@g@mEg@gCW{@WqBCiAFqAEu@s@wBK[{@mAQS[WeByBm@OSQ?a@Ck@UiBMW}@PU?QMk@y@GG]Ia@@YIc@{@_@cAi@q@Og@MS]SA]MwAE_AMi@WuBWkAQk@Ki@K[Ga@Oc@RKH]Eq@Ae@Z}@Hg@@OAc@]iAQq@Kg@Io@@UHa@Fq@Ci@QsBBe@AcBOaASi@C_AGq@Cy@]uBEa@B}AG{@IgB@_AAa@SqAOm@}@yBCY?QBs@?q@PwBM}DOo@Ku@LoACcAMwAGUKwCO}AKe@IsAEyBXUGoAAoB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14438331931,
-        "name": "Careful stepping",
-        "type": "Run",
-        "distance": 9.2,
-        "moving_time": 5180,
-        "elapsed_time": 5820,
-        "elevation_gain": 1014.0,
-        "average_pace": 9.38,
-        "average_heartrate": 137.1,
-        "max_heartrate": 169.0,
-        "average_cadence": 87.5,
-        "average_watts": null,
-        "start_date": "2025-05-10T15:43:09Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14438331931",
-          "summary_polyline": "_rpeFplhjVAnBLjBf@vD?vAb@fJGx@VxDE`CSvABz@CtAd@zAj@hAh@~EFz@BlE^hCBfDX`C?rB^xCKxARlAd@tATpAEv@Kd@_@x@TlBJ`@PVh@NZSbEa@jKcBhAEpDe@jA?tC_AnBAb@MlCUTOjEMbAKvAg@pBK~AYHb@C|@Bd@NbAZtAx@bBnAnAh@z@s@qACe@_@u@DMf@j@LZdAhA`@TA\\Wt@^fBG|@BnAI^XHBR_@LPLNAZeABd@IN@LH?M^WZPh@NJNIBFIXu@GwA}@lAfBj@^i@Pd@Tx@BWTFJh@Ej@L^APLBYFEDSl@[TFFJJE`@NTRv@~ARLRBj@WrA@tBXJIEGwBcA}AcBAw@Rj@d@L]i@OwBXoANiBIa@a@e@AuAYwACcB_@}@Ng@RSr@CRMZi@?c@E[_@m@@GRE\\i@V\\v@Hn@n@NGVRRYj@bA\\TpB@b@MRa@AgA]qAWW_@aAi@y@?c@Oo@qAaDi@]]q@Ke@?m@h@]Lg@L_CRiACe@hDu@dAi@t@q@Bo@o@iBOOm@@OIEfA_@vA?NNTV?tBw@x@]`@[j@Od@FjBnBd@Tb@Bb@KhA{@p@AnCbCLh@EjADRbA?JEM_AJGXPJCJy@HIVn@`H~E@Xy@`FB`EV|B\\p@d@vA@ZSAA\\DbAFb@LX@Xq@x@Bv@Ep@e@n@KGAUE@OlAc@^?WODIT?f@Ke@?kAGUO`@[Wg@?WM[Ay@X[VHZARe@z@It@AdBFvAAl@Y`BO`@Ep@J`BFNJ?DKGWBCPTDR_@v@s@`Aa@~@Gl@L^G@KKEMJp@O?IQI?Fv@LPINSJJF^GALYZBDt@OHHoA`Af@EbAHaB`Aa@x@PTCVoAhBmD`EmAbAeCpA}AB]S{AWmCImBBgBTyDAiCRa@QsAEiC^}D@qG`@oAI{Gn@gBMeEVkAGgBDo@LMPZhDQpCQZuE^eA^[ZMBKMyA_DuCiEq@cBe@_EwAmJC{@LiBEg@y@kD]g@wBwAEKDsAf@cGIeCJ{AOqCM_A_AkDTe@YcC@g@^sA@s@Is@k@kBGe@Ck@JiAK}AEsCm@uDDkCEm@c@gCBqAU_DKcCMiAeAmCGm@CiCPuBCsC[mC?_AUyFa@mFEkBUgAIyCUmBBaARMhBU|@UJj@H|D",
           "resource_state": 2
         }
       }
