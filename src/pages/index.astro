@@ -1,5 +1,5 @@
 ---
-// Import the social data JSON file
+// Dynamically import the social data JSON module. This allows Astro to correctly bundle the data.
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as { 
 	letterboxd: { recent_reviews: MovieReview[] },
@@ -14,50 +14,99 @@ const letterboxdData = socialData.letterboxd;
 const goodreadsData = socialData.goodreads;
 const stravaData = socialData.strava;
 
+/**
+ * Represents a movie review from Letterboxd.
+ */
 interface MovieReview {
+	/** The title of the movie. */
 	title: string;
+	/** The year the movie was released. */
 	year: number;
+	/** The rating given to the movie (out of 5). */
 	rating: number;
+	/** The date the movie was watched. */
 	watched_date: string;
+	/** Whether the movie was a rewatch. */
 	is_rewatch: boolean;
+	/** The review content (may include HTML). */
 	review: string;
+	/** The URL of the movie poster image. */
 	image_url: string;
+	/** The URL to the movie on Letterboxd. */
 	link: string;
 }
 
+/**
+ * Represents a book review from Goodreads.
+ */
 interface BookReview {
+	/** The title of the book. */
 	title: string;
+	/** The author of the book. */
 	author: string;
+	/** The rating given to the book (out of 5). */
 	rating: number;
+	/** The date the book was read. */
 	read_at: string;
+	/** The review content (may include HTML). */
 	review: string;
+	/** The URL of the book cover image. */
 	image_url: string;
+	/** The URL to the book on Goodreads. */
 	link: string;
 }
 
+/**
+ * Represents a Strava activity.
+ */
 interface StravaActivity {
+	/** The unique identifier for the activity. */
 	id: number;
+	/** The name of the activity. */
 	name: string;
+	/** The type of activity (e.g., "Run", "Ride"). */
 	type: string;
+	/** The distance of the activity in miles. */
 	distance: number;
+	/** The moving time of the activity in seconds. */
 	moving_time: number;
+	/** The elapsed time of the activity in seconds. */
 	elapsed_time: number;
+	/** The total elevation gain in feet. */
 	elevation_gain: number;
+	/** The average pace in minutes per mile. */
 	average_pace: number;
+	/** The average heart rate during the activity. */
 	average_heartrate: number | null;
+	/** The maximum heart rate during the activity. */
 	max_heartrate: number | null;
+	/** The average cadence during the activity. */
 	average_cadence: number | null;
+	/** The average power output in watts (for cycling). */
 	average_watts: number | null;
+	/** The start date and time of the activity. */
 	start_date: string;
+	/** The description of the activity. */
 	description: string | null;
+	/** Whether the activity was a commute. */
 	commute: boolean;
+	/** Information about the activity's map. */
 	map: {
+		/** The ID of the map. */
 		id: string;
+		/** The encoded polyline of the activity route. */
 		summary_polyline: string;
+		/** The resource state of the map. */
 		resource_state: number;
 	};
 }
 
+/**
+ * Converts a numerical rating to a string of star characters.
+ * For example, 3.5 becomes "★★★½".
+ * @param rating The numerical rating (e.g., out of 5).
+ * @returns A string representation of the rating using star characters.
+ */
 function getStarRating(rating: number): string {
 	const fullStars = Math.floor(rating);
 	const hasHalfStar = rating % 1 >= 0.5;
@@ -65,6 +114,11 @@ function getStarRating(rating: number): string {
 	return '★'.repeat(fullStars) + (hasHalfStar ? '½' : '');
 }
 
+/**
+ * Formats a duration in seconds into a human-readable string (e.g., "1h 23m" or "45m").
+ * @param seconds The duration in seconds.
+ * @returns A formatted string representing the duration.
+ */
 function formatDuration(seconds: number): string {
 	const hours = Math.floor(seconds / 3600);
 	const minutes = Math.floor((seconds % 3600) / 60);
@@ -75,6 +129,12 @@ function formatDuration(seconds: number): string {
 	return `${minutes}m`;
 }
 
+/**
+ * Formats a date string into a more readable format "Month Day, Year".
+ * For example, "2023-10-26T00:00:00.000Z" becomes "October 26, 2023".
+ * @param dateString The date string to format.
+ * @returns A formatted date string.
+ */
 function formatDate(dateString: string): string {
 	const date = new Date(dateString);
 	return date.toLocaleDateString('en-US', { 
@@ -84,6 +144,12 @@ function formatDate(dateString: string): string {
 	});
 }
 
+/**
+ * Calculates and formats speed given distance (in miles) and time (in seconds).
+ * @param distance The distance traveled in miles.
+ * @param time The time taken in seconds.
+ * @returns The speed formatted as a string to one decimal place (e.g., "7.2 mph").
+ */
 function formatSpeed(distance: number, time: number): string {
 	const speed = distance / (time / 3600);
 	return speed.toFixed(1);
@@ -111,18 +177,19 @@ function formatSpeed(distance: number, time: number): string {
 				gtag: (...args: any[]) => void;
 			}
 
-			// Initialize GA4
+			// Google Analytics 4 (GA4) setup: Initializes dataLayer and gtag function.
 			window.dataLayer = window.dataLayer || [];
 			window.gtag = function() { window.dataLayer.push(arguments); };
 			window.gtag('js', new Date());
 			window.gtag('config', 'G-DW532NM54T');
 		</script>
 		<script define:vars={{ stravaData }}>
-			// Make Strava data available to the client-side script
+			// Make Strava data (passed from Astro frontmatter) available globally on the window object for client-side JavaScript access.
 			window.__STRAVA_DATA__ = stravaData;
 		</script>
 		<script>
 			document.addEventListener('DOMContentLoaded', async function() {
+				// Handles the "See more/Show less" functionality for movie reviews.
 				const seeMoreButton = document.querySelector('.see-more-button');
 				const moreMovies = document.getElementById('more-movies');
 				
@@ -131,6 +198,7 @@ function formatSpeed(distance: number, time: number): string {
 						if (moreMovies.classList.contains('hidden')) {
 							moreMovies.classList.remove('hidden');
 							seeMoreButton.textContent = 'Show less';
+							// Track "see more movies" button click.
 							window.gtag('event', 'see_more_movies', {
 								'event_category': 'engagement',
 								'event_label': 'movies'
@@ -143,14 +211,17 @@ function formatSpeed(distance: number, time: number): string {
 				}
 
 				// Books button
+				// TODO: This selector is fragile as it relies on the button being the second one with this class. Consider adding a unique ID to this button for more robust selection.
 				const seeMoreBooksButton = document.querySelectorAll('.see-more-button')[1];
 				const moreBooks = document.getElementById('more-books');
 				
+				// Handles the "See more/Show less" functionality for book reviews.
 				if (seeMoreBooksButton && moreBooks) {
 					seeMoreBooksButton.addEventListener('click', function() {
 						if (moreBooks.classList.contains('hidden')) {
 							moreBooks.classList.remove('hidden');
 							seeMoreBooksButton.textContent = 'Show less';
+							// Track "see more books" button click.
 							window.gtag('event', 'see_more_books', {
 								'event_category': 'engagement',
 								'event_label': 'books'
@@ -167,16 +238,19 @@ function formatSpeed(distance: number, time: number): string {
 					link.addEventListener('click', function(this: HTMLElement) {
 						const href = this.getAttribute('href');
 						if (href?.includes('github.com')) {
+							// Track GitHub social link click.
 							window.gtag('event', 'click', {
 								'event_category': 'social',
 								'event_label': 'github'
 							});
 						} else if (href?.includes('linkedin.com')) {
+							// Track LinkedIn social link click.
 							window.gtag('event', 'click', {
 								'event_category': 'social',
 								'event_label': 'linkedin'
 							});
 						} else if (href?.includes('resume.pdf')) {
+							// Track Resume social link click.
 							window.gtag('event', 'click', {
 								'event_category': 'social',
 								'event_label': 'resume'
@@ -190,16 +264,19 @@ function formatSpeed(distance: number, time: number): string {
 					link.addEventListener('click', function(this: HTMLElement) {
 						const href = this.getAttribute('href');
 						if (href?.includes('letterboxd.com')) {
+							// Track Letterboxd profile link click.
 							window.gtag('event', 'click', {
 								'event_category': 'profile',
 								'event_label': 'letterboxd'
 							});
 						} else if (href?.includes('goodreads.com')) {
+							// Track Goodreads profile link click.
 							window.gtag('event', 'click', {
 								'event_category': 'profile',
 								'event_label': 'goodreads'
 							});
 						} else if (href?.includes('strava.com')) {
+							// Track Strava profile link click.
 							window.gtag('event', 'click', {
 								'event_category': 'profile',
 								'event_label': 'strava'
@@ -209,14 +286,18 @@ function formatSpeed(distance: number, time: number): string {
 				});
 
 				try {
-					// Import dependencies
+					// Dynamically import Leaflet and polyline libraries for map rendering.
 					const L = (await import('leaflet')).default;
 					const polyline = (await import('@mapbox/polyline')).default;
 
 					// Get Strava data from the window object
 					const stravaData = (window as any).__STRAVA_DATA__;
 
-					// Initialize maps for each activity
+					/**
+					 * Initializes a Leaflet map to display a Strava activity route.
+					 * @param {string} elementId The ID of the HTML element where the map will be rendered.
+					 * @param {string} encodedPolyline The encoded polyline string for the activity route.
+					 */
 					function initMap(elementId: string, encodedPolyline: string) {
 						if (!encodedPolyline) return;
 
@@ -248,10 +329,11 @@ function formatSpeed(distance: number, time: number): string {
 						});
 					}
 
-					// Initialize maps for run and bike activities
+					// Initialize map for the most recent run, if data is available.
 					if (stravaData?.recent_runs?.[0]?.map?.summary_polyline) {
 						initMap('run-map', stravaData.recent_runs[0].map.summary_polyline);
 					}
+					// Initialize map for the most recent bike ride, if data is available.
 					if (stravaData?.recent_bikes?.[0]?.map?.summary_polyline) {
 						initMap('bike-map', stravaData.recent_bikes[0].map.summary_polyline);
 					}
@@ -261,6 +343,7 @@ function formatSpeed(distance: number, time: number): string {
 			});
 		</script>
 		<style>
+			/* === Root Variables === */
 			:root {
 				--primary-color: #3b82f6;
 				--accent-color: #10b981;
@@ -275,6 +358,7 @@ function formatSpeed(distance: number, time: number): string {
 				--glow-color: rgba(59, 130, 246, 0.5);
 			}
 
+			/* === Global Styles === */
 			body {
 				margin: 0;
 				padding: 0;
@@ -291,6 +375,7 @@ function formatSpeed(distance: number, time: number): string {
 				padding: 2rem;
 			}
 
+			/* === Header Styles === */
 			header {
 				margin-bottom: 4rem;
 				display: flex;
@@ -340,10 +425,12 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-muted);
 			}
 
+			/* === General Section Styles === */
 			section {
 				margin-bottom: 4rem;
 			}
 
+			/* === Social Links === */
 			.social-links {
 				display: flex;
 				gap: 1.5rem;
@@ -365,6 +452,7 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
+			/* === Section: Career === */
 			.career-highlights {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
@@ -446,6 +534,80 @@ function formatSpeed(distance: number, time: number): string {
 				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 			}
 
+			/* === Card Styles === */
+			/* --- Highlight Card (Used in Career Section) --- */
+			.highlight-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+			}
+
+			.highlight-card .company-icon {
+				position: absolute;
+				top: 1.5rem;
+				right: 1.5rem;
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				opacity: 0.7;
+			}
+
+			.highlight-card:hover .company-icon {
+				opacity: 1;
+				transform: scale(1.1);
+			}
+
+			.highlight-card h3 {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 0.25rem;
+				color: var(--primary-color);
+			}
+
+			.highlight-card .job-title {
+				font-size: 1.1rem;
+				font-weight: 500;
+				margin-bottom: 0.25rem;
+				color: var(--text-color);
+			}
+
+			.highlight-card .date-range {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				margin-bottom: 0.75rem;
+				font-style: italic;
+			}
+
+			.highlight-card p {
+				font-size: 0.95rem;
+				line-height: 1.6;
+				margin-bottom: 0;
+				color: var(--text-muted);
+			}
+
+			.highlight-card a {
+				color: var(--text-muted);
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 2px;
+				transition: all 0.2s ease;
+			}
+
+			.highlight-card a:hover {
+				color: var(--text-color);
+				text-decoration-thickness: 2px;
+			}
+
+			.highlight-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+			}
+
+			/* === Section: Side Projects === */
 			.projects-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -482,7 +644,37 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-muted);
 			}
 
-			#projects a {
+			/* --- Project Card --- */
+			.project-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				color: var(--text-color);
+				display: block;
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+				border-color: var(--primary-color);
+			}
+
+			.project-title {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: var(--primary-color);
+			}
+
+			.project-description {
+				font-size: 0.95rem;
+				color: var(--text-muted);
+			}
+
+			#projects a { /* Specific link styling within projects section */
 				color: var(--link-color);
 				text-decoration: none;
 				font-weight: 500;
@@ -494,6 +686,7 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
+			/* === Footer Styles === */
 			footer {
 				text-align: center;
 				margin-top: 4rem;
@@ -503,6 +696,8 @@ function formatSpeed(distance: number, time: number): string {
 				font-size: 0.9rem;
 			}
 
+			/* === Media Queries === */
+			/* --- Tablet and Smaller (max-width: 768px) --- */
 			@media (max-width: 768px) {
 				.container {
 					padding: 1.5rem;
@@ -565,6 +760,7 @@ function formatSpeed(distance: number, time: number): string {
 				}
 			}
 
+			/* --- Smaller Desktop (max-width: 900px) --- */
 			@media (max-width: 900px) {
 				.career-highlights {
 					grid-template-columns: 1fr;
@@ -572,10 +768,12 @@ function formatSpeed(distance: number, time: number): string {
 				}
 			}
 
+			/* === Section: Other Interests === */
 			#other-interests {
 				margin-bottom: 4rem;
 			}
 
+			/* --- Interest Card (Parent for Movie/Book/Fitness cards) --- */
 			.interests-grid {
 				display: grid;
 				grid-template-columns: 1fr;
@@ -617,7 +815,42 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-muted);
 			}
 
-			.recent-movies {
+			.interest-card {
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1.5rem;
+				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			.interest-card h3 {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+				color: var(--primary-color);
+			}
+
+			.interest-card .section-icon {
+				position: absolute;
+				top: 1.5rem;
+				right: 1.5rem;
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				opacity: 0.7;
+			}
+
+			.interest-card:hover .section-icon {
+				opacity: 1;
+				transform: scale(1.1);
+			}
+
+			.interest-card p {
+				color: var(--text-muted);
+			}
+
+			/* --- Movie/Book/Activity Card Container --- */
+			.recent-movies { /* This class is used for movies, books, and fitness activities lists */
 				margin-top: 1rem;
 				display: grid;
 				grid-template-columns: 1fr;
@@ -653,7 +886,8 @@ function formatSpeed(distance: number, time: number): string {
 				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 			}
 
-			.movie-info {
+			/* --- Movie/Book/Activity Info --- */
+			.movie-info { /* Shared by movie, book, and activity cards */
 				flex: 1;
 				display: flex;
 				flex-direction: column;
@@ -674,7 +908,17 @@ function formatSpeed(distance: number, time: number): string {
 				line-height: 1;
 			}
 
-			.review {
+			/* === Utility Styles === */
+			.rating { /* Star rating display */
+				color: var(--gold-color);
+				font-weight: bold;
+				margin: 0;
+				margin-bottom: 0.5rem;
+				letter-spacing: 2px;
+				line-height: 1;
+			}
+
+			.review { /* Review text block */
 				margin: -1rem 0rem 0rem 0rem;
 				color: var(--text-muted);
 				font-size: 0.95rem;
@@ -704,7 +948,7 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
-			.watched-date {
+			.watched-date { /* Date styling for movies/books */
 				font-size: 0.75rem;
 				color: var(--text-muted);
 				opacity: 0.5;
@@ -729,6 +973,7 @@ function formatSpeed(distance: number, time: number): string {
 				text-shadow: 0 0 8px var(--glow-color);
 			}
 
+			/* --- Profile Links & Separators --- */
 			.profile-separator {
 				border: none;
 				border-top: 1px solid var(--card-border);
@@ -764,6 +1009,7 @@ function formatSpeed(distance: number, time: number): string {
 				font-style: italic;
 			}
 
+			/* --- "See More" Button Styles --- */
 			.see-more-container {
 				text-align: center;
 				margin: 1.5rem 0;
@@ -786,17 +1032,18 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-color);
 			}
 
-			.more-movies {
+			.more-movies { /* Container for additional movies/books shown by "See More" button */
 				margin-top: 1.5rem;
 				display: grid;
 				grid-template-columns: 1fr;
 				gap: .75rem;
 			}
 
-			.hidden {
+			.hidden { /* Utility class to hide elements */
 				display: none;
 			}
 
+			/* === Section: Fitness (Strava) === */
 			.activity-date {
 				font-size: 0.75rem;
 				color: var(--text-muted);
@@ -825,7 +1072,24 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--primary-color);
 			}
 
-			.strava-embed {
+			.activity-stats { /* Container for activity statistics */
+				margin-top: -1rem;;
+				color: var(--text-muted);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+
+			.activity-stats strong {
+				color: var(--text-color);
+				font-weight: 500;
+			}
+
+			.activity-icon {
+				margin-right: 0.5rem;
+				color: var(--primary-color);
+			}
+
+			.strava-embed { /* Styles for deprecated Strava embed (if ever used) */
 				width: 100%;
 				max-width: 590px;
 				height: 405px;
@@ -874,21 +1138,66 @@ function formatSpeed(distance: number, time: number): string {
 				border: 1px solid var(--card-border);
 			}
 
-			.fitness-activities {
+			/* --- Stat Grid (for fitness activities) --- */
+			.stat-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 1rem;
+				margin: 1rem 0;
+			}
+
+			.stat-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 0.75rem;
+				background-color: rgba(31, 41, 55, 0.5);
+				border-radius: 4px;
+				border: 1px solid var(--card-border);
+			}
+
+			.stat-label {
+				font-size: 0.75rem;
+				color: var(--text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.25rem;
+			}
+
+			.stat-value {
+					font-size: 1.1rem;
+				color: var(--text-color);
+				font-weight: 500;
+			}
+
+			/* --- Activity Map --- */
+			.activity-map {
+				width: 100%;
+				height: 300px;
+				margin: 1rem 0;
+				border-radius: 4px;
+				overflow: hidden;
+				border: 1px solid var(--card-border);
+			}
+
+			/* --- Fitness Activities Layout --- */
+			.fitness-activities { /* Grid for run/bike cards */
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 1rem;
 			}
 
 			@media (max-width: 768px) {
-				.fitness-activities {
+				.fitness-activities { /* Stack fitness activities on smaller screens */
 					grid-template-columns: 1fr;
 				}
 			}
 		</style>
 	</head>
 	<body>
+		<!-- Main Page Content -->
 		<main class="container" role="main">
+			<!-- Header Section Start -->
 			<header>
 				<div class="header-content">
 					<h1>Noah Eisen</h1>
@@ -923,7 +1232,9 @@ function formatSpeed(distance: number, time: number): string {
 					/>
 				</div>
 			</header>
+			<!-- Header Section End -->
 
+			<!-- Career Snapshot Section Start -->
 			<section id="career">
 				<h2>Career Snapshot</h2>
 				<div class="career-highlights">
@@ -990,7 +1301,9 @@ function formatSpeed(distance: number, time: number): string {
 					</div>
 				</div>
 			</section>
+			<!-- Career Snapshot Section End -->
 
+			<!-- Side Projects Section Start -->
 			<section id="projects">
 				<h2>Side Projects</h2>
 				<p>Newer projects coming soon! In the meantime, you can check out my <a href="/old">old website</a> for projects I made many years ago.</p>
@@ -1009,7 +1322,9 @@ function formatSpeed(distance: number, time: number): string {
 					</a>
 				</div>
 			</section>
+			<!-- Side Projects Section End -->
 
+			<!-- Other Interests Section Start -->
 			<section id="other-interests">
 				<h2>Other Interests</h2>
 				<div class="interests-grid">
@@ -1025,6 +1340,7 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>{movie.title} ({movie.year})</h4>
 										<p class="rating">{getStarRating(movie.rating)}</p>
 										<p class="watched-date">Watched on {movie.watched_date}</p>
+										{/* Using set:html to render HTML content from the movie review. Astro sanitizes this by default. */}
 										<div class="review" set:html={movie.review}></div>
 										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
 									</div>
@@ -1042,6 +1358,7 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>{movie.title} ({movie.year})</h4>
 										<p class="rating">{getStarRating(movie.rating)}</p>
 										<p class="watched-date">Watched on {movie.watched_date}</p>
+										{/* Using set:html to render HTML content from the movie review. Astro sanitizes this by default. */}
 										<div class="review" set:html={movie.review}></div>
 										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
 									</div>
@@ -1071,6 +1388,7 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>{book.title}</h4>
 										<p class="rating">{getStarRating(book.rating)}</p>
 										<p class="watched-date">Read on {book.read_at}</p>
+										{/* Using set:html to render HTML content from the book review. Astro sanitizes this by default. */}
 										<div class="review" set:html={book.review}></div>
 										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
 									</div>
@@ -1088,6 +1406,7 @@ function formatSpeed(distance: number, time: number): string {
 										<h4>{book.title}</h4>
 										<p class="rating">{getStarRating(book.rating)}</p>
 										<p class="watched-date">Read on {book.read_at}</p>
+										{/* Using set:html to render HTML content from the book review. Astro sanitizes this by default. */}
 										<div class="review" set:html={book.review}></div>
 										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
 									</div>
@@ -1183,10 +1502,14 @@ function formatSpeed(distance: number, time: number): string {
 					</div>
 				</div>
 			</section>
+			<!-- Other Interests Section End -->
 
+			<!-- Footer Section Start -->
 			<footer>
 				<p>© {new Date().getFullYear()} Noah Eisen. All rights reserved.</p>
 			</footer>
+			<!-- Footer Section End -->
 		</main>
+		<!-- End Main Page Content -->
 	</body>
 </html>
