@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-24T10:24:45.949735",
+  "last_updated": "2025-05-25T10:24:36.913037",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -88,6 +88,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
+        "author": "Suzanne Collins",
+        "rating": 2.0,
+        "read_at": "2025/05/24",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg",
+        "link": "https://www.goodreads.com/review/show/7597004885?utm_medium=api&utm_source=rss",
+        "review": "<br/>This is an example of a prequel that actually causes a character to <i>lose</i> depth. Haymitch was a fully three-dimensional character in the original trilogy, with a backstory and that was shown, not told, and understood through dialog and choices.<br /><br />This prequel was a cameo-jammed, overly retconned, unnecessary retelling of a story that packed a bigger punch in less than ten pages of <i>Catching Fire</i>.<br /><br />The only saving grace - even though I complained about it a sentence ago - is that each cameo did make me squeal \"omg I KNOW them.\"<br/>"
+      },
+      {
         "title": "Station Eleven",
         "author": "Emily St. John Mandel",
         "rating": 5.0,
@@ -149,21 +158,34 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746532708l/89724.jpg",
         "link": "https://www.goodreads.com/review/show/7122621083?utm_medium=api&utm_source=rss",
         "review": "<br/>I did not like this very much - but it broke my multi month reading dry spell so it has that going for it<br/>"
-      },
-      {
-        "title": "Bewilderment",
-        "author": "Richard Powers",
-        "rating": 4.0,
-        "read_at": "2024/11/12",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673079272l/75626888.jpg",
-        "link": "https://www.goodreads.com/review/show/7290922729?utm_medium=api&utm_source=rss",
-        "review": "<br/>My favorite parts were the parts about the planets<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen"
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 14583227139,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 7.49,
+        "moving_time": 4075,
+        "elapsed_time": 5217,
+        "elevation_gain": 361.0,
+        "average_pace": 9.06,
+        "average_heartrate": 139.3,
+        "max_heartrate": 177.0,
+        "average_cadence": 87.9,
+        "average_watts": null,
+        "start_date": "2025-05-24T16:03:06Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14583227139",
+          "summary_polyline": "mppeFdkhjVC\\Dd@M|@?h@RhBAVB\\Ll@Fp@HvALxADr@P`BCJ[lPFdAO|AFn@l@|AXf@Hf@Df@RrALlA?hBEb@@v@Jt@JXDl@H\\B^?v@El@Dz@HjAJb@D`@Bp@Gr@Df@Np@Fx@IdBFh@Pz@h@dBBb@?r@Gl@Qn@Ih@J~@VjAMd@@Lv@hDHr@Fr@@n@EzAGj@WPa@Ec@Ks@y@]q@_@_@[i@QOg@Qa@?[LUNi@d@Yb@Yl@[xAEl@BrAJjAl@nDAPKDsAkAi@UUEAZUDwEVqBDu@JiABg@JaA?IGWAcAAwGb@mAKwAHoAEgAPq@?WFiB?kFXu@?o@Kg@FkAZw@@i@F_BMYDuAAI@q@T[CwA?_@Jm@@OFEH@l@Kl@@TQ\\M`@Oz@AbAVhHJnFC~AHbB?nABrAHf@@f@EtAPnF?nEJhCBbDBn@AxADfAFp@EvAB~DDlBTpCBx@D|A@v@B`A@jENlDIxAHxADdDFl@DfFHbAD|AD`FHvCAtABtADdA?zALtA@rBCz@Dn@DlBB~CBf@Jf@`@`@d@VNf@DxA?lDErAe@vFQ\\e@ZkATg@BcAj@Ub@Ob@Ad@@NJXBZJp@A`@D^P`@NNDZg@~@IZAh@FlBDX@v@R~@SpAFv@En@@TARIPKj@QZYTs@x@a@n@If@Sb@Ib@S^c@fAAp@F\\t@d@n@bAD\\@YO[TTBNCPQb@CVJVJLd@VOTEPMFK^Gf@IT?l@@Rb@~@Pp@Jv@FTKdA@d@Hd@B^NjAEH@JJt@\\l@^Z^Nb@AVKTJTBj@EXI\\A^HlAtBHJPHHf@F`AJj@Hj@Cv@Wx@El@Lf@Zj@NpAj@zA?Fn@dCb@|@^^FVBv@Ev@Bj@Tz@Td@\\h@\\Td@Lb@K`Ag@N?HDJL^bAVLd@HTAHGRo@RQh@MTBNZLHVFLJLAb@UdA]PKF[p@_@q@Rs@|@i@Tr@YbAMb@ON@JNZr@Nv@Fz@DtCHz@DJPNVJZD`@K~BoAhA{Al@e@n@m@t@qAf@a@ZIrDYrG[jCWp@@tEWrBQ^?hCQ`ABnVi]X[l@kAf@{AZu@bAeDJ}@HkATyAl@qFP_A^qANs@r@AHDlADjDYp@Bz@CPMBwA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 14561261482,
         "name": "Morning Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14473266044",
           "summary_polyline": "aqpeFtkhjVCRFVC\\BXJVAPa@F@p@Nz@EZBV@@PHFN?TIf@DDAFBDA^DVCFBXAFNXAn@DVERBTAFHj@?ZFDAVB`@AVHdAI\\CF?NFH?VJ|@FLHH?PKV@JDDDZARBb@AZ?PQn@C`@AXF`AIrADZPV@LDD\\x@DDFLDTFJB^BF?N@DANX|BCLDT?n@NJEFIZBZAb@CL@f@Nf@ARBPRd@@JEr@BP?TCNFx@DTFJ@TJ^?NBD?NH`@@f@APBF?FGf@HLCVNzA?VCF?NEL@LIf@FJB^JTDVLVRl@Nt@ATEREh@GRQ^EV?THt@EXKDDAC@\\rBBFFB@`@^`BJn@Hr@BHANDJ?X@DCXB~@Mr@EHGBo@@QGa@[AGUKCMQQQSOYECIYKGU_@EAMM?Ca@Ka@BKLOFMLMBSTQH_@`@Wp@?FMf@IbBFl@@d@JnATzADHF\\?NDNFt@Fb@TlCFb@@d@Hr@Rr@b@f@JBDFz@n@Zb@b@fAX`@Vn@JJLARM\\GJ?JGRFDJ@@VGHBBDR?TOBUAG?GP[?]DIAMF]f@MDI?OLU@UA[Ba@Ek@?IFQNGj@Fx@AZOLCDEFQHEHOb@aAHYBMCUFm@EEIo@QUU_@MOGOCOA_@CWI]O]Ic@Fm@\\uAVw@JOXs@BE?GPIT_@L{@Ek@EQA[AE?SCK?WAGQMEMDQKOI?OGIKWaAMOYQIOKCKAQBODM?EEAk@Gm@?S@GCEE_@C_@@YEU?e@IU@_@ECAE?w@GW@[EW?YEUA}@GK@GAg@GGAi@EWEk@ECCG@i@CG?O@ECWBSAIEUAe@Iq@Ck@COCG?SGc@@UG_@Am@MkA?WEM@WEa@A[E_@CeAIk@@a@IYCk@Im@@_@E]A[ISDc@EME]?QCM@OCGEw@ES?k@W{BBWEU@_@IM?SGSG]@g@K_AGeBGUA{@GUBWEMKuACMKaCGq@KyBKWBK?GMsB@MYuC?UKoAGqA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14462445363,
-        "name": "The Stairs of Sutro",
-        "type": "Run",
-        "distance": 6.75,
-        "moving_time": 4162,
-        "elapsed_time": 5153,
-        "elevation_gain": 1148.0,
-        "average_pace": 10.28,
-        "average_heartrate": 137.7,
-        "max_heartrate": 183.0,
-        "average_cadence": 85.9,
-        "average_watts": null,
-        "start_date": "2025-05-13T01:09:54Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14462445363",
-          "summary_polyline": "_lpeFlfhjVTjAHpAH`A[r@AXFn@Jj@HxAFj@BB@\\Hh@LbBR~AEbADj@Jd@LfBb@nCHpBNzADbC^hFFtCAj@Bp@v@tELJd@G`@MVJd@D`AUx@Dr@EZIT@x@Kn@UvAS`@Ap@MTKZ?vAOhBEzAMt@ObAGtAU`@OR@zAXf@V`@\\xA|@bAPr@PDDx@Fp@@bA]XEb@]p@Ux@?NTRLRDv@`@x@Fv@Xf@XTTb@Td@z@V`ABj@Hr@?jAJfA@|@XbC@b@Fn@FnAEt@Rn@b@jBh@dDb@bAn@lA`B`Br@d@LNRt@BdAXfBLjAAjAWjA?j@Bb@BLTXRRJD~@OnAVHMD[L]?GJS@QFMAIBELJIw@FMRAv@TrAj@|@l@lAh@JFf@t@JDMPDl@CJWF_@BUHYX[LOBw@h@u@HIPGZGRqAfCg@Z[FGHBPNPx@d@^ZpA~ARd@r@~@@JCDcAn@YFWAu@Uk@CuCVw@@[HKGKq@EK?IGS@IKY?QGWCMEAAMEOOM@IDACQ@DBGIIAQOIU`@[Zg@VaA`AQABMAQVe@Hi@EWF]JUNDVARO\\_@T_@`@]^CrAe@rA[ZSFOk@[mBGm@OMDUPS@KCGIKOAIAXCBEEMYIe@_@y@Ka@Fg@A[GSGMgAo@@OXG?ESK]?AELUHE`@@AKGEBCv@I?MKKa@OaA?OHOBACBQHKOMQCHOJ?PKOO@IN@OW[cAU[H?NRBCEi@M_A@i@M}@IAGRB^C`@MTYVOXCRB|@EVAh@K|@IxAM^IDDQ@q@A?ET[j@GBOC?ETGJWO?CGDO?e@GyAHWKk@Sm@DUNa@Ce@i@]i@i@w@}@Mg@C?AJXr@R`AHn@CHQKIk@Qa@OISC][c@{AIUIg@Og@McB?y@Eg@EQgB\\qCNoC\\sAEo@Po@Z]@[EQFkAJe@NOL]G_@BcBReBl@c@@]J_@Be@Cm@De@Ro@Ba@LmEd@y@BkC\\QSEWY?}AJc@TcAJKEOa@Ku@Hk@Pe@Hk@Ay@a@qBU{@Ae@N}AM_AUmFG]Us@MaABq@AuAMm@MqAASFq@?]QqAIqABi@UcCO{@i@mAMw@IcA@c@Ec@LqACg@?}BOaBEiA@gACeBSeB[uDPQEiA[qBG_ASeBIcB",
           "resource_state": 2
         }
       }
