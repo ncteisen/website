@@ -337,9 +337,31 @@ function formatSpeed(distance: number, time: number): string {
 					if (stravaData?.recent_bikes?.[0]?.map?.summary_polyline) {
 						initMap('bike-map', stravaData.recent_bikes[0].map.summary_polyline);
 					}
-				} catch (error) {
-					console.error('Error initializing maps:', error);
-				}
+                                } catch (error) {
+                                        console.error('Error initializing maps:', error);
+                                }
+
+                                // Highlight card flip interactions
+                                const overlay = document.getElementById('card-overlay');
+                                document.querySelectorAll('.highlight-card').forEach(card => {
+                                        const closeBtn = card.querySelector('.close-btn');
+                                        card.addEventListener('click', () => {
+                                                if (card.classList.contains('flipped')) return;
+                                                card.classList.add('flipped');
+                                                overlay?.classList.add('visible');
+                                        });
+                                        closeBtn?.addEventListener('click', e => {
+                                                e.stopPropagation();
+                                                card.classList.remove('flipped');
+                                                overlay?.classList.remove('visible');
+                                        });
+                                });
+
+                                overlay?.addEventListener('click', () => {
+                                        const active = document.querySelector('.highlight-card.flipped');
+                                        if (active) (active as HTMLElement).classList.remove('flipped');
+                                        overlay.classList.remove('visible');
+                                });
 			});
 		</script>
 		<style>
@@ -529,10 +551,71 @@ function formatSpeed(distance: number, time: number): string {
 				text-decoration-thickness: 2px;
 			}
 
-			.highlight-card:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-			}
+                        .highlight-card:hover {
+                                transform: translateY(-3px);
+                                box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+                        }
+
+                        /* --- Overlay and Flip Styles --- */
+                        #card-overlay {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(0, 0, 0, 0.6);
+                                z-index: 1000;
+                                display: none;
+                        }
+
+                        #card-overlay.visible {
+                                display: block;
+                        }
+
+                        .highlight-card {
+                                perspective: 1000px;
+                                cursor: pointer;
+                        }
+
+                        .highlight-card .card-inner {
+                                transition: transform 0.6s;
+                                transform-style: preserve-3d;
+                                position: relative;
+                        }
+
+                        .highlight-card.flipped .card-inner {
+                                transform: rotateY(180deg);
+                        }
+
+                        .highlight-card .card-face {
+                                backface-visibility: hidden;
+                        }
+
+                        .highlight-card .card-back {
+                                transform: rotateY(180deg);
+                                overflow-y: auto;
+                        }
+
+                        .highlight-card.flipped {
+                                position: fixed;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%) !important;
+                                z-index: 1001;
+                                width: 90%;
+                                max-width: 600px;
+                        }
+
+                        .close-btn {
+                                position: absolute;
+                                top: 1rem;
+                                right: 1rem;
+                                background: none;
+                                border: none;
+                                font-size: 1.5rem;
+                                color: var(--primary-color);
+                                cursor: pointer;
+                        }
 
 			/* === Card Styles === */
 			/* --- Highlight Card (Used in Career Section) --- */
@@ -1238,67 +1321,95 @@ function formatSpeed(distance: number, time: number): string {
 			<section id="career">
 				<h2>Career Snapshot</h2>
 				<div class="career-highlights">
-					<div class="highlight-card">
-						<i class="fas fa-store company-icon" aria-hidden="true"></i>
-						<h3>Faire</h3>
-						<div class="job-title">Staff Engineer</div>
-						<div class="date-range">Feb 2022 - Present</div>
-						<p>
-							At Faire - a fast-moving, high-growth startup - I've worn many hats: hands-on engineer, 
-							system architect, tech lead, and senior engineering manager. I've led platform work 
-							across shipping, payments, and third-party integrations, delivering high-impact 
-							features like multi-user account infrastructure, SQL-based invariant validation, 
-							and guaranteed shipping pricing. I authored Faire's long-term technical vision 
-							for shipping and oversaw complex service extractions in payments. Whether driving 
-							strategy or writing critical path code, my focus has been on close patnership with 
-							prodcut and building scalable systems that move fast without compromising on reliability.
-						</p>
-					</div>
-					<div class="highlight-card">
-						<i class="fas fa-car company-icon" aria-hidden="true"></i>
-						<h3>Waymo</h3>
-						<div class="job-title">Senior Software Engineer</div>
-						<div class="date-range">Feb 2019 - Feb 2022</div>
-						<p>
-							At Waymo, I was on the Fleet Infrastructure team, leading development of OpsApp, an 
-							internal Android application used daily by over 1,000 safety drivers. I managed a 
-							cross-functional team spanning engineering, product, UX, and operations, and drove 
-							initiatives to ensure safety, speed, and reliability across the self-driving fleet. 
-							I built systems to stream real-time telemetry with sub-300ms latency, integrated 
-							compliance checklists directly into vehicle startup logic, and designed roadside 
-							support tooling that enabled responders to locate vehicles within minutes of an 
-							incident. I co-authored 
-							<a href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">
-								a patent
-							</a> 
-							for my work on the subject.
-						</p>
-					</div>
-					<div class="highlight-card">
-						<i class="fab fa-google company-icon" aria-hidden="true"></i>
-						<h3>Google</h3>
-						<div class="job-title">Software Engineer</div>
-						<div class="date-range">Aug 2016 - Feb 2019</div>
-						<p>
-							I started my full-time career at Google as part of the gRPC team, contributing to core C, C++, 
-							and Python libraries that power Google's internal and external services. I built 
-							benchmarking and regression detection tools, helped migrate TensorFlow's distributed 
-							runtime to gRPC, and gave a 
-							<a href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">
-								tech talk at KubeCon on tuning RPC performance
-							</a>.
-						</p>
-					</div>
-					<div class="highlight-card">
-						<i class="fas fa-chart-line company-icon" aria-hidden="true"></i>
-						<h3>Bloomberg</h3>
-						<div class="job-title">Software Engineering Intern</div>
-						<div class="date-range">Summer 2015</div>
-						<p>
-							Full stack internship on the infrastructure team. Built internal tooling to help debug and kill
-							processes running on production machines.
-						</p>
-					</div>
+                                        <div class="highlight-card">
+                                                <div class="card-inner">
+                                                        <div class="card-face card-front">
+                                                                <i class="fas fa-store company-icon" aria-hidden="true"></i>
+                                                                <h3>Faire</h3>
+                                                                <div class="job-title">Staff Engineer</div>
+                                                                <div class="date-range">Feb 2022 - Present</div>
+                                                        </div>
+                                                        <div class="card-face card-back">
+                                                                <button class="close-btn" aria-label="Close">&times;</button>
+                                                                <p>
+                                                                        At Faire - a fast-moving, high-growth startup - I've worn many hats: hands-on engineer,
+                                                                        system architect, tech lead, and senior engineering manager. I've led platform work
+                                                                        across shipping, payments, and third-party integrations, delivering high-impact
+                                                                        features like multi-user account infrastructure, SQL-based invariant validation,
+                                                                        and guaranteed shipping pricing. I authored Faire's long-term technical vision
+                                                                        for shipping and oversaw complex service extractions in payments. Whether driving
+                                                                        strategy or writing critical path code, my focus has been on close patnership with
+                                                                        prodcut and building scalable systems that move fast without compromising on reliability.
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="highlight-card">
+                                                <div class="card-inner">
+                                                        <div class="card-face card-front">
+                                                                <i class="fas fa-car company-icon" aria-hidden="true"></i>
+                                                                <h3>Waymo</h3>
+                                                                <div class="job-title">Senior Software Engineer</div>
+                                                                <div class="date-range">Feb 2019 - Feb 2022</div>
+                                                        </div>
+                                                        <div class="card-face card-back">
+                                                                <button class="close-btn" aria-label="Close">&times;</button>
+                                                                <p>
+                                                                        At Waymo, I was on the Fleet Infrastructure team, leading development of OpsApp, an
+                                                                        internal Android application used daily by over 1,000 safety drivers. I managed a
+                                                                        cross-functional team spanning engineering, product, UX, and operations, and drove
+                                                                        initiatives to ensure safety, speed, and reliability across the self-driving fleet.
+                                                                        I built systems to stream real-time telemetry with sub-300ms latency, integrated
+                                                                        compliance checklists directly into vehicle startup logic, and designed roadside
+                                                                        support tooling that enabled responders to locate vehicles within minutes of an
+                                                                        incident. I co-authored
+                                                                        <a href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">
+                                                                                a patent
+                                                                        </a>
+                                                                        for my work on the subject.
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="highlight-card">
+                                                <div class="card-inner">
+                                                        <div class="card-face card-front">
+                                                                <i class="fab fa-google company-icon" aria-hidden="true"></i>
+                                                                <h3>Google</h3>
+                                                                <div class="job-title">Software Engineer</div>
+                                                                <div class="date-range">Aug 2016 - Feb 2019</div>
+                                                        </div>
+                                                        <div class="card-face card-back">
+                                                                <button class="close-btn" aria-label="Close">&times;</button>
+                                                                <p>
+                                                                        I started my full-time career at Google as part of the gRPC team, contributing to core C, C++,
+                                                                        and Python libraries that power Google's internal and external services. I built
+                                                                        benchmarking and regression detection tools, helped migrate TensorFlow's distributed
+                                                                        runtime to gRPC, and gave a
+                                                                        <a href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">
+                                                                                tech talk at KubeCon on tuning RPC performance
+                                                                        </a>.
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="highlight-card">
+                                                <div class="card-inner">
+                                                        <div class="card-face card-front">
+                                                                <i class="fas fa-chart-line company-icon" aria-hidden="true"></i>
+                                                                <h3>Bloomberg</h3>
+                                                                <div class="job-title">Software Engineering Intern</div>
+                                                                <div class="date-range">Summer 2015</div>
+                                                        </div>
+                                                        <div class="card-face card-back">
+                                                                <button class="close-btn" aria-label="Close">&times;</button>
+                                                                <p>
+                                                                        Full stack internship on the infrastructure team. Built internal tooling to help debug and kill
+                                                                        processes running on production machines.
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
 				</div>
 			</section>
 			<!-- Career Snapshot Section End -->
@@ -1509,7 +1620,8 @@ function formatSpeed(distance: number, time: number): string {
 				<p>© {new Date().getFullYear()} Noah Eisen. All rights reserved.</p>
 			</footer>
 			<!-- Footer Section End -->
-		</main>
-		<!-- End Main Page Content -->
-	</body>
+                </main>
+                <div id="card-overlay"></div>
+                <!-- End Main Page Content -->
+        </body>
 </html>
