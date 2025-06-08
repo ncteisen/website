@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-06-07T10:26:11.057436",
+  "last_updated": "2025-06-08T10:25:14.557941",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -165,6 +165,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 14726261072,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 7.21,
+        "moving_time": 3839,
+        "elapsed_time": 4397,
+        "elevation_gain": 292.0,
+        "average_pace": 8.87,
+        "average_heartrate": 132.0,
+        "max_heartrate": 156.0,
+        "average_cadence": 88.6,
+        "average_watts": null,
+        "start_date": "2025-06-07T16:11:44Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14726261072",
+          "summary_polyline": "{ppeFnlhjV?l@Cb@?h@Lp@@^Cl@Jz@?VEh@GNQR?JDx@Hr@FTJpBBv@CR@VVb@@JC`BNhA@`@?ZGX@v@W|BJvAMr@?`@DTtAbDHl@lEvw@MLCZJh@v@tCXfCJ\\?r@UjAE`@?h@Ez@@t@En@Ar@JfABj@FZPZf@n@VXLn@Vh@J`@DJX\\z@Lf@@JAVSZa@Vi@t@mA^M`AHf@VrA`Bh@x@rAxCn@`BHh@Ab@Ij@Al@JtAJf@^lAN|@JdAh@lCPlABj@IlAOjAIL[DkBFq@NiA`@QJg@d@iB~Ca@z@I`@c@`Aa@fAc@zBChAHvA?~@DdADz@Hj@^bA^v@nAbA`@LlB\\\\R\\L^`@\\v@Nl@RxAd@lCj@`CV|Ap@|EB\\ATDTCL?T@VJd@Dd@A|@Jz@?n@On@c@z@g@zAYpAWt@c@rCAn@DrBJfBh@jEIpBQ`AK\\OVQp@GbAA|A\\lAbB|D\\~@r@nAZ`Af@pDBpARnBBh@?|@G|AFj@k@lB_@bB}@bCCDYJa@Ua@CU@ECGIO][iAYwBQo@i@uCoAgEM}@Y}@_@uB_A_Ig@yCCg@@w@Iq@Ae@@mBWuAEy@OeAUi@Wc@Ga@O}Ak@{BGOQUM_@Oo@YwBk@oCi@yAUeAQi@S}@s@qBi@yAm@uDa@_EBkBHy@d@kBx@eCL}@Nm@Rs@^mBFy@@[Cc@Ki@Wy@Ys@mBmDkBsCSa@Yu@Mm@Gg@KsBBs@AuB@u@Ak@Iw@?OBkBHwBRwCrAaITy@RqAh@yFLkC?}@LgAp@gI@g@Cu@DmA?u@L_B?k@IsB{@oDWu@WiABEPMDWIw@?i@`@mAFw@CUKg@a@mAOiA?e@HsAOsBA_ABuAYiB?eBEW?w@Ik@]yAGc@@[EiBGi@EeBOyA?UEg@Oq@Oc@a@s@Og@Cs@AoCJo@@m@EmA?}@SqB?gAEm@@w@OiBA}@Gg@WsDD_Aa@kCQuCIi@",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 14716274821,
         "name": "Morning Run",
         "type": "Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14623957155",
           "summary_polyline": "erpeFxlhjV@bBDv@Db@Pv@Dl@Nt@NjALbHAdADn@GrA@`@TdABf@@j@Gj@Cz@S`ADz@Or@?FJp@lAvCT~ADf@L`AHlB@fAEf@?t@Jf@Hh@VdAEh@B\\Aj@DdB\\lB?h@Ad@@n@PdB?p@Gt@Dl@v@hCN`A?v@If@Oh@En@JpAY\\^rAb@pA\\rAF\\JhADr@@j@ObBEH]Hg@GUOw@}@]m@{A{AUKIA[FSFo@b@cAbAMRKj@Eh@C~@@d@X~C`@dB`@dDFvALjBNr@Ld@X`@\\Xj@Z^b@Vj@Pn@d@l@T`@R@\\Gn@Ah@B`@FPKVmALgALIRIDEJe@H}@E{@@g@NIHApA@`@MX]~@gBL{@?[Kg@We@Y]Sk@Iw@W{AL_APw@Pm@^{@`@m@JKPa@Fm@?y@My@Cw@I]i@YQUUk@q@_AGCOCc@DQC?EOuDQ}AQ_EIw@GmAIw@o@kK]uDa@{FQ{C?_@MaBOwCOoAWyEM}AIgBYyDIyA[_Ea@gGOeAAoBQwCScC",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14603194247,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 7.54,
-        "moving_time": 4271,
-        "elapsed_time": 4689,
-        "elevation_gain": 1053.0,
-        "average_pace": 9.45,
-        "average_heartrate": 137.3,
-        "max_heartrate": 174.0,
-        "average_cadence": 87.6,
-        "average_watts": null,
-        "start_date": "2025-05-26T17:17:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14603194247",
-          "summary_polyline": "clpeFpfhjVZtHRbAGxADpAB^L\\LrABjDJn@DtALtAB`AXpC@`BLdBLv@b@jHHz@P`@@pARfBPn@H~@@ZCpAHdARdETnCj@fLLr@DdBXdBd@p@Lx@DD`@OFBnAGb@B^RV?|B]zIw@h@WhB_@j@ERM^A|ANzAYdACFBb@[nBMzAYh@C\\KbBMv@KZQ^C@hBj@tBH|@d@jAZl@PLLXVRJPNn@HFBAQcAQg@AMUu@BSDC\\f@Rf@n@~@j@Z[h@K`@`@p@ARJb@Kp@B^IlA?LHHTB@FCJWPLJT@DEPk@B]?ZMf@DBN[DO?[HaAJg@BuAG}@L_@RId@]DKHkABG@p@F^AXBh@Px@WSEAADHNXhAXVAHOAEBJJCFYFEJOz@Dn@E^Sf@LXX\\Vf@Fh@CXQl@@TRLAQJA@Yb@Sf@^NCPLHCTJVd@Nl@f@^RD`@M~@HbBGv@RBECMQQqBkAaAgAOc@C[Jb@PN^H@G[m@IaB@kA\\gCI[e@e@IaBQgAEeB]s@\\gATOZ?LE`@_@DKBQEe@c@aBKo@DSNKt@HDc@?iBQqBIiBZgAVo@Vc@`@Qt@CVYPgDNs@@m@`Co@hA]nA{@P]Cg@c@}AYU]B[Ve@nAOr@@LNVTBbAi@bA]ZEhAu@b@Ih@JxBtB`@BXElAy@NIZ?^PvBhBPb@Bb@MxAO\\W@eAW_AM[MY]a@_A]g@e@Qi@JiAj@g@^_@N_@IUa@Kq@We@wA?gCx@gB`@[AQ[De@Rk@v@}AH]?_@UyAWeCIUW][ASLGJA`@b@rBMf@_AfAAVeAh@q@Ti@\\kA~A_@XYh@i@f@_@VqB`@e@CYMGsAESi@cBW_@_Ae@gDgA}@e@Wc@[G]Fu@V_Aj@qCl@yACiB[]S}@m@w@cAk@c@aBGg@FEKMkBs@}AoAwBhBiBHKDg@CqGH{BCo@LYDUBeBEaAo@oBCm@D_@Zq@d@eBNBR`@d@j@@ZQ\\ATSKBCKLEL?XS`@Xh@DZTTA\\Hf@i@fAYXQXWNaAaA]i@QKQm@U[cBgBCeA[wBBgAPeA@g@GWOSu@GGMI_DGu@AmAGaAIQsFVq@AUP[BGEKuAQ_@m@CcAFeBXc@C_@UsABSB_@\\e@Jq@FuA\\",
           "resource_state": 2
         }
       }
