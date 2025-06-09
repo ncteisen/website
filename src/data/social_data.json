@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-06-08T10:25:14.557941",
+  "last_updated": "2025-06-09T10:29:11.174126",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Red Rocket",
+        "year": 2021,
+        "rating": 3.5,
+        "watched_date": "2025-06-07",
+        "is_rewatch": false,
+        "review": "<p>Not at par with <i>Anora</i> and <i>The Florida Project</i> but it has enough of that Sean Baker goodness (genuineness, marginalized groups, sex, etc etc etc) to be worth a watch</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/8/3/6/2/0/683620-red-rocket-0-600-0-900-crop.jpg?v=073384c9e9",
+        "link": "https://letterboxd.com/ncteisen/film/red-rocket-2021/"
+      },
       {
         "title": "Friendship",
         "year": 2024,
@@ -72,16 +82,6 @@
         "review": "<p>Took a big swing -&gt; scored a big hit. How many genres / tones / styles can one man smoosh into a movie?? But it totally works.</p><p>Michael B Jordan really had great chemistry with everyone in this movie, including and above all himself.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/6/6/0/0/1116600-sinners-2025-0-600-0-900-crop.jpg?v=00ce32e0ba",
         "link": "https://letterboxd.com/ncteisen/film/sinners-2025/"
-      },
-      {
-        "title": "Black Bag",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2025-04-16",
-        "is_rewatch": false,
-        "review": "<p>Just enough cinematic and directorial flair to make up for the run-of-the-mill spy plot.</p><p>Top wins<br/>- 93 minute runtime<br/>- Marisa Abela<br/>- Black Bag becoming a part of my everyday conversations with my wife (\"did you eat <b>all</b> of the leftovers we were saving for lunch?\" \"sorry sweetie, black bag\")</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/6/7/5/5/1116755-black-bag-2025-0-600-0-900-crop.jpg?v=7dbc1baf6f",
-        "link": "https://letterboxd.com/ncteisen/film/black-bag-2025/"
       }
     ]
   },
@@ -164,6 +164,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 14737593959,
+        "name": "\u201cNoah would have made such a great doctor\u201d - Terry Tobias",
+        "type": "Run",
+        "distance": 8.64,
+        "moving_time": 5178,
+        "elapsed_time": 6201,
+        "elevation_gain": 1719.0,
+        "average_pace": 9.99,
+        "average_heartrate": 138.3,
+        "max_heartrate": 164.0,
+        "average_cadence": 86.0,
+        "average_watts": null,
+        "start_date": "2025-06-08T15:53:49Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a14737593959",
+          "summary_polyline": "_d|eFv|wjV^kDQc@c@i@{BOKL[jAuAvBe@tBs@dBk@tCOTq@TkADSh@Bz@Ef@Sp@QDoFaCy@M[HYXmAdDYPs@@y@_@i@kAmAqB]c@YKqA@mClAOP{@pBeAlAqAEg@PQTC`@NdA?b@MPcA^Mp@?z@l@`AL`@Dr@M^}@b@INQz@_Bv@WnBINuAl@gA`BaBR_BrAMj@HvAw@j@s@dA{@f@aAR{@q@oAkBaBQ_CHgAVyC?}B`AqANC\\i@vATbAEXcAnDQV]T}A\\c@T}BzH_@j@uAfACZNxA@nAU|@OTeB~@GV@t@M\\iAnAWJaA_@kAq@oB@q@e@a@E{@z@U`@c@xAc@jCUh@iBzBWBUOIWRkACe@]sAk@eA_@WyCGwAkAMFBRzBpDBPw@IuBBcA_@c@HiBhCkAv@If@Cz@[lAJb@RyB?s@I_@w@q@cAi@o@s@[m@S}@gCaFeBkB{BaBs@_A{@YUWqBiE{@mF@sARmBCk@BUTi@`@w@l@o@n@Yz@w@dEgCx@sAbD{DbBqH|@_Dv@gBn@e@lCm@`A@`Dd@\\A`Bm@dA_BfAsD`@{Cj@mBL{BMyBHg@?iAN_A|BqHb@qB^sDnCeFb@eB@_@Gq@UUm@SS[eAwFSwEHcDfAoFp@wBh@sCj@kAF][GIMpBeIF}@Gq@D_@b@aA`AiAJu@Iy@DU`Ae@PmAz@qBBa@UcBBa@J[jAmAJm@Mg@]k@Ag@F{BP]ZW^A~@RxB_BrAQfAuANKJLRI`@WVa@v@_@P]Pu@EYeAwAAYv@u@d@_Aj@Yr@Oz@m@x@Kd@gB`@q@pAOZa@lAk@l@i@rAShAi@b@_AI_@s@sA@Sj@}@b@{BbByBv@eBFi@FIrBEzAR~@AjC~@nDx@zAFbBp@dEZ\\RvA|AdA|@b@L`BH@VQRA\\j@jALjAK`AHdAPb@^^z@PjEs@lA|@hABz@Px@d@\\v@PhAMfANj@vAzAd@v@bADf@Y\\GDPDUFV[lCc@bBInAg@fCw@vC?v@T~@h@b@jAEz@F~@pAnBxAL`@G^Yd@oBvBwBzAsApBET?l@Vl@h@h@\\BzAe@h@Ch@TfAlATr@H~@?zBOpAdAlE",
+          "resource_state": 2
+        }
+      },
       {
         "id": 14726261072,
         "name": "Morning Run",
@@ -315,28 +337,6 @@
         "map": {
           "id": "a14631814937",
           "summary_polyline": "kqpeFxkhjVHpDXnACj@?XJv@BtD^rAXxAHRw@v@FjAGlAPnAD`AIpBWhABt@IrAHj@FTfAfCLl@Bj@TdBHhCEn@?n@JfA`@pBAL@p@B~AVrB@Z@h@CdAPvB?n@Gj@Br@Nn@x@hCHl@C|@Kl@Qf@Ch@HlAU\\FZl@`Bb@jBTrAN~A?TInBMTYF[A[Mk@o@i@}@[a@[k@W[IESCy@RcA\\WTk@~@KZMn@AN@HCBEZ@f@d@nELh@b@rCDfBDt@ThBLl@HTPVd@`@j@VVP^h@^z@^n@Tn@RFb@If@Ab@Bl@LPMRaALsALMVKHsBHeADSb@IbA?`@ILKT[`AsBB_AIo@Wa@QSWg@Ca@e@_CFw@TgAX_Ar@iAX[H[Dw@Co@CYe@gA@IHMY]_@mAg@m@YWGCc@C]GK{@E{@WsCAm@OeBAq@Kw@e@gHIm@MgBCkAI_BWaDUkEScBB{@_@gDe@oIOaBWaBa@gJKoASaBAe@E[@kAAa@i@gHSgEGe@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14623957155,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 4.11,
-        "moving_time": 2143,
-        "elapsed_time": 2220,
-        "elevation_gain": 190.0,
-        "average_pace": 8.69,
-        "average_heartrate": 127.2,
-        "max_heartrate": 147.0,
-        "average_cadence": 90.3,
-        "average_watts": null,
-        "start_date": "2025-05-27T14:19:11Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14623957155",
-          "summary_polyline": "erpeFxlhjV@bBDv@Db@Pv@Dl@Nt@NjALbHAdADn@GrA@`@TdABf@@j@Gj@Cz@S`ADz@Or@?FJp@lAvCT~ADf@L`AHlB@fAEf@?t@Jf@Hh@VdAEh@B\\Aj@DdB\\lB?h@Ad@@n@PdB?p@Gt@Dl@v@hCN`A?v@If@Oh@En@JpAY\\^rAb@pA\\rAF\\JhADr@@j@ObBEH]Hg@GUOw@}@]m@{A{AUKIA[FSFo@b@cAbAMRKj@Eh@C~@@d@X~C`@dB`@dDFvALjBNr@Ld@X`@\\Xj@Z^b@Vj@Pn@d@l@T`@R@\\Gn@Ah@B`@FPKVmALgALIRIDEJe@H}@E{@@g@NIHApA@`@MX]~@gBL{@?[Kg@We@Y]Sk@Iw@W{AL_APw@Pm@^{@`@m@JKPa@Fm@?y@My@Cw@I]i@YQUUk@q@_AGCOCc@DQC?EOuDQ}AQ_EIw@GmAIw@o@kK]uDa@{FQ{C?_@MaBOwCOoAWyEM}AIgBYyDIyA[_Ea@gGOeAAoBQwCScC",
           "resource_state": 2
         }
       }
