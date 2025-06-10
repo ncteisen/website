@@ -259,6 +259,29 @@ function formatSpeed(distance: number, time: number): string {
 					});
 				});
 
+				// Handle timeline item expansion/collapse
+				document.querySelectorAll('.timeline-header').forEach(header => {
+					header.addEventListener('click', function(this: HTMLElement) {
+						const timelineItem = this.closest('.timeline-item');
+						const content = timelineItem?.querySelector('.timeline-details');
+						const arrow = this.querySelector('.timeline-arrow') as HTMLElement;
+						
+						if (content && arrow && timelineItem) {
+							const isExpanded = content.classList.contains('expanded');
+							
+							if (isExpanded) {
+								content.classList.remove('expanded');
+								timelineItem.classList.remove('expanded');
+								arrow.style.transform = 'rotate(0deg)';
+							} else {
+								content.classList.add('expanded');
+								timelineItem.classList.add('expanded');
+								arrow.style.transform = 'rotate(90deg)';
+							}
+						}
+					});
+				});
+
 				// Track profile link clicks
 				document.querySelectorAll('.profile-link').forEach(link => {
 					link.addEventListener('click', function(this: HTMLElement) {
@@ -815,40 +838,6 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-muted);
 			}
 
-			.interest-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				position: relative;
-			}
-
-			.interest-card h3 {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 1rem;
-				color: var(--primary-color);
-			}
-
-			.interest-card .section-icon {
-				position: absolute;
-				top: 1.5rem;
-				right: 1.5rem;
-				font-size: 1.5rem;
-				color: var(--primary-color);
-				opacity: 0.7;
-			}
-
-			.interest-card:hover .section-icon {
-				opacity: 1;
-				transform: scale(1.1);
-			}
-
-			.interest-card p {
-				color: var(--text-muted);
-			}
-
 			/* --- Movie/Book/Activity Card Container --- */
 			.recent-movies { /* This class is used for movies, books, and fitness activities lists */
 				margin-top: 1rem;
@@ -899,16 +888,155 @@ function formatSpeed(distance: number, time: number): string {
 				color: var(--text-color);
 			}
 
-			.rating {
-				color: var(--gold-color);
-				font-weight: bold;
-				margin: 0;
-				margin-bottom: 0.5rem;
-				letter-spacing: 2px;
-				line-height: 1;
+			/* === Timeline Styles === */
+			#career .timeline {
+				position: relative;
+				padding-left: 2rem;
 			}
 
-			/* === Utility Styles === */
+			#career .timeline::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 1rem;
+				width: 2px;
+				height: 100%;
+				background-color: var(--card-border);
+			}
+
+			#career .timeline-item {
+				position: relative;
+				margin-bottom: 2rem;
+			}
+
+			#career .timeline-icon {
+				position: absolute;
+				left: 0;
+				top: 0.25rem;
+				width: 1.75rem;
+				height: 1.75rem;
+				border-radius: 50%;
+				background-color: var(--background-color);
+				border: 2px solid var(--primary-color);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--primary-color);
+				font-size: 0.85rem;
+			}
+
+			#career .timeline-content {
+				margin-left: 3rem;
+				background-color: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 8px;
+				padding: 1rem 1.5rem;
+				transition: all 0.3s ease;
+			}
+
+			#career .timeline-content:hover {
+				background-color: rgba(59, 130, 246, 0.05);
+				border-color: var(--primary-color);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+			}
+
+			#career .timeline-header {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0;
+				margin-bottom: 0;
+				transition: all 0.2s ease;
+			}
+
+			#career .timeline-header-content {
+				flex: 1;
+			}
+
+			#career .timeline-header-content .job-title {
+				max-height: 50px;
+				opacity: 1;
+				transition: all 0.3s ease;
+				margin-bottom: 0.25rem;
+			}
+
+			#career .timeline-header-content .date-range {
+				font-size: 0.8rem;
+				margin-bottom: 0;
+			}
+
+			#career .timeline-item.expanded .timeline-content {
+				padding: 1.5rem;
+			}
+
+			#career .timeline-arrow {
+				color: var(--primary-color);
+				font-size: 1rem;
+				transition: transform 0.2s ease;
+				margin-left: 1rem;
+			}
+
+			#career .timeline-details {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				margin-top: 0;
+			}
+
+			#career .timeline-details.expanded {
+				max-height: 1000px;
+			}
+
+			#career .timeline-content h3 {
+				margin-top: 0;
+				font-size: 1.25rem;
+				color: var(--primary-color);
+				margin-bottom: 0.25rem;
+			}
+
+			#career .timeline-content .job-title {
+				font-size: 1.1rem;
+				font-weight: 500;
+				margin-bottom: 0.25rem;
+				color: var(--text-color);
+			}
+
+			#career .timeline-content .date-range {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				margin-bottom: 0.75rem;
+				font-style: italic;
+			}
+
+			#career .timeline-content ul {
+				margin: 0;
+				padding-left: 1.2rem;
+			}
+
+			#career .timeline-content li {
+				margin-bottom: 0.75rem;
+				color: var(--text-muted);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+
+			#career .timeline-content li:last-child {
+				margin-bottom: 0;
+			}
+
+			@media (max-width: 768px) {
+				#career .timeline {
+					padding-left: 1.5rem;
+				}
+
+				#career .timeline-content {
+					margin-left: 2.5rem;
+				}
+			}
+
+			/* === Restored Utility Styles (Movies/Books/Fitness) === */
+
 			.rating { /* Star rating display */
 				color: var(--gold-color);
 				font-weight: bold;
@@ -1056,23 +1184,6 @@ function formatSpeed(distance: number, time: number): string {
 			}
 
 			.activity-stats {
-				margin-top: -1rem;;
-				color: var(--text-muted);
-				font-size: 0.95rem;
-				line-height: 1.6;
-			}
-
-			.activity-stats strong {
-				color: var(--text-color);
-				font-weight: 500;
-			}
-
-			.activity-icon {
-				margin-right: 0.5rem;
-				color: var(--primary-color);
-			}
-
-			.activity-stats { /* Container for activity statistics */
 				margin-top: -1rem;
 				color: var(--text-muted);
 				font-size: 0.95rem;
@@ -1124,7 +1235,7 @@ function formatSpeed(distance: number, time: number): string {
 			}
 
 			.stat-value {
-					font-size: 1.1rem;
+				font-size: 1.1rem;
 				color: var(--text-color);
 				font-weight: 500;
 			}
@@ -1138,49 +1249,7 @@ function formatSpeed(distance: number, time: number): string {
 				border: 1px solid var(--card-border);
 			}
 
-			/* --- Stat Grid (for fitness activities) --- */
-			.stat-grid {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1rem;
-				margin: 1rem 0;
-			}
-
-			.stat-item {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 0.75rem;
-				background-color: rgba(31, 41, 55, 0.5);
-				border-radius: 4px;
-				border: 1px solid var(--card-border);
-			}
-
-			.stat-label {
-				font-size: 0.75rem;
-				color: var(--text-muted);
-				text-transform: uppercase;
-				letter-spacing: 0.5px;
-				margin-bottom: 0.25rem;
-			}
-
-			.stat-value {
-					font-size: 1.1rem;
-				color: var(--text-color);
-				font-weight: 500;
-			}
-
-			/* --- Activity Map --- */
-			.activity-map {
-				width: 100%;
-				height: 300px;
-				margin: 1rem 0;
-				border-radius: 4px;
-				overflow: hidden;
-				border: 1px solid var(--card-border);
-			}
-
-			/* --- Fitness Activities Layout --- */
+			/* === Fitness Activities Layout === */
 			.fitness-activities { /* Grid for run/bike cards */
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -1236,69 +1305,148 @@ function formatSpeed(distance: number, time: number): string {
 
 			<!-- Career Snapshot Section Start -->
 			<section id="career">
-				<h2>Career Snapshot</h2>
-				<div class="career-highlights">
-					<div class="highlight-card">
-						<i class="fas fa-store company-icon" aria-hidden="true"></i>
-						<h3>Faire</h3>
-						<div class="job-title">Staff Software Engineer</div>
-						<div class="date-range">Feb 2022 - Present</div>
-						<p>
-							At Faire - a fast-moving, high-growth startup - I've worn many hats: hands-on engineer, 
-							system architect, tech lead, and senior engineering manager. I've led platform work 
-							across shipping, payments, and third-party integrations, delivering high-impact 
-							features like multi-user account infrastructure, SQL-based invariant validation, 
-							and guaranteed shipping pricing. I authored Faire's long-term technical vision 
-							for shipping and oversaw complex service extractions in payments. Whether driving 
-							strategy or writing critical path code, my focus has been on close patnership with 
-							prodcut and building scalable systems that move fast without compromising on reliability.
-						</p>
+				<h2>Career Timeline</h2>
+				<div class="timeline">
+					<!-- Faire -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fas fa-store" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>Faire</h3>
+									<div class="job-title">Staff Software Engineer</div>
+									<div class="date-range">Feb 2022 - Present</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>Faire is an online wholesale marketplace that connects retailers and brands globally, empowering small businesses to compete with major retailers such as Amazon and Walmart. In a dynamic startup environment, my role has evolved significantly, with key achievements including:</p>
+								<ul>
+									<li>Authored technical vision document for Faire's payment systems. Initiated and drove critical projects, such as extracting a payment service and developing a SQL-based invariant validation system. These systems eliminated payment-related SEVs.</li>
+									<li>Served as Senior Engineering Manager and tech lead for the Shipping team, overseeing 8–12 engineers. Developed a long-term technical strategy to optimize shipping costs and improve system stability. Delivered +0.25pp to contribution margin on $2B GMV.</li>
+									<li>Led 5 person tiger team to build Volume Pricing (akin to airline loyalty programs) from design to launch in under two months.</li>
+									<li>Drove org-wide cultural transformations across 300+ engineers by leading several cross-functional High-Performance Culture working groups, raising engineering standards and execution velocity.</li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div class="highlight-card">
-						<i class="fas fa-car company-icon" aria-hidden="true"></i>
-						<h3>Waymo</h3>
-						<div class="job-title">Senior Software Engineer</div>
-						<div class="date-range">Feb 2019 - Feb 2022</div>
-						<p>
-							At Waymo, I was on the Fleet Infrastructure team, leading development of OpsApp, an 
-							internal Android application used daily by over 1,000 safety drivers. I managed a 
-							cross-functional team spanning engineering, product, UX, and operations, and drove 
-							initiatives to ensure safety, speed, and reliability across the self-driving fleet. 
-							I built systems to stream real-time telemetry with sub-300ms latency, integrated 
-							compliance checklists directly into vehicle startup logic, and designed roadside 
-							support tooling that enabled responders to locate vehicles within minutes of an 
-							incident. I co-authored 
-							<a href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">
-								a patent
-							</a> 
-							for my work on the subject.
-						</p>
+
+					<!-- Waymo -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fas fa-car" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>Waymo</h3>
+									<div class="job-title">Senior Software Engineer</div>
+									<div class="date-range">Feb 2019 - Feb 2022</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>Waymo is an Alphabet company focusing on the development of self-driving technology. I worked on the Fleet Infrastructure team where I was the tech lead for the OpsApp, an internal Android app that is used by 1000+ safety drivers daily. Some highlights include:</p>
+								<ul>
+									<li>Tech lead of 7 person team, including 3 engineers, a product manager, a product operations specialist, a technical program manager, and a UX designer.</li>
+									<li>Received early promotion to Senior Software Engineer within first year of joining.</li>
+									<li>Optimized data path from the self-driving car to the phone to achieve sub-300ms latency in support of streaming real-time telemetries to the safety driver.</li>
+									<li>Co-authored <a class="profile-link" href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">this patent</a> based on my work designing and building the tool suite that enabled roadside assistance team to navigate to a self-driving car on public roads within minutes of an incident.</li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div class="highlight-card">
-						<i class="fab fa-google company-icon" aria-hidden="true"></i>
-						<h3>Google</h3>
-						<div class="job-title">Software Engineer</div>
-						<div class="date-range">Aug 2016 - Feb 2019</div>
-						<p>
-							I started my full-time career at Google as part of the gRPC team, contributing to core C, C++, 
-							and Python libraries that power Google's internal and external services. I built 
-							benchmarking and regression detection tools, helped migrate TensorFlow's distributed 
-							runtime to gRPC, and gave a 
-							<a href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">
-								tech talk at KubeCon on tuning RPC performance
-							</a>.
-						</p>
+
+					<!-- Google -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fab fa-google" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>Google</h3>
+									<div class="job-title">Software Engineer</div>
+									<div class="date-range">Aug 2016 - Feb 2019</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>gRPC is Google's next-gen RPC system, built from the ground up in open source. gRPC is a highly performant system built around a simple yet powerful wire protocol. The library provides idiomatic APIs in nine supported languages. Through 250+ pull requests, and even more internal changes, I have contributed mainly to gRPC's C core. I have also made significant contributions to the C++ and Python wrapped layers. Some highlights include:</p>
+								<ul>
+									<li>Created the team's internal benchmarking framework, automatic regression detection system, and performance dashboards.</li>
+									<li>Migrated TensorFlow's distributed runtime to use gRPC internally at Google.</li>
+									<li>Implemented connection-level monitoring feature for the C++ stack, which exports critical debugging data of live services and presents them in a simple HTML page.</li>
+									<li>Co-authored <a class="profile-link" href="https://github.com/grpc/proposal/blob/master/A6-client-retries.md" target="_blank" rel="noopener noreferrer">RFC for gRPC client retries in 2017</a>. It is now implemented across all language stacks.</li>
+									<li>Created and delivered <a class="profile-link" href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">40 minute tech talk on gRPC performance at KubeCon</a>.</li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div class="highlight-card">
-						<i class="fas fa-chart-line company-icon" aria-hidden="true"></i>
-						<h3>Bloomberg</h3>
-						<div class="job-title">Software Engineering Intern</div>
-						<div class="date-range">Summer 2015</div>
-						<p>
-							Full stack internship on the infrastructure team. Built internal tooling to help debug and kill
-							processes running on production machines.
-						</p>
+
+					<!-- Bloomberg -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>Bloomberg</h3>
+									<div class="job-title">Software Engineering Intern</div>
+									<div class="date-range">Summer 2015</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>Full stack internship on the infrastructure team. Key accomplishments include:</p>
+								<ul>
+									<li>Created multi-tiered tool (frontend UI, service layer, backend task) for Bloomberg developers to aid in the task of debugging and killing haywire processes on production machines.</li>
+									<li>Developed a program to track the master logfile on specific production machines and raise alerts and tickets automatically based on previous decisions.</li>
+									<li>Won first place in algorithmic coding competition among all of the interns.</li>
+								</ul>
+							</div>
+						</div>
 					</div>
+
+					<!-- TAPP TV -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>TAPP TV</h3>
+									<div class="job-title">Freelance Programmer</div>
+									<div class="date-range">Jan 2015 - Apr 2015</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>Freelance programming work focused on social media data analysis and audience research. Key contributions include:</p>
+								<ul>
+									<li>Collaborated with team of freelance coders to create several methods of exploiting Twitter data in order to gauge audience interest and find potential markets for celebrity TV channels.</li>
+									<li>Designed and developed a program that uses the Twitter API to construct graphs from follower/following relationships, then performs various metrics on the data (PageRank, HITS, etc).</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Jump Trading -->
+					<div class="timeline-item">
+						<div class="timeline-icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<div class="timeline-header-content">
+									<h3>Jump Trading, LLC</h3>
+									<div class="job-title">QA Intern</div>
+									<div class="date-range">Jun 2014 - Aug 2014</div>
+								</div>
+								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="timeline-details">
+								<p>Quality assurance internship at a high-frequency trading firm in Chicago. Key accomplishments include:</p>
+								<ul>
+									<li>Developed an automated testing wrapper to validate company software responsible for sending orders to the BATS exchange.</li>
+									<li>Planned and executed comprehensive set of manual tests on a program providing a live market feed from the exchange.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</section>
 			<!-- Career Snapshot Section End -->
