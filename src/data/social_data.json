@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-06-11T04:53:44.305471",
+  "last_updated": "2025-06-11T05:13:12.255389",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -171,7 +171,9 @@
     "stats": {
       "total_ratings": 276,
       "average_rating": 4.18,
-      "total_reviews": 111
+      "total_reviews": 111,
+      "pages_this_year": 3242,
+      "books_this_year": 7
     }
   },
   "strava": {
@@ -531,6 +533,12 @@
         }
       }
     ],
-    "recent_hikes": []
+    "recent_hikes": [],
+    "stats": {
+      "total_runs": 1002,
+      "total_bikes": 583,
+      "runs_this_year": 93,
+      "bikes_this_year": 75
+    }
   }
 }

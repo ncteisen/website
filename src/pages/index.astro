@@ -2,12 +2,36 @@
 // Dynamically import the social data JSON module. This allows Astro to correctly bundle the data.
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as { 
-	letterboxd: { recent_reviews: MovieReview[] },
-	goodreads: { recent_reviews: BookReview[] },
+	letterboxd: { 
+		recent_reviews: MovieReview[],
+		stats?: {
+			total_films: number,
+			films_this_year: number,
+			total_lists: number,
+			following_count: number,
+			followers_count: number
+		}
+	},
+	goodreads: { 
+		recent_reviews: BookReview[],
+		stats?: {
+			total_ratings: number,
+			average_rating: number,
+			total_reviews: number,
+			books_this_year?: number,
+			pages_this_year?: number
+		}
+	},
 	strava: { 
 		recent_runs: StravaActivity[],
 		recent_bikes: StravaActivity[],
-		recent_hikes: StravaActivity[]
+		recent_hikes: StravaActivity[],
+		stats?: {
+			total_runs: number,
+			total_bikes: number,
+			runs_this_year: number,
+			bikes_this_year: number
+		}
 	}
 };
 const letterboxdData = socialData.letterboxd;
@@ -1171,6 +1195,13 @@ function formatSpeed(distance: number, time: number): string {
 				display: none;
 			}
 
+			/* === Stat Highlight === */
+			.stat-highlight {
+				color: var(--primary-color);
+				font-weight: bold;
+				font-size: 1.05em;
+			}
+
 			/* === Section: Fitness (Strava) === */
 			.activity-date {
 				font-size: 0.75rem;
@@ -1479,7 +1510,7 @@ function formatSpeed(distance: number, time: number): string {
 					<div class="interest-card">
 						<h3>Movies</h3>
 						<i class="fas fa-film section-icon" aria-hidden="true"></i>
-						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd.</p>
+						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd. I have rated <a href={`https://letterboxd.com/ncteisen/year/${new Date().getFullYear()}/`} target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{letterboxdData.stats?.films_this_year || 0}</span></a> films this year and <a href="https://letterboxd.com/ncteisen/films/" target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{letterboxdData.stats?.total_films?.toLocaleString() || 0}</span></a> since starting to use the site.</p>
 						<div class="recent-movies">
 							{letterboxdData.recent_reviews.slice(0, 1).map((movie: MovieReview) => (
 								<div class="movie-card">
@@ -1527,7 +1558,7 @@ function formatSpeed(distance: number, time: number): string {
 					<div class="interest-card">
 						<h3>Books</h3>
 						<i class="fas fa-book section-icon" aria-hidden="true"></i>
-						<p>I love reading and track my reading progress on Goodreads.</p>
+						<p>I love reading and track my books on Goodreads. I have read <a href={`https://www.goodreads.com/user/year_in_books/${new Date().getFullYear()}/44763252`} target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{goodreadsData.stats?.books_this_year || 0}</span></a> books this year and have rated <a href="https://www.goodreads.com/review/list/44763252?sort=rating&view=reviews" target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{goodreadsData.stats?.total_ratings || 0}</span></a> since I started using the site.</p>
 						<div class="recent-movies">
 							{goodreadsData.recent_reviews.slice(0, 1).map((book: BookReview) => (
 								<div class="movie-card">

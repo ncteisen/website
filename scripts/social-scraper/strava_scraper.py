@@ -63,6 +63,31 @@ class StravaScraper:
         self.expires_at = data['expires_at']
         return self.access_token
 
+    def get_athlete_id(self) -> int:
+        """Get the current athlete's ID."""
+        access_token = self.get_access_token()
+        headers = {'Authorization': f'Bearer {access_token}'}
+        
+        response = requests.get(
+            'https://www.strava.com/api/v3/athlete',
+            headers=headers
+        )
+        response.raise_for_status()
+        return response.json()['id']
+
+    def get_athlete_stats(self) -> Dict:
+        """Get athlete statistics from Strava."""
+        athlete_id = self.get_athlete_id()
+        access_token = self.get_access_token()
+        headers = {'Authorization': f'Bearer {access_token}'}
+        
+        response = requests.get(
+            f'https://www.strava.com/api/v3/athletes/{athlete_id}/stats',
+            headers=headers
+        )
+        response.raise_for_status()
+        return response.json()
+
     def get_recent_activities(self, per_page: int = 100) -> List[StravaActivity]:
         """Get recent activities from Strava."""
         access_token = self.get_access_token()
@@ -105,7 +130,8 @@ class StravaScraper:
         }
 
     def get_recent_activities_data(self) -> Dict:
-        """Get recent activities and format them into a consistent structure."""
+        """Get recent activities and stats, formatted into a consistent structure."""
+        # Get recent activities
         activities = self.get_recent_activities()
         
         # Filter and get the latest 8 of each type, excluding commutes
@@ -113,11 +139,19 @@ class StravaScraper:
         bike_rides = [a for a in activities if a['type'] == 'Ride' and not a['commute']][:8]
         hikes = [a for a in activities if a['type'] == 'Hike'][:8]
         
+        # Get athlete stats
+        stats = self.get_athlete_stats()
+        
         return {
             'recent_runs': [self.format_activity(run) for run in runs],
             'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
-            'recent_hikes': [self.format_activity(hike) for hike in hikes]
-
+            'recent_hikes': [self.format_activity(hike) for hike in hikes],
+            'stats': {
+                'total_runs': stats['all_run_totals']['count'],
+                'total_bikes': stats['all_ride_totals']['count'],
+                'runs_this_year': stats['ytd_run_totals']['count'],
+                'bikes_this_year': stats['ytd_ride_totals']['count']
+            }
         }
 
 def main():
@@ -125,17 +159,24 @@ def main():
         scraper = StravaScraper()
         data = scraper.get_recent_activities_data()
         
+        # Print stats for testing
+        print("Strava Stats:")
+        print(f"Total runs: {data['stats']['total_runs']}")
+        print(f"Total bike rides: {data['stats']['total_bikes']}")
+        print(f"Runs this year: {data['stats']['runs_this_year']}")
+        print(f"Bike rides this year: {data['stats']['bikes_this_year']}")
+        
         # Save to JSON file
         with open('src/data/social_data.json', 'r') as f:
             existing_data = json.load(f)
         
         # Update the existing data with Strava data
-        existing_data.update(data)
+        existing_data['strava'] = data
         
         with open('src/data/social_data.json', 'w') as f:
             json.dump(existing_data, f, indent=2)
             
-        print("Successfully updated social data with Strava activities")
+        print("Successfully updated social data with Strava activities and stats")
         
     except Exception as e:
         print(f"Error updating Strava data: {str(e)}")

@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 # Constants
 GOODREADS_RSS_URL = "https://www.goodreads.com/review/list_rss/44763252-noah-eisen"
 GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/44763252-noah-eisen"
+GOODREADS_CHALLENGE_URL = "https://www.goodreads.com/user/year_in_books/2025/44763252"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -23,6 +24,7 @@ HEADERS = {
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
 CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'goodreads_profile.html')
 CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'goodreads_rss.xml')
+CACHED_CHALLENGE_FILE = os.path.join(CACHE_DIR, 'goodreads_challenge_2025.html')
 
 def extract_book_data(item: ET.Element) -> Dict:
     """Extract book data from an RSS item."""
@@ -108,6 +110,40 @@ def extract_profile_stats(html_content: str) -> Dict:
         logger.error(f"Error extracting profile stats: {e}")
         return {}
 
+def extract_reading_challenge_stats(html_content: str) -> Dict:
+    """Extract reading challenge statistics from the year in books page."""
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        stats = {}
+        
+        # Find all count divs and their labels
+        count_divs = soup.find_all('div', class_='headerImageContainer__count')
+        
+        for count_div in count_divs:
+            parent = count_div.parent
+            if parent:
+                label_div = parent.find('div', class_='headerImageContainer__countLabel')
+                if label_div:
+                    label_text = label_div.get_text(strip=True)
+                    count_text = count_div.get_text(strip=True)
+                    
+                    try:
+                        if 'books read' in label_text:
+                            books_this_year = int(count_text.replace(',', ''))
+                            stats['books_this_year'] = books_this_year
+                        elif 'pages read' in label_text:
+                            pages_this_year = int(count_text.replace(',', ''))
+                            stats['pages_this_year'] = pages_this_year
+                    except ValueError:
+                        # Skip if can't convert to int
+                        continue
+        
+        return stats
+    except Exception as e:
+        logger.error(f"Error extracting reading challenge stats: {e}")
+        return {}
+
 def fetch_goodreads_profile_stats(use_cache: bool = False) -> Dict:
     """Fetch and parse Goodreads profile statistics."""
     try:
@@ -124,6 +160,24 @@ def fetch_goodreads_profile_stats(use_cache: bool = False) -> Dict:
         return extract_profile_stats(html_content)
     except Exception as e:
         logger.error(f"Error fetching Goodreads profile stats: {e}")
+        return {}
+
+def fetch_goodreads_challenge_stats(use_cache: bool = False) -> Dict:
+    """Fetch and parse Goodreads reading challenge statistics."""
+    try:
+        if use_cache and os.path.exists(CACHED_CHALLENGE_FILE):
+            logger.info("Using cached reading challenge data")
+            with open(CACHED_CHALLENGE_FILE, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+        else:
+            logger.info("Fetching reading challenge data from network")
+            response = requests.get(GOODREADS_CHALLENGE_URL, headers=HEADERS)
+            response.raise_for_status()
+            html_content = response.text
+        
+        return extract_reading_challenge_stats(html_content)
+    except Exception as e:
+        logger.error(f"Error fetching Goodreads reading challenge stats: {e}")
         return {}
 
 def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
@@ -166,13 +220,17 @@ def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
         }
 
 def fetch_goodreads_data(use_cache: bool = False) -> Dict:
-    """Fetch both reviews and profile stats."""
+    """Fetch reviews, profile stats, and reading challenge stats."""
     reviews_data = fetch_goodreads_reviews(use_cache)
-    stats_data = fetch_goodreads_profile_stats(use_cache)
+    profile_stats = fetch_goodreads_profile_stats(use_cache)
+    challenge_stats = fetch_goodreads_challenge_stats(use_cache)
+    
+    # Combine stats
+    combined_stats = {**profile_stats, **challenge_stats}
     
     return {
         **reviews_data,
-        'stats': stats_data
+        'stats': combined_stats
     }
 
 def main():
