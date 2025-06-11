@@ -150,7 +150,7 @@ class StravaScraper:
                 'total_runs': stats['all_run_totals']['count'],
                 'total_bikes': stats['all_ride_totals']['count'],
                 'runs_this_year': stats['ytd_run_totals']['count'],
-                'bikes_this_year': stats['ytd_ride_totals']['count']
+                'bikes_this_year': stats['ytd_ride_totals']['count'],
             }
         }
 
