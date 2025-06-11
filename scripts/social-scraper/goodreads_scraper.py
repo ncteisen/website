@@ -3,6 +3,8 @@ import xml.etree.ElementTree as ET
 from typing import Dict, List
 import logging
 import re
+import os
+from bs4 import BeautifulSoup
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -16,6 +18,11 @@ HEADERS = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/120.0.0.0 Safari/537.36"
 }
+
+# Cache directory
+CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
+CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'goodreads_profile.html')
+CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'goodreads_rss.xml')
 
 def extract_book_data(item: ET.Element) -> Dict:
     """Extract book data from an RSS item."""
@@ -59,15 +66,82 @@ def extract_book_data(item: ET.Element) -> Dict:
         logger.error(f"Error extracting book data: {e}")
         return None
 
-def fetch_goodreads_reviews() -> Dict:
+def extract_profile_stats(html_content: str) -> Dict:
+    """Extract profile statistics from Goodreads profile HTML."""
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        # Find the stats container
+        stats_div = soup.find('div', class_='profilePageUserStatsInfo')
+        if not stats_div:
+            logger.error("Could not find profilePageUserStatsInfo div")
+            return {}
+        
+        stats = {}
+        
+        # Extract ratings count and average
+        ratings_link = stats_div.find('a', href=re.compile(r'/review/list/.*sort=rating'))
+        if ratings_link:
+            ratings_text = ratings_link.get_text(strip=True)
+            ratings_match = re.search(r'(\d+)\s+ratings?', ratings_text)
+            if ratings_match:
+                stats['total_ratings'] = int(ratings_match.group(1))
+        
+        # Extract average rating
+        avg_rating_link = stats_div.find('a', href='#')
+        if avg_rating_link:
+            avg_text = avg_rating_link.get_text(strip=True)
+            avg_match = re.search(r'\(([\d.]+)\s+avg\)', avg_text)
+            if avg_match:
+                stats['average_rating'] = float(avg_match.group(1))
+        
+        # Extract reviews count
+        reviews_link = stats_div.find('a', href=re.compile(r'/review/list/.*sort=review'))
+        if reviews_link:
+            reviews_text = reviews_link.get_text(strip=True)
+            reviews_match = re.search(r'(\d+)\s+reviews?', reviews_text)
+            if reviews_match:
+                stats['total_reviews'] = int(reviews_match.group(1))
+        
+        return stats
+    except Exception as e:
+        logger.error(f"Error extracting profile stats: {e}")
+        return {}
+
+def fetch_goodreads_profile_stats(use_cache: bool = False) -> Dict:
+    """Fetch and parse Goodreads profile statistics."""
+    try:
+        if use_cache and os.path.exists(CACHED_PROFILE_FILE):
+            logger.info("Using cached profile data")
+            with open(CACHED_PROFILE_FILE, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+        else:
+            logger.info("Fetching profile data from network")
+            response = requests.get(GOODREADS_PROFILE_URL, headers=HEADERS)
+            response.raise_for_status()
+            html_content = response.text
+        
+        return extract_profile_stats(html_content)
+    except Exception as e:
+        logger.error(f"Error fetching Goodreads profile stats: {e}")
+        return {}
+
+def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
     """Fetch and parse Goodreads RSS feed."""
     try:
-        # Fetch the RSS feed with browser-like headers
-        response = requests.get(GOODREADS_RSS_URL, headers=HEADERS)
-        response.raise_for_status()
+        if use_cache and os.path.exists(CACHED_RSS_FILE):
+            logger.info("Using cached RSS data")
+            with open(CACHED_RSS_FILE, 'r', encoding='utf-8') as f:
+                rss_content = f.read()
+        else:
+            logger.info("Fetching RSS data from network")
+            # Fetch the RSS feed with browser-like headers
+            response = requests.get(GOODREADS_RSS_URL, headers=HEADERS)
+            response.raise_for_status()
+            rss_content = response.content.decode('utf-8')
         
         # Parse the XML
-        root = ET.fromstring(response.content)
+        root = ET.fromstring(rss_content)
         
         # Extract book reviews
         reviews = []
@@ -91,23 +165,26 @@ def fetch_goodreads_reviews() -> Dict:
             'profile_url': GOODREADS_PROFILE_URL,
         }
 
+def fetch_goodreads_data(use_cache: bool = False) -> Dict:
+    """Fetch both reviews and profile stats."""
+    reviews_data = fetch_goodreads_reviews(use_cache)
+    stats_data = fetch_goodreads_profile_stats(use_cache)
+    
+    return {
+        **reviews_data,
+        'stats': stats_data
+    }
+
 def main():
     """Test function to print scraped data."""
-    reviews = fetch_goodreads_reviews()
-    print("\nScraped Goodreads Reviews:")
-    print("=" * 80)
+    # Use cache if available for testing
+    use_cache = os.path.exists(CACHED_PROFILE_FILE)
+    if use_cache:
+        print("Found cached data, using cache for testing...")
     
-    for i, review in enumerate(reviews['recent_reviews'], 1):
-        print(f"\nReview #{i}:")
-        print(f"Title: {review['title']}")
-        print(f"Author: {review['author']}")
-        print(f"Rating: {review['rating']}/5")
-        print(f"Read At: {review['read_at']}")
-        print(f"Image URL: {review['image_url']}")
-        print(f"Review Link: {review['link']}")
-        if review['review']:
-            print(f"Review: {review['review']}")
-        print("-" * 80)
+    data = fetch_goodreads_data(use_cache)
+    print(data)
+    
     
 if __name__ == "__main__":
     main() 

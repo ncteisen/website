@@ -3,12 +3,13 @@
 import json
 import logging
 import os
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
 
 from letterboxd_scraper import create_letterboxd_scraper
-from goodreads_scraper import fetch_goodreads_reviews
+from goodreads_scraper import fetch_goodreads_data
 from strava_scraper import StravaScraper
 
 # Set up logging
@@ -44,6 +45,12 @@ def save_data(data: Dict[str, Any]) -> None:
 def main() -> None:
     """Main function to fetch and save social media data."""
     try:
+        # Check for cache flag from command line or environment variable
+        use_cache = '--cache' in sys.argv or os.getenv('USE_CACHE', '').lower() in ('true', '1', 'yes')
+        
+        if use_cache:
+            logger.info("Running in cache mode - using local cached data for Letterboxd and Goodreads")
+        
         # Ensure output directory exists
         ensure_output_directory()
 
@@ -58,7 +65,7 @@ def main() -> None:
         # Fetch Letterboxd data
         try:
             letterboxd_scraper = create_letterboxd_scraper()  # Using default username
-            data['letterboxd'] = letterboxd_scraper.fetch_data()
+            data['letterboxd'] = letterboxd_scraper.fetch_data(use_cache)
             logger.info("Successfully fetched Letterboxd data")
         except Exception as e:
             logger.error(f"Failed to fetch Letterboxd data: {e}")
@@ -66,7 +73,7 @@ def main() -> None:
 
         # Fetch Goodreads data
         try:
-            data['goodreads'] = fetch_goodreads_reviews()
+            data['goodreads'] = fetch_goodreads_data(use_cache)
             logger.info("Successfully fetched Goodreads data")
         except Exception as e:
             logger.error(f"Failed to fetch Goodreads data: {e}")
