@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-06-10T10:28:27.018437",
+  "last_updated": "2025-06-11T00:29:57.679727",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -88,6 +88,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "James",
+        "author": "Percival Everett",
+        "rating": 3.0,
+        "read_at": "2025/06/09",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704107491l/173754979.jpg",
+        "link": "https://www.goodreads.com/review/show/7643271915?utm_medium=api&utm_source=rss",
+        "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
+      },
+      {
         "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
         "author": "Suzanne Collins",
         "rating": 2.0,
@@ -149,15 +158,6 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682375874l/123136728.jpg",
         "link": "https://www.goodreads.com/review/show/7146784661?utm_medium=api&utm_source=rss",
         "review": "<br/>I can understand someone not liking this book, but I did enjoyed its poetic, non-fictionish style. The plot is barely existent but the writing and multicultural space-musings kept me engaged throughout <br/>"
-      },
-      {
-        "title": "We Have Always Lived in the Castle",
-        "author": "Shirley Jackson",
-        "rating": 2.0,
-        "read_at": "2024/12/26",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746532708l/89724.jpg",
-        "link": "https://www.goodreads.com/review/show/7122621083?utm_medium=api&utm_source=rss",
-        "review": "<br/>I did not like this very much - but it broke my multi month reading dry spell so it has that going for it<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen"
