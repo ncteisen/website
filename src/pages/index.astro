@@ -27,10 +27,23 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 		recent_bikes: StravaActivity[],
 		recent_hikes: StravaActivity[],
 		stats?: {
-			total_runs: number,
-			total_bikes: number,
-			runs_this_year: number,
-			bikes_this_year: number
+			running: {
+				ytd: ActivityTotals,
+				all_time: ActivityTotals,
+				recent: ActivityTotals
+			},
+			biking: {
+				ytd: ActivityTotals,
+				all_time: ActivityTotals,
+				recent: ActivityTotals
+			},
+			swimming: {
+				ytd: ActivityTotals,
+				all_time: ActivityTotals,
+				recent: ActivityTotals
+			},
+			biggest_ride_distance: number,
+			biggest_climb_elevation_gain: number
 		}
 	}
 };
@@ -123,6 +136,22 @@ interface StravaActivity {
 		/** The resource state of the map. */
 		resource_state: number;
 	};
+}
+
+/**
+ * Represents activity totals from Strava stats.
+ */
+interface ActivityTotals {
+	/** The number of activities. */
+	count: number;
+	/** The total distance in miles. */
+	distance: number;
+	/** The total moving time in seconds. */
+	moving_time: number;
+	/** The total elapsed time in seconds. */
+	elapsed_time: number;
+	/** The total elevation gain in feet. */
+	elevation_gain: number;
 }
 
 /**
@@ -376,14 +405,19 @@ function formatSpeed(distance: number, time: number): string {
 						});
 					}
 
-					// Initialize map for the most recent run, if data is available.
-					if (stravaData?.recent_runs?.[0]?.map?.summary_polyline) {
-						initMap('run-map', stravaData.recent_runs[0].map.summary_polyline);
-					}
-					// Initialize map for the most recent bike ride, if data is available.
-					if (stravaData?.recent_bikes?.[0]?.map?.summary_polyline) {
-						initMap('bike-map', stravaData.recent_bikes[0].map.summary_polyline);
-					}
+					// Initialize maps for embedded recent runs
+					stravaData?.recent_runs?.slice(0, 2).forEach((run, index) => {
+						if (run.map?.summary_polyline) {
+							initMap(`run-map-${index}`, run.map.summary_polyline);
+						}
+					});
+
+					// Initialize maps for embedded recent bikes  
+					stravaData?.recent_bikes?.slice(0, 2).forEach((bike, index) => {
+						if (bike.map?.summary_polyline) {
+							initMap(`bike-map-${index}`, bike.map.summary_polyline);
+						}
+					});
 				} catch (error) {
 					console.error('Error initializing maps:', error);
 				}
@@ -1280,6 +1314,108 @@ function formatSpeed(distance: number, time: number): string {
 				border: 1px solid var(--card-border);
 			}
 
+			/* === Comprehensive Stats Layout === */
+			.comprehensive-stats {
+				margin: 1.5rem 0;
+			}
+
+			.activity-section {
+				margin-bottom: 2rem;
+				padding: 1.5rem;
+				background-color: rgba(31, 41, 55, 0.3);
+				border-radius: 8px;
+				border: 1px solid var(--card-border);
+			}
+
+			.activity-section:last-child {
+				margin-bottom: 0;
+			}
+
+			.activity-section h4 {
+				margin: 0 0 1rem 0;
+				font-size: 1.2rem;
+				color: var(--primary-color);
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+
+			.time-period-stats {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5rem;
+			}
+
+			.period-group h5 {
+				margin: 0 0 0.75rem 0;
+				font-size: 1rem;
+				color: var(--text-color);
+				font-weight: 500;
+				text-align: center;
+				padding-bottom: 0.5rem;
+				border-bottom: 1px solid var(--card-border);
+			}
+
+			.stat-grid-detailed {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 0.75rem;
+			}
+
+			.stat-grid-detailed .stat-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 0.75rem 0.5rem;
+				background-color: rgba(31, 41, 55, 0.4);
+				border-radius: 6px;
+				border: 1px solid var(--card-border);
+				transition: all 0.2s ease;
+			}
+
+			.stat-grid-detailed .stat-item:hover {
+				background-color: rgba(59, 130, 246, 0.1);
+				border-color: var(--primary-color);
+			}
+
+			.stat-grid-detailed .stat-label {
+				font-size: 0.7rem;
+				color: var(--text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.25rem;
+				text-align: center;
+			}
+
+			.stat-grid-detailed .stat-value {
+				font-size: 1rem;
+				color: var(--text-color);
+				font-weight: 600;
+				text-align: center;
+			}
+
+			/* === Responsive Design for Comprehensive Stats === */
+			@media (max-width: 768px) {
+				.time-period-stats {
+					grid-template-columns: 1fr;
+					gap: 1rem;
+				}
+				
+				.stat-grid-detailed {
+					grid-template-columns: 1fr 1fr;
+				}
+				
+				.activity-section {
+					padding: 1rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.stat-grid-detailed {
+					grid-template-columns: 1fr;
+				}
+			}
+
 			/* === Fitness Activities Layout === */
 			.fitness-activities { /* Grid for run/bike cards */
 				display: grid;
@@ -1290,6 +1426,135 @@ function formatSpeed(distance: number, time: number): string {
 			@media (max-width: 768px) {
 				.fitness-activities { /* Stack fitness activities on smaller screens */
 					grid-template-columns: 1fr;
+				}
+			}
+
+			/* === Embedded Recent Activities === */
+			.recent-activities-embedded {
+				margin-top: 1.5rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--card-border);
+			}
+
+			.recent-activities-embedded h5 {
+				margin: 0 0 1rem 0;
+				font-size: 1rem;
+				color: var(--text-color);
+				font-weight: 500;
+				text-align: center;
+			}
+
+			.embedded-activities-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
+
+			.embedded-activity-card {
+				background-color: rgba(31, 41, 55, 0.4);
+				border: 1px solid var(--card-border);
+				border-radius: 6px;
+				padding: 1rem;
+				transition: all 0.2s ease;
+			}
+
+			.embedded-activity-card:hover {
+				background-color: rgba(59, 130, 246, 0.05);
+				border-color: var(--primary-color);
+				transform: translateY(-1px);
+			}
+
+			.embedded-activity-header {
+				margin-bottom: 0.75rem;
+			}
+
+			.embedded-activity-header h6 {
+				margin: 0 0 0.25rem 0;
+				font-size: 0.9rem;
+				color: var(--text-color);
+				font-weight: 500;
+				line-height: 1.3;
+			}
+
+			.embedded-activity-date {
+				font-size: 0.7rem;
+				color: var(--text-muted);
+				opacity: 0.8;
+				font-style: italic;
+			}
+
+			.embedded-activity-stats {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 0.5rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.embedded-stat {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 0.4rem 0.25rem;
+				background-color: rgba(31, 41, 55, 0.6);
+				border-radius: 4px;
+				border: 1px solid var(--card-border);
+			}
+
+			.embedded-stat-label {
+				font-size: 0.6rem;
+				color: var(--text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.15rem;
+				text-align: center;
+			}
+
+			.embedded-stat-value {
+				font-size: 0.8rem;
+				color: var(--text-color);
+				font-weight: 500;
+				text-align: center;
+			}
+
+			.embedded-activity-link {
+				color: var(--link-color);
+				text-decoration: none;
+				font-size: 0.75rem;
+				font-weight: 500;
+				transition: all 0.2s ease;
+				display: block;
+				text-align: center;
+			}
+
+			.embedded-activity-link:hover {
+				color: var(--link-hover-color);
+			}
+
+			.embedded-activity-map {
+				width: 100%;
+				height: 200px;
+				margin: 0.75rem 0;
+				border-radius: 4px;
+				overflow: hidden;
+				border: 1px solid var(--card-border);
+			}
+
+			/* === Responsive Design for Embedded Activities === */
+			@media (max-width: 768px) {
+				.embedded-activities-grid {
+					grid-template-columns: 1fr;
+					gap: 0.75rem;
+				}
+				
+				.embedded-activity-stats {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.embedded-activity-stats {
+					grid-template-columns: 1fr;
+					gap: 0.4rem;
 				}
 			}
 		</style>
@@ -1608,87 +1873,174 @@ function formatSpeed(distance: number, time: number): string {
 						<i class="fas fa-heartbeat section-icon" aria-hidden="true"></i>
 						<p>I enjoy running and cycling around San Francisco.</p>
 						
-						<div class="stat-grid" style="margin-bottom: 1.5rem;">
-							<div class="stat-item">
-								<span class="stat-label">Runs This Year</span>
-								<span class="stat-value">{stravaData.stats?.runs_this_year || 0}</span>
+						<div class="comprehensive-stats">
+							<div class="activity-section">
+								<h4><i class="fas fa-running activity-icon" aria-hidden="true"></i>Running</h4>
+								<div class="time-period-stats">
+									<div class="period-group">
+										<h5>Year to Date</h5>
+										<div class="stat-grid-detailed">
+											<div class="stat-item">
+												<span class="stat-label">Activities</span>
+												<span class="stat-value">{stravaData.stats?.running.ytd.count || 0}</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Distance</span>
+												<span class="stat-value">{stravaData.stats?.running.ytd.distance || 0} mi</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Elevation</span>
+												<span class="stat-value">{stravaData.stats?.running.ytd.elevation_gain?.toLocaleString() || 0} ft</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Time</span>
+												<span class="stat-value">{formatDuration(stravaData.stats?.running.ytd.elapsed_time || 0)}</span>
+											</div>
+										</div>
+									</div>
+									<div class="period-group">
+										<h5>All Time</h5>
+										<div class="stat-grid-detailed">
+											<div class="stat-item">
+												<span class="stat-label">Activities</span>
+												<span class="stat-value">{stravaData.stats?.running.all_time.count || 0}</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Distance</span>
+												<span class="stat-value">{stravaData.stats?.running.all_time.distance?.toLocaleString() || 0} mi</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Elevation</span>
+												<span class="stat-value">{stravaData.stats?.running.all_time.elevation_gain?.toLocaleString() || 0} ft</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Time</span>
+												<span class="stat-value">{formatDuration(stravaData.stats?.running.all_time.elapsed_time || 0)}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="recent-activities-embedded">
+									<h5>Recent Runs</h5>
+									<div class="embedded-activities-grid">
+										{stravaData.recent_runs.slice(0, 2).map((run: StravaActivity, index: number) => (
+											<div class="embedded-activity-card">
+												<div class="embedded-activity-header">
+													<h6>{run.name}</h6>
+													<span class="embedded-activity-date">{formatDate(run.start_date)}</span>
+												</div>
+												{run.map?.summary_polyline && (
+													<div id={`run-map-${index}`} class="embedded-activity-map"></div>
+												)}
+												<div class="embedded-activity-stats">
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Distance</span>
+														<span class="embedded-stat-value">{run.distance} mi</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Time</span>
+														<span class="embedded-stat-value">{formatDuration(run.moving_time)}</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Elevation</span>
+														<span class="embedded-stat-value">{run.elevation_gain} ft</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Pace</span>
+														<span class="embedded-stat-value">{run.average_pace} min/mi</span>
+													</div>
+												</div>
+												<a href={`https://www.strava.com/activities/${run.id}`} target="_blank" rel="noopener noreferrer" class="embedded-activity-link">View on Strava</a>
+											</div>
+										))}
+									</div>
+								</div>
 							</div>
-							<div class="stat-item">
-								<span class="stat-label">Bikes This Year</span>
-								<span class="stat-value">{stravaData.stats?.bikes_this_year || 0}</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-label">Total Runs</span>
-								<span class="stat-value">{stravaData.stats?.total_runs || 0}</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-label">Total Bikes</span>
-								<span class="stat-value">{stravaData.stats?.total_bikes || 0}</span>
-							</div>
-						</div>
 
-						<p>Here is my most recent run and bike:</p>
-						<div class="recent-movies fitness-activities">
-							{stravaData.recent_runs[0] && (
-								<div class="movie-card">
-									<div class="movie-info">
-										<h4><i class="fas fa-running activity-icon" aria-hidden="true"></i>{stravaData.recent_runs[0].name}</h4>
-										<p class="activity-date">{formatDate(stravaData.recent_runs[0].start_date)}</p>
-										<div id="run-map" class="activity-map"></div>
-										<div class="activity-stats">
-											<div class="stat-grid">
-												<div class="stat-item">
-													<span class="stat-label">Distance</span>
-													<span class="stat-value">{stravaData.recent_runs[0].distance} miles</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Time</span>
-													<span class="stat-value">{formatDuration(stravaData.recent_runs[0].moving_time)}</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Elevation</span>
-													<span class="stat-value">{stravaData.recent_runs[0].elevation_gain} ft</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Pace</span>
-													<span class="stat-value">{stravaData.recent_runs[0].average_pace} min/mile</span>
-												</div>
+							<div class="activity-section">
+								<h4><i class="fas fa-biking activity-icon" aria-hidden="true"></i>Biking</h4>
+								<div class="time-period-stats">
+									<div class="period-group">
+										<h5>Year to Date</h5>
+										<div class="stat-grid-detailed">
+											<div class="stat-item">
+												<span class="stat-label">Activities</span>
+												<span class="stat-value">{stravaData.stats?.biking.ytd.count || 0}</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Distance</span>
+												<span class="stat-value">{stravaData.stats?.biking.ytd.distance || 0} mi</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Elevation</span>
+												<span class="stat-value">{stravaData.stats?.biking.ytd.elevation_gain?.toLocaleString() || 0} ft</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Time</span>
+												<span class="stat-value">{formatDuration(stravaData.stats?.biking.ytd.elapsed_time || 0)}</span>
 											</div>
 										</div>
-										<a href={`https://www.strava.com/activities/${stravaData.recent_runs[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
-								</div>
-							)}
-							{stravaData.recent_bikes[0] && (
-								<div class="movie-card">
-									<div class="movie-info">
-										<h4><i class="fas fa-biking activity-icon" aria-hidden="true"></i>{stravaData.recent_bikes[0].name}</h4>
-										<p class="activity-date">{formatDate(stravaData.recent_bikes[0].start_date)}</p>
-										<div id="bike-map" class="activity-map"></div>
-										<div class="activity-stats">
-											<div class="stat-grid">
-												<div class="stat-item">
-													<span class="stat-label">Distance</span>
-													<span class="stat-value">{stravaData.recent_bikes[0].distance} miles</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Time</span>
-													<span class="stat-value">{formatDuration(stravaData.recent_bikes[0].moving_time)}</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Elevation</span>
-													<span class="stat-value">{stravaData.recent_bikes[0].elevation_gain} ft</span>
-												</div>
-												<div class="stat-item">
-													<span class="stat-label">Speed</span>
-													<span class="stat-value">{formatSpeed(stravaData.recent_bikes[0].distance, stravaData.recent_bikes[0].moving_time)} mph</span>
-												</div>
+									<div class="period-group">
+										<h5>All Time</h5>
+										<div class="stat-grid-detailed">
+											<div class="stat-item">
+												<span class="stat-label">Activities</span>
+												<span class="stat-value">{stravaData.stats?.biking.all_time.count || 0}</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Distance</span>
+												<span class="stat-value">{stravaData.stats?.biking.all_time.distance?.toLocaleString() || 0} mi</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Elevation</span>
+												<span class="stat-value">{stravaData.stats?.biking.all_time.elevation_gain?.toLocaleString() || 0} ft</span>
+											</div>
+											<div class="stat-item">
+												<span class="stat-label">Time</span>
+												<span class="stat-value">{formatDuration(stravaData.stats?.biking.all_time.elapsed_time || 0)}</span>
 											</div>
 										</div>
-										<a href={`https://www.strava.com/activities/${stravaData.recent_bikes[0].id}`} target="_blank" rel="noopener noreferrer" class="movie-link">View on Strava</a>
 									</div>
 								</div>
-							)}
+								
+								<div class="recent-activities-embedded">
+									<h5>Recent Rides</h5>
+									<div class="embedded-activities-grid">
+										{stravaData.recent_bikes.slice(0, 2).map((bike: StravaActivity, index: number) => (
+											<div class="embedded-activity-card">
+												<div class="embedded-activity-header">
+													<h6>{bike.name}</h6>
+													<span class="embedded-activity-date">{formatDate(bike.start_date)}</span>
+												</div>
+												{bike.map?.summary_polyline && (
+													<div id={`bike-map-${index}`} class="embedded-activity-map"></div>
+												)}
+												<div class="embedded-activity-stats">
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Distance</span>
+														<span class="embedded-stat-value">{bike.distance} mi</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Time</span>
+														<span class="embedded-stat-value">{formatDuration(bike.moving_time)}</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Elevation</span>
+														<span class="embedded-stat-value">{bike.elevation_gain} ft</span>
+													</div>
+													<div class="embedded-stat">
+														<span class="embedded-stat-label">Speed</span>
+														<span class="embedded-stat-value">{formatSpeed(bike.distance, bike.moving_time)} mph</span>
+													</div>
+												</div>
+												<a href={`https://www.strava.com/activities/${bike.id}`} target="_blank" rel="noopener noreferrer" class="embedded-activity-link">View on Strava</a>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
 						</div>
 						<hr class="profile-separator" />
 						<div class="last-updated">
