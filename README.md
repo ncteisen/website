@@ -1,47 +1,90 @@
-# Astro Starter Kit: Minimal
+# Noah Eisen's Personal Website
 
-```sh
-npm create astro@latest -- --template minimal
+A modern personal website built with Astro featuring integrated social media data from Strava, Letterboxd, and Goodreads.
+
+## Features
+
+- **Static Site Generation**: Built with Astro for fast, optimized performance
+- **Social Media Integration**: Automatically fetches and displays data from:
+  - Strava (fitness activities with interactive maps)
+  - Letterboxd (movie reviews and ratings)
+  - Goodreads (book reviews and reading statistics)
+- **Interactive Maps**: Leaflet maps showing Strava activity routes
+
+## Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/           # Astro pages
+│   ├── data/            # JSON data files
+│   └── games/           # Game projects
+├── scripts/
+│   └── social-scraper/  # Python scrapers for social media data
+├── public/              # Static assets
+└── dist/                # Built website
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Development Setup
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Prerequisites
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Node.js (for Astro)
+- Python 3.x (for social media scrapers)
 
-## 🧞 Commands
+### Installation
 
-All commands are run from the root of the project, from a terminal:
+1. Install Node.js dependencies:
+```bash
+npm install
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-## 👀 Want to learn more?
+### Environment Variables
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Create a `.env` file in the `scripts/social-scraper/` directory:
+
+```env
+STRAVA_CLIENT_ID=your_strava_client_id
+STRAVA_CLIENT_SECRET=your_strava_client_secret
+STRAVA_REFRESH_TOKEN=your_strava_refresh_token
+```
+
+## Development
+
+### Start Development Server
+```bash
+npm run dev
+```
+
+### Update Social Media Data
+```bash
+cd scripts/social-scraper
+python fetch_social_data.py
+```
+
+### Build for Production
+```bash
+npm run build
+```
+
+## Social Media Scrapers
+
+The Python scrapers automatically fetch data from:
+
+- **Strava**: Recent runs, bike rides, hikes, and comprehensive fitness statistics
+- **Letterboxd**: Recent movie reviews and user statistics
+- **Goodreads**: Recent book reviews via RSS feed with caching support
+
+Data is stored in `src/data/social_data.json` and automatically integrated into the website.
+
+## Architecture Diagram
+
+![Architecture Diagram](.github/assets/architecture-diagram.png)
+
+*High-level overview of the website architecture showing data flow from social media APIs through Python scrapers to the Astro static site.*
+
+
