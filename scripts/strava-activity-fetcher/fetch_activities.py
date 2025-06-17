@@ -18,8 +18,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load environment variables from the script's directory
-load_dotenv(os.path.join(SCRIPT_DIR, '.env'))
+# Load environment variables
+load_dotenv()
 
 class StravaDataCollector:
     def __init__(self):
