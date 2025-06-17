@@ -1,12 +1,7 @@
 import os
 import json
-import requests
-from datetime import datetime
-from dotenv import load_dotenv
+from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, TypedDict
-
-# Load environment variables
-load_dotenv()
 
 class StravaActivity(TypedDict):
     id: int
@@ -36,88 +31,100 @@ class StravaActivity(TypedDict):
 
 class StravaScraper:
     def __init__(self):
-        self.client_id = os.getenv('STRAVA_CLIENT_ID')
-        self.client_secret = os.getenv('STRAVA_CLIENT_SECRET')
-        self.refresh_token = os.getenv('STRAVA_REFRESH_TOKEN')
-        self.access_token = None
-        self.expires_at = None
+        # Get the absolute path to the strava-activity-fetcher data
+        self.script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.activities_file = os.path.join(
+            self.script_dir, 
+            '..', 
+            'strava-activity-fetcher', 
+            'data', 
+            'activities.json'
+        )
+        self.activities_data = None
 
-    def get_access_token(self) -> str:
-        """Get a new access token using the refresh token."""
-        if self.access_token and self.expires_at and datetime.now().timestamp() < self.expires_at:
-            return self.access_token
+    def load_activities_data(self) -> List[StravaActivity]:
+        """Load activities from the cached JSON file."""
+        if self.activities_data is not None:
+            return self.activities_data
+            
+        try:
+            with open(self.activities_file, 'r') as f:
+                self.activities_data = json.load(f)
+            return self.activities_data
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                f"Activities file not found at {self.activities_file}. "
+                "Please run the strava-activity-fetcher first."
+            )
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid JSON in activities file: {self.activities_file}")
 
-        response = requests.post(
-            'https://www.strava.com/oauth/token',
-            data={
-                'client_id': self.client_id,
-                'client_secret': self.client_secret,
-                'refresh_token': self.refresh_token,
-                'grant_type': 'refresh_token'
+    def filter_activities_by_date_range(self, activities: List[StravaActivity], days_back: int) -> List[StravaActivity]:
+        """Filter activities to only include those within the specified number of days."""
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
+        filtered_activities = []
+        
+        for activity in activities:
+            activity_date = datetime.fromisoformat(activity['start_date'].replace('Z', '+00:00'))
+            if activity_date >= cutoff_date:
+                filtered_activities.append(activity)
+                
+        return filtered_activities
+
+    def calculate_activity_totals(self, activities: List[StravaActivity]) -> Dict:
+        """Calculate totals for a list of activities."""
+        if not activities:
+            return {
+                'count': 0,
+                'distance': 0,
+                'moving_time': 0,
+                'elapsed_time': 0,
+                'elevation_gain': 0
             }
-        )
-        response.raise_for_status()
-        data = response.json()
         
-        self.access_token = data['access_token']
-        self.expires_at = data['expires_at']
-        return self.access_token
+        total_distance = sum(activity.get('distance', 0) for activity in activities)
+        total_moving_time = sum(activity.get('moving_time', 0) for activity in activities)
+        total_elapsed_time = sum(activity.get('elapsed_time', 0) for activity in activities)
+        total_elevation = sum(activity.get('total_elevation_gain', 0) for activity in activities)
+        
+        return {
+            'count': len(activities),
+            'distance': round(total_distance * 0.000621371, 2),  # Convert meters to miles
+            'moving_time': total_moving_time,
+            'elapsed_time': total_elapsed_time,
+            'elevation_gain': round(total_elevation * 3.28084, 0)  # Convert meters to feet
+        }
 
-    def get_athlete_id(self) -> int:
-        """Get the current athlete's ID."""
-        access_token = self.get_access_token()
-        headers = {'Authorization': f'Bearer {access_token}'}
+    def get_activities_by_type(self, activity_type: str, exclude_commutes: bool = True) -> List[StravaActivity]:
+        """Get all activities of a specific type."""
+        activities = self.load_activities_data()
+        filtered = [
+            activity for activity in activities 
+            if activity.get('type') == activity_type or activity.get('sport_type') == activity_type
+        ]
         
-        response = requests.get(
-            'https://www.strava.com/api/v3/athlete',
-            headers=headers
-        )
-        response.raise_for_status()
-        return response.json()['id']
-
-    def get_athlete_stats(self) -> Dict:
-        """Get athlete statistics from Strava."""
-        athlete_id = self.get_athlete_id()
-        access_token = self.get_access_token()
-        headers = {'Authorization': f'Bearer {access_token}'}
-        
-        response = requests.get(
-            f'https://www.strava.com/api/v3/athletes/{athlete_id}/stats',
-            headers=headers
-        )
-        response.raise_for_status()
-        return response.json()
-
-    def get_recent_activities(self, per_page: int = 100) -> List[StravaActivity]:
-        """Get recent activities from Strava."""
-        access_token = self.get_access_token()
-        headers = {'Authorization': f'Bearer {access_token}'}
-        
-        response = requests.get(
-            'https://www.strava.com/api/v3/athlete/activities',
-            headers=headers,
-            params={'per_page': per_page}
-        )
-        response.raise_for_status()
-        return response.json()
+        if exclude_commutes:
+            filtered = [activity for activity in filtered if not activity.get('commute', False)]
+            
+        return filtered
 
     def format_activity(self, activity: StravaActivity) -> Dict:
         """Format an activity into a consistent structure."""
         # Convert meters to miles
-        distance_miles = activity['distance'] * 0.000621371
+        distance_miles = activity.get('distance', 0) * 0.000621371
         
         # Convert meters per second to minutes per mile
-        avg_speed_mph = activity['average_speed'] * 2.23694
+        avg_speed_mph = activity.get('average_speed', 0) * 2.23694
         pace_min_per_mile = 60 / avg_speed_mph if avg_speed_mph > 0 else 0
         
         return {
             'id': activity['id'],
             'name': activity['name'],
-            'type': activity['type'],
+            'type': activity.get('type', activity.get('sport_type', 'Unknown')),
             'distance': round(distance_miles, 2),
-            'moving_time': activity['moving_time'],
-            'elapsed_time': activity['elapsed_time'],
-            'elevation_gain': round(activity['total_elevation_gain'] * 3.28084, 0),  # Convert to feet
+            'moving_time': activity.get('moving_time', 0),
+            'elapsed_time': activity.get('elapsed_time', 0),
+            'elevation_gain': round(activity.get('total_elevation_gain', 0) * 3.28084, 0),  # Convert to feet
             'average_pace': round(pace_min_per_mile, 2),
             'average_heartrate': activity.get('average_heartrate'),
             'max_heartrate': activity.get('max_heartrate'),
@@ -125,32 +132,64 @@ class StravaScraper:
             'average_watts': activity.get('average_watts'),
             'start_date': activity['start_date'],
             'description': activity.get('description'),
-            'commute': activity['commute'],
-            'map': activity['map']
+            'commute': activity.get('commute', False),
+            'map': activity.get('map', {})
+        }
+
+    def calculate_record_stats(self, activities: List[StravaActivity]) -> Dict:
+        """Calculate record statistics from all activities."""
+        if not activities:
+            return {
+                'biggest_ride_distance': 0,
+                'biggest_climb_elevation_gain': 0
+            }
+        
+        # Find biggest ride distance
+        rides = [a for a in activities if a.get('type') == 'Ride' or a.get('sport_type') == 'Ride']
+        biggest_ride = max(rides, key=lambda x: x.get('distance', 0), default={'distance': 0})
+        
+        # Find biggest climb
+        biggest_climb = max(activities, key=lambda x: x.get('total_elevation_gain', 0), default={'total_elevation_gain': 0})
+        
+        return {
+            'biggest_ride_distance': round(biggest_ride.get('distance', 0) * 0.000621371, 2),  # Convert to miles
+            'biggest_climb_elevation_gain': round(biggest_climb.get('total_elevation_gain', 0) * 3.28084, 0)  # Convert to feet
         }
 
     def get_recent_activities_data(self) -> Dict:
         """Get recent activities and stats, formatted into a consistent structure."""
-        # Get recent activities
-        activities = self.get_recent_activities()
+        activities = self.load_activities_data()
         
-        # Filter and get the latest 8 of each type, excluding commutes
-        runs = [a for a in activities if a['type'] == 'Run' and not a['commute']][:8]
-        bike_rides = [a for a in activities if a['type'] == 'Ride' and not a['commute']][:8]
-        hikes = [a for a in activities if a['type'] == 'Hike'][:8]
+        # Get activities by type (latest 8 of each, excluding commutes)
+        all_runs = self.get_activities_by_type('Run', exclude_commutes=True)
+        all_bikes = self.get_activities_by_type('Ride', exclude_commutes=True)
+        all_hikes = self.get_activities_by_type('Hike', exclude_commutes=True)
+        all_swims = self.get_activities_by_type('Swim', exclude_commutes=True)
         
-        # Get athlete stats
-        stats = self.get_athlete_stats()
+        # Sort by date and take latest 8
+        runs = sorted(all_runs, key=lambda x: x['start_date'], reverse=True)[:8]
+        bike_rides = sorted(all_bikes, key=lambda x: x['start_date'], reverse=True)[:8]
+        hikes = sorted(all_hikes, key=lambda x: x['start_date'], reverse=True)[:8]
         
-        # Helper function to format activity totals
-        def format_activity_totals(totals_data):
-            return {
-                'count': totals_data.get('count', 0),
-                'distance': round(totals_data.get('distance', 0) * 0.000621371, 2),  # Convert meters to miles
-                'moving_time': totals_data.get('moving_time', 0),  # in seconds
-                'elapsed_time': totals_data.get('elapsed_time', 0),  # in seconds
-                'elevation_gain': round(totals_data.get('elevation_gain', 0) * 3.28084, 0)  # Convert meters to feet
-            }
+        # Calculate stats for different time periods
+        current_year = datetime.now(timezone.utc).year
+        ytd_activities = [
+            a for a in activities 
+            if datetime.fromisoformat(a['start_date'].replace('Z', '+00:00')).year == current_year
+        ]
+        recent_activities = self.filter_activities_by_date_range(activities, 28)  # 4 weeks
+        
+        # Filter by activity type for stats
+        ytd_runs = [a for a in ytd_activities if a.get('type') == 'Run' or a.get('sport_type') == 'Run']
+        ytd_rides = [a for a in ytd_activities if a.get('type') == 'Ride' or a.get('sport_type') == 'Ride']
+        ytd_swims = [a for a in ytd_activities if a.get('type') == 'Swim' or a.get('sport_type') == 'Swim']
+        
+        recent_runs = [a for a in recent_activities if a.get('type') == 'Run' or a.get('sport_type') == 'Run']
+        recent_rides = [a for a in recent_activities if a.get('type') == 'Ride' or a.get('sport_type') == 'Ride']
+        recent_swims = [a for a in recent_activities if a.get('type') == 'Swim' or a.get('sport_type') == 'Swim']
+        
+        # Calculate record stats
+        records = self.calculate_record_stats(activities)
         
         return {
             'recent_runs': [self.format_activity(run) for run in runs],
@@ -159,25 +198,25 @@ class StravaScraper:
             'stats': {
                 # Running stats
                 'running': {
-                    'ytd': format_activity_totals(stats.get('ytd_run_totals', {})),
-                    'all_time': format_activity_totals(stats.get('all_run_totals', {})),
-                    'recent': format_activity_totals(stats.get('recent_run_totals', {}))
+                    'ytd': self.calculate_activity_totals(ytd_runs),
+                    'all_time': self.calculate_activity_totals(all_runs),
+                    'recent': self.calculate_activity_totals(recent_runs)
                 },
                 # Biking stats
                 'biking': {
-                    'ytd': format_activity_totals(stats.get('ytd_ride_totals', {})),
-                    'all_time': format_activity_totals(stats.get('all_ride_totals', {})),
-                    'recent': format_activity_totals(stats.get('recent_ride_totals', {}))
+                    'ytd': self.calculate_activity_totals(ytd_rides),
+                    'all_time': self.calculate_activity_totals(all_bikes),
+                    'recent': self.calculate_activity_totals(recent_rides)
                 },
                 # Swimming stats
                 'swimming': {
-                    'ytd': format_activity_totals(stats.get('ytd_swim_totals', {})),
-                    'all_time': format_activity_totals(stats.get('all_swim_totals', {})),
-                    'recent': format_activity_totals(stats.get('recent_swim_totals', {}))
+                    'ytd': self.calculate_activity_totals(ytd_swims),
+                    'all_time': self.calculate_activity_totals(all_swims),
+                    'recent': self.calculate_activity_totals(recent_swims)
                 },
-                # Additional interesting stats
-                'biggest_ride_distance': round(stats.get('biggest_ride_distance', 0) * 0.000621371, 2),  # Convert to miles
-                'biggest_climb_elevation_gain': round(stats.get('biggest_climb_elevation_gain', 0) * 3.28084, 0)  # Convert to feet
+                # Record stats
+                'biggest_ride_distance': records['biggest_ride_distance'],
+                'biggest_climb_elevation_gain': records['biggest_climb_elevation_gain']
             }
         }
 
@@ -211,16 +250,6 @@ def main():
         print(f"\n🏆 RECORDS:")
         print(f"  Biggest ride distance: {data['stats']['biggest_ride_distance']} miles")
         print(f"  Biggest climb elevation: {data['stats']['biggest_climb_elevation_gain']} feet")
-        
-        # Save to JSON file
-        with open('src/data/social_data.json', 'r') as f:
-            existing_data = json.load(f)
-        
-        # Update the existing data with Strava data
-        existing_data['strava'] = data
-        
-        with open('src/data/social_data.json', 'w') as f:
-            json.dump(existing_data, f, indent=2)
             
         print("\n✅ Successfully updated social data with comprehensive Strava stats")
         
