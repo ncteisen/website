@@ -1,8 +1,38 @@
 {
-  "last_updated": "2025-07-07T10:29:38.066323",
+  "last_updated": "2025-07-07T21:20:57.123829",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Gattaca",
+        "year": 1997,
+        "rating": 4.0,
+        "watched_date": "2025-07-06",
+        "is_rewatch": true,
+        "review": "<p>Hey that movie they kept showing us in high school science classes is still pretty damn good!</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/7/0/51370-gattaca-0-600-0-900-crop.jpg?v=a0ca9198ff",
+        "link": "https://letterboxd.com/ncteisen/film/gattaca/"
+      },
+      {
+        "title": "Rocketman",
+        "year": 2019,
+        "rating": 2.5,
+        "watched_date": "2025-07-05",
+        "is_rewatch": false,
+        "review": "<p>I wrote in a recent review that \"musical biopics have such a low ceiling\" and this one came in lower that that theoretical high.</p><p>On the other side, if the music is good, they have a high floor. And I do like a lot of this music.</p><p>There was only one scene in this movie that felt cinematically <i>elevated</i>.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/3/4/4/8/2/434482-rocketman-0-600-0-900-crop.jpg?v=a6f47feb2d",
+        "link": "https://letterboxd.com/ncteisen/film/rocketman-2019/"
+      },
+      {
+        "title": "Notting Hill",
+        "year": 1999,
+        "rating": 3.0,
+        "watched_date": "2025-06-25",
+        "is_rewatch": false,
+        "review": "<p>OK it's fun but should it really be in the same conversations as <i>When Harry Met Sally</i> or <i>You've Got Mail</i>??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/pa/ej/k3/ft/notting-hill-0-600-0-900-crop.jpg?v=a589bf6ce2",
+        "link": "https://letterboxd.com/ncteisen/film/notting-hill/"
+      },
       {
         "title": "Oddity",
         "year": 2024,
@@ -52,41 +82,11 @@
         "review": "<p>Letterboxd Offers come through!! Got to see a free screening of this a month before its release.</p><p>Like Talk to Me, this was well shot and filled with horribly disturbing visual imagery. Unlike its predecessor however, it was loose and messy and fell into too many horror tropes for me to fully enjoy it.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/6/2/7/1037627-bring-her-back-0-600-0-900-crop.jpg?v=defe1dae77",
         "link": "https://letterboxd.com/ncteisen/film/bring-her-back/"
-      },
-      {
-        "title": "Presence",
-        "year": 2024,
-        "rating": 3.5,
-        "watched_date": "2025-05-05",
-        "is_rewatch": false,
-        "review": "<p>We \ud83d\udc4f\ud83c\udffc love \ud83d\udc4f\ud83c\udffc a \ud83d\udc4f\ud83c\udffc tight \ud83d\udc4f\ud83c\udffc runtime</p><p>Can always count on Soderbergh for a no-wasted-moments film with creative camera work and interesting ideas</p><p>Brutal mis-marketing campaign though, this was absolutely not \"one of the scariest movies you will see all year\" as the trailer claimed. Is the rise of prestige horror causing it to become a victim of its own success??</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/7/9/3/7/1027937-presence-2024-0-600-0-900-crop.jpg?v=e47f97445a",
-        "link": "https://letterboxd.com/ncteisen/film/presence-2024/"
-      },
-      {
-        "title": "One of Them Days",
-        "year": 2025,
-        "rating": 4.0,
-        "watched_date": "2025-05-05",
-        "is_rewatch": false,
-        "review": "<p>Fever dream screwball comedy and I loved it. More of this please!!</p><p>Keke and SZA were really funny but all of the minor characters had me <b>howling</b> (esp Katt Williams and Keyla Mejia)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/6/4/4/4/0/1164440-one-of-them-days-0-600-0-900-crop.jpg?v=c538699ae1",
-        "link": "https://letterboxd.com/ncteisen/film/one-of-them-days/"
-      },
-      {
-        "title": "A Complete Unknown",
-        "year": 2024,
-        "rating": 3.0,
-        "watched_date": "2025-05-05",
-        "is_rewatch": false,
-        "review": "<p>This was solid but musical biopics have such a low ceiling for me</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/8/6/5/8/3/586583-a-complete-unknown-0-600-0-900-crop.jpg?v=f14ab6ecf6",
-        "link": "https://letterboxd.com/ncteisen/film/a-complete-unknown/"
       }
     ],
     "stats": {
-      "total_films": 794,
-      "films_this_year": 24,
+      "total_films": 796,
+      "films_this_year": 27,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -94,6 +94,15 @@
   },
   "goodreads": {
     "recent_reviews": [
+      {
+        "title": "Frankenstein",
+        "author": "Mary Wollstonecraft Shelley",
+        "rating": 5.0,
+        "read_at": "2025/07/03",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665008650l/18490.jpg",
+        "link": "https://www.goodreads.com/review/show/1706008098?utm_medium=api&utm_source=rss",
+        "review": "<br/>Missed this classic in High School (shame on you Shaker!). It was absolutely <b>nothing</b> like I expected it would be based off pop culture. I was waiting for mobs, Fritz/Igor, and \"it's alive\" before realizing all that stuff was added by later movie adaptations.<br /><br />Instead I got stories with in stories told in beautiful language and varying structure on themes of ambition, science, love, etc etc etc. Anyway, it was great.<br /><br />Shoutout to Guillermo del Toro for the catalyst to read.<br/>"
+      },
       {
         "title": "James",
         "author": "Percival Everett",
@@ -156,28 +165,41 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1675561913l/52122096.jpg",
         "link": "https://www.goodreads.com/review/show/7225409523?utm_medium=api&utm_source=rss",
         "review": "<br/>Yes that's right I started 2025 off by reading smutting HP fanfic<br /><br />This was OK, it had a good premise but started dragging in pace about halfway through and never recovered<br/>"
-      },
-      {
-        "title": "Orbital",
-        "author": "Samantha Harvey",
-        "rating": 4.0,
-        "read_at": "2024/12/31",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682375874l/123136728.jpg",
-        "link": "https://www.goodreads.com/review/show/7146784661?utm_medium=api&utm_source=rss",
-        "review": "<br/>I can understand someone not liking this book, but I did enjoyed its poetic, non-fictionish style. The plot is barely existent but the writing and multicultural space-musings kept me engaged throughout <br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 276,
-      "average_rating": 4.18,
-      "total_reviews": 111,
-      "pages_this_year": 3242,
-      "books_this_year": 7
+      "total_ratings": 277,
+      "average_rating": 4.19,
+      "total_reviews": 112,
+      "pages_this_year": 3530,
+      "books_this_year": 8
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15036286660,
+        "name": "Cape Run",
+        "type": "Run",
+        "distance": 6.63,
+        "moving_time": 3610,
+        "elapsed_time": 4344,
+        "elevation_gain": 164.0,
+        "average_pace": 9.07,
+        "average_heartrate": 132.9,
+        "max_heartrate": 160.0,
+        "average_cadence": 88.0,
+        "average_watts": null,
+        "start_date": "2025-07-06T14:48:07Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15036286660",
+          "summary_polyline": "}uo|FxscnLB_@NsAFOF@fA`BdAdBBPpAjBhAhB~ElIvAvBrDrExCdDpA`B|@`Ad@d@Xb@X^lCtCXTp@fA`Az@~@bAvAjBj@l@vAlBXXVZXTZ`@vA|Al@d@d@f@bApA~@`AXh@XZjBnB^d@Td@`@n@h@h@Vh@nAfBT^jB|ETx@Hh@Tn@~@pEXbBFt@TfBJpAHhCJz@EdCIlB[|EQjA?`@@HGhABXZz@HDr@?\\Ib@O^CdAWB_@DoDBHPVFPVdBDJLDTEZUT]~@cAhAi@x@g@f@UZGl@Cl@On@IZMb@Y^e@N_@t@sCf@}Bh@wBdBaGVYh@Yr@OTMVYRm@\\kBZw@\\o@JWFg@Co@Me@]y@s@eAYU[Oc@Ce@HcCl@aBPm@Bg@CgAQsADo@J_@`@c@j@]P[C_ASu@B_@Dw@WcAN]Kk@WaAY_@E_ADiAe@y@g@e@SWQc@[g@q@OKu@}@{@q@u@sAu@{@y@eAIO{AwAIMYYYi@iAkAY_@_@w@[WICQWkAcA[e@e@k@KGg@s@m@m@_AwAo@k@]e@QIQBe@McA_Ay@q@a@c@[e@s@{@s@gAk@c@Y[QYcAcAw@aAq@w@a@k@kBiBa@g@q@_AoBuB_BwBoDyFqBuDyBwDo@sAkBeDoB_C_@k@_DuDmBqB_CwB}AmAuBqBi@_@m@S{@]oBeAc@[c@Q}C}BkAk@_@W}CaBKKw@e@w@]y@e@g@Ug@_@iAm@OKe@Sq@c@iAg@aBeA]OsAeAg@WqBkAa@OaAs@sAw@s@_@e@S{@o@aAe@QGWUSIQ@`@`@TNf@RFH`@PxAfAx@Zj@^~Az@d@PHHr@ZtAr@~BvAZJ^VXJb@V~@v@nAj@fAn@|A~@b@^ZNb@XlAj@x@l@pBhAHBjBhAnAf@t@^\\XdCzAtAbAj@ZNFdBhArA`Al@X`A~@dAz@pBrBbFdGbB~B",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15006163302,
         "name": "Independence Tri: Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a14913483272",
           "summary_polyline": "sppeFjkhjVB|AEd@Qb@?DP|DAl@BN@^TvBVxCBx@?t@F`AGd@@`@BVVhAHzAEjAKn@EFGh@@p@GtALfATh@Zj@`@fAF|@Lt@Dh@P`ABpACpA?n@Hp@XxAB`ACpAZjCBj@A`BPtBD~@En@Bh@Nz@n@tBHr@E~@CT[~@@b@Fn@?T[LHNrArFL~@LzAAjAGv@OXMAAC?GFSAUGYGGODG?ECG_@g@eA_@e@s@g@]IU?KOQM[Ec@NiApAm@TIJKZ]t@_@n@AJYr@IFOXADB`@ZjB\\d@b@^Jb@Rr@Np@DbACBY?_@_@c@[g@?KBCDTLTZDZOd@FVt@tA^ZFPANQr@Ht@L`@?TILIDINDn@Vh@HXOb@APZpAFt@QbADr@GdB@h@TpCJf@d@vAl@`AT`BFP\\X^Pt@VT^Xp@v@fA^r@~@vAx@tA`@^v@bAZZfAh@d@Np@HPJHYDo@LaAb@iB|@oBVy@n@yAPk@Xg@d@a@ZSf@UZARI`@EdB@VAPo@N{@?o@OaBi@qCCg@Ig@k@aCO{@IeBB_BGg@YsA[u@[i@Yw@Kk@?oAB}ATmBJa@LUd@SBE?MHe@\\{@L_ALg@z@q@Zc@Li@Dw@IsCB_CKo@]]e@Ua@CO@g@Hc@RONMVGPJhJN`@^b@b@Tb@Fb@E`@WLMXi@@W@{DBy@CcAK{@U_@g@]m@Og@Bg@X]\\M^AdA@fBFpA@fBJb@HPZXh@Pb@Bb@K^SJMP[Ji@@}ACcADuAA_AGg@GSS_@OOJMVUBY?[A]Ss@C_@Oe@BKDu@OYIESC_@Ba@Cg@BsANsADSFCDGIM{@Yo@SaCI_@a@?yBPs@FiAPo@?ECGYIq@Qm@K{COeB[qFKq@EyAM}AIaBIu@Au@SmBM}Aq@aMKw@OoBYkEOiDq@sJEeAe@iG_@kG",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14890758358,
-        "name": "Flyby Central",
-        "type": "Run",
-        "distance": 5.1,
-        "moving_time": 2607,
-        "elapsed_time": 2681,
-        "elevation_gain": 171.0,
-        "average_pace": 8.52,
-        "average_heartrate": 131.4,
-        "max_heartrate": 153.0,
-        "average_cadence": 90.7,
-        "average_watts": null,
-        "start_date": "2025-06-23T13:29:38Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14890758358",
-          "summary_polyline": "crpeF`mhjVHfAA\\FbBDJFd@B\\En@Vv@@LT\\AlBJrCBfCGh@@`@Pp@Jr@?|BIl@AXMj@C\\Dj@Ix@@j@Jl@fAjCFRHd@TtBDr@H|ELxAVjACb@?tABh@X~BJl@@|ADn@Lv@CdAIx@@`@Hd@Pp@j@`BFj@Ix@c@rABj@\\tB?b@f@xAp@bCDvACnAG`AMz@CtAeC|ZGf@YfBOpAu@hDY`BSbBGbAGtCLbBHb@JNjAr@V\\\\r@x@dA\\j@v@rB\\l@Zd@^^`AjAz@^vBl@JEJYTeBZ{AL[t@kBz@iBXw@r@uAXSj@U^KtAKv@An@GNWLg@Hs@EeBOo@G}@OaAMoA_@aBC_@SoAGu@?cBIaAs@yBq@wA[]eBkC_@]_@Ug@Ou@GYJW\\w@|AGH[VmALWAO@OHEXKdB?\\G`@[LMZCTQt@CPMV{@?[I]H[NUDIECOFe@D{@T{ALoCTwBJoCR}BRqBJeBBi@GyBFs@Bm@GsAS{AW{Aw@uCIo@RK@EG}A`@oAFc@?UC[[gBYw@Eo@AMF}AMsAE{CKs@Uy@Ik@Ew@@iBK{AQ{A@oAKsAIu@Ak@E{@S_BMk@[aAQs@Ko@EwCJi@HeAC]CwBOoAGWAcDEeBSuBC{@c@qDAiACMQ_@@gBKkB",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 109,
-          "distance": 578.1,
-          "moving_time": 311662,
-          "elapsed_time": 355443,
-          "elevation_gain": 42364.0
+          "count": 110,
+          "distance": 584.73,
+          "moving_time": 315272,
+          "elapsed_time": 359787,
+          "elevation_gain": 42528.0
         },
         "all_time": {
-          "count": 1025,
-          "distance": 5238.13,
-          "moving_time": 2836901,
-          "elapsed_time": 3218807,
-          "elevation_gain": 383427.0
+          "count": 1026,
+          "distance": 5244.76,
+          "moving_time": 2840511,
+          "elapsed_time": 3223151,
+          "elevation_gain": 383591.0
         },
         "recent": {
-          "count": 17,
-          "distance": 92.04,
-          "moving_time": 49398,
-          "elapsed_time": 54254,
-          "elevation_gain": 5394.0
+          "count": 18,
+          "distance": 98.67,
+          "moving_time": 53008,
+          "elapsed_time": 58598,
+          "elevation_gain": 5558.0
         }
       },
       "biking": {
@@ -751,11 +751,11 @@
           "elevation_gain": 910245.0
         },
         "recent": {
-          "count": 14,
-          "distance": 224.57,
-          "moving_time": 63503,
-          "elapsed_time": 71795,
-          "elevation_gain": 18973.0
+          "count": 13,
+          "distance": 198.46,
+          "moving_time": 56355,
+          "elapsed_time": 64552,
+          "elevation_gain": 16896.0
         }
       },
       "swimming": {
