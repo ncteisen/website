@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-07-06T10:26:22.376145",
+  "last_updated": "2025-07-07T10:29:38.066323",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -104,7 +104,7 @@
         "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
       },
       {
-        "title": "Sunrise on the Reaping (The Hunger Games)",
+        "title": "Sunrise on the Reaping",
         "author": "Suzanne Collins",
         "rating": 2.0,
         "read_at": "2025/05/24",
@@ -728,11 +728,11 @@
           "elevation_gain": 383427.0
         },
         "recent": {
-          "count": 18,
-          "distance": 100.68,
-          "moving_time": 54576,
-          "elapsed_time": 60455,
-          "elevation_gain": 7113.0
+          "count": 17,
+          "distance": 92.04,
+          "moving_time": 49398,
+          "elapsed_time": 54254,
+          "elevation_gain": 5394.0
         }
       },
       "biking": {
