@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-07-10T10:29:51.291110",
+  "last_updated": "2025-07-11T10:28:58.975438",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Punch-Drunk Love",
+        "year": 2002,
+        "rating": 3.5,
+        "watched_date": "2025-07-09",
+        "is_rewatch": false,
+        "review": "<p>Tim Robinson humor before Tim Robinson humor was cool</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/7/9/1/4/47914-punch-drunk-love-0-600-0-900-crop.jpg?v=032fc20313",
+        "link": "https://letterboxd.com/ncteisen/film/punch-drunk-love/"
+      },
       {
         "title": "WALL\u00b7E",
         "year": 2008,
@@ -72,21 +82,11 @@
         "review": "<p>Not at par with <i>Anora</i> and <i>The Florida Project</i> but it has enough of that Sean Baker goodness (genuineness, marginalized groups, sex, etc etc etc) to be worth a watch</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/6/8/3/6/2/0/683620-red-rocket-0-600-0-900-crop.jpg?v=073384c9e9",
         "link": "https://letterboxd.com/ncteisen/film/red-rocket-2021/"
-      },
-      {
-        "title": "Friendship",
-        "year": 2024,
-        "rating": 4.5,
-        "watched_date": "2025-05-19",
-        "is_rewatch": false,
-        "review": "<p>When the entire theater (except Sarah) cracked up at the very first micro facial expression Tim Robinson made in the opening seconds of the movie I knew we were in for a trip.</p><p>Hands down the most laughs I've ever heard in a movie theater (again, except for stony faced Sarah)</p><p>What I've always loved from ITYSL sketched is that never know if Tim is going to be the psycho and the other characters will be foils or vice versa (e.g. Hot Dog and Car Focus Group respectively). In this movie you get it both ways - you never know if a character will be in normal mode or psycho mode and that leads to some all-time lines like the sewer-gasm.</p><p>Can someone with a psychology of humor degree explain to me why Jimp is the funniest thing I've ever heard?</p><p>Exited to quote this ad nauseam for the rest of my life. </p><p>By the way did I mention how much Sarah hated this movie??</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/2/6/9/1/1122691-friendship-2024-0-600-0-900-crop.jpg?v=9ea74152f4",
-        "link": "https://letterboxd.com/ncteisen/film/friendship-2024/"
       }
     ],
     "stats": {
-      "total_films": 797,
-      "films_this_year": 29,
+      "total_films": 799,
+      "films_this_year": 30,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15072919730,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.35,
+        "moving_time": 2197,
+        "elapsed_time": 2252,
+        "elevation_gain": 157.0,
+        "average_pace": 8.41,
+        "average_heartrate": 141.2,
+        "max_heartrate": 164.0,
+        "average_cadence": 86.8,
+        "average_watts": null,
+        "start_date": "2025-07-10T20:40:37Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15072919730",
+          "summary_polyline": "uzo|FlbdnLbC}AXS\\_@Ty@Ei@Km@Ck@Ik@Ci@Jy@HaCBEDAfAzB~ArCr@rA|@lBlAzBjDvFdAvA|@|@T\\lArAVRr@`AfBrBdDfEvBpBr@`@tAxAXb@bBxBNNd@FJFv@t@f@l@`@\\tA|A|AzAxAhBXb@\\TzAhBZh@pBzBr@r@NPXVLZ~@tArAdBv@h@XXt@^nA`BZ\\ZP~@b@\\Hr@BvA\\p@XDD^JF@REZAl@Vb@NZBz@GlANJ?ZMz@cAFG`@Sd@Ev@@l@DFG`AD|ACdBc@tAWn@Gj@Hf@^TVf@~@Tt@Bh@Gj@eA|B[hAOdASd@YPgA`@e@XY\\wBfIq@fDS|@Uv@Sb@]h@GDe@P_ATc@Bc@LoAPu@d@aAf@uAdAWXQJSD]VGEUmAAc@So@w@q@a@W_@KmA?OECQXcDEyDGm@AgB]aBC[?cAEg@IcAWiBc@_BSyASg@Ea@a@gAKk@Ym@WcAi@y@iA{BMa@g@mAQSa@o@{AmAq@u@]e@mAqBmAcA_@g@gA_Ae@k@oAcB][aBiBy@u@eBkBc@g@u@iAq@q@[k@yAwAa@o@[_@o@c@mAoA]c@wBwBgBwBy@}@S]kAgAk@s@wA}A}BeDYe@_@s@y@aBeA{A}AcDeAcBwAmC",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15047504628,
         "name": "Funemployment Tri: Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a14945496043",
           "summary_polyline": "mxrnGr~`~LFHXPp@r@fAp@j@XT^?JAJOZa@p@Q^?LFRv@fANNLAd@u@dAyBL[rBmDjAaBr@wALo@KSUWGW@Mj@iA@_@A]Fe@F}@ZeBE_@@WGMQEGEK[CUGOGIMC_@AEEKYW]yAa@u@[SUOY@SUcAHmAAe@Lu@FU^UL[TWb@cALi@EWc@y@?MDI?g@RYJc@BGRCPMFQ@m@De@FUDsAOm@AsAGYBa@Ri@`@c@f@NZ@ZKNIH?h@KASBSDAFODCJ@TMf@c@VIVm@LkA?_@e@c@Ka@?IKWSWEQYAm@MUKEG@GXm@v@iAvA}@JERCx@m@JEXFZ^hAlBf@dAh@vAbBhDVp@Rv@Fj@Q`A]x@A\\BfAMj@k@|@[fAk@`Ca@hCC~@_@rB]pE?j@Hv@Rp@N`APl@Th@V`@THp@U^E^Fd@Pt@d@b@\\l@p@\\X\\^FLHn@Ah@IdA?t@Rd@Z^^ZPVJZGfAIPIBK?oA]_@QWWq@c@KFINYB[P_@NWSO?C@i@b@Gj@BVLd@Ed@IHETCFG@OQGAKDADF~@FTJZ?Je@f@M@IA[QI_@MIGCYDEBM?KEO@MKEKGi@IUOMs@SUSsAwAKWAc@_@uBIAMFc@Pq@n@e@hAU^Wh@i@t@Yj@oAzA[d@}@fBuAdC[r@e@p@kAhC[x@_@d@Wf@i@l@b@MT]f@_AjBaD",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14926755115,
-        "name": "If it ain\u2019t 4\u2026.",
-        "type": "Run",
-        "distance": 3.0,
-        "moving_time": 1735,
-        "elapsed_time": 1894,
-        "elevation_gain": 26.0,
-        "average_pace": 9.64,
-        "average_heartrate": 110.5,
-        "max_heartrate": 139.0,
-        "average_cadence": 85.6,
-        "average_watts": null,
-        "start_date": "2025-06-26T22:19:04Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14926755115",
-          "summary_polyline": "m_snGtbb~L]dAm@jAc@fAy@rAWXi@t@s@xAg@p@y@~@q@nAq@x@_AzAm@xAq@~@cAhCqDpGeAxBs@dAe@fA]dAYTU\\o@pAq@fAkApASXGf@a@z@Sf@iB~Cc@l@yAnCe@d@Yd@UZWVo@b@UZi@d@w@z@c@b@sAx@_@^mAx@m@Ne@Tg@Lq@^gAb@]HkAj@_@HCV\\A^OZSb@M^G^Cl@Ol@c@lBw@|A_A`A_AbAgAjAgA`@e@z@y@|@oAdAoAz@mAR_@BKj@m@\\o@Ri@hBsDh@}@~@wA`EcIn@y@j@eA`BmCnBsDz@sA`AsBVc@^i@fBiDj@{@dAyBfAaBRi@tAeCXs@l@aAj@iAx@mAbAmBb@o@p@mApAaDj@{@n@sAhAiB?MKa@c@q@MOEIJ[b@s@Zq@?c@S[[YcCwAqAeA",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 111,
-          "distance": 590.24,
-          "moving_time": 318463,
-          "elapsed_time": 363034,
-          "elevation_gain": 42806.0
+          "count": 112,
+          "distance": 594.6,
+          "moving_time": 320660,
+          "elapsed_time": 365286,
+          "elevation_gain": 42964.0
         },
         "all_time": {
-          "count": 1027,
-          "distance": 5250.27,
-          "moving_time": 2843702,
-          "elapsed_time": 3226398,
-          "elevation_gain": 383870.0
+          "count": 1028,
+          "distance": 5254.63,
+          "moving_time": 2845899,
+          "elapsed_time": 3228650,
+          "elevation_gain": 384027.0
         },
         "recent": {
           "count": 18,
-          "distance": 98.19,
-          "moving_time": 53074,
-          "elapsed_time": 58555,
-          "elevation_gain": 5591.0
+          "distance": 97.15,
+          "moving_time": 52299,
+          "elapsed_time": 57624,
+          "elevation_gain": 5217.0
         }
       },
       "biking": {
