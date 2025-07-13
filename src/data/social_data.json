@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-07-12T10:26:24.751620",
+  "last_updated": "2025-07-13T10:28:25.335777",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "The Greatest Showman",
+        "year": 2017,
+        "rating": 3.0,
+        "watched_date": "2025-07-12",
+        "is_rewatch": false,
+        "review": "<p>Kinda corny, kinda catchy</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/2/4/3/0/6/3/243063-the-greatest-showman-0-600-0-900-crop.jpg?v=f548460c56",
+        "link": "https://letterboxd.com/ncteisen/film/the-greatest-showman/"
+      },
       {
         "title": "Punch-Drunk Love",
         "year": 2002,
@@ -72,21 +82,11 @@
         "review": "<p>There were a lot of individual elements in this I really liked (overhead shots, good narrative structure, tactical humor, effective jump scares). <i>However</i>... </p><p><br/><br/></p><p>MEDIUM SPOILERS BELOW</p><p><br/><br/></p><p>The third act reveal was both expected and fell flat and kinda ruined the landing for me.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/9/9/9/2/5/1099925-oddity-0-600-0-900-crop.jpg?v=d790ed6df8",
         "link": "https://letterboxd.com/ncteisen/film/oddity-2024/"
-      },
-      {
-        "title": "Red Rocket",
-        "year": 2021,
-        "rating": 3.5,
-        "watched_date": "2025-06-07",
-        "is_rewatch": false,
-        "review": "<p>Not at par with <i>Anora</i> and <i>The Florida Project</i> but it has enough of that Sean Baker goodness (genuineness, marginalized groups, sex, etc etc etc) to be worth a watch</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/8/3/6/2/0/683620-red-rocket-0-600-0-900-crop.jpg?v=073384c9e9",
-        "link": "https://letterboxd.com/ncteisen/film/red-rocket-2021/"
       }
     ],
     "stats": {
-      "total_films": 799,
-      "films_this_year": 30,
+      "total_films": 800,
+      "films_this_year": 31,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15090048455,
+        "name": "One last srun \ud83d\ude2d",
+        "type": "Run",
+        "distance": 4.0,
+        "moving_time": 2036,
+        "elapsed_time": 2055,
+        "elevation_gain": 72.0,
+        "average_pace": 8.48,
+        "average_heartrate": 146.1,
+        "max_heartrate": 165.0,
+        "average_cadence": 89.5,
+        "average_watts": null,
+        "start_date": "2025-07-12T13:29:20Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15090048455",
+          "summary_polyline": "a{o|FdbdnLDG|@_@fBoANONa@Bs@UyAKcCDwCLQTV@HrAvBhAxBlB|C~CxF`BjCn@x@~CpDjDfE`CnCd@n@hAjAlAzAd@b@|ClD\\\\bAhA`@l@bDxDhAdAl@n@p@`AvGzHdChCn@l@P^d@h@v@jAbAfBj@vA~@tCZr@F^\\jAJl@d@dB\\vBPhD\\xBNjBB~A?t@Cv@?xD[lF?ZUfBM|Ak@|C_@zAIf@MpBEbCDtAN`AHXB??QMkBAo@D{BDo@\\wBh@wBZmBTgDBkANgBDgBJ}A?eCBq@AqAIuCSaAK_B]aCScAIq@C}@}@}C]yA[o@I_@MYk@kAUs@eAeB]e@c@e@s@mAW[_A}@uAoBaBgBiAcBa@_@u@gA]_@uAqAm@y@_@a@gA_Aa@a@eBoBu@eAa@_@qB{Bo@m@_CsC}BaC}@y@aAiAg@q@g@g@Y_@_EwEoDiFuCeFi@eAmE{H",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15083481822,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a14975713099",
           "summary_polyline": "ghlhGpliqLk@Is@WUG_@As@@i@C{@UWMU_@Cc@@[ToALyBb@mETwG?eAEy@[iBSqBMk@Ui@Oi@k@}C]u@aAgAEUE_@RaELaAP}BBgAEi@k@cDu@mBm@o@e@_@s@_@YMi@GgAIOEUSMQOi@Ii@Ck@EwE@aCDsATwBD_AAkAJiCBkCFe@NiBFcBh@eF?wBBq@ZuB@i@YuFGcC?{@J{AViB`AyEReB@gBASa@bDu@~DKdAMn@QbCAb@BRLbAHbCVzBBx@Cj@]jBEv@@lBOzBQz@[fAK~@@fCCp@Bx@C`AOrE]`D?dCGxCHt@D~BRtARl@JRNHXDhBFHBjAp@\\^f@`Al@dBLn@Lt@Bl@@t@SpCKnCMlBFbABRRh@~@`B^|@TnA~@vDHn@\\~C@hABv@OzDg@jGMdAU|@El@H~@Vh@\\Vf@VlAX`@Pb@Hl@Ph@Hd@AVEDBC@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14962700581,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 7.0,
-        "moving_time": 3838,
-        "elapsed_time": 4342,
-        "elevation_gain": 308.0,
-        "average_pace": 9.14,
-        "average_heartrate": 146.6,
-        "max_heartrate": 169.0,
-        "average_cadence": 87.0,
-        "average_watts": null,
-        "start_date": "2025-06-30T12:50:30Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14962700581",
-          "summary_polyline": "ezrnGl}`~L_B_Dm@{Au@}AAKhA}CAMWw@c@u@uBeF[WG@]V}@z@OKa@q@@a@hAoA|@uANa@Uw@Hm@I[o@qAaD}BiBw@m@CcAHoBl@_AAkAJsAXeD{@yAaAqBy@k@Fm@n@aBo@iBBs@MuA{@Y_@q@m@k@y@_@[y@O{@?{ANwAj@a@h@AfBI@SQSs@QkB@]VyADi@AWc@o@q@k@Y_@xAgC\\[hAI|Am@^[r@eA`@K~ACnDiA`DuAvBs@hAWnAKlAY\\WF[c@LEm@t@wF`AyD^mB`AmDTi@r@UwATq@`@g@HSJSV_@ReChAi@PuARiABgAWgBUYS[e@g@OUOy@mA]KEWQU}@y@_@O_@cAIg@Sa@Ia@OU{@k@[m@@y@Gs@a@kBMgAC}B@aCEg@S}@Ec@Sq@Mo@w@cGgAsFWa@e@BYXQf@[lBFvBIhAQvA@vAQtAE`ADbDChA@n@A`Bd@xCP\\^Vh@N\\\\f@z@ZLnAQPDHfA~@hDTdBVXpACd@W\\Ef@PvAr@\\^Zh@j@hBXNVVRl@X\\dEx@`@Jf@^b@j@hBpDd@d@V`@Gt@u@`@cAReAFoAb@m@\\eAVmAd@{Ax@mC`Ag@?u@Oa@Hs@dAyAdAOFyAN_@b@kAnBCTTb@~@~@L^If@g@dBDx@j@|BJTh@R`@p@b@b@F@T[LTD^\\VTCHH^]^j@FKRAl@Dr@Zv@j@n@RjCH~BYtBNXHn@`@n@d@d@f@rAx@xDnAbADXE^Yv@@\\I^OXUD@MXmAJd@K~AmAN?o@Po@b@a@L`@E~@q@n@GYF{@h@c@NJ?fA{@nBYnB}AVMj@Fz@Zl@^f@t@b@`@RGlCoEfAcBTUrCuEpAeBr@kAj@b@JRHPFzAVb@Bd@Er@Bd@W~AJv@Ib@KjCHb@L\\b@n@?nBJdANt@d@t@f@\\pAb@\\d@x@VNRRh@f@FLRDd@Af@_@dAGZKrCIt@@l@Xj@H`@KT]\\o@`Ai@pAsAhBkCvFs@v@e@e@k@Uo@f@UGs@}Ay@sAsBiCkAsCgAoBYs@`@iAVe@PHpDtFnA|An@l@w@s@",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 113,
-          "distance": 598.6,
-          "moving_time": 322974,
-          "elapsed_time": 367861,
-          "elevation_gain": 43184.0
+          "count": 114,
+          "distance": 602.6,
+          "moving_time": 325010,
+          "elapsed_time": 369916,
+          "elevation_gain": 43256.0
         },
         "all_time": {
-          "count": 1029,
-          "distance": 5258.63,
-          "moving_time": 2848213,
-          "elapsed_time": 3231225,
-          "elevation_gain": 384247.0
+          "count": 1030,
+          "distance": 5262.63,
+          "moving_time": 2850249,
+          "elapsed_time": 3233280,
+          "elevation_gain": 384319.0
         },
         "recent": {
           "count": 19,
-          "distance": 101.15,
-          "moving_time": 54613,
-          "elapsed_time": 60199,
-          "elevation_gain": 5436.0
+          "distance": 99.92,
+          "moving_time": 53117,
+          "elapsed_time": 58021,
+          "elevation_gain": 4442.0
         }
       },
       "biking": {
@@ -760,24 +760,24 @@
       },
       "swimming": {
         "ytd": {
-          "count": 4,
-          "distance": 2.47,
-          "moving_time": 6575,
-          "elapsed_time": 7071,
+          "count": 5,
+          "distance": 2.72,
+          "moving_time": 7256,
+          "elapsed_time": 7752,
           "elevation_gain": 0.0
         },
         "all_time": {
-          "count": 70,
-          "distance": 46.05,
-          "moving_time": 113051,
-          "elapsed_time": 125226,
+          "count": 71,
+          "distance": 46.3,
+          "moving_time": 113732,
+          "elapsed_time": 125907,
           "elevation_gain": 133.0
         },
         "recent": {
-          "count": 4,
-          "distance": 2.47,
-          "moving_time": 6575,
-          "elapsed_time": 7071,
+          "count": 5,
+          "distance": 2.72,
+          "moving_time": 7256,
+          "elapsed_time": 7752,
           "elevation_gain": 0.0
         }
       },
