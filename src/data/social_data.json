@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-07-15T10:29:53.980174",
+  "last_updated": "2025-07-16T10:30:57.395056",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -113,7 +113,7 @@
         "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
       },
       {
-        "title": "Sunrise on the Reaping",
+        "title": "Sunrise on the Reaping (The Hunger Games)",
         "author": "Suzanne Collins",
         "rating": 2.0,
         "read_at": "2025/05/24",
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15123603645,
+        "name": "Overly Funemployed",
+        "type": "Run",
+        "distance": 8.0,
+        "moving_time": 4955,
+        "elapsed_time": 5285,
+        "elevation_gain": 1247.0,
+        "average_pace": 10.32,
+        "average_heartrate": 124.7,
+        "max_heartrate": 156.0,
+        "average_cadence": 84.8,
+        "average_watts": null,
+        "start_date": "2025-07-15T14:59:17Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15123603645",
+          "summary_polyline": "wpbeFzrijV|@}@nByDLi@Ge@m@}AQW]McCJmBUg@b@Wr@QFo@KUUq@mFH}AVuAG{@k@eDc@oAu@wAOgBKiDB{Ad@sDNiIN_C?s@Kc@m@}@?KXUfFqAV[ZuAR]XU|@KVQ|@aC^{BpB{CpAsCfBgATs@TeCd@D^b@JXBt@Qv@Af@N~@Ed@_@d@_@Rq@NqADUb@@d@j@fBGb@_@Ta@h@U^GXATX`Dx@bAhA`A\\lAxA`@`AdAjAjBl@pC^\\lBK\\PPt@`BIfBb@pA[j@Gh@VTh@EbDFRZPDTAd@LdAr@`@DNOh@_@Hc@d@[hACfCJb@j@z@k@fBc@\\m@PeB?]R{@`A[n@UzAoAbBw@tA}@xCEb@_@bAg@hCu@rAMf@Jx@rBjB|@hAp@f@lAZn@f@`A`@Ll@bAVt@bAQLKQYOwC[aBGeAh@MpAIHUHs@GSLnA~@\\Dt@?b@]N?rAfCxDlAtBnBPp@ZG\\FzAl@zAEx@]d@}APiBjCk@NMLw@t@_@b@a@nAsCDaBnBiDLgAm@qAg@yBbBcBz@e@p@oA^Sn@Ez@a@^oAFn@HJVBrAaA^qAb@a@TIWQCOVACeCImA\\QB[QaAwAZ]oAY[t@EDYByBAWq@g@W_@i@mAIc@a@[[e@UsBUaA?e@\\B[cAs@q@_@CYj@@p@]u@i@S_@_ACQX[wDs@IF@Tv@jBa@SiAcAa@u@Du@Lk@h@a@m@?gAjBWp@EiCYkACaAFa@LQnAA?GeBy@{AB}@ZBk@X_@f@WoBo@mA}Ao@SOLNhCq@jAeAfH]`AEBe@k@UGeA\\w@LmA_@cBAq@aAi@IaARe@QUi@W}Aa@}@cAqA_A}@sA]_@uAiAaAg@o@Qi@QgCJq@r@}@b@WFQCo@i@sAFq@POlAEp@On@i@Re@?_@Oo@?m@Pu@Au@Sc@]Ye@CKREdA_@fBgBfA_BjDaB~BUz@Ev@cAnCaBb@c@j@UfAe@j@gCd@qA^SHKRv@tAHf@SnCSlJc@tDJ`HL`At@nAn@jB^|BDbA[rBEz@j@|E\\h@r@JRIb@gAb@SdBVhCCZPTZl@pBIh@u@zAqB`De@R]jA_AvG",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15103321919,
         "name": "Morning Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15006163302",
           "summary_polyline": "uflhGvliqLy@MkBg@}AA_@CkA[a@[CEGg@@[PuALsBRsAd@mFFwD?s@KgBa@iDKe@g@uAg@{Bk@}@iAwAMo@@_ADo@L{ARwAZaEA_AEm@SaAMa@w@_BQSq@q@]Sw@]i@Mm@?m@IKE[WO_@WgACw@RiE?oFBu@J_ADaACeAHcALiDJs@FiADaDZiBHo@JsBAu@@eA\\aCEw@QaB?wAIwBPcBDiAHq@LoCNsAJe@^oAJk@NwBCM?x@Cv@WxAUx@G`@Cr@Kr@G~@[jF@hCFxAP|B@l@G|@St@Ih@@v@KjDGl@WlAEZMjCUjA?LEr@AvCEjBGrASnBKnDFz@Bx@@fDBb@Lr@Px@Zb@f@H`@CZDrB|@p@b@PLxAfDBb@@lAFdBC`ASpBKnBMrAB~@Lf@FH^Xx@`ATl@h@lCXfA`@zBFn@FpA@v@GjB@z@OzCKhAW|AUfCY~B?f@BTXb@ZRL@p@b@FB|@F|Ab@l@FjCAj@ElA]h@Sz@{@fAs@l@k@r@g@x@c@^_@ZM~BoAREHGNC`Aa@JAN@JCnA?v@OZ@hD~@h@?t@NP?d@G^GlAc@|@StAOx@WhBK\\GTK^_@XSl@U\\Kr@AhBYXKrAs@d@Q`@UZMJA`@D`@Zp@^RRb@x@X`ATbBFTDn@R`A?PG`@kA`C]fA[h@[t@QXa@pAWf@q@hAw@fAw@zAi@p@Sb@Ib@RjF?JK`@KVGb@WbAUl@cAxBi@vAMd@eAfFObBk@dEGfA?rABl@Fl@nAlEVt@XjBA|@B|@Al@KxBO`AEF\\wD@kCU{ASs@i@aBs@wCKcAFgBNs@`@yCReANuBLq@NgATw@DMTiA~@_CR}@v@yBDWT{A?i@UcB@{@Fe@f@uAv@aAbAaB^g@p@iBVg@b@sAb@eAX}@v@{AZu@DQD]?k@_@iBWsB[_BMi@Ym@KMSMo@@gA`@oBbAc@N]Fi@?mANuA`@o@ZOP]Xc@Pa@HSFuALq@@w@FgA^qCr@Y@cAGu@WUEg@Ok@IaBA_@C}@BKBqAb@iAXoBlA{@\\]To@Xi@j@e@^g@f@w@p@KFqA^cA`@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14984205762,
-        "name": "Dobby is a free elf",
-        "type": "Run",
-        "distance": 5.72,
-        "moving_time": 3202,
-        "elapsed_time": 3249,
-        "elevation_gain": 430.0,
-        "average_pace": 9.33,
-        "average_heartrate": 143.5,
-        "max_heartrate": 166.0,
-        "average_cadence": 87.3,
-        "average_watts": null,
-        "start_date": "2025-07-02T13:12:50Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14984205762",
-          "summary_polyline": "_r_iG~usqL@FDx@LtD?hCCXy@|C_@fA]x@[nAKh@BHlApATZ?ZM`@EXMd@wBrEeAhC?RBDb@r@tAzAvAtAPTEVg@p@Q\\BTVb@HVC^e@n@Yn@s@hDKj@Cp@M`@?d@Lb@@b@Cd@Dv@Ad@UZEXJn@d@l@PxANr@Xf@@PCHUV_Ar@UXS^WZo@\\c@xAW^KbB?f@Fh@b@pAPz@l@z@HH^Jj@ITg@P{@d@g@ZMn@@h@L`@VZ^XRp@@L]Za@r@eBJo@`@wARqABATFPLh@x@TRj@v@ZZz@d@b@^HPZ\\NZTVf@bAX\\t@LXNb@JdAF~@d@j@Lz@G`@D`CKdABrA_@Ve@@SCEQISCUi@G_@@c@Jq@C_@Wa@s@e@SGe@D_@Rg@Ce@Ek@_@cAQm@[e@?SDwCQSYYi@O_AUq@k@yC]y@S]q@OoAAmA]g@C[IUM{@WgAk@a@]_@e@iAs@e@QYeAKSy@YC@SZOnAYd@I`@DZb@p@Lb@LhAZdAGZKPm@b@}AxBu@x@w@~AIr@ElA?RH`@Zl@f@xAj@r@t@VVE~@}Bn@[V?x@L^LnA~@`@?z@cAZg@Ro@H{@Jk@Vm@TsAR@JFv@dAxAdBt@f@\\^H@l@e@x@g@Za@DKAWe@[Ie@IoAMo@Iy@S_AIs@Qe@U[m@QwAMw@SeAMaBk@oBmAaAkAi@SOYUk@SYc@YUEQHEHYz@Gj@]l@ANF`@p@pANtAT^@`@EVYZy@b@eAtAo@h@Sf@S|@Wl@APMd@?X`AxCXh@DPj@p@^RV@l@_BZ_@b@S`@CrAVd@TjAv@TIV_@z@kBXaBPk@TaBAWIOs@i@q@{@{BuBSW]]sA]M[Mg@MY_A_AISPqAIc@Ck@Bu@Mo@A_@DiBhAuEl@uABQCSSi@G[h@gBJk@CGg@w@]Y_@c@GMoAqA]USHYXYf@E@SC[UeAeAOIm@hAc@KyAiAY_@wBuBGI?Iy@o@GQ@GR_@fAiBd@k@pAsB`@e@NWdBwArAoAZa@l@kAb@k@XM`@F^PtBlATAZ{@\\qATwAB}@Cq@@s@Eq@Ic@M[]O{B?",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 115,
-          "distance": 609.51,
-          "moving_time": 328412,
-          "elapsed_time": 373655,
-          "elevation_gain": 43509.0
+          "count": 116,
+          "distance": 617.51,
+          "moving_time": 333367,
+          "elapsed_time": 378940,
+          "elevation_gain": 44756.0
         },
         "all_time": {
-          "count": 1031,
-          "distance": 5269.54,
-          "moving_time": 2853651,
-          "elapsed_time": 3237019,
-          "elevation_gain": 384572.0
+          "count": 1032,
+          "distance": 5277.54,
+          "moving_time": 2858606,
+          "elapsed_time": 3242304,
+          "elevation_gain": 385819.0
         },
         "recent": {
           "count": 19,
-          "distance": 98.67,
-          "moving_time": 52171,
-          "elapsed_time": 56974,
-          "elevation_gain": 4282.0
+          "distance": 100.3,
+          "moving_time": 54062,
+          "elapsed_time": 59109,
+          "elevation_gain": 5332.0
         }
       },
       "biking": {
