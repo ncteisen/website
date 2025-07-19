@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-07-18T10:30:25.502192",
+  "last_updated": "2025-07-19T10:28:10.339395",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Sing Sing",
+        "year": 2023,
+        "rating": 4.0,
+        "watched_date": "2025-07-17",
+        "is_rewatch": false,
+        "review": "<p>Watched on a plane without knowing anything about it. Credit roll had me like \ud83d\ude32\ud83e\udd79</p><p>We love the power of the arts!!</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/9/5/7/1041957-sing-sing-2023-0-600-0-900-crop.jpg?v=f893b22924",
+        "link": "https://letterboxd.com/ncteisen/film/sing-sing-2023/"
+      },
       {
         "title": "Erin Brockovich",
         "year": 2000,
@@ -72,21 +82,11 @@
         "review": "<p>I wrote in a recent review that \"musical biopics have such a low ceiling\" and this one came in lower that that theoretical high.</p><p>On the other side, if the music is good, they have a high floor. And I do like a lot of this music.</p><p>There was only one scene in this movie that felt cinematically <i>elevated</i>.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/3/4/4/8/2/434482-rocketman-0-600-0-900-crop.jpg?v=a6f47feb2d",
         "link": "https://letterboxd.com/ncteisen/film/rocketman-2019/"
-      },
-      {
-        "title": "Notting Hill",
-        "year": 1999,
-        "rating": 3.0,
-        "watched_date": "2025-06-25",
-        "is_rewatch": false,
-        "review": "<p>OK it's fun but should it really be in the same conversations as <i>When Harry Met Sally</i> or <i>You've Got Mail</i>??</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/pa/ej/k3/ft/notting-hill-0-600-0-900-crop.jpg?v=a589bf6ce2",
-        "link": "https://letterboxd.com/ncteisen/film/notting-hill/"
       }
     ],
     "stats": {
-      "total_films": 801,
-      "films_this_year": 32,
+      "total_films": 802,
+      "films_this_year": 33,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15155872602,
+        "name": "Hellooo Chicago",
+        "type": "Run",
+        "distance": 6.0,
+        "moving_time": 3079,
+        "elapsed_time": 3443,
+        "elevation_gain": 194.0,
+        "average_pace": 8.55,
+        "average_heartrate": 133.1,
+        "max_heartrate": 151.0,
+        "average_cadence": 88.0,
+        "average_watts": 310.8,
+        "start_date": "2025-07-18T14:06:56Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15155872602",
+          "summary_polyline": "k}|~Frc`vOEc@P{@@[IcAKc@Im@@Ej@u@_@q@AM?[COD}AHc@Ds@@{@AY@y@KyADk@AGCMQWAWFq@ASJcAD_AAeDGo@@oACgA@[Ig@EIC_@FYFu@B_BAMBWCc@Oo@?o@De@IcA@c@AUFs@As@Ss@C]NqA?YE[DWAiABq@CoBKe@@uFCIKIFw@@eACe@@w@CuAIa@BYCe@Nw@?UAMDYGg@@YMi@Ck@De@DY@o@BOEi@D]AU@WGoABuAF_@JSNIGLUu@?YDY@]QiBAe@BWJ[Da@AiABk@Eg@LmDH]RsAKi@m@aAUm@Ou@Gy@B[La@He@BqCCY^OPOLMBSLGA[B[?WIWQQUGYAu@JaACg@Jg@D}ATs@P}An@u@RsAd@sB|AwAt@s@h@QZ_@hAkD~E_AtBw@n@Wb@g@nAQZa@\\q@Za@l@c@ZkAfAc@Vc@\\aAn@i@f@_@TyDLcAVgAh@u@p@c@l@IPOl@GJsAv@iAt@i@b@WLg@L_@Ce@QuAeAYGKBUTYb@_AdAgBfCgArAo@j@y@h@W?KUYKg@]UCSBMJwAxAO\\kA~A_@T_AJqBj@aB^wAb@i@H}Br@c@Jo@VQ?GGK}@@YKyAGOKASJu@f@s@\\KHe@LK@gAM[Dk@d@o@Lg@Zi@h@{@Tk@b@WHU@[H{@f@uBl@YPqAZ_@DUCa@WYIe@CYBYJe@b@ULe@PgBRc@JQC_Aa@e@Kq@Gk@OyAq@g@CY@ECIL[PY@OEIi@a@cAWgAIg@QwBWUIQAGAw@HqCK{@Sq@Yo@mAyA}@k@g@My@Gq@Di@RWRKLSBSJMCISCQFg@BmBAe@JwBN}@b@{@BOCQQs@Gm@F_AJkAP}AP}@N_@De@l@aBh@}Bd@qAHc@AOEKKKYOCKBUTk@@OGcAA_ARyALc@Zk@Z]NUDQ?WCUQ[OAoBj@yBT_AByB?sAMeBYmC_Aa@Q{BuAFJf@PbAh@p@ZbBl@~A\\xBTt@L~BArAI~Bg@^MHAHFHTDTAb@Vj@C^@JVTb@RPDf@C\\PDV@^ExADt@Ln@@|@AbA@R_@T]^QZc@nAa@zBe@dEIfAYzBMFo@Ai@Hq@VOJADD@\\U\\Ox@Kf@?HEP}@B]",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15146079634,
         "name": "Morning Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15072919730",
           "summary_polyline": "uzo|FlbdnLbC}AXS\\_@Ty@Ei@Km@Ck@Ik@Ci@Jy@HaCBEDAfAzB~ArCr@rA|@lBlAzBjDvFdAvA|@|@T\\lArAVRr@`AfBrBdDfEvBpBr@`@tAxAXb@bBxBNNd@FJFv@t@f@l@`@\\tA|A|AzAxAhBXb@\\TzAhBZh@pBzBr@r@NPXVLZ~@tArAdBv@h@XXt@^nA`BZ\\ZP~@b@\\Hr@BvA\\p@XDD^JF@REZAl@Vb@NZBz@GlANJ?ZMz@cAFG`@Sd@Ev@@l@DFG`AD|ACdBc@tAWn@Gj@Hf@^TVf@~@Tt@Bh@Gj@eA|B[hAOdASd@YPgA`@e@XY\\wBfIq@fDS|@Uv@Sb@]h@GDe@P_ATc@Bc@LoAPu@d@aAf@uAdAWXQJSD]VGEUmAAc@So@w@q@a@W_@KmA?OECQXcDEyDGm@AgB]aBC[?cAEg@IcAWiBc@_BSyASg@Ea@a@gAKk@Ym@WcAi@y@iA{BMa@g@mAQSa@o@{AmAq@u@]e@mAqBmAcA_@g@gA_Ae@k@oAcB][aBiBy@u@eBkBc@g@u@iAq@q@[k@yAwAa@o@[_@o@c@mAoA]c@wBwBgBwBy@}@S]kAgAk@s@wA}A}BeDYe@_@s@y@aBeA{A}AcDeAcBwAmC",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15047504628,
-        "name": "Funemployment Tri: Run",
-        "type": "Run",
-        "distance": 5.51,
-        "moving_time": 3191,
-        "elapsed_time": 3247,
-        "elevation_gain": 279.0,
-        "average_pace": 9.64,
-        "average_heartrate": 150.4,
-        "max_heartrate": 169.0,
-        "average_cadence": 83.3,
-        "average_watts": null,
-        "start_date": "2025-07-08T15:24:20Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15047504628",
-          "summary_polyline": "gzo|FzadnL`AYVQ\\_@d@a@JSDUBa@WmBKqA@qECm@Yi@o@}@wEyFkCqCu@m@a@c@mCuBc@e@e@]iBcAiAi@{@g@mAo@aDsBk@WoCaBs@]]Yy@g@IMICSQe@SKIiCoA{A_ASGw@c@_@OwBmAu@g@g@a@gAi@iAw@q@Y[Wy@k@a@QmCyA[Q]]oAy@[KMIc@IWAMD_@Ay@SGEO[_AyAk@c@]Qs@g@mAo@eAs@}@{@i@KYSwEeC_C{Ao@UEDi@fAGd@Sf@CROXIVETAXDd@L^N`A@XAXWlB]fAq@tA]h@O`@Gx@@T@fAFx@Ch@Wn@c@h@a@NkATWO]u@GCY?e@Ra@Dc@A]@a@Ha@PK@[LOB{@d@UPEHKd@An@@n@Gb@A`@L`CCPW^Qv@?ZJjAVnAJ|@XnAf@vAP^PTVh@`@\\v@`@VV?D?ZKZQLa@N]h@O\\_@`@eA|@_@Vo@~@GL?`@Dd@Jf@C|A@\\F^DNp@tAb@fALRl@h@XRZL^Hb@PV`@n@`B\\\\TLf@D|@b@r@p@NJd@RZF|@DTHl@v@bA`@\\bAD^@f@LXXVDJTp@UzBMv@Q^Sv@CN@VLv@R^VR\\`@Jb@Ej@k@z@Wh@MPo@b@CLBJNVn@^ZFHOHc@Zw@b@_@j@QPSJW`@aBFe@Aq@J_@LMP@\\JJRRD\\PDZIl@En@PhBNd@\\l@X^FPLh@CbCDn@Zz@f@~@BBRDVCf@Sb@?lB^v@RnDx@`Ad@|@P~@XX?fAT^EZIf@[b@e@ZU|@iAPGROZo@t@kAX}@j@sBl@oCNcABkBBc@Lu@Vc@|@oBd@sBLqBBgANqBLa@\\Mf@Ff@Tl@b@LFLBFARKb@w@r@yA\\g@^Wh@EvAJPTX~@TVb@XFn@LTh@L^?bCUt@KLEnBSHE^c@n@_Aj@eAd@q@b@On@Cd@@f@HnCHbB@`@ChAR\\@^A\\Q~@q@h@W\\WPo@Bo@AUCo@Is@GgA?k@F{B",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 118,
-          "distance": 625.58,
-          "moving_time": 337788,
-          "elapsed_time": 383749,
-          "elevation_gain": 45513.0
+          "count": 119,
+          "distance": 631.58,
+          "moving_time": 340867,
+          "elapsed_time": 387192,
+          "elevation_gain": 45707.0
         },
         "all_time": {
-          "count": 1034,
-          "distance": 5285.61,
-          "moving_time": 2863027,
-          "elapsed_time": 3247113,
-          "elevation_gain": 386577.0
+          "count": 1035,
+          "distance": 5291.61,
+          "moving_time": 2866106,
+          "elapsed_time": 3250556,
+          "elevation_gain": 386770.0
         },
         "recent": {
           "count": 20,
           "distance": 103.56,
-          "moving_time": 55906,
-          "elapsed_time": 59881,
-          "elevation_gain": 5903.0
+          "moving_time": 55987,
+          "elapsed_time": 60283,
+          "elevation_gain": 5958.0
         }
       },
       "biking": {
