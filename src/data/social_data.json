@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-07-21T10:31:30.537462",
+  "last_updated": "2025-07-22T10:30:57.971465",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Clueless",
+        "year": 1995,
+        "rating": 4.0,
+        "watched_date": "2025-07-20",
+        "is_rewatch": false,
+        "review": "<p>Quotable! Maybe this is the push I need to finally read <i>Emma</i></p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/fn/rr/3z/h7/i8gEHh2sszB6YWLC0jl559sxAeN-0-600-0-900-crop.jpg?v=593192fedf",
+        "link": "https://letterboxd.com/ncteisen/film/clueless/"
+      },
+      {
+        "title": "The Watchers",
+        "year": 2024,
+        "rating": 1.5,
+        "watched_date": "2025-07-20",
+        "is_rewatch": false,
+        "review": "<p>Deep down, buried away, somewhere beyond the egregious plot holes, bizarrely bad acting, and stupid character choices is a 3.5 star movie. The only nice thing I can saw is that I liked the color grading.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/9/7/8/3/979783-the-watchers-0-600-0-900-crop.jpg?v=efaa9f479d",
+        "link": "https://letterboxd.com/ncteisen/film/the-watchers-2024/"
+      },
       {
         "title": "Sing Sing",
         "year": 2023,
@@ -62,31 +82,11 @@
         "review": "<p>Me before watching this movie: \ud83d\ude42<br/>Me after watching this movie: \ud83d\ude41</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/e6/m1/vn/g6/nitgCJ1g0ebztZHG0KwcojWlyPA-0-600-0-900-crop.jpg?v=d5466d278c",
         "link": "https://letterboxd.com/ncteisen/film/oslo-august-31st/"
-      },
-      {
-        "title": "Gattaca",
-        "year": 1997,
-        "rating": 4.0,
-        "watched_date": "2025-07-06",
-        "is_rewatch": true,
-        "review": "<p>Hey that movie they kept showing us in high school science classes is still pretty damn good!</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/7/0/51370-gattaca-0-600-0-900-crop.jpg?v=a0ca9198ff",
-        "link": "https://letterboxd.com/ncteisen/film/gattaca/"
-      },
-      {
-        "title": "Rocketman",
-        "year": 2019,
-        "rating": 2.5,
-        "watched_date": "2025-07-05",
-        "is_rewatch": false,
-        "review": "<p>I wrote in a recent review that \"musical biopics have such a low ceiling\" and this one came in lower that that theoretical high.</p><p>On the other side, if the music is good, they have a high floor. And I do like a lot of this music.</p><p>There was only one scene in this movie that felt cinematically <i>elevated</i>.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/3/4/4/8/2/434482-rocketman-0-600-0-900-crop.jpg?v=a6f47feb2d",
-        "link": "https://letterboxd.com/ncteisen/film/rocketman-2019/"
       }
     ],
     "stats": {
-      "total_films": 803,
-      "films_this_year": 33,
+      "total_films": 805,
+      "films_this_year": 35,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -102,6 +102,15 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628170837l/3649.jpg",
         "link": "https://www.goodreads.com/review/show/7717568772?utm_medium=api&utm_source=rss",
         "review": "<br/>Smooth reading, but the lack of a driving narrative will make this forgettable for me, in the end<br/>"
+      },
+      {
+        "title": "The Elements of Investing",
+        "author": "Burton G. Malkiel",
+        "rating": 4.0,
+        "read_at": "2025/07/10",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348862299l/6743598.jpg",
+        "link": "https://www.goodreads.com/review/show/3787290036?utm_medium=api&utm_source=rss",
+        "review": "<br/>Funemployment is as good a time as ever to remember the fundamentals!<br/>"
       },
       {
         "title": "Frankenstein",
@@ -156,24 +165,15 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712677708l/205478762.jpg",
         "link": "https://www.goodreads.com/review/show/6924320024?utm_medium=api&utm_source=rss",
         "review": "<br/>Absolutely wonderful. I liked this significantly better than <i>The Overstory</i> and I already liked that one a lot. It took a little to get going, but once the characters and story were established it started to hum. Like his other books, this has themes of environmentalism, technology, friendship, love, and family. For a lot of other novels that would feel like too much, but Powers is so good at weaving themes and meanings into the narrative that it never felt like this was overreaching.<br /><br />I am a big fan of meta-review about \"cinematic moments\" I had sitting in movies theaters and \"literary moments\" I had reading something wherever I was reading it. Well, this gave me a big one as I stayed up to finish it alone in a ski lease in Tahoe. I am putting it up there with a few other notable moments like:<br />- Finishing <i>100 Years</i> on a boat with my family<br />- Reading book 7 of HP for the first time curled up in my childhood bedroom<br />- The end of <i>And the Mountains Echoed</i> on a ferry to Martha's Vineyard<br/>"
-      },
-      {
-        "title": "Onyx Storm (The Empyrean, #3)",
-        "author": "Rebecca Yarros",
-        "rating": 2.0,
-        "read_at": "2025/01/26",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1720446357l/209439446.jpg",
-        "link": "https://www.goodreads.com/review/show/7262623724?utm_medium=api&utm_source=rss",
-        "review": "<br/>I think if I tried to list out all my complaints they would be as long as the book itself. But I will try to list a few!<br />- so many fucking names<br />- absolutely ZERO character development<br />- bizarre pacing, esp during scenes that should have been intense, everything just felt... flat<br />- filler plot that accomplishes just about nothing<br />- infuriatingly repetitive conversations between main characters<br /><br />The only reason this gets 2 stars and not 1 is the hangover effect from the first book. I still like the world that was built and am desperate for more crumbs of information about it.<br /><br />Where were you when the era of dragon smut died?<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
       "total_ratings": 278,
       "average_rating": 4.18,
-      "total_reviews": 113,
-      "pages_this_year": 3930,
-      "books_this_year": 9
+      "total_reviews": 114,
+      "pages_this_year": 4084,
+      "books_this_year": 10
     }
   },
   "strava": {
@@ -357,6 +357,28 @@
     ],
     "recent_bikes": [
       {
+        "id": 15190921723,
+        "name": "Escaping the gloom",
+        "type": "Ride",
+        "distance": 59.11,
+        "moving_time": 18106,
+        "elapsed_time": 19706,
+        "elevation_gain": 6512.0,
+        "average_pace": 5.11,
+        "average_heartrate": 114.7,
+        "max_heartrate": 158.0,
+        "average_cadence": null,
+        "average_watts": 164.1,
+        "start_date": "2025-07-21T15:12:54Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15190921723",
+          "summary_polyline": "gwpeF`ohjVjKz}AzEdZoHcEsCnAiAvDz@dKwD{Bg_B|E_BeDmJl@kCtL_K~HeApG_GtGnGdTsAtF`I~_@aKfMaKsDkP~GmT{MqFdB}GyCgEzCm@aE}BtFeGrCyeC`OsL~EwA|J{GjE_YcGsBaGAmOoEyEw_@rBwCbDg@tJ}NQs@oDkI}D_SB_KhFy\\`|@iBjZgKrT_\\h]a]xSH`EwpA|hBwY`Ly\\`u@cn@vs@kIvWyY`G{XpXy]jJoJ]{D~GmZjNsB`EqT`FzHzCrA_C|JQAxP~DfC`@qEfD}Ab@vJfD`D`FkDv@gKlDvAVtEvG_F~@rAqIrFJdEsCfFf@tEiEpMhAfC`F}BrAjBnBzNgFoEpCzMsDqDiAvJxIfJ_F`GlKdTeHlHaCjJoGI~B`EYzEpOp@mAxJmDxCbBbK`PlM{UsGqEqM{K`ImDaIpCqPaA{Dw^sLbGiLHeQ[bRoGpLjE|Cb@lEnJp@zD`FeI|NaC~N`IrNvPj@y@`LjCvEcBpLfD~HpKlGb@rGhElGjWdH`DbOtFfFlFoBpMvHzLjLpOiCMeCaMFj@sDaDiGnFuL}@sEfF}AtHaOq@iE|CtDoDlMv@xEeDhDc@bGpR}F|GfEQlFrD_ApC|IzKjAKtFfFtFc@jR~Hm@m@lJhE`JmChK`L}G_@xKgItOiHtF_BjGdFmBaFxK_PjE}EpMfJaAfIrLlQmI~AgHlJUfLuXtGn@rC}M\\qW|XkLpRo\\sCcLgLwHsDqIxKvEfJ_@cAiKhFoQhEuI_FiE`AgFcFeKpDoEfDzHfCDhB}JdHoFc@e\\n`@sZ_VxFuTtO}@gDcO|EeGuA[dCwBeGsFU{BkDsGhKoNi@_DtEcG~@dGbD_AnOuPb@m@mB}L`AiMzMeIaDX}E}C_NUwJnDiTrFwCnO_d@vFaEhEiW|NaX}CmNnAiPhBuIzIyCtD`BiP{HkF@iFnH{BfL_@}C{FnL\\}EgCwBrBoDiCeH|Be@hBqIyBwGuI_AT_GmHmGdM}Gx@gFrBs@LwG|C{BvKq@~LkIz^i@sOqPaHuAtAyQ{DiF[oMbKyOiBaDiH@xJqKAcJf^bEbGqFlD_]SaVmQsUvNwLuRcXpw@uhArAiHd]_Rx\\a_@|HoP~AqZ`Tup@zH_MhIoE`TJxHlDf@rDpOJh@cK~CeDdRt@|KqC|D|DlBvWrTpGfJgBvDwGCaFnM}EhdCsNdH_DjC_HvA~EjC_ChGhD|EuB`UhM|PcGhKhDzJeNcI_`@rAsFgGqSpFyF|AoHvJiIfCaLbJa@pBfDv_BgFjChBPkP|CyAhH`EqEg[cHycApCmAkAqW",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 15137851568,
         "name": "Afternoon Tamo",
         "type": "Ride",
@@ -507,28 +529,6 @@
         "map": {
           "id": "a14995458416",
           "summary_polyline": "eflhGlliqLhEe@`Ak@vC}C|BaAfCaBhBi@jEQdHfA`FqA`Gs@tCoBxEc@|E_Cn@Jl@p@f@dBj@~DRjBEx@iDzH_BlEq@nA}BbDUnB?~Dq@xDkAzCqA|Ee@|BmAlJAzBXlBfBvFThBq@xO{AvHWpDc@nBKtANj@t@z@f@LtBUnAJ|E|BhJYbBa@jDkCrDk@dCy@xACnG`AtADbBWzAo@rCyCvC{@t@i@`JcNd@cBlAaN\\cBlC{FlC}C|DmIzIaJtAmBhDyGnCmGbDsFfGoHtH{HbDmE|BmBnBaAtAYfEKvEX`Bc@zBqAbAUfEBdDg@|E\\hJeBfAA~IaBtBOTHPd@h@vEB_A_@uDH[xCb@nJwCvM_BlEwDhJiNdEwKtCeGrDkLbCuDvDwEt@wAd@_BZeEEmHw@cJgAaJHkEpAmJ|AsEnAcGnAgErAoI~AyDz@sAlBiCpD{DbBwCvN}RhBiDpDcIlCyElG{IrF{KvEsL|GkM`I}RxKuS`@yA^{Df@m[EgGiA_O?uDZmBt@aBr@gC`@uBZwD`BoG`EqT\\{@rBgEhCyDhBmD~JcLzAgD`DgJbDgFxI{PtC}E|CcItC{FhBoC|A_BrAaAnAa@zXiANN~@~EvBdHd@vBp@nMcA`SGtGv@~IbEhQ^dLGt@}ExMe@zAUdBZlC`AfDx@hEj@|DH~AEtBiAnFkAvRC|MQlHb@`H?tCQpAiAxDsAjGGrBR|FO|@sSl_@JlT_AtUg@bE_AvD{BhFoDjKiAbCa@lBMtAGfB@tAa@zJuAxHu@vIuBbLuBnOGbCThLE|Dq@vEoAdGo@tGBbEl@lG@bCa@xHKnA_BlJsAfLuCrZK`FVjSIXal@tHod@pGmKbBuCv@gLr@eLlA{PnCyCHqA[}DgBiP_EmJ[i@OEUs@V}ACwUcBy@_@EULc@DT]Fs@hAwE_Am@u@sFqUkB}Ne@gFsAuJQM{Ed@iSdDmAHeCYyILwARaCnAcCh@sLHcDlAyBhBoCjDuFpF}KzMsCvDqF|M}AtCqJ`KaCvDuB|EkCpCmB|D[hAcBrNi@zB_JvNgAh@_BZoCdCkAx@uA\\eD@mH_AuDfAaDd@{ElDaJTwAKqC{AiAWaEJk@c@Ui@@iAr@eCb@oEdA{Ev@uQSaC}AuEg@oDD{An@_E^kEh@wCR}@pCyGb@uBFeAGiFZ{@|@eAlBmDbGwN?gBaB{Ii@}@i@M{FnCuEf@iCbByEb@iFnAaA@uDo@oEE{DnAuE~B}EfEuBn@cDX",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 14973077283,
-        "name": "Morning Ride",
-        "type": "Ride",
-        "distance": 35.01,
-        "moving_time": 8663,
-        "elapsed_time": 8814,
-        "elevation_gain": 3048.0,
-        "average_pace": 4.12,
-        "average_heartrate": 114.5,
-        "max_heartrate": 160.0,
-        "average_cadence": null,
-        "average_watts": 155.6,
-        "start_date": "2025-07-01T11:04:08Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a14973077283",
-          "summary_polyline": "oglhGrmiqLHe@|BClCq@zCyC`L}FtEAxElAbACpEsA~E_@tCsBbFk@fFqCdA`@f@fAnAhHHnBiGdOuDlGWfB?~DwEfOwBzNF`D`ClJTpCs@lN_BfI}@fIfApCCtB`CfNCpDt@lFAjHiEjHeMfQeH`OaDrFqKxM}NdK_F~JoC`LSxBjAx\\OhAqBtEKbA`Bzi@aA|QkDzAuLbKwJ|B}LjKyK|DwGdF_AZsH\\yBSuDiB_NqOaASaBzA_NzjAVrFbD|MvQvXrCvB`CDfE{BzAS~AVjCnCnAXtQMhDkA~DeDvD{@lLMpMmFp@{@nBaHrAwCzM}OnCqAlDj@jBE`BeAxDsExBiApAKvD~@tB@jG_ExA[hFrApCc@vC|CnA`@tKu@`DkCtDkBv@Zp@xKQl@EdEi@jBmGhKcCnNcCdCi@nAApDxBlIRbDg@xBwCfC{@xIc@nBuE|I_FzF_HfOgDpCgIjD_BlAuGpKuBbGe@jGd@dJGbCkDxY]jFnEt|@^nAf@Bd^mFbOAhMlD~MtC`CrAlBvCt@vB`ClNa@dHQrK|@bKzC|HxEvFjFrDAp@sBpFqAjFOrAHxAdFdL|EpEzBrOrA|DE`Ex@dSJpJx@rJ\\dL|@hDbFzKbFfHrAjDzCmAvFg@~RR`KlApF{CpSs@|EoDlD{D|Dq@pENbHtBdDTtIkAjEgCpGwBzA_BhEoLxCkFhBqHhI}IfBq@vBLxIhFdC`@`CYzGwCdDgEbCgBRq@LiDTq@dHqJlFwKrB}A~@G~Bl@|@v@bCoFtEsLdDcKk@gQs@}EAqG~FyXlG}M|J_MvDeHjCgG`CcIxEcKxDqKpD{GnB{F~CaFxMoc@jBeLhGeLfDeLxAcIzAiD`@{CLeCMkAyA_D}EeFgAyCg@{EdDwLtLum@hCiXD{Oh@wJKmRd@iN`FkVfF}ZbDcNf@mDVaHdB{FVgB_@uR_Ewr@?sEjA{PEcI{@uDmD}Ei@cBoEmo@a@cPqAwIEcOu@yEJmGsBaMqCkGkAoFtCqYb@qSSyFwFXmmA~OoPdDuNbA_XnEmCDsGsCiPeE_Qg@_WmBqBLcEmA{FoUoEs`@_@cAeBC_YlEgCc@yJ\\uAVyFdCgMCyE~B{OvQuE|DcEhFmIdSkBhCcI`ImFfKkClCuBbE_AjDgAlMc@hByIpMoE~AkCpCkBx@kDFqI_AyHfBgFhDaKXiGaCuEFw@qA?gA~C}Rn@qNWsCwBwHEuCtB}PlEeMPwIzDkGdGuNCkBy@uFu@aCi@i@s@?mFjCmE\\_DhB{LbCeGeA{EPsJjEmEdE}Bv@}E?kDq@hGt@",
           "resource_state": 2
         }
       }
@@ -728,34 +728,34 @@
           "elevation_gain": 387253.0
         },
         "recent": {
-          "count": 20,
-          "distance": 103.29,
-          "moving_time": 55934,
-          "elapsed_time": 60519,
-          "elevation_gain": 6004.0
+          "count": 19,
+          "distance": 98.19,
+          "moving_time": 53327,
+          "elapsed_time": 57838,
+          "elevation_gain": 5834.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 91,
-          "distance": 1052.41,
-          "moving_time": 315139,
-          "elapsed_time": 345838,
-          "elevation_gain": 87315.0
+          "count": 92,
+          "distance": 1111.52,
+          "moving_time": 333245,
+          "elapsed_time": 365544,
+          "elevation_gain": 93827.0
         },
         "all_time": {
-          "count": 537,
-          "distance": 11741.93,
-          "moving_time": 3273773,
-          "elapsed_time": 3889270,
-          "elevation_gain": 919895.0
+          "count": 538,
+          "distance": 11801.04,
+          "moving_time": 3291879,
+          "elapsed_time": 3908976,
+          "elevation_gain": 926408.0
         },
         "recent": {
-          "count": 13,
-          "distance": 242.68,
-          "moving_time": 66674,
-          "elapsed_time": 75978,
-          "elevation_gain": 18614.0
+          "count": 14,
+          "distance": 301.79,
+          "moving_time": 84780,
+          "elapsed_time": 95684,
+          "elevation_gain": 25126.0
         }
       },
       "swimming": {
