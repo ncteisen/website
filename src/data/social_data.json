@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-07-22T10:30:57.971465",
+  "last_updated": "2025-07-23T10:31:03.451993",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Superman",
+        "year": 2025,
+        "rating": 2.5,
+        "watched_date": "2025-07-22",
+        "is_rewatch": false,
+        "review": "<p>The best part of this movie was getting to see <i>The Odyssey</i> teaser that hasn't hit YouTube yet.</p><p>The second best part of this movie was the endearingly sweet blue/red AMC-branded cocktail that Danny and Becca bought me because it is my birthday tomorrow.</p><p>The third best part of this movie was Nathan Fillion.</p><p>The rest of it was mid-tier DC superhero content that <i>should</i> have had a 100 minute runtime.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/7/0/5/0/957050-superman-2025-0-600-0-900-crop.jpg?v=54e41a55ff",
+        "link": "https://letterboxd.com/ncteisen/film/superman-2025/"
+      },
       {
         "title": "Clueless",
         "year": 1995,
@@ -72,21 +82,11 @@
         "review": "<p>g I v e \u00a0 m e \u00a0 t h e \u00a0 p l a n t</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/9/9/4/45994-walle-0-600-0-900-crop.jpg?v=ad27f0ceac",
         "link": "https://letterboxd.com/ncteisen/film/walle/"
-      },
-      {
-        "title": "Oslo, August 31st",
-        "year": 2011,
-        "rating": 4.5,
-        "watched_date": "2025-07-07",
-        "is_rewatch": false,
-        "review": "<p>Me before watching this movie: \ud83d\ude42<br/>Me after watching this movie: \ud83d\ude41</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/e6/m1/vn/g6/nitgCJ1g0ebztZHG0KwcojWlyPA-0-600-0-900-crop.jpg?v=d5466d278c",
-        "link": "https://letterboxd.com/ncteisen/film/oslo-august-31st/"
       }
     ],
     "stats": {
-      "total_films": 805,
-      "films_this_year": 35,
+      "total_films": 807,
+      "films_this_year": 36,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15201400909,
+        "name": "Slammin Tam with Dan",
+        "type": "Run",
+        "distance": 11.13,
+        "moving_time": 7788,
+        "elapsed_time": 9302,
+        "elevation_gain": 2428.0,
+        "average_pace": 11.66,
+        "average_heartrate": 129.9,
+        "max_heartrate": 161.0,
+        "average_cadence": 82.7,
+        "average_watts": 239.1,
+        "start_date": "2025-07-22T15:55:03Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15201400909",
+          "summary_polyline": "erjfF|b~jV[g@kA`@{AvAoBBeBl@oAa@gB\\aElDuEzGoAjAcApBoAVsBvAoANmAg@}Az@qBN}A`CoDIaCb@iDbB}@dAaCcAq@?mB^cB`AsDrFaHpBo@f@cArCkDXy@t@mBTs@p@eALm@lCkAhAyAGuCtAkA@{AnBwCXeBKY`@Xh@lETzA|@b@UNcAd@m@|BGnA`AnAaAtAG`@v@EjBRnDGnBk@tBfBTlAnBVBR[McBJwA`C}At@FR\\XhC_@pAFvAr@`BrBhBrCaAdAeBHs@k@uAd@qDd@cAn@K`A|@pAL\\t@UfBJz@QTh@|@_@j@M~BoCjEInDy@xByDnDOlAm@Lu@jC}AtAcBh@Ip@qCnCqAhDAxA[xAHdAn@|AQxC]pAk@}DgBMkCvA`CAeC|@gCNm@z@{@EaBj@`AZ_AP|@PsA^vAVc@L`@NiBj@eAK{AuDkAgAl@tAX~Bp@pB|AjAhAN{Bd@e@bA?h@e@PEz@Hc@t@\\nD\\Wl@{AdAxAn@hBxBZpAJbBe@nLmFxHC|@tDx@jB`Bb@~AbBe@xAd@dC?dAt@hA`BxBShB`Af@dAT|Ak@~CJfBgAdBTdCu@x@Eb@Zp@pBpAGnB^v@^?z@}A`CiCbE{AbBtCp@fDd@`AH|AlDTfDx@~ASxAbBhB`@j@pBj@KR_An@AOo@cA[`Bi@h@Rc@m@}@Um@{B}@Ce@w@r@Jl@w@dATYyA_AO`AiAa@BmBcB?UJWhA@nAk@VeBcAs@xAeClDmCbCyH]_A}B}Bm@cBsBuAuC@U}@}AgAiAXo@MdAoBpDcDjC]dBiAlBSLsCbAUR]?g@m@g@Ak@NY|@Y|AXpE{ApBgBx@sB~EoGz@a@rBEt@mB~@K`@m@`ASXo@@cAdBo@p@y@NgCpAFXo@CaAzAoA]_Cb@iBz@eBcBoBIaB~Ai@xC}A^o@BeAg@{@CoB]iAf@e@t@t@DuA]oBJc@fAOlATh@kBXOfA`CVLj@a@LoAnBEhAaAHe@]{A@eCxCdAjA{@?a@o@s@JkAgCuDP}@vAm@SqAqAiDqBy@c@_Bf@oDG_Bh@kB}@qCdC_EDq@oAoAoApACgAeCiDvAkAyAe@gBwAT^o@q@Qg@UuAOoCq@iBrBcEI}A_@qAe@qEuC_F",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15181598355,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15103321919",
           "summary_polyline": "iqpeFvkhjVFlAD?FJKj@Jh@Cb@?n@FXHJ?LFR@ZGRNRCF@`@E\\N\\Dt@FVCHDBCVDBCRL^Ad@H^INE^LJKJEAEX@t@E`@Fb@Ab@DFNnAARFXC~@DXHDMZ@VK^GbABfAG~@DZJ\\bAzBAJF\\R|BHLAPFt@@r@CtBRtBRl@@FKXFl@@lAJ~@N^N`ADr@KXDNRNOVF^HnAQlBNrAd@nA?FHLJl@Cn@Kb@Wj@E`@J`BNf@a@hg@[hDFJEHCr@W|Ba@nBmAdHEJ[|BGfAENC~@JbD@x@CH@t@Fb@@l@DFCXFlBLfA^fADXZl@DRZ\\Rj@NJ|@tA|@bBz@zBP|@DbAWfBw@nDA|@Lf@@l@AzBQ`AEDEVHh@?PL`@@^d@jB\\hCLJ`@@LXRRLBf@Dh@IFFv@WZJL?ZMhAMf@?bAPd@?|AWH@N_@@OOMe@GOO?{Ab@{A\\}BX_EGU@OEc@Dc@T_A?[Ee@IW][{@SgCWm@YaA_AgAkBOa@[SUFKL@PVnBLbC\\|C@r@EDCl@Ux@q@nAKFO^Kf@Q^@HA\\GR?b@K^SN[Fo@Ga@SY]WoA?SFW@o@JaADoBGg@MU?OTwAv@oDHaAC{@SkAOk@]m@IYuBsDm@u@[k@]w@i@gB@MM}@EwAAgIEsAFcCRiCdB_KBe@FQ^uCZmDfAiNN_E?aCHcAEiBKsAYkA?M_@mASa@Q_A@MRWBKMg@Eq@HY\\w@FuAMm@e@kAYyARgBE_AMi@Bs@A}AEYGG?Me@gCDsAEKBo@GYIS?SQaAB[EOD]AqBGOG{@EIYwDOk@e@s@GWMKKa@JcBA[GUDg@N[F}AKaC[{BBMA]FYCoAESMsCMgA@g@POBOMgADWG_@@KGM?}AGSB[IOCk@O{@EaBOo@D]I]Cs@HU`@DPGTFn@WNBDKX@ZIXBDILE^DXIJLHIn@GJMl@MD@BPDDJKP]FA\\HvBYLHBIZEBFADT_@VDTKz@GK_EJ[PKZ@JDt@IDGhA@t@GHEL@z@MZHVMd@D\\K`@Bb@Uj@Hx@OZD^QXC^DJGx@A`@Nn@CPGf@?TDl@l@vAnBLXj@l@@FLHf@p@DZ`AdB@XNf@AFDBBLJN@b@DHD|@A^DXC^DJGFAJ@NJTATBHDx@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15090048455,
-        "name": "One last srun \ud83d\ude2d",
-        "type": "Run",
-        "distance": 4.0,
-        "moving_time": 2036,
-        "elapsed_time": 2055,
-        "elevation_gain": 72.0,
-        "average_pace": 8.48,
-        "average_heartrate": 146.1,
-        "max_heartrate": 165.0,
-        "average_cadence": 89.5,
-        "average_watts": null,
-        "start_date": "2025-07-12T13:29:20Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15090048455",
-          "summary_polyline": "a{o|FdbdnLDG|@_@fBoANONa@Bs@UyAKcCDwCLQTV@HrAvBhAxBlB|C~CxF`BjCn@x@~CpDjDfE`CnCd@n@hAjAlAzAd@b@|ClD\\\\bAhA`@l@bDxDhAdAl@n@p@`AvGzHdChCn@l@P^d@h@v@jAbAfBj@vA~@tCZr@F^\\jAJl@d@dB\\vBPhD\\xBNjBB~A?t@Cv@?xD[lF?ZUfBM|Ak@|C_@zAIf@MpBEbCDtAN`AHXB??QMkBAo@D{BDo@\\wBh@wBZmBTgDBkANgBDgBJ}A?eCBq@AqAIuCSaAK_B]aCScAIq@C}@}@}C]yA[o@I_@MYk@kAUs@eAeB]e@c@e@s@mAW[_A}@uAoBaBgBiAcBa@_@u@gA]_@uAqAm@y@_@a@gA_Aa@a@eBoBu@eAa@_@qB{Bo@m@_CsC}BaC}@y@aAiAg@q@g@g@Y_@_EwEoDiFuCeFi@eAmE{H",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 121,
-          "distance": 640.87,
-          "moving_time": 345908,
-          "elapsed_time": 392784,
-          "elevation_gain": 46189.0
+          "count": 122,
+          "distance": 652.0,
+          "moving_time": 353696,
+          "elapsed_time": 402086,
+          "elevation_gain": 48617.0
         },
         "all_time": {
-          "count": 1037,
-          "distance": 5300.89,
-          "moving_time": 2871147,
-          "elapsed_time": 3256148,
-          "elevation_gain": 387253.0
+          "count": 1038,
+          "distance": 5312.03,
+          "moving_time": 2878935,
+          "elapsed_time": 3265450,
+          "elevation_gain": 389680.0
         },
         "recent": {
           "count": 19,
-          "distance": 98.19,
-          "moving_time": 53327,
-          "elapsed_time": 57838,
-          "elevation_gain": 5834.0
+          "distance": 103.06,
+          "moving_time": 58019,
+          "elapsed_time": 63813,
+          "elevation_gain": 7953.0
         }
       },
       "biking": {
@@ -751,11 +751,11 @@
           "elevation_gain": 926408.0
         },
         "recent": {
-          "count": 14,
-          "distance": 301.79,
-          "moving_time": 84780,
-          "elapsed_time": 95684,
-          "elevation_gain": 25126.0
+          "count": 12,
+          "distance": 298.16,
+          "moving_time": 83632,
+          "elapsed_time": 94235,
+          "elevation_gain": 24897.0
         }
       },
       "swimming": {
