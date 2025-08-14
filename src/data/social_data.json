@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-13T10:29:45.176295",
+  "last_updated": "2025-08-14T10:30:12.310298",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -9,7 +9,7 @@
         "rating": 4.0,
         "watched_date": "2025-08-12",
         "is_rewatch": false,
-        "review": "<p>lmao</p>",
+        "review": "<p>fucking lol</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/3/3/3/8/1/933381-the-naked-gun-0-600-0-900-crop.jpg?v=6acd6cd210",
         "link": "https://letterboxd.com/ncteisen/film/the-naked-gun/"
       },
@@ -728,11 +728,11 @@
           "elevation_gain": 395471.0
         },
         "recent": {
-          "count": 20,
-          "distance": 115.89,
-          "moving_time": 63691,
-          "elapsed_time": 71726,
-          "elevation_gain": 9652.0
+          "count": 19,
+          "distance": 111.89,
+          "moving_time": 61347,
+          "elapsed_time": 69247,
+          "elevation_gain": 9098.0
         }
       },
       "biking": {
@@ -751,11 +751,11 @@
           "elevation_gain": 935158.0
         },
         "recent": {
-          "count": 8,
-          "distance": 224.86,
-          "moving_time": 69152,
-          "elapsed_time": 76789,
-          "elevation_gain": 19656.0
+          "count": 6,
+          "distance": 202.71,
+          "moving_time": 58872,
+          "elapsed_time": 65386,
+          "elevation_gain": 16860.0
         }
       },
       "swimming": {
