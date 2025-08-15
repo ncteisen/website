@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-14T10:30:12.310298",
+  "last_updated": "2025-08-15T10:27:50.805395",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -728,20 +728,20 @@
           "elevation_gain": 395471.0
         },
         "recent": {
-          "count": 19,
-          "distance": 111.89,
-          "moving_time": 61347,
-          "elapsed_time": 69247,
-          "elevation_gain": 9098.0
+          "count": 18,
+          "distance": 107.83,
+          "moving_time": 59270,
+          "elapsed_time": 66917,
+          "elevation_gain": 8894.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 97,
-          "distance": 1255.12,
-          "moving_time": 374011,
-          "elapsed_time": 411224,
-          "elevation_gain": 104175.0
+          "count": 99,
+          "distance": 1280.15,
+          "moving_time": 380127,
+          "elapsed_time": 417680,
+          "elevation_gain": 105159.0
         },
         "all_time": {
           "count": 541,
@@ -751,11 +751,11 @@
           "elevation_gain": 935158.0
         },
         "recent": {
-          "count": 6,
-          "distance": 202.71,
-          "moving_time": 58872,
-          "elapsed_time": 65386,
-          "elevation_gain": 16860.0
+          "count": 8,
+          "distance": 227.75,
+          "moving_time": 64988,
+          "elapsed_time": 71842,
+          "elevation_gain": 17844.0
         }
       },
       "swimming": {
