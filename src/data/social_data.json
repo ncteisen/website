@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-16T10:25:15.011686",
+  "last_updated": "2025-08-17T10:26:11.535407",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -131,7 +131,7 @@
         "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
       },
       {
-        "title": "Sunrise on the Reaping (The Hunger Games)",
+        "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
         "author": "Suzanne Collins",
         "rating": 2.0,
         "read_at": "2025/05/24",
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15482007939,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 9.5,
+        "moving_time": 5691,
+        "elapsed_time": 6112,
+        "elevation_gain": 1749.0,
+        "average_pace": 9.99,
+        "average_heartrate": 140.6,
+        "max_heartrate": 167.0,
+        "average_cadence": 86.9,
+        "average_watts": 296.6,
+        "start_date": "2025-08-16T16:07:55Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15482007939",
+          "summary_polyline": "qd|eFd~wjV`@cBT}ACQeAqAqBMg@bBeAhBo@fCm@tAo@xC[\\qBRQb@Bv@Il@Qt@KFkGmCm@Gi@Zo@xB_@t@[Ri@?gA_@q@kAwBoCg@Mm@DgC`AqAdC}@hAkBBg@b@NbCOVgA^Mv@F~@p@bBBf@K`@aAl@_@pAkA\\[lBQb@qAj@_A~AqBNoArASl@HnAQ`@k@\\{@dAcBn@]Ie@_@}AmBsAYuBDsA^qCEoB|@iBXW~@Yh@?ZRd@?h@eArDa@`@iBd@a@X_C|Ha@h@w@d@Y^CTPjDWbAwBjAMdBoAvAWF{CsAsAFgAg@[@kAxAwAlG}AtBSJYAW[C[NcAIu@gA{B{@_@}BEaBiAGDDTxB|DeAMaBLu@_@o@E_BfCw@h@o@PgAu@m@OwAgBkAqD_AaBaAw@m@}@u@a@s@s@iAqAgAe@aAwAUkAe@gA{@wEFyANaAEgAj@sAp@aAhAgAtAs@`DqB~AsBTk@tA_Bd@eAf@iCb@eBTc@\\aBn@sAbAwAdCq@bABtDj@rBq@hAgBnAqDP_B|@}DDqCIiBNmBJg@xB{Hd@cCZoC|@uBzAiC^mB?c@M_@gAi@MUcAsFWmELgD`AcFr@aCh@iCt@gB?O]KEMtBwIDeCRe@hAsAHw@AmA~@g@NgA~@qBFm@QwA?o@Ve@t@s@Pk@Ac@g@qAHeDPWh@QlANvA_BvBa@^}@n@YJTNA|@{@r@[Xg@Ls@iA{B~A}BVU|@MfAs@t@Md@cB\\q@tA[h@q@p@Q|@{@pAIdAe@`@u@BQe@mAC}@d@cA^wBtA_Bx@cBLy@HGpBItARjA@bBr@nEfArABjBr@jEd@tDfDbCTGd@Af@f@|@LxAKx@F|@\\~@b@Rx@HpDu@^Lp@p@fAAjAVp@^Zf@TjAIxALn@nArAf@x@x@NtAc@@XNT?`@WfBYt@ShBk@|Co@`CAbAPt@ZZpBEj@Lv@pAnBvALh@Yn@kB`CuBtAgA|A]x@F|@T`@p@`@pBi@b@Ah@Xx@~@ZfAH|@GxEx@hDh@z@ZEr@mAdByAbCaDj@oATCDT?tDKxBH`DCR[`@RfAM|A@d@qCzR_AzDu@fGF|B@bCSvEIVs@^i@jAi@fDw@xB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15471879274,
         "name": "Takin care of business",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15354224410",
           "summary_polyline": "kmcdFjtmiVoAbA_A`@ONOBCNc@T[r@WVk@|@w@jDMNSb@_@h@s@z@e@`@EBK?c@MS@[Fc@XYJi@d@w@f@sCfC_Ab@[F_CRm@B]DU?KCEIEU@_EC}AB}BCk@@{CCiAByAJoATsAl@_CpDqHEBM@YH]\\Yl@Y^y@xAg@pAYlAGDICQQMe@i@mDi@mCe@_De@aCEKIGYEIEMUKu@Oq@M_Ac@aB_@a@OGSAOFMJu@`AWj@AL@VHXj@z@Z~@Xj@NJN@TGTOJ?BD@JCJMH[^m@|@m@hAk@jBa@zBKxBClB@dBIfD?fFCJCBc@BgBAOCGGESAe@Gm@CiA@}@JmABm@Ck@Gg@A[WJIAGCOa@[a@Y_ACUA_@Ii@H[VEBIOaAq@{Fm@gH[qCOyBUwBm@yDC]GUIGUe@CU@Og@`@Yc@a@{@kDaG[o@[e@GEE@t@fAJAHKJURaA^u@Je@@ODIb@[\\On@a@xAo@`B}@p@g@PSHSFe@DoAAc@Ks@Oo@i@sAiBwCy@yCMq@@CCW?]D}@VeBh@sBVc@\\_@x@k@NGjAYZGr@Gx@@b@Dp@Pd@Rh@\\\\ZDJx@zCJh@J`AJtAJf@NTVPbARb@Cr@I~@OfBy@^UFG@KOODKHGrErAvBp@VP\\f@n@pALh@Zh@Vl@b@n@LVLd@`@f@fCfFPf@rAfC^bANTLXRXPj@ZVtAvBVXvAjAr@d@j@VVPDJ@JCJIH]NsA\\a@N_@T_@@_@XA\\^n@d@j@h@\\CNGJ]\\OTq@p@MRIf@n@fA_@ZOPWRHFJRLJLdAFRLHXFTTDn@NTHBVBTGVQJATPZFWCID?HDV^h@b@dA^f@Jl@HTf@v@h@l@DR@V@?NENH\\`AV\\\\l@?FALW\\MNm@\\_@`@CJ@VEJIDYBIDS`@o@t@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15334294471,
-        "name": "Lunch Run",
-        "type": "Run",
-        "distance": 4.51,
-        "moving_time": 2343,
-        "elapsed_time": 2558,
-        "elevation_gain": 203.0,
-        "average_pace": 8.66,
-        "average_heartrate": 119.9,
-        "max_heartrate": 140.0,
-        "average_cadence": 88.4,
-        "average_watts": 310.4,
-        "start_date": "2025-08-03T18:12:46Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15334294471",
-          "summary_polyline": "sqpeF`lhjVDT?ZL^?`@HXB`@C`@BVJb@D`@Et@Bt@E\\@NJ^Bb@@n@Jx@CXD|@CP?TFXFFOFHhAGn@?b@\\dBBz@H~@EnAG`@K\\@Z?XFn@I`B^~@NNFPH\\Xh@BL?TXvE?RDP@ZG`A@XCXNp@Hp@Ph@Cb@GPDbBBVLZBVHRLlAAHBh@Af@TbC@RSlA@d@Dd@Px@Vr@VbAAv@Ij@Yn@EPJrAVfAIFCHAXTr@`@lBTpBBb@@bBKz@GHGD[FOAg@OuAqAOa@c@q@g@k@MIICOAUDUHc@Z_A`ASh@SvACv@Bh@`@`Dd@fCLpBJ`A?\\F~@TpBLXX^bAf@XVT^^fAVd@DNG`AMt@OhAiApGSt@Ad@MbACvAR`BT|@FHHDr@RVTtIfNTVl@ZbA\\TD\\?HKDQFs@VsAn@{BR[HUb@w@t@kBBWIi@Qk@c@w@Wq@[m@e@m@We@s@}@MUU]]kAM]UoAc@uCMe@S_BCk@]qBAg@?kA@KBA@I?]KiBOy@[uAIQm@g@w@]KSAMB_@L}AB{@Hq@NcCAe@E[Ei@JaAAgAMwAIk@s@yCWs@YoARIDI@SGo@AUBO\\gAHq@?OKs@i@aBQ}@FmABYFQ@e@Kg@IoAAo@@e@KYEa@YuACo@?e@Ie@Aa@Bi@O_@OwA@g@JaBA_@YeCSeCCUUm@o@iAQi@?QDWAWBa@IqAV{@Be@A{@CWDy@C]Oq@Gk@Gq@F]?QWiDQuD",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 137,
-          "distance": 737.97,
-          "moving_time": 399441,
-          "elapsed_time": 453169,
-          "elevation_gain": 54651.0
+          "count": 138,
+          "distance": 747.47,
+          "moving_time": 405132,
+          "elapsed_time": 459281,
+          "elevation_gain": 56399.0
         },
         "all_time": {
-          "count": 1053,
-          "distance": 5398.0,
-          "moving_time": 2924680,
-          "elapsed_time": 3316533,
-          "elevation_gain": 395714.0
+          "count": 1054,
+          "distance": 5407.5,
+          "moving_time": 2930371,
+          "elapsed_time": 3322645,
+          "elevation_gain": 397463.0
         },
         "recent": {
           "count": 18,
-          "distance": 106.39,
-          "moving_time": 58574,
-          "elapsed_time": 65977,
-          "elevation_gain": 8944.0
+          "distance": 111.21,
+          "moving_time": 61616,
+          "elapsed_time": 68930,
+          "elevation_gain": 10640.0
         }
       },
       "biking": {
