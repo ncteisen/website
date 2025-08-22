@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-08-21T10:27:14.145393",
+  "last_updated": "2025-08-22T10:26:53.065572",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Weapons",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-08-18",
+        "is_rewatch": false,
+        "review": "<p>The choice between 3.5 and 4 stars tormented me all week so I finally looked at the stack rank of <a href=\"https://letterboxd.com/ncteisen/films/diary/genre/horror/by/entry-rating/\" rel=\"nofollow\">all 48 horror movies I have logged on letterboxd</a> to help me decide. I had some questionable rankings in there, but it made me feel good about giving this 4 stars.</p><p>I mean how could I not? It was a structurally creative mosaic horror flick with good scares, good comedy, and a particular scene with Benedict Wong running that has been absolutely seared into my brain.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/2/1/0/9/972109-weapons-2025-0-600-0-900-crop.jpg?v=8100270337",
+        "link": "https://letterboxd.com/ncteisen/film/weapons-2025/"
+      },
       {
         "title": "The Naked Gun",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>Deep down, buried away, somewhere beyond the egregious plot holes, bizarrely bad acting, and stupid character choices is a 3.5 star movie. The only nice thing I can saw is that I liked the color grading.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/9/7/8/3/979783-the-watchers-0-600-0-900-crop.jpg?v=efaa9f479d",
         "link": "https://letterboxd.com/ncteisen/film/the-watchers-2024/"
-      },
-      {
-        "title": "Sing Sing",
-        "year": 2023,
-        "rating": 4.0,
-        "watched_date": "2025-07-17",
-        "is_rewatch": false,
-        "review": "<p>Watched on a plane without knowing anything about it. Credit roll had me like \ud83d\ude32\ud83e\udd79</p><p>We love the power of the arts!!</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/9/5/7/1041957-sing-sing-2023-0-600-0-900-crop.jpg?v=f893b22924",
-        "link": "https://letterboxd.com/ncteisen/film/sing-sing-2023/"
       }
     ],
     "stats": {
-      "total_films": 813,
-      "films_this_year": 40,
+      "total_films": 814,
+      "films_this_year": 41,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15541800664,
+        "name": "Team run + bonus",
+        "type": "Run",
+        "distance": 5.01,
+        "moving_time": 2679,
+        "elapsed_time": 3170,
+        "elevation_gain": 75.0,
+        "average_pace": 8.92,
+        "average_heartrate": 135.6,
+        "max_heartrate": 168.0,
+        "average_cadence": 86.0,
+        "average_watts": 304.3,
+        "start_date": "2025-08-21T23:21:13Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15541800664",
+          "summary_polyline": "q{cdFnnmiVa@w@iA}@aAi@u@[i@MYDICQ[B]EScAq@q@o@GCG@KR?jARx@Bf@JfAHNTN^`AL`ATf@X\\b@Zv@ZVFt@HR?n@CNGjAmAFQMw@]}@OSi@i@eBeAsAg@MASBIAU]@IDQCSYUw@i@i@g@K_@n@cB|BoEnAiCPk@PWV]d@{@f@k@l@aAd@[LUpAsAx@sANOFEFANLZv@b@ZPHl@Nb@Bd@VTd@`@h@z@|Ah@p@f@dAjB~CT|@Db@?\\Fx@BbBAVBLF~@Av@BXHRBRFVAZGf@K^QTCDUBWLU`@S@a@VYd@q@n@sAx@]`@e@TcAl@MPU^MJGLGBCCGQ]k@KYi@_AK_@YKCEQc@[i@m@q@[k@gAsAk@g@]_@_@[m@Yk@QyAq@k@a@m@g@EI?IJSL_@l@sAPe@|@cBVm@d@_ANa@rAqCbAoANWRMd@i@`@]p@u@z@mAb@[HAHBXj@NPZXbBZPHh@j@n@`Ar@rATVT^nCjFDPJjAF|CD^FLA\\Jr@G^Dl@?p@NVGr@QVOJQPOXKD[b@g@NUTKRMHwBvDOYOGIB]b@Sh@YTWFEJC?[Qi@PUEMKQa@sAyBSg@[]Q]QUICQDCAWg@S[}@u@_@U_Ac@o@OMCQ@QHa@t@Wx@Eb@?n@Fd@Zr@RRpAr@\\HZLL@|@@^G^Sl@w@FUQkA[u@QWa@]}AcAe@Sg@O]AQH_@b@a@hAGd@?TFz@JXXb@VTf@^`A\\zAFb@Eb@Ud@i@JODU?MGe@Ws@Wa@i@i@_Am@}@e@}@YQAUBKEIOEM@c@MQ_Ao@k@c@GAMJC\\@l@R|@NdBDLJLPFVBH@HCFKXw@T]RKTCh@LpAh@fAp@b@j@f@`AJ`@Db@CNKNm@j@SVIDWDO?w@Gw@Oy@[w@m@OSKWI[Ec@Ds@Ha@L_@\\o@TU^OJCJ@pAVRBJGPYFOPO~@c@XSHAHK\\IPMnAWb@C^IlBUl@Cn@MN@LCb@_@FMAQ[_@i@cAg@u@GQC[GOKGWRYFO?QE",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15525989974,
         "name": "Morning Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15402241324",
           "summary_polyline": "qqpeF|khjVAJHR@ZH^?f@D`@CV?f@Br@LLBPEbAF`@?PL|@LnBDLARDd@BtABVQXF~@Eh@?PDZ@VLn@Fd@@r@F\\Er@?b@GLCZM`@Fp@E~A@v@DRb@n@h@xAHd@FbAXpC@\\IlB?h@@JJRNtADL@b@Cn@Dp@@ZD^Bb@Nb@B\\Ld@At@BL@bAH|@DFF\\Et@O|@?VLt@Tp@BT\\zAE~AAFKJKVI`@Fr@RjA@x@Dl@j@fCHr@JlA@j@?j@InA@bAEpB_@rDYpESzBERCd@Kl@Ep@GXMzCKlAGVYv@S~@Gn@UnAOrAKh@K`A_@nBIl@EdA?jAN~CB|AAb@BV?b@FXA^B^B^LZDf@l@nBZl@~@nAl@bAJJ`@x@Pj@\\r@Nn@Vx@Jj@BnAEb@Kz@YdAAt@Q`@Id@Cd@J\\B`BCd@ANCBAn@If@C`@NbA@f@JXZ~ADZECFj@Nn@Vz@NTPR`@Hr@ArASRFf@?TOx@]VC`@BjA`@`@Bp@ENENK^INUJUCw@CSAg@GMAe@@m@HgBL{@LeBFe@@w@Im@A]@[DUNg@Bu@Og@[e@gAw@GAE@a@KoAMg@QWS_@_@e@{@[aBCg@OeBEsA@kAHaAFWBm@J_@^qBf@iA^o@Pm@l@aAF[@[Ge@y@{A]{@_@i@]q@MMSa@GGUm@KOSOWk@@SCQ?o@Io@OqBMc@SmAKYMo@M{@Ci@Ie@IgADgBE[Fe@LORKTE\\?r@Wv@aAL]Po@Ee@Di@GWAWK]_@g@O[I}@Ia@Si@CU@YZwAZcAp@sAZ_@DIF[DaAMo@Q}AS{@MFQCg@sAc@k@UGo@HOo@Ek@?[UgC?e@IkA?[I{@?e@OwAIoBGg@Es@I]EwA[wDAyAM}AMm@Aq@GkAIk@G_AG[Ew@@i@M}AEw@Gk@Ey@K_ACo@OgBCmAQgBAq@c@qFCeAIo@OeDIcAGc@GeCUiBGaBYuCQsC",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15389131873,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2603,
-        "elapsed_time": 3029,
-        "elevation_gain": 253.0,
-        "average_pace": 8.67,
-        "average_heartrate": 132.3,
-        "max_heartrate": 156.0,
-        "average_cadence": 88.7,
-        "average_watts": 313.4,
-        "start_date": "2025-08-08T14:42:58Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15389131873",
-          "summary_polyline": "}qpeFjlhjVDL?NL\\D^HNBTATMh@?\\@JRVDRIZCh@@rAFLNTPb@Hf@?VF\\Mb@Cl@B\\Ah@BX@r@D^It@?VDl@Nj@Jf@JzCGp@Md@Gd@F|@I^Cl@?NJ\\PRJ`@RZJ\\Tb@BL@PCZVhCFrBEt@BpAHd@VpADhCLv@@h@R~ACpA@XXbCCbAEX@l@n@bCN^@N?d@Gv@GTQZE`@Ab@Fl@]d@HRHb@h@xAf@vBJv@LfBCpAKt@KJg@Bk@Og@a@QKU_@QQM_@e@i@MWe@OQCI@g@d@s@b@YXINQj@WrACp@?n@NhBb@pC?PVfAVxCBn@Fd@Fl@T~@Zd@NJv@`@\\b@HFFJ^dARXRf@PRL?|@Sn@Bf@JLEDKDi@Py@Fk@FGb@QFKJaAE{A?UDIJCb@@PCl@H\\Ib@a@DMh@}@Pi@VOfAMvAJ\\E|@GXCFIDUHO@MAo@DQbAq@AMD]FSZe@Hw@V}@t@i@V[HUBU?}DCiCC[MUSWc@Wc@GY?]FOHa@`@O^EbA?zCB~AAb@DTN^\\Xd@L`@DPC^O^YT]DQHqCEwB@q@Ec@ESM[CQVw@D]AYIq@?qAE_AMSg@@}@Ji@Le@DOCm@No@HiAPgCTOFq@@eC\\A?YWCICSIsBKaAAu@OuA@o@[kCA[BUA[a@yDc@aIKw@Ao@]qE?q@Kw@A{@MaACmAKaAMgCOwAMuCSaD_@oEWwEg@mHMyAGiBOoAKcCEe@?e@E]",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 140,
-          "distance": 759.69,
-          "moving_time": 412014,
-          "elapsed_time": 466786,
-          "elevation_gain": 57698.0
+          "count": 141,
+          "distance": 764.7,
+          "moving_time": 414693,
+          "elapsed_time": 469956,
+          "elevation_gain": 57774.0
         },
         "all_time": {
-          "count": 1056,
-          "distance": 5419.72,
-          "moving_time": 2937253,
-          "elapsed_time": 3330150,
-          "elevation_gain": 398762.0
+          "count": 1057,
+          "distance": 5424.73,
+          "moving_time": 2939932,
+          "elapsed_time": 3333320,
+          "elevation_gain": 398837.0
         },
         "recent": {
           "count": 18,
-          "distance": 107.7,
-          "moving_time": 58318,
-          "elapsed_time": 64700,
-          "elevation_gain": 9081.0
+          "distance": 105.0,
+          "moving_time": 57077,
+          "elapsed_time": 63386,
+          "elevation_gain": 8862.0
         }
       },
       "biking": {
