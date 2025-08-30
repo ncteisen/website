@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-29T10:25:56.128367",
+  "last_updated": "2025-08-30T10:23:05.427507",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "rating": 5.0,
+        "read_at": "2025/08/25",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671.jpg",
+        "link": "https://www.goodreads.com/review/show/1333885372?utm_medium=api&utm_source=rss",
+        "review": "<br/>Audio book for the new commute. Banger after banger of quotable lines that have been seared in my head since high school.<br /><br />Favorite deeper cut line from this <s>re-read</s> re-listen: <br /><blockquote>\"What'll we do with ourselves this afternoon,\" cried Daisy, \"and the day after that, and the next thirty years?\"</blockquote><br/>"
+      },
+      {
         "title": "The Last Life",
         "author": "Claire Messud",
         "rating": 3.0,
@@ -156,28 +165,41 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1658847734l/57224204.jpg",
         "link": "https://www.goodreads.com/review/show/7333884090?utm_medium=api&utm_source=rss",
         "review": "<br/>This was a creative, kafkaesque take on the bardo, and naturally it reminded me of my favorite George Saunder's novel, but MAN I did <b>not</b> connect with the writing style. The second person threw me, I found it tonally confused, and my god the acronyms just wouldn't stop.<br /><br />On the plus side I learned a lot about Sri Lanka and TAMIL came up in a nyt crossword while I was reading it so there's that I guess.<br/>"
-      },
-      {
-        "title": "Playground",
-        "author": "Richard Powers",
-        "rating": 5.0,
-        "read_at": "2025/02/03",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712677708l/205478762.jpg",
-        "link": "https://www.goodreads.com/review/show/6924320024?utm_medium=api&utm_source=rss",
-        "review": "<br/>Absolutely wonderful. I liked this significantly better than <i>The Overstory</i> and I already liked that one a lot. It took a little to get going, but once the characters and story were established it started to hum. Like his other books, this has themes of environmentalism, technology, friendship, love, and family. For a lot of other novels that would feel like too much, but Powers is so good at weaving themes and meanings into the narrative that it never felt like this was overreaching.<br /><br />I am a big fan of meta-review about \"cinematic moments\" I had sitting in movies theaters and \"literary moments\" I had reading something wherever I was reading it. Well, this gave me a big one as I stayed up to finish it alone in a ski lease in Tahoe. I am putting it up there with a few other notable moments like:<br />- Finishing <i>100 Years</i> on a boat with my family<br />- Reading book 7 of HP for the first time curled up in my childhood bedroom<br />- The end of <i>And the Mountains Echoed</i> on a ferry to Martha's Vineyard<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
       "total_ratings": 278,
       "average_rating": 4.18,
-      "total_reviews": 114,
-      "pages_this_year": 4101,
-      "books_this_year": 10
+      "total_reviews": 115,
+      "pages_this_year": 4281,
+      "books_this_year": 11
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 15631345621,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 7.09,
+        "moving_time": 3512,
+        "elapsed_time": 3926,
+        "elevation_gain": 256.0,
+        "average_pace": 8.25,
+        "average_heartrate": 136.1,
+        "max_heartrate": 176.0,
+        "average_cadence": 88.5,
+        "average_watts": 324.6,
+        "start_date": "2025-08-29T22:40:25Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a15631345621",
+          "summary_polyline": "grpeFnlhjVDf@A^Hp@A^Lz@BdBJPBJA\\Dj@FPD~AHx@FdCHt@CPJX@j@Gn@@XDl@Nr@Fj@A\\DXFjAG~@Yz@FxAGh@CJ?TFVx@vAX|@@LADDXLhBLp@Bb@F`@EnDTn@B`@FZ@ZCv@B\\?h@RnBV|A?lBDl@Ln@?v@Kt@Ah@RdA\\v@Lb@Jt@EhAO^UZGXH`AP|@L`@XCVFRWr@W`CMrF}@x@CvAY~@I`BY^A|@[z@KVDFNJh@C\\JpACXPlAI\\W`@EL`@x@Br@CjABb@Et@@`@CbBG^Q\\g@^i@Lg@Ge@Sa@m@GUAY?kIBSHU^_@j@Wd@Cd@Jj@^JNLt@AnCCn@B`A?nAKf@STg@\\i@JaAYWSUe@Ea@CiCBmEDSLWVYd@QXCFBEFc@PUVMVG^?ZHf@A`BBhBJh@LNNHZHZE\\YHSDa@AkECYIWOQSK]ASDWRKVCPAl@@jCDl@DXJTPNTFT?XKNOLa@DyAC}BAWK]MUSMSEYDQJSTIRCb@DvEPh@LJ^HPARIV[HS@{@AuDEYKSUUSE]@SLKJM`@EZ@rBF`BH^LP`@LR@XMNQHWBm@EwDCWKYUSSGU@MFWVKVCRC`CBfAFh@Vb@f@HTCZQLYDy@CeDCe@GQOYUK[CSFQNKREr@@nDDb@BNJPJHRFT@RGRQL]DU@c@AaABw@Ai@AYQa@QOYKU@YJQRKVA\\DrEH\\JRZNN@VEVOLSFYAsEE]M[QOWGQ?SJ[ZM^IvB?nCJ^N^RRp@ZDJSv@KhAOTa@VCFJ`@BPc@FWZGt@G^CbAM|AB~@GXBVxBjFFb@Al@EH[Xq@jAsD~DOv@?lBSfAEJe@`@g@Pu@Hi@SUOUa@So@YkAOaAEk@WqB}@qGGy@Fi@@_AKgCIe@o@iBa@[gAo@IWBq@b@}FAgADyCA_BG{@[qBg@{BOc@EGWiARKFS?SGs@Ha@Tk@F[Bu@C]Me@c@_AQgA?a@LgBCc@QiADe@C[@[CWSy@Cg@GSKm@A[BUEU@WCc@Bg@Oq@KuAESAa@@i@AoBIaA?]O}AGi@Qm@g@{@Wm@Ki@?[J]@[Gm@Ag@L_@Hs@AeBGm@?k@OgACaABWAm@SuCCgAK_BCiABc@MQCK?]KoA?qAQm@EgAMcA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 15599240367,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15492484761",
           "summary_polyline": "erpeFplhjVLlA?d@N~ABdAD`@C^Ph@B`@ATDx@NlBNzCBzAGf@?f@Hr@L`@L|BCX@XCl@Sr@?JH`AIxA@ZJ`@n@jAXz@^`ELlB?t@Et@@VAPPp@Ff@Tb@ALGf@?pAF`@@TFPHb@@`@FXB~@CNBhAFf@Nt@Ax@Kf@E`@RpAPb@ZbAFf@?ZGx@CJ]r@A\\P`BTn@EXB~@TbA\\pBL`B@n@GlA@|@GvCq@nIQzAMtBKz@UnC_@dD[rA_A`G]~AQnAK~@GvAC~AJhCBfDPvDb@|ANd@p@pA^f@hAfBlA~Br@nBRnAAl@SpAi@rB{@rDcArDIl@C|@D`ANpB\\tCb@vCd@hAp@vBVj@DFH`@Dh@LTh@n@Rf@j@dDLjAHf@DdAGv@A|@Ej@Ov@KrA?Z@f@Hn@ZhB@dAAZMl@W|@e@jA?JDBPAXO^Ej@Y\\c@LYBo@Eg@G]z@sARa@DQAm@Km@Wi@WYGOC_@?k@Km@[q@Km@i@gAEQE]BYKe@AWSuAi@_C?O@C\\]VGf@YVKZWNEVO\\Mp@KP?`@Jt@b@LJb@PJBRJTFZ\\J?TOd@QVSv@_@VUd@YPS\\QRSb@]V[Re@@QCa@]_BBaAGc@IkAOq@?WGg@e@cCKu@a@mBk@sDGUMs@EBGZKPQl@Gj@?PHfAMl@Ef@?~@Ix@?|@Ep@BZ?~AH`@Bj@ALGJINKJWJMAWH{@@a@Ei@Sy@EYBm@VSFc@DU?e@LE?QCWBgAB[OOMWi@UwABGAOIMCSKg@Ca@DOBAb@Fl@@XEJIDOZoCJe@l@qAV]@QFa@Vy@?o@GeAEYI[SyEQgABSNe@NEP@XTn@lAPd@d@n@fAx@`@LZ@fA?d@E@AGKQIk@Mm@Gs@QUU_@YSU]{@IQOoA?k@GSAe@G{@Ao@BoADY@WTcB^sAN_@Rq@dBoDd@oA`@s@NMXK^Gl@Qd@C\\G`@?v@GJCFGNa@VuB?MMm@WcCBIDAd@ILBDp@Ah@H|BA^D^@hAEV",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15482007939,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 9.5,
-        "moving_time": 5691,
-        "elapsed_time": 6112,
-        "elevation_gain": 1749.0,
-        "average_pace": 9.99,
-        "average_heartrate": 140.6,
-        "max_heartrate": 167.0,
-        "average_cadence": 86.9,
-        "average_watts": 296.6,
-        "start_date": "2025-08-16T16:07:55Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15482007939",
-          "summary_polyline": "qd|eFd~wjV`@cBT}ACQeAqAqBMg@bBeAhBo@fCm@tAo@xC[\\qBRQb@Bv@Il@Qt@KFkGmCm@Gi@Zo@xB_@t@[Ri@?gA_@q@kAwBoCg@Mm@DgC`AqAdC}@hAkBBg@b@NbCOVgA^Mv@F~@p@bBBf@K`@aAl@_@pAkA\\[lBQb@qAj@_A~AqBNoArASl@HnAQ`@k@\\{@dAcBn@]Ie@_@}AmBsAYuBDsA^qCEoB|@iBXW~@Yh@?ZRd@?h@eArDa@`@iBd@a@X_C|Ha@h@w@d@Y^CTPjDWbAwBjAMdBoAvAWF{CsAsAFgAg@[@kAxAwAlG}AtBSJYAW[C[NcAIu@gA{B{@_@}BEaBiAGDDTxB|DeAMaBLu@_@o@E_BfCw@h@o@PgAu@m@OwAgBkAqD_AaBaAw@m@}@u@a@s@s@iAqAgAe@aAwAUkAe@gA{@wEFyANaAEgAj@sAp@aAhAgAtAs@`DqB~AsBTk@tA_Bd@eAf@iCb@eBTc@\\aBn@sAbAwAdCq@bABtDj@rBq@hAgBnAqDP_B|@}DDqCIiBNmBJg@xB{Hd@cCZoC|@uBzAiC^mB?c@M_@gAi@MUcAsFWmELgD`AcFr@aCh@iCt@gB?O]KEMtBwIDeCRe@hAsAHw@AmA~@g@NgA~@qBFm@QwA?o@Ve@t@s@Pk@Ac@g@qAHeDPWh@QlANvA_BvBa@^}@n@YJTNA|@{@r@[Xg@Ls@iA{B~A}BVU|@MfAs@t@Md@cB\\q@tA[h@q@p@Q|@{@pAIdAe@`@u@BQe@mAC}@d@cA^wBtA_Bx@cBLy@HGpBItARjA@bBr@nEfArABjBr@jEd@tDfDbCTGd@Af@f@|@LxAKx@F|@\\~@b@Rx@HpDu@^Lp@p@fAAjAVp@^Zf@TjAIxALn@nArAf@x@x@NtAc@@XNT?`@WfBYt@ShBk@|Co@`CAbAPt@ZZpBEj@Lv@pAnBvALh@Yn@kB`CuBtAgA|A]x@F|@T`@p@`@pBi@b@Ah@Xx@~@ZfAH|@GxEx@hDh@z@ZEr@mAdByAbCaDj@oATCDT?tDKxBH`DCR[`@RfAM|A@d@qCzR_AzDu@fGF|B@bCSvEIVs@^i@jAi@fDw@xB",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 145,
-          "distance": 791.11,
-          "moving_time": 428875,
-          "elapsed_time": 485350,
-          "elevation_gain": 59975.0
+          "count": 146,
+          "distance": 798.2,
+          "moving_time": 432387,
+          "elapsed_time": 489276,
+          "elevation_gain": 60231.0
         },
         "all_time": {
-          "count": 1061,
-          "distance": 5451.14,
-          "moving_time": 2954114,
-          "elapsed_time": 3348714,
-          "elevation_gain": 401039.0
+          "count": 1062,
+          "distance": 5458.23,
+          "moving_time": 2957626,
+          "elapsed_time": 3352640,
+          "elevation_gain": 401295.0
         },
         "recent": {
           "count": 18,
-          "distance": 108.59,
-          "moving_time": 59741,
-          "elapsed_time": 65697,
-          "elevation_gain": 9980.0
+          "distance": 110.9,
+          "moving_time": 60776,
+          "elapsed_time": 66813,
+          "elevation_gain": 10046.0
         }
       },
       "biking": {
