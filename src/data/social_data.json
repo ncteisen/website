@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-30T10:23:05.427507",
+  "last_updated": "2025-08-31T10:23:05.258729",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -88,7 +88,7 @@
       "total_films": 814,
       "films_this_year": 41,
       "total_lists": 7,
-      "following_count": 38,
+      "following_count": 37,
       "followers_count": 32
     }
   },
@@ -728,11 +728,11 @@
           "elevation_gain": 401295.0
         },
         "recent": {
-          "count": 18,
-          "distance": 110.9,
-          "moving_time": 60776,
-          "elapsed_time": 66813,
-          "elevation_gain": 10046.0
+          "count": 17,
+          "distance": 101.74,
+          "moving_time": 55540,
+          "elapsed_time": 61118,
+          "elevation_gain": 8622.0
         }
       },
       "biking": {
