@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-09-30T10:26:54.590412",
+  "last_updated": "2025-10-01T10:26:30.652867",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "One Battle After Another",
+        "year": 2025,
+        "rating": 5.0,
+        "watched_date": "2025-09-28",
+        "is_rewatch": false,
+        "review": "<p>So much packed into one movie: political messaging, creative ways of moving a camera, action packed Hollywood blockbuster, Leo being hilarious, good performances all the way down, about a million other things.</p><p>Excited to hear about this movie non-stop from the Big Picture Podcast for the next 6 months until it cleans up at the oscars.</p><p>What's up homie?</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/1/2/7/7/951277-one-battle-after-another-0-600-0-900-crop.jpg?v=d27c4cc662",
+        "link": "https://letterboxd.com/ncteisen/film/one-battle-after-another/"
+      },
       {
         "title": "Lost in Translation",
         "year": 2003,
@@ -72,21 +82,11 @@
         "review": "<p>It's true what everyone says; this movie is must-watch material</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/ij/ub/so/m3/zuXMvSQq9F7H29qzuUm0qyUqw6m-0-600-0-900-crop.jpg?v=a53cafc017",
         "link": "https://letterboxd.com/ncteisen/film/paddington-2/"
-      },
-      {
-        "title": "Casino Royale",
-        "year": 2006,
-        "rating": 4.0,
-        "watched_date": "2025-08-30",
-        "is_rewatch": false,
-        "review": "<p>Even though the poker scenes make no sense from a poker perspective it is still my favorite Bond movie.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/qb/if/j8/jr/zlWBxz2pTA9p45kUTrI8AQiKrHm-0-600-0-900-crop.jpg?v=c06add9fe8",
-        "link": "https://letterboxd.com/ncteisen/film/casino-royale-2006/"
       }
     ],
     "stats": {
-      "total_films": 820,
-      "films_this_year": 49,
+      "total_films": 818,
+      "films_this_year": 50,
       "total_lists": 7,
       "following_count": 37,
       "followers_count": 32
@@ -728,11 +728,11 @@
           "elevation_gain": 410050.0
         },
         "recent": {
-          "count": 18,
-          "distance": 91.84,
-          "moving_time": 52322,
-          "elapsed_time": 60996,
-          "elevation_gain": 7607.0
+          "count": 17,
+          "distance": 87.47,
+          "moving_time": 49770,
+          "elapsed_time": 57647,
+          "elevation_gain": 7538.0
         }
       },
       "biking": {
