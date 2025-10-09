@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-08T10:26:22.769496",
+  "last_updated": "2025-10-09T10:28:01.012790",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Kafka on the Shore",
+        "author": "Haruki Murakami",
+        "rating": 4.0,
+        "read_at": "2025/10/08",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1429638085l/4929.jpg",
+        "link": "https://www.goodreads.com/review/show/7943253260?utm_medium=api&utm_source=rss",
+        "review": "<br/>This was a really strange book... good thing I like strange books!<br/>"
+      },
+      {
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "rating": 5.0,
@@ -156,24 +165,15 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680459872l/20170404.jpg",
         "link": "https://www.goodreads.com/review/show/1981546061?utm_medium=api&utm_source=rss",
         "review": "<br/>Re-reading this post-pandy hits a lot harder. The chapters that describe the fallout from the flu went from being interesting sci-fi to fridge-horror what-ifs about the real pandemic.<br /><br />Such a solid work of literary-ish sci-fi. I could see someone criticizing this book for having an anti-climatic ending, but they would have missed the the fact that it was all about the journey.<br /><br />ORIGINAL 2017 REVIEW BELOW<br /><br />I'll always love a well executed, deeply intertwined, mosaic piece.<br /><br />Read this very shortly after reading The Road, and the astounding differences in tone were fun to think about.<br/>"
-      },
-      {
-        "title": "The Seven Moons of Maali Almeida",
-        "author": "Shehan Karunatilaka",
-        "rating": 2.0,
-        "read_at": "2025/02/18",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1658847734l/57224204.jpg",
-        "link": "https://www.goodreads.com/review/show/7333884090?utm_medium=api&utm_source=rss",
-        "review": "<br/>This was a creative, kafkaesque take on the bardo, and naturally it reminded me of my favorite George Saunder's novel, but MAN I did <b>not</b> connect with the writing style. The second person threw me, I found it tonally confused, and my god the acronyms just wouldn't stop.<br /><br />On the plus side I learned a lot about Sri Lanka and TAMIL came up in a nyt crossword while I was reading it so there's that I guess.<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 278,
+      "total_ratings": 279,
       "average_rating": 4.18,
-      "total_reviews": 115,
-      "pages_this_year": 4281,
-      "books_this_year": 11
+      "total_reviews": 116,
+      "pages_this_year": 4748,
+      "books_this_year": 12
     }
   },
   "strava": {
@@ -728,11 +728,11 @@
           "elevation_gain": 410896.0
         },
         "recent": {
-          "count": 18,
-          "distance": 95.21,
-          "moving_time": 52801,
-          "elapsed_time": 61356,
-          "elevation_gain": 7369.0
+          "count": 17,
+          "distance": 92.2,
+          "moving_time": 51132,
+          "elapsed_time": 59472,
+          "elevation_gain": 7323.0
         }
       },
       "biking": {
