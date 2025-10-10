@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-10-09T10:28:01.012790",
+  "last_updated": "2025-10-10T10:26:37.050807",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Cure",
+        "year": 1997,
+        "rating": 4.0,
+        "watched_date": "2025-10-09",
+        "is_rewatch": false,
+        "review": "<p>Masterclass in scene blocking</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/2/8/1/9/5/28195-cure-0-600-0-900-crop.jpg?v=74a48c4849",
+        "link": "https://letterboxd.com/ncteisen/film/cure/"
+      },
+      {
+        "title": "The Virgin Suicides",
+        "year": 1999,
+        "rating": 3.5,
+        "watched_date": "2025-10-06",
+        "is_rewatch": false,
+        "review": "<p><em>This review may contain spoilers.</em></p><p>I could have stopped them</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/0/2/4/51024-the-virgin-suicides-0-600-0-900-crop.jpg?v=b869f3409a",
+        "link": "https://letterboxd.com/ncteisen/film/the-virgin-suicides/"
+      },
       {
         "title": "Say Anything...",
         "year": 1989,
@@ -62,31 +82,11 @@
         "review": "<p>What can I say, I am a sucker for animal jokes \ud83e\udd37\u200d\u2642\ufe0f</p><p>Prep work for the second one coming out in a few months.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/9/2/4/1/0/192410-zootopia-0-600-0-900-crop.jpg?v=e22eae9a2a",
         "link": "https://letterboxd.com/ncteisen/film/zootopia/"
-      },
-      {
-        "title": "Drop",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2025-09-13",
-        "is_rewatch": false,
-        "review": "<p>The crazy thing is that besides the plot holes and nonsensical character choices there was actually a decently creative fun thriller in here which held together until the window scene lost me completely.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/3/3/5/3/0/1133530-drop-2025-0-600-0-900-crop.jpg?v=5a9e8e6d82",
-        "link": "https://letterboxd.com/ncteisen/film/drop-2025/"
-      },
-      {
-        "title": "Fantastic Mr. Fox",
-        "year": 2009,
-        "rating": 4.5,
-        "watched_date": "2025-09-04",
-        "is_rewatch": true,
-        "review": "<p>Just the absolute best.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/6/3/4/4/46344-fantastic-mr-fox-0-600-0-900-crop.jpg?v=3a2a858065",
-        "link": "https://letterboxd.com/ncteisen/film/fantastic-mr-fox/"
       }
     ],
     "stats": {
-      "total_films": 824,
-      "films_this_year": 52,
+      "total_films": 826,
+      "films_this_year": 54,
       "total_lists": 7,
       "following_count": 37,
       "followers_count": 32
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16086096544,
+        "name": "Pre work tootle",
+        "type": "Run",
+        "distance": 3.1,
+        "moving_time": 1581,
+        "elapsed_time": 1646,
+        "elevation_gain": 30.0,
+        "average_pace": 8.5,
+        "average_heartrate": 146.8,
+        "max_heartrate": 170.0,
+        "average_cadence": 90.0,
+        "average_watts": 313.6,
+        "start_date": "2025-10-09T14:21:26Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16086096544",
+          "summary_polyline": "opadF~ooiVCi@Bw@oASKDg@Zq@^YJkDvBe@PGCGKs@oCO]u@_Cc@aB@CDE\\OB?LIBKAe@BWJMf@Ux@G\\MTQDDFLF@RIXSHARDBCIEI@]LYPIJ@NCJY`@q@`@QHa@]YLk@b@QHSPBVt@fCr@vBn@~BFDF?xAaArBcAL?\\Lf@?NIx@k@LEBL^vAETc@ZIL@f@D^EDC?CKCq@Ka@UWUGWBe@RoC`BMNGZAZDZFPPNNFP?d@OvA{@P@ZWX[Pa@@UEe@MUOKUG]DiCzAg@\\IPEX?TFZNTLFJBTAl@YjC{AJOFQ@]AUMWQQQEQ?QFkBhAi@TWRMVCR?THZDJPNVDPA|Aw@~AcAJQBUAUEUKUOKQCW@sAn@}A|@KLKZ?ZFZFNLLPFXAbAe@|@k@XOZWJQFYEk@OUOKWEQ@yCbB]XKPET@TFZJRLHXDJAj@Y^WxAu@TOLUDS?]COKWMKUIQ@WJiCxA]VKNER?TBTFPJNVJP?ZKfDoBJODS@]CMIUOOUKW@c@PoC`BOTI\\?LBTLXRNJDVAd@SnCaBLMJY@UCUGSMOQIUCWHe@V}BtAQRETATBVBLPRTJP@TK~@e@bBgANSFU@OAWGSKQKGWGY@c@Pw@h@mAl@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16069644183,
         "name": "101 traffic decompress",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a15946851134",
           "summary_polyline": "crpeFnlhjVDlAFl@BlAJbAHh@?VHr@?TNx@FjBD\\?\\NhCARHjAETAj@BL@f@RdAAj@J~@CxACVQt@@XBJB^A~@EHALJf@Vj@PXVr@Pz@XzCAb@Hn@CHBh@Ed@?v@NlA?\\Nd@BXGd@DR?|@D^Ll@?LV~@Dp@AfBRzAAb@Kj@Cd@@p@D^Rf@Lj@P^FRDf@?b@Kl@]~@?TFr@?R_@Z^`AZ`Aj@dCJ|@JfBExAGh@SNk@@WKa@UGIQY_@e@e@{@O[OOk@UW?ODy@l@[\\QFWXSj@Ot@CXEhA`@rDLv@D^Lj@Hh@Fr@HRTzBP~BNr@b@b@fAr@\\\\`@dAb@z@J\\FJLFlA]h@?l@LLEFIBMFq@Am@F_@JEZEJG@EHgB?}@BUFG`@Ej@U`@AVIb@m@Zi@Zs@HWBQ?QEYOg@OUQQS]O}ASu@CQ\\_CTs@Ta@Pc@l@}@Ha@B_@Cq@Iu@Ak@I]AWIGUGSQUg@Mg@UQSWICK?e@LIAGEEa@EyAS{BCMOeDOm@?_AMqA?k@Gi@Ag@GkAEQOsBEkAI_AEiAIy@Ke@E}BIWAk@EUASEQAu@I_@Cq@FUCe@Ks@M}AGYAe@Ks@GyCM}ACo@WwBAY@USgBOqDMiAIwAIg@C_AI{@A_@OuBCuAIw@Mu@E{AMuAEw@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15932718443,
-        "name": "I don\u2019t make the rules",
-        "type": "Run",
-        "distance": 6.3,
-        "moving_time": 3747,
-        "elapsed_time": 4181,
-        "elevation_gain": 863.0,
-        "average_pace": 9.92,
-        "average_heartrate": 138.8,
-        "max_heartrate": 166.0,
-        "average_cadence": 85.5,
-        "average_watts": 278.5,
-        "start_date": "2025-09-25T13:36:38Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15932718443",
-          "summary_polyline": "olpeF`ghjVF`@ATLjA?v@HJBxBLx@?t@RnAEb@BdAH^Bb@J\\NlBAVHl@C^Px@?`@RrBA^Bx@?t@RdA?RJt@BtBRfB?x@Jr@?h@J`@A\\FNE^L~@@`ARvA@ZLlAL@x@I`@Qx@Qn@ALDPAvBe@d@AxAWx@Ar@Mb@?b@O|@MZ?ZMnCQ`AQpAGh@Of@C|ASNDNLj@LfA|@LDPRt@d@nCn@z@D`@ON@~@KNCPOj@QFODAd@MP@JI`@ELNBXJHrAn@`ANrAl@^T\\h@@H^|@B\\Rj@@p@bALRAtA]l@Wl@k@NUb@Sr@aAh@_AtAi@^YLUb@WPO\\e@DU@OEUGIIo@C}@FYNKP@LJJXJt@VrCJp@@XMh@{@nAU`@CN@f@JRNNPt@ATYxBAz@IXUV{@PYPW`@i@tACRPrDKj@Lh@Dp@CJMH[ISBKLGT@\\D`@Lf@\\~@D^EPSb@UNgATOp@FHPFLh@Cd@Fh@?b@J\\Ep@Fh@FFLXNFRb@?h@Id@EFA^ELE@EJCh@ERJfBl@v@GH[GQKYu@J~@NLFNVHn@n@RHh@h@|@TDF?FYFi@Mk@B_@AwASQNEJU@a@MIMQm@Ug@W[SC_@FIQWQG?_@\\CVMD@P[M]Du@CYJEE?EFILIAImAGSMACBEV?RIi@Y[o@UYIUKKPFb@^n@Th@?FSCEMJOCQSES?SPMH[?QCCE?ALEEL[Bg@E?Gl@OXS@OMTGFSAE]@PY@yBLYKSC[MGQc@DQPYDg@GM[GMSc@_@Wg@EQUMIKG]CJDRZVFj@NTA^BZFRABE?IOK]?EKKEMY]YESUQ[Uo@EWIOK_AKYO_BEqAE[DKy@RmBHw@Lq@@u@J[@o@Ni@@e@NiBPWJaB?UDOJQ?c@Vq@?eAJ{@CIBIXUHaHz@uFx@wBPgARkBJiAPGDSZE@GGa@}@QIIMOaADa@^qABcAE[Qm@IS_@aB@e@FYAYJw@QmAE}A?YI{@?YIi@Qe@Eo@AWDc@Ge@Bq@U_A?UQu@NuDK_ASw@WwCQc@q@oAM_@E[JgAEmAFi@Nq@CW?iBG_@Au@Oe@Cg@Ga@Di@@iAEkASiCEmA?GTSMkBI]Es@?_AKi@?u@Io@GiB",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 169,
-          "distance": 914.85,
-          "moving_time": 499279,
-          "elapsed_time": 568702,
-          "elevation_gain": 69833.0
+          "count": 170,
+          "distance": 917.95,
+          "moving_time": 500860,
+          "elapsed_time": 570348,
+          "elevation_gain": 69862.0
         },
         "all_time": {
-          "count": 1085,
-          "distance": 5574.88,
-          "moving_time": 3024518,
-          "elapsed_time": 3432066,
-          "elevation_gain": 410896.0
+          "count": 1086,
+          "distance": 5577.98,
+          "moving_time": 3026099,
+          "elapsed_time": 3433712,
+          "elevation_gain": 410926.0
         },
         "recent": {
           "count": 17,
-          "distance": 92.2,
-          "moving_time": 51132,
-          "elapsed_time": 59472,
-          "elevation_gain": 7323.0
+          "distance": 89.82,
+          "moving_time": 49716,
+          "elapsed_time": 57609,
+          "elevation_gain": 7218.0
         }
       },
       "biking": {
