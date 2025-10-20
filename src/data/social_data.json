@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-10-19T10:23:31.444998",
+  "last_updated": "2025-10-20T10:28:27.143915",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Halloween",
+        "year": 1978,
+        "rating": 3.0,
+        "watched_date": "2025-10-19",
+        "is_rewatch": false,
+        "review": "<p>Let that be a lesson to you, no one thinks they killed the bad guy and drops the weapons literally right next to him three times in a row.</p><p>Alt review: \"Tubthumping, but it's a horror flick\"</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/0/2/9/8/60298-halloween-0-600-0-900-crop.jpg?v=bcb3149dda",
+        "link": "https://letterboxd.com/ncteisen/film/halloween-1978/"
+      },
       {
         "title": "Something's Gotta Give",
         "year": 2003,
@@ -72,21 +82,11 @@
         "review": "<p>Didn't totally care for the low-budget cosplay (60 million, come on!) but there were some nice moments snuck in there. </p><p>Unfortunately, for me, this movie will always be overshadowed by the legacy of its trailer and the subsequent feast that hobbyist editors on TikTok had with that Kipling poem audio.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066",
         "link": "https://letterboxd.com/ncteisen/film/28-years-later/"
-      },
-      {
-        "title": "One Battle After Another",
-        "year": 2025,
-        "rating": 5.0,
-        "watched_date": "2025-09-28",
-        "is_rewatch": false,
-        "review": "<p>So much packed into one movie: political messaging, creative ways of moving a camera, action packed Hollywood blockbuster, Leo being hilarious, good performances all the way down, about a million other things.</p><p>Excited to hear about this movie non-stop from the Big Picture Podcast for the next 6 months until it cleans up at the oscars.</p><p>What's up homie?</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/1/2/7/7/951277-one-battle-after-another-0-600-0-900-crop.jpg?v=d27c4cc662",
-        "link": "https://letterboxd.com/ncteisen/film/one-battle-after-another/"
       }
     ],
     "stats": {
-      "total_films": 832,
-      "films_this_year": 56,
+      "total_films": 833,
+      "films_this_year": 57,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 33
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16196617882,
+        "name": "Morning Yap",
+        "type": "Run",
+        "distance": 9.71,
+        "moving_time": 5126,
+        "elapsed_time": 5307,
+        "elevation_gain": 781.0,
+        "average_pace": 8.8,
+        "average_heartrate": 152.6,
+        "max_heartrate": 182.0,
+        "average_cadence": 87.4,
+        "average_watts": 314.4,
+        "start_date": "2025-10-19T17:34:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16196617882",
+          "summary_polyline": "mxdgF|holVLPZFbQ^vEv@l@n@|@`BjCzC`@\\h@NpAQ~Bz@dB`ApA?bARRMZ{@p@Hr@`@f@Bf@ThAEx@UxAOVHtArAjBPj@W|@}ALc@h@k@vB}@jA_AzCqBZGhAEr@DtAU~AuAd@gAd@m@h@a@x@Q`AJfAl@dDa@xCVbC~B~Aj@~@J\\|@XrALLTGRg@`@e@hBDfDqAlDWrABpAVrCMvG^fAXx@b@fBzAn@HtA]zCgBpC}@dCyAvBwCx@k@|A]lBoAfD}DjB{@bDm@hBiAj@IdEFtA\\jEGtAv@^HxBm@lASlA?r@VtAxA~AtCXdAn@nALp@OfBThBRh@p@f@T^t@xBd@`@N`@t@Rd@x@VP`APvB?jBp@dAGf@N\\~Ax@dAbAfCJr@b@x@t@x@t@hAr@pA|@Rh@rA^b@VtB^dANrARf@dAx@t@z@dAjB`BfB\\t@n@x@Lb@^^^~ArAbCLb@NnBCpA^j@Bl@UdA}@|A_C`C_EhAy@f@{AhCs@j@iAZiAC[f@c@VeBN[T{D~FuBzAE\\VrBEXB_AWyAFYzBuAzD_Gl@YtAM^U\\i@pA@v@St@i@nA}Bl@k@bF}AzCmD`@{@N}@Ei@a@q@?cBY{AiDgIoAsB_B{AwAqCiAq@[e@Uk@IoA[{@QgAK_@s@aAOg@eAi@cAyAy@wA_Ai@Yi@QiAi@q@q@oBU{@SiA}@Ge@[{AYmBPqB[[YK_@}AcAe@gAa@YK]Co@]Qk@s@G}AO}@PqAKm@{@mAq@_CuAyB_@QaBkAiA@wDt@q@SqAm@mA?}@^mDk@_E@eBdA_El@mBdAmBfCy@x@}A`AkD`By@tAo@x@gAr@iBh@iBr@iA|@o@^{B`@w@OqCsByBk@cFU{CHgCWyCNqE`BcBAUPUp@UDWSiAcCWO{AWi@Yk@g@m@}@e@SmCSmC`@e@IyAu@q@A{@Vo@~@Mv@gCpCcBRo@IoAb@mBlAmAfAcBl@SG_@Jq@h@Mb@WDa@~@aAj@eCc@gA}@YEqCl@_AFaBk@m@e@YEo@bAmBQq@BiBoAaAc@_ASkAXa@Eg@]}AcCw@q@gA_BIWa@UcEm@{Le@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16182488399,
         "name": "Morning Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16086096544",
           "summary_polyline": "opadF~ooiVCi@Bw@oASKDg@Zq@^YJkDvBe@PGCGKs@oCO]u@_Cc@aB@CDE\\OB?LIBKAe@BWJMf@Ux@G\\MTQDDFLF@RIXSHARDBCIEI@]LYPIJ@NCJY`@q@`@QHa@]YLk@b@QHSPBVt@fCr@vBn@~BFDF?xAaArBcAL?\\Lf@?NIx@k@LEBL^vAETc@ZIL@f@D^EDC?CKCq@Ka@UWUGWBe@RoC`BMNGZAZDZFPPNNFP?d@OvA{@P@ZWX[Pa@@UEe@MUOKUG]DiCzAg@\\IPEX?TFZNTLFJBTAl@YjC{AJOFQ@]AUMWQQQEQ?QFkBhAi@TWRMVCR?THZDJPNVDPA|Aw@~AcAJQBUAUEUKUOKQCW@sAn@}A|@KLKZ?ZFZFNLLPFXAbAe@|@k@XOZWJQFYEk@OUOKWEQ@yCbB]XKPET@TFZJRLHXDJAj@Y^WxAu@TOLUDS?]COKWMKUIQ@WJiCxA]VKNER?TBTFPJNVJP?ZKfDoBJODS@]CMIUOOUKW@c@PoC`BOTI\\?LBTLXRNJDVAd@SnCaBLMJY@UCUGSMOQIUCWHe@V}BtAQRETATBVBLPRTJP@TK~@e@bBgANSFU@OAWGSKQKGWGY@c@Pw@h@mAl@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16069644183,
-        "name": "101 traffic decompress",
-        "type": "Run",
-        "distance": 4.21,
-        "moving_time": 2085,
-        "elapsed_time": 3593,
-        "elevation_gain": 217.0,
-        "average_pace": 8.25,
-        "average_heartrate": 145.6,
-        "max_heartrate": 167.0,
-        "average_cadence": 87.9,
-        "average_watts": 329.7,
-        "start_date": "2025-10-07T23:52:18Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16069644183",
-          "summary_polyline": "_rpeFllhjV?pAHt@@f@HV@NRn@Cl@@LCJBXJ\\FdAVbH@z@BZ?n@CLEJBt@R~@DlADV?XAjAIj@K^ARFfAAp@Bp@@LN\\Rf@PX\\bAD~@Hd@LtBNfAIrBDj@HZDh@Jh@CjCB\\l@lD@`@APBl@PlBAh@O~@At@z@tCJj@@`@Gl@EZWx@Aj@JlAXx@APBl@Hp@\\|AHn@LtB?bAIv@ELIFIBS@]CQCMIg@w@YSg@w@Qa@[]WM]Ec@N[XQJSZa@\\SVQd@Qx@CxAT|BPhAf@jCZrDBj@D\\Dv@DVNf@l@p@x@b@`@d@f@pAVb@Zt@DBJ?jAYzANHKVoAFK@g@@IFGb@QBEN}@@WGyADMFEx@CPGt@_@RSb@u@N_@N[Ng@?UKc@Wk@U[O]Ky@_@uA?ML}@\\_Bp@uAR]b@c@DS@k@?BEt@[`@KDCDHOX[DYDc@As@UiBAA]oAMDICU_@Oi@i@s@MEu@HCCCK@SGiAEa@GUA_@[iCAkBK{A@UC_@@QCq@AGGEGK@GGe@B]AOEK?QCOUk@?i@Ig@@YKeB@YYwA?_@Ea@@[Ci@@g@K}@?a@Ku@?}@K]AO@e@O}CAaCOoAS_AGo@GYEm@?m@Ik@Ae@E]?_@My@K{AA}@ES@UM_BAi@CSAm@Ms@IeACqAGm@?[KcBCS?_@_@oD@WGi@CcAGg@",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 176,
-          "distance": 952.17,
-          "moving_time": 519682,
-          "elapsed_time": 590383,
-          "elevation_gain": 72585.0
+          "count": 177,
+          "distance": 961.88,
+          "moving_time": 524808,
+          "elapsed_time": 595690,
+          "elevation_gain": 73366.0
         },
         "all_time": {
-          "count": 1092,
-          "distance": 5612.2,
-          "moving_time": 3044921,
-          "elapsed_time": 3453747,
-          "elevation_gain": 413649.0
+          "count": 1093,
+          "distance": 5621.9,
+          "moving_time": 3050047,
+          "elapsed_time": 3459054,
+          "elevation_gain": 414429.0
         },
         "recent": {
           "count": 17,
-          "distance": 91.12,
-          "moving_time": 49644,
-          "elapsed_time": 56392,
-          "elevation_gain": 6749.0
+          "distance": 93.4,
+          "moving_time": 50678,
+          "elapsed_time": 57260,
+          "elevation_gain": 6923.0
         }
       },
       "biking": {
