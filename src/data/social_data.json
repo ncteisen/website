@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-23T10:28:12.902932",
+  "last_updated": "2025-10-24T10:28:32.510523",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -85,7 +85,7 @@
       }
     ],
     "stats": {
-      "total_films": 833,
+      "total_films": 841,
       "films_this_year": 57,
       "total_lists": 7,
       "following_count": 38,
@@ -728,20 +728,20 @@
           "elevation_gain": 415273.0
         },
         "recent": {
-          "count": 17,
-          "distance": 93.87,
-          "moving_time": 51365,
-          "elapsed_time": 56918,
-          "elevation_gain": 7598.0
+          "count": 16,
+          "distance": 87.57,
+          "moving_time": 47618,
+          "elapsed_time": 52737,
+          "elevation_gain": 6736.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 110,
-          "distance": 1510.54,
-          "moving_time": 443421,
-          "elapsed_time": 488153,
-          "elevation_gain": 120635.0
+          "count": 111,
+          "distance": 1535.55,
+          "moving_time": 449118,
+          "elapsed_time": 494072,
+          "elevation_gain": 121225.0
         },
         "all_time": {
           "count": 550,
@@ -751,11 +751,11 @@
           "elevation_gain": 948540.0
         },
         "recent": {
-          "count": 5,
-          "distance": 140.55,
-          "moving_time": 37114,
-          "elapsed_time": 41268,
-          "elevation_gain": 8615.0
+          "count": 6,
+          "distance": 165.55,
+          "moving_time": 42811,
+          "elapsed_time": 47187,
+          "elevation_gain": 9206.0
         }
       },
       "swimming": {
