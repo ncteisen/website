@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-10-24T10:28:32.510523",
+  "last_updated": "2025-10-25T10:24:00.015489",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "The Handmaiden",
+        "year": 2016,
+        "rating": 4.5,
+        "watched_date": "2025-10-24",
+        "is_rewatch": true,
+        "review": "<p>So it\u2019s actually never the wrong night to rewatch an epic Korean psychosexual thriller like The Handmaiden</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/pc/n6/pz/mi/wvzfK5QR6dGLwND8MCzWjsQWG4Q-0-600-0-900-crop.jpg?v=bcfcc8f8f6",
+        "link": "https://letterboxd.com/ncteisen/film/the-handmaiden/"
+      },
+      {
+        "title": "Bugonia",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-10-21",
+        "is_rewatch": false,
+        "review": "<p><em>This review may contain spoilers.</em></p><p>Big winners:<br/>- Bees<br/>- Bald girls<br/>- Conspiracy theorists</p><p>Big losers:<br/>- Leaving the office before 5:30<br/>- All humans<br/>- Kneecaps</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/2/5/4/0/0/625400-bugonia-0-600-0-900-crop.jpg?v=4c6649150e",
+        "link": "https://letterboxd.com/ncteisen/film/bugonia/"
+      },
       {
         "title": "Halloween",
         "year": 1978,
@@ -62,31 +82,11 @@
         "review": "<p>I finally understand the Dobler-Dahmer theory from HIMYM</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/5/0/5/8/6/50586-say-anything--0-600-0-900-crop.jpg?v=b31aee2928",
         "link": "https://letterboxd.com/ncteisen/film/say-anything/"
-      },
-      {
-        "title": "Friendship",
-        "year": 2024,
-        "rating": 4.5,
-        "watched_date": "2025-10-05",
-        "is_rewatch": true,
-        "review": "<p>If I ever licked toad, this movie would be the fever dream I never want to wake up from.</p><p>Rewatching on a plane really isolates the true laugh lines vs the crowd-thing theater laugh lines.... And the answer is still Jimp.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/2/6/9/1/1122691-friendship-2024-0-600-0-900-crop.jpg?v=9ea74152f4",
-        "link": "https://letterboxd.com/ncteisen/film/friendship-2024/1/"
-      },
-      {
-        "title": "28 Years Later",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2025-10-05",
-        "is_rewatch": false,
-        "review": "<p>Didn't totally care for the low-budget cosplay (60 million, come on!) but there were some nice moments snuck in there. </p><p>Unfortunately, for me, this movie will always be overshadowed by the legacy of its trailer and the subsequent feast that hobbyist editors on TikTok had with that Kipling poem audio.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066",
-        "link": "https://letterboxd.com/ncteisen/film/28-years-later/"
       }
     ],
     "stats": {
-      "total_films": 841,
-      "films_this_year": 57,
+      "total_films": 842,
+      "films_this_year": 59,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 33
@@ -149,7 +149,7 @@
         "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
       },
       {
-        "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
+        "title": "Sunrise on the Reaping (The Hunger Games)",
         "author": "Suzanne Collins",
         "rating": 2.0,
         "read_at": "2025/05/24",
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16245996137,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.61,
+        "moving_time": 2431,
+        "elapsed_time": 2691,
+        "elevation_gain": 154.0,
+        "average_pace": 8.79,
+        "average_heartrate": 134.2,
+        "max_heartrate": 161.0,
+        "average_cadence": 87.8,
+        "average_watts": 305.5,
+        "start_date": "2025-10-24T22:35:49Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16245996137",
+          "summary_polyline": "kqpeF|khjVHp@HVCLAVOL@XF|@Jn@@`BFRJfALRGh@BbARrDDz@HbACz@DP@z@Hh@BnABZAV?n@Cb@?TIf@FbAO`BDVNd@\\n@`@fAThBD~@Jt@B|@Cv@BjB@LP`@FdAFTCh@B|ANvAXpADl@Eh@D\\Ad@@NLf@Bb@?\\EXCpARjANn@Vl@Ff@EbAMf@Wj@AZPtAF\\L\\MFEJ?L@J^rAPpAPdBDjBGfAAfBInBOpAKpBuA~O_@fDQx@]bCs@tD]jCAf@B~@GrA?hABX@JDHVLPBn@Oh@QpBi@h@UJCN@\\JZXVZVb@JVZ\\\\f@~AlCDBVEb@p@\\\\`@TJ?LE`@u@Tc@To@PYDKFe@AWGWYm@e@s@G[Qa@_@[y@yAm@w@_@{@K_@QYOw@mBeNGeA?MNwA?c@CaAFUPK^?TU\\BZIr@w@T]f@yA?a@CSUq@_@g@OYKiA[y@AUNuA\\oAd@eA^k@RONc@Bs@Kw@AgACK?Oi@s@SEGGKUEe@MUYQKMOKW?_@FGCCGAS@SGm@Es@?i@I}@Ms@?a@Gu@?a@SeAQkBAKD[Kq@W{F]wDEmAK}@IwCSgBIYE]CiA@QIgBOcBIY@_@Ca@ESCs@Ky@IkBGa@EgAEc@Ae@Iq@@g@O_B@g@Ii@C}AUyBAk@Gs@G[GcASuBEq@?{@Im@?g@QeCMaBG[",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16211963003,
         "name": "Sugarloaf Sunrise",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16120755301",
           "summary_polyline": "grpeFnlhjVDx@JL?D?p@N|@Dj@@j@Gj@J\\AJXNEFEXHRELFd@?RDHH|A@`ADj@?~BFXIdABRN\\?^Hh@ATL\\BL@l@Q~@BXIh@Cn@Bb@HT?LGZ?r@BRRVPj@l@~@FXALELDh@ANBd@ALLz@N^BVI`AB~AHv@PZ@XLp@CZ@\\KbAJh@Bv@NRVfA@XHRMv@D`@A`@Tx@Mp@ItAJx@Vz@LRLJJNLxAFPEXWd@ONIRC^FlADVLXIr@@ZTlAHhANfAB^F\\?vAEbABlAGpBM`BG\\Cf@EZUrDKx@MdB?Zk@jGKh@Ir@]vB]zAGr@a@fBGh@Qv@MnAGz@Ib@Ab@BpCJlAF~A?p@A`@B`@?h@FpARfAb@rAl@z@VRRh@JTV\\~@nBV\\Vd@\\`APp@Lr@@XAXKlAq@jDm@jBo@fCQf@ShAAZ?h@AXB~@X|CNdAJ\\Fr@FVD`@hApDT`ANRDb@Lf@NZPRPX\\dAZ|AL|@HVPxBl@xAHf@\\|@BT@z@DTPb@JNR`@Pv@D`@A\\XlADd@CbCLj@BRCbADn@j@fD@b@TxBFVL\\Jl@b@rDHz@Tn@FXFPXLVTFJVn@DVDBJ?R`@F\\@ZHp@Bb@Hn@^hANNNGH@Nl@R\\Nd@HLH@JEFIBM^q@Nk@JURcAr@kC@_AFc@Be@EwAIcASuA?UKiAEy@Ki@Sq@a@q@]_AOQWs@E_@y@{Aa@mA[wADm@Cg@Fi@VaAZk@FU?YDw@C[Hm@GIAIAy@QmAUmCAgAFk@Co@DS?WH_AN{@HQZeANw@La@Zw@f@gBBQAo@Hc@E]Mi@@SE[IWA_@Ba@EY@m@]_BQeBYqBw@_EWgCe@kAOi@[g@m@c@WG]OsBc@i@U][Yi@GWMUWkAEaAKc@CyA@uBD_@Lm@Hy@Py@N[VcAVg@Pg@h@iAPm@PSLg@f@{@NOXSp@YjDUJEhAA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16108698002,
-        "name": "Trail Jrrrrsh",
-        "type": "Run",
-        "distance": 8.72,
-        "moving_time": 5339,
-        "elapsed_time": 5778,
-        "elevation_gain": 1572.0,
-        "average_pace": 10.21,
-        "average_heartrate": 149.6,
-        "max_heartrate": 172.0,
-        "average_cadence": 84.0,
-        "average_watts": 290.6,
-        "start_date": "2025-10-11T15:42:55Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16108698002",
-          "summary_polyline": "yb|eFfiqjVCV\\`@Pl@l@ZZt@rB|@{BJeAIUXYIq@Fk@h@GPt@Ic@X}@dAk@nAw@`@s@~BnAq@eAfBvCiAYh@qAfAqBhC}AlC[RaG`@g@Vi@b@_@MW]m@uAWEe@`@c@v@I~AM\\}@p@g@bA{AVYRo@nAyAb@RTxBNBJMb@BVf@t@JxAKdADz@Jd@X`@jAT|Dy@nA~@~ADz@Vn@`@Vb@TjAKzALf@rAvAf@x@x@Hp@Y`@CNjAU`Ba@nAQjBuA~FGt@B\\Tr@XZfBGp@N|@rAfBpANl@Ur@_@XmA|A}BfBeA`BW|@Px@h@l@TFjBi@x@BxAxAVt@HhAAhCEjAv@bDZv@NJXEv@uAlBwArBoCh@wALILHDvCKlDJ~CEP]\\RrAMnBwC~Ss@dCq@pFUh@XzEWfGKRk@XOTm@`B[`Cb@gDKa@w@aAsBO[tAwA`Ca@jBu@fBk@zCw@b@gAHcBi@{BeByHqDcEgAiBu@q@m@Ua@WiCU_@aAe@uDi@}AmA{@kAUkAE{Dm@yCsBeEw@aCQ{Aw@oCcBaEYYYD_@hCg@^aAzAq@j@aAP}A_@Wa@Fy@Ec@u@uAy@}Bg@a@m@O{BTQc@f@k@BSGU]YeBUSOQiBa@qB@aAI]OBiA|@sC~@gD`@_AYy@mA]oA}@_@]PcAnAs@`Bm@N[K[i@YuCOm@e@a@uAi@e@L[Zm@hBa@j@k@NHaA`BsGFu@@eBxA{BJo@?qAz@g@NiAbA{BBu@QwAFg@vAmB@q@_@w@G]DuCb@g@d@MfAH`BaBfBU`@{@z@k@v@KhAi@Xo@Jm@aAcBEYv@}@`@}@`@Uv@M`Aq@z@Ob@gBb@s@jAMl@q@r@Up@o@xAUhAi@`@s@BSs@qBj@_A`@qCnA{A`AoBNw@pBK|ATpAAbBr@rEfAjA@dBr@fE`@nD`DjA]\\Sj@iAv@]r@Et@oAl@a@N_@LeBb@s@f@_@XFf@nAr@j@l@i@b@SjBIfDg@|A_ClD}Dx@oA}ClAjAeBiAr@p@gCv@g@f@eA`AcAd@]w@LJUh@i@nA@LUfAFxBIkBw@i@w@c@Yy@wABm@KeA",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 178,
-          "distance": 966.34,
-          "moving_time": 527655,
-          "elapsed_time": 598713,
-          "elevation_gain": 74209.0
+          "count": 179,
+          "distance": 970.95,
+          "moving_time": 530086,
+          "elapsed_time": 601404,
+          "elevation_gain": 74364.0
         },
         "all_time": {
-          "count": 1094,
-          "distance": 5626.37,
-          "moving_time": 3052894,
-          "elapsed_time": 3462077,
-          "elevation_gain": 415273.0
+          "count": 1095,
+          "distance": 5630.98,
+          "moving_time": 3055325,
+          "elapsed_time": 3464768,
+          "elevation_gain": 415427.0
         },
         "recent": {
           "count": 16,
-          "distance": 87.57,
-          "moving_time": 47618,
-          "elapsed_time": 52737,
-          "elevation_gain": 6736.0
+          "distance": 88.17,
+          "moving_time": 47848,
+          "elapsed_time": 52830,
+          "elevation_gain": 6680.0
         }
       },
       "biking": {
