@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-04T10:30:28.306070",
+  "last_updated": "2025-11-05T10:29:20.118277",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -169,9 +169,6 @@
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 279,
-      "average_rating": 4.18,
-      "total_reviews": 116,
       "pages_this_year": 4748,
       "books_this_year": 12
     }
@@ -357,6 +354,28 @@
     ],
     "recent_bikes": [
       {
+        "id": 16352888371,
+        "name": "30 min HIIT Ride with Olivia Amato",
+        "type": "Ride",
+        "distance": 10.51,
+        "moving_time": 1800,
+        "elapsed_time": 1800,
+        "elevation_gain": 0.0,
+        "average_pace": 2.86,
+        "average_heartrate": null,
+        "max_heartrate": null,
+        "average_cadence": 81.6,
+        "average_watts": 196.2,
+        "start_date": "2025-11-04T14:39:50Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16352888371",
+          "summary_polyline": "",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 16293170890,
         "name": "Morning Ride",
         "type": "Ride",
@@ -507,28 +526,6 @@
         "map": {
           "id": "a15621473350",
           "summary_polyline": "ueqeFfg`jVa@jAAz@Rf@^l@|BxCrEfHjFfHZ\\fAxA~ClEh@v@@H?F_@n@yBnCaAdB_AnAoDxEk@j@iAxAmB~B{CfEeBdCCH[R]h@y@nAg@`AYZ[d@e@fA]XiA~AeCjCSf@o@j@kCnDq@rAET?RN\\V\\jGvHb@`@Xp@rAhBz@dA^`@NJb@n@n@p@^x@PXf@t@lB~BzApB~@fB`@d@n@z@l@~@l@hAf@r@FZFzAv@dKPvDFt@Fd@@dATvB@l@`@fF@z@Hh@VnDFpA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 15617369472,
-        "name": "Morning Ride",
-        "type": "Ride",
-        "distance": 22.37,
-        "moving_time": 5090,
-        "elapsed_time": 5710,
-        "elevation_gain": 614.0,
-        "average_pace": 3.79,
-        "average_heartrate": 116.2,
-        "max_heartrate": 154.0,
-        "average_cadence": null,
-        "average_watts": 181.3,
-        "start_date": "2025-08-28T14:21:06Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a15617369472",
-          "summary_polyline": "mhpeFxdgjVtAUT[@i@[kEBq@XMpBQVWMmDs@_LAs@Xs@`@a@vCYHcAQkID_@~YwAfBC~B[`DO`@_@DwAYyH{@{_@KwBo@uBY_Bu@}\\Ak@FQxk@aC~SoAfPo@r@QrGyClAgAxCwEf@[|@IrI~BvDUxBj@hDxAhMrIfDjAjJ\\xOoA|@QxAo@vEoDjEcC`@g@XCjKuE`LiEdD_AjOsCvHkBDHFv@]xB@RZHbQuFvYgElGm@j@TRf@|@vEXtCZb@f@RjBP~CBb@Nn@p@p@_@c@eDd@c@VoANKlJdBrH@`\\iBxWmB`QObh@{K~@@hBX\\CPWb@iBXi@x@}@l@eAVwAB_BO_JEe@c@sAmA_Bi@qAm@{B?a@PYvHsCrCq@xJiAdd@eGpBMhF@tDb@fEjAvF]~@[n@s@f@iAr@gERWXE|Cf@p@\\hAdB`@ZxAh@~BbBnDzCpAl@PTAlB~@|DBpAb@z@lBbBXJfC?tBg@TDpAxC^zA~@|@jB~DrAAj@a@d@w@`@qADaCJa@x@aB\\Qh@I|CPP\\JnAPvK`@Hj@p@XF`ECpBZz@XnIhJh@hAxB`Il@pAxAdBpDbDxAv@xA^xJ@bCh@p@^fAbAvGtJtAnAvAbAXHhPGjBYdF}B~\\eQrFgCbA{@pDwAxM_HdJcE~Bu@\\?ZNRXdBhJb@dA\\`@vA`ApEbCxAh@~ANnOwA`Em@~KaDzJsBlSmFvH}BlD}Ah@YVc@LyAGaML_CnAo@lBoAf@d@|AcAtAM|@P`BdBjBt@v@Cr@q@pCkFhGqKzAiDpHiNpJqNlI_OPeAw@gOMa@oByDIa@?c@Nq@dB_E|La^z@kBzCuFlC}CdEoF~DiDdEsBd]oNX[jAaCxCmHNS[B~@mCRGzAVvA]v@FfAt@R\\h@fCAPMFIc@?aA`@y@JEn@TdD`Dp@h@JET_@zEkPfO}d@vDiMRUNFf@t@Jr@BW`@FR[lGkSlA{@H]DgBRmAtAkDz@sArAaDvAcFfCuHd@qB|DcLnCkJh@eAtNcPtLcOb\\}^rFsFv@[rKcLFMCa@o@gAE]L]pLqMd@WRJpApBPDPOrN{OrHyItKqLtAsA|Ao@x@gAnGeHlAiA`EcFvI{J|AwAdAu@hAa@zASfA]z@w@fE_FFWg@kAgBiCAQF]dE_Cp@k@fAuArCuGtAqBbDgCNFd@|@Xv@AL",
           "resource_state": 2
         }
       }
@@ -728,33 +725,33 @@
           "elevation_gain": 417773.0
         },
         "recent": {
-          "count": 19,
-          "distance": 108.22,
-          "moving_time": 57763,
-          "elapsed_time": 62926,
-          "elevation_gain": 7093.0
+          "count": 18,
+          "distance": 104.01,
+          "moving_time": 55678,
+          "elapsed_time": 59333,
+          "elevation_gain": 6877.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 112,
-          "distance": 1560.4,
-          "moving_time": 454766,
-          "elapsed_time": 500204,
+          "count": 113,
+          "distance": 1570.9,
+          "moving_time": 456566,
+          "elapsed_time": 502004,
           "elevation_gain": 121852.0
         },
         "all_time": {
-          "count": 551,
-          "distance": 12114.53,
-          "moving_time": 3380850,
-          "elapsed_time": 4008117,
+          "count": 552,
+          "distance": 12125.03,
+          "moving_time": 3382650,
+          "elapsed_time": 4009917,
           "elevation_gain": 949167.0
         },
         "recent": {
-          "count": 5,
-          "distance": 110.33,
-          "moving_time": 27347,
-          "elapsed_time": 29409,
+          "count": 6,
+          "distance": 120.84,
+          "moving_time": 29147,
+          "elapsed_time": 31209,
           "elevation_gain": 4728.0
         }
       },
