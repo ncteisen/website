@@ -1,8 +1,38 @@
 {
-  "last_updated": "2025-11-06T10:29:44.876013",
+  "last_updated": "2025-11-07T10:28:23.615047",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Materialists",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-11-04",
+        "is_rewatch": false,
+        "review": "<p><em>This review may contain spoilers.</em></p><p>A full star of the review is attributed to the Chekhov's leg extension reveal and the subsequent line \"it's hard to think it's not about the legs right now\"</p><p>I truly believe that this could have been 4.5 stars if Dakota Johnson and Chris Evans were replaced with Emma Stone and Josh O'Conner.</p><p>Alt review: OMG Celine is right, poor people deserve to fall in love too</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/4/5/6/2/1024562-materialists-0-600-0-900-crop.jpg?v=ae3470f333",
+        "link": "https://letterboxd.com/ncteisen/film/materialists/"
+      },
+      {
+        "title": "I Know What You Did Last Summer",
+        "year": 1997,
+        "rating": 2.0,
+        "watched_date": "2025-11-04",
+        "is_rewatch": false,
+        "review": "<p>After the era of horror movies that were campy good, and before the era of horror movies that were good good, this was just bad.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/6/3/8/49638-i-know-what-you-did-last-summer-0-600-0-900-crop.jpg?v=0800c84ab8",
+        "link": "https://letterboxd.com/ncteisen/film/i-know-what-you-did-last-summer/"
+      },
+      {
+        "title": "Sorry, Baby",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-11-04",
+        "is_rewatch": false,
+        "review": "<p>Anti-Sorkin dialog (complimentary)</p><p>This was so small and so so good. Seriously, the dialog was so good I could listen to this movie as a podcast. It was naturalistic, awkward, profound, aching, wonderful.</p><p>Also, Lucas Hedges! Where you been at?</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/9/0/4/6/4/1090464-sorry-baby-2025-0-600-0-900-crop.jpg?v=c011d7fe20",
+        "link": "https://letterboxd.com/ncteisen/film/sorry-baby-2025/"
+      },
       {
         "title": "The Handmaiden",
         "year": 2016,
@@ -52,41 +82,11 @@
         "review": "<p>Was it great? No. Am I a compete sucker for creative narrative structure. Yes. Will I watch just about any B grade indie horror thriller with my wife? Also yes.</p><p>If you liked this, go watch Sanctuary and Black Bear.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/2/7/8/3/2/927832-strange-darling-0-600-0-900-crop.jpg?v=4bfda06e23",
         "link": "https://letterboxd.com/ncteisen/film/strange-darling/"
-      },
-      {
-        "title": "Cure",
-        "year": 1997,
-        "rating": 4.0,
-        "watched_date": "2025-10-09",
-        "is_rewatch": false,
-        "review": "<p>Masterclass in scene blocking</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/2/8/1/9/5/28195-cure-0-600-0-900-crop.jpg?v=74a48c4849",
-        "link": "https://letterboxd.com/ncteisen/film/cure/"
-      },
-      {
-        "title": "The Virgin Suicides",
-        "year": 1999,
-        "rating": 3.5,
-        "watched_date": "2025-10-06",
-        "is_rewatch": false,
-        "review": "<p><em>This review may contain spoilers.</em></p><p>I could have stopped them</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/0/2/4/51024-the-virgin-suicides-0-600-0-900-crop.jpg?v=b869f3409a",
-        "link": "https://letterboxd.com/ncteisen/film/the-virgin-suicides/"
-      },
-      {
-        "title": "Say Anything...",
-        "year": 1989,
-        "rating": 3.0,
-        "watched_date": "2025-09-25",
-        "is_rewatch": false,
-        "review": "<p>I finally understand the Dobler-Dahmer theory from HIMYM</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/0/5/8/6/50586-say-anything--0-600-0-900-crop.jpg?v=b31aee2928",
-        "link": "https://letterboxd.com/ncteisen/film/say-anything/"
       }
     ],
     "stats": {
-      "total_films": 842,
-      "films_this_year": 59,
+      "total_films": 845,
+      "films_this_year": 62,
       "total_lists": 7,
       "following_count": 38,
       "followers_count": 33
@@ -94,6 +94,15 @@
   },
   "goodreads": {
     "recent_reviews": [
+      {
+        "title": "The Secret History",
+        "author": "Donna Tartt",
+        "rating": 3.0,
+        "read_at": "2025/10/28",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751820530l/29044.jpg",
+        "link": "https://www.goodreads.com/review/show/7977151660?utm_medium=api&utm_source=rss",
+        "review": "<br/>Ngl the bacchanal sounded pretty lit. I'm going to call up my Great Books TA from Michigan and lodge a complain.<br /><br />3.5 / 5 stars: fun to read but got a bit repetitive, draggy and aimless in the back half.<br/>"
+      },
       {
         "title": "Kafka on the Shore",
         "author": "Haruki Murakami",
@@ -156,28 +165,41 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg",
         "link": "https://www.goodreads.com/review/show/7597004885?utm_medium=api&utm_source=rss",
         "review": "<br/>This is an example of a prequel that actually causes a character to <i>lose</i> depth. Haymitch was a fully three-dimensional character in the original trilogy, with a backstory and that was shown, not told, and understood through dialog and choices.<br /><br />This prequel was a cameo-jammed, overly retconned, unnecessary retelling of a story that packed a bigger punch in less than ten pages of <i>Catching Fire</i>.<br /><br />The only saving grace - even though I complained about it a sentence ago - is that each cameo did make me squeal \"omg I KNOW them.\"<br/>"
-      },
-      {
-        "title": "Station Eleven",
-        "author": "Emily St. John Mandel",
-        "rating": 5.0,
-        "read_at": "2025/03/12",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680459872l/20170404.jpg",
-        "link": "https://www.goodreads.com/review/show/1981546061?utm_medium=api&utm_source=rss",
-        "review": "<br/>Re-reading this post-pandy hits a lot harder. The chapters that describe the fallout from the flu went from being interesting sci-fi to fridge-horror what-ifs about the real pandemic.<br /><br />Such a solid work of literary-ish sci-fi. I could see someone criticizing this book for having an anti-climatic ending, but they would have missed the the fact that it was all about the journey.<br /><br />ORIGINAL 2017 REVIEW BELOW<br /><br />I'll always love a well executed, deeply intertwined, mosaic piece.<br /><br />Read this very shortly after reading The Road, and the astounding differences in tone were fun to think about.<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 279,
+      "total_ratings": 280,
       "average_rating": 4.18,
-      "total_reviews": 116,
-      "pages_this_year": 4748,
-      "books_this_year": 12
+      "total_reviews": 117,
+      "pages_this_year": 5307,
+      "books_this_year": 13
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16380170521,
+        "name": "Modern horror: when your phone dies on a solo run in the middle of a good audiobook",
+        "type": "Run",
+        "distance": 4.06,
+        "moving_time": 2012,
+        "elapsed_time": 2154,
+        "elevation_gain": 207.0,
+        "average_pace": 8.27,
+        "average_heartrate": 135.5,
+        "max_heartrate": 158.0,
+        "average_cadence": 88.7,
+        "average_watts": 330.9,
+        "start_date": "2025-11-07T00:44:30Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16380170521",
+          "summary_polyline": "uqpeFflhjVP`BC`@OFFpAF\\EV^rBBTAd@DV@z@ZfF?XAPFdAI|@LbALb@F^HlBEd@@\\In@S`@Bb@DNAb@EPGd@@VJ^|@~AXt@BhADz@Jn@@h@Dd@AVJ`@Er@Bd@CV@NNfAJl@Cv@HrBBVPv@@TPr@D`@?d@CRBp@F^Dp@?RFVSvA?VFf@Lf@Hb@Rd@@PNXBLARK~@ERS^KZ@l@D^Sf@LZFh@d@vAJn@Rr@V`C@t@Ap@Gj@GRSN[?e@OgAaAgBcCIEWCWBWHk@Xk@h@U^Ob@Q|@KpAFhAL`A\\dCTnAH~APx@Fj@AJBDHzAHp@FRRXxAbA\\b@n@tAVf@J`@NHH@bA[TAVDNAZFJAHGFM\\aCFETELGDOJiA?m@Ei@BOFKJCj@?ZCf@SVYp@_ALYTq@Da@Ec@IUSc@SUUi@MqASk@AUNkAZ}Ah@gAp@iANk@@c@Em@K_@E[A_@o@a@DKGICBMMSi@G[GMWSKO_@Cc@DCAEG@m@e@kJK{@OsBCeAO_BIeB@OSyBAo@MkA?g@Iy@QgDOsAE_AGo@GaBQwAGeBMaACwAIe@SuDIm@GiAI_AAi@QaBMiDg@qF@k@[}BUsEe@wG",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16342245029,
         "name": "Post race shakeout",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16264564715",
           "summary_polyline": "grpeFrlhjVTlDRbABpAPbABn@D`@@tAFf@?v@JlB?p@H^AZIl@Dl@NbARpB?ZDh@QfAIRE\\?RFd@ARIN?j@F`@Tf@\\nAZt@b@~E@h@FnAEbAF^FLHp@Jj@C^DdABHE\\Dx@d@tB@bAFl@?t@VnA?RCDCJ?RI\\Ep@Jr@Px@Xv@Lf@D\\K~@c@dAATJbA[`@x@jCVnAL^ZjCBdBIdA?jAW`EMfA?RMpAGpAYpCGbAOlAY`E[tBKXMpAOh@_@zBQzASbAGh@IVSjBIjCLfBBtAPzF@XN`A`@tARf@T`@bBfCrAbCr@jBTjADb@?^CX[fBYbAIt@[dAS^UhAo@xBKdA@|ATtCJ|@Lr@Dp@Lv@^|A^bALj@JPZ`ADb@Vx@Lx@Tt@l@|CZxCBp@A`AKlAIf@MtBFxATpAHt@?~@MbCS`@Gl@D^DTR`@LL?FZn@?JNZPl@Bl@CvADPNZd@p@P`@X~@Jl@?NGRS`@_@f@Ob@Iz@Ox@AXKfAAbAFd@?b@Jp@H\\NfALXDBDBHEL\\R|AVt@P|@N|@BXh@bC^bA`@f@ZTl@P|@?\\G^Ml@g@Z[RI^KPOXMDM?c@Bc@RsANqCJi@Vu@Y_@k@yBUk@Mm@u@{BI_@g@iAa@uAeAoCc@uAYqAM{@QkB[kBEu@MoAC}@Ik@IwCFuE?kCAQBiACiAB[?cBFyEH_AHS^o@\\_@tAw@\\MHKXOj@e@l@[xAqARc@@_ABWAGD[CSEI@e@Iq@@o@I_@UuAEq@q@}DIq@Qw@m@eDk@eCIQU[c@a@]SuAWi@Gy@_@q@s@a@m@Oa@Y_A@m@GkAEsB@y@Fy@LYPaBb@oBZo@hBiDNc@PWPi@NWd@_@h@U^GXBd@EdACtAM^B",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16254126367,
-        "name": "Soggy",
-        "type": "Run",
-        "distance": 8.0,
-        "moving_time": 4564,
-        "elapsed_time": 4755,
-        "elevation_gain": 860.0,
-        "average_pace": 9.51,
-        "average_heartrate": 142.2,
-        "max_heartrate": 174.0,
-        "average_cadence": 86.2,
-        "average_watts": 296.4,
-        "start_date": "2025-10-25T16:11:53Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16254126367",
-          "summary_polyline": "wwseFpdkjVq@EsBf@m@MwAZOJEPBf@TjALhBP|@x@xI]RF|Ax@|EL~BR~AVdAVzBOt@SVu@PyAr@qBIw@Ou@V_@h@y@vBSrDMl@i@~@Y~@_@\\gAl@kAjAgCnAUd@]lCc@`Bw@n@_Bb@]X}@Aw@WU?[ZWp@CVHr@Vr@E|ALt@Ef@C`AZz@hATV^~@~FfAlC@dAMp@RjCLf@Kh@a@l@_@v@@Lh@ZELq@DyAe@Y@KRBhAq@|CMNs@VMXEh@r@pAe@vAg@nEaAlFBTLHz@DZLbCfCr@`@RKl@y@t@q@|@kBNe@j@Bh@w@zBkBX@`@Wp@?rBN`GeAt@RhDnB|CHFZIx@Rh@@|A`@dAOt@Hb@XF|@Mt@PNQf@GFVCr@a@zBTn@z@Lb@\\L?HGBQC_ANKp@LHn@QbA[r@Kh@@jAN~@Iz@Df@Md@Lj@GTDh@S`@Gj@Qb@UJk@G]UU^g@CFj@Rp@MzAKTkAp@m@t@i@pBSXQf@q@d@o@Rg@Ck@c@eBmDo@CaB]oCmA_Cs@_AwAoEsBiAPWGGULUb@Y|@OZWHa@CcBKI{@Rw@g@o@RYCIc@@cAm@{AUOgAMgC_A{@wBWU[?sBv@}@FaBg@mCiAgCUg@SeCiBcEuAWUSw@MQ_Ac@sA_AkBu@eABa@N]b@M`A_@XaABeAY{@g@WAwAvA{@Xs@FwE[y@FqBuDOm@By@Ta@`@KTUNoBr@wCh@{AUgAi@o@QDi@z@OBMG@[d@q@UWAIfAa@^aBlAkBzA{@|AkBvCwB|@QbAC`@B^Th@Cf@Yj@kA~@q@zCw@rBPn@KlADrAQRKh@aA?[QwAZgBb@yANwBEsAEAGWWIs@Bw@[cBFSIGOYuC?i@PgBSyAf@sFL]l@Wd@w@f@c@Te@Da@sA}Ic@_Bk@}A_@uBf@aB\\g@^cBDmAl@uAhBiGr@kBh@W~@qCn@i@fCg@tBqCt@s@zCaBf@Gx@PbAhATFpAg@tASp@YVo@t@a@DMAMJQjBkBVc@pAsAN[lAuA^WNYXIN_@PENFh@Un@A^e@Wb@DN|ARZV^`ATh@JD\\z@Cp@d@lEvAK`@Dj@Wf@Fv@Ob@LVKNd@?nAN|B",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 187,
-          "distance": 1018.85,
-          "moving_time": 554957,
-          "elapsed_time": 628035,
-          "elevation_gain": 76709.0
+          "count": 188,
+          "distance": 1022.91,
+          "moving_time": 556969,
+          "elapsed_time": 630189,
+          "elevation_gain": 76916.0
         },
         "all_time": {
-          "count": 1103,
-          "distance": 5678.88,
-          "moving_time": 3080196,
-          "elapsed_time": 3491399,
-          "elevation_gain": 417773.0
+          "count": 1104,
+          "distance": 5682.94,
+          "moving_time": 3082208,
+          "elapsed_time": 3493553,
+          "elevation_gain": 417979.0
         },
         "recent": {
           "count": 18,
-          "distance": 104.01,
-          "moving_time": 55678,
-          "elapsed_time": 59333,
-          "elevation_gain": 6877.0
+          "distance": 104.96,
+          "moving_time": 56109,
+          "elapsed_time": 59841,
+          "elevation_gain": 7054.0
         }
       },
       "biking": {
