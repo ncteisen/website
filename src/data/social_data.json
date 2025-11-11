@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-10T10:30:46.640442",
+  "last_updated": "2025-11-11T10:29:50.122888",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -88,7 +88,7 @@
       "total_films": 845,
       "films_this_year": 62,
       "total_lists": 7,
-      "following_count": 38,
+      "following_count": 39,
       "followers_count": 34
     }
   },
@@ -179,24 +179,24 @@
   "strava": {
     "recent_runs": [
       {
-        "id": 16410926193,
+        "id": 16419668647,
         "name": "Afternoon Run",
         "type": "Run",
-        "distance": 0.91,
-        "moving_time": 684,
-        "elapsed_time": 5108,
-        "elevation_gain": 3.0,
-        "average_pace": 12.5,
-        "average_heartrate": 100.6,
-        "max_heartrate": 131.0,
-        "average_cadence": 61.2,
-        "average_watts": 43.0,
-        "start_date": "2025-11-10T00:32:24Z",
+        "distance": 5.37,
+        "moving_time": 2855,
+        "elapsed_time": 3076,
+        "elevation_gain": 335.0,
+        "average_pace": 8.87,
+        "average_heartrate": 136.5,
+        "max_heartrate": 160.0,
+        "average_cadence": 87.2,
+        "average_watts": 303.6,
+        "start_date": "2025-11-11T00:13:15Z",
         "description": null,
         "commute": false,
         "map": {
-          "id": "a16410926193",
-          "summary_polyline": "{`peFxvljVDDCBGBAFAC?@@K@LAG?D@@AKAH@KEFAI?F?CF?C@@F?IBAAD@C@B?AAFAECB?K@LAGC?@AC@BB@G@F?GADBG?@AC?JB??EAF?EC??FCI@A?BACBA?FAI?JAI?@@JAMAB@FGII?H?FFAIAF@G@H?IADB@AGKAJ@BNCS@DC@D?@DAK@L@ABDCFGFDA@DCC@E?BEABC?HBEC@CA?@CABA?D@G?F?EB@AB?G@H?M@HADAK@?BFC@?KBD?AABAIANAC@@?DAI?ABDCA@EBAAFEA?CHKAE@AAB?GHPPBb@ALFBL?h@ALEBBICs@GOGAq@@EYAA?DCB@A@D@E@@EABJ?ICC?H?IC?@@DAGABH?KE@@B?E?H@EACA@?EBDDCID@@?E?H?ID@?J?E@@?@EE@DA?AIAF?I?J@GBLCKBA@B?ECFBE?B?E?J@I@@A@?C?RCL?KCB@EA@?G@HA?AGCFBA@G@LC??C?BD@?EAD?E@CAFBE@B@A?HIA@C?B@IAD?CCCB@@J?CAE@FCC?GCB@E?H@M?JAI?D?A?B?GAFGDFC@EBFC?@MBA@IB??@A@AC@F@GADCEBH@EADGGBBD??@?GAJ?ME?B??BAEBLCOAL?GE?@@@C@FAE@C?HAEAD@A?I@D@C@L?I@HAIE@@A?DAG@HAIE?FJAMF@AFGGHF?EBACB?H?KAB@DA?BIC?@BCC?HBGDPBBj@CL@BDD|@AFGBBFHBEJ",
+          "id": "a16419668647",
+          "summary_polyline": "mlpeF|fhjVD^BtAN~BAVLtADTHhBF^B`@Ch@Jr@FfARnCVfBH~BH|@FxADXFpADT@n@Hv@F`BL`ABt@Dj@B~@VzBN~BJl@AVET@Jb@vEDn@H~@@|@VtDHxAD\\?XJr@FrADh@JrCBPJ`@Dt@Hb@@^CRBn@?`@HXBh@Vf@NFP?`@IbAOR?rC]p@EdBWrAMj@KR?b@Ih@GL@NFBDBZLl@LfDEVY`@EHBJP`@Fj@?vGCb@CXQf@YXYPWDg@Aa@O]YIOQe@CU@q@CcADkBAiB@MJ[PSXU^Ob@CN@NDl@XNPNf@Bz@CbBB\\C|CGf@KRMNy@l@EFK`@Eh@GZ[b@ITE\\?Xw@b@CDM|@En@EHMFW@Y?_ALMAe@Q_AAa@DWFOJs@rAY^WRUF_@?SLm@EIBGFEN?DHv@@jACv@ITCd@KVIv@GFATEJCP_@h@DVAf@Eh@FR?\\ABKD_@VMRe@j@Sb@c@j@EL?^Nz@AJIVGHK@EAMMi@aAMKQAi@\\ICIIAYD]@[Aq@TiA?KEIMKYs@}@uAWm@MUQe@?QRcA?QGIOE{@DIAACCi@@OFEVEDOCWM[Cs@@MN_@@c@IQg@Y]{@W_@AGL]?SCKIOKKKEAGBIHCb@CHBn@p@PBDABG@IIy@k@eCKOk@c@KYOwAAs@FOPSDSJQDe@Xg@\\kAFE\\IPMd@e@Pe@LIPGT@PFLVFB^Cf@NXBHBLND\\VTHR\\f@J`@FBRQH@BBFX?\\?FIR@FFCFGPu@?sAEkAGy@Mk@A][{@Qs@KSc@cBRGFK@_@Ge@?QBMZy@Jy@?WSgAQ[W}@Mm@?c@NoBMsA@_@Ag@@YKoAQi@U{A@aDSm@WmB@y@Dk@EiBOy@?SSmCSm@s@{AKc@DmAIoAR{ABeBGiBUsA?}@Bq@DGZO?COuBGc@Cs@UiBK}BIq@EwASy@AgAKiAAq@",
           "resource_state": 2
         }
       },
@@ -715,24 +715,24 @@
       "running": {
         "ytd": {
           "count": 191,
-          "distance": 1037.06,
-          "moving_time": 564831,
-          "elapsed_time": 642856,
-          "elevation_gain": 77454.0
+          "distance": 1041.51,
+          "moving_time": 567002,
+          "elapsed_time": 640824,
+          "elevation_gain": 77785.0
         },
         "all_time": {
           "count": 1107,
-          "distance": 5697.09,
-          "moving_time": 3090070,
-          "elapsed_time": 3506220,
-          "elevation_gain": 418517.0
+          "distance": 5701.54,
+          "moving_time": 3092241,
+          "elapsed_time": 3504188,
+          "elevation_gain": 418849.0
         },
         "recent": {
-          "count": 19,
-          "distance": 104.93,
-          "moving_time": 55689,
-          "elapsed_time": 63763,
-          "elevation_gain": 5725.0
+          "count": 18,
+          "distance": 102.95,
+          "moving_time": 54456,
+          "elapsed_time": 58008,
+          "elevation_gain": 5827.0
         }
       },
       "biking": {
