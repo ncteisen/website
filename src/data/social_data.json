@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-11-11T10:29:50.122888",
+  "last_updated": "2025-11-12T10:29:58.996841",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Frankenstein",
+        "year": 2025,
+        "rating": 2.0,
+        "watched_date": "2025-11-10",
+        "is_rewatch": false,
+        "review": "<p>This adaptation focusses on monster == misunderstood and good, humans == bad and evil (except for the monster-loving chick), which is <b><i>incredibly</i></b> on-brand for Del Toro. </p><p>IMO, Frankenstein is <b>so</b> much more interesting when the themes are monster == complex creature musing about life and love, humans == complex creatures musing about life and love.</p><p>Also, a lot has already been said about the \"you\u2019re the monster\" line, but jfc I wanted to call up Guillermo and say \"my guy, anyone who is voluntarily watching a 2.5 hour adaptation of Frankenstein is literary enough to pick up on the theme here\"</p><p>My face when I realize I haven't really loved a Del Toro movie in over a decade \ud83d\ude41\u2639\ufe0f\ud83d\ude29</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/8/1/0/0/958100-frankenstein-2025-0-600-0-900-crop.jpg?v=49a1ca2305",
+        "link": "https://letterboxd.com/ncteisen/film/frankenstein-2025/"
+      },
       {
         "title": "Materialists",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>RIP \ud83d\udc94\ud83d\ude22</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/8/1/5/3/48153-something-s-gotta-give-0-600-0-900-crop.jpg?v=1e8d320b3f",
         "link": "https://letterboxd.com/ncteisen/film/somethings-gotta-give/"
-      },
-      {
-        "title": "Strange Darling",
-        "year": 2023,
-        "rating": 3.0,
-        "watched_date": "2025-10-11",
-        "is_rewatch": false,
-        "review": "<p>Was it great? No. Am I a compete sucker for creative narrative structure. Yes. Will I watch just about any B grade indie horror thriller with my wife? Also yes.</p><p>If you liked this, go watch Sanctuary and Black Bear.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/2/7/8/3/2/927832-strange-darling-0-600-0-900-crop.jpg?v=4bfda06e23",
-        "link": "https://letterboxd.com/ncteisen/film/strange-darling/"
       }
     ],
     "stats": {
-      "total_films": 845,
-      "films_this_year": 62,
+      "total_films": 847,
+      "films_this_year": 63,
       "total_lists": 7,
       "following_count": 39,
       "followers_count": 34
@@ -728,11 +728,11 @@
           "elevation_gain": 418849.0
         },
         "recent": {
-          "count": 18,
-          "distance": 102.95,
-          "moving_time": 54456,
-          "elapsed_time": 58008,
-          "elevation_gain": 5827.0
+          "count": 17,
+          "distance": 98.54,
+          "moving_time": 52063,
+          "elapsed_time": 55492,
+          "elevation_gain": 5604.0
         }
       },
       "biking": {
