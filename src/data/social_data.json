@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-11-12T10:29:58.996841",
+  "last_updated": "2025-11-13T10:29:58.635476",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Young Frankenstein",
+        "year": 1974,
+        "rating": 5.0,
+        "watched_date": "2025-11-12",
+        "is_rewatch": true,
+        "review": "<p>The only Frankenstein adaptation for me, thank you very much</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/9/3/1/49931-young-frankenstein-0-600-0-900-crop.jpg?v=e33efca8ce",
+        "link": "https://letterboxd.com/ncteisen/film/young-frankenstein/"
+      },
       {
         "title": "Frankenstein",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>Let that be a lesson to you, no one thinks they killed the bad guy and drops the weapons literally right next to him three times in a row.</p><p>Alt review: \"Tubthumping, but it's a horror flick\"</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/6/0/2/9/8/60298-halloween-0-600-0-900-crop.jpg?v=bcb3149dda",
         "link": "https://letterboxd.com/ncteisen/film/halloween-1978/"
-      },
-      {
-        "title": "Something's Gotta Give",
-        "year": 2003,
-        "rating": 3.0,
-        "watched_date": "2025-10-13",
-        "is_rewatch": false,
-        "review": "<p>RIP \ud83d\udc94\ud83d\ude22</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/8/1/5/3/48153-something-s-gotta-give-0-600-0-900-crop.jpg?v=1e8d320b3f",
-        "link": "https://letterboxd.com/ncteisen/film/somethings-gotta-give/"
       }
     ],
     "stats": {
-      "total_films": 847,
-      "films_this_year": 63,
+      "total_films": 852,
+      "films_this_year": 64,
       "total_lists": 7,
       "following_count": 39,
       "followers_count": 34
