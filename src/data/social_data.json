@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-16T10:25:42.012723",
+  "last_updated": "2025-11-17T10:30:10.950776",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -85,7 +85,7 @@
       }
     ],
     "stats": {
-      "total_films": 852,
+      "total_films": 853,
       "films_this_year": 64,
       "total_lists": 7,
       "following_count": 39,
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16478793300,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.47,
+        "moving_time": 2336,
+        "elapsed_time": 2868,
+        "elevation_gain": 240.0,
+        "average_pace": 8.71,
+        "average_heartrate": 128.8,
+        "max_heartrate": 157.0,
+        "average_cadence": 88.3,
+        "average_watts": 306.9,
+        "start_date": "2025-11-16T17:51:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16478793300",
+          "summary_polyline": "grpeFnlhjV@z@J`ABh@F\\JH?BCDD~@AT?HFNELFN@VHTBRCZ@r@F^?`@XdEBzAGp@Bj@VtADbAHXBZEz@?RWdA?XF\\@n@G^?r@DRRPZf@RbAJVJh@@hATxBB\\ATHd@?zABh@C`@Ll@JR@JEr@B^@d@EXHl@^fABZALDp@Cf@D`ANjA@f@Cd@I^Af@Jv@ZnAJPLLFn@Bb@G~@_@z@@z@Br@H\\Lb@KXCd@d@nBTr@RnCEp@@ZK~@KLKDO@YCQEm@m@e@s@USYi@QUIQOOYMQCM@UJ[ZUH{@z@]`AGTM~BDr@Lv@F~@XxAHXTzATxDHl@Bd@Fd@Rj@NRj@X`A~@n@xAV`@DR?LEZa@nCYpAIVOdAi@dCUtBEt@?d@?BFBNCDK?m@BQDeCGs@T[JGHOdAwFHcANq@BAN@f@Qb@EN?RFZA^FHAFQDk@Lk@Fk@JI\\KFMDg@BaCDSHG\\CNIJOh@?REPO\\_@Xc@Zu@Li@Gm@_@_Ae@s@COEq@[gACWFa@h@aCb@_A|@uAJkAI{@WoB[a@?EIBCGOGU{@MQi@c@IAq@BGECG@c@GeAUyBA[G]?c@KeB?o@Ig@Iy@Ek@BSAUQeBUwCGoAYeDAm@OqBAq@Gc@K}ACaAO{@?g@OwA?_AOiC[yCMiCE[Eg@?UIoA@SQkAGy@GwBIw@EkAOiAI{BUqCEiAKsASeBAgAEe@EeAE]",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16468564100,
         "name": "Katy & Steve Fun Run 2025",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16397465892",
           "summary_polyline": "uqpeF`lhjV@HCZ@PAN@TRXFRIfA@d@LZBPKxAFb@ARHNNJHTA^[n@Rf@DxAP`APTF`@GCBBS`@QdALjANb@P|BErAKr@K\\@XH\\C|@Gl@?RPj@n@lATn@Fp@AXLf@RdBDrAArBE`@BJFLJ|@Nb@CpCFd@Nj@VvAAbCXjCIz@Ib@@TVzA\\v@P|@?\\El@_@xAFvACFSNTdAZ`Aj@~BTxC?jACr@@`AQnD[jDM~BQ`BE~@a@tDQfC[zB[zAaAdGa@tB_@rD?fANhDDdCFnA?`BFh@Xz@BR~@pBX\\`BpCzAxCXdANz@B`@Ab@UpAsArF_A`DSz@I~@CbB`@xELp@Dh@XpAt@dCj@|A`@xAD`@L\\^h@Th@|@hEP|A?lACb@AdA[xCAl@B`ATbAHt@Bb@?h@Gr@_@xAETYp@a@j@MZWl@Q~@Cl@EZ?n@@t@PdBAnD_@nFElB@d@NnB\\hCr@nDh@tBNb@NPTBnAc@NINUBQBa@Kw@Au@Gw@F[F?HHFHHh@l@lCv@pEb@xAh@v@f@\\j@Pf@?f@Kb@Sp@q@d@_@\\G`@YJOHg@NwBDkAPwCWsB}@qDe@mA_@sA_AeCK]o@}A]kAWiA_@gCGiA[oBGqAK{@MiBIiDBg@@aB@}AC_AH_EHiHBo@Ls@P]h@q@t@c@vAo@fCcBP]HUZ]LUJa@D_@?o@Kw@G_B@[Oo@MkAaAqFe@aDi@kCc@_BU]{@u@{@YcAIu@_@k@c@q@eAI]KWEw@K_@OcCAqADoAl@}Cl@kBb@_ANe@z@kBH]?g@Ie@_@q@Ys@[c@]q@iBaCw@kBOg@a@aC_@uCy@eFGgAHsCEeAO}AKc@Se@s@m@iAm@EKAUBc@b@yEH}AE_AFsBAo@YgDu@}COa@@sAGeAEa@B[\\_AFa@?i@Kg@k@cBQeA@a@N}AWoBHmAEQA]Oo@O_@CSKkA?{@Em@?MDO?QWk@Ac@EMAoADqAIg@?s@Ey@K]Ei@IYE_AQe@CY[k@_@y@GY@KJq@Di@MeAFa@TeABk@Cm@KkAQ{@Aa@Ia@Hy@?gACu@MwAAo@M_B@_AEo@?YIu@K_@E_AOwACk@MsA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16380170521,
-        "name": "Modern horror: when your phone dies on a solo run in the middle of a good audiobook",
-        "type": "Run",
-        "distance": 4.06,
-        "moving_time": 2012,
-        "elapsed_time": 2154,
-        "elevation_gain": 207.0,
-        "average_pace": 8.27,
-        "average_heartrate": 135.5,
-        "max_heartrate": 158.0,
-        "average_cadence": 88.7,
-        "average_watts": 330.9,
-        "start_date": "2025-11-07T00:44:30Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16380170521",
-          "summary_polyline": "uqpeFflhjVP`BC`@OFFpAF\\EV^rBBTAd@DV@z@ZfF?XAPFdAI|@LbALb@F^HlBEd@@\\In@S`@Bb@DNAb@EPGd@@VJ^|@~AXt@BhADz@Jn@@h@Dd@AVJ`@Er@Bd@CV@NNfAJl@Cv@HrBBVPv@@TPr@D`@?d@CRBp@F^Dp@?RFVSvA?VFf@Lf@Hb@Rd@@PNXBLARK~@ERS^KZ@l@D^Sf@LZFh@d@vAJn@Rr@V`C@t@Ap@Gj@GRSN[?e@OgAaAgBcCIEWCWBWHk@Xk@h@U^Ob@Q|@KpAFhAL`A\\dCTnAH~APx@Fj@AJBDHzAHp@FRRXxAbA\\b@n@tAVf@J`@NHH@bA[TAVDNAZFJAHGFM\\aCFETELGDOJiA?m@Ei@BOFKJCj@?ZCf@SVYp@_ALYTq@Da@Ec@IUSc@SUUi@MqASk@AUNkAZ}Ah@gAp@iANk@@c@Em@K_@E[A_@o@a@DKGICBMMSi@G[GMWSKO_@Cc@DCAEG@m@e@kJK{@OsBCeAO_BIeB@OSyBAo@MkA?g@Iy@QgDOsAE_AGo@GaBQwAGeBMaACwAIe@SuDIm@GiAI_AAi@QaBMiDg@qF@k@[}BUsEe@wG",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 195,
-          "distance": 1060.25,
-          "moving_time": 576638,
-          "elapsed_time": 653488,
-          "elevation_gain": 78481.0
+          "count": 196,
+          "distance": 1064.72,
+          "moving_time": 578974,
+          "elapsed_time": 656356,
+          "elevation_gain": 78720.0
         },
         "all_time": {
-          "count": 1111,
-          "distance": 5720.28,
-          "moving_time": 3101877,
-          "elapsed_time": 3516852,
-          "elevation_gain": 419544.0
+          "count": 1112,
+          "distance": 5724.74,
+          "moving_time": 3104213,
+          "elapsed_time": 3519720,
+          "elevation_gain": 419784.0
         },
         "recent": {
           "count": 19,
-          "distance": 108.08,
-          "moving_time": 56956,
-          "elapsed_time": 63105,
-          "elevation_gain": 5896.0
+          "distance": 102.84,
+          "moving_time": 54166,
+          "elapsed_time": 60666,
+          "elevation_gain": 5354.0
         }
       },
       "biking": {
