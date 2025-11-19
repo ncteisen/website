@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-11-18T10:30:33.904471",
+  "last_updated": "2025-11-19T10:30:06.737571",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Hamnet",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-11-18",
+        "is_rewatch": false,
+        "review": "<p>If you have read <a href=\"https://letterboxd.com/ncteisen/film/pride-prejudice/\" rel=\"nofollow\">my review of Pride &amp; Prejudice</a> then you know some of my thoughts on adaptations. </p><p>In general I look for two things. I want an adaptation to stay true to the tone &amp; themes of the original. I also want it to add to the original in ways that are <b>only</b> possible in the form factor of the adaptation (a movie adaptation of a book should be more cinematic, a book adaptation of a movie should be more literary, a play adaptation of a novel should be more theatrical, etc etc etc for all permutations).</p><p>This adaptation was true to the tone of the book throughout, but it took till the last twenty minute to make me feel like it was doing something moving in a cinematic way that a book could never accomplish. Once it got there, it was spectacular.</p><p>I would have enjoyed the first half more if it had stuck to the non-linear narrative of the novel (you know I'm a sucker for non-linear narrative).</p><p>My short reviews usually do better on here (brevity is the soul of wit, after all) but sometime ya just have to rant.</p><p>P.S. for a recent adaptation that I think broke from the theme of the source material and it pissed me off see <a href=\"https://letterboxd.com/ncteisen/film/frankenstein-2025/\" rel=\"nofollow\">my review of Frankenstein<a rel=\"nofollow\">.</a></a></p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/7/2/2/3/2/772232-hamnet-0-600-0-900-crop.jpg?v=631489314d",
+        "link": "https://letterboxd.com/ncteisen/film/hamnet/"
+      },
       {
         "title": "Sentimental Value",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>So it\u2019s actually never the wrong night to rewatch an epic Korean psychosexual thriller like The Handmaiden</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/pc/n6/pz/mi/wvzfK5QR6dGLwND8MCzWjsQWG4Q-0-600-0-900-crop.jpg?v=bcfcc8f8f6",
         "link": "https://letterboxd.com/ncteisen/film/the-handmaiden/"
-      },
-      {
-        "title": "Bugonia",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2025-10-21",
-        "is_rewatch": false,
-        "review": "<p><em>This review may contain spoilers.</em></p><p>Big winners:<br/>- Bees<br/>- Bald girls<br/>- Conspiracy theorists</p><p>Big losers:<br/>- Leaving the office before 5:30<br/>- All humans<br/>- Kneecaps</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/2/5/4/0/0/625400-bugonia-0-600-0-900-crop.jpg?v=4c6649150e",
-        "link": "https://letterboxd.com/ncteisen/film/bugonia/"
       }
     ],
     "stats": {
-      "total_films": 854,
-      "films_this_year": 65,
+      "total_films": 855,
+      "films_this_year": 66,
       "total_lists": 7,
       "following_count": 39,
       "followers_count": 34
@@ -728,11 +728,11 @@
           "elevation_gain": 419784.0
         },
         "recent": {
-          "count": 19,
-          "distance": 102.84,
-          "moving_time": 54166,
-          "elapsed_time": 60666,
-          "elevation_gain": 5354.0
+          "count": 18,
+          "distance": 98.37,
+          "moving_time": 51319,
+          "elapsed_time": 57643,
+          "elevation_gain": 4511.0
         }
       },
       "biking": {
