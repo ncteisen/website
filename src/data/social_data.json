@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-11-21T10:28:20.622970",
+  "last_updated": "2025-11-22T10:25:02.070966",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Wicked: For Good",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-11-20",
+        "is_rewatch": false,
+        "review": "<p>Just about the same amount worse than the first movie as the second act of the musical was worse than the first act of the musical.</p><p>Uphill battle for this to be good:<br/>- no novelty effect of seeing this world realized in a film setting<br/>- shorter source material so they have to stretch it and add filler<br/>- fewer banger songs<br/>- darker and less fun plot</p><p>No Good Deed was peak though.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/8/7/1/1/4/8/871148-wicked-for-good-0-600-0-900-crop.jpg?v=f1330d6f91",
+        "link": "https://letterboxd.com/ncteisen/film/wicked-for-good/"
+      },
       {
         "title": "Hamnet",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>Anti-Sorkin dialog (complimentary)</p><p>This was so small and so so good. Seriously, the dialog was so good I could listen to this movie as a podcast. It was naturalistic, awkward, profound, aching, wonderful.</p><p>Also, Lucas Hedges! Where you been at?</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/9/0/4/6/4/1090464-sorry-baby-2025-0-600-0-900-crop.jpg?v=c011d7fe20",
         "link": "https://letterboxd.com/ncteisen/film/sorry-baby-2025/"
-      },
-      {
-        "title": "The Handmaiden",
-        "year": 2016,
-        "rating": 4.5,
-        "watched_date": "2025-10-24",
-        "is_rewatch": true,
-        "review": "<p>So it\u2019s actually never the wrong night to rewatch an epic Korean psychosexual thriller like The Handmaiden</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/pc/n6/pz/mi/wvzfK5QR6dGLwND8MCzWjsQWG4Q-0-600-0-900-crop.jpg?v=bcfcc8f8f6",
-        "link": "https://letterboxd.com/ncteisen/film/the-handmaiden/"
       }
     ],
     "stats": {
-      "total_films": 855,
-      "films_this_year": 66,
+      "total_films": 856,
+      "films_this_year": 67,
       "total_lists": 7,
       "following_count": 39,
       "followers_count": 34
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16529038618,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 5.29,
+        "moving_time": 2747,
+        "elapsed_time": 3297,
+        "elevation_gain": 217.0,
+        "average_pace": 8.65,
+        "average_heartrate": 136.1,
+        "max_heartrate": 162.0,
+        "average_cadence": 87.7,
+        "average_watts": 305.3,
+        "start_date": "2025-11-22T00:07:32Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16529038618",
+          "summary_polyline": "orpeFtlhjVBd@Lx@DhAHv@AXHXLRDLAp@HZB^I\\Ab@HrAJt@FdAHp@?l@HlAMj@@l@XlAHvAF\\Ev@Kl@APSp@@b@NZ@NKfA?THX^~@PPNXT`BPzBHb@B\\CVBh@ER?p@CXD`@?VHPB`@L^D`@CVBr@ApAHVJz@J\\NZDXCP?j@JpAARDZFLCHA`AKz@A\\n@rBR|@DZ@VEp@EL]n@C\\@VHXBl@Rt@ZBVVH@RCTMTAx@Wt@Al@Kn@Id@Of@AHC`@_@PIZGt@En@S~AMPEd@E^Ir@GtBW^AB@DHBR@b@BNNjA@TEf@Dh@?LCJ[`@EJBJRb@Hf@CvAB\\?l@Cd@?`@BhACTI\\MPk@d@UJq@?QC[M]a@KSGa@AUBoCAiD@UBK`@i@j@[ZE^BNDh@ZVXJRD`@Cp@Bb@Cf@BTCtA?f@D^CTUl@_@f@]P[Fk@EQIYGGIQ_@Mc@CYDg@Cu@@eBAyB@UDMb@i@j@[d@CN@TFj@\\Vb@F`@?nBBtAAr@?zASj@MTSPi@ZAJQf@M|@Y`@WREF?HH\\?F_@RSTKr@Gl@?XGj@?TEh@@tAWd@LLr@`AfAlCLv@Ad@ELWTGNi@r@s@j@e@h@u@jA_@b@MXELEZ@rBOp@MVe@^o@TWDU?MCWQk@q@Ys@UmA]cCe@uDOq@Gi@Og@GmAD}CSiCWgASe@k@k@aAm@GQA[Bc@VaCLgB@q@E_BHeBCa@?s@IkAQoAs@kCm@eBVKFM@OGeAd@wA@mAGUMWIg@]}@K{@F}@FY@UA]QcBBcBEe@a@}BGw@@g@Gu@@_@AMQo@A[I{@Ca@BuAM_CEY@m@KsAG][_Ae@u@Qi@E[?_@BQ@g@GaA@OPw@Bm@Ck@CuAGu@Ka@Ek@Ae@Be@@{AKeBCmAUeCB{AAo@S_AD{@_@_BC[?_@Iw@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16520217115,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16446738012",
           "summary_polyline": "ykcdFnvmiVOI[k@OOIE[EsA`AOPW`@A@EAQWWi@[e@i@kA[Sa@EMEMOOYYc@OEIFIA]o@KMe@a@{@i@c@Wu@WWG]?ICMMGO@c@CKQQgAu@WYICMFEHA\\Dt@P~@Br@Jp@DHTTJPVt@Jx@Th@`@f@p@^h@Nj@JbABXCNG`@YZa@NY@SIa@So@Ui@SYw@u@Oa@[k@Ko@KYa@W}Ak@SK_@Ym@[WSGMH_@lCeGf@y@f@eAfAsB`AsAzAaBh@g@fByB\\WB?RN^l@RNp@Pz@L^Rj@|@t@rAr@`AbAlB`@j@f@~@Tj@RzAP~EAXFp@?j@HhAFXA\\Ob@GF]Nu@h@q@`@]^_A~@qA~@IBaAsBWeAW]M[g@_Aa@cA_AoB}@yAwAoBIEUBUCK?YFYPe@Ji@AGDU`@JUPIt@GfAUb@BHEFOHEhDc@hAQF?E?CKGy@Kq@KMOG[CQKM_@Ea@Qi@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16419668647,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 5.37,
-        "moving_time": 2855,
-        "elapsed_time": 3076,
-        "elevation_gain": 335.0,
-        "average_pace": 8.87,
-        "average_heartrate": 136.5,
-        "max_heartrate": 160.0,
-        "average_cadence": 87.2,
-        "average_watts": 303.6,
-        "start_date": "2025-11-11T00:13:15Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16419668647",
-          "summary_polyline": "mlpeF|fhjVD^BtAN~BAVLtADTHhBF^B`@Ch@Jr@FfARnCVfBH~BH|@FxADXFpADT@n@Hv@F`BL`ABt@Dj@B~@VzBN~BJl@AVET@Jb@vEDn@H~@@|@VtDHxAD\\?XJr@FrADh@JrCBPJ`@Dt@Hb@@^CRBn@?`@HXBh@Vf@NFP?`@IbAOR?rC]p@EdBWrAMj@KR?b@Ih@GL@NFBDBZLl@LfDEVY`@EHBJP`@Fj@?vGCb@CXQf@YXYPWDg@Aa@O]YIOQe@CU@q@CcADkBAiB@MJ[PSXU^Ob@CN@NDl@XNPNf@Bz@CbBB\\C|CGf@KRMNy@l@EFK`@Eh@GZ[b@ITE\\?Xw@b@CDM|@En@EHMFW@Y?_ALMAe@Q_AAa@DWFOJs@rAY^WRUF_@?SLm@EIBGFEN?DHv@@jACv@ITCd@KVIv@GFATEJCP_@h@DVAf@Eh@FR?\\ABKD_@VMRe@j@Sb@c@j@EL?^Nz@AJIVGHK@EAMMi@aAMKQAi@\\ICIIAYD]@[Aq@TiA?KEIMKYs@}@uAWm@MUQe@?QRcA?QGIOE{@DIAACCi@@OFEVEDOCWM[Cs@@MN_@@c@IQg@Y]{@W_@AGL]?SCKIOKKKEAGBIHCb@CHBn@p@PBDABG@IIy@k@eCKOk@c@KYOwAAs@FOPSDSJQDe@Xg@\\kAFE\\IPMd@e@Pe@LIPGT@PFLVFB^Cf@NXBHBLND\\VTHR\\f@J`@FBRQH@BBFX?\\?FIR@FFCFGPu@?sAEkAGy@Mk@A][{@Qs@KSc@cBRGFK@_@Ge@?QBMZy@Jy@?WSgAQ[W}@Mm@?c@NoBMsA@_@Ag@@YKoAQi@U{A@aDSm@WmB@y@Dk@EiBOy@?SSmCSm@s@{AKc@DmAIoAR{ABeBGiBUsA?}@Bq@DGZO?COuBGc@Cs@UiBK}BIq@EwASy@AgAKiAAq@",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 198,
-          "distance": 1074.93,
-          "moving_time": 584613,
-          "elapsed_time": 662189,
-          "elevation_gain": 79665.0
+          "count": 199,
+          "distance": 1080.23,
+          "moving_time": 587360,
+          "elapsed_time": 665486,
+          "elevation_gain": 79882.0
         },
         "all_time": {
-          "count": 1114,
-          "distance": 5734.96,
-          "moving_time": 3109852,
-          "elapsed_time": 3525553,
-          "elevation_gain": 420729.0
+          "count": 1115,
+          "distance": 5740.25,
+          "moving_time": 3112599,
+          "elapsed_time": 3528850,
+          "elevation_gain": 420945.0
         },
         "recent": {
           "count": 20,
-          "distance": 108.59,
-          "moving_time": 56958,
-          "elapsed_time": 63476,
-          "elevation_gain": 5456.0
+          "distance": 109.27,
+          "moving_time": 57274,
+          "elapsed_time": 64082,
+          "elevation_gain": 5518.0
         }
       },
       "biking": {
