@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-11-24T10:30:42.806388",
+  "last_updated": "2025-11-25T10:31:48.437774",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Juror #2",
+        "year": 2024,
+        "rating": 2.0,
+        "watched_date": "2025-11-23",
+        "is_rewatch": false,
+        "review": "<p>A movie that asks \"what would you do?\" when the answer is blindingly obvious: just lie and shirk off jury duty just like everyone else.</p><p>There might exist a particular mood I <i>could</i> have been in where I liked this a bit more, but I was not in that hypothetical mood when I watched it. I couldn't deal with the atrocious dialogue or the never-ending stream of plot holes. They kept <a href=\"https://tvtropes.org/pmwiki/pmwiki.php/Main/LampshadeHanging\" rel=\"nofollow\">hanging lampshades</a> on the implausibilities but that somehow made it worse (e.g. \"oh we couldn't possibly have a mistrial on this extremely high-profile case we're simply toooo busy\").</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/7/7/2/2/997722-juror-2-0-600-0-900-crop.jpg?v=14601fa694",
+        "link": "https://letterboxd.com/ncteisen/film/juror-2/"
+      },
+      {
+        "title": "Boiling Point",
+        "year": 2021,
+        "rating": 3.5,
+        "watched_date": "2025-11-23",
+        "is_rewatch": false,
+        "review": "<p>That one episode of The Bear but make it 90 minutes long and also Scouse</p><p>Bonus half star because it isn't every day I discover a new example of Cockney rhyming slang (henry -&gt; henry the eighth -&gt; eight ball)</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/4/2/2/5/724225-boiling-point-0-600-0-900-crop.jpg?v=0b18b70ab9",
+        "link": "https://letterboxd.com/ncteisen/film/boiling-point-2021/"
+      },
       {
         "title": "Wicked: For Good",
         "year": 2025,
@@ -62,31 +82,11 @@
         "review": "<p><em>This review may contain spoilers.</em></p><p>A full star of the review is attributed to the Chekhov's leg extension reveal and the subsequent line \"it's hard to think it's not about the legs right now\"</p><p>I truly believe that this could have been 4.5 stars if Dakota Johnson and Chris Evans were replaced with Emma Stone and Josh O'Conner.</p><p>Alt review: OMG Celine is right, poor people deserve to fall in love too</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/4/5/6/2/1024562-materialists-0-600-0-900-crop.jpg?v=ae3470f333",
         "link": "https://letterboxd.com/ncteisen/film/materialists/"
-      },
-      {
-        "title": "I Know What You Did Last Summer",
-        "year": 1997,
-        "rating": 2.0,
-        "watched_date": "2025-11-04",
-        "is_rewatch": false,
-        "review": "<p>After the era of horror movies that were campy good, and before the era of horror movies that were good good, this was just bad.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/6/3/8/49638-i-know-what-you-did-last-summer-0-600-0-900-crop.jpg?v=0800c84ab8",
-        "link": "https://letterboxd.com/ncteisen/film/i-know-what-you-did-last-summer/"
-      },
-      {
-        "title": "Sorry, Baby",
-        "year": 2025,
-        "rating": 4.0,
-        "watched_date": "2025-11-04",
-        "is_rewatch": false,
-        "review": "<p>Anti-Sorkin dialog (complimentary)</p><p>This was so small and so so good. Seriously, the dialog was so good I could listen to this movie as a podcast. It was naturalistic, awkward, profound, aching, wonderful.</p><p>Also, Lucas Hedges! Where you been at?</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/9/0/4/6/4/1090464-sorry-baby-2025-0-600-0-900-crop.jpg?v=c011d7fe20",
-        "link": "https://letterboxd.com/ncteisen/film/sorry-baby-2025/"
       }
     ],
     "stats": {
-      "total_films": 856,
-      "films_this_year": 67,
+      "total_films": 860,
+      "films_this_year": 69,
       "total_lists": 7,
       "following_count": 39,
       "followers_count": 34
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16556605518,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.6,
+        "moving_time": 2505,
+        "elapsed_time": 2728,
+        "elevation_gain": 141.0,
+        "average_pace": 9.07,
+        "average_heartrate": 125.8,
+        "max_heartrate": 155.0,
+        "average_cadence": 87.4,
+        "average_watts": 293.5,
+        "start_date": "2025-11-24T21:36:07Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16556605518",
+          "summary_polyline": "egd|FnfxpNS~@Gp@EH[Di@?[JOBYAg@Bi@Ce@@_ACYDUEo@BKCOIIIIQIISe@F{@PUFODcAAUa@iBKuAWq@MWKc@IO_@[[K_@@WFg@FEDG@OCC@g@@OEKIU[Kc@Ea@UsAC]M[MOUKSAMBYNGPIr@?lBBn@Kf@?NETg@pA_@h@KJ[f@El@?DHLAb@BRAXJvAD`@Lf@AdBD\\BbAMjDIj@MfAU|AGz@a@vBItBFfCHn@Nx@Bb@Np@@pAGlADZS~AOr@KPOj@W`@M\\KLSj@c@rBE\\UnACZFfBIv@?bDFp@?d@Fx@Ij@?LMh@?t@AP]hAKJE\\MTALSZC\\GLCR]n@W^EPMVKp@S|@Cn@If@?n@Up@i@l@Il@Od@a@j@G^QZOj@_ArBa@r@M|@UXSLYn@SZIZi@dAg@~AG`@S^_@`@Un@Q\\Uj@Q^Sp@Wj@GXSd@Kf@Q`@Mf@e@r@GPUZKTEh@LZZRv@PnAJ\\Jb@AROVGHIPg@ZwBJ]HMpAgA\\c@LMVCNG`@I`@E^[L[FIh@_@ZMPKJMP[Gw@u@yBAm@Oq@@c@@GHI^SV_@j@i@Rg@NORa@DOF]`@m@x@q@V[^SRURe@PS\\SNQ\\Wj@MRIjAs@p@UTML?bAMdAAb@CfDDR@VJ`BRP@VEPMRI\\EhAy@j@i@b@o@Ts@RgAL]Hc@l@iB^_@LSNGr@s@j@}@FGPIHAP@NDXN^d@f@VNOVIx@C`AU`@WTY^_@d@aAR[\\cA^{AFq@@gAA]K{@IuBBm@Ji@h@yAXi@RSPa@b@w@nAmBRo@h@sAP{@AS@m@OeAAa@MeAMo@K{AAaDDuAV}DJ_@QaBEiA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16536469314,
         "name": "iPhone 17 Camera \ud83e\udd0c",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16459750895",
           "summary_polyline": "gqpeFxkhjVFfAFh@HXBfCLp@Af@Dd@A`@Dt@H`@?f@Fl@Ah@DV@f@LjAKVOLFz@Ax@@h@XtAFx@ExCQn@?`@Dp@GbA@v@N`@f@|@Vn@L|@@^NvANbCAzBTfBNf@?LCh@BV?|@Bb@^pBJvAAfBRnA?`@If@I`AZzAd@xAHf@Ah@E^a@nAAb@Fr@AJUVPf@Lj@P\\DNB\\f@bCPhBBhAC`AEPKLIDQ@m@IUMUQq@_AUMu@mASWUKg@EGBi@f@[LGHQLYb@O`@UnAEhAJ`BfAnGR`DZbDHZXb@|@r@b@b@Xn@Pf@^j@DTCb@YrAGl@O~@YhBq@`DOnBIlABPFDB?DICs@Fm@?W^gDF[Ru@b@cCToBPw@JKb@Gj@E~@?XFJ?HCN[@_@HYHy@LKXIFWFcAG{AD[LMXCN@ZMf@@PEt@{@R_@`@aAB[Ik@Ss@Y_@Sc@QuASy@Aa@d@uBj@wAp@eAL_@Ds@C{@S{AKWUUBGG?][g@oA]]OG]BQFKECu@[}CCs@O{@Ay@QkB@a@KoAAm@Gi@Eu@EUEe@IqAIm@GwCM}@?[KcACmAK}@Aq@Gk@A]EWEy@Ic@A_@Fi@QiCGyBSeESiB@KEa@IaCKcAE_AQcBKaBQuCUeDAi@E][mFKcAEiAMsB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16446742577,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.38,
-        "moving_time": 2209,
-        "elapsed_time": 3231,
-        "elevation_gain": 223.0,
-        "average_pace": 8.41,
-        "average_heartrate": 138.2,
-        "max_heartrate": 164.0,
-        "average_cadence": 87.9,
-        "average_watts": 320.2,
-        "start_date": "2025-11-12T23:58:17Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16446742577",
-          "summary_polyline": "kqpeF`lhjVJn@?d@DTCRWFDt@LhB@^F`@Fx@Ll@CfAPpC@r@LjB?d@Cx@Dp@RfA?RBVCVDr@AjAEZMd@EVJl@Bd@G~@Dj@Rr@T^`@fALlB\\lC?ZFL?TEDAtBJxANf@@nDPf@V|AFd@D~BH\\J~@ATOp@Gp@RrATn@H`@LTH\\@L?NSbAYz@@b@F~@UT?BRbAf@~A\\bBTzBBr@CZ@TEr@AJGHMHQ@c@GWK[UMQYUiAiB[a@MEQE[BID[\\UJgAfAINQl@Kr@AlAXvD^nB\\pCDhAJ`AFbAJp@DJf@r@~@j@`@^n@xA^n@JZJJP@d@IRGTCVBRATHJ@NCDKb@iCFGXIHOJmA?g@Cy@DONKh@GLKj@?PGTWh@{@`@u@HUB]E]GSm@mAM]KgAWy@CWFm@NcAZ{@p@}Af@w@Hi@@]MaCGa@EFC?c@SKKGKOm@Qa@g@k@OGOAO?SDKCI{CIcAM_DEa@Ia@QsBC{@EUB_@QaCIs@G[MmDKo@YsGQiAIiC]eEIkBIa@EgBMq@IyBS}CKa@G}BOiB?[OkA?[Cc@Ko@KeCWeDIwAMkAG}AMmAEeAImA",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 200,
-          "distance": 1087.23,
-          "moving_time": 591742,
-          "elapsed_time": 670618,
-          "elevation_gain": 81237.0
+          "count": 201,
+          "distance": 1091.83,
+          "moving_time": 594247,
+          "elapsed_time": 673346,
+          "elevation_gain": 81378.0
         },
         "all_time": {
-          "count": 1116,
-          "distance": 5747.26,
-          "moving_time": 3116981,
-          "elapsed_time": 3533982,
-          "elevation_gain": 422300.0
+          "count": 1117,
+          "distance": 5751.86,
+          "moving_time": 3119486,
+          "elapsed_time": 3536710,
+          "elevation_gain": 422441.0
         },
         "recent": {
           "count": 19,
-          "distance": 102.47,
-          "moving_time": 53949,
-          "elapsed_time": 61077,
-          "elevation_gain": 5755.0
+          "distance": 102.52,
+          "moving_time": 54098,
+          "elapsed_time": 61366,
+          "elevation_gain": 5679.0
         }
       },
       "biking": {
