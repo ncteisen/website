@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-26T10:30:31.483008",
+  "last_updated": "2025-11-27T10:30:06.489851",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -169,7 +169,7 @@
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 280,
+      "total_ratings": 279,
       "average_rating": 4.18,
       "total_reviews": 117,
       "pages_this_year": 5307,
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16573336335,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 6.0,
+        "moving_time": 3209,
+        "elapsed_time": 3500,
+        "elevation_gain": 203.0,
+        "average_pace": 8.91,
+        "average_heartrate": 126.5,
+        "max_heartrate": 160.0,
+        "average_cadence": 88.6,
+        "average_watts": 308.0,
+        "start_date": "2025-11-26T15:02:30Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16573336335",
+          "summary_polyline": "ogd|F~expN[lBA`@IHQBg@Ce@Pk@BsFGQAWIOOGOAYFy@AsA?q@EkAKwAMeDAkBDuBHeA?UDi@Ji@T{ALk@NcAVmAZ}@P{@Be@DSFs@Bq@Eo@A}AWqCG_B?mBDu@?yAS{CQiAIw@Cq@@_@C]EY?MF}@TsBBu@^eE^uCb@gCf@sDLsAJmBJmAHwDDu@BmCCa@Mc@AMHW@OEoA]K@q@Da@AMISiBoCUq@SuBCq@@gDA_@EsEDqBAs@@k@C[BkBGeBFcAAuAD[LYRQz@_@VS`@e@bAaBFCV@HC\\k@HCfC?l@Ef@Yf@OpAsBVYfAw@j@Wp@Q`BSNBNAXB|@Nb@N`Aj@b@^^`@dAzAPJJ@`@d@LDbAHd@RRLf@f@bA|A@LGXDv@@lBEXAf@?l@Dv@Z~CTbARl@|BfGVpAHz@ArECvBDl@Ot@IDk@FSFMJEREhAIh@A\\EjGD~@AlEOlA_@`AUbAIz@AnBCTWf@c@Te@D{A@_@Fu@?GBCBEbCAfC@r@EzB?r@C^@~@Ep@Bf@C~CSjHAfBIvBGvEIvA@f@Rd@b@n@HTJLBTFP~@bB`@d@Xl@Tl@f@~@\\ABe@A_ALqA\\kAPSNKTGZCPGXAp@?JDNEn@Cb@@b@EhDGx@Ed@@ZAj@?j@@l@Lf@Pb@XbA`AlAdBN^`@r@rAlBFN@V?j@C^CLSRQXMf@KF_@Zi@`AQR_@z@A^LbBDlA?fACfAUdBO^c@l@WTOHSFk@F]AuBBiE@e@A_@C_@BqA?G@IJCJBtAGd@Cj@EJWDWAw@Kk@MI?GFGVUhBOlBMj@Ab@CNKNSH]EWU]Kc@SUGqBKm@?e@SOS",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16556605518,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16468564100",
           "summary_polyline": "kqpeFxkhjVD`@CXDLG`@DP?NFf@Gr@@JJTJn@CpAHNDT@j@MFTpCDp@A^FXDt@C`@BfAGR?RF`ARp@F~@Hn@A`B[x@ENHpAErABXXv@h@|@f@rC?\\NtB@\\ELF`@@v@IR@t@BLLVJp@HV@NG^F`AE`@B\\RfANd@Jx@A`@E`@JdA?ZF\\@VA^MvAFf@XrAVn@Ll@Db@GbA[r@GX@VH~@PdAIZ?TNn@Pf@Hj@Nf@N~ADt@AfAInAB|@Cj@OjBEtAy@xJg@vGYrCSt@YzByAvH[lCEpBH`BFzENtCXfBZdApEfI~@~BRbAB`@Ap@QpAWhAC`@[`B?ZPt@Bh@GbDOx@JnAHZJ`A^nAZvBDFRDd@`@XJdAGt@Wz@PhA]RCn@Bz@R\\AfBURMHUAMIE_@AMIKUC_@Ds@Tk@\\iB@s@HUHu@?{@Fg@K}A@[Na@@c@HYG}@QS]Ow@O[?]MmASYOe@a@oAgBSa@QQIUMOMEUFCHFn@?PJ^Hr@RrDX~BAf@Ih@MTAZGXMVu@hAITId@?VMv@AVOn@KPMHq@LGFANTbA?~@DZLVLJd@Fr@Ap@Q`ALzA_@hBT`@?dAMn@WFIBQGQ_@COMCQAkA@M`@yANgA?c@LYBSBk@AWBUASFaAIWA]DYRq@De@OmAMMk@QyCa@o@U{AeB[e@i@cAQQKCUDGFAJJ`@NpAPvDL|@@ZFf@Bf@Il@]`Bi@r@a@dAQ`CMn@MROHo@FILCPD\\Nd@@`ADNmAoBEq@Mq@E}@Sg@Ge@NaC?cAD}@Aa@Mk@AYNiAXkAb@cCDo@?m@Ki@Wy@uAyCqAuBuAkB_@u@Qq@KcAMaCBs@C[GmD?eDHwA?y@XaDHm@v@cEVaBF{@R{@TuBHoA\\mCF{Ap@sGF_B@qAH_BC{AJkA@o@GiAWwB[kAMUC]e@qACa@PGFKKwAFYZ{@H}@Gc@IWG_@Wk@ScAE_APiAAg@Q{@Co@F}@Im@AOKi@GOOeAAWBiAG_@B]CUSi@MwA?u@@q@AcAIaAEQCu@UwAEq@]cAe@_AQs@FwACiAXmA?c@Bc@Gm@AaAWaBEw@De@@iAUmCI{AOmBFW?UG[?k@MKEe@?a@BYOs@AYIi@GeABk@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16459750895,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.5,
-        "moving_time": 2251,
-        "elapsed_time": 2366,
-        "elevation_gain": 223.0,
-        "average_pace": 8.34,
-        "average_heartrate": 139.6,
-        "max_heartrate": 161.0,
-        "average_cadence": 88.4,
-        "average_watts": 323.7,
-        "start_date": "2025-11-14T23:00:55Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16459750895",
-          "summary_polyline": "gqpeFxkhjVFfAFh@HXBfCLp@Af@Dd@A`@Dt@H`@?f@Fl@Ah@DV@f@LjAKVOLFz@Ax@@h@XtAFx@ExCQn@?`@Dp@GbA@v@N`@f@|@Vn@L|@@^NvANbCAzBTfBNf@?LCh@BV?|@Bb@^pBJvAAfBRnA?`@If@I`AZzAd@xAHf@Ah@E^a@nAAb@Fr@AJUVPf@Lj@P\\DNB\\f@bCPhBBhAC`AEPKLIDQ@m@IUMUQq@_AUMu@mASWUKg@EGBi@f@[LGHQLYb@O`@UnAEhAJ`BfAnGR`DZbDHZXb@|@r@b@b@Xn@Pf@^j@DTCb@YrAGl@O~@YhBq@`DOnBIlABPFDB?DICs@Fm@?W^gDF[Ru@b@cCToBPw@JKb@Gj@E~@?XFJ?HCN[@_@HYHy@LKXIFWFcAG{AD[LMXCN@ZMf@@PEt@{@R_@`@aAB[Ik@Ss@Y_@Sc@QuASy@Aa@d@uBj@wAp@eAL_@Ds@C{@S{AKWUUBGG?][g@oA]]OG]BQFKECu@[}CCs@O{@Ay@QkB@a@KoAAm@Gi@Eu@EUEe@IqAIm@GwCM}@?[KcACmAK}@Aq@Gk@A]EWEy@Ic@A_@Fi@QiCGyBSeESiB@KEa@IaCKcAE_AQcBKaBQuCUeDAi@E][mFKcAEiAMsB",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 201,
-          "distance": 1091.83,
-          "moving_time": 594247,
-          "elapsed_time": 673346,
-          "elevation_gain": 81378.0
+          "count": 202,
+          "distance": 1097.83,
+          "moving_time": 597456,
+          "elapsed_time": 676846,
+          "elevation_gain": 81581.0
         },
         "all_time": {
-          "count": 1117,
-          "distance": 5751.86,
-          "moving_time": 3119486,
-          "elapsed_time": 3536710,
-          "elevation_gain": 422441.0
+          "count": 1118,
+          "distance": 5757.86,
+          "moving_time": 3122695,
+          "elapsed_time": 3540210,
+          "elevation_gain": 422645.0
         },
         "recent": {
           "count": 18,
-          "distance": 96.31,
-          "moving_time": 50900,
-          "elapsed_time": 57934,
-          "elevation_gain": 5476.0
+          "distance": 98.17,
+          "moving_time": 52110,
+          "elapsed_time": 59209,
+          "elevation_gain": 5469.0
         }
       },
       "biking": {
@@ -751,11 +751,11 @@
           "elevation_gain": 951283.0
         },
         "recent": {
-          "count": 3,
-          "distance": 59.0,
-          "moving_time": 13805,
-          "elapsed_time": 14449,
-          "elevation_gain": 2743.0
+          "count": 2,
+          "distance": 34.16,
+          "moving_time": 8157,
+          "elapsed_time": 8317,
+          "elevation_gain": 2116.0
         }
       },
       "swimming": {
