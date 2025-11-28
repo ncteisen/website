@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-27T10:30:06.489851",
+  "last_updated": "2025-11-28T10:29:23.669376",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -535,6 +535,28 @@
     ],
     "recent_hikes": [
       {
+        "id": 16582969825,
+        "name": "Turkey Day Stroll w/ the Machatunim",
+        "type": "Hike",
+        "distance": 0.77,
+        "moving_time": 1288,
+        "elapsed_time": 1731,
+        "elevation_gain": 49.0,
+        "average_pace": 28.0,
+        "average_heartrate": 76.8,
+        "max_heartrate": 130.0,
+        "average_cadence": 52.5,
+        "average_watts": null,
+        "start_date": "2025-11-27T15:06:20Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16582969825",
+          "summary_polyline": "ese|Fhq{pN?FAAMNIBEIEw@?a@B@DI?D}@a@IIMFS@?HQXOb@@d@CFBFD@?EXTPBBBAELKJSFEHCLDNCJFJXDFA?EGr@TDRHFRDNI\\g@Na@@SNOREB@AH@DJM?BLBJMB?ALE?@A@@EC?EXWJYZ[HQXOVYTKJ?HJZBDCLLLHT@HGRGR@Em@M{@DOPKf@ARK?CGKKEO?a@KG?Yh@OCQIK?IGGYQMG?EEYDSPARK`@?B?CSFOLKXCXa@R@LEHMEGIO?OOE@SPKRDBDMBA@@?EUJMv@ILUVSv@",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 16517685361,
         "name": "SOCI Team Hike \ud83d\udc1f",
         "type": "Hike",
@@ -685,28 +707,6 @@
         "map": {
           "id": "a11435221230",
           "summary_polyline": "wekuGrwqpVl@zAxB\\^\\Dj@U\\{AX{@d@yB_AIHBTd@^GRHLGQWd@s@OM`@_AOCj@RVSH{AdDBLSRAv@cA~BWjDMf@Md@i@ZCz@KHOjALZSZCrAUP?j@Yr@SbAHXKJ@b@Qj@PDg@zAFA@Nc@n@PHQ`@NhAOTGt@Dl@UAi@v@FpBUbBFl@Un@FAKCEv@Ff@o@|BJbCyAUsBbAEUId@a@Bu@`A{@Nm@d@Yz@]VT~@@x@d@dAi@v@FnAK~@HPMSWJAR@NHAENLHROWTcA[Mk@[r@]DEQ_By@m@}@u@@YSQ@v@^DVTRAZu@LGU_@CS_@iAF_AQ{ABe@T}@Mc@aACy@g@Da@l@Mp@e@j@aAbC]nEFzAHJ?`CqAf@oAtBcAr@a@z@eAbAKXDf@c@z@K~@i@|AyAtBRHxAe@n@_AVAD^{DnHwDf@u@lAHLp@WRP_AdBcAfA|@GhAa@TFER{AfAKXDNbA_@HhBBUME[BCTIKp@u@AvALFKFc@dDEnDiAjKAlCOhAHfA[rAOhBmAhE[l@M`Aa@j@_@xEWhBUf@uAd@aDi@m@UgCuBiC_CmA_@eBaCu@y@gB{EeA_AgBgC{Am@}@@wAnDiAhCwAy@Qm@c@i@KsAfAn@t@{@Yw@CqBOeAlDeDb@O^Hd@g@@_@OI{BBOc@B[bAe@dDW\\[`@FtBmAf@q@r@Q^pAt@fANxCnA~A^`BrBbB|AbBRt@Zt@v@LfAaAdAyEU_CFeBNoAl@{@EwA^kBK]e@a@H]KmBFwA_F{UFo@MsAZ{AOg@^_Bl@m@x@MTYh@kD`@s@^Qf@s@pAY`@]]a@{DXyAz@Ip@c@bAeCP{@h@S?ISBq@Zw@|A{@`@wClA{ADo@DJZc@RsA`A{BtB_B|@KN]j@@m@gAa@mAFY`@[PcAj@eAZsARiAr@aABoAhAaCj@[?wBl@iAVmAx@oAZaAl@w@X{@Z[P}@jA{@|DaF~Aq@TJt@Sp@aCbBiCl@_CdAWfByBvA{@Re@CY~CgA|CJv@_@r@?Ta@n@Kj@NzAa@Rq@j@s@z@Iv@ZnAWl@sCdA_B~@[bAaAxA?TS`BkDr@}@v@qB|@uA`@YjAQfCb@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 11277920398,
-        "name": "Morning Hike",
-        "type": "Hike",
-        "distance": 4.58,
-        "moving_time": 5757,
-        "elapsed_time": 6864,
-        "elevation_gain": 1122.0,
-        "average_pace": 20.94,
-        "average_heartrate": 101.0,
-        "max_heartrate": 154.0,
-        "average_cadence": 56.1,
-        "average_watts": null,
-        "start_date": "2024-04-27T16:43:33Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a11277920398",
-          "summary_polyline": "}brdFboqjVE?OIAGCYH[Zc@JGJE\\CHO@QC}@Gk@AaAKcAWk@Ek@OcACi@?WBUBq@DWA]E[AGUc@KY]i@QUWm@Ei@JuACa@GWYo@g@m@IOSi@GYAOIYCmADYBg@T}A?IDUBWEoAD{BIiBDq@DSD_@@wAHGAKKuCKi@A]_@sAIKIoAIi@Qk@Ow@Is@?e@Kc@CW@ID?CBFGAK@o@^cDh@wBFy@Aw@Iu@K_@Ee@g@yBSo@WaBAa@@[F[t@oCDIf@{BHoAA}@HQV]z@o@~@_AXQj@g@LOhBwA~A_Al@Yt@QXOd@g@vg@}HN?v@F`@@t@H^@PD\\@r@Hz@@|@JdATX?t@LN?l@ELE`AQNG~AMrAg@fAbAv@`@NDVJd@Z`@^`@t@H`@Hx@IhAGh@?tC?LBBAM?uBH_DCi@Oq@Yi@mA_AwAg@]UIKu@]Q?sAX_@D}@B_ARkAF_@EiAS}ASw@CcAI_ACc@Ei@CaAKy@GeAGW@oCx@{@d@mAb@mAFoFNmBJQASIy@a@C?@DUEs@Nm@@QDEF?LT`ACRIHyAh@w@Hc@RUAICIBi@h@c@N_@Js@Z_@Lo@j@i@\\mAbAoAx@]ZQXe@j@]Re@d@GJG\\Dj@?\\Gj@K^E^]pAm@|AUnABn@PtAp@~B\\|BHVDd@D`A?NUpAW`AKdAYnAEfADdABFLl@Bd@Jn@JXNv@HjAp@fCJp@@`CC`ACj@QtAA`@Fp@@v@EhBLnACb@g@dCBPA`@B`@A`@@n@TdA`@d@FJ?DLH\\d@Pb@DPAZOpAFx@`AdBX^JZFl@ChABrBJxA@JTd@DZFpBJzACRML?Dk@XUTMTEP?NFNPH",
           "resource_state": 2
         }
       }
