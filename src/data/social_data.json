@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-12-01T10:32:31.392038",
+  "last_updated": "2025-12-02T10:31:07.339515",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Michael Clayton",
+        "year": 2007,
+        "rating": 4.5,
+        "watched_date": "2025-11-29",
+        "is_rewatch": true,
+        "review": "<p>One of the few movies you watch then say \"they don't make em like they used to\" and actually be spot on.</p><p>It's the accumulation of a thousand of small, perfectly-made choices that elevate above its trope-y genre.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/2/4/1/49241-michael-clayton-0-600-0-900-crop.jpg?v=6a1d790e35",
+        "link": "https://letterboxd.com/ncteisen/film/michael-clayton/"
+      },
       {
         "title": "Juror #2",
         "year": 2024,
@@ -72,21 +82,11 @@
         "review": "<p>This adaptation focusses on monster == misunderstood and good, humans == bad and evil (except for the monster-loving chick), which is <b><i>incredibly</i></b> on-brand for Del Toro. </p><p>IMO, Frankenstein is <b>so</b> much more interesting when the themes are monster == complex creature musing about life and love, humans == complex creatures musing about life and love.</p><p>Also, a lot has already been said about the \"you\u2019re the monster\" line, but jfc I wanted to call up Guillermo and say \"my guy, anyone who is voluntarily watching a 2.5 hour adaptation of Frankenstein is literary enough to pick up on the theme here\"</p><p>My face when I realize I haven't really loved a Del Toro movie in over a decade \ud83d\ude41\u2639\ufe0f\ud83d\ude29</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/8/1/0/0/958100-frankenstein-2025-0-600-0-900-crop.jpg?v=49a1ca2305",
         "link": "https://letterboxd.com/ncteisen/film/frankenstein-2025/"
-      },
-      {
-        "title": "Materialists",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2025-11-04",
-        "is_rewatch": false,
-        "review": "<p><em>This review may contain spoilers.</em></p><p>A full star of the review is attributed to the Chekhov's leg extension reveal and the subsequent line \"it's hard to think it's not about the legs right now\"</p><p>I truly believe that this could have been 4.5 stars if Dakota Johnson and Chris Evans were replaced with Emma Stone and Josh O'Conner.</p><p>Alt review: OMG Celine is right, poor people deserve to fall in love too</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/2/4/5/6/2/1024562-materialists-0-600-0-900-crop.jpg?v=ae3470f333",
-        "link": "https://letterboxd.com/ncteisen/film/materialists/"
       }
     ],
     "stats": {
       "total_films": 862,
-      "films_this_year": 69,
+      "films_this_year": 70,
       "total_lists": 7,
       "following_count": 40,
       "followers_count": 35
@@ -728,11 +728,11 @@
           "elevation_gain": 422645.0
         },
         "recent": {
-          "count": 16,
-          "distance": 85.16,
-          "moving_time": 45579,
-          "elapsed_time": 52187,
-          "elevation_gain": 5079.0
+          "count": 15,
+          "distance": 78.98,
+          "moving_time": 42499,
+          "elapsed_time": 48811,
+          "elevation_gain": 4872.0
         }
       },
       "biking": {
