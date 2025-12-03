@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-12-02T10:31:07.339515",
+  "last_updated": "2025-12-03T10:33:02.617678",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Nickel Boys",
+        "year": 2024,
+        "rating": 3.5,
+        "watched_date": "2025-12-01",
+        "is_rewatch": false,
+        "review": "<p>I spent a lot of the movie deciding if the first-person camera was a distracting conceit or something fundamental to telling the story and I landed a bit mixed.</p><p>It got be thinking about strong camera constraints in general (oners, bottle movies, etc etc etc) and the balance of artifice vs genuine narrative device. I asked that question of other movies I have liked like Birdman, Enter the Void, 12 Angry Men, Presence and how IMO they work a bit better with their chosen tricks.</p><p>Final decision - this story could have been told just as well (maybe even better) without the strong first-person constraint, but it will certainly be more memorable because of it. Anyway... 3.5 stars.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/2/6/5/8/9/926589-nickel-boys-0-600-0-900-crop.jpg?v=c90912e607",
+        "link": "https://letterboxd.com/ncteisen/film/nickel-boys/"
+      },
       {
         "title": "Michael Clayton",
         "year": 2007,
@@ -72,22 +82,12 @@
         "review": "<p>The only Frankenstein adaptation for me, thank you very much</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/9/3/1/49931-young-frankenstein-0-600-0-900-crop.jpg?v=e33efca8ce",
         "link": "https://letterboxd.com/ncteisen/film/young-frankenstein/"
-      },
-      {
-        "title": "Frankenstein",
-        "year": 2025,
-        "rating": 2.0,
-        "watched_date": "2025-11-10",
-        "is_rewatch": false,
-        "review": "<p>This adaptation focusses on monster == misunderstood and good, humans == bad and evil (except for the monster-loving chick), which is <b><i>incredibly</i></b> on-brand for Del Toro. </p><p>IMO, Frankenstein is <b>so</b> much more interesting when the themes are monster == complex creature musing about life and love, humans == complex creatures musing about life and love.</p><p>Also, a lot has already been said about the \"you\u2019re the monster\" line, but jfc I wanted to call up Guillermo and say \"my guy, anyone who is voluntarily watching a 2.5 hour adaptation of Frankenstein is literary enough to pick up on the theme here\"</p><p>My face when I realize I haven't really loved a Del Toro movie in over a decade \ud83d\ude41\u2639\ufe0f\ud83d\ude29</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/5/8/1/0/0/958100-frankenstein-2025-0-600-0-900-crop.jpg?v=49a1ca2305",
-        "link": "https://letterboxd.com/ncteisen/film/frankenstein-2025/"
       }
     ],
     "stats": {
-      "total_films": 862,
-      "films_this_year": 70,
-      "total_lists": 7,
+      "total_films": 863,
+      "films_this_year": 71,
+      "total_lists": 8,
       "following_count": 40,
       "followers_count": 35
     }
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16629425167,
+        "name": "Back in our preferred climate",
+        "type": "Run",
+        "distance": 5.03,
+        "moving_time": 2543,
+        "elapsed_time": 2716,
+        "elevation_gain": 223.0,
+        "average_pace": 8.42,
+        "average_heartrate": 150.9,
+        "max_heartrate": 171.0,
+        "average_cadence": 89.4,
+        "average_watts": 313.9,
+        "start_date": "2025-12-02T14:50:57Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16629425167",
+          "summary_polyline": "qhpeFtxkjVLTV`Ah@bA`@zALn@JlAB~@GjAG^QHU@[AWI][GYMQO_@WYc@a@c@m@MIQEK?UFe@E]DIDMA]HGF]jAKnAGdABp@PzC\\tBJtALf@D^RjB@n@PhBJb@X`@f@h@r@f@X\\R\\Vn@V`@DT?RIh@A^]vAMbAm@|COnAK`@EjA@rAGzA@\\H^Ph@TV^HTJFHRV^t@n@dAfA|At@vAf@r@\\^NRh@d@XPTVjA`@l@ZPBDADENw@JaAh@_BNy@`@u@V}@f@iANg@F[@q@a@eAk@_AsAkBIO]]Wi@[]Ug@C_@I[Ck@m@aDO_@QmAIgAI_@Q_@O_AEi@@oAJ}AEk@D[LMl@QJMh@APIXYb@s@Vi@V}@Bm@S_@c@g@Sa@OkAYcAAUB]Z_BPs@\\y@p@_ADKJq@?m@Iy@_@i@AGUQAMB[Aa@]}@SYk@e@MCq@FGKKcDM{@I}AEeCG]MUKm@EgBI}@Cu@G[?g@KoAAg@KyAUuB@k@Gk@?u@Gk@A}@Iu@@ME}@Og@OqA?oAGa@?c@M_BK_@CyAGi@I{AGq@BW?WSoAGaAEQIaBGg@?UI]GcBImBOiBIg@Gs@EM?g@Gc@EoAEK?i@Cq@?_@Aq@[eCMkB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16573336335,
         "name": "Morning Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a16478793300",
           "summary_polyline": "grpeFnlhjV@z@J`ABh@F\\JH?BCDD~@AT?HFNELFN@VHTBRCZ@r@F^?`@XdEBzAGp@Bj@VtADbAHXBZEz@?RWdA?XF\\@n@G^?r@DRRPZf@RbAJVJh@@hATxBB\\ATHd@?zABh@C`@Ll@JR@JEr@B^@d@EXHl@^fABZALDp@Cf@D`ANjA@f@Cd@I^Af@Jv@ZnAJPLLFn@Bb@G~@_@z@@z@Br@H\\Lb@KXCd@d@nBTr@RnCEp@@ZK~@KLKDO@YCQEm@m@e@s@USYi@QUIQOOYMQCM@UJ[ZUH{@z@]`AGTM~BDr@Lv@F~@XxAHXTzATxDHl@Bd@Fd@Rj@NRj@X`A~@n@xAV`@DR?LEZa@nCYpAIVOdAi@dCUtBEt@?d@?BFBNCDK?m@BQDeCGs@T[JGHOdAwFHcANq@BAN@f@Qb@EN?RFZA^FHAFQDk@Lk@Fk@JI\\KFMDg@BaCDSHG\\CNIJOh@?REPO\\_@Xc@Zu@Li@Gm@_@_Ae@s@COEq@[gACWFa@h@aCb@_A|@uAJkAI{@WoB[a@?EIBCGOGU{@MQi@c@IAq@BGECG@c@GeAUyBA[G]?c@KeB?o@Ig@Iy@Ek@BSAUQeBUwCGoAYeDAm@OqBAq@Gc@K}ACaAO{@?g@OwA?_AOiC[yCMiCE[Eg@?UIoA@SQkAGy@GwBIw@EkAOiAI{BUqCEiAKsASeBAgAEe@EeAE]",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16468564100,
-        "name": "Katy & Steve Fun Run 2025",
-        "type": "Run",
-        "distance": 7.43,
-        "moving_time": 3943,
-        "elapsed_time": 5812,
-        "elevation_gain": 226.0,
-        "average_pace": 8.84,
-        "average_heartrate": 131.6,
-        "max_heartrate": 167.0,
-        "average_cadence": 88.4,
-        "average_watts": 300.1,
-        "start_date": "2025-11-15T18:08:12Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16468564100",
-          "summary_polyline": "kqpeFxkhjVD`@CXDLG`@DP?NFf@Gr@@JJTJn@CpAHNDT@j@MFTpCDp@A^FXDt@C`@BfAGR?RF`ARp@F~@Hn@A`B[x@ENHpAErABXXv@h@|@f@rC?\\NtB@\\ELF`@@v@IR@t@BLLVJp@HV@NG^F`AE`@B\\RfANd@Jx@A`@E`@JdA?ZF\\@VA^MvAFf@XrAVn@Ll@Db@GbA[r@GX@VH~@PdAIZ?TNn@Pf@Hj@Nf@N~ADt@AfAInAB|@Cj@OjBEtAy@xJg@vGYrCSt@YzByAvH[lCEpBH`BFzENtCXfBZdApEfI~@~BRbAB`@Ap@QpAWhAC`@[`B?ZPt@Bh@GbDOx@JnAHZJ`A^nAZvBDFRDd@`@XJdAGt@Wz@PhA]RCn@Bz@R\\AfBURMHUAMIE_@AMIKUC_@Ds@Tk@\\iB@s@HUHu@?{@Fg@K}A@[Na@@c@HYG}@QS]Ow@O[?]MmASYOe@a@oAgBSa@QQIUMOMEUFCHFn@?PJ^Hr@RrDX~BAf@Ih@MTAZGXMVu@hAITId@?VMv@AVOn@KPMHq@LGFANTbA?~@DZLVLJd@Fr@Ap@Q`ALzA_@hBT`@?dAMn@WFIBQGQ_@COMCQAkA@M`@yANgA?c@LYBSBk@AWBUASFaAIWA]DYRq@De@OmAMMk@QyCa@o@U{AeB[e@i@cAQQKCUDGFAJJ`@NpAPvDL|@@ZFf@Bf@Il@]`Bi@r@a@dAQ`CMn@MROHo@FILCPD\\Nd@@`ADNmAoBEq@Mq@E}@Sg@Ge@NaC?cAD}@Aa@Mk@AYNiAXkAb@cCDo@?m@Ki@Wy@uAyCqAuBuAkB_@u@Qq@KcAMaCBs@C[GmD?eDHwA?y@XaDHm@v@cEVaBF{@R{@TuBHoA\\mCF{Ap@sGF_B@qAH_BC{AJkA@o@GiAWwB[kAMUC]e@qACa@PGFKKwAFYZ{@H}@Gc@IWG_@Wk@ScAE_APiAAg@Q{@Co@F}@Im@AOKi@GOOeAAWBiAG_@B]CUSi@MwA?u@@q@AcAIaAEQCu@UwAEq@]cAe@_AQs@FwACiAXmA?c@Bc@Gm@AaAWaBEw@De@@iAUmCI{AOmBFW?UG[?k@MKEe@?a@BYOs@AYIi@GeABk@",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 202,
-          "distance": 1097.83,
-          "moving_time": 597456,
-          "elapsed_time": 676846,
-          "elevation_gain": 81581.0
+          "count": 203,
+          "distance": 1102.87,
+          "moving_time": 599999,
+          "elapsed_time": 679562,
+          "elevation_gain": 81804.0
         },
         "all_time": {
-          "count": 1118,
-          "distance": 5757.86,
-          "moving_time": 3122695,
-          "elapsed_time": 3540210,
-          "elevation_gain": 422645.0
+          "count": 1119,
+          "distance": 5762.89,
+          "moving_time": 3125238,
+          "elapsed_time": 3542926,
+          "elevation_gain": 422868.0
         },
         "recent": {
-          "count": 15,
-          "distance": 78.98,
-          "moving_time": 42499,
-          "elapsed_time": 48811,
-          "elevation_gain": 4872.0
+          "count": 16,
+          "distance": 84.01,
+          "moving_time": 45042,
+          "elapsed_time": 51527,
+          "elevation_gain": 5095.0
         }
       },
       "biking": {
@@ -751,10 +751,10 @@
           "elevation_gain": 951283.0
         },
         "recent": {
-          "count": 2,
-          "distance": 34.16,
-          "moving_time": 8157,
-          "elapsed_time": 8317,
+          "count": 1,
+          "distance": 23.65,
+          "moving_time": 6357,
+          "elapsed_time": 6517,
           "elevation_gain": 2116.0
         }
       },
