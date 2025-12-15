@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-14T10:26:59.191646",
+  "last_updated": "2025-12-15T10:35:00.890731",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -177,6 +177,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 16743794560,
+        "name": "Lunch Run",
+        "type": "Run",
+        "distance": 5.0,
+        "moving_time": 2565,
+        "elapsed_time": 2773,
+        "elevation_gain": 230.0,
+        "average_pace": 8.55,
+        "average_heartrate": 131.1,
+        "max_heartrate": 158.0,
+        "average_cadence": 89.1,
+        "average_watts": 318.1,
+        "start_date": "2025-12-14T19:11:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16743794560",
+          "summary_polyline": "{qpeFflhjV@|@L~BL\\Hj@?^TbAAVD^ATBd@AnA@h@Ff@?n@H~@HjBATEZDl@?^TfA@RB`CE|@EXKb@@VD^?ZOfA@RRl@RTZp@X|@@p@LtAIPSHZHFHPzA@PEtA@|@BPJVBr@J`@?LGb@B`@?~@Jf@@TP^Ft@JVD\\?Z@FAl@?dALhAO`B?d@RfAl@hBBZCv@Mj@O\\GZHpAVrAKRCV@NXx@^fBRxBBvAMjAGJODU@u@GMKg@o@O[OQKU[a@w@u@QE[AULS\\K@IF_AbASd@UdAEt@@l@PfB\\rBVnBFr@RpAZhEJ^RXTV|@h@`@d@b@jA`@p@DJ?p@eArFe@jCYtAQhBCv@?p@Ll@Hv@Nl@FHLHXJJ?TLRPn@lAh@p@fAjBj@v@xCzERLr@N`@Xr@ZH@P}@R}AFUF_@J]Pk@j@mAJKHYPY\\_ALUXcALMXg@LEl@_@bAQh@AxAG`@GFCHUTeB@OA]Ik@Eg@KYGg@Go@Qs@G_@a@qAIo@WqAIw@?w@DaADc@CUWq@OWo@{AU]KWG[Sa@Yg@s@w@g@u@]eBMiA?k@Lq@A]g@iAIYKWS[OQIW?a@FKTSBKS}A?]HoAGgAI[?a@Kq@]k@GDGC?GQKMm@S]SMCG]MW@YFII?s@Ek@?[YaBIw@A_@GY@}@G}@YwA@w@Is@@OCEDk@M_A?[Ee@G]IQ?s@Gk@@gAY}AOkAEaA@yAOqB?c@OkA@_ACm@QuBI]AWEQI_CMu@@OG[?m@Gy@C_AIWEs@GwA?aAGi@?_@E]Cq@EYCa@ESE{@G[Kw@Ag@Ic@EyA?eAMeAEeAOuASaEGw@",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 16734131738,
         "name": "Sweating out the holiday party calories",
         "type": "Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a16668295780",
           "summary_polyline": "irpeFplhjVTrALzA@j@K\\Bh@N^FhANh@BtAh@vIMjAd@xBBzBEz@YbABz@EhBLj@p@jAb@lBBf@VtB@r@Hn@IxBPHj@IRHdAWhAGpAPfAe@r@Id@a@ZFtAQVDfCg@hAIb@YZ@p@]p@TdCe@lFYlCa@lAh@pC~Bh@Fp@`@xCAvAOXp@HjACrAKl@Hb@FpAMLGZHpAJ\\ZjCGdBLZIpADf@GjAP^b@TCfBNv@Nv@NNFz@b@t@BVP\\pArARn@TJ]iAWc@Ec@Ui@DMhAlBZLv@z@WhABXLRNx@Sn@DlAGd@OFQIcAiAELO?ETYBOPWx@CZa@x@Nx@f@lAe@x@JrBHTXN\\EZSl@?V^f@BVZBZPLh@_@t@IhAe@ZAr@n@XrAj@dAPDtA}@DK|@y@lAYf@[p@G^SJS?SeAKsA{@w@}@O]Dw@Pn@l@HUOO]Ky@Jg@?cAPw@BcBk@cAQq@Hq@OmAIQ?{@Gc@[Y`@y@dAYn@o@?[c@s@AYZAPy@^l@t@HPVl@LAGTPFE@Wb@~@f@h@HZLQ`C_@f@q@KmAQi@m@s@[w@g@k@YeBeAoBKg@k@]]y@Gi@HY^_@L[JmCPy@@u@pEkA|@e@Zg@BWGe@o@uA_@W_@JS`@[bAAdAPTxB{@x@Lz@aAj@S`@FdBfBp@Xr@GrA}@x@DdBxA^h@Hb@DzCt@fB\\VrBn@dADr@a@H[A[q@{@_D}BSc@?g@t@mDx@sB`B{C^Qb@@RPN`@AhA]nAkB|CIb@FXnEzBnBjAjCl@tAn@RMONh@p@v@lBTxBHJYgFmAuH\\UVe@|@Ud@JV^?k@PPH?@{@fAkATCp@k@dBW\\[^Ih@mAt@_@~CcEVoA@e@XYLy@CSQSgAe@Y_Am@g@_@w@G_@BUl@y@v@]^MlAGbBaBz@q@hC_@V_@RI|APtBkB`Dq@HQSeBPo@j@eEPoCYuAW]O}@OSi@MgBmAiEiBy@Ur@wBOy@BeAMGS\\MAAOJYCe@Bi@_@y@?g@gA@IU[Md@a@Lo@k@PN{@e@L_@i@Ku@G_DOgAImFK{AEuAcBRy@Com@hCcATGRDdFRzEC|@HdA?~AFb@DjBHb@Ul@NxHFx@QL_BJ",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16658012021,
-        "name": "SF Winter Sunrise \ud83d\ude0d",
-        "type": "Run",
-        "distance": 5.89,
-        "moving_time": 3614,
-        "elapsed_time": 4200,
-        "elevation_gain": 1073.0,
-        "average_pace": 10.22,
-        "average_heartrate": 144.2,
-        "max_heartrate": 181.0,
-        "average_cadence": 85.3,
-        "average_watts": 279.3,
-        "start_date": "2025-12-05T14:46:06Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16658012021",
-          "summary_polyline": "gkpeFlehjVPCh@YRBtAK|@UdCK^Uf@SVLV?j@Mp@C\\DJHHLDZAT?RLRD\\f@In@A|@MdAGh@BZTv@HhAIvBITKJAv@@RR?WP?^Or@CTHFf@?b@FRAHB|AFHADJPBV\\ZXFBLWRAr@EXKNUFQOO[C?CJJf@CLCFO|@BXA\\PHL\\^`@HXGTIJ?TSAOz@UT@JV^DZTPA`@Ff@I\\[h@[TKT@p@Ip@EdAE~CMdABjAXdAf@fAFDPB\\Ml@FZZJTLHr@J`@Lj@Dx@`@JH@LOJ?LGV?HHP\\THZE\\KT@PLJvBv@l@d@p@RJ@NCFKB@P\\Er@@PJ?b@c@LGv@[X?d@XPBdB`AC`@Fn@NX@PPRD_@BEnAMJHL\\^XRr@N@PLNXFV^Ft@C^I|@W^Qb@]d@g@^W`@c@^s@PWbAUp@]^[`AwAFS@e@]qBFUJSLCRTJX`@dDPt@@PAVG^cAbBQf@?PBPHLRNPDXAdCk@tAs@f@i@b@IT_@`@e@`@MVE^JhAfAXP\\PTDj@G|@w@RIn@CVHxB`BX\\BP?n@GhAGLRIp@FJABIMc@?WLERLD?Aa@@Ud@qCC_@IME]?ILSCOs@TM?gAW_Aa@cAW[J[@]LcAh@e@@YEQKw@kAUOa@EYFo@@c@EQUSaA_@}@KK{Ac@}@BeAOk@s@GME_@A[BK^Un@CTo@CMIIMCQSIy@@KFMf@W?OAEQIWA[SSEYSw@eBc@wAWuA@Ma@gADMHFAFE@IKHIJD@GCY[kBBoAK}@?iA]Co@Hg@CCHG`@Dl@[jCg@~@YZYPg@Jy@x@CPWr@@^LTj@@^NFT?j@a@C[PgCMIQMe@GcAGMAKCsAMJ_B?ECSgACoBGaAK[As@a@Ag@Jq@AMAGICMIiCK}@?gAEc@?gAMw@K?GFkAX]B_@JM?GGWeAIiAQ_AOc@Cg@Sq@SMq@}Aq@O]U}@sAm@q@a@o@m@k@]i@q@y@SMc@Cy@Dc@JW?QEMDgA?]HIAEGK?eAH]?k@NwAGi@PuBNmDLUAg@La@_@a@?YIIGGOGa@@cAQwA@i@Wq@OWKGYAaALy@BMWCe@@SEm@Og@e@oAAm@CKGCcAPk@?",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 212,
-          "distance": 1157.53,
-          "moving_time": 630748,
-          "elapsed_time": 714349,
-          "elevation_gain": 88196.0
+          "count": 213,
+          "distance": 1162.53,
+          "moving_time": 633313,
+          "elapsed_time": 717122,
+          "elevation_gain": 88425.0
         },
         "all_time": {
-          "count": 1128,
-          "distance": 5817.56,
-          "moving_time": 3155987,
-          "elapsed_time": 3577713,
-          "elevation_gain": 429259.0
+          "count": 1129,
+          "distance": 5822.56,
+          "moving_time": 3158552,
+          "elapsed_time": 3580486,
+          "elevation_gain": 429489.0
         },
         "recent": {
           "count": 17,
-          "distance": 97.29,
-          "moving_time": 54110,
-          "elapsed_time": 60861,
-          "elevation_gain": 9715.0
+          "distance": 97.82,
+          "moving_time": 54339,
+          "elapsed_time": 60766,
+          "elevation_gain": 9705.0
         }
       },
       "biking": {
