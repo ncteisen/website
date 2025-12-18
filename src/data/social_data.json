@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-12-17T10:32:42.844078",
+  "last_updated": "2025-12-18T10:31:36.951903",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Train Dreams",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-12-16",
+        "is_rewatch": false,
+        "review": "<p>2025 has been a great year for smaller, grounded, emotionally moving flicks (Sentimental Value, Hamnet, Sorry Baby, to name a few others). Who doesn't like sitting in a dark room (or plane) with strangers (or friends, or alone) and getting a little dirt in your eyes that you have to wipe away for a minute.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/5/3/8/3/1125383-train-dreams-0-600-0-900-crop.jpg?v=55740bb5b4",
+        "link": "https://letterboxd.com/ncteisen/film/train-dreams/"
+      },
       {
         "title": "Wake Up Dead Man",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>If you have read <a href=\"https://letterboxd.com/ncteisen/film/pride-prejudice/\" rel=\"nofollow\">my review of Pride &amp; Prejudice</a> then you know some of my thoughts on adaptations. </p><p>In general I look for two things. I want an adaptation to stay true to the tone &amp; themes of the original. I also want it to add to the original in ways that are <b>only</b> possible in the form factor of the adaptation (a movie adaptation of a book should be more cinematic, a book adaptation of a movie should be more literary, a play adaptation of a novel should be more theatrical, etc etc etc for all permutations).</p><p>This adaptation was true to the tone of the book throughout, but it took till the last twenty minute to make me feel like it was doing something moving in a cinematic way that a book could never accomplish. Once it got there, it was spectacular.</p><p>I would have enjoyed the first half more if it had stuck to the non-linear narrative of the novel (you know I'm a sucker for non-linear narrative).</p><p>My short reviews usually do better on here (brevity is the soul of wit, after all) but sometime ya just have to rant.</p><p>P.S. for a recent adaptation that I think broke from the theme of the source material and it pissed me off see <a href=\"https://letterboxd.com/ncteisen/film/frankenstein-2025/\" rel=\"nofollow\">my review of Frankenstein<a rel=\"nofollow\">.</a></a></p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/7/7/2/2/3/2/772232-hamnet-0-600-0-900-crop.jpg?v=631489314d",
         "link": "https://letterboxd.com/ncteisen/film/hamnet/"
-      },
-      {
-        "title": "Sentimental Value",
-        "year": 2025,
-        "rating": 4.0,
-        "watched_date": "2025-11-16",
-        "is_rewatch": false,
-        "review": "<p>Another understated and evocative drama from Trier. While it didn't quite have the sustained energy or personal resonance of Worst Person, the emotional crux of the film still get me like \ud83e\udd7a\ud83d\ude22</p><p>Waiting for the digital release so I can re-watch the monologues back to back.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/1/3/3/5/7/1013357-sentimental-value-2025-0-600-0-900-crop.jpg?v=e89e64a309",
-        "link": "https://letterboxd.com/ncteisen/film/sentimental-value-2025/"
       }
     ],
     "stats": {
-      "total_films": 865,
-      "films_this_year": 72,
+      "total_films": 866,
+      "films_this_year": 73,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 35
@@ -726,11 +726,11 @@
           "elevation_gain": 429489.0
         },
         "recent": {
-          "count": 17,
-          "distance": 97.82,
-          "moving_time": 54339,
-          "elapsed_time": 60766,
-          "elevation_gain": 9705.0
+          "count": 16,
+          "distance": 92.6,
+          "moving_time": 51312,
+          "elapsed_time": 57661,
+          "elevation_gain": 9016.0
         }
       },
       "biking": {
