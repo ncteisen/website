@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-12-23T10:31:29.306529",
+  "last_updated": "2025-12-24T10:29:53.610800",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Anchorman: The Legend of Ron Burgundy",
+        "year": 2004,
+        "rating": 4.0,
+        "watched_date": "2025-12-22",
+        "is_rewatch": true,
+        "review": "<p>The next stop on Sarah\u2019s movie education tour</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/7/6/3/7/47637-anchorman-the-legend-of-ron-burgundy-0-600-0-900-crop.jpg?v=afdb4fa667",
+        "link": "https://letterboxd.com/ncteisen/film/anchorman-the-legend-of-ron-burgundy/"
+      },
       {
         "title": "Avatar: Fire and Ash",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>A movie that asks \"what would you do?\" when the answer is blindingly obvious: just lie and shirk off jury duty just like everyone else.</p><p>There might exist a particular mood I <i>could</i> have been in where I liked this a bit more, but I was not in that hypothetical mood when I watched it. I couldn't deal with the atrocious dialogue or the never-ending stream of plot holes. They kept <a href=\"https://tvtropes.org/pmwiki/pmwiki.php/Main/LampshadeHanging\" rel=\"nofollow\">hanging lampshades</a> on the implausibilities but that somehow made it worse (e.g. \"oh we couldn't possibly have a mistrial on this extremely high-profile case we're simply toooo busy\").</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/7/7/2/2/997722-juror-2-0-600-0-900-crop.jpg?v=14601fa694",
         "link": "https://letterboxd.com/ncteisen/film/juror-2/"
-      },
-      {
-        "title": "Boiling Point",
-        "year": 2021,
-        "rating": 3.5,
-        "watched_date": "2025-11-23",
-        "is_rewatch": false,
-        "review": "<p>That one episode of The Bear but make it 90 minutes long and also Scouse</p><p>Bonus half star because it isn't every day I discover a new example of Cockney rhyming slang (henry -&gt; henry the eighth -&gt; eight ball)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/4/2/2/5/724225-boiling-point-0-600-0-900-crop.jpg?v=0b18b70ab9",
-        "link": "https://letterboxd.com/ncteisen/film/boiling-point-2021/"
       }
     ],
     "stats": {
       "total_films": 868,
-      "films_this_year": 75,
+      "films_this_year": 76,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 35
@@ -176,6 +176,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16822540733,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.04,
+        "moving_time": 2134,
+        "elapsed_time": 2289,
+        "elevation_gain": 128.0,
+        "average_pace": 8.8,
+        "average_heartrate": 133.9,
+        "max_heartrate": 173.0,
+        "average_cadence": 88.7,
+        "average_watts": 300.7,
+        "start_date": "2025-12-23T17:47:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16822540733",
+          "summary_polyline": "uqpeFdlhjVA`A@XAZIXFd@F`@@PDFDjABPN^Hh@CRFf@FrDNdC?\\Fl@IlAFt@P`A?ZJ`B@l@KfAOd@?XD^?b@GdAJd@p@lAb@jACRDp@J`@B\\IJQDADd@HFNHjA?R@j@Ef@Ap@@\\b@`CGPANDf@DbBDVTp@@\\Pp@C~ABp@L~@@f@OrA?TRlAj@xAJt@KjAa@lA?ZFbA[\\LX\\hALV^hBHVNhAJhBAr@Er@?~AQdDa@fDYtDEVi@lISlAI|@k@`CI|@c@pCo@jDYpCAn@BFD@HADGDmBRoBN_AHWF_@J_AVqARcBn@gEHqATuBf@cHb@gEDwARcCCoACa@D{BOwBa@qBkA{DPKDM?[Ey@BSTg@H_@Dc@Ac@Cc@g@_BUcAA[@[JgADKK_ACq@BoBCWUw@YwAAsADiAESUc@UcBAODY?i@F[@MIWKcBEG[GEEDGVIDI@IKo@MyAQ]K[a@q@Oe@E[JeAAg@Iq@RaBCc@BaAKqBG_@Gy@D_ACgAc@wG?E`@MUoBOw@Bi@AUWu@CUAw@Mu@AuA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16815739739,
         "name": "Afternoon Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a16734131738",
           "summary_polyline": "ampeFvghjVNfBb@nBMl@f@jCFp@MjANf@FvAXbACzA\\jAIbB^tAFv@CjC^nEP|@KhAG~At@`CF|Bn@jF@tAb@vBJhACpCRbAPnCE^\\vBJnAD~D`@pELv@d@BfCk@dAH~@U`AZjBa@~Ec@dCgA`BDbBc@tAC|Bo@zCIzAUzFa@HxBb@dC?`@d@hBPVd@Ft@jAPd@IgAWaA]i@HU|@jBhA~@IzAh@fACTJ\\Qd@D~AKPc@IiAiA?NO?MVUAY^Ej@m@xAJ|@j@fAa@~@Hl@EjAXV`C[l@^l@nAv@e@n@C`@]hAWn@v@DjAJj@l@h@^Cb@S`BqBxDs@f@_@O_@gASaCiB[i@Mo@HC\\l@t@Rk@}@MgBb@yALmBI]YWSsBSq@AuBc@_ARo@rASd@u@Ee@]m@AURA^i@`@`@d@Br@r@FOTLNUn@tAj@XtBE`AcAAa@a@iB{@w@Mk@_@]i@mCeA_Ce@Yc@eA?y@p@y@`@yFhDeAzAs@d@g@?k@e@sAW]_@Ea@\\e@bAA`AL^V@hG_Cf@H|AzAx@Zr@IpAu@j@AnC|BLh@DjDb@jAf@l@pCx@bAIXWLc@C]Ye@wDeDCs@P[Pf@v@t@tBfA|BfB@d@{@nEA|EXlB`@j@\\`B?`@UC?l@NhAPVLbALTkAz@@dAa@b@M_@QnAg@TBSQ?Kz@Oc@E}AEj@_@a@[He@SqBXGVJPAZo@~AO|BLtCk@rCRxBN@@m@\\t@wAfCEv@Pt@t@Nb@s@n@YDa@Z]t@JXg@@c@WAe@^SGXi@x@_@xAsAvA\\h@CVV]`BoArAi@?Sr@eBxAOXw@@aAh@g@p@h@CAJsD`Ca@n@Ll@o@|@yApAkCnDqBhAsCV}Hy@oBDwLdA_H?wARkBSqC@mALe@Xg@OoGDe@VgDXoHZSRj@jDGfBS`A}Ef@kAf@k@l@OCsBgEgCkDq@iB{@sFaAmHIkBDiBUwCc@mAoBwAGWb@_HEiDH}Cc@_EwA{EX_@CoAd@uABmAkAqELuBM{A?wBi@kDIoDc@cDHeCMeBi@Wd@c@Q{BkAaCQcAJoAKoAT{AA}C_@qB@yCi@oIFa@]mD?y@N]bBm@dACa@mH",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16726389431,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.49,
-        "moving_time": 2371,
-        "elapsed_time": 2728,
-        "elevation_gain": 223.0,
-        "average_pace": 8.8,
-        "average_heartrate": 134.9,
-        "max_heartrate": 164.0,
-        "average_cadence": 88.3,
-        "average_watts": 301.5,
-        "start_date": "2025-12-12T23:45:38Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16726389431",
-          "summary_polyline": "}qpeFjlhjVEN@HLhALb@?lAA^JTF\\?TCTD`@?v@N~@FVIv@APDZFREPF\\Bj@Zt@Pl@UHGFITG^NtALl@FpBHp@AHBJIXCRWl@AJDNJPBNSnBL`@F`@l@fARh@JrADL?r@ENUHBB^DDFBJDpAErB?x@BPNR@\\R|@Eh@Lv@Ah@Bd@b@jCCpABbALx@Bx@APKZA^Jj@Dj@Nr@N^Nh@DXAf@Ip@K`@Wd@AJXhBRh@IDCJ?d@~@vDPjBB`AAt@Gf@GPWNa@?IAa@KKIYa@]YWm@YSWi@Ya@YO[C]Tg@RS\\e@b@]t@Q`ACd@HzAJ`Ah@pDDf@TzALhBBv@LjAJh@N^RXp@h@VL\\^LVb@fAZ`@@J?d@In@qB~KIn@Q|BAd@BFB@JEBK@cAL_BJm@BUPgALaAz@_EPiAFOHMh@G`@KRCP?~@LD?HIBIBi@Ja@J_Ah@UBIJqA?oABQJMJC`@GRKh@AXOTUh@w@b@cAD[Kq@Qe@g@o@KUEs@Mo@Qk@?MPuAJg@t@eBVc@Z_@FKLm@@[]uDCKIGYEKGQWKc@O_@GIUMMUWAe@HE?CKCq@G_A]mCEs@?w@GuAEYAe@CWK]Cy@Ii@CkAW{CA}@C]A{@Q}AAk@SiCAq@MkAOoBEU?a@SaDQiB?a@CSBUSsCWiCCaAg@iHCy@[wC?o@IyA?e@Ky@OuBG[?e@MmBM}AIo@?k@I}A",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 218,
-          "distance": 1192.72,
-          "moving_time": 649039,
-          "elapsed_time": 733877,
-          "elevation_gain": 90102.0
+          "count": 219,
+          "distance": 1196.76,
+          "moving_time": 651173,
+          "elapsed_time": 736166,
+          "elevation_gain": 90230.0
         },
         "all_time": {
-          "count": 1134,
-          "distance": 5852.75,
-          "moving_time": 3174278,
-          "elapsed_time": 3597241,
-          "elevation_gain": 431165.0
+          "count": 1135,
+          "distance": 5856.79,
+          "moving_time": 3176412,
+          "elapsed_time": 3599530,
+          "elevation_gain": 431293.0
         },
         "recent": {
-          "count": 17,
-          "distance": 100.89,
-          "moving_time": 54792,
-          "elapsed_time": 60531,
-          "elevation_gain": 8724.0
+          "count": 18,
+          "distance": 104.94,
+          "moving_time": 56926,
+          "elapsed_time": 62820,
+          "elevation_gain": 8852.0
         }
       },
       "biking": {
