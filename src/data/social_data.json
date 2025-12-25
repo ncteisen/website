@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-24T10:29:53.610800",
+  "last_updated": "2025-12-25T10:30:00.414504",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Barbarians at the Gate: The Fall of RJR Nabisco",
+        "author": "Bryan Burrough",
+        "rating": 4.0,
+        "read_at": "2025/12/24",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442897076l/781182.jpg",
+        "link": "https://www.goodreads.com/review/show/8066165910?utm_medium=api&utm_source=rss",
+        "review": "<br/>Just like Succession except it\u2019s a 600 page book and it all actually happened<br/>"
+      },
+      {
         "title": "The Secret History",
         "author": "Donna Tartt",
         "rating": 3.0,
@@ -156,26 +165,39 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704107491l/173754979.jpg",
         "link": "https://www.goodreads.com/review/show/7643271915?utm_medium=api&utm_source=rss",
         "review": "<br/>I didn't really vibe with the writing style - too much telling and not enough showing. There were some bits in there I did enjoy (the reclaimed code switching, small philosophies on god, huckleberry ret cons) but in the end this was a book I was reading just to get to the end so I could read a different book. <br/>"
-      },
-      {
-        "title": "Sunrise on the Reaping (The Hunger Games)",
-        "author": "Suzanne Collins",
-        "rating": 2.0,
-        "read_at": "2025/05/24",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg",
-        "link": "https://www.goodreads.com/review/show/7597004885?utm_medium=api&utm_source=rss",
-        "review": "<br/>This is an example of a prequel that actually causes a character to <i>lose</i> depth. Haymitch was a fully three-dimensional character in the original trilogy, with a backstory and that was shown, not told, and understood through dialog and choices.<br /><br />This prequel was a cameo-jammed, overly retconned, unnecessary retelling of a story that packed a bigger punch in less than ten pages of <i>Catching Fire</i>.<br /><br />The only saving grace - even though I complained about it a sentence ago - is that each cameo did make me squeal \"omg I KNOW them.\"<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 279,
+      "total_ratings": 280,
       "average_rating": 4.18,
-      "total_reviews": 117
+      "total_reviews": 118
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16832130162,
+        "name": "Morning Chrysler",
+        "type": "Run",
+        "distance": 6.01,
+        "moving_time": 3917,
+        "elapsed_time": 4253,
+        "elevation_gain": 1201.0,
+        "average_pace": 10.87,
+        "average_heartrate": 133.3,
+        "max_heartrate": 162.0,
+        "average_cadence": 83.8,
+        "average_watts": 276.6,
+        "start_date": "2025-12-24T18:14:04Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16832130162",
+          "summary_polyline": "axafFvzdiVaA@GEG}@CeCCQMO}AAsETcB@uCRiAP{A@c@KKUI_A?c@Ee@Bm@Gy@AcAI{@Ba@Gs@?sAKsC?qACKKKOEaBAaAHWJw@Jc@Ak@Fk@T]DmAFeBTu@?ECQ]e@a@kB?]Ks@i@a@Km@AiA\\I?UO{@eBe@sAO{AY_Aa@}B[s@QwAi@sBGaBBsACgADOTsCCeBRyANyCJ}@SIKSIk@Cu@YyAT}@FkBCWe@q@[_AUQ_@KGI?GBGp@DVILMR]Nm@L{@Vm@RILb@L~@Rd@LLfAr@j@?HCBKDANRBHEV[z@Ot@Ar@BVFLf@r@FPIXWJU^?tCDd@\\nAFr@TPXJRf@@PK`@QV]lAAd@Bb@Xd@h@T`@H~@z@tAnBb@VZ@HIBOIiAAQBSCGAy@Ma@?gAI_@A_@m@kDMqA@e@Fk@Zy@`@iCFo@@[C_@]{@Ce@N_@b@]ZKZ[J_@FIf@YVYDe@Gk@DYAg@JqAAST[BSIUOM_AIMEg@o@[w@_A_@MOC[Fa@A_A]aAP}@@WE]OK[EUSESNm@Gi@Sm@Wk@Y]WKGS@_@FSp@ORQLSIWQWB?Yg@U{@No@D_@HYA[]Wc@o@c@_@_@Fg@TWBk@AYGc@e@Wa@W_Bc@qAGo@?_AEaAKa@SSQGgAMiAa@_BJIF[d@_@HYGYQKu@D?LRLJPCRURe@JKZiAPKn@I^a@Vk@NCvAHlAf@\\`@Vh@`A|@JT@VEj@Ml@Eb@BVHXLJv@L`Cv@D`@A~ADv@n@v@f@dAPVlAp@NRDNJ~Ah@`BHh@?~@BNK^Ab@D^ARJjAAHRxALJ`@tAXh@~@dAh@t@f@Rr@?\\Ht@X`@b@BTE`@w@`DGbD?TH^^`@x@`@VV|@Ll@T^Vv@jA?LFRTb@`@b@HV^l@l@NVKt@C`Af@`B@THVTJl@Cd@Wh@S`AONEt@EJBx@HRNLHVGd@EL_@\\@THJRBRGRYJg@HMbAi@HMH_@?QDI^GRZEp@LvAUdAe@zAq@bAc@f@BFB?xB{@hAOZWLBC`ADt@Af@@x@Dl@GjBEZAx@b@vM?hARvFAf@HtBTnKF|@DBdA@|@Im@?}@N",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16822540733,
         "name": "Morning Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a16743794560",
           "summary_polyline": "{qpeFflhjV@|@L~BL\\Hj@?^TbAAVD^ATBd@AnA@h@Ff@?n@H~@HjBATEZDl@?^TfA@RB`CE|@EXKb@@VD^?ZOfA@RRl@RTZp@X|@@p@LtAIPSHZHFHPzA@PEtA@|@BPJVBr@J`@?LGb@B`@?~@Jf@@TP^Ft@JVD\\?Z@FAl@?dALhAO`B?d@RfAl@hBBZCv@Mj@O\\GZHpAVrAKRCV@NXx@^fBRxBBvAMjAGJODU@u@GMKg@o@O[OQKU[a@w@u@QE[AULS\\K@IF_AbASd@UdAEt@@l@PfB\\rBVnBFr@RpAZhEJ^RXTV|@h@`@d@b@jA`@p@DJ?p@eArFe@jCYtAQhBCv@?p@Ll@Hv@Nl@FHLHXJJ?TLRPn@lAh@p@fAjBj@v@xCzERLr@N`@Xr@ZH@P}@R}AFUF_@J]Pk@j@mAJKHYPY\\_ALUXcALMXg@LEl@_@bAQh@AxAG`@GFCHUTeB@OA]Ik@Eg@KYGg@Go@Qs@G_@a@qAIo@WqAIw@?w@DaADc@CUWq@OWo@{AU]KWG[Sa@Yg@s@w@g@u@]eBMiA?k@Lq@A]g@iAIYKWS[OQIW?a@FKTSBKS}A?]HoAGgAI[?a@Kq@]k@GDGC?GQKMm@S]SMCG]MW@YFII?s@Ek@?[YaBIw@A_@GY@}@G}@YwA@w@Is@@OCEDk@M_A?[Ee@G]IQ?s@Gk@@gAY}AOkAEaA@yAOqB?c@OkA@_ACm@QuBI]AWEQI_CMu@@OG[?m@Gy@C_AIWEs@GwA?aAGi@?_@E]Cq@EYCa@ESE{@G[Kw@Ag@Ic@EyA?eAMeAEeAOuASaEGw@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16734131738,
-        "name": "Sweating out the holiday party calories",
-        "type": "Run",
-        "distance": 10.03,
-        "moving_time": 5522,
-        "elapsed_time": 6144,
-        "elevation_gain": 1102.0,
-        "average_pace": 9.18,
-        "average_heartrate": 141.3,
-        "max_heartrate": 169.0,
-        "average_cadence": 88.8,
-        "average_watts": 300.4,
-        "start_date": "2025-12-13T17:53:57Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16734131738",
-          "summary_polyline": "ampeFvghjVNfBb@nBMl@f@jCFp@MjANf@FvAXbACzA\\jAIbB^tAFv@CjC^nEP|@KhAG~At@`CF|Bn@jF@tAb@vBJhACpCRbAPnCE^\\vBJnAD~D`@pELv@d@BfCk@dAH~@U`AZjBa@~Ec@dCgA`BDbBc@tAC|Bo@zCIzAUzFa@HxBb@dC?`@d@hBPVd@Ft@jAPd@IgAWaA]i@HU|@jBhA~@IzAh@fACTJ\\Qd@D~AKPc@IiAiA?NO?MVUAY^Ej@m@xAJ|@j@fAa@~@Hl@EjAXV`C[l@^l@nAv@e@n@C`@]hAWn@v@DjAJj@l@h@^Cb@S`BqBxDs@f@_@O_@gASaCiB[i@Mo@HC\\l@t@Rk@}@MgBb@yALmBI]YWSsBSq@AuBc@_ARo@rASd@u@Ee@]m@AURA^i@`@`@d@Br@r@FOTLNUn@tAj@XtBE`AcAAa@a@iB{@w@Mk@_@]i@mCeA_Ce@Yc@eA?y@p@y@`@yFhDeAzAs@d@g@?k@e@sAW]_@Ea@\\e@bAA`AL^V@hG_Cf@H|AzAx@Zr@IpAu@j@AnC|BLh@DjDb@jAf@l@pCx@bAIXWLc@C]Ye@wDeDCs@P[Pf@v@t@tBfA|BfB@d@{@nEA|EXlB`@j@\\`B?`@UC?l@NhAPVLbALTkAz@@dAa@b@M_@QnAg@TBSQ?Kz@Oc@E}AEj@_@a@[He@SqBXGVJPAZo@~AO|BLtCk@rCRxBN@@m@\\t@wAfCEv@Pt@t@Nb@s@n@YDa@Z]t@JXg@@c@WAe@^SGXi@x@_@xAsAvA\\h@CVV]`BoArAi@?Sr@eBxAOXw@@aAh@g@p@h@CAJsD`Ca@n@Ll@o@|@yApAkCnDqBhAsCV}Hy@oBDwLdA_H?wARkBSqC@mALe@Xg@OoGDe@VgDXoHZSRj@jDGfBS`A}Ef@kAf@k@l@OCsBgEgCkDq@iB{@sFaAmHIkBDiBUwCc@mAoBwAGWb@_HEiDH}Cc@_EwA{EX_@CoAd@uABmAkAqELuBM{A?wBi@kDIoDc@cDHeCMeBi@Wd@c@Q{BkAaCQcAJoAKoAT{AA}C_@qB@yCi@oIFa@]mD?y@N]bBm@dACa@mH",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 219,
-          "distance": 1196.76,
-          "moving_time": 651173,
-          "elapsed_time": 736166,
-          "elevation_gain": 90230.0
+          "count": 220,
+          "distance": 1202.77,
+          "moving_time": 655090,
+          "elapsed_time": 740419,
+          "elevation_gain": 91430.0
         },
         "all_time": {
-          "count": 1135,
-          "distance": 5856.79,
-          "moving_time": 3176412,
-          "elapsed_time": 3599530,
-          "elevation_gain": 431293.0
+          "count": 1136,
+          "distance": 5862.8,
+          "moving_time": 3180329,
+          "elapsed_time": 3603783,
+          "elevation_gain": 432494.0
         },
         "recent": {
           "count": 18,
           "distance": 104.94,
-          "moving_time": 56926,
-          "elapsed_time": 62820,
-          "elevation_gain": 8852.0
+          "moving_time": 57634,
+          "elapsed_time": 63573,
+          "elevation_gain": 9849.0
         }
       },
       "biking": {
