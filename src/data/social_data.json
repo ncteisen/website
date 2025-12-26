@@ -1,8 +1,18 @@
 {
-  "last_updated": "2025-12-25T10:30:00.414504",
+  "last_updated": "2025-12-26T10:29:50.625216",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Marty Supreme",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2025-12-25",
+        "is_rewatch": false,
+        "review": "<p>Intentional, relentless, aggressive</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43",
+        "link": "https://letterboxd.com/ncteisen/film/marty-supreme/"
+      },
       {
         "title": "Anchorman: The Legend of Ron Burgundy",
         "year": 2004,
@@ -72,21 +82,11 @@
         "review": "<p>One of the few movies you watch then say \"they don't make em like they used to\" and actually be spot on.</p><p>It's the accumulation of a thousand of small, perfectly-made choices that elevate above its trope-y genre.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/2/4/1/49241-michael-clayton-0-600-0-900-crop.jpg?v=6a1d790e35",
         "link": "https://letterboxd.com/ncteisen/film/michael-clayton/"
-      },
-      {
-        "title": "Juror #2",
-        "year": 2024,
-        "rating": 2.0,
-        "watched_date": "2025-11-23",
-        "is_rewatch": false,
-        "review": "<p>A movie that asks \"what would you do?\" when the answer is blindingly obvious: just lie and shirk off jury duty just like everyone else.</p><p>There might exist a particular mood I <i>could</i> have been in where I liked this a bit more, but I was not in that hypothetical mood when I watched it. I couldn't deal with the atrocious dialogue or the never-ending stream of plot holes. They kept <a href=\"https://tvtropes.org/pmwiki/pmwiki.php/Main/LampshadeHanging\" rel=\"nofollow\">hanging lampshades</a> on the implausibilities but that somehow made it worse (e.g. \"oh we couldn't possibly have a mistrial on this extremely high-profile case we're simply toooo busy\").</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/7/7/2/2/997722-juror-2-0-600-0-900-crop.jpg?v=14601fa694",
-        "link": "https://letterboxd.com/ncteisen/film/juror-2/"
       }
     ],
     "stats": {
-      "total_films": 868,
-      "films_this_year": 76,
+      "total_films": 869,
+      "films_this_year": 77,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 35
