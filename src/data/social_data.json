@@ -1,8 +1,28 @@
 {
-  "last_updated": "2025-12-26T10:29:50.625216",
+  "last_updated": "2025-12-27T10:27:17.057237",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "The New Yorker at 100",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-12-26",
+        "is_rewatch": false,
+        "review": "<p>Instead of a review, check out my erudite-maxxing watch setup instead: <a href=\"https://imgur.com/a/29Z4QEm\" rel=\"nofollow\">https://imgur.com/a/29Z4QEm</a> (haven\u2019t read any of them btw).</p><p>This was fun because I like the New Yorker and I love the folks that work there getting airtime, but it had nothing on\u00a0<a href=\"https://letterboxd.com/film/very-semi-serious/\" rel=\"nofollow\">Very Semi-Serious</a>.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/3/0/2/6/0/6/1302606-the-new-yorker-at-100-0-600-0-900-crop.jpg?v=167283bc68",
+        "link": "https://letterboxd.com/ncteisen/film/the-new-yorker-at-100/"
+      },
+      {
+        "title": "Jay Kelly",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2025-12-26",
+        "is_rewatch": false,
+        "review": "<p>Anodyne, saccharine, but it goes down easy</p><p>Lost half a star from that god awful scene between Dern and Sandler, how does that dialogue end up in the final cut of a Baumbach movie?</p><p>2025 \u201cpower of art\u201d / \u201cbad dad\u201d triple feature with Hamnet and Sentimental Value.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/6/4/4/3/8/964438-jay-kelly-0-600-0-900-crop.jpg?v=173fd0d7da",
+        "link": "https://letterboxd.com/ncteisen/film/jay-kelly/"
+      },
       {
         "title": "Marty Supreme",
         "year": 2025,
@@ -62,31 +82,11 @@
         "review": "<p>I could watch a Rian Johnson mystery every single night of my life. Keep em coming!</p><p>P.S. Netflix pls don't kill movies thx</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617",
         "link": "https://letterboxd.com/ncteisen/film/wake-up-dead-man/"
-      },
-      {
-        "title": "Nickel Boys",
-        "year": 2024,
-        "rating": 3.5,
-        "watched_date": "2025-12-01",
-        "is_rewatch": false,
-        "review": "<p>I spent a lot of the movie deciding if the first-person camera was a distracting conceit or something fundamental to telling the story and I landed a bit mixed.</p><p>It got be thinking about strong camera constraints in general (oners, bottle movies, etc etc etc) and the balance of artifice vs genuine narrative device. I asked that question of other movies I have liked like Birdman, Enter the Void, 12 Angry Men, Presence and how IMO they work a bit better with their chosen tricks.</p><p>Final decision - this story could have been told just as well (maybe even better) without the strong first-person constraint, but it will certainly be more memorable because of it. Anyway... 3.5 stars.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/2/6/5/8/9/926589-nickel-boys-0-600-0-900-crop.jpg?v=c90912e607",
-        "link": "https://letterboxd.com/ncteisen/film/nickel-boys/"
-      },
-      {
-        "title": "Michael Clayton",
-        "year": 2007,
-        "rating": 4.5,
-        "watched_date": "2025-11-29",
-        "is_rewatch": true,
-        "review": "<p>One of the few movies you watch then say \"they don't make em like they used to\" and actually be spot on.</p><p>It's the accumulation of a thousand of small, perfectly-made choices that elevate above its trope-y genre.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/2/4/1/49241-michael-clayton-0-600-0-900-crop.jpg?v=6a1d790e35",
-        "link": "https://letterboxd.com/ncteisen/film/michael-clayton/"
       }
     ],
     "stats": {
-      "total_films": 869,
-      "films_this_year": 77,
+      "total_films": 872,
+      "films_this_year": 79,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 35
@@ -176,6 +176,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16848046913,
+        "name": "The long way to cookin",
+        "type": "Run",
+        "distance": 5.27,
+        "moving_time": 2702,
+        "elapsed_time": 2766,
+        "elevation_gain": 256.0,
+        "average_pace": 8.55,
+        "average_heartrate": 136.6,
+        "max_heartrate": 161.0,
+        "average_cadence": 88.7,
+        "average_watts": 317.3,
+        "start_date": "2025-12-26T19:02:25Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16848046913",
+          "summary_polyline": "}qpeFflhjVJhBAb@Dl@FX?PJ\\BTCH@^BXPl@PbA?`@GZAR?^PpCBfA?\\Dp@It@ATHf@Lr@RlCG`BGZITAJFdAEr@?`ADNJPHZV`@LV?LRj@D`@?RHx@DHNFFVGl@DxACdCDZLj@?TNd@AJEXD|@Ad@Fn@Ld@ZtBBhAFj@CRJ|@@h@MzA@^D^VhA^x@Fl@Eh@Eb@]l@GX?h@Fn@TdAGRAXz@|DJx@JfBC~AGXBhASrDu@|IObCSnBShCOnAq@lDe@`Dg@rBQ`AM|@IlAE`CVdI@nAN`C\\jAt@rAfBfCjA~BV`@ZdANr@LnACl@OvAm@rCGn@Al@JlACbCKnA@p@Hr@FR@TDLZTRJ|@?PCHEPSFQNgA@e@Fi@Ri@p@eA`@sAHo@?m@A_@Km@OcB?cBS}AOo@@[FSHIJCJ@PHHL@NL\\z@zA^`@~@t@n@Ln@@TANBTEVGFG?CGEYCo@O[Ms@Oo@]i@k@MWOa@]wAGu@@m@Ce@?iCDw@b@iCXkA^eAn@sA^eAVe@Ls@A[Sk@k@w@MUI]MW}@sAeAmAUg@[c@GQKe@]aC[mBC]Mm@Gq@EYAa@Qs@SsACg@DmADe@MmCK{@Ma@[g@w@k@q@[KMCK?a@HeBX{DEaBDkAH}@@cAIiASuAu@mCUi@U{@RIHOGsADURi@FWBoAC_@Um@WcAIa@Ci@?SHg@Di@?WGe@I]AuA@[AYEWI]KgAGQGc@Cs@BoBCQUk@Ii@G{@D}AEyADg@AQBMKQCKIw@Ie@Co@OYQg@[c@YcAD{AGs@?KRmABaAKcCOwAC}@BaAAoAKm@KqAO{D@e@Eq@?_@IoA@u@GW",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16832130162,
         "name": "Morning Chrysler",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a16777644853",
           "summary_polyline": "ay|cFhnqiVGB?DRZfAJPOLi@NYJGZAd@V\\X^?BCDk@FUJGNCRIDIJi@JYNIPED@^NRTLDr@P`@`@Nd@JlALZr@RPRLR\\XZH`@B^HFFJZRTN@HDb@Jz@AtBKP@h@DrAd@NBR?NIDGNc@Dk@Cg@@SJ_@LKb@O^U^c@\\m@vCwJNq@~@gDHQXYTGV@lA`@|@d@|@Pj@Th@Hh@Pd@DZ?lAW^Yx@y@PMPELMnBgAlAw@`Ai@f@QZGt@If@A^@^FlBNl@Lb@NdDlBl@Z|@x@bAjAZVJLN\\@^I~EBtDMrA?TH`@f@bA~@rCJPLFNANEHGHYRiBHYPSlA]p@a@NG\\Dd@h@Y`@y@t@]^MVEP]p@g@f@k@`AyAfBa@p@}@hA[h@q@p@Wh@QNQb@UPO`@STM`@U`@M`@Wf@iAfBKZSVGGG?UP_@x@QNYl@Sr@QT[TGNKJg@Ny@JWF]NWTWN_ATWDMHWBMJMFuCT[Ac@GCBFL?BCBsARw@FWHkAROHw@TeAf@EJATSVSBWEKFe@x@gAbCSt@a@jAMj@IVYbBCj@Dp@HtD^fAF`@APQrAARBb@RdA@ZGX]x@OPQNy@d@Yf@MRaC~Ak@VoAp@c@Fa@Ks@Wg@EaB^y@V]Nk@d@mAfBmAhCg@jBW`@KFIAUKiA}@a@i@Yc@AO@S@KPY^e@`By@f@]`@_@\\e@^eAH_@H{@Cg@GSKSyCyCUSGAQJILa@jA[d@_@^m@`@y@Zi@H]@aAI]Ia@Qw@g@y@s@aAeAe@Wa@Wg@m@YYc@m@QQu@gAiDoFyAqB}AgCWg@So@Uu@Om@Ks@Qs@Ei@Mq@@s@B]PcBPgALqBRwAFeDf@gHFUTYl@i@p@u@NWBQ?KKW_@a@a@{@JRt@z@AMQs@CWAY@OHY@U?YOiBWw@GKOs@SoBCgAQoACc@@YE[@MJCvDNn@An@B`@FnDLt@E\\I",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16743794560,
-        "name": "Lunch Run",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2565,
-        "elapsed_time": 2773,
-        "elevation_gain": 230.0,
-        "average_pace": 8.55,
-        "average_heartrate": 131.1,
-        "max_heartrate": 158.0,
-        "average_cadence": 89.1,
-        "average_watts": 318.1,
-        "start_date": "2025-12-14T19:11:15Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16743794560",
-          "summary_polyline": "{qpeFflhjV@|@L~BL\\Hj@?^TbAAVD^ATBd@AnA@h@Ff@?n@H~@HjBATEZDl@?^TfA@RB`CE|@EXKb@@VD^?ZOfA@RRl@RTZp@X|@@p@LtAIPSHZHFHPzA@PEtA@|@BPJVBr@J`@?LGb@B`@?~@Jf@@TP^Ft@JVD\\?Z@FAl@?dALhAO`B?d@RfAl@hBBZCv@Mj@O\\GZHpAVrAKRCV@NXx@^fBRxBBvAMjAGJODU@u@GMKg@o@O[OQKU[a@w@u@QE[AULS\\K@IF_AbASd@UdAEt@@l@PfB\\rBVnBFr@RpAZhEJ^RXTV|@h@`@d@b@jA`@p@DJ?p@eArFe@jCYtAQhBCv@?p@Ll@Hv@Nl@FHLHXJJ?TLRPn@lAh@p@fAjBj@v@xCzERLr@N`@Xr@ZH@P}@R}AFUF_@J]Pk@j@mAJKHYPY\\_ALUXcALMXg@LEl@_@bAQh@AxAG`@GFCHUTeB@OA]Ik@Eg@KYGg@Go@Qs@G_@a@qAIo@WqAIw@?w@DaADc@CUWq@OWo@{AU]KWG[Sa@Yg@s@w@g@u@]eBMiA?k@Lq@A]g@iAIYKWS[OQIW?a@FKTSBKS}A?]HoAGgAI[?a@Kq@]k@GDGC?GQKMm@S]SMCG]MW@YFII?s@Ek@?[YaBIw@A_@GY@}@G}@YwA@w@Is@@OCEDk@M_A?[Ee@G]IQ?s@Gk@@gAY}AOkAEaA@yAOqB?c@OkA@_ACm@QuBI]AWEQI_CMu@@OG[?m@Gy@C_AIWEs@GwA?aAGi@?_@E]Cq@EYCa@ESE{@G[Kw@Ag@Ic@EyA?eAMeAEeAOuASaEGw@",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 220,
-          "distance": 1202.77,
-          "moving_time": 655090,
-          "elapsed_time": 740419,
-          "elevation_gain": 91430.0
+          "count": 221,
+          "distance": 1208.04,
+          "moving_time": 657792,
+          "elapsed_time": 743185,
+          "elevation_gain": 91686.0
         },
         "all_time": {
-          "count": 1136,
-          "distance": 5862.8,
-          "moving_time": 3180329,
-          "elapsed_time": 3603783,
-          "elevation_gain": 432494.0
+          "count": 1137,
+          "distance": 5868.07,
+          "moving_time": 3183031,
+          "elapsed_time": 3606549,
+          "elevation_gain": 432750.0
         },
         "recent": {
-          "count": 18,
-          "distance": 104.94,
-          "moving_time": 57634,
-          "elapsed_time": 63573,
-          "elevation_gain": 9849.0
+          "count": 19,
+          "distance": 110.21,
+          "moving_time": 60336,
+          "elapsed_time": 66339,
+          "elevation_gain": 10105.0
         }
       },
       "biking": {
