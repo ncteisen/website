@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-04T10:27:58.004149",
+  "last_updated": "2026-01-05T10:34:14.068504",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -84,10 +84,24 @@
         "link": "https://letterboxd.com/ncteisen/film/wake-up-dead-man/"
       }
     ],
-    "stats": {}
+    "stats": {
+      "total_films": 872,
+      "total_lists": 8,
+      "following_count": 40,
+      "followers_count": 35
+    }
   },
   "goodreads": {
     "recent_reviews": [
+      {
+        "title": "Pale Fire",
+        "author": "Vladimir Nabokov",
+        "rating": 4.0,
+        "read_at": "2026/01/04",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388155863l/7805.jpg",
+        "link": "https://www.goodreads.com/review/show/8116820985?utm_medium=api&utm_source=rss",
+        "review": "<br/>Wow this was <i>l i t e r a r y</i>, and it was just at the outer limit of my attention span outside of an academic setting (don't get many of those these days do I). I was only able to get through thanks to the long break from work and work related stress. I'm glad I had the chance because in the end this was a very rewarding puzzle to unpack and enjoy.<br /><br />At some points I wished to have this in print format for easier flipping back and forth, but I appreciated Kindle's X-Ray feature for the first time ever, and I very much relied on its dictionary (was looking up about one word per page).<br /><br />With all the cross-references and intertextual links, by the time I finished I felt like I'd read the entire book three times.<br /><br /><br/>"
+      },
       {
         "title": "Sharp Objects",
         "author": "Gillian Flynn",
@@ -150,26 +164,39 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348862299l/6743598.jpg",
         "link": "https://www.goodreads.com/review/show/3787290036?utm_medium=api&utm_source=rss",
         "review": "<br/>Funemployment is as good a time as ever to remember the fundamentals!<br/>"
-      },
-      {
-        "title": "Frankenstein",
-        "author": "Mary Wollstonecraft Shelley",
-        "rating": 5.0,
-        "read_at": "2025/07/03",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665008650l/18490.jpg",
-        "link": "https://www.goodreads.com/review/show/1706008098?utm_medium=api&utm_source=rss",
-        "review": "<br/>Missed this classic in High School (shame on you Shaker!). It was absolutely <b>nothing</b> like I expected it would be based off pop culture. I was waiting for mobs, Fritz/Igor, and \"it's alive\" before realizing all that stuff was added by later movie adaptations.<br /><br />Instead I got stories with in stories told in beautiful language and varying structure on themes of ambition, science, love, etc etc etc. Anyway, it was great.<br /><br />Shoutout to Guillermo del Toro for the catalyst to read.<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 281,
+      "total_ratings": 282,
       "average_rating": 4.17,
-      "total_reviews": 119
+      "total_reviews": 120
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16938047450,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.56,
+        "moving_time": 2306,
+        "elapsed_time": 2445,
+        "elevation_gain": 240.0,
+        "average_pace": 8.43,
+        "average_heartrate": 135.1,
+        "max_heartrate": 158.0,
+        "average_cadence": 89.8,
+        "average_watts": 323.4,
+        "start_date": "2026-01-04T17:53:13Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16938047450",
+          "summary_polyline": "sqpeF`lhjVAfAJjCXz@Cd@Ll@BZHb@Tb@?D?FMf@EfATpECXBVBp@G^LlAHd@Dj@D|A?j@Cp@CRITEX@TH\\@ZA\\GXC^Hf@R^HXR\\Tl@N`ALlADJLLD`@In@HvB?r@Et@N`@BN?ZLd@?LGTFj@A|@DXFLDT@ZHVPtA@nBPfB@HUrB@FD^Rt@f@nAFj@IhAKd@Ul@A`@NtATr@EFEL?Zh@vBRhALfB@v@?v@Gh@GPMHc@@WEOE[Uc@u@a@a@MUSOKUQQ[UUKOAc@Ru@f@i@f@_@jAM~@EbAJtAPbBTlA\\vCRhBPpCJj@LXNTRPv@b@h@h@JP\\fAT`@FTA\\QjAqBtKWpCAp@@LDDFEBMFq@?e@HmAf@yD^uBd@aCDa@Nk@HIhAWRAZHT?\\DJADCHO@SCK@ENo@Fi@JK^OFIDQLyAGy@@SNMb@GTOb@@HANITSn@aAf@iA@]Gq@We@i@u@ESEu@Kc@Sc@?OLkAZsAFSf@cAR]LINWJeA?_@MkACwAQIQEQOO_@CSYi@MEe@[u@DGCAECaAG[?gBMs@KYA]Ka@@u@C_@My@Am@Gc@Gw@Kw@Ao@Ka@BcBG[Ca@Bg@Kk@Ao@IcA?k@C[I[As@M{@Cu@Qo@I{@?q@Gw@G[Bc@OyACkBM]C_@I[Ei@Ak@CSAo@Qm@Bi@Ge@Fq@EK?SE[CgBIa@GaAAo@Ki@?k@WqAMyBG[?a@C_@?m@IaAAc@WqBCg@CQGiAIo@E}@EwBCW",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16926937021,
         "name": "Earning the dumps, mile by mile",
@@ -321,28 +348,6 @@
         "map": {
           "id": "a16848046913",
           "summary_polyline": "}qpeFflhjVJhBAb@Dl@FX?PJ\\BTCH@^BXPl@PbA?`@GZAR?^PpCBfA?\\Dp@It@ATHf@Lr@RlCG`BGZITAJFdAEr@?`ADNJPHZV`@LV?LRj@D`@?RHx@DHNFFVGl@DxACdCDZLj@?TNd@AJEXD|@Ad@Fn@Ld@ZtBBhAFj@CRJ|@@h@MzA@^D^VhA^x@Fl@Eh@Eb@]l@GX?h@Fn@TdAGRAXz@|DJx@JfBC~AGXBhASrDu@|IObCSnBShCOnAq@lDe@`Dg@rBQ`AM|@IlAE`CVdI@nAN`C\\jAt@rAfBfCjA~BV`@ZdANr@LnACl@OvAm@rCGn@Al@JlACbCKnA@p@Hr@FR@TDLZTRJ|@?PCHEPSFQNgA@e@Fi@Ri@p@eA`@sAHo@?m@A_@Km@OcB?cBS}AOo@@[FSHIJCJ@PHHL@NL\\z@zA^`@~@t@n@Ln@@TANBTEVGFG?CGEYCo@O[Ms@Oo@]i@k@MWOa@]wAGu@@m@Ce@?iCDw@b@iCXkA^eAn@sA^eAVe@Ls@A[Sk@k@w@MUI]MW}@sAeAmAUg@[c@GQKe@]aC[mBC]Mm@Gq@EYAa@Qs@SsACg@DmADe@MmCK{@Ma@[g@w@k@q@[KMCK?a@HeBX{DEaBDkAH}@@cAIiASuAu@mCUi@U{@RIHOGsADURi@FWBoAC_@Um@WcAIa@Ci@?SHg@Di@?WGe@I]AuA@[AYEWI]KgAGQGc@Cs@BoBCQUk@Ii@G{@D}AEyADg@AQBMKQCKIw@Ie@Co@OYQg@[c@YcAD{AGs@?KRmABaAKcCOwAC}@BaAAoAKm@KqAO{D@e@Eq@?_@IoA@u@GW",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16832130162,
-        "name": "Morning Chrysler",
-        "type": "Run",
-        "distance": 6.01,
-        "moving_time": 3917,
-        "elapsed_time": 4253,
-        "elevation_gain": 1201.0,
-        "average_pace": 10.87,
-        "average_heartrate": 133.3,
-        "max_heartrate": 162.0,
-        "average_cadence": 83.8,
-        "average_watts": 276.6,
-        "start_date": "2025-12-24T18:14:04Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16832130162",
-          "summary_polyline": "axafFvzdiVaA@GEG}@CeCCQMO}AAsETcB@uCRiAP{A@c@KKUI_A?c@Ee@Bm@Gy@AcAI{@Ba@Gs@?sAKsC?qACKKKOEaBAaAHWJw@Jc@Ak@Fk@T]DmAFeBTu@?ECQ]e@a@kB?]Ks@i@a@Km@AiA\\I?UO{@eBe@sAO{AY_Aa@}B[s@QwAi@sBGaBBsACgADOTsCCeBRyANyCJ}@SIKSIk@Cu@YyAT}@FkBCWe@q@[_AUQ_@KGI?GBGp@DVILMR]Nm@L{@Vm@RILb@L~@Rd@LLfAr@j@?HCBKDANRBHEV[z@Ot@Ar@BVFLf@r@FPIXWJU^?tCDd@\\nAFr@TPXJRf@@PK`@QV]lAAd@Bb@Xd@h@T`@H~@z@tAnBb@VZ@HIBOIiAAQBSCGAy@Ma@?gAI_@A_@m@kDMqA@e@Fk@Zy@`@iCFo@@[C_@]{@Ce@N_@b@]ZKZ[J_@FIf@YVYDe@Gk@DYAg@JqAAST[BSIUOM_AIMEg@o@[w@_A_@MOC[Fa@A_A]aAP}@@WE]OK[EUSESNm@Gi@Sm@Wk@Y]WKGS@_@FSp@ORQLSIWQWB?Yg@U{@No@D_@HYA[]Wc@o@c@_@_@Fg@TWBk@AYGc@e@Wa@W_Bc@qAGo@?_AEaAKa@SSQGgAMiAa@_BJIF[d@_@HYGYQKu@D?LRLJPCRURe@JKZiAPKn@I^a@Vk@NCvAHlAf@\\`@Vh@`A|@JT@VEj@Ml@Eb@BVHXLJv@L`Cv@D`@A~ADv@n@v@f@dAPVlAp@NRDNJ~Ah@`BHh@?~@BNK^Ab@D^ARJjAAHRxALJ`@tAXh@~@dAh@t@f@Rr@?\\Ht@X`@b@BTE`@w@`DGbD?TH^^`@x@`@VV|@Ll@T^Vv@jA?LFRTb@`@b@HV^l@l@NVKt@C`Af@`B@THVTJl@Cd@Wh@S`AONEt@EJBx@HRNLHVGd@EL_@\\@THJRBRGRYJg@HMbAi@HMH_@?QDI^GRZEp@LvAUdAe@zAq@bAc@f@BFB?xB{@hAOZWLBC`ADt@Af@@x@Dl@GjBEZAx@b@vM?hARvFAf@HtBTnKF|@DBdA@|@Im@?}@N",
           "resource_state": 2
         }
       }
@@ -706,25 +711,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 2,
-          "distance": 12.96,
-          "moving_time": 7204,
-          "elapsed_time": 7784,
-          "elevation_gain": 1325.0
+          "count": 3,
+          "distance": 17.52,
+          "moving_time": 9510,
+          "elapsed_time": 10229,
+          "elevation_gain": 1565.0
         },
         "all_time": {
-          "count": 1143,
-          "distance": 5904.4,
-          "moving_time": 3203899,
-          "elapsed_time": 3629464,
-          "elevation_gain": 436890.0
+          "count": 1144,
+          "distance": 5908.96,
+          "moving_time": 3206205,
+          "elapsed_time": 3631909,
+          "elevation_gain": 437130.0
         },
         "recent": {
           "count": 21,
-          "distance": 122.15,
-          "moving_time": 67282,
-          "elapsed_time": 73942,
-          "elevation_gain": 10945.0
+          "distance": 120.08,
+          "moving_time": 65898,
+          "elapsed_time": 71508,
+          "elevation_gain": 10722.0
         }
       },
       "biking": {
