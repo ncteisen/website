@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-08T10:33:12.630747",
+  "last_updated": "2026-01-09T10:31:36.231969",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -94,6 +94,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
+        "author": "J.K. Rowling",
+        "rating": 5.0,
+        "read_at": "2026/01/08",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3.jpg",
+        "link": "https://www.goodreads.com/review/show/1654363198?utm_medium=api&utm_source=rss",
+        "review": "<br/>Full-cast Dolby audiobook for commuting / solo workouts.<br /><br />This was a really fun new addition to the many many many ways to consume the Harry Potter world. Shall I list them all? The original books, the Jim Dale audiobooks, the Stephen Fry audiobooks, the movies, <s>dramione smut</s>, the old PC video games, the newer Switch video game, the future HBO series.<br /><br />And now this, a full-cast audiobook with mind-boggling 3D sound effects and great voice acting (some of whom you will recognize, Matthew Macfadyen so good!)<br/>"
+      },
+      {
         "title": "Pale Fire",
         "author": "Vladimir Nabokov",
         "rating": 4.0,
@@ -155,26 +164,39 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628170837l/3649.jpg",
         "link": "https://www.goodreads.com/review/show/7717568772?utm_medium=api&utm_source=rss",
         "review": "<br/>Smooth reading, but the lack of a driving narrative will make this forgettable for me, in the end<br/>"
-      },
-      {
-        "title": "The Elements of Investing",
-        "author": "Burton G. Malkiel",
-        "rating": 4.0,
-        "read_at": "2025/07/10",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348862299l/6743598.jpg",
-        "link": "https://www.goodreads.com/review/show/3787290036?utm_medium=api&utm_source=rss",
-        "review": "<br/>Funemployment is as good a time as ever to remember the fundamentals!<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
       "total_ratings": 282,
       "average_rating": 4.17,
-      "total_reviews": 120
+      "total_reviews": 121
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 16984794282,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 4.85,
+        "moving_time": 2944,
+        "elapsed_time": 3051,
+        "elevation_gain": 705.0,
+        "average_pace": 10.12,
+        "average_heartrate": 138.0,
+        "max_heartrate": 170.0,
+        "average_cadence": 85.4,
+        "average_watts": 290.1,
+        "start_date": "2026-01-08T15:06:59Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a16984794282",
+          "summary_polyline": "yy|cFviqiVA[?INSP]?KLQt@_BLoAJe@A_@[s@YkAM]Ik@Ce@JgANo@FgA@g@Pg@D_@?SGSQ]?QHW^a@Fa@?IMUUu@\\iAN[^e@T?PN?EMKNDVM\\Dd@d@FB^?f@EFID]C[@[DIHMRE`@DbA^\\Fp@DBFMHa@AQ@A@RL`@J\\Nt@j@@KEQCs@@q@IMQEGGS[GMDE@?LFNPHDDAGQDUNMPYNMJYACQCg@LQ?MFQPC?CM@Q@GTO?EO@e@PEFIRAT@NCFGEUm@G]ICIFAHFb@GBI?S[K_@A]BOPOXO@EQ?ICQUg@UMEY@a@Ee@OYSg@y@k@a@Oa@c@}@y@mAYi@CKAYDkAMa@Gq@PmC?]JeAHW^i@n@uAT]B[JGJA^LZDP?FBLNRFb@BBB@HHFBNJNTBRENVDAJDRVBAXBHCFDB?TNPBLEP?RLFJHDHJDb@DHf@LDGBCANELCL@FRTDh@FDObAATBPLNjAj@bAZz@Zj@NVNHRJ~@FXj@BVK\\GXHf@BLF\\JAy@K_@Gw@Lq@Tg@d@o@bAcB|@qAtBiD^[\\Qb@[|@y@f@m@f@y@nAgCV_@Te@Z{@d@u@h@_@p@[^GNBHD\\h@Xf@J\\Hx@?`@EpAMd@QVQDMC]UIQGo@C{@EIOIS?[JWRKn@AbAE\\KXa@b@IVDXBHx@tAHVDVAJEVGP]d@IFYJ[@]Cg@AOF_@j@c@RgATg@COBMJCJALLj@P\\|AdBNVL`@@f@KbAXfBFlA?TKXIFI?MIUg@MAMFEHEJ?THd@j@`ApArANBTKLSTu@POX?^JLBRAFGBYKs@E{@@QJQHCL?|@PT@ZCLILOXg@Ja@FIRIN@PLHXCT[n@{@jAUTe@r@]^s@\\[H]B_ATwDjBOBU?i@Q{AwA[_@SMKCk@@[Fw@r@i@x@Of@MzAGXKPq@v@SLq@VQJKNGRQ|@i@lEGr@?bB^zF@`BMpLCXKZSj@i@`BQpAINGVMXOROFw@IWWO]OGI?EEKCO?OCk@_@a@_@e@SGEOUUiBO[MMi@SUQcAUSBMLQx@GNGBK?KBOLCHCn@KNI@OCUKIKWSMEWEM?MHKPO^KNOFw@A[@MSGW",
+          "resource_state": 2
+        }
+      },
       {
         "id": 16963650495,
         "name": "Afternoon Run",
@@ -326,28 +348,6 @@
         "map": {
           "id": "a16867696273",
           "summary_polyline": "azoeFh~ljVITWV[DsAAGDKNEP@`AAjADtAb@pCFr@^xBp@zEXjATd@\\h@XZlAnBf@|@bAxBFRBRCTOf@k@lAOd@eAvBWx@On@QjAEh@I\\C`@@j@Ed@H|CThAVj@D\\HVNd@NRXVp@^l@Jn@D`@Jf@Vj@b@TTJVLp@ALa@pAC`@?`@DXA`AMlA@b@O|AAZEz@FlCF~@?NIVQP[Nw@Fy@A]M_@Ik@Ce@FiA^]@WDw@By@Da@AUIUUOSOe@G[OMEsAUiA@CFEd@Jn@BZCNKHQJg@RaCRo@h@y@NMPETDFLDz@O`D?t@P|@?LDRPd@VXj@LZ?\\Gp@Wd@g@Vo@T]Vq@V{AAaBH_@KeB?[AMKOYS]a@KKQGgACaAPa@NOPMTKt@?PAPIJGDK?CCMSGSPqA?mAKc@McBMgAMqBI_@A_@@UPSRCTHT^\\|@P\\p@|@p@j@n@TL?PCf@@z@?PGGM{@KUKs@G]KQMi@k@Yg@GEUu@E]Ow@Aa@KeA?k@Ce@BiAAMLs@@_@Lu@R}@v@yBVk@`@s@n@yAFQ@]Eg@CMS[}@eBuAyB[[Wc@y@oBi@kEWsAJeAC[KSKi@Um@[qBA_A@c@?}BDMNK|@Ij@O",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16857900701,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 8.82,
-        "moving_time": 4544,
-        "elapsed_time": 5036,
-        "elevation_gain": 413.0,
-        "average_pace": 8.59,
-        "average_heartrate": 134.4,
-        "max_heartrate": 163.0,
-        "average_cadence": 89.1,
-        "average_watts": 316.0,
-        "start_date": "2025-12-27T18:56:57Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16857900701",
-          "summary_polyline": "}qpeFhlhjVAv@FrAFn@TvAFpAJb@HvDZlHIp@HfAPz@BxAFv@CbASbAB`AGnA@VF`@h@hAJb@Rb@RbCTNBPIr@HfBCrBXhBJVIr@Ft@?l@Fj@d@jCBf@C\\BPRfCAh@QnARtAb@~ANx@EhAIXW`@CL?TN|ARt@IVAb@~@xDPjC@~@I|@CxBI~Aa@lEGfBu@bIMhBi@~D_CfMQbBGfCJvE?bAJfDXvBl@dBhCvDxApCXbAb@~BAlAY|A{AdGa@tAc@zBEj@?pAN`CTzALh@NvAb@fBRZPz@b@xAHVNDBF^xBb@dB\\lBV~BBt@Bt@EtA]|C?tA\\nCFr@?j@EXe@`B}A|Da@`BEzALxAFXDt@?`CCv@_@vDGvAAfBn@xFPx@Jp@h@xBXbB@NQj@@~@JlAL`@b@z@tAp@`@n@LZfAxHn@lDVbARVb@`Ct@nCFFLBh@OJOI}@JcACw@Sw@?KNKTAXHj@`@RAJKFg@Pc@r@aAPu@TMRPf@rALbBh@zCn@b@RT?LIf@?Nj@NjB?FKFqA?gBIu@k@aCEc@g@oAg@aBQ[m@{@}A{CKg@OwB?y@DuAd@_GJkBr@iBh@}BX{@P{@Eq@Du@?oAG{@CyAa@wDYwAyAqDkBcEUaAKUGk@DaBRaA`@{@Ha@L_C?cAe@mCEk@E{CJeBf@uDh@uBdA}CNeBEk@Ok@?o@O{CS}@MeAY}ASaB]cBM}@Ms@Qc@[sB[eAg@m@y@g@m@O{@Es@Sk@g@c@k@c@gAS{AQ}BCcCKMe@MY_@kAc@o@m@a@k@Se@iAeBsC_EKYCU?k@Fm@Xs@^e@bAi@V?n@Jj@j@zAxBzAvCTTPIXd@TX|@^LEN[TWPg@b@u@Jc@@u@Ia@yA}CcBcC{@{Ai@_Bc@mCi@oECo@WuAOiADoDOgCOq@Ym@m@e@aAe@GKCM?m@ZcGCyBLeCA}@QqB]sBeAwDPEHO?UKe@?[DUZu@J{@?_@Om@[o@]eAE[?[PoABa@SiB@qAGmAUcAIs@EmA@_BOm@SuBDwBE}@Io@k@Qb@SSmAE_AY}@e@s@Sq@CWLqAGqATeBCqCEc@WiAAq@B_AEuAc@eHC_AGg@AuAIi@C{@]qDBQ",
           "resource_state": 2
         }
       }
@@ -711,25 +711,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 4,
-          "distance": 23.4,
-          "moving_time": 12500,
-          "elapsed_time": 13451,
-          "elevation_gain": 1781.0
+          "count": 5,
+          "distance": 28.25,
+          "moving_time": 15444,
+          "elapsed_time": 16502,
+          "elevation_gain": 2487.0
         },
         "all_time": {
-          "count": 1145,
-          "distance": 5914.85,
-          "moving_time": 3209195,
-          "elapsed_time": 3635131,
-          "elevation_gain": 437346.0
+          "count": 1146,
+          "distance": 5919.69,
+          "moving_time": 3212139,
+          "elapsed_time": 3638182,
+          "elevation_gain": 438052.0
         },
         "recent": {
           "count": 20,
-          "distance": 116.81,
-          "moving_time": 64449,
-          "elapsed_time": 69950,
-          "elevation_gain": 10509.0
+          "distance": 116.65,
+          "moving_time": 64045,
+          "elapsed_time": 69341,
+          "elevation_gain": 10118.0
         }
       },
       "biking": {
