@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-01-16T10:33:10.917934",
+  "last_updated": "2026-01-17T10:27:49.606848",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "No Other Choice",
+        "year": 2025,
+        "rating": 4.0,
+        "watched_date": "2026-01-15",
+        "is_rewatch": false,
+        "review": "<p>The usual Park Chan-wook goodness:<br/>- Symbolism maxxing (a decaying tooth, bugs eating thing alive, pig slaughter, forcing the bend of a bonsai tree with wire until it snaps, etc etc etc)<br/>- Truly S-tier creativity in terms of match cuts, cross dissolves, camera locations and camera movements (the digging scenes, my god)<br/>- Good comedy and good fucked up shit</p><p><b>However</b>, like Decision to Leave, it was verging on incoherence at points and that disconnected me a bit from the story and characters.</p><p>The Handmaiden is still peak for me. It has all the good stuff I mentioned while <b>also</b> maintaining emotional connection to the characters and executing a legible (though convoluted) narrative.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/6/5/9/5/2/565952-no-other-choice-2025-0-600-0-900-crop.jpg?v=87ef42b9f5",
+        "link": "https://letterboxd.com/ncteisen/film/no-other-choice-2025/"
+      },
       {
         "title": "12 Angry Men",
         "year": 1957,
@@ -72,24 +82,14 @@
         "review": "<p>The underlying moral debate of this film is really interesting, but I think the delivery of that dialogue needed more character arc or plot or something else. By the end I was a little tired of everyone yelling the same questions over and over again.</p><p>On the positive note, the dark humor was great and the ending was amazing and almost, but not quite totally redeeming of my earlier boredom.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/3/3/3/4/9/8/1333498-it-was-just-an-accident-0-600-0-900-crop.jpg?v=d1e92cf746",
         "link": "https://letterboxd.com/ncteisen/film/it-was-just-an-accident/"
-      },
-      {
-        "title": "Train Dreams",
-        "year": 2025,
-        "rating": 4.0,
-        "watched_date": "2025-12-16",
-        "is_rewatch": false,
-        "review": "<p>2025 has been a great year for smaller, grounded, emotionally moving flicks (Sentimental Value, Hamnet, Sorry Baby, to name a few others). Who doesn't like sitting in a dark room (or plane) with strangers (or friends, or alone) and getting a little dirt in your eyes that you have to wipe away for a minute.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/5/3/8/3/1125383-train-dreams-0-600-0-900-crop.jpg?v=55740bb5b4",
-        "link": "https://letterboxd.com/ncteisen/film/train-dreams/"
       }
     ],
     "stats": {
-      "total_films": 873,
-      "films_this_year": 1,
+      "total_films": 874,
+      "films_this_year": 2,
       "total_lists": 8,
       "following_count": 40,
-      "followers_count": 35
+      "followers_count": 36
     }
   },
   "goodreads": {
@@ -176,6 +176,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17075581226,
+        "name": "Can\u2019t miss a sunset",
+        "type": "Run",
+        "distance": 5.23,
+        "moving_time": 2882,
+        "elapsed_time": 3465,
+        "elevation_gain": 535.0,
+        "average_pace": 9.19,
+        "average_heartrate": 138.9,
+        "max_heartrate": 173.0,
+        "average_cadence": 86.1,
+        "average_watts": 302.9,
+        "start_date": "2026-01-17T00:22:07Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17075581226",
+          "summary_polyline": "gqpeFvkhjVN~AAZLb@Br@F\\HhB?PJ~@CNJjAF`@Cd@Fz@BXHR@TFX@ZCJ_@Z?fACVERBx@\\bB@v@Hn@Br@Cn@Od@EZ?hDVp@BVf@~@Nd@H`@BfBERIDCHBNR\\Jb@F`@?\\Ep@AbAc@j@XENBHNRx@B\\Af@D`A@x@PfAVx@D\\?b@ERBNENAXFr@Lt@@TOtA?^Fh@DXb@dAF^JZD`@Ex@I\\KPM`@Eb@NlAVt@ETD~@Ln@Nd@Lt@RlBLl@?^IbAOf@IHK@s@?WMcAyAi@k@i@u@][a@I[@gA|@k@r@Uv@Kf@EZE`AJfBJ|@d@nCR|@XbEHt@Bv@Hb@FRNTRT`Al@j@l@d@hAb@p@Rd@LH|@a@v@BRFJAH@HEJm@Lc@H_AHIZMFIB[@kBHo@PQf@MVMf@HXOt@mA`@aAHc@Gm@M]e@w@Oa@S}AQo@AMTwAZiAXs@\\q@b@k@L_@@]Ag@Y{Bm@w@DA?BOKQ[Ka@S_@MKOQIES?g@BI]Cy@OuBOsAEaBMaAIqAIg@Cu@G]CcAEe@@O_@yEOuDSkBCm@?c@Ie@Cq@M_AKcBDa@?SUeBCeAQoBEmA@KDCd@E~@EHEFAVDFCNOH[BCv@MLEJKA[BIZe@JWH_ARSHCH?HBTNh@@HAJHGYBY?^FTTh@?XP^NFVEFKDCTDDCFBTFJPN?HMJCBODALH\\b@L@\\ENDBC^AFCN?LIBIHG\\At@Sf@U^D^EFGFMFCLDJHTn@TRVn@FBRaDCiAHoA?mBNq@ZQPQTc@FUCSGKB]AIQGIc@SYEO?INS?]d@EG]?]@IFG?QGYMMM]MECAB]?k@LaAGk@EGHCH?Pd@FDJ?RSDI?YCa@BGDGLCDGACYCECGYMSMeCAi@AOOUGYIEOA[FW?YCEEGm@Aa@Ka@?a@Mo@?i@Ci@U]CMA]@s@AKCCaA@i@IWDUJSGWFWAMDUIe@Ny@FMAYF_ADQCW@kBLOCQS[Ek@CKC[SWCiBPe@Jm@AOH[Fk@He@D",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17053949306,
         "name": "Sunset Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a16938047450",
           "summary_polyline": "sqpeF`lhjVAfAJjCXz@Cd@Ll@BZHb@Tb@?D?FMf@EfATpECXBVBp@G^LlAHd@Dj@D|A?j@Cp@CRITEX@TH\\@ZA\\GXC^Hf@R^HXR\\Tl@N`ALlADJLLD`@In@HvB?r@Et@N`@BN?ZLd@?LGTFj@A|@DXFLDT@ZHVPtA@nBPfB@HUrB@FD^Rt@f@nAFj@IhAKd@Ul@A`@NtATr@EFEL?Zh@vBRhALfB@v@?v@Gh@GPMHc@@WEOE[Uc@u@a@a@MUSOKUQQ[UUKOAc@Ru@f@i@f@_@jAM~@EbAJtAPbBTlA\\vCRhBPpCJj@LXNTRPv@b@h@h@JP\\fAT`@FTA\\QjAqBtKWpCAp@@LDDFEBMFq@?e@HmAf@yD^uBd@aCDa@Nk@HIhAWRAZHT?\\DJADCHO@SCK@ENo@Fi@JK^OFIDQLyAGy@@SNMb@GTOb@@HANITSn@aAf@iA@]Gq@We@i@u@ESEu@Kc@Sc@?OLkAZsAFSf@cAR]LINWJeA?_@MkACwAQIQEQOO_@CSYi@MEe@[u@DGCAECaAG[?gBMs@KYA]Ka@@u@C_@My@Am@Gc@Gw@Kw@Ao@Ka@BcBG[Ca@Bg@Kk@Ao@IcA?k@C[I[As@M{@Cu@Qo@I{@?q@Gw@G[Bc@OyACkBM]C_@I[Ei@Ak@CSAo@Qm@Bi@Ge@Fq@EK?SE[CgBIa@GaAAo@Ki@?k@WqAMyBG[?a@C_@?m@IaAAc@WqBCg@CQGiAIo@E}@EwBCW",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16926937021,
-        "name": "Earning the dumps, mile by mile",
-        "type": "Run",
-        "distance": 8.54,
-        "moving_time": 4918,
-        "elapsed_time": 5383,
-        "elevation_gain": 1158.0,
-        "average_pace": 9.6,
-        "average_heartrate": 139.9,
-        "max_heartrate": 169.0,
-        "average_cadence": 86.3,
-        "average_watts": 300.2,
-        "start_date": "2026-01-03T17:34:03Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16926937021",
-          "summary_polyline": "mgseF`injVM]e@Tq@p@c@dADxAd@zAM~@DbBGb@OJ_@sAe@sDe@gEa@}BmB_RcBkNi@aESy@KKuDQ]YeAF_@l@sCdDG`DGj@u@r@eChDa@PoA?mARo@OYDQR}@fBWrAg@x@cAh@qB^y@?s@i@OB[`@Mr@?l@X|A@`BLl@ETCpB^d@z@VXj@\\fCV~AjA`D@ZKnANlBX~@Oz@a@h@]`Af@Z@LeAHkAi@_@@EN@xAm@fCMRg@LYb@Ap@PVNz@a@hBO`Cs@fDGbASbA@TnAFnAz@fBjBVFh@q@`B{Ax@uB`@BPk@dA_AlCuAtAPbB@jF_Ar@L|DtBrABbG[FJU\\ANp@jD?v@RbBAjAU`BKVFp@NNhBj@JIDUAcA`@@Zj@Ui@TBHN@h@{@rCDtALt@CdBMd@Pd@G\\@\\Sd@WjA_@PaA[_@fAk@LcEUgCu@c@rFy@rA]Vy@@sBe@_EiByBk@iEqBu@[[@[UqANu@|@cBaA{Ag@Ga@Do@t@cDNyADeBT_@gBs@kAUs@FqAvC[pAiACaAm@q@\\?h@]d@OGc@k@e@Fu@mAIYFUCU]GMS?WFKo@Hu@wAg@Eq@\\kBE{@i@Ga@_@BM_@Fo@JWd@[Zw@YSQRc@DAO_Ac@a@A}@Y]c@WkAqAq@i@Rm@UEMBQd@UL_@Ae@KOm@AWLW\\UhAo@VuAMaBw@YFiArA}@ZsB@wCUs@JQOe@mA_A_BSy@RiAx@o@HmAh@yCr@oB?c@SsALm@~ByDpAs@PUrB{Eh@o@nB]|@@f@X`@Er@c@\\u@`@a@pDgAz@I`AJhAMx@DvAOZO\\oAOaA@q@|@mDFcDQmAQa@c@m@_Ao@i@gA_@uABu@|@wE@qCLuAp@mAxFwEn@gAtAcDV[X?zDxAd@BpCsHHo@PSr@`@Zj@fAx@Jz@Rf@B|@JPt@IvAd@Zt@xAlBAFNBRZPd@?Rv@TpASrAcAFcCf@iANiAZ_Ab@Yb@uA\\e@l@Ap@Td@n@`@VjCm@d@p@d@Hn@t@`@Nd@t@r@`CX~AvBzRR|@LxCv@vGtAfKVrC|@|DN[?_CNg@Ii@[i@IiBXw@\\g@t@q@VJ",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 9,
-          "distance": 57.7,
-          "moving_time": 33902,
-          "elapsed_time": 36960,
-          "elevation_gain": 8330.0
+          "count": 10,
+          "distance": 62.93,
+          "moving_time": 36784,
+          "elapsed_time": 40425,
+          "elevation_gain": 8865.0
         },
         "all_time": {
-          "count": 1150,
-          "distance": 5949.15,
-          "moving_time": 3230597,
-          "elapsed_time": 3658640,
-          "elevation_gain": 443895.0
+          "count": 1151,
+          "distance": 5954.37,
+          "moving_time": 3233479,
+          "elapsed_time": 3662105,
+          "elevation_gain": 444429.0
         },
         "recent": {
           "count": 20,
-          "distance": 121.13,
-          "moving_time": 68902,
-          "elapsed_time": 74916,
-          "elevation_gain": 13701.0
+          "distance": 120.1,
+          "moving_time": 68819,
+          "elapsed_time": 75129,
+          "elevation_gain": 14019.0
         }
       },
       "biking": {
