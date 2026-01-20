@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-01-19T10:37:22.356132",
+  "last_updated": "2026-01-20T10:36:48.689796",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Before Sunset",
+        "year": 2004,
+        "rating": 4.0,
+        "watched_date": "2026-01-19",
+        "is_rewatch": false,
+        "review": "<p>Men will literally write a best-selling novel about the most romantic night of their life in Vienna with a stranger they met on the train instead of going to therapy</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/9/7/0/51970-before-sunset-0-600-0-900-crop.jpg?v=718e2923ff",
+        "link": "https://letterboxd.com/ncteisen/film/before-sunset/"
+      },
+      {
+        "title": "Inside Llewyn Davis",
+        "year": 2013,
+        "rating": 4.0,
+        "watched_date": "2026-01-19",
+        "is_rewatch": false,
+        "review": "<p>The movie that made me realize I had become cat-pilled.</p><p>Coen brother's movies are so reliably wonderful. They are filled with the best kind of things films can do; make you laugh in interesting ways, make you sad in interesting ways, make you think about the meaning behind really small moments. I get to the end of one of their films and thing \"yeah this is why I like movies\"</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/3/3/6/7/73367-inside-llewyn-davis-0-600-0-900-crop.jpg?v=df06f071fa",
+        "link": "https://letterboxd.com/ncteisen/film/inside-llewyn-davis/"
+      },
       {
         "title": "No Other Choice",
         "year": 2025,
@@ -62,31 +82,11 @@
         "review": "<p>The next stop on Sarah\u2019s movie education tour</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/7/6/3/7/47637-anchorman-the-legend-of-ron-burgundy-0-600-0-900-crop.jpg?v=afdb4fa667",
         "link": "https://letterboxd.com/ncteisen/film/anchorman-the-legend-of-ron-burgundy/"
-      },
-      {
-        "title": "Avatar: Fire and Ash",
-        "year": 2025,
-        "rating": 2.5,
-        "watched_date": "2025-12-21",
-        "is_rewatch": false,
-        "review": "<p>For the record, if the sexy goth Na'vi warrior gave me space coke and asked me to be her sex slave I'd say yes. Just for the record.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/0/0/0/7/70007-avatar-fire-and-ash-0-600-0-900-crop.jpg?v=5d2f8b35b1",
-        "link": "https://letterboxd.com/ncteisen/film/avatar-fire-and-ash/"
-      },
-      {
-        "title": "It Was Just an Accident",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2025-12-19",
-        "is_rewatch": false,
-        "review": "<p>The underlying moral debate of this film is really interesting, but I think the delivery of that dialogue needed more character arc or plot or something else. By the end I was a little tired of everyone yelling the same questions over and over again.</p><p>On the positive note, the dark humor was great and the ending was amazing and almost, but not quite totally redeeming of my earlier boredom.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/3/3/3/4/9/8/1333498-it-was-just-an-accident-0-600-0-900-crop.jpg?v=d1e92cf746",
-        "link": "https://letterboxd.com/ncteisen/film/it-was-just-an-accident/"
       }
     ],
     "stats": {
-      "total_films": 875,
-      "films_this_year": 2,
+      "total_films": 877,
+      "films_this_year": 4,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -355,6 +355,28 @@
     ],
     "recent_bikes": [
       {
+        "id": 17108330688,
+        "name": "Emerging from bike hibernation",
+        "type": "Ride",
+        "distance": 30.53,
+        "moving_time": 9558,
+        "elapsed_time": 10141,
+        "elevation_gain": 3402.0,
+        "average_pace": 5.22,
+        "average_heartrate": 114.9,
+        "max_heartrate": 151.0,
+        "average_cadence": null,
+        "average_watts": 153.2,
+        "start_date": "2026-01-19T18:13:46Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17108330688",
+          "summary_polyline": "kjpeFpfljV{BuB}CpCa@dCl@tJsDoBu~AzEcBcDsJb@}A|DYhEm@~A_JrGoArGuFnF@lFzBzChC~HsAlFtD|N@pFdCtHUnAiH`ImBlAmAQ}CyCkB[_KvFkD\\aKyGuH{DaBM}@|AiAZeGyCuBjAoBcDyArBF~@i@fAkAgAlAtDn@P]aAoHlDiaCfNgHrB{BtCsChLpCH|IjCjASnAkB~@HTtH|BjEeBvCqG@eEpBiFzFEdAx@pCs@pCtAhDuDlDiBbQqCbN^dCnDXrD`EiCbEyEvFdAlBxCa@lBzAh@fCGlEz@pDbAp@`JqK@|Mg@t@@nEcGr`@KpNcBdBeAwAmBQiGjQuDLgM}GgImCaAoAk@iDkFkAqC}Bi@qGy@wDqBcEaD{L{AgCw@fCwBzCeD\\m@g@EaBoB{EiAq@eCTUg@h@m@Ek@yCw@k@yHsF|BiE`@qDuE}DrEaAc@y@_FqCw@eC~DsE~QB~JjAbGtAdAFx@yDlJgEbSMlJeBhImAxCuAlAiIIkDvA_GtQeEnFqHhFsAzB]lG|@bFrBpExJlIbFzJhCz@nDeEhGb@sBwElBnAlD`@lAdDExBp@FrBoCrAyFrAaBvDb@pCvAhBeBNeBjBcAX}@KgEnBiBnCuIfD}AfA_E\\}DbF{A`I_@hB^dClClB_@~BgCZsC|HaFv@qCvDuD{@{EPw@pAm@?_DdCUfCeEbDoAdAJzCxExAj@fAc@jAgDlAOvJxEhElFoApHnDhKzArHLjDfDbPTrE{@`FaFzBsCxGLvFa@nCrAtIq@fEyClBeDOmGeC}ATu@tAWxEThDa@zBXhCo@rEp@hB`Ad@|JgAVr@a@tCVb@xCaExDWBqBsC{@S{@hDyAvGqGzC{]aAg_@YmEmDeP{@uH{EyOjAuHgHuHVsCy@uAvB\\~Am@|FgQbBNxArAnBoCNqPtFy]E_E^_O[OuIxKo@m@eAeEHaF]cB{BcBsC`@aAqB|EyF~BwDqDiEeDOm@sBhDyRx@qAh@gJnDsDEqAaA{Aj@oCs@sCFmAdEwEzDsBfIi@tA}CcCsDc@gI}@AoAbBiAViJmCeC?hDiMrDeDlEcA~|BsMdGw@lEiCfBfA|EBrCuBnCN|B}C~Cv@vInGnGpC~GaAnGeEfBXpDjD|BWtFaIdB_AVcBiCgHEcGuDoNlAcEAmA}@wA}@kE{BoCOeE|FcGxAaHbCgAtF_Gr@aG~AiD~I_@xAbDj`BcFlClBo@uLpAsC~BcAnElFjB]LuG_FmQo@mLToD{@kCk@eHLeCw@iCe@{HG}HsAkHhDyA}AeW",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 17024033317,
         "name": "Uhh\u2026 brr",
         "type": "Ride",
@@ -505,28 +527,6 @@
         "map": {
           "id": "a16293170890",
           "summary_polyline": "}hpeFzdgjVbCk@Be@c@yEDk@fAc@jAG^[{A{QB]x@eA`Di@KyKh@SrOi@hHo@vB@~DYx@Ij@WLUYaKcAgc@mAqEy@y^L[tE_@d@FlFa@~n@eCrQcAnBc@xFeCtAoAnCoEnAg@`AFvHvBvCWrEjA`DdBpKlHzAn@rB\\bHTnDQhMsAdBy@vDuCbIeFhJiEbNoElS}DfGwBZBq@pE@XNDtO}Ez]sFhE]f@V`@v@z@lFH`BRh@z@^rGXdAz@n@_@?m@[uBb@m@XwAxJfBdHBz^qBxTaBtQObe@aKrBYxDVn@kCzB{CXeAFiAOiLg@gBeAoAe@eAw@{C?]NUnHoCpD}@xp@oIhHAtCZ~EnAzGYl@Yl@u@nAaGP[XKzDn@dCnCnCpA~EbEnBbANV@rBx@pDL~AXn@lBfB|@\\xGnHxDnDnBhAfF|El@MdAkCh@W`DGvEShBHt@TlA~@vHzIr@hBzA~Fr@zA~FdGfAr@jA`@bBVxI?pCz@tAjAxHvK~CxBjPEhCc@~`Agf@zJqEtBq@n@BZR~AbId@`Br@|@dH`E|Al@rALbOaB`BCvCi@ha@cKxP{EtFsBx@aAd@kCNsCAcHDq@X{@bCaBjBk@jAG|A|@hAlA`Ad@tAFv@e@hLoS|AoD`HkMdMmRtG}LHcAy@eOw@eBoAiBAw@`CmG|JaZpAeDbB_D~I}LrC}CzAkAbCyAlX}KrFqClByDjC_H?eBkAuD_@yCO{i@LkB^oAfIqIn@qAV_AV}C|@y`@WsCo@aBkCqDy@wAa@sAQiBA}IVeAl@u@pEsAt@u@d@}A@gB\\{@lDYtAg@`@k@@]_CsPReGH_@^_@rABfCk@Vi@`AaGEqA_@oCc@s@oAk@c@kBwAoBa@qKOk@wAeCe@sGHc@b@e@dBKr@[nDgFZ_B@yCJQxBiAnBC|DcDhCiDxDwDvH_KhVcZzCiCdBaDbGsHNiE|@sE\\mDf@wBr@mARmB|@c@n@mB~C}MVoBV[d@@h@Wd@}@hCsLXmDBeCA{FOkAAqIJk@FCPNVo@[yO@iJJ]r@Q~JIrRBxCVfBlAzGbKzC~BhBz@dEj@fBCrBYnBo@|BmAZXlBpDv@v@jEfC~FjJdC|Ft@xEzCl^b@rBfAfDDvAQ`DVxC`@t@zCEPHDVEpOHXb@HpLw@`JaAp@YpBqBhIeFnA}ApDcIbDeD`Am@PHh@jA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16206375691,
-        "name": "Weather good, legs bad",
-        "type": "Ride",
-        "distance": 19.41,
-        "moving_time": 5598,
-        "elapsed_time": 6162,
-        "elevation_gain": 1542.0,
-        "average_pace": 4.81,
-        "average_heartrate": 120.2,
-        "max_heartrate": 165.0,
-        "average_cadence": null,
-        "average_watts": 160.1,
-        "start_date": "2025-10-20T22:46:50Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16206375691",
-          "summary_polyline": "cwpeFbohjV|@hOdCt\\J~D~AfSpAfTFl@z@tAP|@^|@f@~EfA|DFjBQpCe@TgAOuCuDe@]{@@iA~@g@j@Un@UtBPfCl@`EAZMJcB}AqAUcw@jC_g@vA}@sC[Sa@AiCl@qCM{@RqApDM~CYnAgAfBsEdDkB|@Qf@[vCe@fBm@f@eA\\cCHgA_@UHYn@AXZ`CLjEEnA\\p@`A`@rA~FjApDGzALhCn@`BZfCAZ_@|@HfB_@n@o@DcAn@S@[[mALu@a@a@TMv@ZtBW~@Ax@{AtJg@r@uDpC{BdADn@~@`B?Xl@d@rAVrD}@b@X`AjBpE`B`AhBr@j@`FK~EbBdCTpRnEvCpBtAnCZbBJbBXdQBpBa@`DDtAX|APTrBVv@n@n@rAb@fCKrB_BlDl@bFpBvDRxBApDmB`KMzBXzCfB|Ce@`BaB|CD^jBpETbBJzCOl@AjAWrAd@Vp@Sz@A`A~Aj@f@NbCRfAa@`C?p@Xl@ZjBjAtDd@hA|@rAFlCV|AZj@d@VlABvA_@v@bBdATNG\\_ARMv@GN`@^NxFaAb@p@Pl@\\bGRd@p@VvCoAzG{HjBo@xIi@xELlCGnS{AhG{@jGc@pMPtAu@lOw@r|CwStAERy@DkLGiDZqHReBx@gDfBmE`AgDj@mEP}Dy@sd@iBokAE_TYkWQoCSuKPcASi@GqACkGN_@?w@OaEi@WoAI[YIq@FqAOgA]w@i@Y_IlAsD\\_D]sBeAY}AiAgV_@}BkA_D_DkGc@c@kCoAgCkBwCyDyEaIuBgHcAYOeBq@oBUS_@JYj@DlBI`AaA`ASp@u@`AI^}BnBb@VDTML_AQVtAYC?j@~@jDwA`ABp@Yn@S@C_@YzA_@RDWO?Oz@UgCEb@_@Ye@Hi@WcBl@Fh@c@rB@lAUfBAnDa@~@FfCRCKe@DGXh@YfAu@lA@\\VhAZRZIXi@p@]Bc@b@c@`@P^a@Dg@S?]ZUAVs@|CyBxB^d@h@g@f@SdAi@TYh@m@Am@jA{AxAcABiAv@S\\l@CGHkAn@}BdCu@pA{B`CkA`BuApAaBr@y@BaHq@y`AdDo@OW]QuCm@yE]QMgBiB}DqDcFg@kDBoBcBuEZkAQuBHeAWyD{@g@[_Au@y@iAE_AcPFV_C{ZYyGiAcOqBwZy@sN",
           "resource_state": 2
         }
       }
@@ -726,34 +726,34 @@
           "elevation_gain": 446660.0
         },
         "recent": {
-          "count": 20,
-          "distance": 122.25,
-          "moving_time": 71127,
-          "elapsed_time": 78105,
-          "elevation_gain": 15682.0
+          "count": 19,
+          "distance": 117.71,
+          "moving_time": 68761,
+          "elapsed_time": 75643,
+          "elevation_gain": 15495.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 2,
-          "distance": 39.56,
-          "moving_time": 11292,
-          "elapsed_time": 12109,
-          "elevation_gain": 3307.0
+          "count": 3,
+          "distance": 70.09,
+          "moving_time": 20850,
+          "elapsed_time": 22250,
+          "elevation_gain": 6709.0
         },
         "all_time": {
-          "count": 557,
-          "distance": 12195.53,
-          "moving_time": 3402100,
-          "elapsed_time": 4030344,
-          "elevation_gain": 954590.0
+          "count": 558,
+          "distance": 12226.06,
+          "moving_time": 3411658,
+          "elapsed_time": 4040485,
+          "elevation_gain": 957992.0
         },
         "recent": {
-          "count": 3,
-          "distance": 46.85,
-          "moving_time": 12492,
-          "elapsed_time": 13309,
-          "elevation_gain": 3307.0
+          "count": 4,
+          "distance": 77.37,
+          "moving_time": 22050,
+          "elapsed_time": 23450,
+          "elevation_gain": 6709.0
         }
       },
       "swimming": {
