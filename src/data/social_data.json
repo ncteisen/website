@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-01-21T10:37:42.616275",
+  "last_updated": "2026-01-22T10:36:27.603466",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "28 Years Later: The Bone Temple",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-01-20",
+        "is_rewatch": false,
+        "review": "<p>Fun, mega-gnarly, dong-filled</p><p>Ralph Fiennes and Jack O'Connell carried the energy throughout. I was a bit surprised they sidelined the kid character, since he was really good in the first, but maybe he will pop off again in the third installment?</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff",
+        "link": "https://letterboxd.com/ncteisen/film/28-years-later-the-bone-temple/"
+      },
       {
         "title": "Before Sunset",
         "year": 2004,
@@ -72,21 +82,11 @@
         "review": "<p>Intentional, relentless, aggressive</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43",
         "link": "https://letterboxd.com/ncteisen/film/marty-supreme/"
-      },
-      {
-        "title": "Anchorman: The Legend of Ron Burgundy",
-        "year": 2004,
-        "rating": 4.0,
-        "watched_date": "2025-12-22",
-        "is_rewatch": true,
-        "review": "<p>The next stop on Sarah\u2019s movie education tour</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/7/6/3/7/47637-anchorman-the-legend-of-ron-burgundy-0-600-0-900-crop.jpg?v=afdb4fa667",
-        "link": "https://letterboxd.com/ncteisen/film/anchorman-the-legend-of-ron-burgundy/"
       }
     ],
     "stats": {
-      "total_films": 877,
-      "films_this_year": 4,
+      "total_films": 878,
+      "films_this_year": 5,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -726,11 +726,11 @@
           "elevation_gain": 446660.0
         },
         "recent": {
-          "count": 18,
-          "distance": 113.67,
-          "moving_time": 66627,
-          "elapsed_time": 73354,
-          "elevation_gain": 15367.0
+          "count": 17,
+          "distance": 107.66,
+          "moving_time": 62710,
+          "elapsed_time": 69101,
+          "elevation_gain": 14167.0
         }
       },
       "biking": {
