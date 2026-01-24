@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-23T10:33:44.271322",
+  "last_updated": "2026-01-24T10:29:11.048673",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -177,6 +177,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 17151289982,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 6.85,
+        "moving_time": 4203,
+        "elapsed_time": 5134,
+        "elevation_gain": 1129.0,
+        "average_pace": 10.23,
+        "average_heartrate": 138.9,
+        "max_heartrate": 168.0,
+        "average_cadence": 85.8,
+        "average_watts": 278.6,
+        "start_date": "2026-01-23T14:55:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17151289982",
+          "summary_polyline": "clpeFpfhjVJlDLp@BlAHz@N~@Ad@Jt@AZDP?b@Fl@R`APpB?`AD^Cl@RnA?n@Jp@?r@Dn@@pAJt@LXTrCFnDPnBB|BNz@@`AH\\JjABh@Lh@DBF@d@Sd@Gl@]lBIdA[vBE`@G\\Bx@Yd@?`AWrAGt@[z@KXKb@Fx@OTBtFm@PBv@b@hBfBx@\\bATlACLHdAKj@Mp@e@ZE?I\\MtAMTLPVv@VTPbCn@rAr@h@dAPf@Nv@A`@N`@dAPNA|B{@b@_@d@q@p@]d@o@f@y@j@]z@[NQDOnAiAF[AYYiAGa@Ja@TKNDV\\^~CPlAGx@sAtBIX?\\BL^\\XF|Be@lAe@x@e@Rg@GSUB_Bn@YGYc@p@{C`@CPBPLp@lAb@f@PApAw@d@CZRpAzAh@V\\Bj@K~@s@RITAXFdAx@|@|@Nb@@ZGr@BPDHXE`@HPCBEK_@C_@FGVLDABqALe@TqAC_@IQEUHe@@OEGE?[ZUFiBY_Bk@y@Cg@LoAn@m@@OKe@}@s@g@yAJs@GKOMs@Qk@Sa@OOsA_@_A?gAMW[Ue@Ka@?k@XQt@ORa@@GGMWKOSEi@D]n@a@ACMYWEc@WUEUUg@eAaAuCMq@?O]eADMHHEHDKHD@I]sCIwA?g@DQMqAkAFWHGPAfAK|@Qv@M`@u@`AWLg@J[Rg@n@KXUz@DVPTb@Bb@PHZAf@]AOJMBkCMIOGqA?oBImBDkAAsAEiAIa@[A{ATwA@iALaAIi@N]GwALiAAk@LeBDWHc@Gy@Lg@COS?KC?Jy@?WSWe@wASoBGkAu@w@k@PICOi@KEGBGN@VEj@KLMJ_@i@CACHBj@M~@?p@ERPDN`@^`@D`@O^?ROECGMd@C\\MPAFXf@D^VRETHh@IR_@p@a@b@W`A@vCF^DfAIl@?p@Kf@KRFp@EXGL_A~@ULVt@^h@\\pARTHTLxBA`@SLsCTWLuCMWDc@^W?i@Nm@Ca@RgALg@Xk@Dc@GMLQ@k@IiAAg@JIN?IIKu@NUL}AXS[G]Ey@UsBAk@QkAOcCM_@De@Q{@?g@Q_C@g@U{CEkAMk@Cg@KUQgA?kBC_@Ba@EeBKwAKi@AuAMcB?u@UsB_@yF",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 17145341357,
         "name": "Perfcrastinating",
         "type": "Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a17004338647",
           "summary_polyline": "_c|eFpfqjVHjAE`@\\d@Rz@b@Nn@|@dBr@gE@dAj@~Af@pCJf@WfA}Aj@Oh@PVz@ErEFv@Zr@rA|AJ~@[fAaAxAm@JqGNyA`AuBz@mA`BgAx@a@r@Ez@p@hBHr@Mr@_@l@Cf@L\\v@x@JrAIf@]l@eBz@e@j@k@`FCjAj@rAjAxAnDv@t@f@XjAInBBdAh@tC`@b@fB`@j@p@r@~Ar@LfDm@~BkAx@G\\Zb@|Aj@hA|DdCFr@a@l@sB@c@VWI^`AAXiAnAKOJ_Au@fAMf@Jn@~@EXZbCy@Fr@gA~@Yr@Rx@y@hBB`@QTHR@r@VbA\\B`@h@jAnCnAt@`@h@r@hDCv@a@nAEj@x@xBN|AQb@w@h@W`@y@vGkBhDeBr@g@BmA]}@oAo@[sA?y@_@_A?{CeAq@CsAjGo@hGNtDYtGs@^o@fAcAuAoBQ]fAaBxCg@tBq@xAk@xCy@`@mABwAi@aDyBaGqCcFsAqAi@o@i@]o@UaCYg@gAg@gDg@oByA}@iBIqA?cCu@yDkBkDu@}BS_BmAeEw@cBs@cAQEML[rBaClDu@^{@@y@W[[GgBu@qAo@wBSYk@_@c@G{BTOa@d@k@?g@m@e@eBUQa@K_BYw@ByBKOcAr@y@^_Ct@kDZa@O_@_@aAeCcA[a@VeAvAk@pAe@He@OS[]oC_@gAy@i@y@Us@\\oA|Cu@TrBqJE{AHc@Rg@dAqAJg@A{Az@e@TqA`AuBMgCDm@hAsAPc@Co@a@_AAsBPgAt@_@pAPpAuAjBg@|AiBfAM`Ag@Zo@Ho@eAkB?Ul@k@p@qApA_@~@m@x@Mv@eCRWlAQj@o@t@Uv@s@pAMnAm@`@aAm@oAEo@n@qAZsBhAuAdAsBT{@pBG|ARhAAbBx@pEbAhAAzBv@|CTp@T|CtCfBq@b@aAXSzAWt@sAt@k@PuBhAyA^Ff@rAv@j@jAaAnGi@tA{BnE}Eb@w@yCjAhAeBmAp@r@cCx@g@d@iAdBaBu@NBOt@q@jAFNUbAFzBMqB}@a@s@_@Ui@eAWsCUu@Ho@`@k@?Wg@}@I@EPTHpBkBbBu@z@UrCWcDV{B|@gCfB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16990940816,
-        "name": "Sunrise runs and avoiding traffic",
-        "type": "Run",
-        "distance": 5.65,
-        "moving_time": 3455,
-        "elapsed_time": 4033,
-        "elevation_gain": 974.0,
-        "average_pace": 10.19,
-        "average_heartrate": 134.2,
-        "max_heartrate": 165.0,
-        "average_cadence": 85.5,
-        "average_watts": 281.9,
-        "start_date": "2026-01-09T14:51:31Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16990940816",
-          "summary_polyline": "qlpeFbghjVBhAHl@HTE`@BHDh@Gb@RbBFlA?TDLCb@BX?d@RhABd@AXFj@LTJd@@b@F~@LnA@RF\\GXDZ@f@RvA?n@XbDBtANrAFlBFPB^FV@PHd@C`@B^DDBpANlBCZBl@D\\FFZ@ZGRDVGR@ZSh@Gt@BDD`@GLG\\@PMjAWf@WxBQVB|A[P?l@Ip@CRIh@KjBO`Fq@dAGn@h@\\NLVPNL`@\\Xz@\\^Dl@RXBPHNBTEb@@TMf@Cn@OFR?JBDxBkAVEJBTP^GX@x@f@hBb@`A`@j@j@`@~@FXP~ADRZJ\\@`Cc@\\Ob@]v@w@NGHIH?LMJOZy@LQ^WNCd@WRIJMDMHIJQVW^OJU@]Em@Os@Ca@HQ^WP`@VhAFr@ZnB@^Gf@s@vASZK\\CPBPTVLBZA`Cm@|Ao@ZGZCZSR@@AEOFK`AKHJFXPHJIRAZPLLdATn@@ZMD@@HDFZCJJRULHV@|@l@Np@NNxClFRJ~Aj@ZF\\@`@EXMLMJW?WES[g@_@]aBeAi@g@OUC[@]P{@Pm@Fc@?MEM?OKOEUHe@CQSFWTMDkBg@eAg@YEw@DDKC?CMIK?KGQCOKYa@JWNUTE?U[Ui@@KHOGa@GCAG@OEECK?WFMAIBDyA[_@Y_@c@SMc@Ku@IyA_Ae@@_@Re@HWUI[KGQCM[E_@?c@r@_@@EEKMMM?c@SYCQMMUm@oA_@cAQ}@So@AQYo@GW?KFAFJCDCACEFEHH@QEYO]AUMk@Bg@BsAE_@?mAk@@_@HMCI@CD?h@Sr@?XEl@KTMp@QVa@^]Tg@NWN]\\Uf@St@BFB^DHl@@RHLRDX?Za@CML[@a@Ao@I]@MAEECIAsAWcDAg@Aa@Du@Cg@AcCEGs@GwAPw@Eg@HaA@CK?c@Ee@Bw@CS@SEIeAGa@QIAS@_@Jo@II_BI[AWMe@?a@I]AYOk@KSWgAWq@q@eAe@aAYw@WUYe@OKGQiA_BOYIGKQq@k@ESa@e@OIm@C[BQCs@Fa@EQDMCQJa@Ao@He@Iq@?}@JKAGQKCm@Jq@BYCsCTq@?i@Nu@Ci@FOCi@@c@QOUEe@?_AIs@AcAUs@MWQC}@?YDe@LU@[Jg@@s@H",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 13,
-          "distance": 83.19,
-          "moving_time": 48389,
-          "elapsed_time": 53386,
-          "elevation_gain": 11299.0
+          "count": 14,
+          "distance": 90.04,
+          "moving_time": 52592,
+          "elapsed_time": 58520,
+          "elevation_gain": 12428.0
         },
         "all_time": {
-          "count": 1154,
-          "distance": 5974.64,
-          "moving_time": 3245084,
-          "elapsed_time": 3675066,
-          "elevation_gain": 446864.0
+          "count": 1155,
+          "distance": 5981.49,
+          "moving_time": 3249287,
+          "elapsed_time": 3680200,
+          "elevation_gain": 447992.0
         },
         "recent": {
           "count": 18,
-          "distance": 111.84,
-          "moving_time": 64755,
-          "elapsed_time": 71283,
-          "elevation_gain": 14370.0
+          "distance": 113.42,
+          "moving_time": 66256,
+          "elapsed_time": 73651,
+          "elevation_gain": 15243.0
         }
       },
       "biking": {
