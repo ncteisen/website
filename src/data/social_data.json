@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-29T10:47:48.732725",
+  "last_updated": "2026-01-30T10:43:59.285436",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Slouching Towards Bethlehem",
+        "author": "Joan Didion",
+        "rating": 4.0,
+        "read_at": "2026/01/29",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1611927558l/424.jpg",
+        "link": "https://www.goodreads.com/review/show/8046032162?utm_medium=api&utm_source=rss",
+        "review": "<br/>Candidly, I struggle with collections of essays (which is surprising because I love collections of short stories). Not doing myself any favors by reading this late at night, I would sometimes catch my eyes just scanning the words. <b>However</b>, for the essays that caught me, and there were quite a few, I was loving the prose and structure. In particular, \"On Keeping a Notebook\" and \"Goodbye to All That\" resonated deeply and personally (having kept a journal for years, and having had a dreamlike 6 months of living in nyc in my early twenties).<br/>"
+      },
+      {
         "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
         "author": "J.K. Rowling",
         "rating": 5.0,
@@ -156,22 +165,13 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671.jpg",
         "link": "https://www.goodreads.com/review/show/1333885372?utm_medium=api&utm_source=rss",
         "review": "<br/>Audio book for the new commute. Banger after banger of quotable lines that have been seared in my head since high school.<br /><br />Favorite deeper cut line from this <s>re-read</s> re-listen: <br /><blockquote>\"What'll we do with ourselves this afternoon,\" cried Daisy, \"and the day after that, and the next thirty years?\"</blockquote><br/>"
-      },
-      {
-        "title": "The Last Life",
-        "author": "Claire Messud",
-        "rating": 3.0,
-        "read_at": "2025/07/16",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628170837l/3649.jpg",
-        "link": "https://www.goodreads.com/review/show/7717568772?utm_medium=api&utm_source=rss",
-        "review": "<br/>Smooth reading, but the lack of a driving narrative will make this forgettable for me, in the end<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 282,
+      "total_ratings": 283,
       "average_rating": 4.17,
-      "total_reviews": 121
+      "total_reviews": 122
     }
   },
   "strava": {
