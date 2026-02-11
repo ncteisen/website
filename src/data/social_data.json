@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-10T11:01:22.080467",
+  "last_updated": "2026-02-11T10:57:50.918299",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "The Correspondent",
+        "author": "Virginia      Evans",
+        "rating": 4.0,
+        "read_at": "2026/02/06",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1735235942l/223001257.jpg",
+        "link": "https://www.goodreads.com/review/show/8315115350?utm_medium=api&utm_source=rss",
+        "review": "<br/>Easy reading, creative structure, well-wrought main character, funny at points, sad at points, what is not to like here??<br/>"
+      },
+      {
         "title": "Slouching Towards Bethlehem",
         "author": "Joan Didion",
         "rating": 4.0,
@@ -156,22 +165,13 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1429638085l/4929.jpg",
         "link": "https://www.goodreads.com/review/show/7943253260?utm_medium=api&utm_source=rss",
         "review": "<br/>This was a really strange book... good thing I like strange books!<br/>"
-      },
-      {
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "rating": 5.0,
-        "read_at": "2025/08/25",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671.jpg",
-        "link": "https://www.goodreads.com/review/show/1333885372?utm_medium=api&utm_source=rss",
-        "review": "<br/>Audio book for the new commute. Banger after banger of quotable lines that have been seared in my head since high school.<br /><br />Favorite deeper cut line from this <s>re-read</s> re-listen: <br /><blockquote>\"What'll we do with ourselves this afternoon,\" cried Daisy, \"and the day after that, and the next thirty years?\"</blockquote><br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 283,
+      "total_ratings": 284,
       "average_rating": 4.17,
-      "total_reviews": 122
+      "total_reviews": 123
     }
   },
   "strava": {
@@ -355,6 +355,28 @@
     ],
     "recent_bikes": [
       {
+        "id": 17356354964,
+        "name": "Shoutout to the shuttle driver",
+        "type": "Ride",
+        "distance": 10.25,
+        "moving_time": 4996,
+        "elapsed_time": 9455,
+        "elevation_gain": 1637.0,
+        "average_pace": 8.12,
+        "average_heartrate": 105.2,
+        "max_heartrate": 164.0,
+        "average_cadence": null,
+        "average_watts": 130.7,
+        "start_date": "2026-02-10T17:37:58Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17356354964",
+          "summary_polyline": "_mmvEn`u`VxAeAdCl@d@E~AeAbI_IvCcGj@i@fCqGlEaDvDmJb@cCWuAx@_Ar@uEl@qBb@cFB}@SeAJqKk@wFOiF`@kJAgD|@ElBzCf@FIMx@KXrBPq@@dBf@hBEnB`@z@Ow@l@^Iy@Fi@jAtAVFb@g@WJR]v@a@b@k@_Bc@e@m@?[j@V~AUHQ{@Ik@m@`@B`@WcAm@jDL`Bx@bENf@WdAd@xBe@lA\\Rb@f@fChAlARj@H]J?Dv@^vB`ABpAyB}@Jn@KtAGd@d@d@OTPa@t@~Aq@\\z@d@ULz@E\\v@r@pA@z@fAXQXNz@jDd@Tp@vAYXHX~@\\UPFJT?|AiAh@MRVd@e@Gj@|@]Fr@x@e@|AJDv@[dAj@Wz@}At@s@xGf@xA`@w@w@~@LeAs@}BqCYmAFk@vCgH\\{CYGe@h@ShByAzA{@f@oDl@{CiEOm@WmFVcCt@a@v@DFYgDcDuCoDEa@mC_Co@sCw@kEcBoBUgCuC_BQFa@hAg@N}BmDkBeB_@B[UqA{AFfBSjA{Ag@sBN{Bp@kBnAKvEy@dAYfCfA}@b@AiDjI[xAZvCjBpCJ`@FfA_@tDa@Z}BIqAMiB}@aDCfAl@c@V]KJTf@b@r@@ANeBZYCSMf@z@|Ah@oB~ABVNWlAGnDxAJbBEhAb@`B@x@aBlACv@^jAc@`BFxA_A~Ek@nAKr@]tEJzAc@xB^^lB^lAAlBe@pGRx@^lBLh@z@rBQtA^b@~@l@pCxDl@hAvAp@pBNlAIjCQ^_EfCQn@Uf@C_@MCD\\TIFq@RW{AR{AzB_@pAd@|A`@pCNJdAm@`@?nB`A^n@`@`C~AdERrATl@z@t@hATtBEfE|@vF[l@L}AnA_@|@DdBKn@hAjFE~@a@l@f@nCg@l@w@dEo@dAEpBWt@s@t@Ev@h@hDaA`A]x@oCXsCwA]]Ge@PkCkFpA{AQw@cAk@OkA`Ai@hAXxHM`BLfBp@xBr@CtC_Ej@@t@lAQ~B_@lA@pBPz@fAxAlAEr@n@XId@VxA?|B`CPn@bCMtAhAb@|@EzBq@xB\\dD?v@i@pDN`B`@d@xBC`FbAQtBcANKTAjB]\\St@Dp@",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 17343468383,
         "name": "Morning Ride",
         "type": "Ride",
@@ -504,28 +526,6 @@
         "commute": false,
         "map": {
           "id": "a16896229655",
-          "summary_polyline": "",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 16694889519,
-        "name": "Morning Ride",
-        "type": "Ride",
-        "distance": 0.0,
-        "moving_time": 601,
-        "elapsed_time": 601,
-        "elevation_gain": 0.0,
-        "average_pace": 0,
-        "average_heartrate": 118.2,
-        "max_heartrate": 128.0,
-        "average_cadence": null,
-        "average_watts": null,
-        "start_date": "2025-12-09T15:47:53Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16694889519",
           "summary_polyline": "",
           "resource_state": 2
         }
@@ -735,25 +735,25 @@
       },
       "biking": {
         "ytd": {
-          "count": 6,
-          "distance": 124.95,
-          "moving_time": 39103,
-          "elapsed_time": 44016,
-          "elevation_gain": 12772.0
+          "count": 7,
+          "distance": 135.2,
+          "moving_time": 44099,
+          "elapsed_time": 53471,
+          "elevation_gain": 14409.0
         },
         "all_time": {
-          "count": 561,
-          "distance": 12280.92,
-          "moving_time": 3429911,
-          "elapsed_time": 4062251,
-          "elevation_gain": 964055.0
+          "count": 562,
+          "distance": 12291.17,
+          "moving_time": 3434907,
+          "elapsed_time": 4071706,
+          "elevation_gain": 965693.0
         },
         "recent": {
-          "count": 4,
-          "distance": 85.39,
-          "moving_time": 27811,
-          "elapsed_time": 31907,
-          "elevation_gain": 9465.0
+          "count": 5,
+          "distance": 95.64,
+          "moving_time": 32807,
+          "elapsed_time": 41362,
+          "elevation_gain": 11102.0
         }
       },
       "swimming": {
