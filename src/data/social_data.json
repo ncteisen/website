@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-02-16T10:55:52.259753",
+  "last_updated": "2026-02-17T10:54:41.461017",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "The Secret Agent",
+        "year": 2025,
+        "rating": 3.5,
+        "watched_date": "2026-02-16",
+        "is_rewatch": false,
+        "review": "<p>Just in absolute awe of how good looking Wanger Moura is regardless of his haircut</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/0/4/3/4/8/1104348-the-secret-agent-2025-0-600-0-900-crop.jpg?v=3bcd2a3e02",
+        "link": "https://letterboxd.com/ncteisen/film/the-secret-agent-2025/"
+      },
       {
         "title": "F1",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>Bechdel lives in fear of this movie.</p><p>It was between this and My Cousin Vinny to get Sarah prepped for her jury duty tomorrow.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/7/0/0/51700-12-angry-men-0-600-0-900-crop.jpg?v=b8aaf291a9",
         "link": "https://letterboxd.com/ncteisen/film/12-angry-men/"
-      },
-      {
-        "title": "The New Yorker at 100",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2025-12-26",
-        "is_rewatch": false,
-        "review": "<p>Instead of a review, check out my erudite-maxxing watch setup instead: <a href=\"https://imgur.com/a/29Z4QEm\" rel=\"nofollow\">https://imgur.com/a/29Z4QEm</a> (haven\u2019t read any of them btw).</p><p>This was fun because I like the New Yorker and I love the folks that work there getting airtime, but it had nothing on\u00a0<a href=\"https://letterboxd.com/film/very-semi-serious/\" rel=\"nofollow\">Very Semi-Serious</a>.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/3/0/2/6/0/6/1302606-the-new-yorker-at-100-0-600-0-900-crop.jpg?v=167283bc68",
-        "link": "https://letterboxd.com/ncteisen/film/the-new-yorker-at-100/"
       }
     ],
     "stats": {
-      "total_films": 880,
-      "films_this_year": 7,
+      "total_films": 881,
+      "films_this_year": 8,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -94,6 +94,15 @@
   },
   "goodreads": {
     "recent_reviews": [
+      {
+        "title": "Vigil",
+        "author": "George Saunders",
+        "rating": 4.0,
+        "read_at": "2026/02/12",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
+        "link": "https://www.goodreads.com/review/show/8112761322?utm_medium=api&utm_source=rss",
+        "review": "<br/>With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts <br/>"
+      },
       {
         "title": "The Correspondent",
         "author": "Virginia      Evans",
@@ -156,26 +165,39 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751820530l/29044.jpg",
         "link": "https://www.goodreads.com/review/show/7977151660?utm_medium=api&utm_source=rss",
         "review": "<br/>Ngl the bacchanal sounded pretty lit. I'm going to call up my Great Books TA from Michigan and lodge a complain.<br /><br />3.5 / 5 stars: fun to read but got a bit repetitive, draggy and aimless in the back half.<br/>"
-      },
-      {
-        "title": "Kafka on the Shore",
-        "author": "Haruki Murakami",
-        "rating": 4.0,
-        "read_at": "2025/10/08",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1429638085l/4929.jpg",
-        "link": "https://www.goodreads.com/review/show/7943253260?utm_medium=api&utm_source=rss",
-        "review": "<br/>This was a really strange book... good thing I like strange books!<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 284,
+      "total_ratings": 285,
       "average_rating": 4.17,
-      "total_reviews": 123
+      "total_reviews": 124
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17419776793,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 5.74,
+        "moving_time": 2760,
+        "elapsed_time": 3103,
+        "elevation_gain": 266.0,
+        "average_pace": 8.01,
+        "average_heartrate": 137.8,
+        "max_heartrate": 164.0,
+        "average_cadence": 88.6,
+        "average_watts": 332.0,
+        "start_date": "2026-02-16T18:57:51Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17419776793",
+          "summary_polyline": "uqpeFblhjVBZHb@C^Bd@IBCBAf@Bb@L`@Dz@@h@Ff@HtBDf@Bt@Fb@DnAHx@?`@Fj@Av@Ib@?XZxALfA?z@A^Gr@Oz@FlACR?b@CRJr@Rj@`@t@Pb@Hx@Bb@P|@DZDpACbB@|@Dz@HX@XJPBREr@JtBAf@`@~A?`@Fb@Cz@B\\NtA?d@KhA?d@PpAFZP\\N^Hd@@TIhA]bA?j@Bn@CFWNh@vA\\bB\\lAP`CBt@C|@Gf@OXSDs@CUIMM}@wAY_@UOm@w@a@MODMDSLa@Je@^]`@WjAIf@C`ADfAXxCr@hDFx@DtAPxBJt@Nb@\\b@fAj@PJJPj@rA\\f@Tv@DBF@`@Sp@GLDT?f@DLGHGBM@_@Jg@Bo@JOJEVEDG@c@LqAAy@BMHGV@REn@BFA`AiA\\k@J[NUJITIZEh@Bp@Lh@Bh@IP?VET?LIFIF_@DqAPYPCDCL]H]Z]DKNm@Fe@Pc@j@_@h@q@Fg@@m@CYB_AE_@?e@Ck@?mAE[KUIIUQWMa@I[?O@_@PUPOVIZAd@B|A?zADlCRb@^XVJp@BVERGf@_@P[Da@AqA@gBAg@CwAE_@EUKOUUa@Se@Ee@D]NOLMVMb@Cj@?b@@BEv@?h@DhA?bBDRHRLNXTJDPDp@D^I^SNSLWHwAAW@w@EcAAaCMs@WWa@Q_@Em@AKBa@PQRS\\C\\DbCArAB`CFXFJ\\Z\\Lh@H\\Cb@SRQNSHWF_@@uAD]E{@D]IyBMa@OWCKAEDK\\c@@UK}ACq@EW?i@GUOKk@?g@HaAF{BVaAPi@Di@LcADy@Ne@D]Fy@HWHIAGOEa@C}@a@kD?}@Ks@?WS{AAOBWMmAAw@Gi@?c@Ei@Ie@KmBAcAOmAEs@Mw@?c@Gm@Au@Is@Cm@Ik@M_CFSS{AEuAIk@Cq@I_@?m@Ku@Gw@GuAGu@OiEEm@Ik@Eg@G_@GuAIm@?u@IkAI_A?w@E]EUA[EQGqAQwB@YMmAAu@KkBKs@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17409652196,
         "name": "Route Crime",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a17261344627",
           "summary_polyline": "wkpeF~ehjVdBY^DVM^@ZCd@@RITEXE\\@\\IF?FEf@CZOp@EjAQXAF?FFLb@Bt@Hf@@XBBt@U`@ANGd@?TGXCt@DTARBXGVD~A?v@Gv@DNAXIXAbA@PCNB`@M`@?BBDRA\\CF?b@Dj@AX@^BDFDABLTEF?JHNZLDJCJQFBz@EL?HCJOLCAYi@GAC@?z@O`AAv@TJN\\b@h@BREROH@XMEQD@VCVSZBHV\\D^TNE\\Jd@GVi@x@WZI^Sj@Cz@LxAAPH`AGn@B^Kf@?d@ICOSw@kAO[m@QI_@S_@m@q@a@_@QKq@S}@M]SSOUKQAI@QPAZDDPHTCJ@d@b@xAdAPDBBA\\FXLNK^E\\IHs@`@SDu@CGDCH@FRLTX\\JPCLBB@Px@X`@l@fAN`@AJUPQJWB]?QBq@?IBAPP`CFR@XEl@PrABrARnA@ZTzB@n@EPLd@@TAVPbAAHB`@Ab@BNCN@n@R`AAZJf@ANJX@XNp@AVJlA?bACXDVCr@BL@r@Ff@Kf@\\`@DPHd@Bx@CX?x@AZ]l@ELXn@Bd@ClAD|BCjA@l@Mf@KNc@^SHWD[?[G_@Qa@i@CMK{@@oECy@Bw@Pe@^_@^QTEd@@ZJZTXZLXHh@CnGAn@I`@KNUX[VQDIFQn@I|@U\\]`@ANF`@g@LIHINCREdAUzB?b@D~@GROHOG}@qAe@i@a@]k@U{@OYSEM@e@I_@Se@Ya@Qe@Gw@]sA@m@Jq@Li@d@kAb@w@Zc@R_@Dm@Ai@SwB[w@G?QKU[Uy@OIUUGEUAk@DIKYwE?YM{@E_BSgCOu@CuBKq@A]WuCEsBQwA@[Ce@Gc@KeBKs@Iy@CwAI_AAaAKeAE{@Gw@GUOuCMwAKaCSuBAmAYgCUgEMiAUcDEyAQyBGwAI_ACgAWsD",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17253346167,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2636,
-        "elapsed_time": 2907,
-        "elevation_gain": 223.0,
-        "average_pace": 8.79,
-        "average_heartrate": 126.9,
-        "max_heartrate": 161.0,
-        "average_cadence": 87.9,
-        "average_watts": 308.5,
-        "start_date": "2026-02-01T17:42:49Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17253346167",
-          "summary_polyline": "aqpeFpkhjVI`ABj@CP?\\F^Tt@ITBp@BLCDAJED?BFZf@j@DJRT?JCJ@d@Af@K\\@j@ANFdAJj@Cb@GNFn@AFMNCPBRFLAJ@DH\\P\\Jl@AZ@r@Dl@Ep@HVCH@NCD@PKPGZFXDp@WP?j@Vv@\\n@H^N\\@NRx@LpAFNEPGFY@EDBHPVALHX@NRd@GZ@\\C^HVNZ@TGH?NPb@DZJX@NIT?j@DX?PLZD\\@JGNDXAHTr@\\t@GLA\\HL@fBJj@CNYd@Mh@@NCPHb@RZD^Nh@Zn@Fb@FRCJGBMTB`@Sh@G`@?v@TjABXATGHAHBPJ\\Jl@d@jAH^@ZH`@CR?RDXATDVCJBj@MPG\\QDw@DU?y@eAWSQc@MKQa@i@s@OIm@KYBw@^EN?NGPg@^CHUT@VEDCT?l@CLKN?n@BZ@l@D^Lh@BRZhADVAb@F\\Pb@?PNPDx@EL@RJhA@ZLz@AP@PJXX\\LLx@b@XX?Bf@v@BRd@t@JVAVGh@GLC^OTIv@IZCTQ`Ai@tBUf@Sp@SrCAf@L^@VBLNXHD~@?`@K^A~@Qd@E~@D^Jh@b@\\^Td@|@nA~AjCH@FCF?HR^f@h@^PBL@JEBCfAiCXc@X{@\\m@POPGd@Uv@KrAEz@GPCNGHSJk@LkAAo@[qBc@wBQmAi@aBUsACqALmBEg@Ww@wAyCU]Sk@iAeBQOSYEQGs@Ko@MyA?MLi@AQGWa@y@Sm@a@s@IUAS@STYDSAUIc@Ci@FiB[{CIEAMYOOQ[iAQUg@a@IAi@DICEIKaBAS[wCIaB?g@SaCMg@?q@Ge@GwBOiAIwAG}AGc@EiAM}AC{@Ee@?[WcCEaAUqCEaAEc@EeAIw@GcAGi@IqBQ{BAi@Go@EyAYcEEUGoA[kECu@g@wGDMW{BIkCGk@",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 27,
-          "distance": 173.96,
-          "moving_time": 101856,
-          "elapsed_time": 113534,
-          "elevation_gain": 22733.0
+          "count": 28,
+          "distance": 179.7,
+          "moving_time": 104616,
+          "elapsed_time": 116637,
+          "elevation_gain": 22999.0
         },
         "all_time": {
-          "count": 1168,
-          "distance": 6065.41,
-          "moving_time": 3298551,
-          "elapsed_time": 3735214,
-          "elevation_gain": 458298.0
+          "count": 1169,
+          "distance": 6071.15,
+          "moving_time": 3301311,
+          "elapsed_time": 3738317,
+          "elevation_gain": 458563.0
         },
         "recent": {
-          "count": 15,
-          "distance": 94.95,
-          "moving_time": 55512,
-          "elapsed_time": 62330,
-          "elevation_gain": 11637.0
+          "count": 16,
+          "distance": 100.69,
+          "moving_time": 58272,
+          "elapsed_time": 65433,
+          "elevation_gain": 11903.0
         }
       },
       "biking": {
@@ -749,11 +749,11 @@
           "elevation_gain": 967133.0
         },
         "recent": {
-          "count": 6,
-          "distance": 115.54,
-          "moving_time": 38289,
-          "elapsed_time": 48308,
-          "elevation_gain": 12543.0
+          "count": 5,
+          "distance": 85.01,
+          "moving_time": 28731,
+          "elapsed_time": 38167,
+          "elevation_gain": 9140.0
         }
       },
       "swimming": {
