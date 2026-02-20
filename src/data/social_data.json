@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-02-19T10:53:31.017142",
+  "last_updated": "2026-02-20T10:48:16.386066",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "If I Had Legs I'd Kick You",
+        "year": 2025,
+        "rating": 3.5,
+        "watched_date": "2026-02-18",
+        "is_rewatch": false,
+        "review": "<p>Anti-baby making propaganda -- never showing this to Sarah</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/6/5/2/2/1046522-if-i-had-legs-id-kick-you-0-600-0-900-crop.jpg?v=831a0c76c9",
+        "link": "https://letterboxd.com/ncteisen/film/if-i-had-legs-id-kick-you/"
+      },
       {
         "title": "The Secret Agent",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>The usual Park Chan-wook goodness:<br/>- Symbolism maxxing (a decaying tooth, bugs eating thing alive, pig slaughter, forcing the bend of a bonsai tree with wire until it snaps, etc etc etc)<br/>- Truly S-tier creativity in terms of match cuts, cross dissolves, camera locations and camera movements (the digging scenes, my god)<br/>- Good comedy and good fucked up shit</p><p><b>However</b>, like Decision to Leave, it was verging on incoherence at points and that disconnected me a bit from the story and characters.</p><p>The Handmaiden is still peak for me. It has all the good stuff I mentioned while <b>also</b> maintaining emotional connection to the characters and executing a legible (though convoluted) narrative.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/5/6/5/9/5/2/565952-no-other-choice-2025-0-600-0-900-crop.jpg?v=87ef42b9f5",
         "link": "https://letterboxd.com/ncteisen/film/no-other-choice-2025/"
-      },
-      {
-        "title": "12 Angry Men",
-        "year": 1957,
-        "rating": 5.0,
-        "watched_date": "2026-01-11",
-        "is_rewatch": true,
-        "review": "<p>Bechdel lives in fear of this movie.</p><p>It was between this and My Cousin Vinny to get Sarah prepped for her jury duty tomorrow.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/7/0/0/51700-12-angry-men-0-600-0-900-crop.jpg?v=b8aaf291a9",
-        "link": "https://letterboxd.com/ncteisen/film/12-angry-men/"
       }
     ],
     "stats": {
-      "total_films": 881,
-      "films_this_year": 8,
+      "total_films": 882,
+      "films_this_year": 9,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -176,6 +176,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17456642386,
+        "name": "SOCI Team Run \ud83d\udc1f",
+        "type": "Run",
+        "distance": 4.64,
+        "moving_time": 2610,
+        "elapsed_time": 3143,
+        "elevation_gain": 131.0,
+        "average_pace": 9.38,
+        "average_heartrate": 120.7,
+        "max_heartrate": 141.0,
+        "average_cadence": 87.3,
+        "average_watts": 291.3,
+        "start_date": "2026-02-20T00:33:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17456642386",
+          "summary_polyline": "mpcdF|vmiV?EDI`@Uz@{@hBsA`@m@NI`CcBNW`@g@ZMF?RQp@}@hAq@F?FDjAt@fAb@FA?[DMhAaAn@u@bCsB\\_@z@m@b@a@nCeCXO`BoAl@m@lA}ATa@|@mATa@^e@vB_Dd@k@BIAKIKu@}@MS}@kAY[}@qAi@m@Q[a@a@k@u@c@u@KKIAA?[\\}@nACL@JDHTTp@|@dAxAfBxBZf@RRfBbCLNH@B?HOSVOTsAhBa@v@s@z@q@dAcApAuA~@YV]R_BzAmCxBWZsAfA]\\u@j@[`@aAv@K@KGGGQe@QYUe@g@w@g@eAc@q@eAuBS[Ua@[c@GEOACE[w@W_@Se@i@u@[w@eAgBWk@iAiBQ_@][YOUGi@CUEWSQUgUb\\wDhICJcBbDUn@Ql@UhAMrAGdA?jACv@BbA@`CAnG@nAAbABNNFtAC`BO`@Af@Ib@]VIv@s@f@_@l@m@|@e@^]fBaAjAaAl@i@vAyBTm@PYH[Ta@b@i@Xk@l@u@DK?IACMEUUq@cAUe@OKOWMMmAsBCAKNEAe@_Au@s@]Ys@]uAe@SBKF[^c@vAGZAp@BZN^^f@TPz@`@z@R~@Dl@ETM~@aABK?KGWQm@Ue@c@k@a@]c@[mB}@WGYBOESW?MDQCQaAo@w@o@GCGBIT@z@ThAD`AF^FNPJJNVt@J|@\\r@TV^V`@Rf@Nn@HdA?TEPKb@c@\\c@@KAKEUWw@[i@QWs@i@e@WwAo@e@MY@IAW_@?EDYEOmA{@c@a@GAEBILAbATfADp@Fl@HRNHHJZ~@Hv@Vn@VXd@^p@Tz@Ph@B`@A\\Gf@c@d@o@BOQcABMDIFCNLj@~@b@h@PZ~@nB\\f@Jd@Tb@T[r@u@JG",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17445823573,
         "name": "Afternoon Run",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a17321187477",
           "summary_polyline": "avafFlw{jVg@IaBgA{@LPjDOzAaCrCcBdAo@x@oBx@kBR{Bl@GKl@o@`@uAzA{AqEZi@Og@u@o@YoBhAcBzBe@Ea@k@iBtAkCd@yBpC}EnBe@p@AbCj@tDKlBn@jB_@vAZzBzB~APv@ObAXr@dAb@x@x@zAZz@fANzAd@fAd@rCm@pCbB`@VXy@pCd@dCUjA?rDSl@_@BmA}@_@y@c@{B}BoBWq@KwAq@W_@ZAh@PnBfAhFkAh@sBuBoASQhANdEUL}Aq@YDWf@QvBSZi@GqByCsB}Ao@yAeBdAi@~@aAVm@bAc@T}A_@c@oAq@m@[?]`@qAIi@NWfAq@NVhAE\\g@\\_@bAeAr@i@bAc@FoAa@gATaAa@[B[f@CbAi@pAkAv@`@VwCd@KSVeAEUeEDm@Fu@x@{@PU\\c@pAX`AQ|@H|AfCtF~AFh@p@tAf@jAa@bAPpBfEl@v@hAjBhBTf@a@Tu@|AVf@_@VJ?^{@nAN|Ae@zBD~Ac@dB`@AEnANdACt@m@xAFpBXXi@dA]dC\\k@pALbD{C|BdCpEvDxDpBjAzAv@V~A@T`@E`Af@q@V}AIkAk@g@b@e@vBvA`@n@`F{@vFb@j@`APlF|@JnAhAz@Hr@YNkBY_A|@Z^xAhBC`A~@RvAl@x@k@rCQPH`Bb@Bh@s@StBz@{AA~@^vAB|@^OBgAhCvDiATgArAm@@e@Wj@l@~AHZb@vAJvCeAs@xAmDxDCJhBp@f@cBxAgAlBoDPaAIqCzBcBd@p@|@tE^j@l@TlCEtDuDjBYHbAk@vEN\\r@NhBeApCsC`AoAHoAl@oAp@{@x@g@v@uEh@kBNwBf@eALaAd@XQaAw@}AdAy@r@yAMkBcAqB?i@j@k@Di@WuBcA_Fx@Q~@Hf@YNe@tA@dAu@zABh@qAn@H@o@a@uBRoBVk@LeDUsAiAgBDoBv@LV`@pAj@vAhE?bAT~@`A`B@oAc@u@Py@bDVIiAP{Ac@qCPcAz@eBxAaA~@qA|Ao@Lc@Q_Fm@mDHoBnDeEn@oBjA_CEuBpAGXYTgAByA_AsJyAsGm@oEkAsAUy@BgBj@_CEqDb@wC@eEMsAkAiDsByCkCcCuAY}DXiEvA_DdBmBb@wD{@cJmAuAy@eBoCoHoE}BmC",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17312033857,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.05,
-        "moving_time": 2161,
-        "elapsed_time": 2250,
-        "elevation_gain": 217.0,
-        "average_pace": 8.89,
-        "average_heartrate": 127.2,
-        "max_heartrate": 156.0,
-        "average_cadence": 88.0,
-        "average_watts": 305.6,
-        "start_date": "2026-02-07T00:29:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17312033857",
-          "summary_polyline": "_rpeFhlhjV@j@B\\@jAX~AEZ@^TpAA`@J`@@zBV|D?j@Dj@?PGVAl@Jv@Nv@D`@?l@DZExASv@A^F~AEPAf@Jd@N`@^n@Lb@HLDv@TlBCFSFCH^hALTD`@EtAB^?d@FRDf@Nj@Gr@@`BHr@d@jB@b@APFj@AjAHh@Dr@?LM`AA|@ZvAZt@Hn@?l@Kt@OZGXARJfAAJEFUFLt@h@`Bf@xBZvCChAK~@IJMD_@DQ?WG[WQa@o@q@o@cA[]MGSCM?SFUR_@PSTOJURS^MZU|@Ct@?`@B`@|@dGj@fFPdCPz@JPTTfAl@JJ`@l@jAhCJLNBfA]n@H`@JH?HEDIBo@Lu@Be@NMZIJUJqAEgA@YLK^AZOr@AVOZa@`@m@`@cABa@CY_@eAi@s@G}@[{AFk@d@{Br@_Bb@i@L]B]@s@KoAK}@EBC?MM[OMSI[MSMa@SQQYMGC?m@HGCCEOkDIc@?YMyA?{@OuBOkACsAGy@OeACcBQuAKoBIq@UiCA_A?g@Ky@Bg@GuAOcAC{@Is@Q{CIu@OiD_@aEAq@YsDCkAQaCMwCO{AEs@COYyEMkBE}@YyD",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 29,
-          "distance": 183.17,
-          "moving_time": 106303,
-          "elapsed_time": 118684,
-          "elevation_gain": 23186.0
+          "count": 30,
+          "distance": 187.81,
+          "moving_time": 108913,
+          "elapsed_time": 121827,
+          "elevation_gain": 23317.0
         },
         "all_time": {
-          "count": 1170,
-          "distance": 6074.62,
-          "moving_time": 3302998,
-          "elapsed_time": 3740364,
-          "elevation_gain": 458750.0
+          "count": 1171,
+          "distance": 6079.26,
+          "moving_time": 3305608,
+          "elapsed_time": 3743507,
+          "elevation_gain": 458882.0
         },
         "recent": {
           "count": 17,
-          "distance": 104.16,
-          "moving_time": 59959,
-          "elapsed_time": 67480,
-          "elevation_gain": 12090.0
+          "distance": 104.62,
+          "moving_time": 60524,
+          "elapsed_time": 68441,
+          "elevation_gain": 12018.0
         }
       },
       "biking": {
