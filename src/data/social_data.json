@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-02-25T10:57:09.567850",
+  "last_updated": "2026-02-26T10:54:50.804918",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Brief Encounter",
+        "year": 1945,
+        "rating": 4.0,
+        "watched_date": "2026-02-24",
+        "is_rewatch": false,
+        "review": "<p><em>This review may contain spoilers.</em></p><p>A remake of this but it takes place in a Google tech shuttle would do numbers on SF twitter (derogatory*)</p><p>*of tech bro twitter, not of this movie, which was lovely</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/1/51301-brief-encounter-0-600-0-900-crop.jpg?v=dfc2823c13",
+        "link": "https://letterboxd.com/ncteisen/film/brief-encounter/"
+      },
       {
         "title": "If I Had Legs I'd Kick You",
         "year": 2025,
@@ -72,21 +82,11 @@
         "review": "<p>The movie that made me realize I had become cat-pilled.</p><p>Coen brother's movies are so reliably wonderful. They are filled with the best kind of things films can do; make you laugh in interesting ways, make you sad in interesting ways, make you think about the meaning behind really small moments. I get to the end of one of their films and thing \"yeah this is why I like movies\"</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/7/3/3/6/7/73367-inside-llewyn-davis-0-600-0-900-crop.jpg?v=df06f071fa",
         "link": "https://letterboxd.com/ncteisen/film/inside-llewyn-davis/"
-      },
-      {
-        "title": "No Other Choice",
-        "year": 2025,
-        "rating": 4.0,
-        "watched_date": "2026-01-15",
-        "is_rewatch": false,
-        "review": "<p>The usual Park Chan-wook goodness:<br/>- Symbolism maxxing (a decaying tooth, bugs eating thing alive, pig slaughter, forcing the bend of a bonsai tree with wire until it snaps, etc etc etc)<br/>- Truly S-tier creativity in terms of match cuts, cross dissolves, camera locations and camera movements (the digging scenes, my god)<br/>- Good comedy and good fucked up shit</p><p><b>However</b>, like Decision to Leave, it was verging on incoherence at points and that disconnected me a bit from the story and characters.</p><p>The Handmaiden is still peak for me. It has all the good stuff I mentioned while <b>also</b> maintaining emotional connection to the characters and executing a legible (though convoluted) narrative.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/6/5/9/5/2/565952-no-other-choice-2025-0-600-0-900-crop.jpg?v=87ef42b9f5",
-        "link": "https://letterboxd.com/ncteisen/film/no-other-choice-2025/"
       }
     ],
     "stats": {
-      "total_films": 882,
-      "films_this_year": 9,
+      "total_films": 883,
+      "films_this_year": 10,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -749,11 +749,11 @@
           "elevation_gain": 967133.0
         },
         "recent": {
-          "count": 5,
-          "distance": 85.01,
-          "moving_time": 28731,
-          "elapsed_time": 38167,
-          "elevation_gain": 9140.0
+          "count": 4,
+          "distance": 63.01,
+          "moving_time": 21861,
+          "elapsed_time": 30612,
+          "elevation_gain": 7241.0
         }
       },
       "swimming": {
