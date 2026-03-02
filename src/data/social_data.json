@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-03-01T10:33:01.822767",
+  "last_updated": "2026-03-02T10:52:13.455625",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "This Is Spinal Tap",
+        "year": 1984,
+        "rating": 4.0,
+        "watched_date": "2026-02-26",
+        "is_rewatch": false,
+        "review": "<p>How\u2019d they come up with all those funny names??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/6/7/2/45672-this-is-spinal-tap-0-600-0-900-crop.jpg?v=cc2f1011d3",
+        "link": "https://letterboxd.com/ncteisen/film/this-is-spinal-tap/"
+      },
       {
         "title": "Brief Encounter",
         "year": 1945,
@@ -72,21 +82,11 @@
         "review": "<p>Men will literally write a best-selling novel about the most romantic night of their life in Vienna with a stranger they met on the train instead of going to therapy</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/9/7/0/51970-before-sunset-0-600-0-900-crop.jpg?v=718e2923ff",
         "link": "https://letterboxd.com/ncteisen/film/before-sunset/"
-      },
-      {
-        "title": "Inside Llewyn Davis",
-        "year": 2013,
-        "rating": 4.0,
-        "watched_date": "2026-01-19",
-        "is_rewatch": false,
-        "review": "<p>The movie that made me realize I had become cat-pilled.</p><p>Coen brother's movies are so reliably wonderful. They are filled with the best kind of things films can do; make you laugh in interesting ways, make you sad in interesting ways, make you think about the meaning behind really small moments. I get to the end of one of their films and thing \"yeah this is why I like movies\"</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/3/3/6/7/73367-inside-llewyn-davis-0-600-0-900-crop.jpg?v=df06f071fa",
-        "link": "https://letterboxd.com/ncteisen/film/inside-llewyn-davis/"
       }
     ],
     "stats": {
-      "total_films": 883,
-      "films_this_year": 10,
+      "total_films": 884,
+      "films_this_year": 11,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -726,11 +726,11 @@
           "elevation_gain": 460118.0
         },
         "recent": {
-          "count": 17,
-          "distance": 93.65,
-          "moving_time": 53022,
-          "elapsed_time": 59329,
-          "elevation_gain": 8471.0
+          "count": 16,
+          "distance": 88.66,
+          "moving_time": 50386,
+          "elapsed_time": 56422,
+          "elevation_gain": 8248.0
         }
       },
       "biking": {
