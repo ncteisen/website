@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-03-04T10:47:14.166544",
+  "last_updated": "2026-03-05T10:51:31.702313",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "The Worst Person in the World",
+        "year": 2021,
+        "rating": 4.5,
+        "watched_date": "2026-03-02",
+        "is_rewatch": true,
+        "review": "<p>Pre-Norway-trip rewatch</p><p>Every little tiny detail of this movie has something relatable/interesting (like dealing with a distant family member, being the low-energy friend at the hang, sad girl walks, feeling disconnected from the group, loved one's cancer, mushroom anxiety, not wanting to be a doctor, literally stopping time to smash, etc etc etc its truly ever scene)</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/8/5/2/5/8/585258-the-worst-person-in-the-world-0-600-0-900-crop.jpg?v=92bc344c27",
+        "link": "https://letterboxd.com/ncteisen/film/the-worst-person-in-the-world/1/"
+      },
       {
         "title": "This Is Spinal Tap",
         "year": 1984,
@@ -72,21 +82,11 @@
         "review": "<p>Fun, mega-gnarly, dong-filled</p><p>Ralph Fiennes and Jack O'Connell carried the energy throughout. I was a bit surprised they sidelined the kid character, since he was really good in the first, but maybe he will pop off again in the third installment?</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff",
         "link": "https://letterboxd.com/ncteisen/film/28-years-later-the-bone-temple/"
-      },
-      {
-        "title": "Before Sunset",
-        "year": 2004,
-        "rating": 4.0,
-        "watched_date": "2026-01-19",
-        "is_rewatch": false,
-        "review": "<p>Men will literally write a best-selling novel about the most romantic night of their life in Vienna with a stranger they met on the train instead of going to therapy</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/9/7/0/51970-before-sunset-0-600-0-900-crop.jpg?v=718e2923ff",
-        "link": "https://letterboxd.com/ncteisen/film/before-sunset/"
       }
     ],
     "stats": {
       "total_films": 884,
-      "films_this_year": 11,
+      "films_this_year": 12,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -176,6 +176,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17607839215,
+        "name": "SLC \u2764\ufe0f",
+        "type": "Run",
+        "distance": 5.22,
+        "moving_time": 2942,
+        "elapsed_time": 3127,
+        "elevation_gain": 548.0,
+        "average_pace": 9.4,
+        "average_heartrate": 147.9,
+        "max_heartrate": 175.0,
+        "average_cadence": 84.8,
+        "average_watts": 301.3,
+        "start_date": "2026-03-04T23:18:37Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17607839215",
+          "summary_polyline": "uyrvFhmliTDCh@AnCg@n@Dx@Tb@Ab@KTQb@a@Va@Q^i@f@WNi@Pi@@SMUGeAGo@NeAPU@UAEH@BHB\\?^Lx@n@RR`@jAPX@ADc@XYTOh@MZO`@AdA[TCH@Rd@Ff@Er@Dr@Jf@?f@Hp@Cr@FND^NVHnAHRDZLNNVF?RQHED@\\Tb@d@dA`@l@^^o@LGLEn@@f@HPEp@@d@ETBRHj@Gh@JbA@zBq@`@If@SNC~@e@J?RFP@\\ITDRL^LNPHVHPHFVDFDJBNAXEXA`@GRAHMDWFGJC|Aj@jB~@rC`A`@Bv@M|@Pb@^JV@RANKp@Kd@Gl@AXB`@Jl@Pd@Xj@FTAv@Q`FSxAKfAS~@K`@e@dA[l@QxA?d@Eb@@LN^@HATQXI^OXIVKJAH@LLRBJFFd@LRCFF@\\Lh@ATMh@D`@?Ns@rAQTc@xASV_@NU`@GTEFa@RWDKHCJ@lBDbDE`@Sx@EZAbAKnAAjBW|@Gl@BRP^V|@Hp@?ZIr@CnCALEL_@`@MT]`ACNFv@Nj@BTEjEQ`BEzCGlAe@|EANHj@AdAP~A?v@GpA?VE~ASzAKrBMhAGnBEZEHq@j@MPa@pAO~@IXq@hAo@`BSVOHU?o@QKGW]EaAB]A_@Q{A@w@C]Fw@CcA@_ACs@?cARqBHuDGaGCq@F}@?s@IeD@c@FoAl@kAL_@ViABYCo@u@kBYoCFeBVcARoALyAOkBKWYWK[Ms@Eo@F_AJ_@Xu@PeA^k@F_@Ai@MkAUw@E[?UFaAEi@OgABwAAaAAg@G]Cc@@gAAM@]Lo@FyAMaAOuBAq@PwAXcAJq@L}DNkBDmA?a@C_@IQ_@g@]_AQS]Uc@Iw@Ye@GeA[s@Ii@So@QcBWe@CW?aAFe@@KA_AWO?a@NiBB]Go@[WIq@c@SUa@o@k@y@US[Ou@E_@SQUQ_@SsAOi@AK?q@EK?_@LsBCiC@kBC_@E_@Uq@c@}@[y@OSq@i@[Mi@C]@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17546633929,
         "name": "Ski weather or running weather \ud83e\udd14",
@@ -327,28 +349,6 @@
         "map": {
           "id": "a17456642386",
           "summary_polyline": "mpcdF|vmiV?EDI`@Uz@{@hBsA`@m@NI`CcBNW`@g@ZMF?RQp@}@hAq@F?FDjAt@fAb@FA?[DMhAaAn@u@bCsB\\_@z@m@b@a@nCeCXO`BoAl@m@lA}ATa@|@mATa@^e@vB_Dd@k@BIAKIKu@}@MS}@kAY[}@qAi@m@Q[a@a@k@u@c@u@KKIAA?[\\}@nACL@JDHTTp@|@dAxAfBxBZf@RRfBbCLNH@B?HOSVOTsAhBa@v@s@z@q@dAcApAuA~@YV]R_BzAmCxBWZsAfA]\\u@j@[`@aAv@K@KGGGQe@QYUe@g@w@g@eAc@q@eAuBS[Ua@[c@GEOACE[w@W_@Se@i@u@[w@eAgBWk@iAiBQ_@][YOUGi@CUEWSQUgUb\\wDhICJcBbDUn@Ql@UhAMrAGdA?jACv@BbA@`CAnG@nAAbABNNFtAC`BO`@Af@Ib@]VIv@s@f@_@l@m@|@e@^]fBaAjAaAl@i@vAyBTm@PYH[Ta@b@i@Xk@l@u@DK?IACMEUUq@cAUe@OKOWMMmAsBCAKNEAe@_Au@s@]Ys@]uAe@SBKF[^c@vAGZAp@BZN^^f@TPz@`@z@R~@Dl@ETM~@aABK?KGWQm@Ue@c@k@a@]c@[mB}@WGYBOESW?MDQCQaAo@w@o@GCGBIT@z@ThAD`AF^FNPJJNVt@J|@\\r@TV^V`@Rf@Nn@HdA?TEPKb@c@\\c@@KAKEUWw@[i@QWs@i@e@WwAo@e@MY@IAW_@?EDYEOmA{@c@a@GAEBILAbATfADp@Fl@HRNHHJZ~@Hv@Vn@VXd@^p@Tz@Ph@B`@A\\Gf@c@d@o@BOQcABMDIFCNLj@~@b@h@PZ~@nB\\f@Jd@Tb@T[r@u@JG",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17445823573,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 3.47,
-        "moving_time": 1687,
-        "elapsed_time": 2047,
-        "elevation_gain": 187.0,
-        "average_pace": 8.11,
-        "average_heartrate": 138.7,
-        "max_heartrate": 164.0,
-        "average_cadence": 88.4,
-        "average_watts": 334.8,
-        "start_date": "2026-02-19T01:02:40Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17445823573",
-          "summary_polyline": "arpeFllhjVH~B@LDLRlCL|@@t@HPAxA@b@PdDNpAA`AE`@?b@Fl@R~@Dh@@`BA`AE\\Qn@JvAC|AZ`A\\n@Tr@RjB@ZDTFx@HjBEnBL`ARhAAZ|Azb@YNgAnM]]Qa@II_@QWUc@IsBbB[h@Kb@OrAAl@FdATfBp@tEXjDFhAPhANZZ^v@j@d@h@zA~CJHR@|@U\\?ZE\\FLAFGBm@Lk@@g@JM`@OJ]H_A?_@Cm@Da@XYPGNAt@DHANGVU^i@b@_ANo@AWMo@Ug@[a@GQIy@Io@Oc@?_@PqA^kAp@qAZe@P]H]?c@Y}CWYSIKKe@wAc@_@[QI?k@FKEAE?iAIsAWsAMaAGuCYwB@}@G]I_BC_@GSGu@IwB?eAQyACaAOeBAm@Iy@Km@QyCB_@Ai@MiAK}AQcBM{CYaDMoDIq@I]?u@C]CcAIu@GsBO}AEmBI_AIq@CkA[{CYqE",
           "resource_state": 2
         }
       }
@@ -712,25 +712,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 36,
-          "distance": 216.05,
-          "moving_time": 123781,
-          "elapsed_time": 137777,
-          "elevation_gain": 24554.0
+          "count": 37,
+          "distance": 221.27,
+          "moving_time": 126723,
+          "elapsed_time": 140904,
+          "elevation_gain": 25102.0
         },
         "all_time": {
-          "count": 1177,
-          "distance": 6107.49,
-          "moving_time": 3320476,
-          "elapsed_time": 3759457,
-          "elevation_gain": 460118.0
+          "count": 1178,
+          "distance": 6112.71,
+          "moving_time": 3323418,
+          "elapsed_time": 3762584,
+          "elevation_gain": 460666.0
         },
         "recent": {
-          "count": 15,
-          "distance": 83.44,
-          "moving_time": 47451,
-          "elapsed_time": 53024,
-          "elevation_gain": 7657.0
+          "count": 16,
+          "distance": 88.66,
+          "moving_time": 50393,
+          "elapsed_time": 56151,
+          "elevation_gain": 8205.0
         }
       },
       "biking": {
@@ -749,11 +749,11 @@
           "elevation_gain": 967133.0
         },
         "recent": {
-          "count": 4,
-          "distance": 63.01,
-          "moving_time": 21861,
-          "elapsed_time": 30612,
-          "elevation_gain": 7241.0
+          "count": 3,
+          "distance": 38.72,
+          "moving_time": 15250,
+          "elapsed_time": 23712,
+          "elevation_gain": 4928.0
         }
       },
       "swimming": {
