@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-07T10:31:52.678336",
+  "last_updated": "2026-03-08T10:33:24.853384",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -726,11 +726,11 @@
           "elevation_gain": 460666.0
         },
         "recent": {
-          "count": 15,
-          "distance": 84.61,
-          "moving_time": 48232,
-          "elapsed_time": 53901,
-          "elevation_gain": 7989.0
+          "count": 14,
+          "distance": 74.07,
+          "moving_time": 41501,
+          "elapsed_time": 45209,
+          "elevation_gain": 5922.0
         }
       },
       "biking": {
