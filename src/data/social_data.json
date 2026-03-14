@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-13T10:48:02.035630",
+  "last_updated": "2026-03-14T02:09:09.964340",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -171,7 +171,9 @@
     "stats": {
       "total_ratings": 285,
       "average_rating": 4.17,
-      "total_reviews": 124
+      "total_reviews": 124,
+      "pages_this_year": 1271,
+      "books_this_year": 5
     }
   },
   "strava": {
@@ -749,11 +751,11 @@
           "elevation_gain": 967133.0
         },
         "recent": {
-          "count": 1,
-          "distance": 19.9,
-          "moving_time": 5482,
-          "elapsed_time": 6946,
-          "elevation_gain": 1440.0
+          "count": 0,
+          "distance": 0,
+          "moving_time": 0,
+          "elapsed_time": 0,
+          "elevation_gain": 0
         }
       },
       "swimming": {

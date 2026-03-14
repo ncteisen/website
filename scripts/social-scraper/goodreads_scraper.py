@@ -4,6 +4,7 @@ from typing import Dict, List
 import logging
 import re
 import os
+from datetime import date
 from bs4 import BeautifulSoup
 
 # Set up logging
@@ -13,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Constants
 GOODREADS_RSS_URL = "https://www.goodreads.com/review/list_rss/44763252-noah-eisen"
 GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/44763252-noah-eisen"
-GOODREADS_CHALLENGE_URL = "https://www.goodreads.com/user/year_in_books/2025/44763252"
+GOODREADS_CHALLENGE_URL = f"https://www.goodreads.com/user/year_in_books/{date.today().year}/44763252"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -24,7 +25,7 @@ HEADERS = {
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
 CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'goodreads_profile.html')
 CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'goodreads_rss.xml')
-CACHED_CHALLENGE_FILE = os.path.join(CACHE_DIR, 'goodreads_challenge_2025.html')
+CACHED_CHALLENGE_FILE = os.path.join(CACHE_DIR, f'goodreads_challenge_{date.today().year}.html')
 
 def extract_book_data(item: ET.Element) -> Dict:
     """Extract book data from an RSS item."""
@@ -118,12 +119,12 @@ def extract_reading_challenge_stats(html_content: str) -> Dict:
         stats = {}
         
         # Find all count divs and their labels
-        count_divs = soup.find_all('div', class_='headerImageContainer__count')
-        
+        count_divs = soup.find_all('div', class_='heroImageContainer__count')
+
         for count_div in count_divs:
             parent = count_div.parent
             if parent:
-                label_div = parent.find('div', class_='headerImageContainer__countLabel')
+                label_div = parent.find('div', class_='heroImageContainer__countLabel')
                 if label_div:
                     label_text = label_div.get_text(strip=True)
                     count_text = count_div.get_text(strip=True)
