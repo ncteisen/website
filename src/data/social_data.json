@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-14T02:09:09.964340",
+  "last_updated": "2026-03-14T10:36:23.842774",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -179,6 +179,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 17708791850,
+        "name": "Never trust the weather",
+        "type": "Run",
+        "distance": 5.0,
+        "moving_time": 2833,
+        "elapsed_time": 3395,
+        "elevation_gain": 525.0,
+        "average_pace": 9.45,
+        "average_heartrate": 144.7,
+        "max_heartrate": 170.0,
+        "average_cadence": 84.8,
+        "average_watts": 287.6,
+        "start_date": "2026-03-13T14:07:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17708791850",
+          "summary_polyline": "mkpeFpehjVf@Qd@GZKb@@TEX@l@Ov@Ib@Ct@CXMXEXI\\DnBMVFHLLb@@n@BLBD`ABVIVAlA`@J?PG^Cv@MLNfAAn@Ej@Gx@EREX@PCVAd@GJ@|@OH?PBJN@^CHDR?n@Bl@?p@FHPFDXFRPJLBDLCJQFCLAn@GXEFOLG?CCAQIMESILCN@`@O`A@LCPAd@RDLZd@f@DXAJONAXA@GCC\\IFM@CLOV@HXZH`@RNA^Dd@CN]p@g@j@KVEP@dAClAGf@AR@TDX?HDPC|@Bb@If@EDE@WKKMIQMIQUIEWPWZ_@Ji@`@KBGNOT_@VYVc@RM?MFc@FCBF`ADTLzBNjABh@F^@j@H`AF`Bd@hGD~ANtA@v@Dz@RlB?l@Hh@FxAPzA?PGTCZAZPdBJh@ERBVLt@T`CEtBEH_@f@I@e@S[Ec@?OBYL]^QVCXAxAB|AAtAF|AL^RVl@Td@FLF@JIJIXM|@U\\Sd@CP@\\AD]PU\\IZM~@KROBW?u@Hg@JKA]K}@IU@e@JIBGFWr@MVg@p@MJOBm@?QHa@AUFITEl@?PD^EzAIL[JGDGbAOd@?XINIBQ?[MM@c@GmAXSGGOQq@]u@Oe@OYa@_@o@[o@s@Y{@Gc@Aq@Gw@Aq@Kq@ImAKQEm@Kc@I{@[iBKeA?a@RqAVgAV_@t@o@~@_@HCR?ZPp@~@z@|@d@p@RNNFh@AVGHEDKD[DkAK_BMu@o@{CYy@]{AVI@E@MI{@@OD]Vk@LmA?ME_@k@sAQi@Ii@?c@H[Hq@OaC@gBIeA]mAEUCiDSu@A_@OiAAu@Hw@?YMeAEuAMgACq@I_@Si@g@{@Uk@EUHk@?UCgA@_@Da@Ng@B[AgBGo@M{@M_@?UGa@Hg@?eAGyAWgCEcAIk@@YEc@CqACUAaAIw@ZY?CQsAI}A",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 17703586726,
         "name": "To nice not to",
         "type": "Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a17498176452",
           "summary_polyline": "uqpeFdlhjVFzA?r@Db@Xx@At@@\\H`@Dz@F`@?dBLdDHdAA^Fv@I`@B~@VdAB^?n@Dz@ApAQnABnACTER@r@BLVl@NX^`AJf@Dj@Ot@Bf@Lh@Zr@BRBv@GtABb@BTHJDp@Lh@Cl@@`@?t@JfAFVZjBBd@Ej@Bl@RdB?NQdAAd@N`Ad@zAPx@@NKfAGRQ^ET?j@Fn@[`@`@pAXl@Nl@Jz@JZTzBDpAKdAKVSH[@U?MIa@i@e@]_@c@_@k@ISOW]WQIc@EMLYf@[VGBQVI?W^Yv@G\\GdA?j@PdBl@tDb@tERlCHf@Rd@PTPPd@T`@ZX^h@dAPNLBJCFIH[PaCDkAN{Br@}HD_A@e@PoAHiA?k@Cm@G[De@?aBIgAOcAu@aDQi@XSAQSy@OcA?MD[Vk@FSD[@k@C_@Yw@[q@Mo@Ao@NgADw@McACgA@WCq@Qu@I}@IUGe@EkB@a@E_@K]Ga@IcAAWDkAAW?}@Eo@Ec@]c@Jw@MeAWs@y@}AG]D}@H[A]EYCU@MJUFm@BeCGsAMm@KeA?MDM@QCY?w@OyASuD?ITKBi@_@wAOa@?cACm@KWAQB}@Ge@@c@Em@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17475104059,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.55,
-        "moving_time": 3501,
-        "elapsed_time": 3808,
-        "elevation_gain": 240.0,
-        "average_pace": 8.91,
-        "average_heartrate": 127.5,
-        "max_heartrate": 157.0,
-        "average_cadence": 88.6,
-        "average_watts": 305.4,
-        "start_date": "2026-02-21T16:37:07Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17475104059",
-          "summary_polyline": "kqpeFxkhjV?RJ^ADCB?DFZCn@FXBZId@?LRn@F\\IhAD^CVBJLZ@l@Lf@?b@BJ?\\FTK`@BTPj@Q`@?fAG^LlAJ^DTF~@@n@Db@EnAUbAJz@GzB@LHLLZZj@^bAHfAMl@@BH@HFBJ@d@FZDh@AJ@b@An@IbBDNNVL`ADn@CX@R?`AHz@b@~B@x@Ev@N|@DdAOfBHj@RdARn@TfA?XGt@Y`ACVR`BLx@ATBRJd@z@fCLf@DX@tAC`BQpAC`@E|B_@xCShDSjBKfB]vDEv@e@bDOl@E`@k@tDy@~D[lCEvBRzF?nAH~BJjAF^Vz@Vv@T`@h@x@Zl@TT\\j@~@jBp@bBNj@Hl@Bf@Ch@[tBc@pBK`AJnABl@AfBOnB@^Lt@NXRVNJRDt@BJANMFKHa@NeBJo@Pc@l@aAVw@Lk@Fe@?]OwBIg@QyCWwB?WHURIJAXJJLh@pA\\l@p@v@\\Zd@XRHb@Jp@HXBp@NVLJPL^@L?\\UvAC`@Fz@ApAOtAAp@GTGx@I\\[`AIb@@\\A^DRRH\\FLJ@FCJILYLsBPSCe@Qa@Ae@BaAZYBk@IU@e@LcA?OEKG_@c@[GECKQI_@IEEGD_@AWOw@KmAM]Mm@?m@PyBDeBAe@Uw@B[ZiAd@oBN}@H_AC{@Qu@c@gAw@aB{@{A}A{B[m@k@gBIq@QiH?cAEy@BgACe@?_@H{A@o@R}B~@_GTeANaBLITB^KXAVAVDPA^JHCHGDID]No@Hw@JMXKFKJwAAwADSRGd@AXO^BNEHQLK`@m@l@mAJg@Gm@So@e@s@IOAe@EY]qA@SDe@VsAXw@Xm@\\i@TUFKBMFs@Ac@My@EgAKOKWYMMOUu@O[WQIKQKQAg@JCAE_@KuBQmCIiCWmCAaAKuAIa@KiBO}ACmAKqBSwBEw@ESO_COsDGUK}@GuAIq@I_CW_COyCM}AAq@YkDCk@QoBIgBSuBG{B]iE?YUkBUmE",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 39,
-          "distance": 233.41,
-          "moving_time": 132802,
-          "elapsed_time": 147741,
-          "elevation_gain": 25627.0
+          "count": 40,
+          "distance": 238.41,
+          "moving_time": 135635,
+          "elapsed_time": 151136,
+          "elevation_gain": 26152.0
         },
         "all_time": {
-          "count": 1180,
-          "distance": 6124.86,
-          "moving_time": 3329497,
-          "elapsed_time": 3769421,
-          "elevation_gain": 461191.0
+          "count": 1181,
+          "distance": 6129.85,
+          "moving_time": 3332330,
+          "elapsed_time": 3772816,
+          "elevation_gain": 461716.0
         },
         "recent": {
-          "count": 14,
-          "distance": 76.13,
-          "moving_time": 41965,
-          "elapsed_time": 45934,
-          "elevation_gain": 5679.0
+          "count": 15,
+          "distance": 81.13,
+          "moving_time": 44798,
+          "elapsed_time": 49329,
+          "elevation_gain": 6204.0
         }
       },
       "biking": {
