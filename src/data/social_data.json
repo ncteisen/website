@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-14T10:36:23.842774",
+  "last_updated": "2026-03-15T10:39:07.542830",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -95,6 +95,15 @@
   "goodreads": {
     "recent_reviews": [
       {
+        "title": "Wild Dark Shore",
+        "author": "Charlotte McConaghy",
+        "rating": 3.0,
+        "read_at": "2026/03/14",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747583366l/231127223.jpg",
+        "link": "https://www.goodreads.com/review/show/8437477062?utm_medium=api&utm_source=rss",
+        "review": "<br/>I'm done reading climate fiction unless it's written by Richard Powers.<br /><br />Alt"
+      },
+      {
         "title": "Vigil",
         "author": "George Saunders",
         "rating": 4.0,
@@ -156,28 +165,41 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442897076l/781182.jpg",
         "link": "https://www.goodreads.com/review/show/8066165910?utm_medium=api&utm_source=rss",
         "review": "<br/>Just like Succession except it\u2019s a 600 page book and it all actually happened<br/>"
-      },
-      {
-        "title": "The Secret History",
-        "author": "Donna Tartt",
-        "rating": 3.0,
-        "read_at": "2025/10/28",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751820530l/29044.jpg",
-        "link": "https://www.goodreads.com/review/show/7977151660?utm_medium=api&utm_source=rss",
-        "review": "<br/>Ngl the bacchanal sounded pretty lit. I'm going to call up my Great Books TA from Michigan and lodge a complain.<br /><br />3.5 / 5 stars: fun to read but got a bit repetitive, draggy and aimless in the back half.<br/>"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 285,
+      "total_ratings": 286,
       "average_rating": 4.17,
-      "total_reviews": 124,
-      "pages_this_year": 1271,
-      "books_this_year": 5
+      "total_reviews": 125,
+      "pages_this_year": 1591,
+      "books_this_year": 6
     }
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17723119999,
+        "name": "They can\u2019t all be good",
+        "type": "Run",
+        "distance": 8.7,
+        "moving_time": 5179,
+        "elapsed_time": 5750,
+        "elevation_gain": 1575.0,
+        "average_pace": 9.92,
+        "average_heartrate": null,
+        "max_heartrate": null,
+        "average_cadence": null,
+        "average_watts": null,
+        "start_date": "2026-03-14T16:35:06Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17723119999",
+          "summary_polyline": "yc|eFbeqjVNf@BdBb@b@b@|@^N^t@fBx@wC^q@GQViA?i@f@GJv@Ms@z@o@d@k@lAk@VQVe@tBfAw@eAlBpCsAa@x@cEtE_BfCcDf@mBDoAz@q@QQW_@sAYIg@d@Yh@SrBQ^o@b@o@lAiB`@o@hAcBn@b@NdBCHJM`@ATl@tANnAM`ABj@XnAv@Zf@@xDs@pA`AdBB~@Xf@`@Vr@LlAI|@Hf@Vf@`A|@HVXZ\\Fn@Gz@]PlAQ|Aa@~AInAY|Aw@rCOv@?n@Lt@Zh@zBE^Lh@|@tBjBVd@E`@{@nA}@fA_CbBkAjBMn@Bf@PZh@h@Z?lAg@r@AnBzATp@Fr@EpFd@xAXtA`@x@T@~@cBdBwArBuCv@}APLFxDK~BJ`DAT]f@RbAMhC_D~S{@dDo@vFNdGYhF}@f@_@t@QHaAuAaBSKDYlAuAzBu@rCk@hA_@xBUj@a@Vq@HyAUm@UmCmB{HsDwGiBy@{@W}@KqBUa@s@YmDc@eCqBk@cAMo@GwDi@wCsBqEcAeD]iB_AaDm@{A{@mAY\\WjB}BdD}@f@kACaAe@IkBo@iAo@yBS[}@o@oCRS_@l@{@G[u@c@{ASSm@a@{CI{BWBW`@aAl@yCv@iCXg@Ge@_@_@g@m@kBy@_@q@d@w@fA}@dBa@@_@MU]a@uD_@i@eBu@g@H[b@q@nB_@d@i@DpBeJ?oAFy@Ti@bAiAPkA?aAz@i@L_A|@qBFa@KsABgAN]t@u@Re@Cm@c@iA@uCTe@^[b@Ex@PZMd@[Vo@rBi@d@w@^YXVlBkAf@w@Hs@cA}AEWt@{@r@oAjA[fAo@x@O\\wAd@}@fAQv@w@l@OjAy@zAUr@]b@eAo@mBh@wARiBRc@jAyAv@}ATcA|BIrAT|ABrAj@rEjArA@pAl@`Fn@jBlBx@j@lA]\\Un@eAx@]h@Ar@kAj@a@PWRwBh@y@d@_@PLd@vAT\\THTEhAy@pGs@xA}BrCiDp@m@d@}@{CtAjAgBkAr@j@}BbAu@`@_AdBeBu@JPYj@c@fA@NW|@HbCKwB{@]k@YK[c@i@_AEiB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17708791850,
         "name": "Never trust the weather",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a17498179892",
           "summary_polyline": "gqpeFtkhjVDl@B`AJ|@@ZAT?^J|A?\\Fx@?^j@|EFzAUn@@bAEd@@b@\\vBFrBAj@El@Qv@DfAEtAB^Lb@Pb@Zh@Rp@L`AK`@?JBBF@FJVhCBp@CZA|ANt@B^Nh@El@DpBR|ATbAFlBA`@PxAA`@Mx@C`@@VTdAf@zALv@IjAIZUb@CL?VJbA@HB@R?RDRt@HJFBF?PGVA\\IX?bCYf@KD@h@h@HNH~@FJTPT?VHNHBFFz@?f@AlAIrA?`@LlAEPQNEJANBTJ`@^j@Xz@\\x@T~@^h@r@p@PhAf@pATb@A`BH`ANl@Pd@T`@JXPVPb@Bz@GfBDdAZdBV|@JdAXlA`@bCHn@@n@KpAKl@CHYH[?_BJ]Ha@Bo@Pe@XQPm@fAs@lBq@pAm@tAGHi@pCKhAG^EBWOYM}@S]Wa@c@_@q@kAsAuAsBcBoCk@kAWc@UQe@MOOS}@AeC@w@Fg@@m@HcAVqADa@HSf@aCBa@H[NwARiAD}@Lw@FeA\\iDDq@@s@T_BTeCNeCD]FyADc@EkBByBE{@[_Ce@aB[}@Mq@?KLYBSQ{AGQQ]O}@IOWUGa@CS@u@CWEiAEq@K[E[C}ABkAPwA?u@Ga@AWOc@Yi@S{@Gu@@c@Cg@OcAIcALkBK_@c@w@KoBA}@Gg@BmAE]Ok@COMcEJ_AGkAOs@ASQo@Gm@ISS]GSEw@?[Ke@KcAMkCK_AAq@SyAMyCEQIIY@UFEAMI]Gg@J[LYBa@@]CIF_@HQ@w@T]Fm@AQBk@AUH",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17498176452,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 4.0,
-        "moving_time": 2058,
-        "elapsed_time": 2117,
-        "elevation_gain": 246.0,
-        "average_pace": 8.57,
-        "average_heartrate": 137.9,
-        "max_heartrate": 164.0,
-        "average_cadence": 88.3,
-        "average_watts": 315.4,
-        "start_date": "2026-02-22T16:18:53Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17498176452",
-          "summary_polyline": "uqpeFdlhjVFzA?r@Db@Xx@At@@\\H`@Dz@F`@?dBLdDHdAA^Fv@I`@B~@VdAB^?n@Dz@ApAQnABnACTER@r@BLVl@NX^`AJf@Dj@Ot@Bf@Lh@Zr@BRBv@GtABb@BTHJDp@Lh@Cl@@`@?t@JfAFVZjBBd@Ej@Bl@RdB?NQdAAd@N`Ad@zAPx@@NKfAGRQ^ET?j@Fn@[`@`@pAXl@Nl@Jz@JZTzBDpAKdAKVSH[@U?MIa@i@e@]_@c@_@k@ISOW]WQIc@EMLYf@[VGBQVI?W^Yv@G\\GdA?j@PdBl@tDb@tERlCHf@Rd@PTPPd@T`@ZX^h@dAPNLBJCFIH[PaCDkAN{Br@}HD_A@e@PoAHiA?k@Cm@G[De@?aBIgAOcAu@aDQi@XSAQSy@OcA?MD[Vk@FSD[@k@C_@Yw@[q@Mo@Ao@NgADw@McACgA@WCq@Qu@I}@IUGe@EkB@a@E_@K]Ga@IcAAWDkAAW?}@Eo@Ec@]c@Jw@MeAWs@y@}AG]D}@H[A]EYCU@MJUFm@BeCGsAMm@KeA?MDM@QCY?w@OyASuD?ITKBi@_@wAOa@?cACm@KWAQB}@Ge@@c@Em@",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 40,
-          "distance": 238.41,
-          "moving_time": 135635,
-          "elapsed_time": 151136,
-          "elevation_gain": 26152.0
+          "count": 41,
+          "distance": 247.11,
+          "moving_time": 140814,
+          "elapsed_time": 156886,
+          "elevation_gain": 27726.0
         },
         "all_time": {
-          "count": 1181,
-          "distance": 6129.85,
-          "moving_time": 3332330,
-          "elapsed_time": 3772816,
-          "elevation_gain": 461716.0
+          "count": 1182,
+          "distance": 6138.55,
+          "moving_time": 3337509,
+          "elapsed_time": 3778566,
+          "elevation_gain": 463291.0
         },
         "recent": {
           "count": 15,
-          "distance": 81.13,
-          "moving_time": 44798,
-          "elapsed_time": 49329,
-          "elevation_gain": 6204.0
+          "distance": 78.57,
+          "moving_time": 41870,
+          "elapsed_time": 46514,
+          "elevation_gain": 5256.0
         }
       },
       "biking": {
