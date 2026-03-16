@@ -264,8 +264,7 @@ function formatSpeed(distance: number, time: number): string {
 				}
 
 				// Books button
-				// TODO: This selector is fragile as it relies on the button being the second one with this class. Consider adding a unique ID to this button for more robust selection.
-				const seeMoreBooksButton = document.querySelectorAll('.see-more-button')[1];
+				const seeMoreBooksButton = document.getElementById('see-more-books');
 				const moreBooks = document.getElementById('more-books');
 				
 				// Handles the "See more/Show less" functionality for book reviews.
@@ -1862,7 +1861,7 @@ function formatSpeed(distance: number, time: number): string {
 							))}
 						</div>
 						<div class="see-more-container">
-							<button class="see-more-button">See more of my recent books</button>
+							<button id="see-more-books" class="see-more-button">See more of my recent books</button>
 						</div>
 						<div id="more-books" class="more-movies hidden">
 							{goodreadsData.recent_reviews.slice(1).map((book: BookReview) => (
