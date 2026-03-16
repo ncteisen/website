@@ -45,7 +45,7 @@ pip install -r requirements.txt
 
 ### Environment Variables
 
-Create a `.env` file in the `scripts/social-scraper/` directory:
+Create a `.env` file in the repo root:
 
 ```env
 STRAVA_CLIENT_ID=your_strava_client_id

@@ -16,14 +16,14 @@ python fetch_social_data.py
 
 ## Output
 
-The script generates a JSON file at `public/data/social_data.json` with the following structure:
+The script generates a JSON file at `src/data/social_data.json` with the following structure:
 
 ```json
 {
   "last_updated": "2024-03-21T10:00:00",
-  "github": {},
-  "twitter": {},
-  "linkedin": {}
+  "letterboxd": {},
+  "goodreads": {},
+  "strava": {}
 }
 ```
 
