@@ -45,7 +45,8 @@ class StravaDataCollector:
                 'client_secret': self.client_secret,
                 'refresh_token': self.refresh_token,
                 'grant_type': 'refresh_token'
-            }
+            },
+            timeout=30
         )
         if response.status_code == 200:
             self.access_token = response.json()['access_token']
@@ -112,7 +113,8 @@ class StravaDataCollector:
             response = requests.get(
                 'https://www.strava.com/api/v3/athlete/activities',
                 headers=headers,
-                params=params
+                params=params,
+                timeout=30
             )
             
             if response.status_code != 200:
