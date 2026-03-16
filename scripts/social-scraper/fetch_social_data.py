@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import argparse
 import json
 import logging
 import os
-import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
@@ -45,8 +45,10 @@ def save_data(data: Dict[str, Any]) -> None:
 def main() -> None:
     """Main function to fetch and save social media data."""
     try:
-        # Check for cache flag from command line or environment variable
-        use_cache = '--cache' in sys.argv or os.getenv('USE_CACHE', '').lower() in ('true', '1', 'yes')
+        parser = argparse.ArgumentParser(description='Fetch social media data for the website.')
+        parser.add_argument('--cache', action='store_true', help='Use locally cached HTML/XML instead of fetching from network')
+        args = parser.parse_args()
+        use_cache = args.cache or os.getenv('USE_CACHE', '').lower() in ('true', '1', 'yes')
         
         if use_cache:
             logger.info("Running in cache mode - using local cached data for Letterboxd and Goodreads")
