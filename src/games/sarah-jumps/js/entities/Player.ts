@@ -2,6 +2,8 @@ import jumpingSprite from '../../assets/sprites/player-jumping.png';
 import peakingSprite from '../../assets/sprites/player-peaking.png';
 import jumpingSpriteFlipped from '../../assets/sprites/player-jumping-flipped.png';
 import peakingSpriteFlipped from '../../assets/sprites/player-peaking-flipped.png';
+import type { GameEngine } from '../core/GameEngine';
+import type { Platform } from './Platform';
 
 /**
  * Player entity for the Sarah Jumps game
@@ -92,7 +94,7 @@ export class Player {
     });
   }
 
-  public update(deltaTime: number, game: any): void {
+  public update(deltaTime: number, game: GameEngine): void {
     if (game.getGameState() !== 'playing') return;
     
     // Apply gravity with air resistance
@@ -131,7 +133,7 @@ export class Player {
   /**
    * Render the player
    */
-  public render(ctx: CanvasRenderingContext2D, game: any): void {
+  public render(ctx: CanvasRenderingContext2D, game: GameEngine): void {
     const originalY = this.y;
     this.y += game.getViewOffset();
 
@@ -179,7 +181,7 @@ export class Player {
     this.velocityY = this.jumpForce;
   }
 
-  public checkPlatformCollision(platform: any): boolean {
+  public checkPlatformCollision(platform: Platform): boolean {
     // Only check collision when falling
     if (this.velocityY <= 0) return false;
 
@@ -196,7 +198,7 @@ export class Player {
     );
   }
 
-  public handlePlatformCollision(platform: any): void {
+  public handlePlatformCollision(platform: Platform): void {
     // Position player exactly on the platform
     this.y = platform.getY() - this.height / 2;
     this.velocityY = 0;

@@ -1,6 +1,7 @@
 import { Platform } from './Platform';
 import type { PlatformProps } from './Platform';
 import { Player } from './Player';
+import type { GameEngine } from '../core/GameEngine';
 
 /**
  * PlatformManager - Manages multiple platforms and their interactions with the player
@@ -81,7 +82,7 @@ export class PlatformManager {
   /**
    * Update the platform manager
    */
-  public update(deltaTime: number, game: any): void {
+  public update(deltaTime: number, game: GameEngine): void {
     if (game.getGameState() !== 'playing') return;
     
     const player = game.getPlayer() as Player;
@@ -187,7 +188,7 @@ export class PlatformManager {
   /**
    * Render the platform manager
    */
-  public render(ctx: CanvasRenderingContext2D, game: any): void {
+  public render(ctx: CanvasRenderingContext2D, game: GameEngine): void {
     const viewOffset = game.getViewOffset();
     const canvasHeight = this.canvas.height;
     

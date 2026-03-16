@@ -328,15 +328,17 @@ export class GameEngine {
   }
 
   private updateClouds(timestamp: number): void {
-    const isMovingUp = this.highestY < this.lastHighestY;
+    // didPlayerClimb is true when the player reached a new highest point this frame,
+    // which drives the clouds scrolling downward to simulate upward camera movement.
+    const didPlayerClimb = this.highestY < this.lastHighestY;
     this.lastHighestY = this.highestY;
 
     this.clouds.forEach(cloud => {
       // Move cloud horizontally
       cloud.x += cloud.speed;
-      
-      // Only move cloud downward if player is moving upward
-      if (isMovingUp) {
+
+      // Scroll clouds down when the player climbs, creating a parallax effect
+      if (didPlayerClimb) {
         cloud.y += 1; // Move clouds down at a constant rate when player is climbing
       }
       
