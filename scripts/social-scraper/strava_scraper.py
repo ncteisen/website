@@ -1,7 +1,18 @@
 import os
 import json
+import logging
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, TypedDict
+
+logger = logging.getLogger(__name__)
+
+# Unit conversion constants
+METERS_TO_MILES = 0.000621371
+METERS_TO_FEET = 3.28084
+MPS_TO_MPH = 2.23694
+
+# Number of recent activities to return per sport type
+RECENT_ACTIVITY_LIMIT = 8
 
 class StravaActivity(TypedDict):
     id: int
@@ -89,10 +100,10 @@ class StravaScraper:
         
         return {
             'count': len(activities),
-            'distance': round(total_distance * 0.000621371, 2),  # Convert meters to miles
+            'distance': round(total_distance * METERS_TO_MILES, 2),
             'moving_time': total_moving_time,
             'elapsed_time': total_elapsed_time,
-            'elevation_gain': round(total_elevation * 3.28084, 0)  # Convert meters to feet
+            'elevation_gain': round(total_elevation * METERS_TO_FEET, 0)
         }
 
     def get_activities_by_type(self, activity_type: str, exclude_commutes: bool = True) -> List[StravaActivity]:
@@ -111,10 +122,10 @@ class StravaScraper:
     def format_activity(self, activity: StravaActivity) -> Dict:
         """Format an activity into a consistent structure."""
         # Convert meters to miles
-        distance_miles = activity.get('distance', 0) * 0.000621371
-        
+        distance_miles = activity.get('distance', 0) * METERS_TO_MILES
+
         # Convert meters per second to minutes per mile
-        avg_speed_mph = activity.get('average_speed', 0) * 2.23694
+        avg_speed_mph = activity.get('average_speed', 0) * MPS_TO_MPH
         pace_min_per_mile = 60 / avg_speed_mph if avg_speed_mph > 0 else 0
         
         return {
@@ -124,7 +135,7 @@ class StravaScraper:
             'distance': round(distance_miles, 2),
             'moving_time': activity.get('moving_time', 0),
             'elapsed_time': activity.get('elapsed_time', 0),
-            'elevation_gain': round(activity.get('total_elevation_gain', 0) * 3.28084, 0),  # Convert to feet
+            'elevation_gain': round(activity.get('total_elevation_gain', 0) * METERS_TO_FEET, 0),
             'average_pace': round(pace_min_per_mile, 2),
             'average_heartrate': activity.get('average_heartrate'),
             'max_heartrate': activity.get('max_heartrate'),
@@ -152,8 +163,8 @@ class StravaScraper:
         biggest_climb = max(activities, key=lambda x: x.get('total_elevation_gain', 0), default={'total_elevation_gain': 0})
         
         return {
-            'biggest_ride_distance': round(biggest_ride.get('distance', 0) * 0.000621371, 2),  # Convert to miles
-            'biggest_climb_elevation_gain': round(biggest_climb.get('total_elevation_gain', 0) * 3.28084, 0)  # Convert to feet
+            'biggest_ride_distance': round(biggest_ride.get('distance', 0) * METERS_TO_MILES, 2),
+            'biggest_climb_elevation_gain': round(biggest_climb.get('total_elevation_gain', 0) * METERS_TO_FEET, 0)
         }
 
     def get_recent_activities_data(self) -> Dict:
@@ -166,10 +177,10 @@ class StravaScraper:
         all_hikes = self.get_activities_by_type('Hike', exclude_commutes=True)
         all_swims = self.get_activities_by_type('Swim', exclude_commutes=True)
         
-        # Sort by date and take latest 8
-        runs = sorted(all_runs, key=lambda x: x['start_date'], reverse=True)[:8]
-        bike_rides = sorted(all_bikes, key=lambda x: x['start_date'], reverse=True)[:8]
-        hikes = sorted(all_hikes, key=lambda x: x['start_date'], reverse=True)[:8]
+        # Sort by date and take latest N
+        runs = sorted(all_runs, key=lambda x: x['start_date'], reverse=True)[:RECENT_ACTIVITY_LIMIT]
+        bike_rides = sorted(all_bikes, key=lambda x: x['start_date'], reverse=True)[:RECENT_ACTIVITY_LIMIT]
+        hikes = sorted(all_hikes, key=lambda x: x['start_date'], reverse=True)[:RECENT_ACTIVITY_LIMIT]
         
         # Calculate stats for different time periods
         current_year = datetime.now(timezone.utc).year
@@ -221,40 +232,40 @@ class StravaScraper:
         }
 
 def main():
+    """Test entry point: loads activities and logs a summary of stats."""
     try:
         scraper = StravaScraper()
         data = scraper.get_recent_activities_data()
-        
-        # Print comprehensive stats for testing
-        print("=== Strava Comprehensive Stats ===")
-        
+
+        logger.info("=== Strava Comprehensive Stats ===")
+
         # Running stats
-        print("\n🏃 RUNNING:")
-        print(f"  Year to Date: {data['stats']['running']['ytd']['count']} runs, {data['stats']['running']['ytd']['distance']} miles")
-        print(f"  All Time: {data['stats']['running']['all_time']['count']} runs, {data['stats']['running']['all_time']['distance']} miles")
-        print(f"  Recent (4 weeks): {data['stats']['running']['recent']['count']} runs, {data['stats']['running']['recent']['distance']} miles")
-        
+        logger.info("RUNNING:")
+        logger.info(f"  Year to Date: {data['stats']['running']['ytd']['count']} runs, {data['stats']['running']['ytd']['distance']} miles")
+        logger.info(f"  All Time: {data['stats']['running']['all_time']['count']} runs, {data['stats']['running']['all_time']['distance']} miles")
+        logger.info(f"  Recent (4 weeks): {data['stats']['running']['recent']['count']} runs, {data['stats']['running']['recent']['distance']} miles")
+
         # Biking stats
-        print("\n🚴 BIKING:")
-        print(f"  Year to Date: {data['stats']['biking']['ytd']['count']} rides, {data['stats']['biking']['ytd']['distance']} miles")
-        print(f"  All Time: {data['stats']['biking']['all_time']['count']} rides, {data['stats']['biking']['all_time']['distance']} miles")
-        print(f"  Recent (4 weeks): {data['stats']['biking']['recent']['count']} rides, {data['stats']['biking']['recent']['distance']} miles")
-        
+        logger.info("BIKING:")
+        logger.info(f"  Year to Date: {data['stats']['biking']['ytd']['count']} rides, {data['stats']['biking']['ytd']['distance']} miles")
+        logger.info(f"  All Time: {data['stats']['biking']['all_time']['count']} rides, {data['stats']['biking']['all_time']['distance']} miles")
+        logger.info(f"  Recent (4 weeks): {data['stats']['biking']['recent']['count']} rides, {data['stats']['biking']['recent']['distance']} miles")
+
         # Swimming stats
-        print("\n🏊 SWIMMING:")
-        print(f"  Year to Date: {data['stats']['swimming']['ytd']['count']} swims, {data['stats']['swimming']['ytd']['distance']} miles")
-        print(f"  All Time: {data['stats']['swimming']['all_time']['count']} swims, {data['stats']['swimming']['all_time']['distance']} miles")
-        print(f"  Recent (4 weeks): {data['stats']['swimming']['recent']['count']} swims, {data['stats']['swimming']['recent']['distance']} miles")
-        
-        # Additional stats
-        print(f"\n🏆 RECORDS:")
-        print(f"  Biggest ride distance: {data['stats']['biggest_ride_distance']} miles")
-        print(f"  Biggest climb elevation: {data['stats']['biggest_climb_elevation_gain']} feet")
-            
-        print("\n✅ Successfully updated social data with comprehensive Strava stats")
-        
+        logger.info("SWIMMING:")
+        logger.info(f"  Year to Date: {data['stats']['swimming']['ytd']['count']} swims, {data['stats']['swimming']['ytd']['distance']} miles")
+        logger.info(f"  All Time: {data['stats']['swimming']['all_time']['count']} swims, {data['stats']['swimming']['all_time']['distance']} miles")
+        logger.info(f"  Recent (4 weeks): {data['stats']['swimming']['recent']['count']} swims, {data['stats']['swimming']['recent']['distance']} miles")
+
+        # Record stats
+        logger.info("RECORDS:")
+        logger.info(f"  Biggest ride distance: {data['stats']['biggest_ride_distance']} miles")
+        logger.info(f"  Biggest climb elevation: {data['stats']['biggest_climb_elevation_gain']} feet")
+
+        logger.info("Successfully updated social data with comprehensive Strava stats")
+
     except Exception as e:
-        print(f"❌ Error updating Strava data: {str(e)}")
+        logger.error(f"Error updating Strava data: {str(e)}")
         raise
 
 if __name__ == '__main__':

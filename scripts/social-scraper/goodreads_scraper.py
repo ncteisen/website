@@ -7,9 +7,9 @@ import os
 from datetime import date
 from bs4 import BeautifulSoup
 
-# Set up logging
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+RECENT_ACTIVITY_LIMIT = 8
 
 # Constants
 GOODREADS_RSS_URL = "https://www.goodreads.com/review/list_rss/44763252-noah-eisen"
@@ -154,7 +154,7 @@ def fetch_goodreads_profile_stats(use_cache: bool = False) -> Dict:
                 html_content = f.read()
         else:
             logger.info("Fetching profile data from network")
-            response = requests.get(GOODREADS_PROFILE_URL, headers=HEADERS)
+            response = requests.get(GOODREADS_PROFILE_URL, headers=HEADERS, timeout=30)
             response.raise_for_status()
             html_content = response.text
         
@@ -172,7 +172,7 @@ def fetch_goodreads_challenge_stats(use_cache: bool = False) -> Dict:
                 html_content = f.read()
         else:
             logger.info("Fetching reading challenge data from network")
-            response = requests.get(GOODREADS_CHALLENGE_URL, headers=HEADERS)
+            response = requests.get(GOODREADS_CHALLENGE_URL, headers=HEADERS, timeout=30)
             response.raise_for_status()
             html_content = response.text
         
@@ -191,7 +191,7 @@ def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
         else:
             logger.info("Fetching RSS data from network")
             # Fetch the RSS feed with browser-like headers
-            response = requests.get(GOODREADS_RSS_URL, headers=HEADERS)
+            response = requests.get(GOODREADS_RSS_URL, headers=HEADERS, timeout=30)
             response.raise_for_status()
             rss_content = response.content.decode('utf-8')
         
@@ -210,7 +210,7 @@ def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
         
         # Structure the data similar to Letterboxd
         return {
-            'recent_reviews': reviews[:8],  # Get the 8 most recent reviews
+            'recent_reviews': reviews[:RECENT_ACTIVITY_LIMIT],
             'profile_url': GOODREADS_PROFILE_URL,
         }
     except Exception as e:

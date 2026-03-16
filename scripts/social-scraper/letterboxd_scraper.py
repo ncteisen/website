@@ -4,7 +4,7 @@ import logging
 import requests
 import xml.etree.ElementTree as ET
 import os
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -19,6 +19,8 @@ NAMESPACES = {
 }
 
 # Cache directory
+RECENT_ACTIVITY_LIMIT = 8
+
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
 CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'letterboxd_rss.xml')
 CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'letterboxd_profile.html')
@@ -77,7 +79,7 @@ def fetch_letterboxd_profile_stats(use_cache: bool = False) -> Dict[str, Any]:
                               "AppleWebKit/537.36 (KHTML, like Gecko) "
                               "Chrome/120.0.0.0 Safari/537.36"
             }
-            response = requests.get(LETTERBOXD_PROFILE_URL, headers=headers)
+            response = requests.get(LETTERBOXD_PROFILE_URL, headers=headers, timeout=30)
             response.raise_for_status()
             html_content = response.text
         
@@ -94,7 +96,7 @@ class LetterboxdScraper:
         self.username = username
         self.base_url = f"https://letterboxd.com/{username}/rss/"
     
-    def _parse_review(self, item: ET.Element) -> Dict[str, Any]:
+    def _parse_review(self, item: ET.Element) -> Optional[Dict[str, Any]]:
         """Parse a single review item from the RSS feed."""
         try:
             # Extract review text from description
@@ -141,7 +143,7 @@ class LetterboxdScraper:
             else:
                 logger.info("Fetching Letterboxd RSS data from network")
                 # Fetch RSS feed
-                response = requests.get(self.base_url)
+                response = requests.get(self.base_url, timeout=30)
                 response.raise_for_status()
                 rss_content = response.content.decode('utf-8')
             
@@ -156,8 +158,7 @@ class LetterboxdScraper:
                 if review:
                     reviews.append(review)
             
-            # Get last 8 reviews
-            recent_reviews = reviews[:8]
+            recent_reviews = reviews[:RECENT_ACTIVITY_LIMIT]
             
             # Get profile stats
             stats = fetch_letterboxd_profile_stats(use_cache)
