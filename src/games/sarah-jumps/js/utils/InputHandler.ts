@@ -33,13 +33,6 @@ export class InputHandler {
   }
   
   /**
-   * Initialize the input handler
-   */
-  public init(game: GameEngine): void {
-    // Nothing to initialize for now
-  }
-  
-  /**
    * Update the input handler
    */
   public update(deltaTime: number, game: GameEngine): void {

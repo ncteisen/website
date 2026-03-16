@@ -68,13 +68,6 @@ export class Platform {
   }
   
   /**
-   * Initialize the platform
-   */
-  public init(): void {
-    // Nothing to initialize for now
-  }
-  
-  /**
    * Update the platform
    */
   public update(deltaTime: number): void {
