@@ -1,0 +1,166 @@
+{
+  "experiences": [
+    {
+      "company": "Roblox",
+      "title": "Principal Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "July 2025",
+      "end_date": "Present",
+      "icon": "fa-gamepad",
+      "icon_prefix": "fas",
+      "description": "Roblox is an online platform for games and immersive social experiences that connects players and creators globally. Some key achievements:",
+      "items": [
+        {
+          "text": "Served as Holiday Readiness DRI for all 10 Social Pods and engineered a graceful degradation system now adopted across 15 services; increased system capacity by 10% for peak traffic events."
+        },
+        {
+          "text": "Led bi-weekly architecture design reviews for 3 pods to ensure engineering decisions were long-view aligned."
+        }
+      ]
+    },
+    {
+      "company": "Faire",
+      "title": "Staff Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "Feb 2022",
+      "end_date": "July 2025",
+      "icon": "fa-store",
+      "icon_prefix": "fas",
+      "description": "Faire is an online wholesale marketplace that connects retailers and brands globally. Some key achievements:",
+      "web_description": "Faire is an online wholesale marketplace that connects retailers and brands globally, empowering small businesses to compete with major retailers such as Amazon and Walmart. In a dynamic startup environment, my role has evolved significantly, with key achievements including:",
+      "items": [
+        {
+          "text": "Authored technical vision document for Faire's payment systems. Initiated and drove critical projects, such as extracting a payment service and developing a SQL-based invariant validation system. These systems eliminated payment-related SEVs."
+        },
+        {
+          "text": "Served as Senior Engineering Manager and tech lead for the Shipping team, overseeing 8–12 engineers. Developed a long-term technical strategy to optimize shipping costs and improve system stability. Delivered +0.25pp to contribution margin on ~$2B GMV.",
+          "web_text": "Served as Senior Engineering Manager and tech lead for the Shipping team, overseeing 8–12 engineers. Developed a long-term technical strategy to optimize shipping costs and improve system stability. Delivered +0.25pp to contribution margin on $2B GMV."
+        },
+        {
+          "text": "Led 5 person tiger team to build Volume Pricing (akin to airline loyalty programs) from design to launch in under two months.",
+          "skip_pdf": true
+        },
+        {
+          "text": "Drove org-wide cultural transformations across 300+ engineers by leading several cross-functional High-Performance Culture working groups, raising engineering standards and execution velocity."
+        }
+      ]
+    },
+    {
+      "company": "Waymo",
+      "title": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "Feb 2019",
+      "end_date": "Feb 2022",
+      "icon": "fa-car",
+      "icon_prefix": "fas",
+      "description": "Waymo is an Alphabet company focusing on the development of self-driving technology. I worked on the Fleet Infrastructure team where I was the tech lead for the OpsApp, an internal Android app that is used by 1000+ safety drivers daily. Some highlights include:",
+      "items": [
+        {
+          "text": "Tech lead of 7 person team, including 3 engineers, a product manager, a product operations specialist, a technical program manager, and a UX designer."
+        },
+        {
+          "text": "Received early promotion to Senior Software Engineer within first year of joining."
+        },
+        {
+          "text": "Optimized data path from the self-driving car to the phone to achieve sub-300ms latency in support of streaming real-time telemetries to the safety driver."
+        },
+        {
+          "text": "Designed the tooling that enables roadside assistance team to navigate to a self-driving car on public roads within minutes of an incident. Authored a patent on the subject (https://patents.justia.com/patent/20230347937).",
+          "web_text": "Co-authored <a class=\"profile-link\" href=\"https://patents.justia.com/patent/20230347937\" target=\"_blank\" rel=\"noopener noreferrer\">this patent</a> based on my work designing and building the tool suite that enabled roadside assistance team to navigate to a self-driving car on public roads within minutes of an incident."
+        }
+      ]
+    },
+    {
+      "company": "Google",
+      "title": "Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "Aug 2016",
+      "end_date": "Feb 2019",
+      "icon": "fa-google",
+      "icon_prefix": "fab",
+      "description": "gRPC is Google's next-gen RPC system. Through 250+ pull requests, and even more internal changes, I've contributed across gRPC's C core, C++ layer, and Python wrapped layer. Some highlights include:",
+      "web_description": "gRPC is Google's next-gen RPC system, built from the ground up in open source. gRPC is a highly performant system built around a simple yet powerful wire protocol. The library provides idiomatic APIs in nine supported languages. Through 250+ pull requests, and even more internal changes, I have contributed mainly to gRPC's C core. I have also made significant contributions to the C++ and Python wrapped layers. Some highlights include:",
+      "items": [
+        {
+          "text": "Created the team's internal benchmarking framework, automatic regression detection system, and performance dashboards."
+        },
+        {
+          "text": "Migrated TensorFlow's distributed runtime to use gRPC internally at Google."
+        },
+        {
+          "text": "Implemented connection-level monitoring feature for the C++ stack, which exports critical debugging data of live services and presents them in a simple HTML page.",
+          "skip_pdf": true
+        },
+        {
+          "text": "Co-authored the proposal for the gRPC client retry system. It is now implemented across all language stacks.",
+          "web_text": "Co-authored <a class=\"profile-link\" href=\"https://github.com/grpc/proposal/blob/master/A6-client-retries.md\" target=\"_blank\" rel=\"noopener noreferrer\">RFC for gRPC client retries in 2017</a>. It is now implemented across all language stacks."
+        },
+        {
+          "text": "Created and delivered a 40-minute tech talk on gRPC performance at KubeCon.",
+          "web_text": "Created and delivered <a class=\"profile-link\" href=\"https://www.youtube.com/watch?v=cWlXQP9AORo\" target=\"_blank\" rel=\"noopener noreferrer\">40 minute tech talk on gRPC performance at KubeCon</a>.",
+          "skip_pdf": true
+        }
+      ]
+    },
+    {
+      "company": "Bloomberg",
+      "title": "Software Engineering Intern",
+      "location": "New York, NY",
+      "start_date": "May 2015",
+      "end_date": "Aug 2015",
+      "skip_pdf": true,
+      "icon": "fa-chart-line",
+      "icon_prefix": "fas",
+      "description": "Full stack internship on the infrastructure team. Key accomplishments include:",
+      "items": [
+        {
+          "text": "Created multi-tiered tool (frontend UI, service layer, backend task) for Bloomberg developers to aid in the task of debugging and killing haywire processes on production machines."
+        },
+        {
+          "text": "Developed a program to track the master logfile on specific production machines and raise alerts and tickets automatically based on previous decisions."
+        },
+        {
+          "text": "Won first place in algorithmic coding competition among all of the interns."
+        }
+      ]
+    },
+    {
+      "company": "TAPP TV",
+      "title": "Freelance Programmer",
+      "location": "Remote",
+      "start_date": "Jan 2015",
+      "end_date": "Apr 2015",
+      "skip_pdf": true,
+      "icon": "fa-laptop-code",
+      "icon_prefix": "fas",
+      "description": "Freelance programming work focused on social media data analysis and audience research. Key contributions include:",
+      "items": [
+        {
+          "text": "Collaborated with team of freelance coders to create several methods of exploiting Twitter data in order to gauge audience interest and find potential markets for celebrity TV channels."
+        },
+        {
+          "text": "Designed and developed a program that uses the Twitter API to construct graphs from follower/following relationships, then performs various metrics on the data (PageRank, HITS, etc)."
+        }
+      ]
+    },
+    {
+      "company": "Jump Trading, LLC",
+      "title": "QA Intern",
+      "location": "Chicago, IL",
+      "start_date": "Jun 2014",
+      "end_date": "Aug 2014",
+      "skip_pdf": true,
+      "icon": "fa-vial",
+      "icon_prefix": "fas",
+      "description": "Quality assurance internship at a high-frequency trading firm in Chicago. Key accomplishments include:",
+      "items": [
+        {
+          "text": "Developed an automated testing wrapper to validate company software responsible for sending orders to the BATS exchange."
+        },
+        {
+          "text": "Planned and executed comprehensive set of manual tests on a program providing a live market feed from the exchange."
+        }
+      ]
+    }
+  ]
+}

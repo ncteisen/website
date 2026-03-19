@@ -51,6 +51,30 @@ const letterboxdData = socialData.letterboxd;
 const goodreadsData = socialData.goodreads;
 const stravaData = socialData.strava;
 
+const resumeDataModules = await import.meta.glob('../../resume/resume_data.json');
+const resumeData = (await resumeDataModules['../../resume/resume_data.json']()) as { experiences: WorkExperience[] };
+const experiences = resumeData.experiences;
+
+interface WorkItem {
+	text: string;
+	skip_pdf?: boolean;
+	web_text?: string;
+}
+
+interface WorkExperience {
+	company: string;
+	title: string;
+	location: string;
+	start_date: string;
+	end_date: string;
+	skip_pdf?: boolean;
+	icon: string;
+	icon_prefix: string;
+	description: string;
+	web_description?: string;
+	items: WorkItem[];
+}
+
 /**
  * Represents a movie review from Letterboxd.
  */
@@ -1602,168 +1626,29 @@ function formatSpeed(distance: number, time: number): string {
 			<section id="career">
 				<h2>Career Timeline</h2>
 				<div class="timeline">
-					<!-- Roblox -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-gamepad" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Roblox</h3>
-									<div class="job-title">Principal Software Engineer</div>
-									<div class="date-range">July 2025 - Present</div>
+					{experiences.map((exp) => (
+						<div class="timeline-item">
+							<div class="timeline-icon"><i class={`${exp.icon_prefix} ${exp.icon}`} aria-hidden="true"></i></div>
+							<div class="timeline-content">
+								<div class="timeline-header">
+									<div class="timeline-header-content">
+										<h3>{exp.company}</h3>
+										<div class="job-title">{exp.title}</div>
+										<div class="date-range">{exp.start_date} - {exp.end_date}</div>
+									</div>
+									<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
 								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Roblox is an online platform for games and immersive social experiences that connects players and creators globally. Some key achievements:</p>
-								<ul>
-									<li>Served as Holiday Readiness DRI for all 10 Social Pods and engineered a graceful degradation system now adopted across 15 services; increased system capacity by 10% for peak traffic events.</li>
-									<li>Led bi-weekly architecture design reviews for 3 pods to ensure engineering decisions were long-view aligned.</li>
-								</ul>
+								<div class="timeline-details">
+									<p>{exp.web_description ?? exp.description}</p>
+									<ul>
+										{exp.items.map((item) => (
+											<li set:html={item.web_text ?? item.text}></li>
+										))}
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Faire -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-store" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Faire</h3>
-									<div class="job-title">Staff Software Engineer</div>
-									<div class="date-range">Feb 2022 - July 2025</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Faire is an online wholesale marketplace that connects retailers and brands globally, empowering small businesses to compete with major retailers such as Amazon and Walmart. In a dynamic startup environment, my role has evolved significantly, with key achievements including:</p>
-								<ul>
-									<li>Authored technical vision document for Faire's payment systems. Initiated and drove critical projects, such as extracting a payment service and developing a SQL-based invariant validation system. These systems eliminated payment-related SEVs.</li>
-									<li>Served as Senior Engineering Manager and tech lead for the Shipping team, overseeing 8–12 engineers. Developed a long-term technical strategy to optimize shipping costs and improve system stability. Delivered +0.25pp to contribution margin on $2B GMV.</li>
-									<li>Led 5 person tiger team to build Volume Pricing (akin to airline loyalty programs) from design to launch in under two months.</li>
-									<li>Drove org-wide cultural transformations across 300+ engineers by leading several cross-functional High-Performance Culture working groups, raising engineering standards and execution velocity.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- Waymo -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-car" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Waymo</h3>
-									<div class="job-title">Senior Software Engineer</div>
-									<div class="date-range">Feb 2019 - Feb 2022</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Waymo is an Alphabet company focusing on the development of self-driving technology. I worked on the Fleet Infrastructure team where I was the tech lead for the OpsApp, an internal Android app that is used by 1000+ safety drivers daily. Some highlights include:</p>
-								<ul>
-									<li>Tech lead of 7 person team, including 3 engineers, a product manager, a product operations specialist, a technical program manager, and a UX designer.</li>
-									<li>Received early promotion to Senior Software Engineer within first year of joining.</li>
-									<li>Optimized data path from the self-driving car to the phone to achieve sub-300ms latency in support of streaming real-time telemetries to the safety driver.</li>
-									<li>Co-authored <a class="profile-link" href="https://patents.justia.com/patent/20230347937" target="_blank" rel="noopener noreferrer">this patent</a> based on my work designing and building the tool suite that enabled roadside assistance team to navigate to a self-driving car on public roads within minutes of an incident.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- Google -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fab fa-google" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Google</h3>
-									<div class="job-title">Software Engineer</div>
-									<div class="date-range">Aug 2016 - Feb 2019</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>gRPC is Google's next-gen RPC system, built from the ground up in open source. gRPC is a highly performant system built around a simple yet powerful wire protocol. The library provides idiomatic APIs in nine supported languages. Through 250+ pull requests, and even more internal changes, I have contributed mainly to gRPC's C core. I have also made significant contributions to the C++ and Python wrapped layers. Some highlights include:</p>
-								<ul>
-									<li>Created the team's internal benchmarking framework, automatic regression detection system, and performance dashboards.</li>
-									<li>Migrated TensorFlow's distributed runtime to use gRPC internally at Google.</li>
-									<li>Implemented connection-level monitoring feature for the C++ stack, which exports critical debugging data of live services and presents them in a simple HTML page.</li>
-									<li>Co-authored <a class="profile-link" href="https://github.com/grpc/proposal/blob/master/A6-client-retries.md" target="_blank" rel="noopener noreferrer">RFC for gRPC client retries in 2017</a>. It is now implemented across all language stacks.</li>
-									<li>Created and delivered <a class="profile-link" href="https://www.youtube.com/watch?v=cWlXQP9AORo" target="_blank" rel="noopener noreferrer">40 minute tech talk on gRPC performance at KubeCon</a>.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- Bloomberg -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Bloomberg</h3>
-									<div class="job-title">Software Engineering Intern</div>
-									<div class="date-range">May 2015 - Aug 2015</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Full stack internship on the infrastructure team. Key accomplishments include:</p>
-								<ul>
-									<li>Created multi-tiered tool (frontend UI, service layer, backend task) for Bloomberg developers to aid in the task of debugging and killing haywire processes on production machines.</li>
-									<li>Developed a program to track the master logfile on specific production machines and raise alerts and tickets automatically based on previous decisions.</li>
-									<li>Won first place in algorithmic coding competition among all of the interns.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- TAPP TV -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>TAPP TV</h3>
-									<div class="job-title">Freelance Programmer</div>
-									<div class="date-range">Jan 2015 - Apr 2015</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Freelance programming work focused on social media data analysis and audience research. Key contributions include:</p>
-								<ul>
-									<li>Collaborated with team of freelance coders to create several methods of exploiting Twitter data in order to gauge audience interest and find potential markets for celebrity TV channels.</li>
-									<li>Designed and developed a program that uses the Twitter API to construct graphs from follower/following relationships, then performs various metrics on the data (PageRank, HITS, etc).</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- Jump Trading -->
-					<div class="timeline-item">
-						<div class="timeline-icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<div class="timeline-header-content">
-									<h3>Jump Trading, LLC</h3>
-									<div class="job-title">QA Intern</div>
-									<div class="date-range">Jun 2014 - Aug 2014</div>
-								</div>
-								<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="timeline-details">
-								<p>Quality assurance internship at a high-frequency trading firm in Chicago. Key accomplishments include:</p>
-								<ul>
-									<li>Developed an automated testing wrapper to validate company software responsible for sending orders to the BATS exchange.</li>
-									<li>Planned and executed comprehensive set of manual tests on a program providing a live market feed from the exchange.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
+					))}
 				</div>
 			</section>
 			<!-- Career Snapshot Section End -->
