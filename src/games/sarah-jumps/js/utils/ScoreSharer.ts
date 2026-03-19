@@ -150,6 +150,9 @@ export class ScoreSharer {
     document.body.appendChild(this.container);
     document.body.appendChild(this.toast);
 
+    // Dismiss modal when clicking the overlay
+    this.overlay.addEventListener('click', () => this.hide());
+
     // Add event listeners
     this.nameInput.addEventListener('input', () => {
       this.nameInput.value = this.nameInput.value.toUpperCase();

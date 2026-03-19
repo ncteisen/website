@@ -28,6 +28,7 @@ export class GameEngine {
   
   private clouds: { x: number; y: number; radius: number; speed: number }[] = [];
   private lastHighestY: number = 0; // Track player's previous highest Y position
+  private skyGradient: CanvasGradient | null = null;
   
   constructor(canvasId: string) {
     const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -145,12 +146,13 @@ export class GameEngine {
     // Clear the canvas
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Draw sky background with gradient
-    const skyGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-    skyGradient.addColorStop(0, '#87CEEB');    // Sky blue at top
-    skyGradient.addColorStop(1, '#E0F7FF');    // Lighter blue at bottom
-    
-    this.ctx.fillStyle = skyGradient;
+    // Draw sky background with gradient (cached — recreated only when canvas size changes)
+    if (!this.skyGradient) {
+      this.skyGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+      this.skyGradient.addColorStop(0, '#87CEEB');
+      this.skyGradient.addColorStop(1, '#E0F7FF');
+    }
+    this.ctx.fillStyle = this.skyGradient;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     // Draw clouds
     this.updateClouds(timestamp);
@@ -199,10 +201,6 @@ export class GameEngine {
     this.ctx.font = '16px Arial';
     if (this.isMobile) {
       this.ctx.fillText('Touch left or right to move', this.canvas.width / 2, this.canvas.height / 2 + 50);
-      // Add warning for mobile users
-      this.ctx.fillStyle = '#ff0000';
-      this.ctx.font = '14px Arial';
-      this.ctx.fillText('Warning: Game runs slowly on mobile devices', this.canvas.width / 2, this.canvas.height / 2 + 80);
     } else {
       this.ctx.fillText('Use Arrow Keys or A/D to Move', this.canvas.width / 2, this.canvas.height / 2 + 50);
     }

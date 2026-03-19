@@ -71,20 +71,23 @@ export class Platform {
    * Update the platform
    */
   public update(deltaTime: number): void {
+    // Normalize to 60fps so platform movement is frame-rate independent
+    const dt = deltaTime / 16.67;
+
     if (this.platformType === 'horizontal') {
       const distanceFromStart = Math.abs(this.x - this.startX);
       const distanceFromEdge = this.moveRange - distanceFromStart;
-      
+
       // If we're in the transition zone, ease the speed
       if (distanceFromEdge < this.transitionZone) {
-        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration);
+        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration * dt);
       } else {
         // Accelerate back to full speed
-        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration);
+        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration * dt);
       }
-      
-      this.x += this.currentSpeed * this.moveDirection;
-      
+
+      this.x += this.currentSpeed * this.moveDirection * dt;
+
       // Check if we've reached the edge and need to change direction
       if (Math.abs(this.x - this.startX) >= this.moveRange) {
         this.moveDirection *= -1;
@@ -92,17 +95,17 @@ export class Platform {
     } else if (this.platformType === 'vertical') {
       const distanceFromStart = Math.abs(this.y - this.startY);
       const distanceFromEdge = this.moveRange - distanceFromStart;
-      
+
       // If we're in the transition zone, ease the speed
       if (distanceFromEdge < this.transitionZone) {
-        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration);
+        this.currentSpeed = Math.max(1, this.currentSpeed - this.acceleration * dt);
       } else {
         // Accelerate back to full speed
-        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration);
+        this.currentSpeed = Math.min(this.moveSpeed, this.currentSpeed + this.acceleration * dt);
       }
-      
-      this.y += this.currentSpeed * this.moveDirection;
-      
+
+      this.y += this.currentSpeed * this.moveDirection * dt;
+
       // Check if we've reached the edge and need to change direction
       if (Math.abs(this.y - this.startY) >= this.moveRange) {
         this.moveDirection *= -1;

@@ -41,13 +41,13 @@ export class Player {
     this.initialY = canvas.height - 100;
     this.x = this.initialX;
     this.y = this.initialY;
-    this.speed = 5;
+    this.speed = 5.5;
     this.velocityY = 0;
-    this.gravity = 0.2;
-    this.jumpForce = -9;
+    this.gravity = 0.22;
+    this.jumpForce = -10;
     this.color = '#FF69B4';
     this.airResistance = 0.01;
-    this.maxFallSpeed = 8;
+    this.maxFallSpeed = 9;
 
     // Initialize sounds
     this.jumpSound = new Audio('/games/sarah-jumps/sounds/jump.wav');
@@ -96,21 +96,24 @@ export class Player {
 
   public update(deltaTime: number, game: GameEngine): void {
     if (game.getGameState() !== 'playing') return;
-    
+
+    // Normalize to 60fps so physics feel identical regardless of frame rate
+    const dt = deltaTime / 16.67;
+
     // Apply gravity with air resistance
-    this.velocityY += this.gravity;
-    
+    this.velocityY += this.gravity * dt;
+
     // Apply air resistance when falling
     if (this.velocityY > 0) {
-      this.velocityY -= this.velocityY * this.airResistance;
+      this.velocityY -= this.velocityY * this.airResistance * dt;
     }
-    
+
     // Limit maximum falling speed
     if (this.velocityY > this.maxFallSpeed) {
       this.velocityY = this.maxFallSpeed;
     }
-    
-    this.y += this.velocityY;
+
+    this.y += this.velocityY * dt;
 
     // Update sprite state based on jump phase
     if (this.velocityY < 0) {
@@ -157,20 +160,20 @@ export class Player {
     this.velocityY = 0;
   }
 
-  public moveLeft(): void {
-    this.x -= this.speed;
+  public moveLeft(dt: number = 1): void {
+    this.x -= this.speed * dt;
     this.isFacingLeft = true;
-    
+
     // Keep player within canvas bounds
     if (this.x < this.width / 2) {
       this.x = this.width / 2;
     }
   }
 
-  public moveRight(): void {
-    this.x += this.speed;
+  public moveRight(dt: number = 1): void {
+    this.x += this.speed * dt;
     this.isFacingLeft = false;
-    
+
     // Keep player within canvas bounds
     if (this.x > this.canvas.width - this.width / 2) {
       this.x = this.canvas.width - this.width / 2;
