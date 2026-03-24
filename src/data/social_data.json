@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-03-23T10:59:56.411885",
+  "last_updated": "2026-03-24T10:58:27.080504",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Project Hail Mary",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-03-23",
+        "is_rewatch": false,
+        "review": "<p>When I read the book a few years back the first thing I said was \"this would work better as a movie\" and you know what that was a great call.</p><p>Almost certainly would have been 4+ stars if I had seen this without knowing the plot ahead of time. Someone Andy to skip the prose and go right to a screenplay for the next one.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=ac31b6ec03",
+        "link": "https://letterboxd.com/ncteisen/film/project-hail-mary/"
+      },
       {
         "title": "The Worst Person in the World",
         "year": 2021,
@@ -72,21 +82,11 @@
         "review": "<p>Bingo</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/2/7/2/8/4/27284-the-naked-gun-0-600-0-900-crop.jpg?v=7f848fb394",
         "link": "https://letterboxd.com/ncteisen/film/the-naked-gun-from-the-files-of-police-squad/"
-      },
-      {
-        "title": "28 Years Later: The Bone Temple",
-        "year": 2026,
-        "rating": 3.5,
-        "watched_date": "2026-01-20",
-        "is_rewatch": false,
-        "review": "<p>Fun, mega-gnarly, dong-filled</p><p>Ralph Fiennes and Jack O'Connell carried the energy throughout. I was a bit surprised they sidelined the kid character, since he was really good in the first, but maybe he will pop off again in the third installment?</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff",
-        "link": "https://letterboxd.com/ncteisen/film/28-years-later-the-bone-temple/"
       }
     ],
     "stats": {
-      "total_films": 884,
-      "films_this_year": 12,
+      "total_films": 885,
+      "films_this_year": 13,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 36
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 17833806607,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.25,
+        "moving_time": 2145,
+        "elapsed_time": 2371,
+        "elevation_gain": 220.0,
+        "average_pace": 8.41,
+        "average_heartrate": 138.7,
+        "max_heartrate": 165.0,
+        "average_cadence": 88.0,
+        "average_watts": 322.7,
+        "start_date": "2026-03-23T22:14:53Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a17833806607",
+          "summary_polyline": "uqpeFblhjVD\\Rz@@Xc@bADN@b@J|@JpBNr@DnBHpADRH`BFfBIr@AVDb@TjADrAHn@Gz@EBC`@Mb@@\\J~@ExADXFVRf@V^Xz@Db@J|ARjBDl@EjCNbABf@Lj@@JCZFh@@xA`@hCD`A?v@H^Bp@Fb@?j@M|@ATZdBf@fBFh@I`AGRQTIh@JrA[ZPv@d@|Ab@lBR~AFzBEj@Kj@SDu@?OOGOKIMSaA_A[]e@u@OKWMQ?o@^_@ZWPa@`@Q`@UhAEb@Ab@VdDf@xCT~AJjABn@DTHnA@f@BLJZ^t@l@`@^P\\ZLXDT\\v@Xb@Lf@@DH@`AWx@?TCPBJ?RIBI?YFc@B_@Lc@FIZIBCDONoA?g@Ee@@YHGRGXEXM`@@\\MX]dAgBVKVEr@BRKL]@KIsBHc@?YCSOg@S]Yw@S_@IUEU?[Tg@BUIg@EaAF{@Ac@Ek@Mm@Ai@AIMEIQ[QIOa@qAKMYSKOICI?e@HG?KaAGkAQuAI_@Gc@?aBB_AE[_@sAEq@I_@@iAWeCSwCAoA]iCAe@Kw@?MBi@M_AAUDg@Cm@EUGIGa@L}@]_DGSGu@Ao@IYC{@OqBAi@@OGi@?c@Im@IeCO}AKo@?w@MiB?k@Ic@MsACgA@e@_@aCIyAE_@Ag@YuDIeB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 17819612337,
         "name": "\ud83e\udd85",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a17723119999",
           "summary_polyline": "yc|eFbeqjVNf@BdBb@b@b@|@^N^t@fBx@wC^q@GQViA?i@f@GJv@Ms@z@o@d@k@lAk@VQVe@tBfAw@eAlBpCsAa@x@cEtE_BfCcDf@mBDoAz@q@QQW_@sAYIg@d@Yh@SrBQ^o@b@o@lAiB`@o@hAcBn@b@NdBCHJM`@ATl@tANnAM`ABj@XnAv@Zf@@xDs@pA`AdBB~@Xf@`@Vr@LlAI|@Hf@Vf@`A|@HVXZ\\Fn@Gz@]PlAQ|Aa@~AInAY|Aw@rCOv@?n@Lt@Zh@zBE^Lh@|@tBjBVd@E`@{@nA}@fA_CbBkAjBMn@Bf@PZh@h@Z?lAg@r@AnBzATp@Fr@EpFd@xAXtA`@x@T@~@cBdBwArBuCv@}APLFxDK~BJ`DAT]f@RbAMhC_D~S{@dDo@vFNdGYhF}@f@_@t@QHaAuAaBSKDYlAuAzBu@rCk@hA_@xBUj@a@Vq@HyAUm@UmCmB{HsDwGiBy@{@W}@KqBUa@s@YmDc@eCqBk@cAMo@GwDi@wCsBqEcAeD]iB_AaDm@{A{@mAY\\WjB}BdD}@f@kACaAe@IkBo@iAo@yBS[}@o@oCRS_@l@{@G[u@c@{ASSm@a@{CI{BWBW`@aAl@yCv@iCXg@Ge@_@_@g@m@kBy@_@q@d@w@fA}@dBa@@_@MU]a@uD_@i@eBu@g@H[b@q@nB_@d@i@DpBeJ?oAFy@Ti@bAiAPkA?aAz@i@L_A|@qBFa@KsABgAN]t@u@Re@Cm@c@iA@uCTe@^[b@Ex@PZMd@[Vo@rBi@d@w@^YXVlBkAf@w@Hs@cA}AEWt@{@r@oAjA[fAo@x@O\\wAd@}@fAQv@w@l@OjAy@zAUr@]b@eAo@mBh@wARiBRc@jAyAv@}ATcA|BIrAT|ABrAj@rEjArA@pAl@`Fn@jBlBx@j@lA]\\Un@eAx@]h@Ar@kAj@a@PWRwBh@y@d@_@PLd@vAT\\THTEhAy@pGs@xA}BrCiDp@m@d@}@{CtAjAgBkAr@j@}BbAu@`@_AdBeBu@JPYj@c@fA@NW|@HbCKwB{@]k@YK[c@i@_AEiB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17708791850,
-        "name": "Never trust the weather",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2833,
-        "elapsed_time": 3395,
-        "elevation_gain": 525.0,
-        "average_pace": 9.45,
-        "average_heartrate": 144.7,
-        "max_heartrate": 170.0,
-        "average_cadence": 84.8,
-        "average_watts": 287.6,
-        "start_date": "2026-03-13T14:07:42Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17708791850",
-          "summary_polyline": "mkpeFpehjVf@Qd@GZKb@@TEX@l@Ov@Ib@Ct@CXMXEXI\\DnBMVFHLLb@@n@BLBD`ABVIVAlA`@J?PG^Cv@MLNfAAn@Ej@Gx@EREX@PCVAd@GJ@|@OH?PBJN@^CHDR?n@Bl@?p@FHPFDXFRPJLBDLCJQFCLAn@GXEFOLG?CCAQIMESILCN@`@O`A@LCPAd@RDLZd@f@DXAJONAXA@GCC\\IFM@CLOV@HXZH`@RNA^Dd@CN]p@g@j@KVEP@dAClAGf@AR@TDX?HDPC|@Bb@If@EDE@WKKMIQMIQUIEWPWZ_@Ji@`@KBGNOT_@VYVc@RM?MFc@FCBF`ADTLzBNjABh@F^@j@H`AF`Bd@hGD~ANtA@v@Dz@RlB?l@Hh@FxAPzA?PGTCZAZPdBJh@ERBVLt@T`CEtBEH_@f@I@e@S[Ec@?OBYL]^QVCXAxAB|AAtAF|AL^RVl@Td@FLF@JIJIXM|@U\\Sd@CP@\\AD]PU\\IZM~@KROBW?u@Hg@JKA]K}@IU@e@JIBGFWr@MVg@p@MJOBm@?QHa@AUFITEl@?PD^EzAIL[JGDGbAOd@?XINIBQ?[MM@c@GmAXSGGOQq@]u@Oe@OYa@_@o@[o@s@Y{@Gc@Aq@Gw@Aq@Kq@ImAKQEm@Kc@I{@[iBKeA?a@RqAVgAV_@t@o@~@_@HCR?ZPp@~@z@|@d@p@RNNFh@AVGHEDKD[DkAK_BMu@o@{CYy@]{AVI@E@MI{@@OD]Vk@LmA?ME_@k@sAQi@Ii@?c@H[Hq@OaC@gBIeA]mAEUCiDSu@A_@OiAAu@Hw@?YMeAEuAMgACq@I_@Si@g@{@Uk@EUHk@?UCgA@_@Da@Ng@B[AgBGo@M{@M_@?UGa@Hg@?eAGyAWgCEcAIk@@YEc@CqACUAaAIw@ZY?CQsAI}A",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 47,
-          "distance": 276.46,
-          "moving_time": 156756,
-          "elapsed_time": 174512,
-          "elevation_gain": 29915.0
+          "count": 48,
+          "distance": 280.71,
+          "moving_time": 158901,
+          "elapsed_time": 176883,
+          "elevation_gain": 30135.0
         },
         "all_time": {
-          "count": 1188,
-          "distance": 6167.9,
-          "moving_time": 3353451,
-          "elapsed_time": 3796192,
-          "elevation_gain": 465479.0
+          "count": 1189,
+          "distance": 6172.16,
+          "moving_time": 3355596,
+          "elapsed_time": 3798563,
+          "elevation_gain": 465699.0
         },
         "recent": {
           "count": 14,
-          "distance": 73.19,
-          "moving_time": 39571,
-          "elapsed_time": 43457,
-          "elevation_gain": 5919.0
+          "distance": 72.68,
+          "moving_time": 39255,
+          "elapsed_time": 43318,
+          "elevation_gain": 5981.0
         }
       },
       "biking": {
