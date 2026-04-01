@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-03-31T11:02:27.022296",
+  "last_updated": "2026-04-01T11:05:42.396033",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Hoppers",
+        "year": 2026,
+        "rating": 4.0,
+        "watched_date": "2026-03-31",
+        "is_rewatch": false,
+        "review": "<p>Psychotic (complementary)</p><p>If I had seen this at an impressionable young age (like the poor kid three seats to my left) it would have traumatized me just like that one scene from Who Framed Roger Rabbit (you know the one).</p><p>Honored to have watched this with Hoppers superfan Camyll.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/0/7/5/5/7/1207557-hoppers-0-600-0-900-crop.jpg?v=7711e7b5a7",
+        "link": "https://letterboxd.com/ncteisen/film/hoppers/"
+      },
+      {
+        "title": "KPop Demon Hunters",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-03-25",
+        "is_rewatch": false,
+        "review": "<p>Watched this two days after Project Hail Mary and the rest of the week was the Battle of the Earworms: Golden vs Sign of the Times</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/0/9/5/3/720953-kpop-demon-hunters-0-600-0-900-crop.jpg?v=10b7464274",
+        "link": "https://letterboxd.com/ncteisen/film/kpop-demon-hunters/"
+      },
       {
         "title": "Project Hail Mary",
         "year": 2026,
@@ -62,31 +82,11 @@
         "review": "<p>Just in absolute awe of how good looking Wanger Moura is regardless of his haircut</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/0/4/3/4/8/1104348-the-secret-agent-2025-0-600-0-900-crop.jpg?v=3bcd2a3e02",
         "link": "https://letterboxd.com/ncteisen/film/the-secret-agent-2025/"
-      },
-      {
-        "title": "F1",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2026-02-11",
-        "is_rewatch": false,
-        "review": "<p>A $300M F1 movie finishes P2 in 2025\u2019s driving-scene standings</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/8/1/7/9/7/7/817977-f1-the-movie-0-600-0-900-crop.jpg?v=f5ae2b99b9",
-        "link": "https://letterboxd.com/ncteisen/film/f1/"
-      },
-      {
-        "title": "The Naked Gun: From the Files of Police Squad!",
-        "year": 1988,
-        "rating": 4.0,
-        "watched_date": "2026-01-30",
-        "is_rewatch": false,
-        "review": "<p>Bingo</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/2/7/2/8/4/27284-the-naked-gun-0-600-0-900-crop.jpg?v=7f848fb394",
-        "link": "https://letterboxd.com/ncteisen/film/the-naked-gun-from-the-files-of-police-squad/"
       }
     ],
     "stats": {
-      "total_films": 885,
-      "films_this_year": 13,
+      "total_films": 887,
+      "films_this_year": 15,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 37
