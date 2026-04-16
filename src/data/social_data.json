@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-15T11:07:18.905965",
+  "last_updated": "2026-04-16T11:11:29.836401",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
@@ -179,6 +179,28 @@
   "strava": {
     "recent_runs": [
       {
+        "id": 18126521848,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.4,
+        "moving_time": 2314,
+        "elapsed_time": 2521,
+        "elevation_gain": 226.0,
+        "average_pace": 8.77,
+        "average_heartrate": 126.9,
+        "max_heartrate": 151.0,
+        "average_cadence": 88.6,
+        "average_watts": 315.2,
+        "start_date": "2026-04-16T00:25:20Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18126521848",
+          "summary_polyline": "irpeFplhjV@\\PtBTjA?z@FXBl@Fn@Jd@AbATbD@t@Dd@EXFv@Cp@@x@TrAF`A@hBK~@On@@TDNBp@KfA@^BNNPDNTZPd@Nh@Jp@LdBJ|@AVH\\?n@Cn@?~@N~ARp@Er@HdBLfAFTVjBEhAF`@Bp@Hb@@XCb@Kh@A\\J~@Ld@HNBLN`@L~@?ZEx@K^KJENAZBn@Fl@Tr@CJ?NHf@h@fBTn@Lh@Db@@`AC|AKt@IPQHe@@k@QYUe@i@Ue@s@u@[i@]QMEMAM?kAt@g@d@Yj@G`@GLGXG|@?j@@ZNzAd@fCTbCVbBDpAP~ALj@P\\`@`@|@h@\\b@d@nA\\n@BLCf@UbAOnAKb@m@vDWjAM`ASfCBXFBFE@K?m@Du@ReCb@yBRwAd@mB@YFYB{@HEJ?\\Iz@IH?PFVAb@FNEFMBa@L]JaABEh@SJmBCqABMHGRI\\AZKh@?TSt@gAb@gAFUASYiA_@k@O[CMCg@Ki@Qk@?QHw@`@mB~@iBZ]FKJg@?]Co@Ks@Aa@Ki@g@SOWG]Qg@MOUMMUKIEAw@JKEG_CQ_CA_@Ga@C{@]gD@a@E_AQeBCy@Ga@GaBOgBEeAOuAEqAK_AI{AKw@Ey@@]MuAAg@CYQ{@CuAIeAAe@s@oKEoCMuA_@}EQqDKo@Em@QsA_@aISyB",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 18112574367,
         "name": "Sarah \u201cI just want to run 4 miles\u201d Krulewitz",
         "type": "Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a18028502929",
           "summary_polyline": "oqpeF~khjVPt@?NBREl@Jf@@v@PzAAZ@VCPJjACLSNJ`@L|ABn@Fr@@bAH~@?`@Gp@Dh@P~@FtA?j@DR?X@HE~@W~@FLD`@CLEh@Cr@Jj@d@~@HHJLNf@ANH~@Hb@Ht@A`@LZ?xAARBLA\\Bb@ERP~@Hp@HR@J@\\GhB@TL\\LbAJl@DDBNBp@ETBp@?n@R`AE`@K`@Cv@Lx@d@vA@TJ`@B\\?tAGPSPITBt@AJFl@Xz@@nA`@rBN~@NzB?r@IbAKTIBU?k@KSKq@s@[USYEOSSe@o@g@SW@C@?FEDe@Tq@h@UZOZKh@Il@GbAJlAv@bGl@zH`@jALPXR`@M?JOPBHFHLFFNb@d@h@nAV^FTCd@}@`Fa@dCAn@@LFR?ZTXNv@LVV\\b@RbAPP?f@QNQLWHGx@Wd@@NC|AqBTOBGEm@U_B?eAKwAa@wBA]]}BAk@@m@AoAC_@BUFKJE\\CVMd@?XMRQZc@l@oADEF?ZKRAh@Bb@JZBdCKJGDIDKFe@Du@Vo@Nq@JUl@o@PcAPg@v@m@LOFSFWBWFmBAY@{@G{BIe@MOWU_@S]IW?]FYJUROd@CLChDH|DPd@TVZNXD`@@VAVK\\[Rc@Fg@@u@?eAGs@Be@A{@@UCc@Qe@QW@G`@q@BWOyBBm@Gk@EOYGg@@o@LwAHkCX}@Do@Lg@BQF_DZc@HS@@a@AMQg@Q_ACkAIi@QwDIi@GMIq@Au@EgA]kEIuBCQAm@Ku@KgBKwB[yB@mAIi@Dc@UiCAqAGs@K_@E_@Aw@IYCm@Ac@QiBIc@@c@GkA?[EQGgACEGi@QyDc@cG?[Go@GYOiBE_ADi@SaBE{BK{@?M",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18001232548,
-        "name": "Gamday",
-        "type": "Run",
-        "distance": 4.1,
-        "moving_time": 2072,
-        "elapsed_time": 2175,
-        "elevation_gain": 194.0,
-        "average_pace": 8.42,
-        "average_heartrate": 142.6,
-        "max_heartrate": 162.0,
-        "average_cadence": 88.4,
-        "average_watts": 319.8,
-        "start_date": "2026-04-06T14:26:12Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18001232548",
-          "summary_polyline": "qlpeFfghjVPtBJj@@jAV~C@r@Hb@Dd@FdBNdAP|BL|CHv@@`AHp@?^Fx@\\pDBvBHj@PpCF\\?RDr@Fn@?p@L~CLjADnALpADz@N`B?ZZvDBjAP|A?XJpABpAH`AJh@F|AP`B@fAHr@Bx@VrADHHBh@ER@b@`@HLJb@P^LHp@TCF@RAl@Fp@FfACbAMT_@b@Q\\MNO\\a@zAQ~@C^@Rb@rAFn@N\\l@bAJj@AZMb@]x@u@dAENQDo@?WHe@?IBMHGPAn@FpAC`@BZe@LGFGl@IXM|@EHOFQASIO?SGOAcAXQ?UY_@w@Qc@Oo@Ua@_@c@q@]USKMOk@GYa@yFGg@UgAIoA]yBIoAAg@D}@VqAXg@~@w@f@Wb@EHBTLb@h@VPXb@JHj@x@XRTJVB\\?VIFIDSBcAGkBEm@_@oB}@_DASFo@E}Af@kB@s@A]Ka@[a@[uA@kAJiAA[Kc@?gCCM?]CO]iASsADuCOs@OmA?eADe@KeCQw@Cq@Gc@KqAIYUa@a@oAOo@@ODU@a@KkADSJYFa@AcDGq@Q{@Eg@F}@AYAu@MiBCy@Ik@C{@Iu@@k@IcA?e@Mw@@w@N_AMaAI{A",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 65,
-          "distance": 372.93,
-          "moving_time": 209810,
-          "elapsed_time": 237651,
-          "elevation_gain": 38323.0
+          "count": 66,
+          "distance": 377.32,
+          "moving_time": 212124,
+          "elapsed_time": 240172,
+          "elevation_gain": 38550.0
         },
         "all_time": {
-          "count": 1206,
-          "distance": 6264.37,
-          "moving_time": 3406505,
-          "elapsed_time": 3859331,
-          "elevation_gain": 473888.0
+          "count": 1207,
+          "distance": 6268.77,
+          "moving_time": 3408819,
+          "elapsed_time": 3861852,
+          "elevation_gain": 474115.0
         },
         "recent": {
-          "count": 22,
-          "distance": 116.25,
-          "moving_time": 63737,
-          "elapsed_time": 74802,
-          "elevation_gain": 9882.0
+          "count": 23,
+          "distance": 120.64,
+          "moving_time": 66051,
+          "elapsed_time": 77323,
+          "elevation_gain": 10108.0
         }
       },
       "biking": {
