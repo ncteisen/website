@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-04-16T11:11:29.836401",
+  "last_updated": "2026-04-17T11:04:01.684483",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Zootopia 2",
+        "year": 2025,
+        "rating": 3.5,
+        "watched_date": "2026-04-16",
+        "is_rewatch": false,
+        "review": "<p>Weaker premise, looser pacing, but the same charm and humor as the first one. I hope to see another in the next decade.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/7/3/4/2/977342-zootopia-2-0-600-0-900-crop.jpg?v=00a15a97bc",
+        "link": "https://letterboxd.com/ncteisen/film/zootopia-2/"
+      },
       {
         "title": "The Drama",
         "year": 2026,
@@ -72,21 +82,11 @@
         "review": "<p>How\u2019d they come up with all those funny names??</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/6/7/2/45672-this-is-spinal-tap-0-600-0-900-crop.jpg?v=cc2f1011d3",
         "link": "https://letterboxd.com/ncteisen/film/this-is-spinal-tap/"
-      },
-      {
-        "title": "Brief Encounter",
-        "year": 1945,
-        "rating": 4.0,
-        "watched_date": "2026-02-24",
-        "is_rewatch": false,
-        "review": "<p><em>This review may contain spoilers.</em></p><p>A remake of this but it takes place in a Google tech shuttle would do numbers on SF twitter (derogatory*)</p><p>*of tech bro twitter, not of this movie, which was lovely</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/1/51301-brief-encounter-0-600-0-900-crop.jpg?v=dfc2823c13",
-        "link": "https://letterboxd.com/ncteisen/film/brief-encounter/"
       }
     ],
     "stats": {
-      "total_films": 890,
-      "films_this_year": 17,
+      "total_films": 891,
+      "films_this_year": 18,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 37
@@ -728,11 +728,11 @@
           "elevation_gain": 474115.0
         },
         "recent": {
-          "count": 23,
-          "distance": 120.64,
-          "moving_time": 66051,
-          "elapsed_time": 77323,
-          "elevation_gain": 10108.0
+          "count": 22,
+          "distance": 118.55,
+          "moving_time": 64971,
+          "elapsed_time": 76234,
+          "elevation_gain": 10059.0
         }
       },
       "biking": {
