@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-04-19T10:50:25.552492",
+  "last_updated": "2026-04-20T11:24:06.717644",
   "letterboxd": {
     "username": "ncteisen",
     "recent_reviews": [
+      {
+        "title": "Point Break",
+        "year": 1991,
+        "rating": 4.0,
+        "watched_date": "2026-04-18",
+        "is_rewatch": false,
+        "review": "<p>The correct time to watch this cult classic for the first time was at 8 in the morning hungover at my brother-in-law\u2019s bachelor party</p><p>I was ready to jump out of a plane after</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/1/5/7/51157-point-break-0-600-0-900-crop.jpg?v=3cd33a67b2",
+        "link": "https://letterboxd.com/ncteisen/film/point-break/"
+      },
+      {
+        "title": "Is This Thing On?",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-04-19",
+        "is_rewatch": false,
+        "review": "<p>Will Arnett didn\u2019t have to be good to succeed at stand up comedy here, and a movie doesn\u2019t need to be good to succeed at entertaining me! Pretty messy overall but it had a couple of moments</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/cu/cp/cr/2m/o0uOCDLZEwlForZ5Bf3IeBwlPLd-0-600-0-900-crop.jpg?v=371b64c948",
+        "link": "https://letterboxd.com/ncteisen/film/is-this-thing-on-2025/"
+      },
       {
         "title": "Zootopia 2",
         "year": 2025,
@@ -62,31 +82,11 @@
         "review": "<p>When I read the book a few years back the first thing I said was \"this would work better as a movie\" and you know what that was a great call.</p><p>Almost certainly would have been 4+ stars if I had seen this without knowing the plot ahead of time. Someone tell Andy to skip the prose and go right to a screenplay for the next one.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=ac31b6ec03",
         "link": "https://letterboxd.com/ncteisen/film/project-hail-mary/"
-      },
-      {
-        "title": "The Worst Person in the World",
-        "year": 2021,
-        "rating": 4.5,
-        "watched_date": "2026-03-02",
-        "is_rewatch": true,
-        "review": "<p>Pre-Norway-trip rewatch</p><p>Every little tiny detail of this movie has something relatable/interesting (like dealing with a distant family member, being the low-energy friend at the hang, sad girl walks, feeling disconnected from the group, loved one's cancer, mushroom anxiety, not wanting to be a doctor, literally stopping time to smash, etc etc etc its truly ever scene)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/8/5/2/5/8/585258-the-worst-person-in-the-world-0-600-0-900-crop.jpg?v=92bc344c27",
-        "link": "https://letterboxd.com/ncteisen/film/the-worst-person-in-the-world/1/"
-      },
-      {
-        "title": "This Is Spinal Tap",
-        "year": 1984,
-        "rating": 4.0,
-        "watched_date": "2026-02-26",
-        "is_rewatch": false,
-        "review": "<p>How\u2019d they come up with all those funny names??</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/6/7/2/45672-this-is-spinal-tap-0-600-0-900-crop.jpg?v=cc2f1011d3",
-        "link": "https://letterboxd.com/ncteisen/film/this-is-spinal-tap/"
       }
     ],
     "stats": {
-      "total_films": 891,
-      "films_this_year": 18,
+      "total_films": 893,
+      "films_this_year": 20,
       "total_lists": 8,
       "following_count": 40,
       "followers_count": 37
@@ -178,6 +178,28 @@
   },
   "strava": {
     "recent_runs": [
+      {
+        "id": 18178375377,
+        "name": "Post plane shakeout",
+        "type": "Run",
+        "distance": 4.0,
+        "moving_time": 2037,
+        "elapsed_time": 2488,
+        "elevation_gain": 233.0,
+        "average_pace": 8.48,
+        "average_heartrate": 130.8,
+        "max_heartrate": 151.0,
+        "average_cadence": 87.8,
+        "average_watts": 324.3,
+        "start_date": "2026-04-19T22:26:03Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18178375377",
+          "summary_polyline": "qqpeF`lhjVBTAZDP?h@DJBhBNpAAdANnAAHMPCH?ZR`BD`ALlA?n@Dz@CfADr@RrAFfA?\\CXC`AUl@?TRhAI`@Ev@F\\d@p@FTP^Tr@HlBL~@J`B?|B@VALEJ@LVb@BN?LFf@A`BD\\?\\ZtAF\\L~ACfA@\\D`@Lt@Cr@Mp@Cd@Jn@V~@NZDTHJHV@ZI`AOl@ORCJF|@AVSd@\\v@v@bCR^Vt@Hb@@`AEnBKl@GRKJUJS?i@CUMeAeAMWg@e@Uc@U[IE_@IGAG@qAbA_@b@INSh@Qt@Gt@?l@R~BVfBd@xBRjBTdEJh@NZTXjAx@LLx@fBPTVr@LDD?rAY^FR?THJ@JCFODe@J[LeAHI\\KFKJkAAyA@KRW\\UJAf@BPARIVSb@k@\\w@Nk@@]Kk@KW?KBEHEfA]t@i@FG@KG_@Wm@Uw@Q]UYQi@Ba@Vc@@MCc@IK?}@F_A?e@SeCM]EEYKGGa@iAKQ[]IEOCu@@GGAKGiA@e@UgBEeAK}@KiBQiAC_BEi@?WI{@CK?k@Ei@I]Gy@MqDGa@KsAOyDGKEMAe@CEE[GoCGg@?WK{AA_@Ic@EcBC[Km@IiAKkCIm@Ck@OgAG}AE]GcBIq@CkAIuAYcDEkAM}AAy@G_@@IKu@A]Gg@@OSoB?_@E_@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18126521848,
         "name": "Afternoon Run",
@@ -329,28 +351,6 @@
         "map": {
           "id": "a18042132000",
           "summary_polyline": "c{cdF`rliVKL_@TYFOPIBWXGDYb@k@q@QOIAGFyBtEa@j@Md@g@fAM^EX@VS`@Aj@@ZRz@@j@Fp@HVXZZr@DRHp@P`@HN\\\\\\Tx@\\p@N`@Bh@A`@KVOh@o@DKBM?OEc@Mg@]o@i@m@g@a@i@]o@[s@UW?KBIFk@fAOj@In@Dp@Ln@Xd@f@`@NHd@PlARVBj@ARE^Wf@i@FKBMIi@]eAe@q@o@q@MKo@a@{@_@a@GQBOHKPYr@U~@En@Hr@JXd@l@`@Zf@Xt@Pr@Ft@AZQl@m@Va@BOAMSu@u@oAMMu@m@u@a@m@Wo@SU@OJORa@|@KZE\\?t@Fh@Rh@b@f@x@f@^Jx@Nx@B\\ENELMPO`@g@HQ?US}@]w@i@k@uAaA_@S{@]]GOD_@f@Q^Of@Id@AT@j@D\\DRP^TV\\Xn@\\`@JZFh@@r@EPERMd@]V]DK@MKi@Og@Yi@]e@m@g@}@m@y@]a@MQ?MDKHc@r@Y|@Et@@\\Jj@Xn@RTVRr@^`@HZF|@@d@ERKl@g@PQDM@KAWMu@LWPUJWV]tCiC?S]yACSDMFGZIp@YLIDIM_ABGCe@EQE{@JGZGz@ED?BG?_@M[D]C_@MU_@SMKGKCw@IYIIUIQIc@{@MOIQi@k@OCQ@IFIHAL?LDLFHHFH@PEJMD]AOIOWCE?GHKVOp@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18028502929,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 5.28,
-        "moving_time": 2668,
-        "elapsed_time": 3332,
-        "elevation_gain": 253.0,
-        "average_pace": 8.42,
-        "average_heartrate": 144.7,
-        "max_heartrate": 166.0,
-        "average_cadence": 88.7,
-        "average_watts": 317.4,
-        "start_date": "2026-04-08T14:34:35Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18028502929",
-          "summary_polyline": "oqpeF~khjVPt@?NBREl@Jf@@v@PzAAZ@VCPJjACLSNJ`@L|ABn@Fr@@bAH~@?`@Gp@Dh@P~@FtA?j@DR?X@HE~@W~@FLD`@CLEh@Cr@Jj@d@~@HHJLNf@ANH~@Hb@Ht@A`@LZ?xAARBLA\\Bb@ERP~@Hp@HR@J@\\GhB@TL\\LbAJl@DDBNBp@ETBp@?n@R`AE`@K`@Cv@Lx@d@vA@TJ`@B\\?tAGPSPITBt@AJFl@Xz@@nA`@rBN~@NzB?r@IbAKTIBU?k@KSKq@s@[USYEOSSe@o@g@SW@C@?FEDe@Tq@h@UZOZKh@Il@GbAJlAv@bGl@zH`@jALPXR`@M?JOPBHFHLFFNb@d@h@nAV^FTCd@}@`Fa@dCAn@@LFR?ZTXNv@LVV\\b@RbAPP?f@QNQLWHGx@Wd@@NC|AqBTOBGEm@U_B?eAKwAa@wBA]]}BAk@@m@AoAC_@BUFKJE\\CVMd@?XMRQZc@l@oADEF?ZKRAh@Bb@JZBdCKJGDIDKFe@Du@Vo@Nq@JUl@o@PcAPg@v@m@LOFSFWBWFmBAY@{@G{BIe@MOWU_@S]IW?]FYJUROd@CLChDH|DPd@TVZNXD`@@VAVK\\[Rc@Fg@@u@?eAGs@Be@A{@@UCc@Qe@QW@G`@q@BWOyBBm@Gk@EOYGg@@o@LwAHkCX}@Do@Lg@BQF_DZc@HS@@a@AMQg@Q_ACkAIi@QwDIi@GMIq@Au@EgA]kEIuBCQAm@Ku@KgBKwB[yB@mAIi@Dc@UiCAqAGs@K_@E_@Aw@IYCm@Ac@QiBIc@@c@GkA?[EQGgACEGi@QyDc@cG?[Go@GYOiBE_ADi@SaBE{BK{@?M",
           "resource_state": 2
         }
       }
@@ -714,25 +714,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 66,
-          "distance": 377.32,
-          "moving_time": 212124,
-          "elapsed_time": 240172,
-          "elevation_gain": 38550.0
+          "count": 67,
+          "distance": 381.33,
+          "moving_time": 214161,
+          "elapsed_time": 242660,
+          "elevation_gain": 38783.0
         },
         "all_time": {
-          "count": 1207,
-          "distance": 6268.77,
-          "moving_time": 3408819,
-          "elapsed_time": 3861852,
-          "elevation_gain": 474115.0
+          "count": 1208,
+          "distance": 6272.77,
+          "moving_time": 3410856,
+          "elapsed_time": 3864340,
+          "elevation_gain": 474347.0
         },
         "recent": {
           "count": 20,
-          "distance": 106.54,
-          "moving_time": 58407,
-          "elapsed_time": 69144,
-          "elevation_gain": 8911.0
+          "distance": 104.87,
+          "moving_time": 57405,
+          "elapsed_time": 68148,
+          "elevation_gain": 8868.0
         }
       },
       "biking": {
