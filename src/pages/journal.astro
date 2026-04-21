@@ -1,0 +1,445 @@
+---
+const socialDataModules = await import.meta.glob('../data/social_data.json');
+const socialData = (await socialDataModules['../data/social_data.json']()) as {
+	letterboxd: {
+		recent_reviews: MovieReview[],
+		stats?: {
+			total_films: number,
+			films_this_year: number,
+		}
+	},
+	goodreads: {
+		recent_reviews: BookReview[],
+		stats?: {
+			total_ratings: number,
+			books_this_year?: number,
+		}
+	},
+};
+const letterboxdData = socialData.letterboxd;
+const goodreadsData = socialData.goodreads;
+
+interface MovieReview {
+	title: string;
+	year: number;
+	rating: number;
+	watched_date: string;
+	is_rewatch: boolean;
+	review: string;
+	image_url: string;
+	link: string;
+}
+
+interface BookReview {
+	title: string;
+	author: string;
+	rating: number;
+	read_at: string;
+	review: string;
+	image_url: string;
+	link: string;
+}
+
+const getStarRating = (rating: number): string => {
+	const fullStars = Math.floor(rating);
+	const hasHalfStar = rating % 1 >= 0.5;
+	return '★'.repeat(fullStars) + (hasHalfStar ? '½' : '');
+};
+
+const getEmptyStars = (rating: number): string => {
+	const fullStars = Math.floor(rating);
+	const hasHalfStar = rating % 1 >= 0.5;
+	const empty = 5 - fullStars - (hasHalfStar ? 1 : 0);
+	return '★'.repeat(empty);
+};
+
+// Build unified journal entries sorted by date
+interface JournalEntry {
+	title: string;
+	subtitle: string;
+	rating: number;
+	loggedAt: string;
+	review: string;
+	cover: string;
+	kind: 'film' | 'book';
+	link: string;
+}
+
+const allEntries: JournalEntry[] = [
+	...letterboxdData.recent_reviews.map((m) => ({
+		title: m.title,
+		subtitle: String(m.year),
+		rating: m.rating,
+		loggedAt: m.watched_date,
+		review: m.review,
+		cover: m.image_url,
+		kind: 'film' as const,
+		link: m.link,
+	})),
+	...goodreadsData.recent_reviews.map((b) => ({
+		title: b.title,
+		subtitle: b.author,
+		rating: b.rating,
+		loggedAt: b.read_at,
+		review: b.review,
+		cover: b.image_url,
+		kind: 'book' as const,
+		link: b.link,
+	})),
+].sort((a, b) => new Date(b.loggedAt).getTime() - new Date(a.loggedAt).getTime());
+
+const filmCount = letterboxdData.recent_reviews.length;
+const bookCount = goodreadsData.recent_reviews.length;
+
+const formatDate = (dateStr: string): string => {
+	const d = new Date(dateStr);
+	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Journal — Noah Eisen</title>
+		<meta name="description" content="Everything Noah Eisen has watched and read, with reviews." />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
+		<script>
+			interface Window {
+				dataLayer: any[];
+				gtag: (...args: any[]) => void;
+			}
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function() { window.dataLayer.push(arguments); };
+			window.gtag('js', new Date());
+			window.gtag('config', 'G-DW532NM54T');
+		</script>
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { height: 100%; }
+			body {
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.wrap {
+				max-width: 920px;
+				margin: 0 auto;
+				padding: 52px 44px 80px;
+			}
+
+			/* === HEADER === */
+			.back-link {
+				font-size: 11px;
+				color: #666;
+				text-decoration: none;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 28px;
+				transition: color 0.15s;
+			}
+
+			.back-link:hover { color: #999; }
+
+			.journal-title {
+				font-size: 48px;
+				font-weight: 700;
+				letter-spacing: -1.5px;
+				margin: 0 0 10px;
+				color: #eae7e0;
+				line-height: 1;
+			}
+
+			.journal-desc {
+				font-size: 14px;
+				color: #777;
+				margin: 0;
+				line-height: 1.7;
+				max-width: 520px;
+			}
+
+			/* === FILTERS === */
+			.filters {
+				display: flex;
+				gap: 10px;
+				margin: 44px 0 36px;
+				border-bottom: 1px solid #1a1a1a;
+				padding-bottom: 24px;
+			}
+
+			.filter-btn {
+				background: transparent;
+				border: 1px solid #1c1c1c;
+				color: #666;
+				padding: 8px 16px;
+				border-radius: 6px;
+				font-family: inherit;
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.5px;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				transition: all 0.15s;
+			}
+
+			.filter-btn.active {
+				background: #101010;
+				border-color: #2a2a2a;
+				color: #e2dfd8;
+			}
+
+			.filter-btn .count {
+				font-size: 10px;
+				color: #444;
+			}
+
+			.filter-btn.active .count {
+				color: #5b8ef0;
+			}
+
+			/* === ENTRIES === */
+			.entry {
+				display: grid;
+				grid-template-columns: 84px 1fr;
+				gap: 28px;
+				padding: 28px 0;
+				border-top: 1px solid #181818;
+			}
+
+			.entry-cover {
+				width: 84px;
+				height: 126px;
+				border-radius: 4px;
+				object-fit: cover;
+				background: #151515;
+				border: 1px solid #1e1e1e;
+			}
+
+			.entry-cover-placeholder {
+				width: 84px;
+				height: 126px;
+				border-radius: 4px;
+				background: linear-gradient(145deg, #1a2236, #0f1420);
+				border: 1px solid #1e1e1e;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #5b8ef0;
+				font-size: 28px;
+				font-weight: 700;
+			}
+
+			.entry-meta {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 10px;
+				flex-wrap: wrap;
+			}
+
+			.entry-badge {
+				font-size: 9px;
+				letter-spacing: 2px;
+				font-weight: 600;
+				padding: 2px 7px;
+				border-radius: 3px;
+			}
+
+			.entry-badge.film {
+				color: #5b8ef0;
+				border: 1px solid rgba(91, 142, 240, 0.25);
+			}
+
+			.entry-badge.book {
+				color: #d4a84b;
+				border: 1px solid rgba(212, 168, 75, 0.25);
+			}
+
+			.entry-date {
+				font-size: 11px;
+				color: #444;
+				letter-spacing: 1px;
+			}
+
+			.entry-title-row {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 16px;
+				margin-bottom: 4px;
+				flex-wrap: wrap;
+			}
+
+			.entry-title {
+				font-size: 19px;
+				font-weight: 600;
+				color: #e2dfd8;
+				line-height: 1.3;
+			}
+
+			.stars {
+				letter-spacing: 1.5px;
+				font-size: 12px;
+				display: inline-flex;
+				gap: 1px;
+				flex-shrink: 0;
+			}
+
+			.stars-filled { color: #d4a84b; }
+			.stars-dim { color: #2a2a2a; }
+
+			.entry-subtitle {
+				font-size: 12px;
+				color: #666;
+				margin-bottom: 12px;
+			}
+
+			.entry-review {
+				font-size: 13px;
+				color: #999;
+				line-height: 1.75;
+				margin: 0;
+				max-width: 580px;
+			}
+
+			.entry-review p {
+				margin: 0 0 8px;
+			}
+
+			.entry-review p:last-child {
+				margin-bottom: 0;
+			}
+
+			/* === END === */
+			.journal-end {
+				border-top: 1px solid #181818;
+				padding-top: 32px;
+				text-align: center;
+				font-size: 12px;
+				color: #333;
+			}
+
+			.journal-end a {
+				color: #5b8ef0;
+				text-decoration: none;
+			}
+
+			.journal-end a:hover { opacity: 0.8; }
+
+			/* === HIDDEN === */
+			.hidden { display: none !important; }
+
+			/* === RESPONSIVE === */
+			@media (max-width: 768px) {
+				.wrap { padding: 36px 24px 60px; }
+				.journal-title { font-size: 36px; }
+
+				.entry {
+					grid-template-columns: 64px 1fr;
+					gap: 16px;
+				}
+
+				.entry-cover, .entry-cover-placeholder {
+					width: 64px;
+					height: 96px;
+				}
+
+				.entry-title { font-size: 16px; }
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap">
+
+			<!-- HEADER -->
+			<div>
+				<a href="/" class="back-link">← Back to Noah Eisen</a>
+				<h1 class="journal-title">Journal</h1>
+				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go.</p>
+			</div>
+
+			<!-- FILTERS -->
+			<div class="filters">
+				<button class="filter-btn active" data-filter="all">
+					All <span class="count">{allEntries.length}</span>
+				</button>
+				<button class="filter-btn" data-filter="film">
+					Films <span class="count">{filmCount}</span>
+				</button>
+				<button class="filter-btn" data-filter="book">
+					Books <span class="count">{bookCount}</span>
+				</button>
+			</div>
+
+			<!-- ENTRIES -->
+			<div class="entries">
+				{allEntries.map((entry) => (
+					<article class="entry" data-entry-kind={entry.kind}>
+						{entry.cover ? (
+							<img src={entry.cover} alt={entry.title} class="entry-cover" loading="lazy" />
+						) : (
+							<div class="entry-cover-placeholder">
+								{entry.kind === 'book' ? '📖' : '▸'}
+							</div>
+						)}
+						<div>
+							<div class="entry-meta">
+								<span class={`entry-badge ${entry.kind}`}>
+									{entry.kind === 'film' ? 'FILM' : 'BOOK'}
+								</span>
+								<span class="entry-date">{formatDate(entry.loggedAt)}</span>
+							</div>
+							<div class="entry-title-row">
+								<div class="entry-title">{entry.title}</div>
+								<span class="stars">
+									<span class="stars-filled">{getStarRating(entry.rating)}</span><span class="stars-dim">{getEmptyStars(entry.rating)}</span>
+								</span>
+							</div>
+							<div class="entry-subtitle">{entry.subtitle}</div>
+							{entry.review && (
+								<div class="entry-review" set:html={entry.review} />
+							)}
+						</div>
+					</article>
+				))}
+				<div class="journal-end">
+					End of journal. <a href="https://letterboxd.com/ncteisen/">More on Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen">Goodreads</a>
+				</div>
+			</div>
+		</main>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const filterBtns = document.querySelectorAll('.filter-btn');
+				const entries = document.querySelectorAll('.entry');
+
+				filterBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						const filter = (btn as HTMLElement).dataset.filter;
+						filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+
+						entries.forEach(entry => {
+							const kind = (entry as HTMLElement).dataset.entryKind;
+							if (filter === 'all' || kind === filter) {
+								entry.classList.remove('hidden');
+							} else {
+								entry.classList.add('hidden');
+							}
+						});
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

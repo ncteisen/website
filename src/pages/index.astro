@@ -1,8 +1,7 @@
 ---
-// Dynamically import the social data JSON module. This allows Astro to correctly bundle the data.
 const socialDataModules = await import.meta.glob('../data/social_data.json');
-const socialData = (await socialDataModules['../data/social_data.json']()) as { 
-	letterboxd: { 
+const socialData = (await socialDataModules['../data/social_data.json']()) as {
+	letterboxd: {
 		recent_reviews: MovieReview[],
 		stats?: {
 			total_films: number,
@@ -12,7 +11,7 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 			followers_count: number
 		}
 	},
-	goodreads: { 
+	goodreads: {
 		recent_reviews: BookReview[],
 		stats?: {
 			total_ratings: number,
@@ -22,7 +21,7 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 			pages_this_year?: number
 		}
 	},
-	strava: { 
+	strava: {
 		recent_runs: StravaActivity[],
 		recent_bikes: StravaActivity[],
 		recent_hikes: StravaActivity[],
@@ -75,1572 +74,738 @@ interface WorkExperience {
 	items: WorkItem[];
 }
 
-/**
- * Represents a movie review from Letterboxd.
- */
 interface MovieReview {
-	/** The title of the movie. */
 	title: string;
-	/** The year the movie was released. */
 	year: number;
-	/** The rating given to the movie (out of 5). */
 	rating: number;
-	/** The date the movie was watched. */
 	watched_date: string;
-	/** Whether the movie was a rewatch. */
 	is_rewatch: boolean;
-	/** The review content (may include HTML). */
 	review: string;
-	/** The URL of the movie poster image. */
 	image_url: string;
-	/** The URL to the movie on Letterboxd. */
 	link: string;
 }
 
-/**
- * Represents a book review from Goodreads.
- */
 interface BookReview {
-	/** The title of the book. */
 	title: string;
-	/** The author of the book. */
 	author: string;
-	/** The rating given to the book (out of 5). */
 	rating: number;
-	/** The date the book was read. */
 	read_at: string;
-	/** The review content (may include HTML). */
 	review: string;
-	/** The URL of the book cover image. */
 	image_url: string;
-	/** The URL to the book on Goodreads. */
 	link: string;
 }
 
-/**
- * Represents a Strava activity.
- */
 interface StravaActivity {
-	/** The unique identifier for the activity. */
 	id: number;
-	/** The name of the activity. */
 	name: string;
-	/** The type of activity (e.g., "Run", "Ride"). */
 	type: string;
-	/** The distance of the activity in miles. */
 	distance: number;
-	/** The moving time of the activity in seconds. */
 	moving_time: number;
-	/** The elapsed time of the activity in seconds. */
 	elapsed_time: number;
-	/** The total elevation gain in feet. */
 	elevation_gain: number;
-	/** The average pace in minutes per mile. */
 	average_pace: number;
-	/** The average heart rate during the activity. */
 	average_heartrate: number | null;
-	/** The maximum heart rate during the activity. */
 	max_heartrate: number | null;
-	/** The average cadence during the activity. */
 	average_cadence: number | null;
-	/** The average power output in watts (for cycling). */
 	average_watts: number | null;
-	/** The start date and time of the activity. */
 	start_date: string;
-	/** The description of the activity. */
 	description: string | null;
-	/** Whether the activity was a commute. */
 	commute: boolean;
-	/** Information about the activity's map. */
 	map: {
-		/** The ID of the map. */
 		id: string;
-		/** The encoded polyline of the activity route. */
 		summary_polyline: string;
-		/** The resource state of the map. */
 		resource_state: number;
 	};
 }
 
-/**
- * Represents activity totals from Strava stats.
- */
 interface ActivityTotals {
-	/** The number of activities. */
 	count: number;
-	/** The total distance in miles. */
 	distance: number;
-	/** The total moving time in seconds. */
 	moving_time: number;
-	/** The total elapsed time in seconds. */
 	elapsed_time: number;
-	/** The total elevation gain in feet. */
 	elevation_gain: number;
 }
 
-/**
- * Converts a numerical rating to a string of star characters.
- * For example, 3.5 becomes "★★★½".
- * @param rating The numerical rating (e.g., out of 5).
- * @returns A string representation of the rating using star characters.
- */
-function getStarRating(rating: number): string {
+const getStarRating = (rating: number): string => {
 	const fullStars = Math.floor(rating);
 	const hasHalfStar = rating % 1 >= 0.5;
-	
 	return '★'.repeat(fullStars) + (hasHalfStar ? '½' : '');
-}
+};
 
-/**
- * Formats a duration in seconds into a human-readable string (e.g., "1h 23m" or "45m").
- * @param seconds The duration in seconds.
- * @returns A formatted string representing the duration.
- */
-function formatDuration(seconds: number): string {
-	const hours = Math.floor(seconds / 3600);
-	const minutes = Math.floor((seconds % 3600) / 60);
-	
-	if (hours > 0) {
-		return `${hours}h ${minutes}m`;
+const getEmptyStars = (rating: number): string => {
+	const fullStars = Math.floor(rating);
+	const hasHalfStar = rating % 1 >= 0.5;
+	const empty = 5 - fullStars - (hasHalfStar ? 1 : 0);
+	return '★'.repeat(empty);
+};
+
+// Stats data for the period toggle (serialized to JSON for client-side use)
+const statsData = {
+	year: {
+		films: letterboxdData.stats?.films_this_year || 0,
+		filmsLabel: 'films watched this year',
+		books: goodreadsData.stats?.books_this_year || 0,
+		booksLabel: 'books read this year',
+		runMiles: stravaData.stats?.running.ytd.distance || 0,
+		runLabel: 'miles run this year',
+		rideMiles: stravaData.stats?.biking.ytd.distance || 0,
+		rideLabel: 'miles cycled this year',
+	},
+	lifetime: {
+		films: letterboxdData.stats?.total_films || 0,
+		filmsLabel: 'films logged, lifetime',
+		books: goodreadsData.stats?.total_ratings || 0,
+		booksLabel: 'books rated, lifetime',
+		runMiles: stravaData.stats?.running.all_time.distance || 0,
+		runLabel: 'miles run, all time',
+		rideMiles: stravaData.stats?.biking.all_time.distance || 0,
+		rideLabel: 'miles cycled, all time',
 	}
-	return `${minutes}m`;
-}
+};
 
-/**
- * Formats a date string into a more readable format "Month Day, Year".
- * For example, "2023-10-26T00:00:00.000Z" becomes "October 26, 2023".
- * @param dateString The date string to format.
- * @returns A formatted date string.
- */
-function formatDate(dateString: string): string {
-	const date = new Date(dateString);
-	return date.toLocaleDateString('en-US', { 
-		year: 'numeric', 
-		month: 'long', 
-		day: 'numeric' 
-	});
-}
+// Featured reviews for pull quote
+const featuredFilm = letterboxdData.recent_reviews[0];
+const featuredBook = goodreadsData.recent_reviews[0];
 
-/**
- * Calculates and formats speed given distance (in miles) and time (in seconds).
- * @param distance The distance traveled in miles.
- * @param time The time taken in seconds.
- * @returns The speed formatted as a string to one decimal place (e.g., "7.2 mph").
- */
-function formatSpeed(distance: number, time: number): string {
-	const speed = distance / (time / 3600);
-	return speed.toFixed(1);
-}
+const totalMovies = letterboxdData.recent_reviews.length;
+const totalBooks = goodreadsData.recent_reviews.length;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Noah Eisen</title>
-		<meta name="description" content="Noah Eisen is an engineer based in San Francisco, focused on building creative tools, fast prototypes, and playful side projects." />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<meta name="description" content="Engineer based in San Francisco with a decade of experience leading teams at Google, Waymo, Faire, and Roblox." />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
 		<script>
-			// TypeScript declarations
 			interface Window {
 				dataLayer: any[];
 				gtag: (...args: any[]) => void;
 			}
-
-			// Google Analytics 4 (GA4) setup: Initializes dataLayer and gtag function.
 			window.dataLayer = window.dataLayer || [];
 			window.gtag = function() { window.dataLayer.push(arguments); };
 			window.gtag('js', new Date());
 			window.gtag('config', 'G-DW532NM54T');
 		</script>
-		<script define:vars={{ stravaData }}>
-			// Make Strava data (passed from Astro frontmatter) available globally on the window object for client-side JavaScript access.
-			window.__STRAVA_DATA__ = stravaData;
-		</script>
-		<script>
-			document.addEventListener('DOMContentLoaded', async function() {
-				// Handles the "See more/Show less" functionality for movie reviews.
-				const seeMoreButton = document.querySelector('.see-more-button');
-				const moreMovies = document.getElementById('more-movies');
-				
-				if (seeMoreButton && moreMovies) {
-					seeMoreButton.addEventListener('click', function() {
-						if (moreMovies.classList.contains('hidden')) {
-							moreMovies.classList.remove('hidden');
-							seeMoreButton.textContent = 'Show less';
-							// Track "see more movies" button click.
-							window.gtag('event', 'see_more_movies', {
-								'event_category': 'engagement',
-								'event_label': 'movies'
-							});
-						} else {
-							moreMovies.classList.add('hidden');
-							seeMoreButton.textContent = 'See more of my recent movies';
-						}
-					});
-				}
-
-				// Books button
-				const seeMoreBooksButton = document.getElementById('see-more-books');
-				const moreBooks = document.getElementById('more-books');
-				
-				// Handles the "See more/Show less" functionality for book reviews.
-				if (seeMoreBooksButton && moreBooks) {
-					seeMoreBooksButton.addEventListener('click', function() {
-						if (moreBooks.classList.contains('hidden')) {
-							moreBooks.classList.remove('hidden');
-							seeMoreBooksButton.textContent = 'Show less';
-							// Track "see more books" button click.
-							window.gtag('event', 'see_more_books', {
-								'event_category': 'engagement',
-								'event_label': 'books'
-							});
-						} else {
-							moreBooks.classList.add('hidden');
-							seeMoreBooksButton.textContent = 'See more of my recent books';
-						}
-					});
-				}
-
-				// Track social link clicks
-				document.querySelectorAll('.social-link').forEach(link => {
-					link.addEventListener('click', function(this: HTMLElement) {
-						const href = this.getAttribute('href');
-						if (href?.includes('github.com')) {
-							// Track GitHub social link click.
-							window.gtag('event', 'click', {
-								'event_category': 'social',
-								'event_label': 'github'
-							});
-						} else if (href?.includes('linkedin.com')) {
-							// Track LinkedIn social link click.
-							window.gtag('event', 'click', {
-								'event_category': 'social',
-								'event_label': 'linkedin'
-							});
-						} else if (href?.includes('resume.pdf')) {
-							// Track Resume social link click.
-							window.gtag('event', 'click', {
-								'event_category': 'social',
-								'event_label': 'resume'
-							});
-						}
-					});
-				});
-
-				// Handle timeline item expansion/collapse
-				document.querySelectorAll('.timeline-header').forEach(header => {
-					header.addEventListener('click', function(this: HTMLElement) {
-						const timelineItem = this.closest('.timeline-item');
-						const content = timelineItem?.querySelector('.timeline-details');
-						const arrow = this.querySelector('.timeline-arrow') as HTMLElement;
-						
-						if (content && arrow && timelineItem) {
-							const isExpanded = content.classList.contains('expanded');
-							
-							if (isExpanded) {
-								content.classList.remove('expanded');
-								timelineItem.classList.remove('expanded');
-								arrow.style.transform = 'rotate(0deg)';
-							} else {
-								content.classList.add('expanded');
-								timelineItem.classList.add('expanded');
-								arrow.style.transform = 'rotate(90deg)';
-							}
-						}
-					});
-				});
-
-				// Track profile link clicks
-				document.querySelectorAll('.profile-link').forEach(link => {
-					link.addEventListener('click', function(this: HTMLElement) {
-						const href = this.getAttribute('href');
-						if (href?.includes('letterboxd.com')) {
-							// Track Letterboxd profile link click.
-							window.gtag('event', 'click', {
-								'event_category': 'profile',
-								'event_label': 'letterboxd'
-							});
-						} else if (href?.includes('goodreads.com')) {
-							// Track Goodreads profile link click.
-							window.gtag('event', 'click', {
-								'event_category': 'profile',
-								'event_label': 'goodreads'
-							});
-						} else if (href?.includes('strava.com')) {
-							// Track Strava profile link click.
-							window.gtag('event', 'click', {
-								'event_category': 'profile',
-								'event_label': 'strava'
-							});
-						}
-					});
-				});
-
-				try {
-					// Dynamically import Leaflet and polyline libraries for map rendering.
-					const L = (await import('leaflet')).default;
-					const polyline = (await import('@mapbox/polyline')).default;
-
-					// Get Strava data from the window object
-					const stravaData = (window as any).__STRAVA_DATA__;
-
-					/**
-					 * Initializes a Leaflet map to display a Strava activity route.
-					 * @param {string} elementId The ID of the HTML element where the map will be rendered.
-					 * @param {string} encodedPolyline The encoded polyline string for the activity route.
-					 */
-					function initMap(elementId: string, encodedPolyline: string) {
-						if (!encodedPolyline) return;
-
-						const coordinates = polyline.decode(encodedPolyline);
-						if (coordinates.length === 0) return;
-
-						// Create map
-						const map = L.map(elementId, {
-							zoomControl: false,
-							dragging: false,
-							scrollWheelZoom: false,
-						});
-
-						// Add OpenStreetMap dark tiles
-						L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-							attribution: ''
-						}).addTo(map);
-
-						// Add the route polyline
-						const path = L.polyline(coordinates.map(coord => [coord[0], coord[1]]), {
-							color: '#FC4C02', // Strava's brand red
-							weight: 3,
-							opacity: 0.8
-						}).addTo(map);
-
-						// Fit the map to the polyline bounds
-						map.fitBounds(path.getBounds(), {
-							padding: [20, 20]
-						});
-					}
-
-					// Initialize maps for embedded recent runs
-					stravaData?.recent_runs?.slice(0, 2).forEach((run, index) => {
-						if (run.map?.summary_polyline) {
-							initMap(`run-map-${index}`, run.map.summary_polyline);
-						}
-					});
-
-					// Initialize maps for embedded recent bikes  
-					stravaData?.recent_bikes?.slice(0, 2).forEach((bike, index) => {
-						if (bike.map?.summary_polyline) {
-							initMap(`bike-map-${index}`, bike.map.summary_polyline);
-						}
-					});
-				} catch (error) {
-					console.error('Error initializing maps:', error);
-				}
-			});
+		<script define:vars={{ statsData }}>
+			window.__STATS_DATA__ = statsData;
 		</script>
 		<style>
-			/* === Root Variables === */
-			:root {
-				--primary-color: #3b82f6;
-				--accent-color: #10b981;
-				--gold-color: #f59e0b;
-				--text-color: #e5e7eb;
-				--text-muted: #9ca3af;
-				--background-color: #111827;
-				--card-bg: #1f2937;
-				--card-border: #374151;
-				--link-color: #60a5fa;
-				--link-hover-color: #93c5fd;
-				--glow-color: rgba(59, 130, 246, 0.5);
-			}
-
-			/* === Global Styles === */
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { height: 100%; }
 			body {
-				margin: 0;
-				padding: 0;
-				min-height: 100vh;
-				font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-				background-color: var(--background-color);
-				color: var(--text-color);
-				line-height: 1.6;
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
 			}
 
-			.container {
-				max-width: 900px;
+			.wrap {
+				max-width: 860px;
 				margin: 0 auto;
-				padding: 2rem;
+				padding: 72px 44px 80px;
 			}
 
-			/* === Header Styles === */
-			header {
-				margin-bottom: 4rem;
-				display: flex;
-				align-items: center;
-				gap: 3rem;
-			}
-
-			.header-content {
-				flex: 1;
-			}
-
-			.profile-image-container {
-				flex-shrink: 0;
-				width: 200px;
-				height: 200px;
-				border-radius: 50%;
-				overflow: hidden;
-				border: 2px solid var(--primary-color);
-				box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-			}
-
-			.profile-image {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			h1 {
-				font-size: 2.5rem;
-				font-weight: 700;
-				margin-bottom: 1rem;
-				background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-
-			h2 {
-				font-size: 1.75rem;
-				font-weight: 600;
-				margin-bottom: 1.5rem;
-				color: var(--text-color);
-			}
-
-			p {
-				font-size: 1.1rem;
-				margin-bottom: 1.5rem;
-				color: var(--text-muted);
-			}
-
-			/* === General Section Styles === */
-			section {
-				margin-bottom: 4rem;
-			}
-
-			/* === Social Links === */
-			.social-links {
-				display: flex;
-				gap: 1.5rem;
-				margin-top: 1.5rem;
-			}
-
-			.social-link {
-				color: var(--link-color);
-				text-decoration: none;
-				font-weight: 500;
-				transition: all 0.2s ease;
-				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-			}
-
-			.social-link:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
-			}
-
-			/* === Section: Career === */
-			.career-highlights {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 2rem;
-				margin-top: 1.5rem;
-				max-width: 1200px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			.highlight-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				display: flex;
-				flex-direction: column;
-				position: relative;
-			}
-
-			.highlight-card .company-icon {
-				position: absolute;
-				top: 1.5rem;
-				right: 1.5rem;
-				font-size: 1.5rem;
-				color: var(--primary-color);
-				opacity: 0.7;
-			}
-
-			.highlight-card:hover .company-icon {
-				opacity: 1;
-				transform: scale(1.1);
-			}
-
-			.highlight-card h3 {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 0.25rem;
-				color: var(--primary-color);
-			}
-
-			.highlight-card .job-title {
-				font-size: 1.1rem;
-				font-weight: 500;
-				margin-bottom: 0.25rem;
-				color: var(--text-color);
-			}
-
-			.highlight-card .date-range {
-				font-size: 0.9rem;
-				color: var(--text-muted);
-				margin-bottom: 0.75rem;
-				font-style: italic;
-			}
-
-			.highlight-card p {
-				font-size: 0.95rem;
-				line-height: 1.6;
-				margin-bottom: 0;
-				color: var(--text-muted);
-			}
-
-			.highlight-card a {
-				color: var(--text-muted);
-				text-decoration: underline;
-				text-decoration-thickness: 1px;
-				text-underline-offset: 2px;
-				transition: all 0.2s ease;
-			}
-
-			.highlight-card a:hover {
-				color: var(--text-color);
-				text-decoration-thickness: 2px;
-			}
-
-			.highlight-card:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-			}
-
-			/* === Card Styles === */
-			/* --- Highlight Card (Used in Career Section) --- */
-			.highlight-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				display: flex;
-				flex-direction: column;
-				position: relative;
-			}
-
-			.highlight-card .company-icon {
-				position: absolute;
-				top: 1.5rem;
-				right: 1.5rem;
-				font-size: 1.5rem;
-				color: var(--primary-color);
-				opacity: 0.7;
-			}
-
-			.highlight-card:hover .company-icon {
-				opacity: 1;
-				transform: scale(1.1);
-			}
-
-			.highlight-card h3 {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 0.25rem;
-				color: var(--primary-color);
-			}
-
-			.highlight-card .job-title {
-				font-size: 1.1rem;
-				font-weight: 500;
-				margin-bottom: 0.25rem;
-				color: var(--text-color);
-			}
-
-			.highlight-card .date-range {
-				font-size: 0.9rem;
-				color: var(--text-muted);
-				margin-bottom: 0.75rem;
-				font-style: italic;
-			}
-
-			.highlight-card p {
-				font-size: 0.95rem;
-				line-height: 1.6;
-				margin-bottom: 0;
-				color: var(--text-muted);
-			}
-
-			.highlight-card a {
-				color: var(--text-muted);
-				text-decoration: underline;
-				text-decoration-thickness: 1px;
-				text-underline-offset: 2px;
-				transition: all 0.2s ease;
-			}
-
-			.highlight-card a:hover {
-				color: var(--text-color);
-				text-decoration-thickness: 2px;
-			}
-
-			.highlight-card:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-			}
-
-			/* === Section: Side Projects === */
-			.projects-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 1.5rem;
-				margin-top: 1.5rem;
-			}
-
-			.project-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				text-decoration: none;
-				color: var(--text-color);
-				display: block;
-			}
-
-			.project-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-				border-color: var(--primary-color);
-			}
-
-			.project-title {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 0.5rem;
-				color: var(--primary-color);
-			}
-
-			.project-description {
-				font-size: 0.95rem;
-				color: var(--text-muted);
-			}
-
-			/* --- Project Card --- */
-			.project-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				text-decoration: none;
-				color: var(--text-color);
-				display: block;
-			}
-
-			.project-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-				border-color: var(--primary-color);
-			}
-
-			.project-title {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 0.5rem;
-				color: var(--primary-color);
-			}
-
-			.project-description {
-				font-size: 0.95rem;
-				color: var(--text-muted);
-			}
-
-			#projects a { /* Specific link styling within projects section */
-				color: var(--link-color);
-				text-decoration: none;
-				font-weight: 500;
-				transition: all 0.2s ease;
-			}
-
-			#projects a:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
-			}
-
-			/* === Footer Styles === */
-			footer {
-				text-align: center;
-				margin-top: 4rem;
-				padding-top: 2rem;
-				border-top: 1px solid var(--card-border);
-				color: var(--text-muted);
-				font-size: 0.9rem;
-			}
-
-			/* === Media Queries === */
-			/* --- Tablet and Smaller (max-width: 768px) --- */
-			@media (max-width: 768px) {
-				.container {
-					padding: 1.5rem;
-				}
-
-				header {
-					flex-direction: column-reverse;
-					text-align: center;
-					gap: 2rem;
-				}
-
-				.profile-image-container {
-					width: 150px;
-					height: 150px;
-				}
-
-				.social-links {
-					justify-content: center;
-				}
-
-				h1 {
-					font-size: 2rem;
-				}
-
-				h2 {
-					font-size: 1.5rem;
-				}
-
-				.career-highlights, .projects-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.interests-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.movie-card {
-					flex-direction: column;
-					align-items: flex-start;
-				}
-
-				.movie-card img {
-					width: 100%;
-					max-width: 200px;
-					height: auto;
-					aspect-ratio: 2/3;
-				}
-
-				.recent-movies {
-					grid-template-columns: 1fr;
-				}
-
-				.stat-grid {
-					grid-template-columns: 1fr;
-				}
-
-				/* Make fitness activity cards stack vertically on mobile */
-				.interest-card:nth-child(3) .recent-movies {
-					grid-template-columns: 1fr;
-				}
-			}
-
-			/* --- Smaller Desktop (max-width: 900px) --- */
-			@media (max-width: 900px) {
-				.career-highlights {
-					grid-template-columns: 1fr;
-					gap: 1.5rem;
-				}
-			}
-
-			/* === Section: Other Interests === */
-			#other-interests {
-				margin-bottom: 4rem;
-			}
-
-			/* --- Interest Card (Parent for Movie/Book/Fitness cards) --- */
-			.interests-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 2rem;
-				margin-top: 1.5rem;
-			}
-
-			.interest-card {
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1.5rem;
-				transition: all 0.3s ease;
-				position: relative;
-			}
-
-			.interest-card h3 {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 1rem;
-				color: var(--primary-color);
-			}
-
-			.interest-card .section-icon {
-				position: absolute;
-				top: 1.5rem;
-				right: 1.5rem;
-				font-size: 1.5rem;
-				color: var(--primary-color);
-				opacity: 0.7;
-			}
-
-			.interest-card:hover .section-icon {
-				opacity: 1;
-				transform: scale(1.1);
-			}
-
-			.interest-card p {
-				color: var(--text-muted);
-			}
-
-			/* --- Movie/Book/Activity Card Container --- */
-			.recent-movies { /* This class is used for movies, books, and fitness activities lists */
-				margin-top: 1rem;
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 1.5rem;
-			}
-
-			.movie-card {
-				margin-bottom: 0;
-				padding: 1.5rem;
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				background-color: rgba(31, 41, 55, 0.5);
-				display: flex;
-				gap: 1rem;
-				transition: all 0.3s ease;
-			}
-
-			.movie-card:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
-				border-color: var(--primary-color);
-			}
-
-			.movie-card:last-child {
-				margin-bottom: 0;
-			}
-
-			.movie-card img {
-				width: 150px;
-				height: 225px;
-				border-radius: 4px;
-				object-fit: cover;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-			}
-
-			/* --- Movie/Book/Activity Info --- */
-			.movie-info { /* Shared by movie, book, and activity cards */
-				flex: 1;
-				display: flex;
-				flex-direction: column;
-			}
-
-			.movie-info h4 {
-				margin: 0 0 0.25rem 0;
-				font-size: 1.1rem;
-				color: var(--text-color);
-			}
-
-			/* === Timeline Styles === */
-			#career .timeline {
-				position: relative;
-				padding-left: 2rem;
-			}
-
-			#career .timeline::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 1rem;
-				width: 2px;
-				height: 100%;
-				background-color: var(--card-border);
-			}
-
-			#career .timeline-item {
-				position: relative;
-				margin-bottom: 2rem;
-			}
-
-			#career .timeline-icon {
-				position: absolute;
-				left: 0;
-				top: 0.25rem;
-				width: 1.75rem;
-				height: 1.75rem;
-				border-radius: 50%;
-				background-color: var(--background-color);
-				border: 2px solid var(--primary-color);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: var(--primary-color);
-				font-size: 0.85rem;
-			}
-
-			#career .timeline-content {
-				margin-left: 3rem;
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-				padding: 1rem 1.5rem;
-				transition: all 0.3s ease;
-			}
-
-			#career .timeline-content:hover {
-				background-color: rgba(59, 130, 246, 0.05);
-				border-color: var(--primary-color);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
-			}
-
-			#career .timeline-header {
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 0;
-				margin-bottom: 0;
-				transition: all 0.2s ease;
-			}
-
-			#career .timeline-header-content {
-				flex: 1;
-			}
-
-			#career .timeline-header-content .job-title {
-				max-height: 50px;
-				opacity: 1;
-				transition: all 0.3s ease;
-				margin-bottom: 0.25rem;
-			}
-
-			#career .timeline-header-content .date-range {
-				font-size: 0.8rem;
-				margin-bottom: 0;
-			}
-
-			#career .timeline-item.expanded .timeline-content {
-				padding: 1.5rem;
-			}
-
-			#career .timeline-arrow {
-				color: var(--primary-color);
-				font-size: 1rem;
-				transition: transform 0.2s ease;
-				margin-left: 1rem;
-			}
-
-			#career .timeline-details {
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
-				margin-top: 0;
-			}
-
-			#career .timeline-details.expanded {
-				max-height: 2000px;
-			}
-
-			#career .timeline-content h3 {
-				margin-top: 0;
-				font-size: 1.25rem;
-				color: var(--primary-color);
-				margin-bottom: 0.25rem;
-			}
-
-			#career .timeline-content .job-title {
-				font-size: 1.1rem;
-				font-weight: 500;
-				margin-bottom: 0.25rem;
-				color: var(--text-color);
-			}
-
-			#career .timeline-content .date-range {
-				font-size: 0.9rem;
-				color: var(--text-muted);
-				margin-bottom: 0.75rem;
-				font-style: italic;
-			}
-
-			#career .timeline-content ul {
-				margin: 0;
-				padding-left: 1.2rem;
-			}
-
-			#career .timeline-content li {
-				margin-bottom: 0.75rem;
-				color: var(--text-muted);
-				font-size: 0.95rem;
-				line-height: 1.6;
-			}
-
-			#career .timeline-content li:last-child {
-				margin-bottom: 0;
-			}
-
-			@media (max-width: 768px) {
-				#career .timeline {
-					padding-left: 1.5rem;
-				}
-
-				#career .timeline-content {
-					margin-left: 2.5rem;
-				}
-			}
-
-			/* === Restored Utility Styles (Movies/Books/Fitness) === */
-
-			.rating { /* Star rating display */
-				color: var(--gold-color);
-				font-weight: bold;
-				margin: 0;
-				margin-bottom: 0.5rem;
-				letter-spacing: 2px;
-				line-height: 1;
-			}
-
-			.review { /* Review text block */
-				margin: -1rem 0rem 0rem 0rem;
-				color: var(--text-muted);
-				font-size: 0.95rem;
-			}
-
-			.review p {
-				margin: 0;
-			}
-
-			.review em {
-				font-style: italic;
-			}
-
-			.review strong {
-				font-weight: bold;
-			}
-
-			.review a {
-				color: var(--link-color);
-				text-decoration: none;
-				font-weight: 500;
-				transition: all 0.2s ease;
-			}
-
-			.review a:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
-			}
-
-			.watched-date { /* Date styling for movies/books */
-				font-size: 0.75rem;
-				color: var(--text-muted);
-				opacity: 0.5;
-				margin-top: 0.15rem;
-				margin-bottom: 0.5rem;
-				font-style: italic;
-				letter-spacing: 0.5px;
-				font-weight: 300;
-			}
-
-			.movie-link {
-				color: var(--link-color);
-				text-decoration: none;
-				font-weight: 500;
-				transition: all 0.2s ease;
-				font-size: 0.9rem;
-				margin-top: auto;
-			}
-
-			.movie-link:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
-			}
-
-			/* --- Profile Links & Separators --- */
-			.profile-separator {
+			.rule {
 				border: none;
-				border-top: 1px solid var(--card-border);
-				margin: 2rem 0;
-				width: 50%;
-				margin-left: auto;
-				margin-right: auto;
+				border-top: 1px solid #1e1e1e;
+				margin: 56px 0;
 			}
 
-			.profile-link-container {
-				text-align: center;
+			.section-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				margin-bottom: 28px;
+				display: block;
 			}
 
-			.profile-link {
-				color: var(--link-color);
+			/* === HERO === */
+			.hero {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 40px;
+			}
+
+			.hero h1 {
+				font-size: 76px;
+				font-weight: 700;
+				letter-spacing: -3px;
+				line-height: 0.92;
+				margin: 0 0 20px;
+				color: #eae7e0;
+			}
+
+			.hero-subtitle {
+				font-size: 13px;
+				color: #555;
+				margin: 0 0 18px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.hero-bio {
+				font-size: 15px;
+				color: #999;
+				margin: 0 0 24px;
+				max-width: 460px;
+				line-height: 1.75;
+			}
+
+			.hero-links {
+				display: flex;
+				gap: 28px;
+			}
+
+			.hero-links a {
+				color: #5b8ef0;
 				text-decoration: none;
+				font-size: 13px;
 				font-weight: 500;
-				transition: all 0.2s ease;
+				letter-spacing: 0.3px;
+				transition: opacity 0.15s;
+			}
+
+			.hero-links a:hover { opacity: 0.8; }
+
+			.profile-photo {
+				width: 172px;
+				height: 172px;
+				border-radius: 50%;
+				object-fit: cover;
+				object-position: center 25%;
+				border: 1px solid #2a2a2a;
+				flex-shrink: 0;
+				filter: saturate(0.9);
+			}
+
+			/* === CAREER === */
+			.career { margin-bottom: 56px; }
+
+			.career-item {
+				display: flex;
+				gap: 28px;
+				cursor: pointer;
+				border-top: 1px solid #181818;
+				padding: 22px 0;
+			}
+
+			.career-bar {
+				width: 2px;
+				background: #232323;
+				flex-shrink: 0;
+				border-radius: 2px;
+				transition: background 0.2s;
+			}
+
+			.career-item.expanded .career-bar {
+				background: #5b8ef0;
+			}
+
+			.career-body { flex: 1; }
+
+			.career-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin-bottom: 3px;
+			}
+
+			.career-company {
+				font-size: 18px;
+				font-weight: 600;
+				color: #ccc;
+				transition: color 0.2s;
+			}
+
+			.career-item.expanded .career-company { color: #e2dfd8; }
+
+			.career-period {
+				font-size: 11px;
+				color: #444;
+				letter-spacing: 1px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				white-space: nowrap;
+			}
+
+			.career-arrow {
+				color: #333;
+				font-size: 14px;
+				transition: transform 0.2s, color 0.2s;
 				display: inline-block;
 			}
 
-			.profile-link:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
+			.career-item.expanded .career-arrow {
+				transform: rotate(90deg);
+				color: #5b8ef0;
 			}
 
-			.last-updated {
-				text-align: center;
-				font-size: 0.8rem;
-				color: var(--text-muted);
-				opacity: 0.7;
-				margin-top: 0.5rem;
-				font-style: italic;
+			.career-role {
+				font-size: 13px;
+				color: #666;
 			}
 
-			/* --- "See More" Button Styles --- */
-			.see-more-container {
-				text-align: center;
-				margin: 1.5rem 0;
+			.career-details {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
 			}
 
-			.see-more-button {
-				background: none;
-				border: 1px solid var(--primary-color);
-				color: var(--primary-color);
-				padding: 0.5rem 1rem;
-				border-radius: 4px;
-				font-size: 0.9rem;
-				font-weight: 500;
-				cursor: pointer;
-				transition: all 0.2s ease;
+			.career-item.expanded .career-details {
+				max-height: 2000px;
 			}
 
-			.see-more-button:hover {
-				background-color: var(--primary-color);
-				color: var(--text-color);
+			.career-details-inner {
+				padding-top: 24px;
 			}
 
-			.more-movies { /* Container for additional movies/books shown by "See More" button */
-				margin-top: 1.5rem;
+			.career-desc {
+				font-size: 14px;
+				color: #888;
+				line-height: 1.75;
+				margin: 0 0 16px;
+			}
+
+			.career-bullets {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.career-bullets li {
+				font-size: 13px;
+				color: #999;
+				line-height: 1.7;
+				padding-left: 18px;
+				position: relative;
+				margin-bottom: 10px;
+			}
+
+			.career-bullets li::before {
+				content: '—';
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: #5b8ef0;
+			}
+
+			.career-end { border-top: 1px solid #181818; }
+
+			/* === PROJECTS === */
+			.projects { margin-bottom: 56px; }
+
+			.projects-grid {
 				display: grid;
-				grid-template-columns: 1fr;
-				gap: .75rem;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 14px;
 			}
 
-			.hidden { /* Utility class to hide elements */
-				display: none;
+			.project-card {
+				text-decoration: none;
+				padding: 18px 20px;
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				display: block;
+				transition: background 0.15s, border-color 0.15s;
 			}
 
-			/* === Stat Highlight === */
-			.stat-highlight {
-				color: var(--primary-color);
-				font-weight: bold;
-				font-size: 1.05em;
+			.project-card:hover {
+				background: #151515;
+				border-color: #2a2a2a;
 			}
 
-			/* === Section: Fitness (Strava) === */
-			.activity-date {
-				font-size: 0.75rem;
-				color: var(--text-muted);
-				opacity: 0.7;
-				margin-top: 0.15rem;
-				margin-bottom: 0.5rem;
-				font-style: italic;
-				letter-spacing: 0.5px;
-				font-weight: 300;
+			.project-card-title {
+				font-size: 14px;
+				font-weight: 600;
+				color: #d4d0c8;
+				margin-bottom: 6px;
 			}
 
-			.activity-stats {
-				margin-top: -1rem;
-				color: var(--text-muted);
-				font-size: 0.95rem;
+			.project-card-desc {
+				font-size: 12px;
+				color: #555;
 				line-height: 1.6;
 			}
 
-			.activity-stats strong {
-				color: var(--text-color);
-				font-weight: 500;
-			}
+			/* === STATS === */
+			.stats-section { margin-bottom: 72px; }
 
-			.activity-icon {
-				margin-right: 0.5rem;
-				color: var(--primary-color);
-			}
-
-			.strava-embed { /* Styles for deprecated Strava embed (if ever used) */
-				width: 100%;
-				max-width: 590px;
-				height: 405px;
-				margin: 1rem 0;
-				border-radius: 4px;
-				overflow: hidden;
-			}
-
-			.stat-grid {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1rem;
-				margin: 1rem 0;
-			}
-
-			.stat-item {
+			.stats-header {
 				display: flex;
-				flex-direction: column;
 				align-items: center;
-				padding: 0.75rem;
-				background-color: rgba(31, 41, 55, 0.5);
-				border-radius: 4px;
-				border: 1px solid var(--card-border);
+				justify-content: space-between;
+				margin-bottom: 28px;
+			}
+
+			.period-toggle {
+				display: inline-flex;
+				align-items: center;
+				gap: 14px;
+			}
+
+			.period-btn {
+				background: none;
+				border: none;
+				padding: 0;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: 10px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				font-weight: 500;
+				color: #2e2e2e;
+				border-bottom: 1px solid transparent;
+				padding-bottom: 2px;
+				transition: color 0.15s, border-color 0.15s;
+			}
+
+			.period-btn.active {
+				color: #6a6a6a;
+				border-bottom-color: #6a6a6a;
+			}
+
+			.period-sep {
+				color: #1f1f1f;
+				font-size: 10px;
+			}
+
+			.stats-row {
+				display: flex;
+				gap: 44px;
+				border-top: 1px solid #1e1e1e;
+				border-bottom: 1px solid #1e1e1e;
+				padding: 28px 0;
+			}
+
+			.stat-cell { flex: 1; min-width: 0; }
+
+			.stat-value {
+				font-size: 34px;
+				font-weight: 700;
+				color: #eae7e0;
+				line-height: 1;
+				letter-spacing: -1px;
+				margin-bottom: 6px;
 			}
 
 			.stat-label {
-				font-size: 0.75rem;
-				color: var(--text-muted);
+				font-size: 11px;
+				color: #555;
+				letter-spacing: 0.3px;
+			}
+
+			.stat-divider {
+				width: 1px;
+				background: #1a1a1a;
+			}
+
+			/* === FEATURED REVIEW === */
+			.review-section { margin-bottom: 72px; }
+
+			.review-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 24px;
+				gap: 16px;
+			}
+
+			.kind-tabs {
+				display: inline-flex;
+				align-items: center;
+				gap: 18px;
+			}
+
+			.kind-tab {
+				background: none;
+				border: none;
+				padding: 4px 0;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: 11px;
+				letter-spacing: 2px;
 				text-transform: uppercase;
-				letter-spacing: 0.5px;
-				margin-bottom: 0.25rem;
-			}
-
-			.stat-value {
-				font-size: 1.1rem;
-				color: var(--text-color);
 				font-weight: 500;
+				color: #4a4a4a;
+				border-bottom: 1px solid transparent;
+				transition: color 0.15s, border-color 0.15s;
 			}
 
-			.activity-map {
-				width: 100%;
-				height: 300px;
-				margin: 1rem 0;
+			.kind-tab.active {
+				color: #5b8ef0;
+				border-bottom-color: #5b8ef0;
+			}
+
+			.review-grid {
+				display: grid;
+				grid-template-columns: 140px 1fr;
+				gap: 32px;
+				align-items: start;
+			}
+
+			.review-cover {
+				width: 140px;
+				height: 210px;
 				border-radius: 4px;
-				overflow: hidden;
-				border: 1px solid var(--card-border);
+				object-fit: cover;
+				background: #151515;
+				border: 1px solid #1e1e1e;
 			}
 
-			/* === Comprehensive Stats Layout === */
-			.comprehensive-stats {
-				margin: 1.5rem 0;
-			}
-
-			.activity-section {
-				margin-bottom: 2rem;
-				padding: 1.5rem;
-				background-color: rgba(31, 41, 55, 0.3);
-				border-radius: 8px;
-				border: 1px solid var(--card-border);
-			}
-
-			.activity-section:last-child {
-				margin-bottom: 0;
-			}
-
-			.activity-section h4 {
-				margin: 0 0 1rem 0;
-				font-size: 1.2rem;
-				color: var(--primary-color);
+			.review-cover-placeholder {
+				width: 140px;
+				height: 210px;
+				border-radius: 4px;
+				background: linear-gradient(145deg, #1a2236, #0f1420);
+				border: 1px solid #1e1e1e;
 				display: flex;
 				align-items: center;
-				gap: 0.5rem;
+				justify-content: center;
+				color: #5b8ef0;
+				font-size: 49px;
+				font-weight: 700;
+				letter-spacing: 2px;
 			}
 
-			.time-period-stats {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1.5rem;
+			.review-date {
+				font-size: 10px;
+				color: #3a3a3a;
+				letter-spacing: 1.5px;
+				margin-bottom: 8px;
 			}
 
-			.period-group h5 {
-				margin: 0 0 0.75rem 0;
-				font-size: 1rem;
-				color: var(--text-color);
-				font-weight: 500;
-				text-align: center;
-				padding-bottom: 0.5rem;
-				border-bottom: 1px solid var(--card-border);
+			.review-title {
+				font-size: 34px;
+				font-weight: 700;
+				color: #eae7e0;
+				line-height: 1.05;
+				letter-spacing: -0.8px;
+				margin-bottom: 8px;
 			}
 
-			.stat-grid-detailed {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 0.75rem;
+			.review-subtitle {
+				font-size: 13px;
+				color: #666;
+				margin-bottom: 14px;
 			}
 
-			.stat-grid-detailed .stat-item {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 0.75rem 0.5rem;
-				background-color: rgba(31, 41, 55, 0.4);
-				border-radius: 6px;
-				border: 1px solid var(--card-border);
-				transition: all 0.2s ease;
+			.review-stars {
+				margin-bottom: 20px;
 			}
 
-			.stat-grid-detailed .stat-item:hover {
-				background-color: rgba(59, 130, 246, 0.1);
-				border-color: var(--primary-color);
+			.stars {
+				letter-spacing: 1.5px;
+				display: inline-flex;
+				gap: 1px;
 			}
 
-			.stat-grid-detailed .stat-label {
-				font-size: 0.7rem;
-				color: var(--text-muted);
-				text-transform: uppercase;
-				letter-spacing: 0.5px;
-				margin-bottom: 0.25rem;
-				text-align: center;
+			.stars-filled { color: #d4a84b; }
+			.stars-dim { color: #2a2a2a; }
+
+			.review-quote {
+				margin: 0;
+				padding: 4px 0 4px 18px;
+				border-left: 2px solid #5b8ef0;
+				position: relative;
 			}
 
-			.stat-grid-detailed .stat-value {
-				font-size: 1rem;
-				color: var(--text-color);
-				font-weight: 600;
-				text-align: center;
+			.review-quote-mark {
+				position: absolute;
+				left: -2px;
+				top: -14px;
+				font-size: 40px;
+				color: #5b8ef0;
+				font-family: Georgia, serif;
+				line-height: 1;
+				opacity: 0.5;
 			}
 
-			/* === Responsive Design for Comprehensive Stats === */
-			@media (max-width: 768px) {
-				.time-period-stats {
-					grid-template-columns: 1fr;
-					gap: 1rem;
-				}
-				
-				.stat-grid-detailed {
-					grid-template-columns: 1fr 1fr;
-				}
-				
-				.activity-section {
-					padding: 1rem;
-				}
-			}
-
-			@media (max-width: 480px) {
-				.stat-grid-detailed {
-					grid-template-columns: 1fr;
-				}
-			}
-
-			/* === Fitness Activities Layout === */
-			.fitness-activities { /* Grid for run/bike cards */
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1rem;
-			}
-
-			@media (max-width: 768px) {
-				.fitness-activities { /* Stack fitness activities on smaller screens */
-					grid-template-columns: 1fr;
-				}
-			}
-
-			/* === Embedded Recent Activities === */
-			.recent-activities-embedded {
-				margin-top: 1.5rem;
-				padding-top: 1.5rem;
-				border-top: 1px solid var(--card-border);
-			}
-
-			.recent-activities-embedded h5 {
-				margin: 0 0 1rem 0;
-				font-size: 1rem;
-				color: var(--text-color);
-				font-weight: 500;
-				text-align: center;
-			}
-
-			.embedded-activities-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1rem;
-			}
-
-			.embedded-activity-card {
-				background-color: rgba(31, 41, 55, 0.4);
-				border: 1px solid var(--card-border);
-				border-radius: 6px;
-				padding: 1rem;
-				transition: all 0.2s ease;
-			}
-
-			.embedded-activity-card:hover {
-				background-color: rgba(59, 130, 246, 0.05);
-				border-color: var(--primary-color);
-				transform: translateY(-1px);
-			}
-
-			.embedded-activity-header {
-				margin-bottom: 0.75rem;
-			}
-
-			.embedded-activity-header h6 {
-				margin: 0 0 0.25rem 0;
-				font-size: 0.9rem;
-				color: var(--text-color);
-				font-weight: 500;
-				line-height: 1.3;
-			}
-
-			.embedded-activity-date {
-				font-size: 0.7rem;
-				color: var(--text-muted);
-				opacity: 0.8;
+			.review-quote p {
+				font-size: 17px;
+				color: #c8c5be;
+				line-height: 1.65;
+				margin: 0;
 				font-style: italic;
+				font-weight: 300;
 			}
 
-			.embedded-activity-stats {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 0.5rem;
-				margin-bottom: 0.75rem;
-			}
-
-			.embedded-stat {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 0.4rem 0.25rem;
-				background-color: rgba(31, 41, 55, 0.6);
-				border-radius: 4px;
-				border: 1px solid var(--card-border);
-			}
-
-			.embedded-stat-label {
-				font-size: 0.6rem;
-				color: var(--text-muted);
+			.review-quote footer {
+				font-size: 11px;
+				color: #444;
+				letter-spacing: 1.5px;
 				text-transform: uppercase;
-				letter-spacing: 0.5px;
-				margin-bottom: 0.15rem;
-				text-align: center;
+				margin-top: 14px;
 			}
 
-			.embedded-stat-value {
-				font-size: 0.8rem;
-				color: var(--text-color);
-				font-weight: 500;
-				text-align: center;
-			}
-
-			.embedded-activity-link {
-				color: var(--link-color);
-				text-decoration: none;
-				font-size: 0.75rem;
-				font-weight: 500;
-				transition: all 0.2s ease;
+			/* === JOURNAL LINK === */
+			.journal-link {
 				display: block;
+				text-decoration: none;
+				background: #101010;
+				border: 1px solid #1c1c1c;
+				border-radius: 8px;
+				padding: 28px 32px;
+				transition: background 0.15s, border-color 0.15s;
+			}
+
+			.journal-link:hover {
+				background: #131313;
+				border-color: #2a2a2a;
+			}
+
+			.journal-link-inner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 24px;
+			}
+
+			.journal-link-label {
+				font-size: 10px;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+				color: #5b8ef0;
+				margin-bottom: 8px;
+			}
+
+			.journal-link-title {
+				font-size: 20px;
+				font-weight: 600;
+				color: #e2dfd8;
+				margin-bottom: 4px;
+			}
+
+			.journal-link-meta {
+				font-size: 13px;
+				color: #666;
+			}
+
+			.journal-link-arrow {
+				font-size: 28px;
+				color: #5b8ef0;
+				font-weight: 300;
+			}
+
+			/* === FOOTER === */
+			.site-footer {
+				font-size: 12px;
+				color: #333;
 				text-align: center;
 			}
 
-			.embedded-activity-link:hover {
-				color: var(--link-hover-color);
-			}
+			/* === HIDDEN UTILITY === */
+			.hidden { display: none !important; }
 
-			.embedded-activity-map {
-				width: 100%;
-				height: 200px;
-				margin: 0.75rem 0;
-				border-radius: 4px;
-				overflow: hidden;
-				border: 1px solid var(--card-border);
-			}
-
-			/* === Responsive Design for Embedded Activities === */
+			/* === RESPONSIVE === */
 			@media (max-width: 768px) {
-				.embedded-activities-grid {
-					grid-template-columns: 1fr;
-					gap: 0.75rem;
+				.wrap { padding: 48px 24px 60px; }
+
+				.hero {
+					flex-direction: column-reverse;
+					align-items: center;
+					text-align: center;
+					gap: 24px;
 				}
-				
-				.embedded-activity-stats {
-					grid-template-columns: 1fr 1fr;
+
+				.hero h1 { font-size: 48px; letter-spacing: -2px; }
+				.hero-bio { max-width: 100%; }
+				.hero-links { justify-content: center; gap: 20px; flex-wrap: wrap; }
+				.profile-photo { width: 120px; height: 120px; }
+
+				.projects-grid { grid-template-columns: 1fr; }
+
+				.stats-row {
+					flex-direction: column;
+					gap: 24px;
 				}
+
+				.stat-divider {
+					width: 100%;
+					height: 1px;
+				}
+
+				.review-grid {
+					grid-template-columns: 100px 1fr;
+					gap: 20px;
+				}
+
+				.review-cover, .review-cover-placeholder {
+					width: 100px;
+					height: 150px;
+				}
+
+				.review-title { font-size: 24px; }
+
+				.review-quote p { font-size: 15px; }
 			}
 
 			@media (max-width: 480px) {
-				.embedded-activity-stats {
-					grid-template-columns: 1fr;
-					gap: 0.4rem;
-				}
+				.hero h1 { font-size: 40px; }
+				.stats-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+				.review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 			}
 		</style>
 	</head>
 	<body>
-		<!-- Main Page Content -->
-		<main class="container" role="main">
-			<!-- Header Section Start -->
-			<header>
-				<div class="header-content">
-					<h1>Noah Eisen</h1>
-					<p>
-						Hi, I'm Noah, an engineer based in San Francisco with a background in Computer 
-						Science and Mathematics from the University of Michigan. Over the past decade, 
-						I've led teams and shipped projects at companies like Google, Waymo, Roblox, and
-						Faire. My experience spans infrastructure and product development, with a consistent 
-						emphasis on clean code, maintainable systems, and thoughtful architecture.</p>
-					<div class="social-links">
-						<a href="https://github.com/ncteisen" class="social-link" tabindex="0" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
-							GitHub
-						</a>
-						<a href="https://linkedin.com/in/ncteisen" class="social-link" tabindex="0" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
-							LinkedIn
-						</a>
-						<a href="mailto:ncteisen@gmail.com" class="social-link" tabindex="0" aria-label="Email">
-							Email
-						</a>
-						<a href="/resume.pdf" class="social-link" tabindex="0" aria-label="Resume PDF" target="_blank" rel="noopener noreferrer">
-							Resume
-						</a>
+		<main class="wrap">
+
+			<!-- HERO -->
+			<header class="hero">
+				<div>
+					<h1>NOAH<br />EISEN</h1>
+					<p class="hero-subtitle">
+						Principal Software Engineer &nbsp;·&nbsp; Roblox &nbsp;·&nbsp; San Francisco, CA
+					</p>
+					<p class="hero-bio">
+						I build systems that scale and teams that ship. Previously Google, Waymo, Faire, 
+						Roblox. Unreasonably opinionated about software architecture, film, and whatever 
+						I'm currently reading. Probably also training for something.
+					</p>
+					<div class="hero-links">
+						<a href="https://github.com/ncteisen" target="_blank" rel="noopener noreferrer">GitHub</a>
+						<a href="https://linkedin.com/in/ncteisen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+						<a href="mailto:ncteisen@gmail.com">Email</a>
+						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 					</div>
 				</div>
-				<div class="profile-image-container">
-					<img 
-						src="/images/profile-placeholder.jpg" 
-						alt="Noah Eisen" 
-						class="profile-image"
-						width="200"
-						height="200"
-					/>
-				</div>
+				<img
+					src="/images/profile-placeholder.jpg"
+					alt="Noah Eisen"
+					class="profile-photo"
+				/>
 			</header>
-			<!-- Header Section End -->
 
-			<!-- Career Snapshot Section Start -->
-			<section id="career">
-				<h2>Career Timeline</h2>
-				<div class="timeline">
-					{experiences.map((exp) => (
-						<div class="timeline-item">
-							<div class="timeline-icon"><i class={`${exp.icon_prefix} ${exp.icon}`} aria-hidden="true"></i></div>
-							<div class="timeline-content">
-								<div class="timeline-header">
-									<div class="timeline-header-content">
-										<h3>{exp.company}</h3>
-										<div class="job-title">{exp.title}</div>
-										<div class="date-range">{exp.start_date} - {exp.end_date}</div>
-									</div>
-									<i class="fas fa-chevron-right timeline-arrow" aria-hidden="true"></i>
-								</div>
-								<div class="timeline-details">
-									<p>{exp.web_description ?? exp.description}</p>
-									<ul>
+			<hr class="rule" />
+
+			<!-- CAREER -->
+			<section class="career">
+				<span class="section-label">Career</span>
+				{experiences.map((exp) => (
+					<div class="career-item" data-career>
+						<div class="career-bar"></div>
+						<div class="career-body">
+							<div class="career-head">
+								<span class="career-company">{exp.company}</span>
+								<span class="career-period">
+									{exp.start_date} – {exp.end_date}
+									<span class="career-arrow">›</span>
+								</span>
+							</div>
+							<div class="career-role">{exp.title}</div>
+							<div class="career-details">
+								<div class="career-details-inner">
+									<p class="career-desc">{exp.web_description ?? exp.description}</p>
+									<ul class="career-bullets">
 										{exp.items.map((item) => (
 											<li set:html={item.web_text ?? item.text}></li>
 										))}
@@ -1648,326 +813,214 @@ function formatSpeed(distance: number, time: number): string {
 								</div>
 							</div>
 						</div>
-					))}
-				</div>
+					</div>
+				))}
+				<div class="career-end"></div>
 			</section>
-			<!-- Career Snapshot Section End -->
 
-			<!-- Side Projects Section Start -->
-			<section id="projects">
-				<h2>Side Projects</h2>
-				<p>Newer projects coming soon! In the meantime, you can check out my <a href="/old">old website</a> for projects I made many years ago.</p>
+			<!-- PROJECTS -->
+			<section class="projects">
+				<span class="section-label">Projects</span>
 				<div class="projects-grid">
-					<a href="/projects/sarah-jumps" class="project-card" tabindex="0">
-						<h3 class="project-title">Sarah Jumps</h3>
-						<p class="project-description">Doodle jump inspired game I made to explore vibe coding.</p>
+					<a href="/projects/sarah-jumps" class="project-card">
+						<div class="project-card-title">Sarah Jumps</div>
+						<div class="project-card-desc">Doodle Jump–inspired game built to explore vibe coding.</div>
 					</a>
-					<a href="https://www.hypertextlibrary.com/" class="project-card" tabindex="0" target="_blank" rel="noopener noreferrer">
-						<h3 class="project-title">The Hypertext Library</h3>
-						<p class="project-description">Literature-based side project I made a decade ago after taking a class on Ulysses.</p>
+					<a href="https://www.hypertextlibrary.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+						<div class="project-card-title">Hypertext Library</div>
+						<div class="project-card-desc">Literature-based web project built after a class on Ulysses.</div>
 					</a>
-					<a href="/old/projects/p1/" class="project-card" tabindex="0">
-						<h3 class="project-title">Room Game</h3>
-						<p class="project-description">Simple text-based game I made in college to teach myself JavaScript.</p>
+					<a href="/old/projects/p1/" class="project-card">
+						<div class="project-card-title">Room Game</div>
+						<div class="project-card-desc">Text-based adventure game built in college to teach myself JavaScript.</div>
 					</a>
 				</div>
 			</section>
-			<!-- Side Projects Section End -->
 
-			<!-- Other Interests Section Start -->
-			<section id="other-interests">
-				<h2>Other Interests</h2>
-				<div class="interests-grid">
-					<div class="interest-card">
-						<h3>Movies</h3>
-						<i class="fas fa-film section-icon" aria-hidden="true"></i>
-						<p>I'm an avid film enthusiast and maintain a detailed log of my movie watching on Letterboxd. I have rated <a href={`https://letterboxd.com/ncteisen/year/${new Date().getFullYear()}/`} target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{letterboxdData.stats?.films_this_year || 0}</span></a> films this year and <a href="https://letterboxd.com/ncteisen/films/" target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{letterboxdData.stats?.total_films?.toLocaleString() || 0}</span></a> since starting to use the site.</p>
-						<div class="recent-movies">
-							{letterboxdData.recent_reviews.slice(0, 1).map((movie: MovieReview) => (
-								<div class="movie-card">
-									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
-									<div class="movie-info">
-										<h4>{movie.title} ({movie.year})</h4>
-										<p class="rating">{getStarRating(movie.rating)}</p>
-										<p class="watched-date">Watched on {movie.watched_date}</p>
-										{/* Using set:html to render HTML content from the movie review. Astro sanitizes this by default. */}
-										<div class="review" set:html={movie.review}></div>
-										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
-									</div>
-								</div>
-							))}
-						</div>
-						<div class="see-more-container">
-							<button class="see-more-button">See more of my recent movies</button>
-						</div>
-						<div id="more-movies" class="more-movies hidden">
-							{letterboxdData.recent_reviews.slice(1).map((movie: MovieReview) => (
-								<div class="movie-card">
-									<img src={movie.image_url} alt={`Poster for ${movie.title}`} width="200" height="300" />
-									<div class="movie-info">
-										<h4>{movie.title} ({movie.year})</h4>
-										<p class="rating">{getStarRating(movie.rating)}</p>
-										<p class="watched-date">Watched on {movie.watched_date}</p>
-										{/* Using set:html to render HTML content from the movie review. Astro sanitizes this by default. */}
-										<div class="review" set:html={movie.review}></div>
-										<a href={movie.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Letterboxd</a>
-									</div>
-								</div>
-							))}
-						</div>
-						<hr class="profile-separator" />
-						<div class="last-updated">
-							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-						</div>
-						<div class="profile-link-container">
-							<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" class="profile-link">
-								View my full Letterboxd profile
-							</a>
-						</div>
+			<!-- BY THE NUMBERS -->
+			<section class="stats-section">
+				<div class="stats-header">
+					<span class="section-label" style="margin-bottom:0">By the Numbers</span>
+					<div class="period-toggle">
+						<button class="period-btn active" data-period="year">This Year</button>
+						<span class="period-sep">/</span>
+						<button class="period-btn" data-period="lifetime">Lifetime</button>
 					</div>
-
-					<div class="interest-card">
-						<h3>Books</h3>
-						<i class="fas fa-book section-icon" aria-hidden="true"></i>
-						<p>I love reading and track my books on Goodreads. I have read <a href={`https://www.goodreads.com/user/year_in_books/${new Date().getFullYear()}/44763252`} target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{goodreadsData.stats?.books_this_year || 0}</span></a> books this year and have rated <a href="https://www.goodreads.com/review/list/44763252?sort=rating&view=reviews" target="_blank" rel="noopener noreferrer" class="profile-link"><span class="stat-highlight">{goodreadsData.stats?.total_ratings || 0}</span></a> since I started using the site.</p>
-						<div class="recent-movies">
-							{goodreadsData.recent_reviews.slice(0, 1).map((book: BookReview) => (
-								<div class="movie-card">
-									<img src={book.image_url} alt={`Cover of ${book.title}`} width="200" height="300" />
-									<div class="movie-info">
-										<h4>{book.title}</h4>
-										<p class="rating">{getStarRating(book.rating)}</p>
-										<p class="watched-date">Read on {book.read_at}</p>
-										{/* Using set:html to render HTML content from the book review. Astro sanitizes this by default. */}
-										<div class="review" set:html={book.review}></div>
-										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
-									</div>
-								</div>
-							))}
-						</div>
-						<div class="see-more-container">
-							<button id="see-more-books" class="see-more-button">See more of my recent books</button>
-						</div>
-						<div id="more-books" class="more-movies hidden">
-							{goodreadsData.recent_reviews.slice(1).map((book: BookReview) => (
-								<div class="movie-card">
-									<img src={book.image_url} alt={`Cover of ${book.title}`} width="200" height="300" />
-									<div class="movie-info">
-										<h4>{book.title}</h4>
-										<p class="rating">{getStarRating(book.rating)}</p>
-										<p class="watched-date">Read on {book.read_at}</p>
-										{/* Using set:html to render HTML content from the book review. Astro sanitizes this by default. */}
-										<div class="review" set:html={book.review}></div>
-										<a href={book.link} target="_blank" rel="noopener noreferrer" class="movie-link">View on Goodreads</a>
-									</div>
-								</div>
-							))}
-						</div>
-						<hr class="profile-separator" />
-						<div class="last-updated">
-							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-						</div>
-						<div class="profile-link-container">
-							<a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" class="profile-link">
-								View my full Goodreads profile
-							</a>
-						</div>
+				</div>
+				<div class="stats-row">
+					<div class="stat-cell">
+						<div class="stat-value" data-stat="films">{statsData.year.films}</div>
+						<div class="stat-label" data-stat-label="films">{statsData.year.filmsLabel}</div>
 					</div>
-
-					<div class="interest-card">
-						<h3>Fitness</h3>
-						<i class="fas fa-heartbeat section-icon" aria-hidden="true"></i>
-						<p>I enjoy running and cycling around San Francisco.</p>
-						
-						<div class="comprehensive-stats">
-							<div class="activity-section">
-								<h4><i class="fas fa-running activity-icon" aria-hidden="true"></i>Running</h4>
-								<div class="time-period-stats">
-									<div class="period-group">
-										<h5>Year to Date</h5>
-										<div class="stat-grid-detailed">
-											<div class="stat-item">
-												<span class="stat-label">Activities</span>
-												<span class="stat-value">{stravaData.stats?.running.ytd.count || 0}</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Distance</span>
-												<span class="stat-value">{stravaData.stats?.running.ytd.distance || 0} mi</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Elevation</span>
-												<span class="stat-value">{stravaData.stats?.running.ytd.elevation_gain?.toLocaleString() || 0} ft</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Time</span>
-												<span class="stat-value">{formatDuration(stravaData.stats?.running.ytd.elapsed_time || 0)}</span>
-											</div>
-										</div>
-									</div>
-									<div class="period-group">
-										<h5>All Time</h5>
-										<div class="stat-grid-detailed">
-											<div class="stat-item">
-												<span class="stat-label">Activities</span>
-												<span class="stat-value">{stravaData.stats?.running.all_time.count || 0}</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Distance</span>
-												<span class="stat-value">{stravaData.stats?.running.all_time.distance?.toLocaleString() || 0} mi</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Elevation</span>
-												<span class="stat-value">{stravaData.stats?.running.all_time.elevation_gain?.toLocaleString() || 0} ft</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Time</span>
-												<span class="stat-value">{formatDuration(stravaData.stats?.running.all_time.elapsed_time || 0)}</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="recent-activities-embedded">
-									<h5>Recent Runs</h5>
-									<div class="embedded-activities-grid">
-										{stravaData.recent_runs.slice(0, 2).map((run: StravaActivity, index: number) => (
-											<div class="embedded-activity-card">
-												<div class="embedded-activity-header">
-													<h6>{run.name}</h6>
-													<span class="embedded-activity-date">{formatDate(run.start_date)}</span>
-												</div>
-												{run.map?.summary_polyline && (
-													<div id={`run-map-${index}`} class="embedded-activity-map"></div>
-												)}
-												<div class="embedded-activity-stats">
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Distance</span>
-														<span class="embedded-stat-value">{run.distance} mi</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Time</span>
-														<span class="embedded-stat-value">{formatDuration(run.moving_time)}</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Elevation</span>
-														<span class="embedded-stat-value">{run.elevation_gain} ft</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Pace</span>
-														<span class="embedded-stat-value">{run.average_pace} min/mi</span>
-													</div>
-												</div>
-												<a href={`https://www.strava.com/activities/${run.id}`} target="_blank" rel="noopener noreferrer" class="embedded-activity-link">View on Strava</a>
-											</div>
-										))}
-									</div>
-								</div>
-							</div>
-
-							<div class="activity-section">
-								<h4><i class="fas fa-biking activity-icon" aria-hidden="true"></i>Biking</h4>
-								<div class="time-period-stats">
-									<div class="period-group">
-										<h5>Year to Date</h5>
-										<div class="stat-grid-detailed">
-											<div class="stat-item">
-												<span class="stat-label">Activities</span>
-												<span class="stat-value">{stravaData.stats?.biking.ytd.count || 0}</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Distance</span>
-												<span class="stat-value">{stravaData.stats?.biking.ytd.distance || 0} mi</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Elevation</span>
-												<span class="stat-value">{stravaData.stats?.biking.ytd.elevation_gain?.toLocaleString() || 0} ft</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Time</span>
-												<span class="stat-value">{formatDuration(stravaData.stats?.biking.ytd.elapsed_time || 0)}</span>
-											</div>
-										</div>
-									</div>
-									<div class="period-group">
-										<h5>All Time</h5>
-										<div class="stat-grid-detailed">
-											<div class="stat-item">
-												<span class="stat-label">Activities</span>
-												<span class="stat-value">{stravaData.stats?.biking.all_time.count || 0}</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Distance</span>
-												<span class="stat-value">{stravaData.stats?.biking.all_time.distance?.toLocaleString() || 0} mi</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Elevation</span>
-												<span class="stat-value">{stravaData.stats?.biking.all_time.elevation_gain?.toLocaleString() || 0} ft</span>
-											</div>
-											<div class="stat-item">
-												<span class="stat-label">Time</span>
-												<span class="stat-value">{formatDuration(stravaData.stats?.biking.all_time.elapsed_time || 0)}</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="recent-activities-embedded">
-									<h5>Recent Rides</h5>
-									<div class="embedded-activities-grid">
-										{stravaData.recent_bikes.slice(0, 2).map((bike: StravaActivity, index: number) => (
-											<div class="embedded-activity-card">
-												<div class="embedded-activity-header">
-													<h6>{bike.name}</h6>
-													<span class="embedded-activity-date">{formatDate(bike.start_date)}</span>
-												</div>
-												{bike.map?.summary_polyline && (
-													<div id={`bike-map-${index}`} class="embedded-activity-map"></div>
-												)}
-												<div class="embedded-activity-stats">
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Distance</span>
-														<span class="embedded-stat-value">{bike.distance} mi</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Time</span>
-														<span class="embedded-stat-value">{formatDuration(bike.moving_time)}</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Elevation</span>
-														<span class="embedded-stat-value">{bike.elevation_gain} ft</span>
-													</div>
-													<div class="embedded-stat">
-														<span class="embedded-stat-label">Speed</span>
-														<span class="embedded-stat-value">{formatSpeed(bike.distance, bike.moving_time)} mph</span>
-													</div>
-												</div>
-												<a href={`https://www.strava.com/activities/${bike.id}`} target="_blank" rel="noopener noreferrer" class="embedded-activity-link">View on Strava</a>
-											</div>
-										))}
-									</div>
-								</div>
-							</div>
-						</div>
-						<hr class="profile-separator" />
-						<div class="last-updated">
-							Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-						</div>
-						<div class="profile-link-container">
-							<a href="https://www.strava.com/athletes/33004088" target="_blank" rel="noopener noreferrer" class="profile-link">
-								View my full Strava profile
-							</a>
-						</div>
+					<div class="stat-divider"></div>
+					<div class="stat-cell">
+						<div class="stat-value" data-stat="books">{statsData.year.books}</div>
+						<div class="stat-label" data-stat-label="books">{statsData.year.booksLabel}</div>
+					</div>
+					<div class="stat-divider"></div>
+					<div class="stat-cell">
+						<div class="stat-value" data-stat="runMiles">{statsData.year.runMiles}</div>
+						<div class="stat-label" data-stat-label="runMiles">{statsData.year.runLabel}</div>
+					</div>
+					<div class="stat-divider"></div>
+					<div class="stat-cell">
+						<div class="stat-value" data-stat="rideMiles">{statsData.year.rideMiles}</div>
+						<div class="stat-label" data-stat-label="rideMiles">{statsData.year.rideLabel}</div>
 					</div>
 				</div>
 			</section>
-			<!-- Other Interests Section End -->
 
-			<!-- Footer Section Start -->
-			<footer>
-				<p>© {new Date().getFullYear()} Noah Eisen. All rights reserved.</p>
-			</footer>
-			<!-- Footer Section End -->
+			<!-- LATEST REVIEW -->
+			<section class="review-section">
+				<div class="review-header">
+					<span class="section-label" style="margin-bottom:0">Latest Review</span>
+					<div class="kind-tabs">
+						<button class="kind-tab active" data-kind="film">Film</button>
+						<button class="kind-tab" data-kind="book">Book</button>
+					</div>
+				</div>
+
+				<!-- Film review -->
+				<div class="review-grid" data-review="film">
+					{featuredFilm?.image_url ? (
+						<img src={featuredFilm.image_url} alt={featuredFilm.title} class="review-cover" />
+					) : (
+						<div class="review-cover-placeholder">▸</div>
+					)}
+					<div>
+						<div class="review-date">{featuredFilm?.watched_date}</div>
+						<div class="review-title">{featuredFilm?.title}</div>
+						<div class="review-subtitle">{featuredFilm?.year}</div>
+						<div class="review-stars">
+							<span class="stars">
+								<span class="stars-filled">{getStarRating(featuredFilm?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredFilm?.rating || 0)}</span>
+							</span>
+						</div>
+						<blockquote class="review-quote">
+							<span class="review-quote-mark">"</span>
+							<div set:html={featuredFilm?.review} />
+							<footer>— Noah's review</footer>
+						</blockquote>
+					</div>
+				</div>
+
+				<!-- Book review -->
+				<div class="review-grid hidden" data-review="book">
+					{featuredBook?.image_url ? (
+						<img src={featuredBook.image_url} alt={featuredBook.title} class="review-cover" />
+					) : (
+						<div class="review-cover-placeholder">📖</div>
+					)}
+					<div>
+						<div class="review-date">{featuredBook?.read_at}</div>
+						<div class="review-title">{featuredBook?.title}</div>
+						<div class="review-subtitle">{featuredBook?.author}</div>
+						<div class="review-stars">
+							<span class="stars">
+								<span class="stars-filled">{getStarRating(featuredBook?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredBook?.rating || 0)}</span>
+							</span>
+						</div>
+						<blockquote class="review-quote">
+							<span class="review-quote-mark">"</span>
+							<div set:html={featuredBook?.review} />
+							<footer>— Noah's review</footer>
+						</blockquote>
+					</div>
+				</div>
+			</section>
+
+			<!-- JOURNAL LINK -->
+			<section>
+				<a href="/journal" class="journal-link">
+					<div class="journal-link-inner">
+						<div>
+							<div class="journal-link-label">Full Journal</div>
+							<div class="journal-link-title">Read every film & book review</div>
+							<div class="journal-link-meta">{totalMovies} films · {totalBooks} books · sorted by date</div>
+						</div>
+						<div class="journal-link-arrow">→</div>
+					</div>
+				</a>
+			</section>
+
+			<hr class="rule" />
+			<footer class="site-footer">© {new Date().getFullYear()} Noah Eisen</footer>
 		</main>
-		<!-- End Main Page Content -->
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Career item expansion
+				document.querySelectorAll('[data-career]').forEach(item => {
+					item.addEventListener('click', () => {
+						item.classList.toggle('expanded');
+					});
+				});
+
+				// Period toggle (This Year / Lifetime)
+				const statsData = (window as any).__STATS_DATA__;
+				const periodBtns = document.querySelectorAll('.period-btn');
+				let currentPeriod = 'year';
+
+				const updateStats = (period: string) => {
+					currentPeriod = period;
+					const data = statsData[period];
+					const keys = ['films', 'books', 'runMiles', 'rideMiles'] as const;
+					const labelKeys = ['filmsLabel', 'booksLabel', 'runLabel', 'rideLabel'] as const;
+
+					keys.forEach((key, i) => {
+						const valEl = document.querySelector(`[data-stat="${key}"]`);
+						const lblEl = document.querySelector(`[data-stat-label="${key}"]`);
+						if (valEl) valEl.textContent = String(data[key]);
+						if (lblEl) lblEl.textContent = data[labelKeys[i]];
+					});
+
+					periodBtns.forEach(btn => {
+						btn.classList.toggle('active', (btn as HTMLElement).dataset.period === period);
+					});
+				};
+
+				periodBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						updateStats((btn as HTMLElement).dataset.period || 'year');
+					});
+				});
+
+				// Kind tabs (Film / Book)
+				const kindTabs = document.querySelectorAll('.kind-tab');
+				const filmReview = document.querySelector('[data-review="film"]');
+				const bookReview = document.querySelector('[data-review="book"]');
+
+				kindTabs.forEach(tab => {
+					tab.addEventListener('click', () => {
+						const kind = (tab as HTMLElement).dataset.kind;
+						kindTabs.forEach(t => t.classList.toggle('active', t === tab));
+
+						if (kind === 'film') {
+							filmReview?.classList.remove('hidden');
+							bookReview?.classList.add('hidden');
+						} else {
+							filmReview?.classList.add('hidden');
+							bookReview?.classList.remove('hidden');
+						}
+					});
+				});
+
+				// Track social link clicks
+				document.querySelectorAll('.hero-links a').forEach(link => {
+					link.addEventListener('click', function(this: HTMLElement) {
+						const href = this.getAttribute('href');
+						let label = 'unknown';
+						if (href?.includes('github.com')) label = 'github';
+						else if (href?.includes('linkedin.com')) label = 'linkedin';
+						else if (href?.includes('resume.pdf')) label = 'resume';
+						else if (href?.includes('mailto:')) label = 'email';
+						(window as any).gtag('event', 'click', {
+							'event_category': 'social',
+							'event_label': label
+						});
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
