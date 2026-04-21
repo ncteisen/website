@@ -52,7 +52,7 @@ const stravaData = socialData.strava;
 
 const resumeDataModules = await import.meta.glob('../../resume/resume_data.json');
 const resumeData = (await resumeDataModules['../../resume/resume_data.json']()) as { experiences: WorkExperience[] };
-const experiences = resumeData.experiences;
+const experiences = resumeData.experiences.filter((e) => !e.skip_web);
 
 interface WorkItem {
 	text: string;
@@ -67,6 +67,7 @@ interface WorkExperience {
 	start_date: string;
 	end_date: string;
 	skip_pdf?: boolean;
+	skip_web?: boolean;
 	icon: string;
 	icon_prefix: string;
 	description: string;
