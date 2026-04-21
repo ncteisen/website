@@ -169,6 +169,11 @@ const featuredBook = goodreadsData.recent_reviews[0];
 
 const totalMovies = letterboxdData.recent_reviews.length;
 const totalBooks = goodreadsData.recent_reviews.length;
+
+const formatDate = (dateStr: string): string => {
+	const d = new Date(dateStr);
+	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+};
 ---
 
 <html lang="en">
@@ -775,7 +780,7 @@ const totalBooks = goodreadsData.recent_reviews.length;
 								<span class="stars-filled">{getStarRating(featuredFilm?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredFilm?.rating || 0)}</span>
 							</span>
 						</div>
-						<div class="review-card-sub">{featuredFilm?.year} · {featuredFilm?.watched_date}</div>
+						<div class="review-card-sub">{featuredFilm?.watched_date ? formatDate(featuredFilm.watched_date) : ''}</div>
 						<div class="review-card-text" set:html={featuredFilm?.review} />
 						<a href={featuredFilm?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Letterboxd →</a>
 					</div>
@@ -786,7 +791,7 @@ const totalBooks = goodreadsData.recent_reviews.length;
 								<span class="stars-filled">{getStarRating(featuredBook?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredBook?.rating || 0)}</span>
 							</span>
 						</div>
-						<div class="review-card-sub">{featuredBook?.author} · {featuredBook?.read_at}</div>
+						<div class="review-card-sub">{featuredBook?.read_at ? formatDate(featuredBook.read_at) : ''}</div>
 						<div class="review-card-text" set:html={featuredBook?.review} />
 						<a href={featuredBook?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Goodreads →</a>
 					</div>

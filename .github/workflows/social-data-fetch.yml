@@ -30,7 +30,13 @@ jobs:
 
     - name: Fetch strava activities data
       run: python scripts/strava-activity-fetcher/fetch_activities.py
-    
+
+    - name: Fetch Goodreads books data
+      run: python scripts/goodreads-fetcher/fetch_books.py
+
+    - name: Fetch Letterboxd films data
+      run: python scripts/letterboxd-fetcher/fetch_films.py
+
     - name: Run social data fetch script
       run: python scripts/social-scraper/fetch_social_data.py
     
@@ -41,5 +47,5 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Social Data Fetcher Action"
-        git add src/data/social_data.json scripts/strava-activity-fetcher/data/activities.json
+        git add src/data/social_data.json scripts/strava-activity-fetcher/data/activities.json scripts/goodreads-fetcher/data/books.json scripts/letterboxd-fetcher/data/films.json
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update social data and Strava activities [skip ci]" && git push) 

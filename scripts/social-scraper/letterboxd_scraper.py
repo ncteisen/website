@@ -1,29 +1,25 @@
 #!/usr/bin/env python3
 
+import json
 import logging
 import requests
-import xml.etree.ElementTree as ET
 import os
 from typing import Dict, Any, List, Optional
-from datetime import datetime
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
 # Constants
-LETTERBOXD_USERNAME = 'ncteisen'  # TODO: Move to environment variable
+LETTERBOXD_USERNAME = 'ncteisen'
 LETTERBOXD_PROFILE_URL = f"https://letterboxd.com/{LETTERBOXD_USERNAME}/"
-NAMESPACES = {
-    'letterboxd': 'https://letterboxd.com',
-    'dc': 'http://purl.org/dc/elements/1.1/'
-}
 
-# Cache directory
 RECENT_ACTIVITY_LIMIT = 8
 
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
-CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'letterboxd_rss.xml')
 CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'letterboxd_profile.html')
+
+# Data store from fetcher
+FILMS_DATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'letterboxd-fetcher', 'data', 'films.json')
 
 def extract_profile_stats(html_content: str) -> Dict[str, Any]:
     """Extract profile statistics from Letterboxd profile HTML."""
@@ -88,89 +84,56 @@ def fetch_letterboxd_profile_stats(use_cache: bool = False) -> Dict[str, Any]:
         logger.error(f"Failed to fetch Letterboxd profile stats: {e}")
         return {}
 
+def load_films_data() -> List[Dict[str, Any]]:
+    """Load films from the letterboxd-fetcher data store."""
+    resolved = os.path.normpath(FILMS_DATA_FILE)
+    if not os.path.exists(resolved):
+        logger.warning(f"Films data file not found: {resolved}")
+        return []
+    with open(resolved, 'r') as f:
+        films = json.load(f)
+    logger.info(f"Loaded {len(films)} films from data store")
+    return films
+
+
+def convert_film_to_review(film: Dict[str, Any]) -> Dict[str, Any]:
+    """Convert a raw film record to the review format used by the site."""
+    return {
+        'title': film.get('title', ''),
+        'year': film.get('year'),
+        'rating': film.get('rating', 0),
+        'watched_date': film.get('watched_date'),
+        'is_rewatch': film.get('is_rewatch', False),
+        'review': film.get('review', ''),
+        'image_url': film.get('image_url', ''),
+        'link': film.get('link', ''),
+    }
+
+
 class LetterboxdScraper:
     """Scraper for Letterboxd data."""
-    
+
     def __init__(self, username: str = LETTERBOXD_USERNAME):
-        """Initialize the scraper with a Letterboxd username."""
         self.username = username
-        self.base_url = f"https://letterboxd.com/{username}/rss/"
-    
-    def _parse_review(self, item: ET.Element) -> Optional[Dict[str, Any]]:
-        """Parse a single review item from the RSS feed."""
-        try:
-            # Extract review text from description
-            description = item.find('description').text
-            soup = BeautifulSoup(description, 'html.parser')
-            
-            # Find the image and get all paragraphs after it
-            img = soup.find('img')
-            review_paragraphs = []
-            if img:
-                current = img.find_next('p')
-                while current and current.name == 'p':
-                    review_paragraphs.append(current)
-                    current = current.find_next_sibling()
-            
-            # Combine all review paragraphs
-            review_text = ''.join(str(p) for p in review_paragraphs)
-            
-            # Extract image URL
-            img_tag = soup.find('img')
-            image_url = img_tag.get('src') if img_tag else ""
-            
-            return {
-                'title': item.find('letterboxd:filmTitle', NAMESPACES).text,
-                'year': int(item.find('letterboxd:filmYear', NAMESPACES).text),
-                'rating': float(item.find('letterboxd:memberRating', NAMESPACES).text),
-                'watched_date': item.find('letterboxd:watchedDate', NAMESPACES).text,
-                'is_rewatch': item.find('letterboxd:rewatch', NAMESPACES).text == 'Yes',
-                'review': review_text,
-                'image_url': image_url,
-                'link': item.find('link').text
-            }
-        except Exception as e:
-            logger.error(f"Failed to parse review: {e}")
-            return None
-    
+
     def fetch_data(self, use_cache: bool = False) -> Dict[str, Any]:
-        """Fetch and process Letterboxd data."""
-        try:
-            if use_cache and os.path.exists(CACHED_RSS_FILE):
-                logger.info("Using cached Letterboxd RSS data")
-                with open(CACHED_RSS_FILE, 'r', encoding='utf-8') as f:
-                    rss_content = f.read()
-            else:
-                logger.info("Fetching Letterboxd RSS data from network")
-                # Fetch RSS feed
-                response = requests.get(self.base_url, timeout=30)
-                response.raise_for_status()
-                rss_content = response.content.decode('utf-8')
-            
-            # Parse XML
-            root = ET.fromstring(rss_content)
-            channel = root.find('channel')
-            
-            # Get all reviews
-            reviews: List[Dict[str, Any]] = []
-            for item in channel.findall('item'):
-                review = self._parse_review(item)
-                if review:
-                    reviews.append(review)
-            
-            recent_reviews = reviews[:RECENT_ACTIVITY_LIMIT]
-            
-            # Get profile stats
-            stats = fetch_letterboxd_profile_stats(use_cache)
-            
-            return {
-                'username': self.username,
-                'recent_reviews': recent_reviews,
-                'stats': stats
-            }
-        except Exception as e:
-            logger.error(f"Failed to fetch Letterboxd data: {e}")
-            raise
+        """Load films from data store and fetch profile stats."""
+        films = load_films_data()
+        all_reviews = [convert_film_to_review(f) for f in films]
+        # Sort by watched_date descending
+        all_reviews.sort(key=lambda x: (x['watched_date'] is None, x['watched_date']), reverse=True)
+
+        recent_reviews = all_reviews[:RECENT_ACTIVITY_LIMIT]
+
+        # Get profile stats (still scraped from HTML)
+        stats = fetch_letterboxd_profile_stats(use_cache)
+
+        return {
+            'username': self.username,
+            'all_reviews': all_reviews,
+            'recent_reviews': recent_reviews,
+            'stats': stats,
+        }
 
 def create_letterboxd_scraper(username: str = LETTERBOXD_USERNAME) -> LetterboxdScraper:
     """Factory function to create a Letterboxd scraper."""

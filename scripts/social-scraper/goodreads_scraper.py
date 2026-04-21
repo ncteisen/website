@@ -1,10 +1,11 @@
 import requests
-import xml.etree.ElementTree as ET
+import json
 from typing import Dict, List
 import logging
 import re
 import os
 from datetime import date
+from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
@@ -12,7 +13,6 @@ logger = logging.getLogger(__name__)
 RECENT_ACTIVITY_LIMIT = 8
 
 # Constants
-GOODREADS_RSS_URL = "https://www.goodreads.com/review/list_rss/44763252-noah-eisen"
 GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/44763252-noah-eisen"
 GOODREADS_CHALLENGE_URL = f"https://www.goodreads.com/user/year_in_books/{date.today().year}/44763252"
 HEADERS = {
@@ -24,50 +24,34 @@ HEADERS = {
 # Cache directory
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cached_data')
 CACHED_PROFILE_FILE = os.path.join(CACHE_DIR, 'goodreads_profile.html')
-CACHED_RSS_FILE = os.path.join(CACHE_DIR, 'goodreads_rss.xml')
 CACHED_CHALLENGE_FILE = os.path.join(CACHE_DIR, f'goodreads_challenge_{date.today().year}.html')
 
-def extract_book_data(item: ET.Element) -> Dict:
-    """Extract book data from an RSS item."""
-    try:
-        # Extract basic book information
-        title = item.find('title').text.split(' by ')[0].strip()
-        author = item.find('author_name').text.strip()
-        
-        # Extract rating and read date from the description
-        description = item.find('description').text
-        
-        # Extract user's rating (not average rating)
-        user_rating_match = re.search(r'(?<!average )rating:\s*(\d+(?:\.\d+)?)', description)
-        user_rating = float(user_rating_match.group(1)) if user_rating_match else 0.0
-        
-        # Extract read date
-        read_at_match = re.search(r'read at:\s*([^\n<]+)', description)
-        read_at = read_at_match.group(1).strip() if read_at_match else None
-        
-        # Extract book image URL and clean it up
-        image_url = item.find('book_image_url').text.strip()
-        # Remove size patterns like ._SY75_ or _SX50_ from the URL
-        image_url = re.sub(r'\.?_S[XY]\d+_', '', image_url)
-        
-        # Extract book link
-        link = item.find('link').text.strip()
-        
-        # Extract review text
-        review_text = description.split('review:')[1].strip() if 'review:' in description else ''
-        
-        return {
-            'title': title,
-            'author': author,
-            'rating': user_rating,
-            'read_at': read_at,
-            'image_url': image_url,
-            'link': link,
-            'review': review_text
-        }
-    except Exception as e:
-        logger.error(f"Error extracting book data: {e}")
-        return None
+# Data store from fetcher
+BOOKS_DATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'goodreads-fetcher', 'data', 'books.json')
+
+def load_books_data() -> List[Dict]:
+    """Load books from the goodreads-fetcher data store."""
+    resolved = os.path.normpath(BOOKS_DATA_FILE)
+    if not os.path.exists(resolved):
+        logger.warning(f"Books data file not found: {resolved}")
+        return []
+    with open(resolved, 'r') as f:
+        books = json.load(f)
+    logger.info(f"Loaded {len(books)} books from data store")
+    return books
+
+
+def convert_book_to_review(book: Dict) -> Dict:
+    """Convert a raw book record to the review format used by the site."""
+    return {
+        'title': book.get('title', ''),
+        'author': book.get('author_name', ''),
+        'rating': book.get('user_rating', 0),
+        'read_at': book.get('user_read_at'),
+        'image_url': book.get('book_image_url', ''),
+        'link': book.get('guid', ''),
+        'review': book.get('user_review', ''),
+    }
 
 def extract_profile_stats(html_content: str) -> Dict:
     """Extract profile statistics from Goodreads profile HTML."""
@@ -182,40 +166,34 @@ def fetch_goodreads_challenge_stats(use_cache: bool = False) -> Dict:
         return {}
 
 def fetch_goodreads_reviews(use_cache: bool = False) -> Dict:
-    """Fetch and parse Goodreads RSS feed."""
+    """Load book reviews from the goodreads-fetcher data store."""
     try:
-        if use_cache and os.path.exists(CACHED_RSS_FILE):
-            logger.info("Using cached RSS data")
-            with open(CACHED_RSS_FILE, 'r', encoding='utf-8') as f:
-                rss_content = f.read()
-        else:
-            logger.info("Fetching RSS data from network")
-            # Fetch the RSS feed with browser-like headers
-            response = requests.get(GOODREADS_RSS_URL, headers=HEADERS, timeout=30)
-            response.raise_for_status()
-            rss_content = response.content.decode('utf-8')
-        
-        # Parse the XML
-        root = ET.fromstring(rss_content)
-        
-        # Extract book reviews
-        reviews = []
-        for item in root.findall('.//item'):
-            book_data = extract_book_data(item)
-            if book_data:
-                reviews.append(book_data)
-        
-        # Sort reviews by read_at date, with null dates at the bottom
-        reviews.sort(key=lambda x: (x['read_at'] is None, x['read_at']), reverse=True)
-        
-        # Structure the data similar to Letterboxd
+        books = load_books_data()
+        reviews = [convert_book_to_review(b) for b in books]
+
+        # Filter out unrated books and books without read dates
+        all_reviews = [r for r in reviews if r['rating'] > 0 and r['read_at']]
+        # Sort by read_at descending
+        def parse_read_at(date_str):
+            try:
+                return parsedate_to_datetime(date_str)
+            except Exception:
+                return None
+
+        all_reviews.sort(
+            key=lambda x: (x['read_at'] is None, parse_read_at(x['read_at']) or date.min),
+            reverse=True,
+        )
+
         return {
-            'recent_reviews': reviews[:RECENT_ACTIVITY_LIMIT],
+            'all_reviews': all_reviews,
+            'recent_reviews': all_reviews[:RECENT_ACTIVITY_LIMIT],
             'profile_url': GOODREADS_PROFILE_URL,
         }
     except Exception as e:
-        logger.error(f"Error fetching Goodreads reviews: {e}")
+        logger.error(f"Error loading Goodreads reviews: {e}")
         return {
+            'all_reviews': [],
             'recent_reviews': [],
             'profile_url': GOODREADS_PROFILE_URL,
         }

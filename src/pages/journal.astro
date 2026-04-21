@@ -2,6 +2,7 @@
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	letterboxd: {
+		all_reviews: MovieReview[],
 		recent_reviews: MovieReview[],
 		stats?: {
 			total_films: number,
@@ -9,6 +10,7 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 		}
 	},
 	goodreads: {
+		all_reviews: BookReview[],
 		recent_reviews: BookReview[],
 		stats?: {
 			total_ratings: number,
@@ -66,7 +68,7 @@ interface JournalEntry {
 }
 
 const allEntries: JournalEntry[] = [
-	...letterboxdData.recent_reviews.map((m) => ({
+	...(letterboxdData.all_reviews || letterboxdData.recent_reviews).map((m) => ({
 		title: m.title,
 		subtitle: String(m.year),
 		rating: m.rating,
@@ -76,7 +78,7 @@ const allEntries: JournalEntry[] = [
 		kind: 'film' as const,
 		link: m.link,
 	})),
-	...goodreadsData.recent_reviews.map((b) => ({
+	...(goodreadsData.all_reviews || goodreadsData.recent_reviews).map((b) => ({
 		title: b.title,
 		subtitle: b.author,
 		rating: b.rating,
@@ -88,8 +90,10 @@ const allEntries: JournalEntry[] = [
 	})),
 ].sort((a, b) => new Date(b.loggedAt).getTime() - new Date(a.loggedAt).getTime());
 
-const filmCount = letterboxdData.recent_reviews.length;
-const bookCount = goodreadsData.recent_reviews.length;
+const INITIAL_SHOW = 20;
+const LOAD_MORE_COUNT = 20;
+const filmCount = allEntries.filter(e => e.kind === 'film').length;
+const bookCount = allEntries.filter(e => e.kind === 'book').length;
 
 const formatDate = (dateStr: string): string => {
 	const d = new Date(dateStr);
@@ -366,6 +370,35 @@ const formatDate = (dateStr: string): string => {
 
 			.journal-end a:hover { color: #5b8ef0; }
 
+			/* === LOAD MORE === */
+			.load-more-btn {
+				display: block;
+				width: 100%;
+				padding: 16px;
+				margin: 8px 0;
+				background: transparent;
+				border: 1px solid #1c1c1c;
+				color: #666;
+				font-family: inherit;
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				cursor: pointer;
+				border-radius: 6px;
+				transition: all 0.15s;
+			}
+
+			.load-more-btn:hover {
+				border-color: #2a2a2a;
+				color: #e2dfd8;
+			}
+
+			.load-more-btn .count {
+				color: #444;
+				font-size: 10px;
+			}
+
 			/* === HIDDEN === */
 			.hidden { display: none !important; }
 
@@ -414,8 +447,8 @@ const formatDate = (dateStr: string): string => {
 
 			<!-- ENTRIES -->
 			<div class="entries">
-				{allEntries.map((entry) => (
-					<article class="entry" data-entry-kind={entry.kind}>
+				{allEntries.map((entry, i) => (
+					<article class={`entry ${i >= INITIAL_SHOW ? 'hidden' : ''}`} data-entry-kind={entry.kind} data-index={i}>
 						{entry.cover ? (
 							<img src={entry.cover} alt={entry.title} class="entry-cover" loading="lazy" />
 						) : (
@@ -446,6 +479,11 @@ const formatDate = (dateStr: string): string => {
 						</div>
 					</article>
 				))}
+				{allEntries.length > INITIAL_SHOW && (
+					<button class="load-more-btn" id="load-more">
+						Load More <span class="count">({allEntries.length - INITIAL_SHOW} remaining)</span>
+					</button>
+				)}
 				<div class="journal-end">
 					<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>
 				</div>
@@ -454,24 +492,60 @@ const formatDate = (dateStr: string): string => {
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
+				const LOAD_MORE_COUNT = 20;
 				const filterBtns = document.querySelectorAll('.filter-btn');
 				const entries = document.querySelectorAll('.entry');
+				const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement | null;
+
+				let currentFilter = 'all';
+				let visibleLimit = parseInt(entries[0]?.closest('.entries')?.querySelectorAll('.entry:not(.hidden)').length as any) || 20;
+
+				const applyVisibility = () => {
+					let matchCount = 0;
+					let hiddenByLimit = 0;
+					entries.forEach(entry => {
+						const el = entry as HTMLElement;
+						const kind = el.dataset.entryKind;
+						const matchesFilter = currentFilter === 'all' || kind === currentFilter;
+						if (matchesFilter) {
+							matchCount++;
+							if (matchCount <= visibleLimit) {
+								el.classList.remove('hidden');
+							} else {
+								el.classList.add('hidden');
+								hiddenByLimit++;
+							}
+						} else {
+							el.classList.add('hidden');
+						}
+					});
+
+					if (loadMoreBtn) {
+						if (hiddenByLimit > 0) {
+							loadMoreBtn.classList.remove('hidden');
+							const countSpan = loadMoreBtn.querySelector('.count');
+							if (countSpan) countSpan.textContent = `(${hiddenByLimit} remaining)`;
+						} else {
+							loadMoreBtn.classList.add('hidden');
+						}
+					}
+				};
 
 				filterBtns.forEach(btn => {
 					btn.addEventListener('click', () => {
-						const filter = (btn as HTMLElement).dataset.filter;
+						currentFilter = (btn as HTMLElement).dataset.filter || 'all';
 						filterBtns.forEach(b => b.classList.toggle('active', b === btn));
-
-						entries.forEach(entry => {
-							const kind = (entry as HTMLElement).dataset.entryKind;
-							if (filter === 'all' || kind === filter) {
-								entry.classList.remove('hidden');
-							} else {
-								entry.classList.add('hidden');
-							}
-						});
+						visibleLimit = 20;
+						applyVisibility();
 					});
 				});
+
+				if (loadMoreBtn) {
+					loadMoreBtn.addEventListener('click', () => {
+						visibleLimit += LOAD_MORE_COUNT;
+						applyVisibility();
+					});
+				}
 			});
 		</script>
 	</body>
