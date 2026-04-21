@@ -146,9 +146,9 @@ const statsData = {
 		filmsLabel: 'films watched this year',
 		books: goodreadsData.stats?.books_this_year || 0,
 		booksLabel: 'books read this year',
-		runMiles: stravaData.stats?.running.ytd.distance || 0,
+		runMiles: Math.round(stravaData.stats?.running.ytd.distance || 0),
 		runLabel: 'miles run this year',
-		rideMiles: stravaData.stats?.biking.ytd.distance || 0,
+		rideMiles: Math.round(stravaData.stats?.biking.ytd.distance || 0),
 		rideLabel: 'miles cycled this year',
 	},
 	lifetime: {
@@ -156,9 +156,9 @@ const statsData = {
 		filmsLabel: 'films logged, lifetime',
 		books: goodreadsData.stats?.total_ratings || 0,
 		booksLabel: 'books rated, lifetime',
-		runMiles: stravaData.stats?.running.all_time.distance || 0,
+		runMiles: Math.round(stravaData.stats?.running.all_time.distance || 0),
 		runLabel: 'miles run, all time',
-		rideMiles: stravaData.stats?.biking.all_time.distance || 0,
+		rideMiles: Math.round(stravaData.stats?.biking.all_time.distance || 0),
 		rideLabel: 'miles cycled, all time',
 	}
 };
@@ -636,19 +636,21 @@ const formatDate = (dateStr: string): string => {
 
 				.hero h1 { font-size: 48px; letter-spacing: -2px; }
 				.hero-bio { max-width: 100%; }
+				.subtitle-dot { display: none; }
+				.subtitle-location { display: block; margin-top: 4px; }
 				.hero-links { justify-content: center; gap: 20px; flex-wrap: wrap; }
 				.profile-photo { width: 120px; height: 120px; }
 
 				.projects-grid { grid-template-columns: 1fr; }
 
 				.stats-row {
-					flex-direction: column;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
 					gap: 24px;
 				}
 
 				.stat-divider {
-					width: 100%;
-					height: 1px;
+					display: none;
 				}
 
 				.reviews-grid {
@@ -671,7 +673,7 @@ const formatDate = (dateStr: string): string => {
 				<div>
 					<h1>NOAH<br />EISEN</h1>
 					<p class="hero-subtitle">
-						Principal Software Engineer &nbsp;·&nbsp; Roblox &nbsp;·&nbsp; San Francisco, CA
+						<span>Software Engineer</span><span class="subtitle-dot"> &nbsp;·&nbsp; </span><span class="subtitle-location">San Francisco, CA</span>
 					</p>
 					<p class="hero-bio">
 						I build systems that scale and teams that ship. Previously Google, Waymo, Faire, 
@@ -756,22 +758,22 @@ const formatDate = (dateStr: string): string => {
 				</div>
 				<div class="stats-row">
 					<div class="stat-cell">
-						<div class="stat-value" data-stat="films">{statsData.year.films}</div>
+						<div class="stat-value" data-stat="films">{statsData.year.films.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="films">{statsData.year.filmsLabel}</div>
 					</div>
 					<div class="stat-divider"></div>
 					<div class="stat-cell">
-						<div class="stat-value" data-stat="books">{statsData.year.books}</div>
+						<div class="stat-value" data-stat="books">{statsData.year.books.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="books">{statsData.year.booksLabel}</div>
 					</div>
 					<div class="stat-divider"></div>
 					<div class="stat-cell">
-						<div class="stat-value" data-stat="runMiles">{statsData.year.runMiles}</div>
+						<div class="stat-value" data-stat="runMiles">{statsData.year.runMiles.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="runMiles">{statsData.year.runLabel}</div>
 					</div>
 					<div class="stat-divider"></div>
 					<div class="stat-cell">
-						<div class="stat-value" data-stat="rideMiles">{statsData.year.rideMiles}</div>
+						<div class="stat-value" data-stat="rideMiles">{statsData.year.rideMiles.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="rideMiles">{statsData.year.rideLabel}</div>
 					</div>
 				</div>
@@ -836,7 +838,7 @@ const formatDate = (dateStr: string): string => {
 					keys.forEach((key, i) => {
 						const valEl = document.querySelector(`[data-stat="${key}"]`);
 						const lblEl = document.querySelector(`[data-stat-label="${key}"]`);
-						if (valEl) valEl.textContent = String(data[key]);
+						if (valEl) valEl.textContent = Number(data[key]).toLocaleString();
 						if (lblEl) lblEl.textContent = data[labelKeys[i]];
 					});
 
