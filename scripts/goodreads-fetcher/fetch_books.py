@@ -65,7 +65,7 @@ class GoodreadsDataCollector:
         description = text('description') or ''
         review_text = ''
         if 'review:' in description:
-            review_text = description.split('review:')[1].strip()
+            review_text = description.split('review:', 1)[1].strip()
 
         return {
             'book_id': book_id,
