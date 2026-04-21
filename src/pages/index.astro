@@ -509,191 +509,95 @@ const totalBooks = goodreadsData.recent_reviews.length;
 				background: #1a1a1a;
 			}
 
-			/* === FEATURED REVIEW === */
-			.review-section { margin-bottom: 72px; }
+			/* === LATEST REVIEWS === */
+			.reviews-section { margin-bottom: 56px; }
 
-			.review-header {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				margin-bottom: 24px;
-				gap: 16px;
-			}
-
-			.kind-tabs {
-				display: inline-flex;
-				align-items: center;
-				gap: 18px;
-			}
-
-			.kind-tab {
-				background: none;
-				border: none;
-				padding: 4px 0;
-				cursor: pointer;
-				font-family: inherit;
-				font-size: 11px;
-				letter-spacing: 2px;
-				text-transform: uppercase;
-				font-weight: 500;
-				color: #4a4a4a;
-				border-bottom: 1px solid transparent;
-				transition: color 0.15s, border-color 0.15s;
-			}
-
-			.kind-tab.active {
-				color: #5b8ef0;
-				border-bottom-color: #5b8ef0;
-			}
-
-			.review-grid {
+			.reviews-grid {
 				display: grid;
-				grid-template-columns: 140px 1fr;
+				grid-template-columns: 1fr 1fr;
 				gap: 32px;
-				align-items: start;
+				margin-top: 28px;
 			}
 
-			.review-cover {
-				width: 140px;
-				height: 210px;
-				border-radius: 4px;
-				object-fit: cover;
-				background: #151515;
-				border: 1px solid #1e1e1e;
-			}
-
-			.review-cover-placeholder {
-				width: 140px;
-				height: 210px;
-				border-radius: 4px;
-				background: linear-gradient(145deg, #1a2236, #0f1420);
-				border: 1px solid #1e1e1e;
+			.review-card-head {
 				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: #5b8ef0;
-				font-size: 49px;
-				font-weight: 700;
-				letter-spacing: 2px;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 12px;
+				margin-bottom: 6px;
 			}
 
-			.review-date {
-				font-size: 10px;
-				color: #3a3a3a;
-				letter-spacing: 1.5px;
-				margin-bottom: 8px;
-			}
-
-			.review-title {
-				font-size: 34px;
-				font-weight: 700;
-				color: #eae7e0;
-				line-height: 1.05;
-				letter-spacing: -0.8px;
-				margin-bottom: 8px;
-			}
-
-			.review-subtitle {
-				font-size: 13px;
-				color: #666;
-				margin-bottom: 14px;
-			}
-
-			.review-stars {
-				margin-bottom: 20px;
+			.review-card-title {
+				font-size: 18px;
+				font-weight: 600;
+				color: #e2dfd8;
+				line-height: 1.2;
 			}
 
 			.stars {
 				letter-spacing: 1.5px;
 				display: inline-flex;
 				gap: 1px;
+				font-size: 11px;
+				flex-shrink: 0;
 			}
 
 			.stars-filled { color: #d4a84b; }
 			.stars-dim { color: #2a2a2a; }
 
-			.review-quote {
-				margin: 0;
-				padding: 4px 0 4px 18px;
+			.review-card-sub {
+				font-size: 12px;
+				color: #555;
+				margin-bottom: 14px;
+				letter-spacing: 0.3px;
+			}
+
+			.review-card-text {
+				padding-left: 14px;
 				border-left: 2px solid #5b8ef0;
-				position: relative;
-			}
-
-			.review-quote-mark {
-				position: absolute;
-				left: -2px;
-				top: -14px;
-				font-size: 40px;
-				color: #5b8ef0;
-				font-family: Georgia, serif;
-				line-height: 1;
-				opacity: 0.5;
-			}
-
-			.review-quote p {
-				font-size: 17px;
-				color: #c8c5be;
-				line-height: 1.65;
-				margin: 0;
+				font-size: 14px;
+				color: #999;
+				line-height: 1.7;
 				font-style: italic;
 				font-weight: 300;
 			}
 
-			.review-quote footer {
-				font-size: 11px;
-				color: #444;
-				letter-spacing: 1.5px;
-				text-transform: uppercase;
-				margin-top: 14px;
+			.review-card-text p {
+				margin: 0 0 6px;
 			}
+
+			.review-card-text p:last-child {
+				margin-bottom: 0;
+			}
+
+			.review-card-link {
+				display: inline-block;
+				margin-top: 12px;
+				font-size: 11px;
+				color: #333;
+				text-decoration: none;
+				letter-spacing: 0.5px;
+				transition: color 0.15s;
+			}
+
+			.review-card-link:hover { color: #5b8ef0; }
 
 			/* === JOURNAL LINK === */
-			.journal-link {
-				display: block;
-				text-decoration: none;
-				background: #101010;
-				border: 1px solid #1c1c1c;
-				border-radius: 8px;
-				padding: 28px 32px;
-				transition: background 0.15s, border-color 0.15s;
+			.journal-cta {
+				margin-top: 36px;
 			}
 
-			.journal-link:hover {
-				background: #131313;
-				border-color: #2a2a2a;
-			}
-
-			.journal-link-inner {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 24px;
-			}
-
-			.journal-link-label {
-				font-size: 10px;
-				letter-spacing: 3px;
-				text-transform: uppercase;
-				color: #5b8ef0;
-				margin-bottom: 8px;
-			}
-
-			.journal-link-title {
-				font-size: 20px;
-				font-weight: 600;
-				color: #e2dfd8;
-				margin-bottom: 4px;
-			}
-
-			.journal-link-meta {
+			.journal-cta a {
 				font-size: 13px;
-				color: #666;
+				letter-spacing: 1px;
+				color: #5b8ef0;
+				text-decoration: none;
+				font-weight: 500;
+				transition: opacity 0.15s;
 			}
 
-			.journal-link-arrow {
-				font-size: 28px;
-				color: #5b8ef0;
-				font-weight: 300;
+			.journal-cta a:hover {
+				opacity: 0.75;
 			}
 
 			/* === FOOTER === */
@@ -734,25 +638,15 @@ const totalBooks = goodreadsData.recent_reviews.length;
 					height: 1px;
 				}
 
-				.review-grid {
-					grid-template-columns: 100px 1fr;
-					gap: 20px;
+				.reviews-grid {
+					grid-template-columns: 1fr;
+					gap: 28px;
 				}
-
-				.review-cover, .review-cover-placeholder {
-					width: 100px;
-					height: 150px;
-				}
-
-				.review-title { font-size: 24px; }
-
-				.review-quote p { font-size: 15px; }
 			}
 
 			@media (max-width: 480px) {
 				.hero h1 { font-size: 40px; }
 				.stats-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-				.review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 			}
 		</style>
 	</head>
@@ -768,8 +662,8 @@ const totalBooks = goodreadsData.recent_reviews.length;
 					</p>
 					<p class="hero-bio">
 						I build systems that scale and teams that ship. Previously Google, Waymo, Faire, 
-						Roblox. Unreasonably opinionated about software architecture, film, and whatever 
-						I'm currently reading. Probably also training for something.
+						Roblox. Unreasonably opinionated about techincal architecture, good movies, and 
+						whatever I'm currently reading. Probably also training for something.
 					</p>
 					<div class="hero-links">
 						<a href="https://github.com/ncteisen" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -870,77 +764,36 @@ const totalBooks = goodreadsData.recent_reviews.length;
 				</div>
 			</section>
 
-			<!-- LATEST REVIEW -->
-			<section class="review-section">
-				<div class="review-header">
-					<span class="section-label" style="margin-bottom:0">Latest Review</span>
-					<div class="kind-tabs">
-						<button class="kind-tab active" data-kind="film">Film</button>
-						<button class="kind-tab" data-kind="book">Book</button>
-					</div>
-				</div>
-
-				<!-- Film review -->
-				<div class="review-grid" data-review="film">
-					{featuredFilm?.image_url ? (
-						<img src={featuredFilm.image_url} alt={featuredFilm.title} class="review-cover" />
-					) : (
-						<div class="review-cover-placeholder">▸</div>
-					)}
+			<!-- LATEST REVIEWS -->
+			<section class="reviews-section">
+				<span class="section-label">Latest Reviews</span>
+				<div class="reviews-grid">
 					<div>
-						<div class="review-date">{featuredFilm?.watched_date}</div>
-						<div class="review-title">{featuredFilm?.title}</div>
-						<div class="review-subtitle">{featuredFilm?.year}</div>
-						<div class="review-stars">
+						<div class="review-card-head">
+							<span class="review-card-title">{featuredFilm?.title}</span>
 							<span class="stars">
 								<span class="stars-filled">{getStarRating(featuredFilm?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredFilm?.rating || 0)}</span>
 							</span>
 						</div>
-						<blockquote class="review-quote">
-							<span class="review-quote-mark">"</span>
-							<div set:html={featuredFilm?.review} />
-							<footer>— Noah's review</footer>
-						</blockquote>
+						<div class="review-card-sub">{featuredFilm?.year} · {featuredFilm?.watched_date}</div>
+						<div class="review-card-text" set:html={featuredFilm?.review} />
+						<a href={featuredFilm?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Letterboxd →</a>
 					</div>
-				</div>
-
-				<!-- Book review -->
-				<div class="review-grid hidden" data-review="book">
-					{featuredBook?.image_url ? (
-						<img src={featuredBook.image_url} alt={featuredBook.title} class="review-cover" />
-					) : (
-						<div class="review-cover-placeholder">📖</div>
-					)}
 					<div>
-						<div class="review-date">{featuredBook?.read_at}</div>
-						<div class="review-title">{featuredBook?.title}</div>
-						<div class="review-subtitle">{featuredBook?.author}</div>
-						<div class="review-stars">
+						<div class="review-card-head">
+							<span class="review-card-title">{featuredBook?.title}</span>
 							<span class="stars">
 								<span class="stars-filled">{getStarRating(featuredBook?.rating || 0)}</span><span class="stars-dim">{getEmptyStars(featuredBook?.rating || 0)}</span>
 							</span>
 						</div>
-						<blockquote class="review-quote">
-							<span class="review-quote-mark">"</span>
-							<div set:html={featuredBook?.review} />
-							<footer>— Noah's review</footer>
-						</blockquote>
+						<div class="review-card-sub">{featuredBook?.author} · {featuredBook?.read_at}</div>
+						<div class="review-card-text" set:html={featuredBook?.review} />
+						<a href={featuredBook?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Goodreads →</a>
 					</div>
 				</div>
-			</section>
-
-			<!-- JOURNAL LINK -->
-			<section>
-				<a href="/journal" class="journal-link">
-					<div class="journal-link-inner">
-						<div>
-							<div class="journal-link-label">Full Journal</div>
-							<div class="journal-link-title">Read every film & book review</div>
-							<div class="journal-link-meta">{totalMovies} films · {totalBooks} books · sorted by date</div>
-						</div>
-						<div class="journal-link-arrow">→</div>
-					</div>
-				</a>
+				<div class="journal-cta">
+					<a href="/journal">All reviews →</a>
+				</div>
 			</section>
 
 			<hr class="rule" />
@@ -982,26 +835,6 @@ const totalBooks = goodreadsData.recent_reviews.length;
 				periodBtns.forEach(btn => {
 					btn.addEventListener('click', () => {
 						updateStats((btn as HTMLElement).dataset.period || 'year');
-					});
-				});
-
-				// Kind tabs (Film / Book)
-				const kindTabs = document.querySelectorAll('.kind-tab');
-				const filmReview = document.querySelector('[data-review="film"]');
-				const bookReview = document.querySelector('[data-review="book"]');
-
-				kindTabs.forEach(tab => {
-					tab.addEventListener('click', () => {
-						const kind = (tab as HTMLElement).dataset.kind;
-						kindTabs.forEach(t => t.classList.toggle('active', t === tab));
-
-						if (kind === 'film') {
-							filmReview?.classList.remove('hidden');
-							bookReview?.classList.add('hidden');
-						} else {
-							filmReview?.classList.add('hidden');
-							bookReview?.classList.remove('hidden');
-						}
 					});
 				});
 

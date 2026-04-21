@@ -167,6 +167,21 @@ const formatDate = (dateStr: string): string => {
 				max-width: 520px;
 			}
 
+			.journal-sources {
+				font-size: 12px;
+				color: #444;
+				margin: 10px 0 0;
+				letter-spacing: 0.3px;
+			}
+
+			.journal-sources a {
+				color: #5b8ef0;
+				text-decoration: none;
+				transition: opacity 0.15s;
+			}
+
+			.journal-sources a:hover { opacity: 0.8; }
+
 			/* === FILTERS === */
 			.filters {
 				display: flex;
@@ -321,21 +336,35 @@ const formatDate = (dateStr: string): string => {
 				margin-bottom: 0;
 			}
 
+			.entry-link {
+				display: inline-block;
+				margin-top: 10px;
+				font-size: 11px;
+				color: #333;
+				text-decoration: none;
+				letter-spacing: 0.5px;
+				transition: color 0.15s;
+			}
+
+			.entry-link:hover { color: #5b8ef0; }
+
 			/* === END === */
 			.journal-end {
 				border-top: 1px solid #181818;
-				padding-top: 32px;
-				text-align: center;
-				font-size: 12px;
+				padding-top: 24px;
+				font-size: 11px;
 				color: #333;
+				letter-spacing: 2px;
+				text-transform: uppercase;
 			}
 
 			.journal-end a {
-				color: #5b8ef0;
+				color: #555;
 				text-decoration: none;
+				transition: color 0.15s;
 			}
 
-			.journal-end a:hover { opacity: 0.8; }
+			.journal-end a:hover { color: #5b8ef0; }
 
 			/* === HIDDEN === */
 			.hidden { display: none !important; }
@@ -367,6 +396,7 @@ const formatDate = (dateStr: string): string => {
 				<a href="/" class="back-link">← Back to Noah Eisen</a>
 				<h1 class="journal-title">Journal</h1>
 				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go.</p>
+				<p class="journal-sources">Sourced from my <a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> and my <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>.</p>
 			</div>
 
 			<!-- FILTERS -->
@@ -410,11 +440,14 @@ const formatDate = (dateStr: string): string => {
 							{entry.review && (
 								<div class="entry-review" set:html={entry.review} />
 							)}
+							<a href={entry.link} target="_blank" rel="noopener noreferrer" class="entry-link">
+								{entry.kind === 'film' ? 'Letterboxd' : 'Goodreads'} →
+							</a>
 						</div>
 					</article>
 				))}
 				<div class="journal-end">
-					End of journal. <a href="https://letterboxd.com/ncteisen/">More on Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen">Goodreads</a>
+					<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>
 				</div>
 			</div>
 		</main>
