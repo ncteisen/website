@@ -575,6 +575,14 @@ const formatDate = (dateStr: string): string => {
 				margin-bottom: 0;
 			}
 
+			.review-card-text :global(a) {
+				color: #5b8ef0;
+				text-decoration: none;
+				transition: opacity 0.15s;
+			}
+
+			.review-card-text :global(a:hover) { opacity: 0.8; }
+
 			.review-card-link {
 				display: inline-block;
 				margin-top: 12px;
