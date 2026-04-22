@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from __future__ import annotations
+
 import os
 import json
 import time
@@ -29,7 +31,7 @@ class GoodreadsDataCollector:
         self.existing_books = []
         self.fetched_books = []
 
-    def load_existing_books(self):
+    def load_existing_books(self) -> None:
         if os.path.exists(DATA_FILE):
             with open(DATA_FILE, 'r') as f:
                 self.existing_books = json.load(f)
@@ -85,7 +87,7 @@ class GoodreadsDataCollector:
             'guid': text('guid'),
         }
 
-    def fetch_books(self):
+    def fetch_books(self) -> None:
         is_backfill = len(self.existing_books) == 0
         if is_backfill:
             logger.info("Backfill mode: fetching ALL pages")
@@ -120,7 +122,7 @@ class GoodreadsDataCollector:
 
         logger.info(f"Total fetched: {len(self.fetched_books)} books")
 
-    def update_and_save_books(self):
+    def update_and_save_books(self) -> None:
         existing_dict = {b['book_id']: b for b in self.existing_books}
         new_count = 0
         updated_count = 0
@@ -135,7 +137,7 @@ class GoodreadsDataCollector:
 
         all_books = list(existing_dict.values())
         # Sort by read date descending
-        def parse_read_at(date_str):
+        def parse_read_at(date_str: str) -> datetime:
             try:
                 return parsedate_to_datetime(date_str)
             except Exception:
@@ -150,7 +152,7 @@ class GoodreadsDataCollector:
         logger.info(f"Saved {len(all_books)} books ({new_count} new, {updated_count} updated)")
 
 
-def main():
+def main() -> None:
     collector = GoodreadsDataCollector()
     collector.load_existing_books()
     collector.fetch_books()

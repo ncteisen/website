@@ -5,10 +5,7 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 		recent_reviews: MovieReview[],
 		stats?: {
 			total_films: number,
-			films_this_year: number,
-			total_lists: number,
-			following_count: number,
-			followers_count: number
+			films_this_year: number
 		}
 	},
 	goodreads: {
@@ -17,8 +14,7 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 			total_ratings: number,
 			average_rating: number,
 			total_reviews: number,
-			books_this_year?: number,
-			pages_this_year?: number
+			books_this_year?: number
 		}
 	},
 	strava: {

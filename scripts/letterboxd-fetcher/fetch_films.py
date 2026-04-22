@@ -30,7 +30,7 @@ class LetterboxdDataCollector:
         self.existing_films = []
         self.fetched_films = []
 
-    def load_existing_films(self):
+    def load_existing_films(self) -> None:
         if os.path.exists(DATA_FILE):
             with open(DATA_FILE, 'r') as f:
                 self.existing_films = json.load(f)
@@ -90,7 +90,7 @@ class LetterboxdDataCollector:
             logger.error(f"Failed to parse RSS item: {e}")
             return None
 
-    def fetch_films(self):
+    def fetch_films(self) -> None:
         logger.info(f"Fetching RSS from {RSS_URL}")
         response = requests.get(RSS_URL, timeout=30)
         response.raise_for_status()
@@ -105,7 +105,7 @@ class LetterboxdDataCollector:
 
         logger.info(f"Fetched {len(self.fetched_films)} films from RSS")
 
-    def update_and_save_films(self):
+    def update_and_save_films(self) -> None:
         existing_dict = {f['guid']: f for f in self.existing_films}
         new_count = 0
         updated_count = 0
@@ -128,7 +128,7 @@ class LetterboxdDataCollector:
         logger.info(f"Saved {len(all_films)} films ({new_count} new, {updated_count} updated)")
 
 
-def main():
+def main() -> None:
     collector = LetterboxdDataCollector()
     collector.load_existing_films()
     collector.fetch_films()

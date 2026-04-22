@@ -19,7 +19,10 @@ A modern personal website built with Astro featuring integrated social media dat
 │   ├── pages/           # Astro pages (index.astro is the entire site)
 │   └── games/           # Game projects
 ├── scripts/
-│   ├── social-scraper/          # Python scrapers for social media data
+│   ├── social-data/             # Orchestrator + processors/scrapers for social data pipeline
+│   ├── strava-fetcher/          # Strava API fetcher
+│   ├── goodreads-fetcher/       # Goodreads RSS fetcher
+│   ├── letterboxd-fetcher/      # Letterboxd RSS fetcher
 │   └── resume-generator/        # Scripts to generate resume.tex and compile PDF
 ├── resume/                      # Resume source of truth
 │   ├── resume_data.json         # Edit this to update resume content
@@ -35,7 +38,7 @@ A modern personal website built with Astro featuring integrated social media dat
 ### Prerequisites
 
 - Node.js (for Astro)
-- Python 3.x (for social media scrapers and resume generator)
+- Python 3.12+ (for social data pipeline and resume generator)
 - MacTeX (for compiling the resume PDF locally — download from https://www.tug.org/mactex/)
 
 ### Installation
@@ -45,8 +48,10 @@ A modern personal website built with Astro featuring integrated social media dat
 npm install
 ```
 
-2. Install Python dependencies:
+2. Set up Python environment:
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -74,10 +79,13 @@ npm run build
 
 ### Update Social Media Data
 ```bash
-python scripts/social-scraper/fetch_social_data.py
+# Fetch fresh data from external sources
+python scripts/strava-fetcher/fetch_activities.py
+python scripts/goodreads-fetcher/fetch_books.py
+python scripts/letterboxd-fetcher/fetch_films.py
 
-# Use cached HTML to avoid network calls (useful for dev):
-python scripts/social-scraper/fetch_social_data.py --cache
+# Run the orchestrator to combine everything
+python scripts/social-data/orchestrate.py
 ```
 
 Data is written to `src/data/social_data.json` and picked up automatically on the next build.
@@ -106,13 +114,14 @@ This will:
 
 If local compilation isn't working, [Overleaf](https://www.overleaf.com) is a good fallback. Upload the contents of the `resume/` directory and compile there, then download the PDF and place it at `public/resume.pdf`.
 
-## Social Media Scrapers
+## Social Data Pipeline
 
-The Python scrapers fetch data from:
+A two-stage pipeline collects data from external sources and combines it for the site:
 
-- **Strava**: Recent runs, bike rides, hikes, and comprehensive fitness statistics via the Strava API
-- **Letterboxd**: Recent movie reviews and user statistics via HTML scraping
-- **Goodreads**: Recent book reviews via RSS feed
+1. **Fetchers** pull raw data into local JSON: Strava API, Goodreads RSS, Letterboxd RSS
+2. **Orchestrator** reads those JSON files, computes stats, and produces `src/data/social_data.json`
+
+See [`scripts/social-data/README.md`](scripts/social-data/README.md) for the full pipeline diagram and details.
 
 Data is stored in `src/data/social_data.json`. This file is auto-generated — do not edit it manually.
 

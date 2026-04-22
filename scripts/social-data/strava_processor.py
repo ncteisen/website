@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import os
 import json
 import logging
 from datetime import datetime, timedelta, timezone
-from typing import Dict, List, Optional, TypedDict
+from typing import TypedDict
 
 logger = logging.getLogger(__name__)
 
@@ -25,35 +27,35 @@ class StravaActivity(TypedDict):
     start_date: str
     average_speed: float  # in meters per second
     max_speed: float  # in meters per second
-    average_heartrate: Optional[float]
-    max_heartrate: Optional[float]
-    average_cadence: Optional[float]
-    average_watts: Optional[float]
-    description: Optional[str]
+    average_heartrate: float | None
+    max_heartrate: float | None
+    average_cadence: float | None
+    average_watts: float | None
+    description: str | None
     commute: bool
     private: bool
     visibility: str
-    gear_id: Optional[str]
-    external_id: Optional[str]
-    upload_id: Optional[int]
-    start_latlng: Optional[List[float]]
-    end_latlng: Optional[List[float]]
-    map: Dict[str, str]
+    gear_id: str | None
+    external_id: str | None
+    upload_id: int | None
+    start_latlng: list[float] | None
+    end_latlng: list[float] | None
+    map: dict[str, str]
 
-class StravaScraper:
+class StravaProcessor:
     def __init__(self):
-        # Get the absolute path to the strava-activity-fetcher data
+        # Get the absolute path to the strava-fetcher data
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.activities_file = os.path.join(
-            self.script_dir, 
-            '..', 
-            'strava-activity-fetcher', 
-            'data', 
+            self.script_dir,
+            '..',
+            'strava-fetcher',
+            'data',
             'activities.json'
         )
         self.activities_data = None
 
-    def load_activities_data(self) -> List[StravaActivity]:
+    def load_activities_data(self) -> list[StravaActivity]:
         """Load activities from the cached JSON file."""
         if self.activities_data is not None:
             return self.activities_data
@@ -65,12 +67,12 @@ class StravaScraper:
         except FileNotFoundError:
             raise FileNotFoundError(
                 f"Activities file not found at {self.activities_file}. "
-                "Please run the strava-activity-fetcher first."
+                "Please run the strava-fetcher first."
             )
         except json.JSONDecodeError:
             raise ValueError(f"Invalid JSON in activities file: {self.activities_file}")
 
-    def filter_activities_by_date_range(self, activities: List[StravaActivity], days_back: int) -> List[StravaActivity]:
+    def filter_activities_by_date_range(self, activities: list[StravaActivity], days_back: int) -> list[StravaActivity]:
         """Filter activities to only include those within the specified number of days."""
         cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
         filtered_activities = []
@@ -82,7 +84,7 @@ class StravaScraper:
                 
         return filtered_activities
 
-    def calculate_activity_totals(self, activities: List[StravaActivity]) -> Dict:
+    def calculate_activity_totals(self, activities: list[StravaActivity]) -> dict:
         """Calculate totals for a list of activities."""
         if not activities:
             return {
@@ -106,7 +108,7 @@ class StravaScraper:
             'elevation_gain': round(total_elevation * METERS_TO_FEET, 0)
         }
 
-    def get_activities_by_type(self, activity_type: str, exclude_commutes: bool = True) -> List[StravaActivity]:
+    def get_activities_by_type(self, activity_type: str, exclude_commutes: bool = True) -> list[StravaActivity]:
         """Get all activities of a specific type."""
         activities = self.load_activities_data()
         filtered = [
@@ -119,7 +121,7 @@ class StravaScraper:
             
         return filtered
 
-    def format_activity(self, activity: StravaActivity) -> Dict:
+    def format_activity(self, activity: StravaActivity) -> dict:
         """Format an activity into a consistent structure."""
         # Convert meters to miles
         distance_miles = activity.get('distance', 0) * METERS_TO_MILES
@@ -147,7 +149,7 @@ class StravaScraper:
             'map': activity.get('map', {})
         }
 
-    def calculate_record_stats(self, activities: List[StravaActivity]) -> Dict:
+    def calculate_record_stats(self, activities: list[StravaActivity]) -> dict:
         """Calculate record statistics from all activities."""
         if not activities:
             return {
@@ -167,7 +169,7 @@ class StravaScraper:
             'biggest_climb_elevation_gain': round(biggest_climb.get('total_elevation_gain', 0) * METERS_TO_FEET, 0)
         }
 
-    def get_recent_activities_data(self) -> Dict:
+    def get_recent_activities_data(self) -> dict:
         """Get recent activities and stats, formatted into a consistent structure."""
         activities = self.load_activities_data()
         
@@ -231,11 +233,11 @@ class StravaScraper:
             }
         }
 
-def main():
+def main() -> None:
     """Test entry point: loads activities and logs a summary of stats."""
     try:
-        scraper = StravaScraper()
-        data = scraper.get_recent_activities_data()
+        processor = StravaProcessor()
+        data = processor.get_recent_activities_data()
 
         logger.info("=== Strava Comprehensive Stats ===")
 

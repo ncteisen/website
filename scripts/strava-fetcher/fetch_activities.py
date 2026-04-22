@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import json
 import requests
@@ -35,8 +37,8 @@ class StravaDataCollector:
             logger.error("Missing required environment variables. Please check your .env file.")
             raise ValueError("Missing required environment variables")
 
-    def get_access_token(self):
-        """Get a new access token using the refresh token"""
+    def get_access_token(self) -> bool:
+        """Get a new access token using the refresh token."""
         logger.info("Attempting to get new access token...")
         response = requests.post(
             'https://www.strava.com/oauth/token',
@@ -55,8 +57,8 @@ class StravaDataCollector:
         logger.error(f"Failed to get access token. Status code: {response.status_code}")
         return False
 
-    def load_existing_activities(self, filename=None):
-        """Load existing activities from file if it exists"""
+    def load_existing_activities(self, filename: str | None = None) -> None:
+        """Load existing activities from file if it exists."""
         if filename is None:
             filename = os.path.join(SCRIPT_DIR, 'data', 'activities.json')
         
@@ -72,7 +74,7 @@ class StravaDataCollector:
             logger.error(f"Error loading existing activities: {str(e)}")
             self.existing_activities = []
 
-    def fetch_activities(self, per_page=100, max_pages=10, fetch_all=False):
+    def fetch_activities(self, per_page: int = 100, max_pages: int = 10, fetch_all: bool = False) -> None:
         """Fetch activities from Strava API
         
         Args:
@@ -133,8 +135,8 @@ class StravaDataCollector:
 
         logger.info(f"Completed fetching activities. Total activities collected: {total_activities}")
 
-    def update_and_save_activities(self, filename=None):
-        """Update existing activities and append new ones, then save to file"""
+    def update_and_save_activities(self, filename: str | None = None) -> None:
+        """Update existing activities and append new ones, then save to file."""
         if filename is None:
             filename = os.path.join(SCRIPT_DIR, 'data', 'activities.json')
             
@@ -170,7 +172,7 @@ class StravaDataCollector:
             logger.error(f"Error saving activities to file: {str(e)}")
             raise
 
-def main():
+def main() -> None:
     try:
         logger.info("Starting Strava data collection process")
         collector = StravaDataCollector()

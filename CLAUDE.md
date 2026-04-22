@@ -11,29 +11,54 @@ npm run build     # Build for production
 npm run preview   # Preview production build
 ```
 
-### Python Scrapers
+### Python Scripts
+
+Python 3.12+ required. Always use a virtual environment:
+
 ```bash
-# From repo root:
-python scripts/social-scraper/fetch_social_data.py           # Fetch live data from all sources
-python scripts/social-scraper/fetch_social_data.py --cache   # Use cached HTML (avoids network calls)
-python scripts/strava-activity-fetcher/fetch_activities.py   # Fetch Strava activity routes separately
+# First-time setup
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Activate on subsequent sessions
+source .venv/bin/activate
+```
+
+All scripts run from the **repo root**:
+
+```bash
+# Stage 1 — Fetchers (pull data from external sources into local JSON)
+python scripts/strava-fetcher/fetch_activities.py       # Strava API (requires .env)
+python scripts/goodreads-fetcher/fetch_books.py         # Goodreads RSS
+python scripts/letterboxd-fetcher/fetch_films.py        # Letterboxd RSS
+
+# Stage 2 — Orchestrator (combines local JSON → social_data.json)
+python scripts/social-data/orchestrate.py
 
 # Tests (pytest):
 pytest scripts/
 ```
 
+### Terminology
+- **Fetcher**: pulls data from an external API or RSS feed into local JSON
+- **Processor**: reads local JSON and computes/formats data (no network calls)
+- **Orchestrator**: `orchestrate.py` — calls processors, writes final output
+
 ## Architecture
 
 This is a **static personal website** deployed to GitHub Pages. Data flows in two phases:
 
-1. **Data fetch phase**: Python scrapers pull from Strava API + Letterboxd/Goodreads HTML scraping → writes `src/data/social_data.json` and `scripts/strava-activity-fetcher/data/activities.json`
-2. **Build phase**: Astro reads those JSON files at build time and generates static HTML
+1. **Data fetch phase**: Python fetchers pull from Strava API + Letterboxd/Goodreads RSS feeds → writes local JSON files. The orchestrator then reads those JSON files, computes stats, and produces `src/data/social_data.json`
+2. **Build phase**: Astro reads `social_data.json` at build time and generates static HTML
 
 ### Key files
 - `src/pages/index.astro` — the entire website is a single-page app; this file imports social data and renders all sections (Strava, Letterboxd, Goodreads)
 - `src/data/social_data.json` — auto-generated; source of truth for all social data displayed on site
-- `scripts/social-scraper/` — Python scrapers: `strava_scraper.py`, `letterboxd_scraper.py`, `goodreads_scraper.py`, orchestrated by `fetch_social_data.py`
-- `scripts/social-scraper/cached_data/` — HTML snapshots for offline/dev use with `--cache` flag
+- `scripts/social-data/` — orchestrator (`orchestrate.py`) and processors (`strava_processor.py`, `letterboxd_processor.py`, `goodreads_processor.py`)
+- `scripts/strava-fetcher/` — Strava API fetcher
+- `scripts/goodreads-fetcher/` — Goodreads RSS fetcher
+- `scripts/letterboxd-fetcher/` — Letterboxd RSS fetcher
 - `src/games/sarah-jumps/` — TypeScript canvas game with `GameEngine`, `Player`, `Platform`, `PlatformManager`, `InputHandler`, `ScoreDisplay`
 
 ### CI/CD (GitHub Actions)
@@ -52,3 +77,4 @@ STRAVA_REFRESH_TOKEN=...
 - HTML/CSS: use early returns, descriptive names, `handle` prefix for event handlers, accessibility attributes (`tabindex`, `aria-label`)
 - Use `const` arrow functions over `function` declarations
 - Astro pages use TypeScript in the frontmatter (`---` blocks) for data fetching and type definitions
+- Python: use modern type annotations (built-in generics, `X | None` instead of `Optional[X]`)

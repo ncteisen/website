@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T22:56:49.977153",
+  "last_updated": "2026-04-22T04:07:32.329851",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -3647,11 +3647,8 @@
       }
     ],
     "stats": {
-      "total_films": 791,
-      "films_this_year": 23,
-      "total_lists": 7,
-      "following_count": 38,
-      "followers_count": 32
+      "total_films": 356,
+      "films_this_year": 20
     }
   },
   "goodreads": {
@@ -5263,10 +5260,9 @@
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 276,
-      "average_rating": 4.18,
-      "total_reviews": 111,
-      "pages_this_year": 1568,
+      "total_ratings": 284,
+      "average_rating": 4.17,
+      "total_reviews": 286,
       "books_this_year": 6
     }
   },
