@@ -16,6 +16,9 @@ MPS_TO_MPH = 2.23694
 # Number of recent activities to return per sport type
 RECENT_ACTIVITY_LIMIT = 8
 
+# Maximum number of activities to include in the all-activities log
+ALL_ACTIVITIES_LIMIT = 100
+
 class StravaActivity(TypedDict):
     id: int
     name: str
@@ -204,7 +207,15 @@ class StravaProcessor:
         # Calculate record stats
         records = self.calculate_record_stats(activities)
         
+        # Build combined activity log (runs + rides + hikes, capped)
+        all_log_activities = sorted(
+            all_runs + all_bikes + all_hikes,
+            key=lambda x: x['start_date'],
+            reverse=True,
+        )[:ALL_ACTIVITIES_LIMIT]
+
         return {
+            'all_activities': [self.format_activity(a) for a in all_log_activities],
             'recent_runs': [self.format_activity(run) for run in runs],
             'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
             'recent_hikes': [self.format_activity(hike) for hike in hikes],
