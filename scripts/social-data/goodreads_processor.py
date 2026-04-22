@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 from datetime import date, datetime
 from email.utils import parsedate_to_datetime
 
@@ -28,6 +29,13 @@ def load_books_data() -> list[dict]:
     return books
 
 
+def clean_review_html(text: str) -> str:
+    """Strip leading/trailing <br/> tags from review HTML."""
+    text = re.sub(r'^(<br\s*/?>)+', '', text)
+    text = re.sub(r'(<br\s*/?>)+$', '', text)
+    return text.strip()
+
+
 def convert_book_to_review(book: dict) -> dict:
     """Convert a raw book record to the review format used by the site."""
     return {
@@ -37,7 +45,7 @@ def convert_book_to_review(book: dict) -> dict:
         'read_at': book.get('user_read_at'),
         'image_url': book.get('book_image_url', ''),
         'link': book.get('guid', ''),
-        'review': book.get('user_review', ''),
+        'review': clean_review_html(book.get('user_review', '')),
     }
 
 

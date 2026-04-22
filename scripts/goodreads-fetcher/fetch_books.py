@@ -68,6 +68,9 @@ class GoodreadsDataCollector:
         review_text = ''
         if 'review:' in description:
             review_text = description.split('review:', 1)[1].strip()
+            # Strip leading/trailing <br/> tags left over from the RSS format
+            review_text = re.sub(r'^(<br\s*/?>)+', '', review_text)
+            review_text = re.sub(r'(<br\s*/?>)+$', '', review_text).strip()
 
         return {
             'book_id': book_id,
