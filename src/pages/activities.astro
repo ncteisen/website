@@ -5,6 +5,8 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 		all_activities: StravaActivity[],
 		longest_run: StravaActivity | null,
 		longest_ride: StravaActivity | null,
+		most_vert_run: StravaActivity | null,
+		most_vert_ride: StravaActivity | null,
 	},
 };
 
@@ -24,8 +26,8 @@ interface StravaActivity {
 const allActivities = socialData.strava.all_activities || [];
 const longestRun = socialData.strava.longest_run;
 const longestRide = socialData.strava.longest_ride;
-const longestRunId = longestRun?.id;
-const longestRideId = longestRide?.id;
+const mostVertRun = socialData.strava.most_vert_run;
+const mostVertRide = socialData.strava.most_vert_ride;
 
 const INITIAL_SHOW = 20;
 const LOAD_MORE_COUNT = 20;
@@ -209,13 +211,41 @@ const filterKey = (type: string): string => {
 				border-bottom: 1px solid #1a1a1a;
 			}
 
+			.records-toggle {
+				background: none;
+				border: none;
+				padding: 0;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 0;
+				font-family: inherit;
+				transition: opacity 0.15s;
+			}
+
+			.records-toggle:hover { opacity: 0.8; }
+
+			.records-section.expanded .records-toggle {
+				margin-bottom: 20px;
+			}
+
 			.records-label {
 				font-size: 10px;
 				letter-spacing: 4px;
 				text-transform: uppercase;
 				color: #444;
-				margin-bottom: 20px;
-				display: block;
+			}
+
+			.records-arrow {
+				color: #444;
+				font-size: 16px;
+				transition: transform 0.2s;
+				display: inline-block;
+			}
+
+			.records-section.expanded .records-arrow {
+				transform: rotate(90deg);
 			}
 
 			.records-grid {
@@ -480,9 +510,12 @@ const filterKey = (type: string): string => {
 
 			<!-- PERSONAL RECORDS -->
 			{(longestRun || longestRide) && (
-				<div class="records-section">
-					<span class="records-label">Personal Records</span>
-					<div class="records-grid">
+				<div class="records-section expanded">
+					<button class="records-toggle" id="records-toggle">
+						<span class="records-label">Personal Records</span>
+						<span class="records-arrow">›</span>
+					</button>
+					<div class="records-grid" id="records-grid">
 						{longestRun && (
 							<div class="record-card">
 								<div class="record-card-header">
@@ -537,12 +570,66 @@ const filterKey = (type: string): string => {
 								</div>
 							</div>
 						)}
+						{mostVertRun && (
+							<div class="record-card">
+								<div class="record-card-header">
+									<span class="record-card-badge">Most Elevation Gain (Run)</span>
+								</div>
+								<div class="record-card-map" id="record-vert-run-map" data-polyline={mostVertRun.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{mostVertRun.name}</div>
+									<div class="record-card-date">{formatDate(mostVertRun.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{mostVertRun.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{mostVertRun.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(mostVertRun.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${mostVertRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
+								</div>
+							</div>
+						)}
+						{mostVertRide && (
+							<div class="record-card">
+								<div class="record-card-header">
+									<span class="record-card-badge">Most Elevation Gain (Bike)</span>
+								</div>
+								<div class="record-card-map" id="record-vert-ride-map" data-polyline={mostVertRide.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{mostVertRide.name}</div>
+									<div class="record-card-date">{formatDate(mostVertRide.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{mostVertRide.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{mostVertRide.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(mostVertRide.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${mostVertRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
+								</div>
+							</div>
+						)}
 					</div>
 				</div>
 			)}
 
 			<!-- RECENT ACTIVITIES -->
-			<h2 class="section-title">Recent Activities</h2>
+			<h2 class="section-title">Last 100 Activities</h2>
 			<div class="filters">
 				<button class="filter-btn active" data-filter="all">
 					All <span class="count">{allActivities.length}</span>
@@ -681,6 +768,17 @@ const filterKey = (type: string): string => {
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
+				// Records toggle
+				const recordsToggle = document.getElementById('records-toggle');
+				const recordsSection = recordsToggle?.closest('.records-section');
+				const recordsGrid = document.getElementById('records-grid');
+				if (recordsToggle && recordsSection && recordsGrid) {
+					recordsToggle.addEventListener('click', () => {
+						const isExpanded = recordsSection.classList.toggle('expanded');
+						recordsGrid.classList.toggle('hidden', !isExpanded);
+					});
+				}
+
 				const LOAD_MORE_COUNT = 20;
 				const filterBtns = document.querySelectorAll('.filter-btn');
 				const entries = document.querySelectorAll('.entry');
