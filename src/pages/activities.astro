@@ -3,6 +3,8 @@ const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	strava: {
 		all_activities: StravaActivity[],
+		longest_run: StravaActivity | null,
+		longest_ride: StravaActivity | null,
 	},
 };
 
@@ -20,6 +22,10 @@ interface StravaActivity {
 }
 
 const allActivities = socialData.strava.all_activities || [];
+const longestRun = socialData.strava.longest_run;
+const longestRide = socialData.strava.longest_ride;
+const longestRunId = longestRun?.id;
+const longestRideId = longestRide?.id;
 
 const INITIAL_SHOW = 20;
 const LOAD_MORE_COUNT = 20;
@@ -150,9 +156,7 @@ const filterKey = (type: string): string => {
 			.filters {
 				display: flex;
 				gap: 10px;
-				margin: 44px 0 36px;
-				border-bottom: 1px solid #1a1a1a;
-				padding-bottom: 24px;
+				margin: 14px 0 24px;
 			}
 
 			.filter-btn {
@@ -185,6 +189,80 @@ const filterKey = (type: string): string => {
 
 			.filter-btn.active .count {
 				color: #5b8ef0;
+			}
+
+			/* === PERSONAL RECORDS === */
+			.records-section {
+				margin-top: 44px;
+				padding-top: 36px;
+				border-top: 1px solid #1a1a1a;
+				margin-bottom: 36px;
+				padding-bottom: 36px;
+				border-bottom: 1px solid #1a1a1a;
+			}
+
+			.records-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				margin-bottom: 20px;
+				display: block;
+			}
+
+			.records-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 24px;
+			}
+
+			.record-card {
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				overflow: hidden;
+			}
+
+			.record-card-header {
+				padding: 12px 16px 0;
+			}
+
+			.record-card-badge {
+				font-size: 10px;
+				letter-spacing: 2px;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #d4a84b;
+			}
+
+			.record-card-map {
+				width: 100%;
+				height: 200px;
+				background: #0d0d0d;
+			}
+
+			.record-card-map .leaflet-control-zoom,
+			.record-card-map .leaflet-control-attribution {
+				display: none !important;
+			}
+
+			.record-card-body {
+				padding: 16px;
+			}
+
+			.record-card-title {
+				font-size: 17px;
+				font-weight: 600;
+				color: #e2dfd8;
+				line-height: 1.3;
+				margin-bottom: 4px;
+			}
+
+			.record-card-date {
+				font-size: 11px;
+				color: #444;
+				letter-spacing: 1px;
+				margin-bottom: 12px;
 			}
 
 			/* === ENTRIES === */
@@ -360,6 +438,10 @@ const filterKey = (type: string): string => {
 
 				.entry-title { font-size: 16px; }
 				.entry-stats { gap: 16px; }
+
+				.records-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 
 			@media (max-width: 480px) {
@@ -382,11 +464,75 @@ const filterKey = (type: string): string => {
 			<div>
 				<a href="/" class="back-link">← Back to Noah Eisen</a>
 				<h1 class="page-title">Activity Log</h1>
-				<p class="page-desc">My 100 most recent runs, rides, and hikes. Updated daily.</p>
+				<p class="page-desc">Personal records and recent runs, rides, and hikes. Updated daily.</p>
 				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>.</p>
 			</div>
 
-			<!-- FILTERS -->
+			<!-- PERSONAL RECORDS -->
+			{(longestRun || longestRide) && (
+				<div class="records-section">
+					<span class="records-label">Personal Records</span>
+					<div class="records-grid">
+						{longestRun && (
+							<div class="record-card">
+								<div class="record-card-header">
+									<span class="record-card-badge">Longest Run</span>
+								</div>
+								<div class="record-card-map" id="record-run-map" data-polyline={longestRun.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{longestRun.name}</div>
+									<div class="record-card-date">{formatDate(longestRun.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{longestRun.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{longestRun.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(longestRun.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${longestRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
+								</div>
+							</div>
+						)}
+						{longestRide && (
+							<div class="record-card">
+								<div class="record-card-header">
+									<span class="record-card-badge">Longest Ride</span>
+								</div>
+								<div class="record-card-map" id="record-ride-map" data-polyline={longestRide.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{longestRide.name}</div>
+									<div class="record-card-date">{formatDate(longestRide.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{longestRide.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{longestRide.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(longestRide.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${longestRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+			)}
+
+			<!-- RECENT ACTIVITIES -->
+			<span class="records-label">Recent Activities</span>
 			<div class="filters">
 				<button class="filter-btn active" data-filter="all">
 					All <span class="count">{allActivities.length}</span>
@@ -484,7 +630,7 @@ const filterKey = (type: string): string => {
 			};
 
 			const initMaps = () => {
-				const mapContainers = document.querySelectorAll('.entry-map');
+				const mapContainers = document.querySelectorAll('.entry-map, .record-card-map');
 				mapContainers.forEach(container => {
 					const el = container as HTMLElement;
 					// Skip if already initialized

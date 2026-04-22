@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22T22:42:53.869187",
+  "last_updated": "2026-04-22T22:48:32.604254",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -7469,6 +7469,50 @@
         }
       }
     ],
+    "longest_run": {
+      "id": 5717886802,
+      "name": "SF Crosstown Trail!!!",
+      "type": "Run",
+      "distance": 15.42,
+      "moving_time": 9292,
+      "elapsed_time": 11333,
+      "elevation_gain": 1991.0,
+      "average_pace": 10.04,
+      "average_heartrate": 139.4,
+      "max_heartrate": 173.0,
+      "average_cadence": 87.9,
+      "average_watts": null,
+      "start_date": "2021-07-31T16:38:05Z",
+      "description": null,
+      "commute": false,
+      "map": {
+        "id": "a5717886802",
+        "summary_polyline": "a_deF|g|iVDnCe@dAl@lAEpAh@dDGpLIhA{@xBSrFm@nB_@vLiArCsE`GHbDbCdFTlAc@tAC|GwAnA_ABO`@CfGe@`C@nBHlBr@fBXhGoG|a@bAxEn@`AzAz@gD|IeAnFsIcCWa@m@bAoAAkAj@sBq@eBbD@e@]A?Y]v@OGAVE_@WMsA~EwB[a@jAKfBd@hBdA~@Jr@aCzBKfAkAnBYjCgBl@Yf@GnAuB\\cAz@QhD{@nB@~@uAbB`@bDsEbCa@dBe@lHYJcFeAo@_Ao@wB{]tKcMa@Yf@MzD}DlAoEjDeBp@z@vAVfCN|IYbGUA?h@Z`Kl@bNdAfFW|Ak@`@Kd@m@lFM`@i@R_@bCEhEm@tBuA|IwBrCm@nCyBl@}@WwBbCeErAoFt@mFxA}EzDw@~@Qt@b@hAKz@gFtIJa@aDlCo@fAiFjBiAlAF|@]MAh@m@o@s@P}@~@E`@fAzGVxE_@uAi@Qi@iAUHOpD_DlDeCnH@rC_AxA@lAg@D}@xB@YWFEt@WiCId@{Ak@_Cn@J\\k@tB@lGs@rCFlBZLCc@\\d@{AtCNdBx@TxAoAb@_Aj@L\\}@_AJDQvCuBjEl@J^g@^Zd@NpAb@V?r@jAbA`@jAdD`EVnAr@x@iBzBI|Cx@`CsAvBJ|CeCh@t@|FDjFuBl@uEZU~JuDvAaDAcG{AmD~AoCh@uBWwCPyGOCpAx@PZ`Ar@\\aCjCHdDsBMcDn@wGR_@Ce@_AuDt@}Rh@B|BWbBZ|By@x@D~C_@ZwE\\oFHScA{BQwC`@]_B]MuCxBaCYk@w@AaBf@wDKaB[EoAlBq@lEeBp@]pAJ[SyD~CwF^sAk@kPy@gBsEOoCpBwBn@kCU}\\r@wa@dBsJFaCZG`DcCLsA`AOnA|@|BAz@wB~BoCfAW|@HIPf@f@zD@lB_@~CvBhAPS@oAt@JN`@{@bEXbC?hDKnAk@~AYLoAo@i@Na@t@t@hAKlAoCvBkAfEyA|@?^j@?Db@tAbAhAaAh@@HvFjAjPvC~@pD^|AlBd@tBOdD_BnC~@rHg@tBX`HQzEQv@gEzGKt@RtBrAdBOtAbAt@gAbBGzAvAjGz@hIbDp@fBQhCvC\\nD_@hD~@xDhAhDxAbDHtC\\vAdBlApB{@|ACm@fBbA^`B}AtAn@`F}@",
+        "resource_state": 2
+      }
+    },
+    "longest_ride": {
+      "id": 3705538894,
+      "name": "Harry Potter Two Century",
+      "type": "Ride",
+      "distance": 116.85,
+      "moving_time": 30209,
+      "elapsed_time": 36449,
+      "elevation_gain": 8041.0,
+      "average_pace": 4.31,
+      "average_heartrate": 129.4,
+      "max_heartrate": 174.0,
+      "average_cadence": null,
+      "average_watts": 124.9,
+      "start_date": "2020-07-02T15:35:59Z",
+      "description": null,
+      "commute": false,
+      "map": {
+        "id": "a3705538894",
+        "summary_polyline": "sapeFhxfjVsDn`@`@nHqPlDlSfyBeJ|_AjKjd@gEnXtItb@}Dby@lYp}AgPhMuCpNhgGg\\pQsR||@e\\tw@G`p@sTzb@{Bjd@k[rx@jEf|A{_@vI~ORpVbc@{BvDlGbf@fBlAmIbkBnDfIqPza@oXh\\{@lU~Fln@hgAzKpGxRyDbn@tm@lTkKz\\z@nBvy@vDfGn~@fP|z@o`@jf@vKjLwIdf@iE|p@xZbv@nG~bAyz@bn@wrAhv@akAreAqnDpsAy|@t|@g~@`iABlcAga@vzCiPn{Bof@j^kNvdAohAfmAcKtt@tD`m@cl@cGo]e[gSu_A_hAaHwRaZN{t@oT}JkS{W{Io{@or@eGiYcNaRce@KgKlKh@yKcTR`DiJeGeM{FtAgA`J_H{DZgRbF_FwCe\\zPou@mHiJaG|@|GmOeL{D|Sy[cPhA{LiL`DeT{Hgv@_Tc^vPiOg]tAeLcCxB_Q|D\\aAmG|HyC}NnBsIuHaRfG|IcPlU|@nO}HoUyUlGuZ~LiI_Cch@b[oo@cU}iAr`@gAdMdKfj@y`@v^}IpPjF|QoIcBri@aTtOpTiNf@ke@~JaVxXoDtObTrSxEaC}H~CsHzWiGcNlWfGnElb@gFtMdVqJjMnCfIbUaYnK]`NtMjPkH`]h_@pVgEO{ZvLxMrEeGqI`c@fRtImBxS~LjNrRoLhNf@lJlLbOo@fApUbHbNzu@iTzShNbR_LdO~JfH`RvHeGxKvIrj@s@jM`EbOfQcC`TkPhLfEzg@_OfDN|SsThGnMty@jNzXvJvaAsKno@a\\t^oAnXmQbViBbNmRbRy@h`@aHpQj@rv@}O`T`Bd]mMto@lE~RtUjWqOjDmQpS{HoD_YjIjBzOac@nAqp@lXem@cGal@bl@os@mDqlA~I_zAvtAyhCxj@}~CpPc_A|`@qhA}@ecApdAemAxw@}jAjvDgp@lbAwm@jrAyaAn{@{x@qGkp@qY}t@fPuI_IyY}As{@z`@o_A{PeE{[iA_f@oNvEuLqHoSvKqo@cl@iRjEiOuGkUmNaPoOyFyMrDiUgT_Js_@Hgb@jY}I|Pm}ANsf@qKkt@vHqD{C~@yRcIsO{{Av_@uu@uKok@da@eg@~Ccg@dRgx@D{c@bMkk@vb@ghGd\\`Vu[{Yc_BlEmx@mI_c@`EaY{I_WnHomAaOwwAvCsBqBk\\bJoAa@qIfDm@Jg@Cy\\",
+        "resource_state": 2
+      }
+    },
     "recent_runs": [
       {
         "id": 18206070753,
