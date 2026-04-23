@@ -552,6 +552,22 @@ const latestBike = stravaData.recent_bikes?.[0];
 				margin-top: 28px;
 			}
 
+			.review-card {
+				border: 1px solid transparent;
+				border-radius: 6px;
+				padding: 18px 20px;
+				transition: border-color 0.15s;
+				cursor: pointer;
+			}
+
+			.review-card:hover {
+				border-color: #2a2a2a;
+			}
+
+			.review-card:hover .review-card-link {
+				color: #5b8ef0;
+			}
+
 			.review-card-head {
 				display: flex;
 				align-items: baseline;
@@ -621,7 +637,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 				transition: color 0.15s;
 			}
 
-			.review-card-link:hover { color: #5b8ef0; }
 
 			/* === JOURNAL LINK === */
 			.journal-cta {
@@ -661,10 +676,22 @@ const latestBike = stravaData.recent_bikes?.[0];
 			}
 
 			.latest-activity-card {
+				display: block;
+				text-decoration: none;
+				color: inherit;
 				background: #111;
 				border: 1px solid #1c1c1c;
 				border-radius: 6px;
 				overflow: hidden;
+				transition: border-color 0.15s;
+			}
+
+			.latest-activity-card:hover {
+				border-color: #2a2a2a;
+			}
+
+			.latest-activity-card:hover .latest-activity-link {
+				color: #5b8ef0;
 			}
 
 			.latest-activity-map {
@@ -756,7 +783,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 				transition: color 0.15s;
 			}
 
-			.latest-activity-link:hover { color: #5b8ef0; }
 
 			/* === HIDDEN UTILITY === */
 			.hidden { display: none !important; }
@@ -939,7 +965,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 					<span class="section-label">Latest Activities</span>
 					<div class="latest-activities-grid">
 						{latestRun && (
-							<div class="latest-activity-card">
+							<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card">
 								<div class="latest-activity-map" id="latest-run-map" data-polyline={latestRun.map?.summary_polyline || ''}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
@@ -961,12 +987,12 @@ const latestBike = stravaData.recent_bikes?.[0];
 											<span class="latest-activity-stat-label">Time</span>
 										</div>
 									</div>
-									<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-link">Strava →</a>
+									<span class="latest-activity-link">Strava →</span>
 								</div>
-							</div>
+							</a>
 						)}
 						{latestBike && (
-							<div class="latest-activity-card">
+							<a href={`https://www.strava.com/activities/${latestBike.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card">
 								<div class="latest-activity-map" id="latest-bike-map" data-polyline={latestBike.map?.summary_polyline || ''}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
@@ -988,9 +1014,9 @@ const latestBike = stravaData.recent_bikes?.[0];
 											<span class="latest-activity-stat-label">Time</span>
 										</div>
 									</div>
-									<a href={`https://www.strava.com/activities/${latestBike.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-link">Strava →</a>
+									<span class="latest-activity-link">Strava →</span>
 								</div>
-							</div>
+							</a>
 						)}
 					</div>
 				<div class="journal-cta">
@@ -1005,7 +1031,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 			<section class="reviews-section">
 				<span class="section-label">Latest Reviews</span>
 				<div class="reviews-grid">
-					<div>
+					<div class="review-card" data-href={featuredFilm?.link}>
 						<div class="review-card-head">
 							<span class="review-card-title">{featuredFilm?.title}</span>
 							<span class="stars">
@@ -1014,9 +1040,9 @@ const latestBike = stravaData.recent_bikes?.[0];
 						</div>
 						<div class="review-card-sub">{featuredFilm?.watched_date ? formatDate(featuredFilm.watched_date) : ''}</div>
 						<div class="review-card-text" set:html={featuredFilm?.review} />
-						<a href={featuredFilm?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Letterboxd →</a>
+						<span class="review-card-link">View on Letterboxd →</span>
 					</div>
-					<div>
+					<div class="review-card" data-href={featuredBook?.link}>
 						<div class="review-card-head">
 							<span class="review-card-title">{featuredBook?.title}</span>
 							<span class="stars">
@@ -1025,7 +1051,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 						</div>
 						<div class="review-card-sub">{featuredBook?.read_at ? formatDate(featuredBook.read_at) : ''}</div>
 						<div class="review-card-text" set:html={featuredBook?.review} />
-						<a href={featuredBook?.link} target="_blank" rel="noopener noreferrer" class="review-card-link">View on Goodreads →</a>
+						<span class="review-card-link">View on Goodreads →</span>
 					</div>
 				</div>
 				<div class="journal-cta">
@@ -1109,6 +1135,14 @@ const latestBike = stravaData.recent_bikes?.[0];
 			document.addEventListener('DOMContentLoaded', () => {
 				// Initialize latest activity maps
 				initLatestActivityMaps();
+
+				// Review card click-to-open (can't use <a> wrapper because reviews contain links)
+				document.querySelectorAll('.review-card[data-href]').forEach(card => {
+					card.addEventListener('click', (e) => {
+						if ((e.target as HTMLElement).closest('a')) return;
+						window.open((card as HTMLElement).dataset.href!, '_blank');
+					});
+				});
 
 				// Career item expansion
 				document.querySelectorAll('[data-career]').forEach(item => {
