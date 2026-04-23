@@ -1,4 +1,5 @@
 ---
+const profileImage = "/images/profile.jpg";
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	letterboxd: {
@@ -192,6 +193,17 @@ const latestBike = stravaData.recent_bikes?.[0];
 		<meta name="generator" content={Astro.generator} />
 		<title>Noah Eisen</title>
 		<meta name="description" content="Engineer based in San Francisco with a decade of experience leading teams at Google, Waymo, Faire, and Roblox." />
+		<!-- Open Graph (iMessage, Slack, Discord, etc.) -->
+		<meta property="og:title" content="Noah Eisen" />
+		<meta property="og:description" content="Engineer based in San Francisco with a decade of experience leading teams at Google, Waymo, Faire, and Roblox." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://noaheisen.com/" />
+		<meta property="og:image" content={`https://noaheisen.com${profileImage}`} />
+		<!-- Twitter/X -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Noah Eisen" />
+		<meta name="twitter:description" content="Engineer based in San Francisco with a decade of experience leading teams at Google, Waymo, Faire, and Roblox." />
+		<meta name="twitter:image" content={`https://noaheisen.com${profileImage}`} />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -819,7 +831,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 					</div>
 				</div>
 				<img
-					src="/images/profile-placeholder.jpg"
+					src={profileImage}
 					alt="Noah Eisen"
 					class="profile-photo"
 				/>
