@@ -32,7 +32,7 @@ def generate():
     draw.text((180, 270), "EISEN", fill=TEXT_COLOR, font=name_font)
 
     # Subtitle
-    draw.text((184, 425), "Software Engineer  ·  San Francisco, CA", fill=SUB_COLOR, font=sub_font)
+    draw.text((184, 435), "Software Engineer  ·  San Francisco, CA", fill=SUB_COLOR, font=sub_font)
 
     # Circular profile photo
     photo = Image.open(PHOTO_PATH)
