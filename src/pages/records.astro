@@ -141,6 +141,16 @@ const formatTime = (seconds: number): string => {
 				border: 1px solid #1c1c1c;
 				border-radius: 6px;
 				overflow: hidden;
+				cursor: pointer;
+				transition: border-color 0.15s;
+			}
+
+			.record-card:hover {
+				border-color: #333;
+			}
+
+			.record-card:hover .entry-link {
+				color: #5b8ef0;
 			}
 
 			.record-card-header {
@@ -268,7 +278,7 @@ const formatTime = (seconds: number): string => {
 			<!-- RECORDS -->
 			<div class="records-grid">
 				{longestRun && (
-					<div class="record-card">
+					<div class="record-card" data-href={`https://www.strava.com/activities/${longestRun.id}`}>
 						<div class="record-card-header">
 							<span class="record-card-badge">Longest Run</span>
 						</div>
@@ -295,7 +305,7 @@ const formatTime = (seconds: number): string => {
 					</div>
 				)}
 				{longestRide && (
-					<div class="record-card">
+					<div class="record-card" data-href={`https://www.strava.com/activities/${longestRide.id}`}>
 						<div class="record-card-header">
 							<span class="record-card-badge">Longest Ride</span>
 						</div>
@@ -322,7 +332,7 @@ const formatTime = (seconds: number): string => {
 					</div>
 				)}
 				{mostVertRun && (
-					<div class="record-card">
+					<div class="record-card" data-href={`https://www.strava.com/activities/${mostVertRun.id}`}>
 						<div class="record-card-header">
 							<span class="record-card-badge">Most Elevation Gain (Run)</span>
 						</div>
@@ -349,7 +359,7 @@ const formatTime = (seconds: number): string => {
 					</div>
 				)}
 				{mostVertRide && (
-					<div class="record-card">
+					<div class="record-card" data-href={`https://www.strava.com/activities/${mostVertRide.id}`}>
 						<div class="record-card-header">
 							<span class="record-card-badge">Most Elevation Gain (Bike)</span>
 						</div>
@@ -417,6 +427,14 @@ const formatTime = (seconds: number): string => {
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
+				// Record card click-to-open
+				document.querySelectorAll('.record-card[data-href]').forEach(card => {
+					card.addEventListener('click', (e) => {
+						if ((e.target as HTMLElement).closest('a')) return;
+						window.open((card as HTMLElement).dataset.href!, '_blank');
+					});
+				});
+
 				const mapContainers = document.querySelectorAll('.record-card-map');
 				mapContainers.forEach(container => {
 					const el = container as HTMLElement;
