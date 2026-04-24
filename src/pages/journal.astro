@@ -186,6 +186,18 @@ const formatDate = (dateStr: string): string => {
 
 			.journal-sources a:hover { opacity: 0.8; }
 
+			.page-sublink {
+				display: inline-block;
+				margin-top: 14px;
+				font-size: 12px;
+				letter-spacing: 1px;
+				color: #555;
+				text-decoration: none;
+				transition: color 0.15s;
+			}
+
+			.page-sublink:hover { color: #5b8ef0; }
+
 			/* === FILTERS === */
 			.filters {
 				display: flex;
@@ -438,6 +450,7 @@ const formatDate = (dateStr: string): string => {
 				<h1 class="journal-title">Journal</h1>
 				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go.</p>
 				<p class="journal-sources">Sourced from my <a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> and my <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>.</p>
+				<!-- <a href="/favorites" class="page-sublink">Favorites →</a> -->
 			</div>
 
 			<!-- FILTERS -->

@@ -252,6 +252,29 @@ const latestBike = stravaData.recent_bikes?.[0];
 				display: block;
 			}
 
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.section-header .section-label {
+				margin-bottom: 0;
+			}
+
+			.section-header .view-all {
+				font-size: 12px;
+				letter-spacing: 1px;
+				color: #555;
+				text-decoration: none;
+				font-weight: 400;
+				transition: color 0.15s;
+			}
+
+			.section-header .view-all:hover {
+				color: #5b8ef0;
+			}
+
 			/* === HERO === */
 			.hero {
 				display: flex;
@@ -634,25 +657,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 			}
 
 
-			/* === JOURNAL LINK === */
-			.journal-cta {
-				margin-top: 36px;
-				display: flex;
-				gap: 24px;
-			}
-
-			.journal-cta a {
-				font-size: 13px;
-				letter-spacing: 1px;
-				color: #5b8ef0;
-				text-decoration: none;
-				font-weight: 500;
-				transition: opacity 0.15s;
-			}
-
-			.journal-cta a:hover {
-				opacity: 0.75;
-			}
 
 			/* === FOOTER === */
 			.site-footer {
@@ -960,7 +964,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 			<!-- LATEST ACTIVITIES -->
 			{(latestRun || latestBike) && (
 				<section class="latest-activities">
-					<span class="section-label">Latest Activities</span>
+					<div class="section-header" style="margin-bottom: 28px;">
+						<span class="section-label">Latest Activities</span>
+						<a href="/activities" class="view-all">View all &rarr;</a>
+					</div>
 					<div class="latest-activities-grid">
 						{latestRun && (
 							<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card">
@@ -1017,10 +1024,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 							</a>
 						)}
 					</div>
-				<div class="journal-cta">
-						<a href="/activities">Full activity log →</a>
-						<a href="/records">Personal records →</a>
-					</div>
 				</section>
 			)}
 
@@ -1028,7 +1031,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 
 			<!-- LATEST REVIEWS -->
 			<section class="reviews-section">
-				<span class="section-label">Latest Reviews</span>
+				<div class="section-header" style="margin-bottom: 28px;">
+					<span class="section-label">Latest Reviews</span>
+					<a href="/journal" class="view-all">View all &rarr;</a>
+				</div>
 				<div class="reviews-grid">
 					<div class="review-card" data-href={featuredFilm?.link}>
 						<div class="review-card-head">
@@ -1052,10 +1058,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 						<div class="review-card-text" set:html={featuredBook?.review} />
 						<span class="review-card-link">View on Goodreads →</span>
 					</div>
-				</div>
-				<div class="journal-cta">
-					<a href="/journal">All reviews →</a>
-					<a href="/recommendations">Recommendations →</a>
 				</div>
 			</section>
 
