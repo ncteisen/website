@@ -354,6 +354,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 				transition: background 0.2s;
 			}
 
+			.career-item:not(.expanded):hover .career-bar {
+				background: #3a4f7a;
+			}
+
 			.career-item.expanded .career-bar {
 				background: #5b8ef0;
 			}
@@ -584,7 +588,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 			}
 
 			.review-card:hover .review-card-link {
-				color: #5b8ef0;
+				color: #3a4f7a;
 			}
 
 			.review-card-head {
@@ -693,7 +697,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 			}
 
 			.latest-activity-card:hover .latest-activity-link {
-				color: #5b8ef0;
+				color: #3a4f7a;
 			}
 
 			.latest-activity-map {
