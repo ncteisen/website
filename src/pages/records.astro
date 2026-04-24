@@ -4,8 +4,10 @@ const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	strava: {
 		longest_run: StravaActivity | null,
 		longest_ride: StravaActivity | null,
+		longest_hike: StravaActivity | null,
 		most_vert_run: StravaActivity | null,
 		most_vert_ride: StravaActivity | null,
+		most_vert_hike: StravaActivity | null,
 	},
 };
 
@@ -22,10 +24,37 @@ interface StravaActivity {
 	map: { id: string; summary_polyline: string; resource_state: number };
 }
 
-const longestRun = socialData.strava.longest_run;
-const longestRide = socialData.strava.longest_ride;
-const mostVertRun = socialData.strava.most_vert_run;
-const mostVertRide = socialData.strava.most_vert_ride;
+interface RecordRow {
+	label: string;
+	longest: StravaActivity | null;
+	mostVert: StravaActivity | null;
+	longestId: string;
+	mostVertId: string;
+}
+
+const rows: RecordRow[] = [
+	{
+		label: 'Runs',
+		longest: socialData.strava.longest_run,
+		mostVert: socialData.strava.most_vert_run,
+		longestId: 'record-longest-run-map',
+		mostVertId: 'record-vert-run-map',
+	},
+	{
+		label: 'Rides',
+		longest: socialData.strava.longest_ride,
+		mostVert: socialData.strava.most_vert_ride,
+		longestId: 'record-longest-ride-map',
+		mostVertId: 'record-vert-ride-map',
+	},
+	{
+		label: 'Hikes',
+		longest: socialData.strava.longest_hike,
+		mostVert: socialData.strava.most_vert_hike,
+		longestId: 'record-longest-hike-map',
+		mostVertId: 'record-vert-hike-map',
+	},
+];
 
 const formatDate = (dateStr: string): string => {
 	const d = new Date(dateStr);
@@ -128,12 +157,28 @@ const formatTime = (seconds: number): string => {
 
 			.page-sources a:hover { opacity: 0.8; }
 
-			/* === RECORDS GRID === */
+			/* === RECORDS SECTIONS === */
+			.records-section {
+				margin-top: 44px;
+			}
+
+			.records-section + .records-section {
+				margin-top: 36px;
+			}
+
+			.records-section-title {
+				font-size: 11px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				color: #555;
+				margin-bottom: 16px;
+				font-weight: 600;
+			}
+
 			.records-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 24px;
-				margin-top: 44px;
 			}
 
 			.record-card {
@@ -276,116 +321,67 @@ const formatTime = (seconds: number): string => {
 			</div>
 
 			<!-- RECORDS -->
-			<div class="records-grid">
-				{longestRun && (
-					<div class="record-card" data-href={`https://www.strava.com/activities/${longestRun.id}`}>
-						<div class="record-card-header">
-							<span class="record-card-badge">Longest Run</span>
-						</div>
-						<div class="record-card-map" id="record-run-map" data-polyline={longestRun.map?.summary_polyline || ''}></div>
-						<div class="record-card-body">
-							<div class="record-card-title">{longestRun.name}</div>
-							<div class="record-card-date">{formatDate(longestRun.start_date)}</div>
-							<div class="entry-stats">
-								<div class="entry-stat">
-									<span class="entry-stat-value">{longestRun.distance.toFixed(1)} mi</span>
-									<span class="entry-stat-label">Distance</span>
+			{rows.map(row => (row.longest || row.mostVert) && (
+				<div class="records-section">
+					<h2 class="records-section-title">{row.label}</h2>
+					<div class="records-grid">
+						{row.longest && (
+							<div class="record-card" data-href={`https://www.strava.com/activities/${row.longest.id}`}>
+								<div class="record-card-header">
+									<span class="record-card-badge">Longest</span>
 								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{longestRun.elevation_gain.toLocaleString()} ft</span>
-									<span class="entry-stat-label">Elevation</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{formatTime(longestRun.moving_time)}</span>
-									<span class="entry-stat-label">Time</span>
-								</div>
-							</div>
-							<a href={`https://www.strava.com/activities/${longestRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
-						</div>
-					</div>
-				)}
-				{longestRide && (
-					<div class="record-card" data-href={`https://www.strava.com/activities/${longestRide.id}`}>
-						<div class="record-card-header">
-							<span class="record-card-badge">Longest Ride</span>
-						</div>
-						<div class="record-card-map" id="record-ride-map" data-polyline={longestRide.map?.summary_polyline || ''}></div>
-						<div class="record-card-body">
-							<div class="record-card-title">{longestRide.name}</div>
-							<div class="record-card-date">{formatDate(longestRide.start_date)}</div>
-							<div class="entry-stats">
-								<div class="entry-stat">
-									<span class="entry-stat-value">{longestRide.distance.toFixed(1)} mi</span>
-									<span class="entry-stat-label">Distance</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{longestRide.elevation_gain.toLocaleString()} ft</span>
-									<span class="entry-stat-label">Elevation</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{formatTime(longestRide.moving_time)}</span>
-									<span class="entry-stat-label">Time</span>
+								<div class="record-card-map" id={row.longestId} data-polyline={row.longest.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{row.longest.name}</div>
+									<div class="record-card-date">{formatDate(row.longest.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{row.longest.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{row.longest.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(row.longest.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${row.longest.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
 								</div>
 							</div>
-							<a href={`https://www.strava.com/activities/${longestRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
-						</div>
-					</div>
-				)}
-				{mostVertRun && (
-					<div class="record-card" data-href={`https://www.strava.com/activities/${mostVertRun.id}`}>
-						<div class="record-card-header">
-							<span class="record-card-badge">Most Elevation Gain (Run)</span>
-						</div>
-						<div class="record-card-map" id="record-vert-run-map" data-polyline={mostVertRun.map?.summary_polyline || ''}></div>
-						<div class="record-card-body">
-							<div class="record-card-title">{mostVertRun.name}</div>
-							<div class="record-card-date">{formatDate(mostVertRun.start_date)}</div>
-							<div class="entry-stats">
-								<div class="entry-stat">
-									<span class="entry-stat-value">{mostVertRun.distance.toFixed(1)} mi</span>
-									<span class="entry-stat-label">Distance</span>
+						)}
+						{row.mostVert && (
+							<div class="record-card" data-href={`https://www.strava.com/activities/${row.mostVert.id}`}>
+								<div class="record-card-header">
+									<span class="record-card-badge">Most Elevation</span>
 								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{mostVertRun.elevation_gain.toLocaleString()} ft</span>
-									<span class="entry-stat-label">Elevation</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{formatTime(mostVertRun.moving_time)}</span>
-									<span class="entry-stat-label">Time</span>
-								</div>
-							</div>
-							<a href={`https://www.strava.com/activities/${mostVertRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
-						</div>
-					</div>
-				)}
-				{mostVertRide && (
-					<div class="record-card" data-href={`https://www.strava.com/activities/${mostVertRide.id}`}>
-						<div class="record-card-header">
-							<span class="record-card-badge">Most Elevation Gain (Bike)</span>
-						</div>
-						<div class="record-card-map" id="record-vert-ride-map" data-polyline={mostVertRide.map?.summary_polyline || ''}></div>
-						<div class="record-card-body">
-							<div class="record-card-title">{mostVertRide.name}</div>
-							<div class="record-card-date">{formatDate(mostVertRide.start_date)}</div>
-							<div class="entry-stats">
-								<div class="entry-stat">
-									<span class="entry-stat-value">{mostVertRide.distance.toFixed(1)} mi</span>
-									<span class="entry-stat-label">Distance</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{mostVertRide.elevation_gain.toLocaleString()} ft</span>
-									<span class="entry-stat-label">Elevation</span>
-								</div>
-								<div class="entry-stat">
-									<span class="entry-stat-value">{formatTime(mostVertRide.moving_time)}</span>
-									<span class="entry-stat-label">Time</span>
+								<div class="record-card-map" id={row.mostVertId} data-polyline={row.mostVert.map?.summary_polyline || ''}></div>
+								<div class="record-card-body">
+									<div class="record-card-title">{row.mostVert.name}</div>
+									<div class="record-card-date">{formatDate(row.mostVert.start_date)}</div>
+									<div class="entry-stats">
+										<div class="entry-stat">
+											<span class="entry-stat-value">{row.mostVert.distance.toFixed(1)} mi</span>
+											<span class="entry-stat-label">Distance</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{row.mostVert.elevation_gain.toLocaleString()} ft</span>
+											<span class="entry-stat-label">Elevation</span>
+										</div>
+										<div class="entry-stat">
+											<span class="entry-stat-value">{formatTime(row.mostVert.moving_time)}</span>
+											<span class="entry-stat-label">Time</span>
+										</div>
+									</div>
+									<a href={`https://www.strava.com/activities/${row.mostVert.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
 								</div>
 							</div>
-							<a href={`https://www.strava.com/activities/${mostVertRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
-						</div>
+						)}
 					</div>
-				)}
-			</div>
+				</div>
+			))}
 
 			<div class="page-end">
 				<a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>

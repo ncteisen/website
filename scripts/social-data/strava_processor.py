@@ -214,20 +214,23 @@ class StravaProcessor:
             reverse=True,
         )[:ALL_ACTIVITIES_LIMIT]
 
-        # Find longest run and ride across all activities
+        # Find longest and most vertical for each activity type
         longest_run = max(all_runs, key=lambda x: x.get('distance', 0)) if all_runs else None
         longest_ride = max(all_bikes, key=lambda x: x.get('distance', 0)) if all_bikes else None
+        longest_hike = max(all_hikes, key=lambda x: x.get('distance', 0)) if all_hikes else None
 
-        # Find most vertical (elevation gain) for run and ride
         most_vert_run = max(all_runs, key=lambda x: x.get('total_elevation_gain', 0)) if all_runs else None
         most_vert_ride = max(all_bikes, key=lambda x: x.get('total_elevation_gain', 0)) if all_bikes else None
+        most_vert_hike = max(all_hikes, key=lambda x: x.get('total_elevation_gain', 0)) if all_hikes else None
 
         return {
             'all_activities': [self.format_activity(a) for a in all_log_activities],
             'longest_run': self.format_activity(longest_run) if longest_run else None,
             'longest_ride': self.format_activity(longest_ride) if longest_ride else None,
+            'longest_hike': self.format_activity(longest_hike) if longest_hike else None,
             'most_vert_run': self.format_activity(most_vert_run) if most_vert_run else None,
             'most_vert_ride': self.format_activity(most_vert_ride) if most_vert_ride else None,
+            'most_vert_hike': self.format_activity(most_vert_hike) if most_vert_hike else None,
             'recent_runs': [self.format_activity(run) for run in runs],
             'recent_bikes': [self.format_activity(bike) for bike in bike_rides],
             'recent_hikes': [self.format_activity(hike) for hike in hikes],
