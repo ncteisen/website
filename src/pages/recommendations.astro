@@ -1,4 +1,5 @@
 ---
+import covers from '../../scripts/recommendations/data/covers.json';
 ---
 
 <html lang="en">
@@ -38,6 +39,7 @@
 				padding: 52px 44px 80px;
 			}
 
+			/* === HEADER === */
 			.back-link {
 				font-size: 11px;
 				color: #666;
@@ -70,9 +72,101 @@
 				max-width: 520px;
 			}
 
+			/* === SECTION === */
+			.section-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				display: block;
+				margin-top: 52px;
+				margin-bottom: 28px;
+				padding-bottom: 16px;
+				border-bottom: 1px solid #1a1a1a;
+			}
+
+			/* === RECOMMENDATION ENTRIES === */
+			.rec-entry {
+				display: grid;
+				grid-template-columns: 120px 1fr;
+				gap: 28px;
+				padding: 28px 0;
+				border-top: 1px solid #181818;
+			}
+
+			.rec-cover {
+				width: 120px;
+				height: 180px;
+				border-radius: 4px;
+				object-fit: cover;
+				background: #151515;
+				border: 1px solid #1e1e1e;
+			}
+
+			.rec-body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			.rec-badge {
+				font-size: 9px;
+				letter-spacing: 2px;
+				font-weight: 600;
+				padding: 2px 7px;
+				border-radius: 3px;
+				display: inline-block;
+				margin-bottom: 12px;
+				width: fit-content;
+			}
+
+			.rec-badge.film {
+				color: #5b8ef0;
+				border: 1px solid rgba(91, 142, 240, 0.25);
+			}
+
+			.rec-badge.book {
+				color: #d4a84b;
+				border: 1px solid rgba(212, 168, 75, 0.25);
+			}
+
+			.rec-title {
+				font-size: 19px;
+				font-weight: 600;
+				color: #e2dfd8;
+				line-height: 1.3;
+				margin-bottom: 4px;
+			}
+
+			.rec-subtitle {
+				font-size: 12px;
+				color: #555;
+				margin-bottom: 14px;
+			}
+
+			.rec-text {
+				font-size: 13px;
+				color: #888;
+				line-height: 1.75;
+				max-width: 580px;
+			}
+
+			/* === RESPONSIVE === */
 			@media (max-width: 768px) {
 				.wrap { padding: 36px 24px 60px; }
 				.page-title { font-size: 36px; }
+
+				.rec-entry {
+					grid-template-columns: 84px 1fr;
+					gap: 16px;
+				}
+
+				.rec-cover {
+					width: 84px;
+					height: 126px;
+				}
+
+				.rec-title { font-size: 16px; }
 			}
 		</style>
 	</head>
@@ -81,8 +175,94 @@
 			<div>
 				<a href="/" class="back-link">&larr; Back to Noah Eisen</a>
 				<h1 class="page-title">Recommendations</h1>
-				<p class="page-desc">Coming soon.</p>
+				<p class="page-desc">Films and books I think are exceptional and worth your time.</p>
 			</div>
+
+			<!-- FILMS -->
+			<span class="section-label">Films</span>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['The Prestige']} alt="The Prestige poster" />
+				<div class="rec-body">
+					<span class="rec-badge film">FILM</span>
+					<div class="rec-title">The Prestige</div>
+					<div class="rec-subtitle">Christopher Nolan, 2006</div>
+					<p class="rec-text">A masterclass in narrative misdirection that rewards every rewatch. The dual structure mirrors its own themes of obsession and sacrifice, and the final reveal recontextualizes everything that came before it.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Arrival']} alt="Arrival poster" />
+				<div class="rec-body">
+					<span class="rec-badge film">FILM</span>
+					<div class="rec-title">Arrival</div>
+					<div class="rec-subtitle">Denis Villeneuve, 2016</div>
+					<p class="rec-text">Science fiction that earns its emotional weight through ideas rather than spectacle. The way it uses linguistics as the engine of its plot is unlike anything else, and the ending lands harder the more you sit with it.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Knives Out']} alt="Knives Out poster" />
+				<div class="rec-body">
+					<span class="rec-badge film">FILM</span>
+					<div class="rec-title">Knives Out</div>
+					<div class="rec-subtitle">Rian Johnson, 2019</div>
+					<p class="rec-text">A whodunit that manages to be both a loving homage and a sharp subversion of the genre. Endlessly entertaining with a cast that clearly relishes every scene, and structurally clever in ways that only become apparent on a second viewing.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Eternal Sunshine of the Spotless Mind']} alt="Eternal Sunshine of the Spotless Mind poster" />
+				<div class="rec-body">
+					<span class="rec-badge film">FILM</span>
+					<div class="rec-title">Eternal Sunshine of the Spotless Mind</div>
+					<div class="rec-subtitle">Michel Gondry, 2004</div>
+					<p class="rec-text">The most honest film about relationships I've ever seen. Kaufman's script uses its sci-fi premise not as gimmick but as a way to examine why we hold onto painful memories, and what it means to choose someone knowing how it ends.</p>
+				</div>
+			</article>
+
+			<!-- BOOKS -->
+			<span class="section-label">Books</span>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Exhalation']} alt="Exhalation cover" />
+				<div class="rec-body">
+					<span class="rec-badge book">BOOK</span>
+					<div class="rec-title">Exhalation</div>
+					<div class="rec-subtitle">Ted Chiang</div>
+					<p class="rec-text">Every story in this collection is a thought experiment rendered with uncommon clarity and warmth. Chiang writes speculative fiction that feels less like worldbuilding and more like discovering something true about our own reality.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Tenth of December']} alt="Tenth of December cover" />
+				<div class="rec-body">
+					<span class="rec-badge book">BOOK</span>
+					<div class="rec-title">Tenth of December</div>
+					<div class="rec-subtitle">George Saunders</div>
+					<p class="rec-text">Short stories that are simultaneously hilarious and devastating. Saunders writes with a moral seriousness disguised as satire, and his characters — even the absurd ones — feel painfully real in their small acts of courage and failure.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['10:04']} alt="10:04 cover" />
+				<div class="rec-body">
+					<span class="rec-badge book">BOOK</span>
+					<div class="rec-title">10:04</div>
+					<div class="rec-subtitle">Ben Lerner</div>
+					<p class="rec-text">A novel about the gap between experience and its representation, told with a self-awareness that never becomes precious. Lerner collapses fiction and autobiography in a way that makes you reconsider what a novel can do.</p>
+				</div>
+			</article>
+
+			<article class="rec-entry">
+				<img class="rec-cover" src={covers['Playground']} alt="Playground cover" />
+				<div class="rec-body">
+					<span class="rec-badge book">BOOK</span>
+					<div class="rec-title">Playground</div>
+					<div class="rec-subtitle">Richard Powers</div>
+					<p class="rec-text">Powers writes about the natural world with the precision of a scientist and the wonder of a poet. This novel weaves together human ambition and ecological fragility into something that feels both urgent and timeless.</p>
+				</div>
+			</article>
 		</main>
 	</body>
 </html>
