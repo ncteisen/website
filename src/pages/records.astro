@@ -1,0 +1,455 @@
+---
+const socialDataModules = await import.meta.glob('../data/social_data.json');
+const socialData = (await socialDataModules['../data/social_data.json']()) as {
+	strava: {
+		longest_run: StravaActivity | null,
+		longest_ride: StravaActivity | null,
+		most_vert_run: StravaActivity | null,
+		most_vert_ride: StravaActivity | null,
+	},
+};
+
+interface StravaActivity {
+	id: number;
+	name: string;
+	type: string;
+	distance: number;
+	moving_time: number;
+	elapsed_time: number;
+	elevation_gain: number;
+	average_pace: number;
+	start_date: string;
+	map: { id: string; summary_polyline: string; resource_state: number };
+}
+
+const longestRun = socialData.strava.longest_run;
+const longestRide = socialData.strava.longest_ride;
+const mostVertRun = socialData.strava.most_vert_run;
+const mostVertRide = socialData.strava.most_vert_ride;
+
+const formatDate = (dateStr: string): string => {
+	const d = new Date(dateStr);
+	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+};
+
+const formatTime = (seconds: number): string => {
+	const h = Math.floor(seconds / 3600);
+	const m = Math.floor((seconds % 3600) / 60);
+	const s = seconds % 60;
+	if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+	return `${m}:${String(s).padStart(2, '0')}`;
+};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Personal Records — Noah Eisen</title>
+		<meta name="description" content="Noah Eisen's personal records from Strava — longest runs, rides, and most elevation gain." />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
+		<script>
+			interface Window {
+				dataLayer: any[];
+				gtag: (...args: any[]) => void;
+			}
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function() { window.dataLayer.push(arguments); };
+			window.gtag('js', new Date());
+			window.gtag('config', 'G-DW532NM54T');
+		</script>
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { height: 100%; }
+			body {
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.wrap {
+				max-width: 920px;
+				margin: 0 auto;
+				padding: 52px 44px 80px;
+			}
+
+			/* === HEADER === */
+			.back-link {
+				font-size: 11px;
+				color: #666;
+				text-decoration: none;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 28px;
+				transition: color 0.15s;
+			}
+
+			.back-link:hover { color: #999; }
+
+			.page-title {
+				font-size: 48px;
+				font-weight: 700;
+				letter-spacing: -1.5px;
+				margin: 0 0 10px;
+				color: #eae7e0;
+				line-height: 1;
+			}
+
+			.page-desc {
+				font-size: 14px;
+				color: #777;
+				margin: 0;
+				line-height: 1.7;
+				max-width: 520px;
+			}
+
+			.page-sources {
+				font-size: 12px;
+				color: #444;
+				margin: 10px 0 0;
+				letter-spacing: 0.3px;
+			}
+
+			.page-sources a {
+				color: #5b8ef0;
+				text-decoration: none;
+				transition: opacity 0.15s;
+			}
+
+			.page-sources a:hover { opacity: 0.8; }
+
+			/* === RECORDS GRID === */
+			.records-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 24px;
+				margin-top: 44px;
+			}
+
+			.record-card {
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				overflow: hidden;
+			}
+
+			.record-card-header {
+				padding: 14px 16px;
+				display: flex;
+				align-items: center;
+			}
+
+			.record-card-badge {
+				font-size: 10px;
+				letter-spacing: 2px;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #d4a84b;
+			}
+
+			.record-card-map {
+				width: 100%;
+				height: 200px;
+				background: #0d0d0d;
+			}
+
+			.record-card-map .leaflet-control-zoom,
+			.record-card-map .leaflet-control-attribution {
+				display: none !important;
+			}
+
+			.record-card-body {
+				padding: 16px;
+			}
+
+			.record-card-title {
+				font-size: 17px;
+				font-weight: 600;
+				color: #e2dfd8;
+				line-height: 1.3;
+				margin-bottom: 4px;
+			}
+
+			.record-card-date {
+				font-size: 11px;
+				color: #444;
+				letter-spacing: 1px;
+				margin-bottom: 12px;
+			}
+
+			.entry-stats {
+				display: flex;
+				gap: 24px;
+				flex-wrap: wrap;
+			}
+
+			.entry-stat {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+			}
+
+			.entry-stat-value {
+				font-size: 15px;
+				font-weight: 600;
+				color: #e2dfd8;
+			}
+
+			.entry-stat-label {
+				font-size: 10px;
+				color: #555;
+				letter-spacing: 1.5px;
+				text-transform: uppercase;
+			}
+
+			.entry-link {
+				display: inline-block;
+				margin-top: 12px;
+				font-size: 11px;
+				color: #333;
+				text-decoration: none;
+				letter-spacing: 0.5px;
+				transition: color 0.15s;
+			}
+
+			.entry-link:hover { color: #5b8ef0; }
+
+			/* === END === */
+			.page-end {
+				border-top: 1px solid #181818;
+				padding-top: 24px;
+				margin-top: 36px;
+				font-size: 11px;
+				color: #333;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.page-end a {
+				color: #555;
+				text-decoration: none;
+				transition: color 0.15s;
+			}
+
+			.page-end a:hover { color: #5b8ef0; }
+
+			/* === RESPONSIVE === */
+			@media (max-width: 768px) {
+				.wrap { padding: 36px 24px 60px; }
+				.page-title { font-size: 36px; }
+
+				.records-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap">
+
+			<!-- HEADER -->
+			<div>
+				<a href="/" class="back-link">&larr; Back to Noah Eisen</a>
+				<h1 class="page-title">Personal Records</h1>
+				<p class="page-desc">Longest runs, rides, and most elevation gain.</p>
+				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>.</p>
+			</div>
+
+			<!-- RECORDS -->
+			<div class="records-grid">
+				{longestRun && (
+					<div class="record-card">
+						<div class="record-card-header">
+							<span class="record-card-badge">Longest Run</span>
+						</div>
+						<div class="record-card-map" id="record-run-map" data-polyline={longestRun.map?.summary_polyline || ''}></div>
+						<div class="record-card-body">
+							<div class="record-card-title">{longestRun.name}</div>
+							<div class="record-card-date">{formatDate(longestRun.start_date)}</div>
+							<div class="entry-stats">
+								<div class="entry-stat">
+									<span class="entry-stat-value">{longestRun.distance.toFixed(1)} mi</span>
+									<span class="entry-stat-label">Distance</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{longestRun.elevation_gain.toLocaleString()} ft</span>
+									<span class="entry-stat-label">Elevation</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{formatTime(longestRun.moving_time)}</span>
+									<span class="entry-stat-label">Time</span>
+								</div>
+							</div>
+							<a href={`https://www.strava.com/activities/${longestRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+						</div>
+					</div>
+				)}
+				{longestRide && (
+					<div class="record-card">
+						<div class="record-card-header">
+							<span class="record-card-badge">Longest Ride</span>
+						</div>
+						<div class="record-card-map" id="record-ride-map" data-polyline={longestRide.map?.summary_polyline || ''}></div>
+						<div class="record-card-body">
+							<div class="record-card-title">{longestRide.name}</div>
+							<div class="record-card-date">{formatDate(longestRide.start_date)}</div>
+							<div class="entry-stats">
+								<div class="entry-stat">
+									<span class="entry-stat-value">{longestRide.distance.toFixed(1)} mi</span>
+									<span class="entry-stat-label">Distance</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{longestRide.elevation_gain.toLocaleString()} ft</span>
+									<span class="entry-stat-label">Elevation</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{formatTime(longestRide.moving_time)}</span>
+									<span class="entry-stat-label">Time</span>
+								</div>
+							</div>
+							<a href={`https://www.strava.com/activities/${longestRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+						</div>
+					</div>
+				)}
+				{mostVertRun && (
+					<div class="record-card">
+						<div class="record-card-header">
+							<span class="record-card-badge">Most Elevation Gain (Run)</span>
+						</div>
+						<div class="record-card-map" id="record-vert-run-map" data-polyline={mostVertRun.map?.summary_polyline || ''}></div>
+						<div class="record-card-body">
+							<div class="record-card-title">{mostVertRun.name}</div>
+							<div class="record-card-date">{formatDate(mostVertRun.start_date)}</div>
+							<div class="entry-stats">
+								<div class="entry-stat">
+									<span class="entry-stat-value">{mostVertRun.distance.toFixed(1)} mi</span>
+									<span class="entry-stat-label">Distance</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{mostVertRun.elevation_gain.toLocaleString()} ft</span>
+									<span class="entry-stat-label">Elevation</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{formatTime(mostVertRun.moving_time)}</span>
+									<span class="entry-stat-label">Time</span>
+								</div>
+							</div>
+							<a href={`https://www.strava.com/activities/${mostVertRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+						</div>
+					</div>
+				)}
+				{mostVertRide && (
+					<div class="record-card">
+						<div class="record-card-header">
+							<span class="record-card-badge">Most Elevation Gain (Bike)</span>
+						</div>
+						<div class="record-card-map" id="record-vert-ride-map" data-polyline={mostVertRide.map?.summary_polyline || ''}></div>
+						<div class="record-card-body">
+							<div class="record-card-title">{mostVertRide.name}</div>
+							<div class="record-card-date">{formatDate(mostVertRide.start_date)}</div>
+							<div class="entry-stats">
+								<div class="entry-stat">
+									<span class="entry-stat-value">{mostVertRide.distance.toFixed(1)} mi</span>
+									<span class="entry-stat-label">Distance</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{mostVertRide.elevation_gain.toLocaleString()} ft</span>
+									<span class="entry-stat-label">Elevation</span>
+								</div>
+								<div class="entry-stat">
+									<span class="entry-stat-value">{formatTime(mostVertRide.moving_time)}</span>
+									<span class="entry-stat-label">Time</span>
+								</div>
+							</div>
+							<a href={`https://www.strava.com/activities/${mostVertRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+						</div>
+					</div>
+				)}
+			</div>
+
+			<div class="page-end">
+				<a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>
+			</div>
+		</main>
+
+		<script>
+			const decodePolyline = (encoded: string): [number, number][] => {
+				const points: [number, number][] = [];
+				let index = 0;
+				let lat = 0;
+				let lng = 0;
+
+				while (index < encoded.length) {
+					let shift = 0;
+					let result = 0;
+					let byte: number;
+
+					do {
+						byte = encoded.charCodeAt(index++) - 63;
+						result |= (byte & 0x1f) << shift;
+						shift += 5;
+					} while (byte >= 0x20);
+					lat += (result & 1) ? ~(result >> 1) : (result >> 1);
+
+					shift = 0;
+					result = 0;
+					do {
+						byte = encoded.charCodeAt(index++) - 63;
+						result |= (byte & 0x1f) << shift;
+						shift += 5;
+					} while (byte >= 0x20);
+					lng += (result & 1) ? ~(result >> 1) : (result >> 1);
+
+					points.push([lat / 1e5, lng / 1e5]);
+				}
+
+				return points;
+			};
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const mapContainers = document.querySelectorAll('.record-card-map');
+				mapContainers.forEach(container => {
+					const el = container as HTMLElement;
+					const polyline = el.dataset.polyline;
+					if (!polyline) return;
+
+					const points = decodePolyline(polyline);
+					if (points.length === 0) return;
+
+					const map = (window as any).L.map(el.id, {
+						zoomControl: false,
+						attributionControl: false,
+						dragging: false,
+						scrollWheelZoom: false,
+						doubleClickZoom: false,
+						touchZoom: false,
+						boxZoom: false,
+						keyboard: false,
+					});
+
+					(window as any).L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+						maxZoom: 19,
+					}).addTo(map);
+
+					const line = (window as any).L.polyline(points, {
+						color: '#5b8ef0',
+						weight: 3,
+						opacity: 0.9,
+					}).addTo(map);
+
+					map.fitBounds(line.getBounds(), { padding: [15, 15] });
+				});
+			});
+		</script>
+	</body>
+</html>

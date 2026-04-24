@@ -1,0 +1,88 @@
+---
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Recommendations — Noah Eisen</title>
+		<meta name="description" content="Noah Eisen's film and book recommendations." />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
+		<script>
+			interface Window {
+				dataLayer: any[];
+				gtag: (...args: any[]) => void;
+			}
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function() { window.dataLayer.push(arguments); };
+			window.gtag('js', new Date());
+			window.gtag('config', 'G-DW532NM54T');
+		</script>
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { height: 100%; }
+			body {
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.wrap {
+				max-width: 920px;
+				margin: 0 auto;
+				padding: 52px 44px 80px;
+			}
+
+			.back-link {
+				font-size: 11px;
+				color: #666;
+				text-decoration: none;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 28px;
+				transition: color 0.15s;
+			}
+
+			.back-link:hover { color: #999; }
+
+			.page-title {
+				font-size: 48px;
+				font-weight: 700;
+				letter-spacing: -1.5px;
+				margin: 0 0 10px;
+				color: #eae7e0;
+				line-height: 1;
+			}
+
+			.page-desc {
+				font-size: 14px;
+				color: #777;
+				margin: 0;
+				line-height: 1.7;
+				max-width: 520px;
+			}
+
+			@media (max-width: 768px) {
+				.wrap { padding: 36px 24px 60px; }
+				.page-title { font-size: 36px; }
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap">
+			<div>
+				<a href="/" class="back-link">&larr; Back to Noah Eisen</a>
+				<h1 class="page-title">Recommendations</h1>
+				<p class="page-desc">Coming soon.</p>
+			</div>
+		</main>
+	</body>
+</html>

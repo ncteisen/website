@@ -3,10 +3,6 @@ const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	strava: {
 		all_activities: StravaActivity[],
-		longest_run: StravaActivity | null,
-		longest_ride: StravaActivity | null,
-		most_vert_run: StravaActivity | null,
-		most_vert_ride: StravaActivity | null,
 	},
 };
 
@@ -24,10 +20,6 @@ interface StravaActivity {
 }
 
 const allActivities = socialData.strava.all_activities || [];
-const longestRun = socialData.strava.longest_run;
-const longestRide = socialData.strava.longest_ride;
-const mostVertRun = socialData.strava.most_vert_run;
-const mostVertRide = socialData.strava.most_vert_ride;
 
 const INITIAL_SHOW = 20;
 const LOAD_MORE_COUNT = 20;
@@ -199,110 +191,6 @@ const filterKey = (type: string): string => {
 
 			.filter-btn.active .count {
 				color: #5b8ef0;
-			}
-
-			/* === PERSONAL RECORDS === */
-			.records-section {
-				margin-top: 44px;
-				padding-top: 36px;
-				border-top: 1px solid #1a1a1a;
-				margin-bottom: 36px;
-				padding-bottom: 36px;
-				border-bottom: 1px solid #1a1a1a;
-			}
-
-			.records-toggle {
-				background: none;
-				border: none;
-				padding: 0;
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				gap: 10px;
-				margin-bottom: 0;
-				font-family: inherit;
-				transition: opacity 0.15s;
-			}
-
-			.records-toggle:hover { opacity: 0.8; }
-
-			.records-section.expanded .records-toggle {
-				margin-bottom: 20px;
-			}
-
-			.records-label {
-				font-size: 10px;
-				letter-spacing: 4px;
-				text-transform: uppercase;
-				color: #444;
-			}
-
-			.records-arrow {
-				color: #444;
-				font-size: 16px;
-				transition: transform 0.2s;
-				display: inline-block;
-			}
-
-			.records-section.expanded .records-arrow {
-				transform: rotate(90deg);
-			}
-
-			.records-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 24px;
-			}
-
-			.record-card {
-				background: #111;
-				border: 1px solid #1c1c1c;
-				border-radius: 6px;
-				overflow: hidden;
-			}
-
-			.record-card-header {
-				padding: 14px 16px;
-				display: flex;
-				align-items: center;
-			}
-
-			.record-card-badge {
-				font-size: 10px;
-				letter-spacing: 2px;
-				font-weight: 600;
-				text-transform: uppercase;
-				color: #d4a84b;
-			}
-
-			.record-card-map {
-				width: 100%;
-				height: 200px;
-				background: #0d0d0d;
-			}
-
-			.record-card-map .leaflet-control-zoom,
-			.record-card-map .leaflet-control-attribution {
-				display: none !important;
-			}
-
-			.record-card-body {
-				padding: 16px;
-			}
-
-			.record-card-title {
-				font-size: 17px;
-				font-weight: 600;
-				color: #e2dfd8;
-				line-height: 1.3;
-				margin-bottom: 4px;
-			}
-
-			.record-card-date {
-				font-size: 11px;
-				color: #444;
-				letter-spacing: 1px;
-				margin-bottom: 12px;
 			}
 
 			/* === ENTRIES === */
@@ -478,10 +366,6 @@ const filterKey = (type: string): string => {
 
 				.entry-title { font-size: 16px; }
 				.entry-stats { gap: 16px; }
-
-				.records-grid {
-					grid-template-columns: 1fr;
-				}
 			}
 
 			@media (max-width: 480px) {
@@ -504,129 +388,9 @@ const filterKey = (type: string): string => {
 			<div>
 				<a href="/" class="back-link">← Back to Noah Eisen</a>
 				<h1 class="page-title">Activity Log</h1>
-				<p class="page-desc">Personal records and recent runs, rides, and hikes. Updated daily.</p>
+				<p class="page-desc">Recent runs, rides, and hikes. Updated daily.</p>
 				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>.</p>
 			</div>
-
-			<!-- PERSONAL RECORDS -->
-			{(longestRun || longestRide) && (
-				<div class="records-section expanded">
-					<button class="records-toggle" id="records-toggle">
-						<span class="records-label">Personal Records</span>
-						<span class="records-arrow">›</span>
-					</button>
-					<div class="records-grid" id="records-grid">
-						{longestRun && (
-							<div class="record-card">
-								<div class="record-card-header">
-									<span class="record-card-badge">Longest Run</span>
-								</div>
-								<div class="record-card-map" id="record-run-map" data-polyline={longestRun.map?.summary_polyline || ''}></div>
-								<div class="record-card-body">
-									<div class="record-card-title">{longestRun.name}</div>
-									<div class="record-card-date">{formatDate(longestRun.start_date)}</div>
-									<div class="entry-stats">
-										<div class="entry-stat">
-											<span class="entry-stat-value">{longestRun.distance.toFixed(1)} mi</span>
-											<span class="entry-stat-label">Distance</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{longestRun.elevation_gain.toLocaleString()} ft</span>
-											<span class="entry-stat-label">Elevation</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{formatTime(longestRun.moving_time)}</span>
-											<span class="entry-stat-label">Time</span>
-										</div>
-									</div>
-									<a href={`https://www.strava.com/activities/${longestRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
-								</div>
-							</div>
-						)}
-						{longestRide && (
-							<div class="record-card">
-								<div class="record-card-header">
-									<span class="record-card-badge">Longest Ride</span>
-								</div>
-								<div class="record-card-map" id="record-ride-map" data-polyline={longestRide.map?.summary_polyline || ''}></div>
-								<div class="record-card-body">
-									<div class="record-card-title">{longestRide.name}</div>
-									<div class="record-card-date">{formatDate(longestRide.start_date)}</div>
-									<div class="entry-stats">
-										<div class="entry-stat">
-											<span class="entry-stat-value">{longestRide.distance.toFixed(1)} mi</span>
-											<span class="entry-stat-label">Distance</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{longestRide.elevation_gain.toLocaleString()} ft</span>
-											<span class="entry-stat-label">Elevation</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{formatTime(longestRide.moving_time)}</span>
-											<span class="entry-stat-label">Time</span>
-										</div>
-									</div>
-									<a href={`https://www.strava.com/activities/${longestRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
-								</div>
-							</div>
-						)}
-						{mostVertRun && (
-							<div class="record-card">
-								<div class="record-card-header">
-									<span class="record-card-badge">Most Elevation Gain (Run)</span>
-								</div>
-								<div class="record-card-map" id="record-vert-run-map" data-polyline={mostVertRun.map?.summary_polyline || ''}></div>
-								<div class="record-card-body">
-									<div class="record-card-title">{mostVertRun.name}</div>
-									<div class="record-card-date">{formatDate(mostVertRun.start_date)}</div>
-									<div class="entry-stats">
-										<div class="entry-stat">
-											<span class="entry-stat-value">{mostVertRun.distance.toFixed(1)} mi</span>
-											<span class="entry-stat-label">Distance</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{mostVertRun.elevation_gain.toLocaleString()} ft</span>
-											<span class="entry-stat-label">Elevation</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{formatTime(mostVertRun.moving_time)}</span>
-											<span class="entry-stat-label">Time</span>
-										</div>
-									</div>
-									<a href={`https://www.strava.com/activities/${mostVertRun.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
-								</div>
-							</div>
-						)}
-						{mostVertRide && (
-							<div class="record-card">
-								<div class="record-card-header">
-									<span class="record-card-badge">Most Elevation Gain (Bike)</span>
-								</div>
-								<div class="record-card-map" id="record-vert-ride-map" data-polyline={mostVertRide.map?.summary_polyline || ''}></div>
-								<div class="record-card-body">
-									<div class="record-card-title">{mostVertRide.name}</div>
-									<div class="record-card-date">{formatDate(mostVertRide.start_date)}</div>
-									<div class="entry-stats">
-										<div class="entry-stat">
-											<span class="entry-stat-value">{mostVertRide.distance.toFixed(1)} mi</span>
-											<span class="entry-stat-label">Distance</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{mostVertRide.elevation_gain.toLocaleString()} ft</span>
-											<span class="entry-stat-label">Elevation</span>
-										</div>
-										<div class="entry-stat">
-											<span class="entry-stat-value">{formatTime(mostVertRide.moving_time)}</span>
-											<span class="entry-stat-label">Time</span>
-										</div>
-									</div>
-									<a href={`https://www.strava.com/activities/${mostVertRide.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava →</a>
-								</div>
-							</div>
-						)}
-					</div>
-				</div>
-			)}
 
 			<!-- RECENT ACTIVITIES -->
 			<h2 class="section-title">Last 100 Activities</h2>
@@ -727,7 +491,7 @@ const filterKey = (type: string): string => {
 			};
 
 			const initMaps = () => {
-				const mapContainers = document.querySelectorAll('.entry-map, .record-card-map');
+				const mapContainers = document.querySelectorAll('.entry-map');
 				mapContainers.forEach(container => {
 					const el = container as HTMLElement;
 					// Skip if already initialized
@@ -768,17 +532,6 @@ const filterKey = (type: string): string => {
 			};
 
 			document.addEventListener('DOMContentLoaded', () => {
-				// Records toggle
-				const recordsToggle = document.getElementById('records-toggle');
-				const recordsSection = recordsToggle?.closest('.records-section');
-				const recordsGrid = document.getElementById('records-grid');
-				if (recordsToggle && recordsSection && recordsGrid) {
-					recordsToggle.addEventListener('click', () => {
-						const isExpanded = recordsSection.classList.toggle('expanded');
-						recordsGrid.classList.toggle('hidden', !isExpanded);
-					});
-				}
-
 				const LOAD_MORE_COUNT = 20;
 				const filterBtns = document.querySelectorAll('.filter-btn');
 				const entries = document.querySelectorAll('.entry');
