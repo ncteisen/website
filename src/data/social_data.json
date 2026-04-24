@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-24T11:12:59.876933",
+  "last_updated": "2026-04-24T15:24:15.489024",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -7513,6 +7513,28 @@
         "resource_state": 2
       }
     },
+    "longest_hike": {
+      "id": 2653476727,
+      "name": "Gem Lake Loop w/ Sarah!",
+      "type": "Hike",
+      "distance": 21.05,
+      "moving_time": 31478,
+      "elapsed_time": 101402,
+      "elevation_gain": 3166.0,
+      "average_pace": 24.93,
+      "average_heartrate": 98.5,
+      "max_heartrate": 162.0,
+      "average_cadence": 53.1,
+      "average_watts": null,
+      "start_date": "2019-08-24T15:16:36Z",
+      "description": null,
+      "commute": false,
+      "map": {
+        "id": "a2653476727",
+        "summary_polyline": "gw_hFfjzzUQsAl@wB|Gz@tDuBp@kDl@MbBrBhQk@|OrAnDjC`EApAnCnAuDnDmBhCqKgAiA\\o@g@e@@{E~CqLu@sGlAyNm@cRjAaBnBcO}@qVgBoFwAiLb@E^}Dg@kJoAgFuDkFy@oLpCuACiAp@]|B`AjDx@u@_BfBKxGkGp@Rh@zC|CnFp@uB`@j@dCcAyAaAjC{AmAc@^]u@i@_@eE@sSjBuKj@kGUgEpBmAb@}ASsHvBeMVuJmB_Hr@iBs@O}A}DnB}FgA_EJuEy@aAWiFrAaFImCvA_HIsFg@KRgBqA\\z@aDaBCx@iB}@o@y@h@SeAYiFdB_G{AoFc@Rf@k@Yz@Y{IsAgE}@wJpAaBlEA~@|Af@WSXxBhE~CdB`A|CfE~BJbA^s@sA]eAMsDwGkCkA{D}Gh@_CcAmGw@gAZ_I}BgEcB}JLk@l@j@Uo@p@pB|A^w@yAd@aBO}Gp@_B[cHq@mE`@_Fe@sD`AwEg@}Bx@cBOoD{AkDh@sD{@sAEmCoBu@s@uDmFeKE}Bh@wBh@Gm@?UeCuBuByI_SMsB_CuFW_FuCuOf@_AHiEzAYcA}Aj@Wg@uAfAF[w@bAf@WuByBaDB{AhDnDZiBs@}EoBmBzBW|D|B`@cAd@QvE`C`BcFCaDhAqGt@j@p@u@Ud@p@lBfE@qAfBpCvBjK{@pCx@tBxAr@vDh@fFw@zBrAfDlB|D|@l@cAvBt@tEUjBd@dBx@~NUlE`@dAgAvBZnA`AQU`BlAm@eB`TtBjK~@\\p@~@uAq@Q`DoAz@hBvAn@nBdDrB}BH|AhAkAb@LhEuAhBo@lEOzKt@zGaAvK[vIHrE|BlN]`Dj@lGtBzK}AbDg@bGoAf@tAvHk@pHt@pAO~Lz@fFcAtK|@`Iw@x@~@zDfCxDfFf[C`HdAbE_AbInCrKg@hJtBbOu@rIy@hAuAKoAxEm@|^_B~ECxEeCbJaBf@O|C{@hB{H|GdB|Go@n@N|B_B`@cAjNwAdFd@pDc@p@K|I{AvDx@lAh@vGkE|PWbRuM`HwD`KO`C{ChGg@vDm@IyDqNJ|GeB}Di@|@uDX_@jIr@`EUfCeArEaEnCaBvE}AcDaC]}@r@_EgDiFPoG}A_Cx@gHu@qDt@{AeCi@?q@zDqEzB}Fu@{@jD",
+        "resource_state": 2
+      }
+    },
     "most_vert_run": {
       "id": 9631415342,
       "name": "Day 3 - Rifugio Fanes to Rifugio Lagazuoi",
@@ -7554,6 +7576,28 @@
       "map": {
         "id": "a5409570023",
         "summary_polyline": "giuwFlwwiTXgY{R_E|HqUeDiMfG`B~@qi@gBsP_KePQmd@oDkBt@kzCtIvJ^xXtEbOjm@bGjm@}d@rVW``Aoa@rUkShLyWArJr[ci@g@{Gtr@cJfdA~Hg@whAoFocAeEeYtBe\\aCq\\eIgP~D{PaIsGaR{w@}GaKlEui@aLgeAaDyr@jEsu@c[kjAyFmAyKoUnPgCfW{RhMsZxGyi@zi@wo@nDobA`P}XhH}a@mIpa@}N`XeEjcAeh@nm@aIbl@iM`[yh@zW`KxSjGtAjZnhAaEjt@hExx@jKrfAcFtd@pH`M`Q|v@~IrGeEzQjIbPxCj]mCvYjFpf@lEp|@l@leApf@jAxjA`r@vqBrK`qAcq@xUcC`[jGjIfD`_@{[zT}`@|EuAvB|LpAat@w@sc@ad@{eAhIsg@Dc^_GyVdNgCNoLiJq\\_^aN_Li`@sYof@GgPxFcNwDB`IsMaFylA`FqXuYsu@gMaSwPku@Iam@wQe_@Vw\\kZyf@cKyi@`DmT~j@agAzWu~@nGkg@dp@gaBbIah@~SwLp[eh@bUsHf]ss@b^cJ_MsEu_@|IrWwRhM}\\|AaVoEmLgMzW}J`BnLaMbFofAfVwN}HuYmJuiAtHk~@fRgj@{B_V|Aet@uK{RxAbHmNwEol@rCrHvIwa@mNAiUqVqHyA_HpVuQdH}QJmN_b@f_@qrA_Xuf@nK}Rj]}o@ph@iW|OkFvPotA`o@mcAfnCoI`H}dAx@cl@|Mid@mJksAq@sN}IeUxj@wrBllBka@pUJvNmSt@oJbXyZx[}[dLsMf\\is@aCgUte@sg@tLiShSgrA_NaE{LkXcUqNgg@q^uVoc@~PgZePq`@cAiCjOcG~EoyB|YxTzZdBrL]|bA}Fng@yIbQhJzDnJ`^cApXrFoGlLXq@vRdNpJzX{OJp`@hOnNpEr^bM|HdZ`aAdC`@xBoNdAjJvQnM~Cte@lDg\\jExXrLhFlRlu@oCpMlGuIg@gWbR`c@b^~c@zs@_@be@fNvx@`Atu@xh@vBbeAoGdQfWnc@yX`HpRl[xM~v@rMdV}XyVgYmEeGcNgYmPmBfCv}@j}A|Ol{@tL`X~JfeA_AjSlU|y@pEf`AfIhHdRsBbFxb@`c@rr@`Kxc@k@p\\jHfK^pLoLb|@lA~Ju_@nAErMjIdOeMtTvPrUtY}PCnvBmFlSRxjAlWBMrOeFN@pFxDj@fAyX|G?",
+        "resource_state": 2
+      }
+    },
+    "most_vert_hike": {
+      "id": 2502777968,
+      "name": "Rainier!",
+      "type": "Hike",
+      "distance": 12.64,
+      "moving_time": 28730,
+      "elapsed_time": 95389,
+      "elevation_gain": 10026.0,
+      "average_pace": 37.88,
+      "average_heartrate": 116.0,
+      "max_heartrate": 166.0,
+      "average_cadence": 51.2,
+      "average_watts": null,
+      "start_date": "2019-06-30T16:37:56Z",
+      "description": null,
+      "commute": false,
+      "map": {
+        "id": "a2502777968",
+        "summary_polyline": "wqg}GfumeVNa@LAEt@e@h@Cc@^a@WDl@g@SDt@hFrAxC@jB`@fB?hB\\h@PlAk@|ERr@c@pAI~Ah@`BDbBa@vBb@`EMnCl@nFf@xHQpDf@hGaAuCV`@LpHVdE^~COzCV~Df@`AJi@UXTk@BfF^xAR~EInDPjDsAmCE`A`@|BBrGJpCz@`C`@TxAnFNrBt@v@hBzF~AjBjAvF`A~BGhFd@l@LtC^`AOF~@tFg@pEO@q@lG\\~DUjAfApATlCdAzCGnDt@pEJhDt@fCD~APDKLNUMNr@rAXdBhClFtAzIbBzBnAPcAb@Kb@rAnEQHl@|@jB~@dA~DdA^SJ\\R~@IvCdAj@nArBlBH|AfDbBJbILvBCfCh@pANfBx@pB\\b@C~AV~Ak@jCKdC^`EORLfABdEKjBoB~J@nAs@bABQQ@LKN`@YKd@XMSNMKp@`AtFfFjHp@RbErElB~@rD`FjF~D^t@rDbC|AHrBdA|AtBHKdD|C`GzIxEnErA~AGTfClAnCoD|@zB|EtBlEf@hAi@NDC?PCpAhAdAhCbAp@rCfEnFlC|ApJwB|G}Ab@c@a@C~A`F`HpD`@Lh@OJHUUFPDGMJROWPJEJJi@~Dn@|GnCbDsAdEjEX`DdB`A`@r@fBhG|CbFvAjDpA~Ad@nC@b@Q?HrFSt@LrB_@fA?|@i@v@ErAN`Dp@\\AxBb@BUn@@fA^hDK?RRWvCUT`@~CPg@XCTtBv@c@Az@T]LhB^IRnAjAQh@rEj@nB|EqA\\pBn@YR|Af@Kf@jBA|Bh@xEUFN_@]FBk@Tb@OXKGShEDpASz@e@Xe@rCEjBH`Ab@x@C^ORUWFx@W?@PdFvD@d@dAJ~AdAbAyAMaAv@NxA|@p@InAyAr@AtBuBlACHfAP?e@}@y@Io@TuAdBiBhAuBPs@s@i@Vs@WyBsB[Rc@u@eBE{@x@g@g@Oo@Lu@]J`@g@CUm@Nj@@Y?Co@^gGn@gCFuBZMEaCRNNaEOw@H_C]CAaBm@ECo@Mm@y@TQsBq@\\s@Xs@K_BR{@gDDqAWkBgA`@WuBLO{@^M_Ak@l@_@gCe@b@Qc@EyAPNQu@^kBYs@J}A]_C`@oAe@GGsBe@]MmDROUeAh@_Ah@yI",
         "resource_state": 2
       }
     },
@@ -8108,11 +8152,11 @@
           "elevation_gain": 474800.0
         },
         "recent": {
-          "count": 20,
-          "distance": 104.96,
-          "moving_time": 57680,
-          "elapsed_time": 68956,
-          "elevation_gain": 8894.0
+          "count": 19,
+          "distance": 100.45,
+          "moving_time": 55296,
+          "elapsed_time": 66417,
+          "elevation_gain": 8678.0
         }
       },
       "biking": {
