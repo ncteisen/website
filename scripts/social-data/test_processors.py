@@ -6,7 +6,7 @@ import pytest
 
 from goodreads_processor import clean_review_html, convert_book_to_review
 from letterboxd_processor import convert_film_to_review, calculate_stats
-from strava_processor import StravaProcessor, METERS_TO_MILES, METERS_TO_FEET
+from strava_processor import StravaProcessor, METERS_TO_MILES, METERS_TO_FEET, MIN_COMMUTE_DISTANCE_MILES
 
 
 # === Goodreads processor tests ===
@@ -158,3 +158,20 @@ class TestCalculateActivityTotals:
         assert totals['distance'] == round(15000 * METERS_TO_MILES, 2)
         assert totals['moving_time'] == 5400
         assert totals['elevation_gain'] == round(150 * METERS_TO_FEET, 0)
+
+
+class TestShouldIncludeActivity:
+    def setup_method(self):
+        self.processor = StravaProcessor()
+
+    def test_includes_non_commute(self):
+        activity = {'commute': False, 'distance': 100}
+        assert self.processor.should_include_activity(activity)
+
+    def test_excludes_short_commute(self):
+        activity = {'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES - 0.1) / METERS_TO_MILES}
+        assert not self.processor.should_include_activity(activity)
+
+    def test_includes_long_commute(self):
+        activity = {'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES + 0.1) / METERS_TO_MILES}
+        assert self.processor.should_include_activity(activity)

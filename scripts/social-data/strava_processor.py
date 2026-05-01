@@ -19,6 +19,9 @@ RECENT_ACTIVITY_LIMIT = 8
 # Maximum number of activities to include in the all-activities log
 ALL_ACTIVITIES_LIMIT = 100
 
+# Commutes below this distance are filtered out of public activity lists.
+MIN_COMMUTE_DISTANCE_MILES = 5
+
 class StravaActivity(TypedDict):
     id: int
     name: str
@@ -111,6 +114,13 @@ class StravaProcessor:
             'elevation_gain': round(total_elevation * METERS_TO_FEET, 0)
         }
 
+    def should_include_activity(self, activity: StravaActivity, exclude_commutes: bool = True) -> bool:
+        """Return whether an activity should be included in public lists."""
+        if not exclude_commutes or not activity.get('commute', False):
+            return True
+
+        return activity.get('distance', 0) * METERS_TO_MILES > MIN_COMMUTE_DISTANCE_MILES
+
     def get_activities_by_type(self, activity_type: str, exclude_commutes: bool = True) -> list[StravaActivity]:
         """Get all activities of a specific type."""
         activities = self.load_activities_data()
@@ -120,7 +130,7 @@ class StravaProcessor:
         ]
         
         if exclude_commutes:
-            filtered = [activity for activity in filtered if not activity.get('commute', False)]
+            filtered = [activity for activity in filtered if self.should_include_activity(activity, exclude_commutes)]
             
         return filtered
 
