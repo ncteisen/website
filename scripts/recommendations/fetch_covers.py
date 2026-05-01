@@ -2,87 +2,107 @@
 
 from __future__ import annotations
 
-import os
 import json
 import logging
+import os
 import re
 
 import requests
+from bs4 import BeautifulSoup
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(SCRIPT_DIR, 'data', 'covers.json')
-BOOKS_FILE = os.path.join(SCRIPT_DIR, '..', 'goodreads-fetcher', 'data', 'books.json')
+INPUT_FILE = os.path.join(SCRIPT_DIR, 'reviews.json')
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'metadata.json')
 
-FILMS = {
-    'The Prestige': 'https://letterboxd.com/film/the-prestige/',
-    'Arrival': 'https://letterboxd.com/film/arrival-2016/',
-    'Knives Out': 'https://letterboxd.com/film/knives-out-2019/',
-    'Eternal Sunshine of the Spotless Mind': 'https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/',
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
 }
-
-BOOKS = ['Exhalation', 'Tenth of December', '10:04', 'Playground']
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def fetch_film_covers() -> dict[str, str]:
-    """Scrape portrait poster images from Letterboxd film pages using requests."""
-    covers: dict[str, str] = {}
-    for title, url in FILMS.items():
-        logger.info(f"Fetching poster for {title} from {url}")
-        resp = requests.get(url, timeout=10)
-        resp.raise_for_status()
+def scrape_film(url: str) -> dict[str, str]:
+    """Scrape title, director, year, and poster from a Letterboxd film page."""
+    resp = requests.get(url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    html = resp.text
 
-        # Extract portrait poster path (2:3 ratio, 230x345) from page source
-        # Two URL patterns: film-poster/... or sm/upload/...
-        matches = re.findall(
-            r'((?:film-poster|sm/upload)/[^\s"\'<>]+-0-230-0-345-crop\.jpg[^\s"\'<>]*)',
-            resp.text,
-        )
-        if matches:
-            # Upscale from 230x345 to 600x900
-            path = matches[0].replace('-0-230-0-345-crop', '-0-600-0-900-crop')
-            covers[title] = f'https://a.ltrbxd.com/resized/{path}'
-            logger.info(f"  Found: {covers[title][:80]}...")
-        else:
-            logger.warning(f"  No portrait poster found for {title}")
-    return covers
+    # Extract JSON-LD structured data (Letterboxd wraps it in CDATA comments)
+    soup = BeautifulSoup(html, 'html.parser')
+    ld_tag = soup.find('script', type='application/ld+json')
+    ld = {}
+    if ld_tag:
+        raw = ld_tag.string or ld_tag.get_text()
+        raw = re.sub(r'/\*.*?\*/', '', raw, flags=re.DOTALL).strip()
+        ld = json.loads(raw)
+
+    title = ld.get('name', '')
+    directors = ld.get('director', [])
+    director = directors[0]['name'] if directors else ''
+    released = ld.get('releasedEvent', [])
+    year = released[0].get('startDate', '') if released else ''
+
+    subtitle = f'{director}, {year}' if director and year else director or year
+
+    # Extract poster image (existing proven regex + upscale)
+    matches = re.findall(
+        r'((?:film-poster|sm/upload)/[^\s"\'<>]+-0-230-0-345-crop\.jpg[^\s"\'<>]*)',
+        html,
+    )
+    cover = ''
+    if matches:
+        path = matches[0].replace('-0-230-0-345-crop', '-0-600-0-900-crop')
+        cover = f'https://a.ltrbxd.com/resized/{path}'
+
+    logger.info(f'Film: {title} ({subtitle}) — cover {"found" if cover else "MISSING"}')
+    return {'title': title, 'subtitle': subtitle, 'cover': cover}
 
 
-def fetch_book_covers() -> dict[str, str]:
-    """Look up book cover images from local Goodreads data."""
-    covers: dict[str, str] = {}
-    with open(BOOKS_FILE, 'r') as f:
-        all_books = json.load(f)
+def scrape_book(url: str) -> dict[str, str]:
+    """Scrape title, author, and cover from a Goodreads book page."""
+    resp = requests.get(url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    html = resp.text
 
-    for target in BOOKS:
-        matches = [b for b in all_books if target.lower() in b['title'].lower()]
-        if matches:
-            book = matches[0]
-            image_url = book.get('book_large_image_url') or book.get('book_image_url', '')
-            if image_url:
-                covers[target] = image_url
-                logger.info(f"Found cover for {target}: {image_url[:80]}...")
-            else:
-                logger.warning(f"No image URL for {target}")
-        else:
-            logger.warning(f"Book not found in local data: {target}")
+    soup = BeautifulSoup(html, 'html.parser')
 
-    return covers
+    # Extract JSON-LD structured data
+    ld_tag = soup.find('script', type='application/ld+json')
+    ld = json.loads(ld_tag.string) if ld_tag else {}
+
+    title = ld.get('name', '')
+    authors = ld.get('author', [])
+    author = authors[0]['name'] if authors else ''
+
+    # Cover image: try og:image first, then JSON-LD
+    og_img = soup.find('meta', property='og:image')
+    cover = og_img['content'] if og_img else ld.get('image', '')
+
+    logger.info(f'Book: {title} ({author}) — cover {"found" if cover else "MISSING"}')
+    return {'title': title, 'subtitle': author, 'cover': cover}
 
 
 def main() -> None:
-    film_covers = fetch_film_covers()
-    book_covers = fetch_book_covers()
+    with open(INPUT_FILE) as f:
+        recs = json.load(f)
 
-    covers = {**film_covers, **book_covers}
+    output: dict[str, list] = {'films': [], 'books': []}
 
-    os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-    with open(DATA_FILE, 'w') as f:
-        json.dump(covers, f, indent=2)
+    for film in recs['films']:
+        metadata = scrape_film(film['url'])
+        output['films'].append({'url': film['url'], **metadata})
 
-    logger.info(f"Saved {len(covers)} covers to {DATA_FILE}")
+    for book in recs['books']:
+        metadata = scrape_book(book['url'])
+        output['books'].append({'url': book['url'], **metadata})
+
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    with open(OUTPUT_FILE, 'w') as f:
+        json.dump(output, f, indent=2)
+
+    total = len(output['films']) + len(output['books'])
+    logger.info(f'Saved {total} recommendations to {OUTPUT_FILE}')
 
 
 if __name__ == '__main__':
