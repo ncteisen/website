@@ -30,7 +30,7 @@ All scripts should be run from the **repo root**, not from inside their director
 ```bash
 # Fetch fresh data from external sources
 python scripts/strava-fetcher/fetch_activities.py
-python scripts/goodreads-fetcher/fetch_books.py
+python scripts/goodreads-fetcher/fetch_books.py --full
 python scripts/letterboxd-fetcher/fetch_films.py
 
 # Run the orchestrator to combine everything into social_data.json

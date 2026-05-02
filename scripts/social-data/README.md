@@ -57,7 +57,7 @@ From the repo root (with venv activated):
 ```bash
 # Stage 1: Fetch fresh data
 python scripts/strava-fetcher/fetch_activities.py      # requires .env with Strava credentials
-python scripts/goodreads-fetcher/fetch_books.py
+python scripts/goodreads-fetcher/fetch_books.py --full
 python scripts/letterboxd-fetcher/fetch_films.py
 
 # Stage 2: Combine into social_data.json

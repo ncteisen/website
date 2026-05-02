@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-01T23:49:40.594820",
+  "last_updated": "2026-05-02T05:31:47.311015",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -3664,6 +3664,15 @@
   "goodreads": {
     "all_reviews": [
       {
+        "title": "Transcription",
+        "author": "Ben Lerner",
+        "rating": 4,
+        "read_at": "Mon, 27 Apr 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
+        "link": "https://www.goodreads.com/review/show/8458562550?utm_medium=api&utm_source=rss",
+        "review": "On-brand Lerner, through and through. All the way from the high level themes (parenting struggles, the impact of technology on our lives, metatextuality, etc etc) to particular tropes (the main character inexplicably lying, someone confessing something important to someone who doesn't or can't hear it, the experience of looking at art, etc etc).<br /><br />All in all, I really liked it, because I love the way he writes about the world. But his last two books contain less connective tissue than his first two, and therefore they were less memorable. They feel more like profound snippets and musings as opposed to fully realized novels that contain characters who undergo change."
+      },
+      {
         "title": "Wild Dark Shore",
         "author": "Charlotte McConaghy",
         "rating": 3,
@@ -4501,6 +4510,15 @@
         "review": ""
       },
       {
+        "title": "A Random Walk Down Wall Street: The Time-Tested Strategy for Successful Investing",
+        "author": "Burton G. Malkiel",
+        "rating": 3,
+        "read_at": "Sun, 15 Aug 2021 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1529041799l/40242274.jpg",
+        "link": "https://www.goodreads.com/review/show/3828962539?utm_medium=api&utm_source=rss",
+        "review": "Interesting stuff at the beginning, but I lost momentum once it got into the details of behavioral economics"
+      },
+      {
         "title": "One Hundred Years of Solitude",
         "author": "Gabriel Garc\u00eda M\u00e1rquez",
         "rating": 5,
@@ -5196,6 +5214,15 @@
     ],
     "recent_reviews": [
       {
+        "title": "Transcription",
+        "author": "Ben Lerner",
+        "rating": 4,
+        "read_at": "Mon, 27 Apr 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
+        "link": "https://www.goodreads.com/review/show/8458562550?utm_medium=api&utm_source=rss",
+        "review": "On-brand Lerner, through and through. All the way from the high level themes (parenting struggles, the impact of technology on our lives, metatextuality, etc etc) to particular tropes (the main character inexplicably lying, someone confessing something important to someone who doesn't or can't hear it, the experience of looking at art, etc etc).<br /><br />All in all, I really liked it, because I love the way he writes about the world. But his last two books contain less connective tissue than his first two, and therefore they were less memorable. They feel more like profound snippets and musings as opposed to fully realized novels that contain characters who undergo change."
+      },
+      {
         "title": "Wild Dark Shore",
         "author": "Charlotte McConaghy",
         "rating": 3,
@@ -5257,23 +5284,14 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1475695315l/18045891.jpg",
         "link": "https://www.goodreads.com/review/show/6022824134?utm_medium=api&utm_source=rss",
         "review": "Solid B-tier thriller"
-      },
-      {
-        "title": "Barbarians at the Gate: The Fall of RJR Nabisco",
-        "author": "Bryan Burrough",
-        "rating": 4,
-        "read_at": "Wed, 24 Dec 2025 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442897076l/781182.jpg",
-        "link": "https://www.goodreads.com/review/show/8066165910?utm_medium=api&utm_source=rss",
-        "review": "Just like Succession except it\u2019s a 600 page book and it all actually happened"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 284,
-      "average_rating": 4.17,
-      "total_reviews": 271,
-      "books_this_year": 6
+      "total_ratings": 286,
+      "average_rating": 4.16,
+      "total_reviews": 125,
+      "books_this_year": 7
     }
   },
   "strava": {

@@ -6,6 +6,7 @@ import os
 import json
 import time
 import logging
+import argparse
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from email.utils import parsedate_to_datetime
@@ -27,7 +28,9 @@ logger = logging.getLogger(__name__)
 
 
 class GoodreadsDataCollector:
-    def __init__(self):
+    def __init__(self, full_refresh: bool = False, shelf: str | None = None):
+        self.full_refresh = full_refresh
+        self.shelf = shelf
         self.existing_books = []
         self.fetched_books = []
 
@@ -91,17 +94,20 @@ class GoodreadsDataCollector:
         }
 
     def fetch_books(self) -> None:
-        is_backfill = len(self.existing_books) == 0
+        is_backfill = self.full_refresh or len(self.existing_books) == 0
         if is_backfill:
-            logger.info("Backfill mode: fetching ALL pages")
+            logger.info("Full refresh mode: fetching ALL pages")
         else:
             logger.info("Incremental mode: fetching page 1 only")
+        logger.info(f"Fetching shelf: {self.shelf or 'all'}")
 
         page = 1
         while True:
-            url = f"{GOODREADS_RSS_URL}?shelf=read&per_page=100&page={page}"
-            logger.info(f"Fetching page {page}: {url}")
-            response = requests.get(url, headers=HEADERS, timeout=30)
+            params = {"per_page": 100, "page": page}
+            if self.shelf:
+                params["shelf"] = self.shelf
+            logger.info(f"Fetching page {page}: {GOODREADS_RSS_URL}")
+            response = requests.get(GOODREADS_RSS_URL, params=params, headers=HEADERS, timeout=30)
             response.raise_for_status()
 
             root = ET.fromstring(response.content.decode('utf-8'))
@@ -156,7 +162,19 @@ class GoodreadsDataCollector:
 
 
 def main() -> None:
-    collector = GoodreadsDataCollector()
+    parser = argparse.ArgumentParser(description="Fetch Goodreads RSS book data.")
+    parser.add_argument(
+        "--full",
+        action="store_true",
+        help="Fetch every RSS page instead of only the first incremental page.",
+    )
+    parser.add_argument(
+        "--shelf",
+        help="Fetch a specific Goodreads shelf. Defaults to the account's all-shelf RSS feed.",
+    )
+    args = parser.parse_args()
+
+    collector = GoodreadsDataCollector(full_refresh=args.full, shelf=args.shelf)
     collector.load_existing_books()
     collector.fetch_books()
     collector.update_and_save_books()
