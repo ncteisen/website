@@ -134,13 +134,17 @@ const getEmptyStars = (rating: number): string => {
 	return '★'.repeat(empty);
 };
 
+const currentYear = new Date().getFullYear();
+
 // Stats data for the period toggle (serialized to JSON for client-side use)
 const statsData = {
 	year: {
 		films: letterboxdData.stats?.films_this_year || 0,
 		filmsLabel: 'films watched this year',
+		filmsHref: `https://letterboxd.com/ncteisen/reviews/films/for/${currentYear}/`,
 		books: goodreadsData.stats?.books_this_year || 0,
 		booksLabel: 'books read this year',
+		booksHref: `https://www.goodreads.com/review/list/44763252-noah-eisen?read_at=${currentYear}`,
 		runMiles: Math.round(stravaData.stats?.running.ytd.distance || 0),
 		runLabel: 'miles run this year',
 		rideMiles: Math.round(stravaData.stats?.biking.ytd.distance || 0),
@@ -149,8 +153,10 @@ const statsData = {
 	lifetime: {
 		films: letterboxdData.stats?.total_films || 0,
 		filmsLabel: 'films logged, lifetime',
+		filmsHref: 'https://letterboxd.com/ncteisen/reviews/',
 		books: goodreadsData.stats?.total_ratings || 0,
 		booksLabel: 'books rated, lifetime',
+		booksHref: 'https://www.goodreads.com/review/list/44763252-noah-eisen?order=d&sort=date_read&view=covers',
 		runMiles: Math.round(stravaData.stats?.running.all_time.distance || 0),
 		runLabel: 'miles run, all time',
 		rideMiles: Math.round(stravaData.stats?.biking.all_time.distance || 0),
@@ -547,6 +553,15 @@ const latestBike = stravaData.recent_bikes?.[0];
 
 			.stat-cell { flex: 1; min-width: 0; }
 
+			.stat-cell-link {
+				display: block;
+				margin: -10px -12px;
+				padding: 10px 12px;
+				border-radius: 6px;
+				color: inherit;
+				text-decoration: none;
+			}
+
 			.stat-value {
 				font-size: 34px;
 				font-weight: 700;
@@ -560,6 +575,12 @@ const latestBike = stravaData.recent_bikes?.[0];
 				font-size: 11px;
 				color: #555;
 				letter-spacing: 0.3px;
+				transition: color 0.15s;
+			}
+
+			.stat-cell-link:hover .stat-label,
+			.stat-cell-link:focus-visible .stat-label {
+				color: #3a4f7a;
 			}
 
 			.stat-divider {
@@ -940,15 +961,15 @@ const latestBike = stravaData.recent_bikes?.[0];
 					</div>
 				</div>
 				<div class="stats-row">
-					<div class="stat-cell">
+					<a class="stat-cell stat-cell-link" href={statsData.year.filmsHref} target="_blank" rel="noopener noreferrer" data-stat-link="films">
 						<div class="stat-value" data-stat="films">{statsData.year.films.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="films">{statsData.year.filmsLabel}</div>
-					</div>
+					</a>
 					<div class="stat-divider"></div>
-					<div class="stat-cell">
+					<a class="stat-cell stat-cell-link" href={statsData.year.booksHref} target="_blank" rel="noopener noreferrer" data-stat-link="books">
 						<div class="stat-value" data-stat="books">{statsData.year.books.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="books">{statsData.year.booksLabel}</div>
-					</div>
+					</a>
 					<div class="stat-divider"></div>
 					<div class="stat-cell">
 						<div class="stat-value" data-stat="runMiles">{statsData.year.runMiles.toLocaleString()}</div>
@@ -1168,8 +1189,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 					keys.forEach((key, i) => {
 						const valEl = document.querySelector(`[data-stat="${key}"]`);
 						const lblEl = document.querySelector(`[data-stat-label="${key}"]`);
+						const linkEl = document.querySelector(`[data-stat-link="${key}"]`);
 						if (valEl) valEl.textContent = Number(data[key]).toLocaleString();
 						if (lblEl) lblEl.textContent = data[labelKeys[i]];
+						if (linkEl && `${key}Href` in data) (linkEl as HTMLAnchorElement).href = data[`${key}Href`];
 					});
 
 					periodBtns.forEach(btn => {
