@@ -51,7 +51,12 @@
     "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
     "https://www.goodreads.com/book/show/20613582-10-04",
     "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
-    "https://www.goodreads.com/book/show/20579877-fictions",
+    {
+      "url": "https://www.goodreads.com/book/show/426504.Ficciones",
+      "title": "Ficciones",
+      "subtitle": "Jorge Luis Borges",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621713120l/426504.jpg"
+    },
     {
       "url": "https://www.goodreads.com/book/show/4671.The_Great_Gatsby",
       "title": "The Great Gatsby",
@@ -77,13 +82,13 @@
       ],
       "books": [
         "https://www.goodreads.com/book/show/13641208-tenth-of-december",
-        "https://www.goodreads.com/book/show/205478762-playground",
-        "https://www.goodreads.com/book/show/41160292-exhalation",
         "https://www.goodreads.com/book/show/338798.Ulysses",
+        "https://www.goodreads.com/book/show/41160292-exhalation",
+        "https://www.goodreads.com/book/show/205478762-playground",
         "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
         "https://www.goodreads.com/book/show/20613582-10-04",
         "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
-        "https://www.goodreads.com/book/show/20579877-fictions"
+        "https://www.goodreads.com/book/show/426504.Ficciones"
       ]
     },
     "mobile": {
@@ -107,7 +112,7 @@
         "https://www.goodreads.com/book/show/205478762-playground",
         "https://www.goodreads.com/book/show/13641208-tenth-of-december",
         "https://www.goodreads.com/book/show/338798.Ulysses",
-        "https://www.goodreads.com/book/show/20579877-fictions",
+        "https://www.goodreads.com/book/show/426504.Ficciones",
         "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
         "https://www.goodreads.com/book/show/20613582-10-04",
         "https://www.goodreads.com/book/show/4671.The_Great_Gatsby"
