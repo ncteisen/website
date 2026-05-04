@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import SocialPreview from '../components/SocialPreview.astro';
 import favorites from '../../scripts/recommendations/favorites.json';
 import metadata from '../../scripts/recommendations/data/metadata.json';
 
@@ -71,7 +72,11 @@ const mobileBooks = resolveFavorites('books', 'mobile', metadata.books);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Favorites — Noah Eisen</title>
-		<meta name="description" content="Noah Eisen's favorite films and books." />
+		<SocialPreview
+			title="Noah Eisen - Favorites"
+			description="Noah Eisen's favorite films and books."
+			path="/favorites/"
+		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<UmamiAnalytics />
 		<style>

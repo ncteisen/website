@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import SocialPreview from '../components/SocialPreview.astro';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
@@ -110,7 +111,11 @@ const formatDate = (dateStr: string): string => {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Journal — Noah Eisen</title>
-		<meta name="description" content="Everything Noah Eisen has watched and read, with reviews." />
+		<SocialPreview
+			title="Noah Eisen - Journal"
+			description="Everything Noah Eisen has watched and read, with reviews."
+			path="/journal/"
+		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<UmamiAnalytics />
 		<style>

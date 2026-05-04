@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import SocialPreview from '../../components/SocialPreview.astro';
 ---
 
 <html lang="en">
@@ -9,7 +10,11 @@ import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sarah Jumps | Noah Eisen</title>
-		<meta name="description" content="A Doodle Jump clone game built with JavaScript" />
+		<SocialPreview
+			title="Noah Eisen - Sarah Jumps"
+			description="A Doodle Jump clone game built with JavaScript"
+			path="/projects/sarah-jumps/"
+		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<UmamiAnalytics />
 		<style>

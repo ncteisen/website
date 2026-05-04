@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import SocialPreview from '../components/SocialPreview.astro';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
@@ -68,7 +69,11 @@ const filterKey = (type: string): string => {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Activity Log — Noah Eisen</title>
-		<meta name="description" content="Noah Eisen's recent runs, rides, and hikes from Strava." />
+		<SocialPreview
+			title="Noah Eisen - Activity Log"
+			description="Noah Eisen's recent runs, rides, and hikes from Strava."
+			path="/activities/"
+		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
