@@ -51,6 +51,67 @@
     "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
     "https://www.goodreads.com/book/show/20613582-10-04",
     "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
-    "https://www.goodreads.com/book/show/20579877-fictions"
-  ]
+    "https://www.goodreads.com/book/show/20579877-fictions",
+    {
+      "url": "https://www.goodreads.com/book/show/4671.The_Great_Gatsby",
+      "title": "The Great Gatsby",
+      "subtitle": "F. Scott Fitzgerald",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671.jpg"
+    }
+  ],
+  "orders": {
+    "desktop": {
+      "films": [
+        "https://letterboxd.com/film/spirited-away/",
+        "https://letterboxd.com/film/arrival-2016/",
+        "https://letterboxd.com/film/heat-1995/",
+        "https://letterboxd.com/film/the-prestige/",
+        "https://letterboxd.com/film/hereditary/",
+        "https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/",
+        "https://letterboxd.com/film/knives-out-2019/",
+        "http://letterboxd.com/film/la-la-land/",
+        "https://letterboxd.com/film/spider-man-into-the-spider-verse/",
+        "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
+        "https://letterboxd.com/film/inside-out-2015/",
+        "https://letterboxd.com/film/parasite-2019/"
+      ],
+      "books": [
+        "https://www.goodreads.com/book/show/13641208-tenth-of-december",
+        "https://www.goodreads.com/book/show/205478762-playground",
+        "https://www.goodreads.com/book/show/41160292-exhalation",
+        "https://www.goodreads.com/book/show/338798.Ulysses",
+        "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
+        "https://www.goodreads.com/book/show/20613582-10-04",
+        "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
+        "https://www.goodreads.com/book/show/20579877-fictions"
+      ]
+    },
+    "mobile": {
+      "films": [
+        "https://letterboxd.com/film/spirited-away/",
+        "https://letterboxd.com/film/arrival-2016/",
+        "https://letterboxd.com/film/heat-1995/",
+        "https://letterboxd.com/film/the-prestige/",
+        "https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/",
+        "https://letterboxd.com/film/hereditary/",
+        "http://letterboxd.com/film/la-la-land/",
+        "https://letterboxd.com/film/knives-out-2019/",
+        "https://letterboxd.com/film/spider-man-into-the-spider-verse/",
+        "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
+        "https://letterboxd.com/film/inside-out-2015/",
+        "https://letterboxd.com/film/parasite-2019/"
+      ],
+      "books": [
+        "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
+        "https://www.goodreads.com/book/show/41160292-exhalation",
+        "https://www.goodreads.com/book/show/205478762-playground",
+        "https://www.goodreads.com/book/show/13641208-tenth-of-december",
+        "https://www.goodreads.com/book/show/338798.Ulysses",
+        "https://www.goodreads.com/book/show/20579877-fictions",
+        "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
+        "https://www.goodreads.com/book/show/20613582-10-04",
+        "https://www.goodreads.com/book/show/4671.The_Great_Gatsby"
+      ]
+    }
+  }
 }
