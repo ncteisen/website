@@ -1,5 +1,6 @@
-requests==2.32.2
+# Security-fixed pins below require Python >=3.10; CI uses Python 3.12.
+requests==2.33.0
 beautifulsoup4==4.12.2
-python-dotenv==1.0.0
-pytest==7.4.3
-Pillow==11.3.0
+python-dotenv==1.2.2
+pytest==9.0.3
+Pillow==12.2.0
