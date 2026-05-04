@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-05-03T10:58:52.741609",
+  "last_updated": "2026-05-04T11:57:06.600613",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "I Love Boosters",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-05-03",
+        "is_rewatch": false,
+        "review": "<p>I've seen \"Sorry to Bother You\" so I thought I knew how freaky/batshit/psychotic/deranged this was gonna be. Anyway... I didn't.</p><p>Had it's moments, but it was a bit too messy and unfocussed for me. Maybe I just like capitalism too much to appreciate art like this.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=9d5e0be81f",
+        "link": "https://letterboxd.com/ncteisen/film/i-love-boosters/"
+      },
       {
         "title": "Spider-Man 2",
         "year": 2004,
@@ -3586,6 +3596,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "I Love Boosters",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-05-03",
+        "is_rewatch": false,
+        "review": "<p>I've seen \"Sorry to Bother You\" so I thought I knew how freaky/batshit/psychotic/deranged this was gonna be. Anyway... I didn't.</p><p>Had it's moments, but it was a bit too messy and unfocussed for me. Maybe I just like capitalism too much to appreciate art like this.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=9d5e0be81f",
+        "link": "https://letterboxd.com/ncteisen/film/i-love-boosters/"
+      },
+      {
         "title": "Spider-Man 2",
         "year": 2004,
         "rating": 5.0,
@@ -3654,21 +3674,11 @@
         "review": "<p>I can't believe it wasn't until my 31st passover on this earth that I watched this movie</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/6/7/7/8/46778-the-prince-of-egypt-0-600-0-900-crop.jpg?v=b29fc0a633",
         "link": "https://letterboxd.com/ncteisen/film/the-prince-of-egypt/"
-      },
-      {
-        "title": "Hoppers",
-        "year": 2026,
-        "rating": 4.0,
-        "watched_date": "2026-03-31",
-        "is_rewatch": false,
-        "review": "<p>Psychotic (complementary)</p><p>If I had seen this at an impressionable young age (like the poor kid three seats to my left) it would have traumatized me just like that one scene from Who Framed Roger Rabbit (you know the one).</p><p>Honored to have watched this with Hoppers superfan Camyll.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/0/7/5/5/7/1207557-hoppers-0-600-0-900-crop.jpg?v=7711e7b5a7",
-        "link": "https://letterboxd.com/ncteisen/film/hoppers/"
       }
     ],
     "stats": {
-      "total_films": 358,
-      "films_this_year": 22
+      "total_films": 359,
+      "films_this_year": 23
     }
   },
   "goodreads": {
@@ -8199,11 +8209,11 @@
           "elevation_gain": 477710.0
         },
         "recent": {
-          "count": 20,
-          "distance": 105.87,
-          "moving_time": 57917,
-          "elapsed_time": 66761,
-          "elevation_gain": 8451.0
+          "count": 19,
+          "distance": 100.93,
+          "moving_time": 55284,
+          "elapsed_time": 63858,
+          "elevation_gain": 8238.0
         }
       },
       "biking": {
