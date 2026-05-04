@@ -1,0 +1,56 @@
+{
+  "films": [
+    {
+      "url": "https://letterboxd.com/film/spirited-away/",
+      "cover": "/images/favorites/films/spirited-away.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/arrival-2016/",
+      "cover": "/images/favorites/films/arrival.jpg"
+    },
+    "https://letterboxd.com/film/heat-1995/",
+    {
+      "url": "https://letterboxd.com/film/the-prestige/",
+      "cover": "/images/favorites/films/the-prestige.jpg"
+    },
+    "https://letterboxd.com/film/hereditary/",
+    {
+      "url": "https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/",
+      "cover": "/images/favorites/films/eternal-sunshine-of-the-spotless-mind.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/knives-out-2019/",
+      "cover": "/images/favorites/films/knives-out.jpg"
+    },
+    {
+      "url": "http://letterboxd.com/film/la-la-land/",
+      "cover": "/images/favorites/films/la-la-land.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/spider-man-into-the-spider-verse/",
+      "cover": "/images/favorites/films/spider-man-into-the-spider-verse.jpg"
+    },
+    "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
+    {
+      "url": "https://letterboxd.com/film/inside-out-2015/",
+      "cover": "/images/favorites/films/inside-out.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/parasite-2019/",
+      "cover": "/images/favorites/films/parasite.jpg"
+    }
+  ],
+  "books": [
+    "https://www.goodreads.com/book/show/41160292-exhalation",
+    "https://www.goodreads.com/book/show/205478762-playground",
+    "https://www.goodreads.com/book/show/13641208-tenth-of-december",
+    {
+      "url": "https://www.goodreads.com/book/show/338798.Ulysses",
+      "cover": "/images/favorites/books/ulysses.jpg"
+    },
+    "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
+    "https://www.goodreads.com/book/show/20613582-10-04",
+    "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
+    "https://www.goodreads.com/book/show/20579877-fictions"
+  ]
+}

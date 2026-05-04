@@ -1,23 +1,31 @@
 ---
-import reviews from '../../scripts/recommendations/reviews.json';
+import favorites from '../../scripts/recommendations/favorites.json';
 import metadata from '../../scripts/recommendations/data/metadata.json';
 
 interface Rec {
 	title: string;
 	subtitle: string;
 	url: string;
-	review: string;
 	cover: string;
 }
 
-// Merge: reviews from reviews.json (easy to edit), titles/covers from metadata.json (scraped)
-const mergeByUrl = (revs: {url: string; review: string}[], meta: Omit<Rec, 'review'>[]): Rec[] => {
-	const metaMap = new Map(meta.map(m => [m.url, m]));
-	return revs.map(r => ({ ...metaMap.get(r.url)!, review: r.review }));
+type Favorite = string | {
+	url: string;
+	cover?: string;
 };
 
-const films = mergeByUrl(reviews.films, metadata.films);
-const books = mergeByUrl(reviews.books, metadata.books);
+// Merge the hand-edited favorites list with scraped title/cover metadata.
+const mergeByUrl = (items: Favorite[], meta: Rec[]): Rec[] => {
+	const metaMap = new Map(meta.map(m => [m.url, m]));
+	return items.map((item) => {
+		const favorite = typeof item === 'string' ? { url: item } : item;
+		const rec = metaMap.get(favorite.url);
+		return rec ? { ...rec, cover: favorite.cover || rec.cover } : undefined;
+	}).filter((rec): rec is Rec => Boolean(rec));
+};
+
+const films = mergeByUrl(favorites.films, metadata.films);
+const books = mergeByUrl(favorites.books, metadata.books);
 ---
 
 <html lang="en">
@@ -98,93 +106,63 @@ const books = mergeByUrl(reviews.books, metadata.books);
 				color: #444;
 				display: block;
 				margin-top: 52px;
-				margin-bottom: 28px;
+				margin-bottom: 20px;
 				padding-bottom: 16px;
 				border-bottom: 1px solid #1a1a1a;
 			}
 
-			/* === RECOMMENDATION ENTRIES === */
-			.rec-entry {
+			.favorites-grid {
 				display: grid;
-				grid-template-columns: 120px 1fr;
-				gap: 28px;
-				padding: 28px 0;
-				border-top: 1px solid #181818;
+				grid-template-columns: repeat(auto-fill, 154px);
+				gap: 22px 18px;
+			}
+
+			.favorite-link {
+				color: inherit;
+				text-decoration: none;
+				display: block;
+			}
+
+			.favorite-link:hover .rec-cover,
+			.favorite-link:focus-visible .rec-cover {
+				border-color: #3a3a3a;
+				transform: translateY(-2px);
 			}
 
 			.rec-cover {
-				width: 120px;
-				height: 180px;
+				width: 100%;
+				aspect-ratio: 2 / 3;
 				border-radius: 4px;
 				object-fit: cover;
 				background: #151515;
 				border: 1px solid #1e1e1e;
+				display: block;
+				transition: border-color 0.15s, transform 0.15s;
 			}
 
 			.rec-body {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			}
-
-			.rec-badge {
-				font-size: 9px;
-				letter-spacing: 2px;
-				font-weight: 600;
-				padding: 2px 7px;
-				border-radius: 3px;
-				display: inline-block;
-				margin-bottom: 12px;
-				width: fit-content;
-			}
-
-			.rec-badge.film {
-				color: #5b8ef0;
-				border: 1px solid rgba(91, 142, 240, 0.25);
-			}
-
-			.rec-badge.book {
-				color: #d4a84b;
-				border: 1px solid rgba(212, 168, 75, 0.25);
+				margin-top: 10px;
 			}
 
 			.rec-title {
-				font-size: 19px;
+				font-size: 14px;
 				font-weight: 600;
 				color: #e2dfd8;
-				line-height: 1.3;
+				line-height: 1.25;
 				margin-bottom: 4px;
 			}
 
 			.rec-subtitle {
-				font-size: 12px;
+				font-size: 11px;
 				color: #555;
-				margin-bottom: 14px;
-			}
-
-			.rec-text {
-				font-size: 13px;
-				color: #888;
-				line-height: 1.75;
-				max-width: 580px;
+				line-height: 1.35;
 			}
 
 			/* === RESPONSIVE === */
 			@media (max-width: 768px) {
 				.wrap { padding: 36px 24px 60px; }
 				.page-title { font-size: 36px; }
-
-				.rec-entry {
-					grid-template-columns: 84px 1fr;
-					gap: 16px;
-				}
-
-				.rec-cover {
-					width: 84px;
-					height: 126px;
-				}
-
-				.rec-title { font-size: 16px; }
+				.favorites-grid { grid-template-columns: repeat(auto-fill, 112px); }
 			}
 		</style>
 	</head>
@@ -193,36 +171,40 @@ const books = mergeByUrl(reviews.books, metadata.books);
 			<div>
 				<a href="/" class="back-link">&larr; Back to Noah Eisen</a>
 				<h1 class="page-title">Favorites</h1>
-				<p class="page-desc">Films and books I think are exceptional and worth your time.</p>
+				<p class="page-desc">Some of my favorite movies and books, in no particular order.</p>
 			</div>
 
-			<span class="section-label">Films</span>
+			<span class="section-label">Movies</span>
 
-			{films.map((film) => (
-				<article class="rec-entry">
-					<img class="rec-cover" src={film.cover} alt={`${film.title} poster`} />
-					<div class="rec-body">
-						<span class="rec-badge film">FILM</span>
-						<div class="rec-title">{film.title}</div>
-						<div class="rec-subtitle">{film.subtitle}</div>
-						<p class="rec-text">{film.review}</p>
-					</div>
-				</article>
-			))}
+			<div class="favorites-grid">
+				{films.map((film) => (
+					<a class="favorite-link" href={film.url} target="_blank" rel="noopener noreferrer">
+						<article>
+							<img class="rec-cover" src={film.cover} alt={`${film.title} poster`} />
+							<div class="rec-body">
+								<div class="rec-title">{film.title}</div>
+								<div class="rec-subtitle">{film.subtitle}</div>
+							</div>
+						</article>
+					</a>
+				))}
+			</div>
 
 			<span class="section-label">Books</span>
 
-			{books.map((book) => (
-				<article class="rec-entry">
-					<img class="rec-cover" src={book.cover} alt={`${book.title} cover`} />
-					<div class="rec-body">
-						<span class="rec-badge book">BOOK</span>
-						<div class="rec-title">{book.title}</div>
-						<div class="rec-subtitle">{book.subtitle}</div>
-						<p class="rec-text">{book.review}</p>
-					</div>
-				</article>
-			))}
+			<div class="favorites-grid">
+				{books.map((book) => (
+					<a class="favorite-link" href={book.url} target="_blank" rel="noopener noreferrer">
+						<article>
+							<img class="rec-cover" src={book.cover} alt={`${book.title} cover`} />
+							<div class="rec-body">
+								<div class="rec-title">{book.title}</div>
+								<div class="rec-subtitle">{book.subtitle}</div>
+							</div>
+						</article>
+					</a>
+				))}
+			</div>
 		</main>
 	</body>
 </html>

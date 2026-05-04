@@ -1,28 +1,76 @@
 {
   "films": [
     {
-      "url": "https://letterboxd.com/film/the-prestige/",
-      "title": "The Prestige",
-      "subtitle": "Christopher Nolan, 2006",
-      "cover": "https://a.ltrbxd.com/resized/film-poster/5/1/1/4/7/51147-the-prestige-0-600-0-900-crop.jpg?v=ad7e891177"
+      "url": "https://letterboxd.com/film/spirited-away/",
+      "title": "Spirited Away",
+      "subtitle": "Hayao Miyazaki, 2001",
+      "cover": "/images/favorites/films/spirited-away.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/heat-1995/",
+      "title": "Heat",
+      "subtitle": "Michael Mann, 1995",
+      "cover": "/images/favorites/films/heat.jpg"
     },
     {
       "url": "https://letterboxd.com/film/arrival-2016/",
       "title": "Arrival",
       "subtitle": "Denis Villeneuve, 2016",
-      "cover": "https://a.ltrbxd.com/resized/sm/upload/3u/dy/qd/qd/4Iu5f2nv7huqvuYkmZvSPOtbFjs-0-600-0-900-crop.jpg?v=0fc28fdf2c"
+      "cover": "/images/favorites/films/arrival.jpg"
     },
     {
-      "url": "https://letterboxd.com/film/knives-out-2019/",
-      "title": "Knives Out",
-      "subtitle": "Rian Johnson, 2019",
-      "cover": "https://a.ltrbxd.com/resized/film-poster/4/7/5/3/7/0/475370-knives-out-0-600-0-900-crop.jpg?v=7da76d742c"
+      "url": "https://letterboxd.com/film/the-prestige/",
+      "title": "The Prestige",
+      "subtitle": "Christopher Nolan, 2006",
+      "cover": "/images/favorites/films/the-prestige.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/hereditary/",
+      "title": "Hereditary",
+      "subtitle": "Ari Aster, 2018",
+      "cover": "/images/favorites/films/hereditary.jpg"
     },
     {
       "url": "https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/",
       "title": "Eternal Sunshine of the Spotless Mind",
       "subtitle": "Michel Gondry, 2004",
-      "cover": "https://a.ltrbxd.com/resized/sm/upload/ay/bp/kl/1y/uBfQ7IGpi0jXSP3GPCzp9Pzm10v-0-600-0-900-crop.jpg?v=116621c401"
+      "cover": "/images/favorites/films/eternal-sunshine-of-the-spotless-mind.jpg"
+    },
+    {
+      "url": "http://letterboxd.com/film/la-la-land/",
+      "title": "La La Land",
+      "subtitle": "Damien Chazelle, 2016",
+      "cover": "/images/favorites/films/la-la-land.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/knives-out-2019/",
+      "title": "Knives Out",
+      "subtitle": "Rian Johnson, 2019",
+      "cover": "/images/favorites/films/knives-out.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/spider-man-into-the-spider-verse/",
+      "title": "Spider-Man: Into the Spider-Verse",
+      "subtitle": "Bob Persichetti, 2018",
+      "cover": "/images/favorites/films/spider-man-into-the-spider-verse.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
+      "title": "Portrait of a Lady on Fire",
+      "subtitle": "C\u00e9line Sciamma, 2019",
+      "cover": "/images/favorites/films/portrait-of-a-lady-on-fire.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/inside-out-2015/",
+      "title": "Inside Out",
+      "subtitle": "Pete Docter, 2015",
+      "cover": "/images/favorites/films/inside-out.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/parasite-2019/",
+      "title": "Parasite",
+      "subtitle": "Bong Joon Ho, 2019",
+      "cover": "/images/favorites/films/parasite.jpg"
     }
   ],
   "books": [
@@ -30,25 +78,49 @@
       "url": "https://www.goodreads.com/book/show/41160292-exhalation",
       "title": "Exhalation",
       "subtitle": "Ted Chiang",
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1534388394i/41160292.jpg"
-    },
-    {
-      "url": "https://www.goodreads.com/book/show/13641208-tenth-of-december",
-      "title": "Tenth of December",
-      "subtitle": "George Saunders",
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1349967540i/13641208.jpg"
-    },
-    {
-      "url": "https://www.goodreads.com/book/show/20613582-10-04",
-      "title": "10:04",
-      "subtitle": "Ben Lerner",
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1405301226i/20613582.jpg"
+      "cover": "/images/favorites/books/exhalation.jpg"
     },
     {
       "url": "https://www.goodreads.com/book/show/205478762-playground",
       "title": "Playground",
       "subtitle": "Richard Powers",
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1712677708i/205478762.jpg"
+      "cover": "/images/favorites/books/playground.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/338798.Ulysses",
+      "title": "Ulysses",
+      "subtitle": "James Joyce",
+      "cover": "/images/favorites/books/ulysses.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/13641208-tenth-of-december",
+      "title": "Tenth of December",
+      "subtitle": "George Saunders",
+      "cover": "/images/favorites/books/tenth-of-december.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/20579877-fictions",
+      "title": "Fictions",
+      "subtitle": "Jorge Luis Borges",
+      "cover": "/images/favorites/books/fictions.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/20613582-10-04",
+      "title": "10:04",
+      "subtitle": "Ben Lerner",
+      "cover": "/images/favorites/books/10-04.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
+      "title": "Cloud Cuckoo Land",
+      "subtitle": "Anthony Doerr",
+      "cover": "/images/favorites/books/cloud-cuckoo-land.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
+      "title": "The Remains of the Day",
+      "subtitle": "Kazuo Ishiguro",
+      "cover": "/images/favorites/books/the-remains-of-the-day.jpg"
     }
   ]
 }

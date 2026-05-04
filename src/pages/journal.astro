@@ -171,6 +171,14 @@ const formatDate = (dateStr: string): string => {
 				max-width: 520px;
 			}
 
+			.journal-desc a {
+				color: #5b8ef0;
+				text-decoration: none;
+				transition: opacity 0.15s;
+			}
+
+			.journal-desc a:hover { opacity: 0.8; }
+
 			.journal-sources {
 				font-size: 12px;
 				color: #444;
@@ -448,9 +456,8 @@ const formatDate = (dateStr: string): string => {
 			<div>
 				<a href="/" class="back-link">← Back to Noah Eisen</a>
 				<h1 class="journal-title">Journal</h1>
-				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go.</p>
+				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go. See my favorites <a href="/favorites">here</a>.</p>
 				<p class="journal-sources">Sourced from my <a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> and my <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>.</p>
-				<!-- <a href="/favorites" class="page-sublink">Favorites →</a> -->
 			</div>
 
 			<!-- FILTERS -->

@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, 'reviews.json')
+INPUT_FILE = os.path.join(SCRIPT_DIR, 'favorites.json')
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'metadata.json')
 
 HEADERS = {
@@ -20,6 +20,22 @@ HEADERS = {
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+
+def normalize_favorite(item: str | dict[str, str]) -> dict[str, str]:
+    if isinstance(item, str):
+        return {'url': item}
+
+    return item
+
+
+def extract_year(value: object) -> str:
+    """Return the first four-digit year from a scraped date-like value."""
+    if not isinstance(value, str):
+        return ''
+
+    match = re.search(r'-?\d{1,4}', value)
+    return match.group(0) if match else ''
 
 
 def scrape_film(url: str) -> dict[str, str]:
@@ -41,7 +57,7 @@ def scrape_film(url: str) -> dict[str, str]:
     directors = ld.get('director', [])
     director = directors[0]['name'] if directors else ''
     released = ld.get('releasedEvent', [])
-    year = released[0].get('startDate', '') if released else ''
+    year = extract_year(released[0].get('startDate', '')) if released else ''
 
     subtitle = f'{director}, {year}' if director and year else director or year
 
@@ -74,13 +90,16 @@ def scrape_book(url: str) -> dict[str, str]:
     title = ld.get('name', '')
     authors = ld.get('author', [])
     author = authors[0]['name'] if authors else ''
+    year = extract_year(ld.get('datePublished', ''))
 
     # Cover image: try og:image first, then JSON-LD
     og_img = soup.find('meta', property='og:image')
     cover = og_img['content'] if og_img else ld.get('image', '')
 
-    logger.info(f'Book: {title} ({author}) — cover {"found" if cover else "MISSING"}')
-    return {'title': title, 'subtitle': author, 'cover': cover}
+    subtitle = f'{author}, {year}' if author and year else author or year
+
+    logger.info(f'Book: {title} ({subtitle}) — cover {"found" if cover else "MISSING"}')
+    return {'title': title, 'subtitle': subtitle, 'cover': cover}
 
 
 def main() -> None:
@@ -89,20 +108,26 @@ def main() -> None:
 
     output: dict[str, list] = {'films': [], 'books': []}
 
-    for film in recs['films']:
-        metadata = scrape_film(film['url'])
-        output['films'].append({'url': film['url'], **metadata})
+    for item in recs['films']:
+        favorite = normalize_favorite(item)
+        metadata = scrape_film(favorite['url'])
+        if favorite.get('cover'):
+            metadata['cover'] = favorite['cover']
+        output['films'].append({'url': favorite['url'], **metadata})
 
-    for book in recs['books']:
-        metadata = scrape_book(book['url'])
-        output['books'].append({'url': book['url'], **metadata})
+    for item in recs['books']:
+        favorite = normalize_favorite(item)
+        metadata = scrape_book(favorite['url'])
+        if favorite.get('cover'):
+            metadata['cover'] = favorite['cover']
+        output['books'].append({'url': favorite['url'], **metadata})
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(output, f, indent=2)
 
     total = len(output['films']) + len(output['books'])
-    logger.info(f'Saved {total} recommendations to {OUTPUT_FILE}')
+    logger.info(f'Saved {total} favorites to {OUTPUT_FILE}')
 
 
 if __name__ == '__main__':
