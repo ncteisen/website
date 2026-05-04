@@ -9,6 +9,8 @@ import { ScoreSharer } from '../utils/ScoreSharer';
 export class GameEngine {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
+  private targetFrameInterval: number = 0;
+  private nextFrameTimestamp: number = 0;
   private isRunning: boolean = false;
   private isPaused: boolean = false;
   private isGameOver: boolean = false;
@@ -20,24 +22,30 @@ export class GameEngine {
   private highestY: number = 0;
   private isMobile: boolean = false;
   private scoreSharer: ScoreSharer;
-  
+
   // Game entities
   private player: Player;
   private platformManager: PlatformManager;
   private inputHandler: InputHandler;
-  
+
   private clouds: { x: number; y: number; radius: number; speed: number }[] = [];
   private lastHighestY: number = 0; // Track player's previous highest Y position
   private skyGradient: CanvasGradient | null = null;
-  
+
   constructor(canvasId: string) {
     const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     if (!canvas) {
       throw new Error(`Canvas with id ${canvasId} not found`);
     }
-    
+
     this.canvas = canvas;
-    const context = canvas.getContext('2d');
+
+    // Check if user is on mobile
+    this.isMobile = this.detectMobileEnvironment();
+    this.targetFrameInterval = this.isMobile ? 1000 / 30 : 0;
+    this.resizeCanvasToDisplaySize();
+
+    const context = canvas.getContext('2d', { alpha: false });
     if (!context) throw new Error('Could not get canvas context');
     this.ctx = context;
 
@@ -45,7 +53,8 @@ export class GameEngine {
     this.scoreSharer = new ScoreSharer();
 
     // Initialize clouds
-    for (let i = 0; i < 5; i++) {
+    const cloudCount = this.isMobile ? 2 : 5;
+    for (let i = 0; i < cloudCount; i++) {
       this.clouds.push({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
@@ -54,9 +63,6 @@ export class GameEngine {
       });
     }
 
-    // Check if user is on mobile
-    this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
     // Load high score from localStorage
     this.highScore = parseInt(localStorage.getItem('sarahJumpsHighScore') || '0', 10);
 
@@ -64,32 +70,42 @@ export class GameEngine {
     this.player = new Player(canvas);
     this.platformManager = new PlatformManager(canvas);
     this.inputHandler = new InputHandler(this, this.player);
-    
+
     // Initialize lastHighestY with starting position
     this.lastHighestY = this.canvas.height / 2;
   }
-  
+
   /**
    * Initialize the game
    */
   public init(): void {
     // Initialize game entities
     this.platformManager.init();
-    
+
     // Start the game loop
     this.isRunning = true;
     this.isPaused = false;
     this.isGameOver = false;
     this.score = 0;
     this.lastTimestamp = performance.now();
+    this.nextFrameTimestamp = this.lastTimestamp;
     requestAnimationFrame((t) => this.gameLoop(t));
   }
-  
+
   /**
    * Main game loop
    */
   private gameLoop(timestamp: number = performance.now()): void {
     if (!this.isRunning) return;
+
+    if (this.targetFrameInterval > 0 && timestamp < this.nextFrameTimestamp) {
+      requestAnimationFrame((t) => this.gameLoop(t));
+      return;
+    }
+
+    if (this.targetFrameInterval > 0) {
+      this.nextFrameTimestamp = timestamp + this.targetFrameInterval;
+    }
 
     // Calculate delta time
     const deltaTime = timestamp - this.lastTimestamp;
@@ -111,7 +127,7 @@ export class GameEngine {
 
     requestAnimationFrame((t) => this.gameLoop(t));
   }
-  
+
   /**
    * Update game state
    */
@@ -132,11 +148,8 @@ export class GameEngine {
 
     // Update score based on view offset
     this.score = Math.floor(this.viewOffset / 100);
-
-    // Check collisions
-    this.checkCollisions();
   }
-  
+
   /**
    * Render game
    */
@@ -155,7 +168,9 @@ export class GameEngine {
     this.ctx.fillStyle = this.skyGradient;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     // Draw clouds
-    this.updateClouds(timestamp);
+    if (!this.isMobile) {
+      this.updateClouds(timestamp);
+    }
 
     // Render game entities
     this.platformManager.render(this.ctx, this);
@@ -167,7 +182,7 @@ export class GameEngine {
     this.ctx.textAlign = 'center';
     this.ctx.fillText(`Score: ${this.score}`, this.canvas.width / 2, 30);
   }
-  
+
   /**
    * Render game state screens
    */
@@ -180,24 +195,24 @@ export class GameEngine {
       this.renderGameOver();
     }
   }
-  
+
   /**
    * Render start screen
    */
   private renderStartScreen(): void {
     if (!this.ctx) return;
-    
+
     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    
+
     this.ctx.fillStyle = '#ffffff';
     this.ctx.font = '30px Arial';
     this.ctx.textAlign = 'center';
     this.ctx.fillText('Sarah Jumps', this.canvas.width / 2, this.canvas.height / 2 - 30);
-    
+
     this.ctx.font = '20px Arial';
     this.ctx.fillText(this.isMobile ? 'Tap to Start' : 'Press Space to Start', this.canvas.width / 2, this.canvas.height / 2 + 10);
-    
+
     this.ctx.font = '16px Arial';
     if (this.isMobile) {
       this.ctx.fillText('Touch left or right to move', this.canvas.width / 2, this.canvas.height / 2 + 50);
@@ -205,16 +220,16 @@ export class GameEngine {
       this.ctx.fillText('Use Arrow Keys or A/D to Move', this.canvas.width / 2, this.canvas.height / 2 + 50);
     }
   }
-  
+
   /**
    * Render game over screen
    */
   private renderGameOver(): void {
     if (!this.ctx) return;
-    
+
     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    
+
     this.ctx.fillStyle = '#fff';
     this.ctx.font = '48px Arial';
     this.ctx.textAlign = 'center';
@@ -224,7 +239,7 @@ export class GameEngine {
     this.ctx.fillText(`High Score: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 70);
     this.ctx.fillText(this.isMobile ? 'Tap to restart' : 'Space to restart', this.canvas.width / 2, this.canvas.height / 2 + 110);
   }
-  
+
   /**
    * Start the game
    */
@@ -233,12 +248,12 @@ export class GameEngine {
     this.score = 0;
     this.viewOffset = 0;
     this.highestY = this.canvas.height / 2;
-    
+
     // Reset entities
     this.player.reset();
     this.platformManager.reset();
   }
-  
+
   /**
    * End the game
    */
@@ -252,42 +267,42 @@ export class GameEngine {
     // Show score sharing UI
     this.scoreSharer.show(this.score);
   }
-  
+
   /**
    * Get the canvas context
    */
   public getContext(): CanvasRenderingContext2D | null {
     return this.ctx;
   }
-  
+
   /**
    * Get the canvas
    */
   public getCanvas(): HTMLCanvasElement {
     return this.canvas;
   }
-  
+
   /**
    * Get the current game state
    */
   public getGameState(): 'start' | 'playing' | 'gameOver' {
     return this.gameState;
   }
-  
+
   /**
    * Get the current score
    */
   public getScore(): number {
     return this.score;
   }
-  
+
   /**
    * Get the player entity
    */
   public getPlayer(): Player {
     return this.player;
   }
-  
+
   /**
    * Update the view offset based on player position
    */
@@ -313,16 +328,11 @@ export class GameEngine {
     return this.isMobile;
   }
 
-  /**
-   * Check for collisions
-   */
-  private checkCollisions(): void {
-    const platforms = this.platformManager.getPlatforms();
-    for (const platform of platforms) {
-      if (this.player.checkPlatformCollision(platform)) {
-        this.player.handlePlatformCollision(platform);
-      }
-    }
+  private detectMobileEnvironment(): boolean {
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.matchMedia('(pointer: coarse)').matches
+    );
   }
 
   private updateClouds(timestamp: number): void {
@@ -339,13 +349,13 @@ export class GameEngine {
       if (didPlayerClimb) {
         cloud.y += 1; // Move clouds down at a constant rate when player is climbing
       }
-      
+
       // Wrap around when cloud moves off screen
       if (cloud.x > this.canvas.width + cloud.radius) {
         cloud.x = -cloud.radius;
         cloud.y = Math.random() * this.canvas.height;
       }
-      
+
       // Reset cloud position if it moves too far down
       if (cloud.y > this.canvas.height + cloud.radius) {
         cloud.y = -cloud.radius;
@@ -361,4 +371,16 @@ export class GameEngine {
       this.ctx.fill();
     });
   }
-} 
+
+  private resizeCanvasToDisplaySize(): void {
+    const rect = this.canvas.getBoundingClientRect();
+    const width = Math.max(1, Math.round(rect.width || this.canvas.width));
+    const height = Math.max(1, Math.round(rect.height || this.canvas.height));
+
+    if (this.canvas.width !== width || this.canvas.height !== height) {
+      this.canvas.width = width;
+      this.canvas.height = height;
+      this.skyGradient = null;
+    }
+  }
+}

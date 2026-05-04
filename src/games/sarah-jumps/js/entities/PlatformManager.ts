@@ -15,7 +15,7 @@ export class PlatformManager {
   private minPlatformSpacing: number;
   private maxHorizontalDistance: number;
   private minPlatforms: number;
-  
+
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.platformWidth = 100;
@@ -25,20 +25,20 @@ export class PlatformManager {
     this.maxHorizontalDistance = 100;
     this.minPlatforms = 20;
   }
-  
+
   /**
    * Initialize the platform manager
    */
   public init(): void {
     this.generateInitialPlatforms();
   }
-  
+
   /**
    * Generate initial platforms
    */
   private generateInitialPlatforms(): void {
     this.platforms = [];
-    
+
     // Create the starting platform at the bottom
     const startPlatform = new Platform({
       x: this.canvas.width / 2 - this.platformWidth / 2,
@@ -48,22 +48,22 @@ export class PlatformManager {
       platformType: 'normal'
     });
     this.platforms.push(startPlatform);
-    
+
     // Generate additional platforms above with proper spacing
     let currentY = startPlatform.getY();
     let currentX = startPlatform.getX();
-    
+
     for (let i = 0; i < this.minPlatforms - 1; i++) {
       // Calculate the next platform's y position
       const minY = Math.floor(currentY - this.maxJumpHeight);
       const maxY = Math.floor(currentY - this.minPlatformSpacing);
       const platformY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-      
+
       // Calculate the next platform's x position
       const minX = Math.max(0, Math.floor(currentX - this.maxHorizontalDistance));
       const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(currentX + this.maxHorizontalDistance));
       const platformX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-      
+
       // Create the platform (always normal type for initial platforms)
       const platform = new Platform({
         x: platformX,
@@ -72,25 +72,25 @@ export class PlatformManager {
         height: this.platformHeight,
         platformType: 'normal'
       });
-      
+
       this.platforms.push(platform);
       currentY = platformY;
       currentX = platformX;
     }
   }
-  
+
   /**
    * Update the platform manager
    */
   public update(deltaTime: number, game: GameEngine): void {
     if (game.getGameState() !== 'playing') return;
-    
+
     const player = game.getPlayer() as Player;
     if (!player) return;
-    
+
     const viewOffset = game.getViewOffset();
     const canvasHeight = this.canvas.height;
-    
+
     // Update only platforms that are near the player
     this.platforms.forEach(platform => {
       const platformY = platform.getY() + viewOffset;
@@ -98,30 +98,30 @@ export class PlatformManager {
         platform.update(deltaTime);
       }
     });
-    
+
     // Remove platforms that are below the screen or fully dissolved
     this.platforms = this.platforms.filter(platform => {
       const platformY = platform.getY() + viewOffset;
       return platformY < canvasHeight + platform.getHeight() && !platform.isFullyDissolved();
     });
-    
+
     // Add new platforms at the top
     while (this.platforms.length < this.minPlatforms) {
       // Find the highest platform
-      const highestPlatform = this.platforms.reduce((highest, current) => 
+      const highestPlatform = this.platforms.reduce((highest, current) =>
         current.getY() < highest.getY() ? current : highest
       );
-      
+
       // Calculate the next platform's y position
       const minY = Math.floor(highestPlatform.getY() - this.maxJumpHeight);
       const maxY = Math.floor(highestPlatform.getY() - this.minPlatformSpacing);
       const newY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-      
+
       // Calculate the next platform's x position
       const minX = Math.max(0, Math.floor(highestPlatform.getX() - this.maxHorizontalDistance));
       const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(highestPlatform.getX() + this.maxHorizontalDistance));
       const newX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-      
+
       // Determine platform type based on score
       const score = game.getScore();
       const rand = Math.random() * 100;
@@ -158,7 +158,7 @@ export class PlatformManager {
         }
       }
       // Score 0+: 100% normal (default)
-      
+
       // Create new platform
       const newPlatform = new Platform({
         x: newX,
@@ -167,10 +167,10 @@ export class PlatformManager {
         height: this.platformHeight,
         platformType
       });
-      
+
       this.platforms.push(newPlatform);
     }
-    
+
     // Check for collisions with the player
     this.platforms.forEach(platform => {
       const platformY = platform.getY() + viewOffset;
@@ -184,14 +184,15 @@ export class PlatformManager {
       }
     });
   }
-  
+
   /**
    * Render the platform manager
    */
   public render(ctx: CanvasRenderingContext2D, game: GameEngine): void {
     const viewOffset = game.getViewOffset();
     const canvasHeight = this.canvas.height;
-    
+    const fastRender = game.isMobileDevice();
+
     // Only render platforms that are visible on screen
     this.platforms.forEach(platform => {
       const platformY = platform.getY() + viewOffset;
@@ -199,24 +200,24 @@ export class PlatformManager {
         // Apply camera offset for rendering
         const originalY = platform.getY();
         platform.setY(originalY + viewOffset);
-        platform.render(ctx);
+        platform.render(ctx, fastRender);
         // Reset platform position
         platform.setY(originalY);
       }
     });
   }
-  
+
   /**
    * Reset the platform manager
    */
   public reset(): void {
     this.generateInitialPlatforms();
   }
-  
+
   /**
    * Get all platforms
    */
   public getPlatforms(): Platform[] {
     return this.platforms;
   }
-} 
+}

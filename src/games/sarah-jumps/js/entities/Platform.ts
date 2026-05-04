@@ -32,7 +32,7 @@ export class Platform {
   private transitionZone: number; // Distance from edge where speed starts to change
   private currentSpeed: number; // Current actual speed after easing
   private acceleration: number; // Rate at which speed changes
-  
+
   constructor(props: PlatformProps) {
     this.x = props.x;
     this.y = props.y;
@@ -53,7 +53,7 @@ export class Platform {
     this.currentSpeed = this.moveSpeed;
     this.acceleration = 0.05; // Speed changes by 0.1 per frame
   }
-  
+
   private getPlatformColor(): string {
     switch (this.platformType) {
       case 'horizontal':
@@ -66,7 +66,7 @@ export class Platform {
         return '#4CAF50'; // Green
     }
   }
-  
+
   /**
    * Update the platform
    */
@@ -115,7 +115,7 @@ export class Platform {
       this.alpha = Math.max(0, 255 * (1 - elapsedTime / this.dissolveDuration));
     }
   }
-  
+
   /**
    * Start dissolving the platform
    */
@@ -125,21 +125,32 @@ export class Platform {
       this.dissolveStartTime = Date.now();
     }
   }
-  
+
   /**
    * Check if the platform is fully dissolved
    */
   public isFullyDissolved(): boolean {
     return this.platformType === 'dissolving' && this.isDissolving && this.alpha <= 0;
   }
-  
+
   /**
    * Render the platform
    */
-  public render(ctx: CanvasRenderingContext2D): void {
-    ctx.globalAlpha = this.alpha / 255;
+  public render(ctx: CanvasRenderingContext2D, fastRender: boolean = false): void {
+    const hasAlpha = this.alpha < 255;
+    if (hasAlpha) {
+      ctx.globalAlpha = this.alpha / 255;
+    }
     ctx.fillStyle = this.color;
-    
+
+    if (fastRender) {
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+      if (hasAlpha) {
+        ctx.globalAlpha = 1;
+      }
+      return;
+    }
+
     // Draw rounded rectangle
     const radius = 5; // Corner radius
     ctx.beginPath();
@@ -154,10 +165,12 @@ export class Platform {
     ctx.arcTo(this.x, this.y, this.x + radius, this.y, radius);
     ctx.closePath();
     ctx.fill();
-    
-    ctx.globalAlpha = 1;
+
+    if (hasAlpha) {
+      ctx.globalAlpha = 1;
+    }
   }
-  
+
   /**
    * Reset the platform
    */
@@ -176,46 +189,46 @@ export class Platform {
     this.dissolveStartTime = null;
     this.alpha = 255;
   }
-  
+
   /**
    * Get the platform's x position
    */
   public getX(): number {
     return this.x;
   }
-  
+
   /**
    * Get the platform's y position
    */
   public getY(): number {
     return this.y;
   }
-  
+
   /**
    * Set the platform's y position
    */
   public setY(y: number): void {
     this.y = y;
   }
-  
+
   /**
    * Get the platform's width
    */
   public getWidth(): number {
     return this.width;
   }
-  
+
   /**
    * Get the platform's height
    */
   public getHeight(): number {
     return this.height;
   }
-  
+
   /**
    * Get the platform's type
    */
   public getPlatformType(): string {
     return this.platformType;
   }
-} 
+}

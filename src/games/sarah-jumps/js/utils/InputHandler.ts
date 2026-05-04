@@ -12,13 +12,14 @@ export class InputHandler {
   private touchX: number = 0;
   private isMobile: boolean = false;
   private canvasRect: DOMRect;
+  private touchEventOptions: AddEventListenerOptions = { passive: false };
 
   constructor(game: GameEngine, player: Player) {
     this.game = game;
     this.player = player;
 
     // Check if user is on mobile
-    this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    this.isMobile = this.detectMobileEnvironment();
 
     // Cache canvas rect; refresh on resize to avoid querying layout on every touch
     this.canvasRect = this.game.getCanvas().getBoundingClientRect();
@@ -33,12 +34,12 @@ export class InputHandler {
     // Add touch event listeners if on mobile
     if (this.isMobile) {
       const canvas = this.game.getCanvas();
-      canvas.addEventListener('touchstart', this.handleTouchStart);
-      canvas.addEventListener('touchmove', this.handleTouchMove);
-      canvas.addEventListener('touchend', this.handleTouchEnd);
+      canvas.addEventListener('touchstart', this.handleTouchStart, this.touchEventOptions);
+      canvas.addEventListener('touchmove', this.handleTouchMove, this.touchEventOptions);
+      canvas.addEventListener('touchend', this.handleTouchEnd, this.touchEventOptions);
     }
   }
-  
+
   /**
    * Update the input handler
    */
@@ -61,14 +62,14 @@ export class InputHandler {
       this.updateTouchMovement(dt);
     }
   }
-  
+
   /**
    * Handle key down events
    */
   private handleKeyDown = (e: KeyboardEvent): void => {
     // Store the key state
     this.keys[e.code] = true;
-    
+
     // Handle one-time key presses
     if (e.code === 'Space') {
       if (this.game.getGameState() === 'start' || this.game.getGameState() === 'gameOver') {
@@ -76,7 +77,7 @@ export class InputHandler {
       }
     }
   };
-  
+
   /**
    * Handle key up events
    */
@@ -90,13 +91,13 @@ export class InputHandler {
    */
   private handleTouchStart = (e: TouchEvent): void => {
     e.preventDefault();
-    
+
     // Start/restart game if not playing
     if (this.game.getGameState() === 'start' || this.game.getGameState() === 'gameOver') {
       this.game.startGame();
       return;
     }
-    
+
     // Otherwise handle movement
     this.isTouching = true;
     this.updateTouchPosition(e);
@@ -123,6 +124,8 @@ export class InputHandler {
    */
   private updateTouchPosition(e: TouchEvent): void {
     const touch = e.touches[0];
+    if (!touch) return;
+
     this.touchX = touch.clientX - this.canvasRect.left;
   }
 
@@ -141,7 +144,7 @@ export class InputHandler {
       }
     }
   }
-  
+
   /**
    * Clean up event listeners
    */
@@ -151,9 +154,16 @@ export class InputHandler {
 
     if (this.isMobile) {
       const canvas = this.game.getCanvas();
-      canvas.removeEventListener('touchstart', this.handleTouchStart);
-      canvas.removeEventListener('touchmove', this.handleTouchMove);
-      canvas.removeEventListener('touchend', this.handleTouchEnd);
+      canvas.removeEventListener('touchstart', this.handleTouchStart, this.touchEventOptions);
+      canvas.removeEventListener('touchmove', this.handleTouchMove, this.touchEventOptions);
+      canvas.removeEventListener('touchend', this.handleTouchEnd, this.touchEventOptions);
     }
   }
-} 
+
+  private detectMobileEnvironment(): boolean {
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.matchMedia('(pointer: coarse)').matches
+    );
+  }
+}

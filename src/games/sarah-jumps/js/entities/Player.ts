@@ -30,8 +30,9 @@ export class Player {
   private spritesLoaded: boolean = false;
   private currentSprite: 'jumping' | 'peaking' = 'jumping';
   private isFacingLeft: boolean = false;
-  private jumpSound: HTMLAudioElement;
-  private loseSound: HTMLAudioElement;
+  private jumpSound: HTMLAudioElement | null = null;
+  private loseSound: HTMLAudioElement | null = null;
+  private soundsEnabled: boolean;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -48,12 +49,15 @@ export class Player {
     this.color = '#FF69B4';
     this.airResistance = 0.01;
     this.maxFallSpeed = 9;
+    this.soundsEnabled = !this.detectMobileEnvironment();
 
     // Initialize sounds
-    this.jumpSound = new Audio('/games/sarah-jumps/sounds/jump.wav');
-    this.jumpSound.volume = 0.5;
-    this.loseSound = new Audio('/games/sarah-jumps/sounds/lose.wav');
-    this.loseSound.volume = 0.5;
+    if (this.soundsEnabled) {
+      this.jumpSound = new Audio('/games/sarah-jumps/sounds/jump.wav');
+      this.jumpSound.volume = 0.5;
+      this.loseSound = new Audio('/games/sarah-jumps/sounds/lose.wav');
+      this.loseSound.volume = 0.5;
+    }
 
     // Initialize sprites
     this.sprites = {
@@ -121,14 +125,11 @@ export class Player {
     } else {
       this.currentSprite = 'peaking'; // Downward motion
     }
-    
+
     // Check if player fell off the bottom. Give a buffer of 100 pixels.
     if (this.y + game.getViewOffset() > this.canvas.height + 100) {
       // Play lose sound before ending game
-      this.loseSound.currentTime = 0;
-      this.loseSound.play().catch(error => {
-        console.warn('Failed to play lose sound:', error);
-      });
+      this.playSound(this.loseSound, 'lose');
       game.endGame();
     }
   }
@@ -142,7 +143,7 @@ export class Player {
 
     const spriteState = this.sprites[this.currentSprite];
     const sprite = this.isFacingLeft ? spriteState.normal : spriteState.flipped;
-    
+
     ctx.drawImage(
       sprite,
       this.x - this.width / 2,
@@ -194,9 +195,9 @@ export class Player {
 
     // Check if player is within the landing zone (just above the platform)
     return (
-      feetY >= platformTop && 
+      feetY >= platformTop &&
       feetY <= platformTop + 15 && // Landing zone height
-      this.x + this.width / 2 >= platform.getX() && 
+      this.x + this.width / 2 >= platform.getX() &&
       this.x - this.width / 2 <= platform.getX() + platform.getWidth()
     );
   }
@@ -206,12 +207,25 @@ export class Player {
     this.y = platform.getY() - this.height / 2;
     this.velocityY = 0;
     this.jump();
-    
+
     // Play jump sound
-    this.jumpSound.currentTime = 0;
-    this.jumpSound.play().catch(error => {
-      console.warn('Failed to play jump sound:', error);
+    this.playSound(this.jumpSound, 'jump');
+  }
+
+  private playSound(sound: HTMLAudioElement | null, name: string): void {
+    if (!sound || !this.soundsEnabled) return;
+
+    sound.currentTime = 0;
+    sound.play().catch(error => {
+      console.warn(`Failed to play ${name} sound:`, error);
     });
+  }
+
+  private detectMobileEnvironment(): boolean {
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.matchMedia('(pointer: coarse)').matches
+    );
   }
 
   public getX(): number {
@@ -229,4 +243,4 @@ export class Player {
   public getHeight(): number {
     return this.height;
   }
-} 
+}

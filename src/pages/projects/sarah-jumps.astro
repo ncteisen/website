@@ -98,8 +98,10 @@
 				width: 100%;
 				height: 100%;
 				background-color: #f0f0f0;
-				image-rendering: pixelated;
-				image-rendering: crisp-edges;
+				display: block;
+				touch-action: none;
+				user-select: none;
+				-webkit-user-select: none;
 			}
 
 			.game-controls {
@@ -163,14 +165,14 @@
 		<script>
 			// Import the game
 			import { SarahJumps } from '../../games/sarah-jumps/js/SarahJumps';
-			
+
 			// Initialize the game when the DOM is loaded
 			document.addEventListener('DOMContentLoaded', () => {
 				const game = new SarahJumps('gameCanvas');
 				game.start();
-				
+
 				// Update controls text based on device type
-				const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+				const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.matchMedia('(pointer: coarse)').matches;
 				const controlsText = document.getElementById('controls-text');
 				if (controlsText) {
 					if (isMobile) {
@@ -179,7 +181,7 @@
 						controlsText.innerHTML = 'Use arrow keys or A/D to move left/right<br>Press Space to start/restart the game';
 					}
 				}
-				
+
 				// Clean up when the page is unloaded
 				window.addEventListener('unload', () => {
 					game.cleanup();
@@ -187,4 +189,4 @@
 			});
 		</script>
 	</body>
-</html> 
+</html>
