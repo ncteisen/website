@@ -5,10 +5,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sarah Jumps | Noah Eisen</title>
 		<meta name="description" content="A Doodle Jump clone game built with JavaScript" />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<!-- Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
 		<script>
@@ -18,80 +19,97 @@
 			gtag('config', 'G-DW532NM54T');
 		</script>
 		<style>
-			:root {
-				--primary-color: #3b82f6;
-				--accent-color: #10b981;
-				--gold-color: #f59e0b;
-				--text-color: #e5e7eb;
-				--text-muted: #9ca3af;
-				--background-color: #111827;
-				--card-bg: #1f2937;
-				--card-border: #374151;
-				--link-color: #60a5fa;
-				--link-hover-color: #93c5fd;
-				--glow-color: rgba(59, 130, 246, 0.5);
-			}
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { min-height: 100%; }
 
 			body {
-				margin: 0;
-				padding: 0;
-				min-height: 100vh;
-				font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-				background-color: var(--background-color);
-				color: var(--text-color);
-				line-height: 1.6;
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
 			}
 
-			.container {
-				max-width: 1200px;
+			.wrap {
+				max-width: 860px;
 				margin: 0 auto;
-				padding: 2rem;
+				padding: 72px 44px 80px;
 			}
 
-			header {
-				margin-bottom: 2rem;
-				text-align: center;
+			.project-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 40px;
 			}
 
-			h1 {
-				font-size: 2.5rem;
+			.project-title {
+				font-size: 76px;
 				font-weight: 700;
-				margin-bottom: 1rem;
-				background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
+				letter-spacing: -3px;
+				line-height: 0.92;
+				margin: 0 0 20px;
+				color: #eae7e0;
+			}
+
+			.project-subtitle {
+				font-size: 13px;
+				color: #555;
+				margin: 0 0 18px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.project-description {
+				font-size: 14px;
+				color: #999;
+				margin: 0;
+				max-width: 500px;
+				line-height: 1.75;
+			}
+
+			.rule {
+				border: none;
+				border-top: 1px solid #1e1e1e;
+				margin: 56px 0;
+			}
+
+			.section-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				margin-bottom: 28px;
+				display: block;
 			}
 
 			.back-link {
 				display: inline-block;
-				margin-top: 1rem;
-				color: var(--link-color);
+				color: #5b8ef0;
 				text-decoration: none;
+				font-size: 13px;
 				font-weight: 500;
-				transition: all 0.2s ease;
+				letter-spacing: 0.3px;
+				white-space: nowrap;
+				transition: opacity 0.15s;
 			}
 
-			.back-link:hover {
-				color: var(--link-hover-color);
-				text-shadow: 0 0 8px var(--glow-color);
-			}
+			.back-link:hover { opacity: 0.8; }
 
 			.game-container {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				margin: 2rem 0;
 			}
 
 			.game-window {
-				width: 400px;
-				height: 600px;
-				background-color: var(--card-bg);
-				border: 2px solid var(--card-border);
-				border-radius: 8px;
+				width: min(100%, 400px);
+				aspect-ratio: 2 / 3;
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
 				overflow: hidden;
 				position: relative;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
 			}
 
 			.game-canvas {
@@ -105,61 +123,62 @@
 			}
 
 			.game-controls {
-				margin-top: 1rem;
+				margin-top: 18px;
 				text-align: center;
-				color: var(--text-muted);
-				font-size: 0.9rem;
-			}
-
-			.game-description {
-				max-width: 800px;
-				margin: 2rem auto;
-				padding: 1.5rem;
-				background-color: var(--card-bg);
-				border: 1px solid var(--card-border);
-				border-radius: 8px;
-			}
-
-			.game-description h2 {
-				font-size: 1.5rem;
-				margin-bottom: 1rem;
-				color: var(--primary-color);
-			}
-
-			.game-description p {
-				margin-bottom: 1rem;
-				color: var(--text-muted);
+				color: #555;
+				font-size: 12px;
+				letter-spacing: 0.3px;
+				line-height: 1.7;
 			}
 
 			@media (max-width: 768px) {
-				.container {
-					padding: 1rem;
+				.wrap {
+					padding: 48px 24px 60px;
 				}
 
-				.game-window {
-					width: 100%;
-					height: 500px;
-					max-width: 400px;
+				.project-header {
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					gap: 28px;
 				}
+
+				.project-title { font-size: 48px; letter-spacing: -2px; }
+				.project-description { max-width: 100%; }
+			}
+
+			@media (max-width: 480px) {
+				.project-title { font-size: 40px; }
 			}
 		</style>
 	</head>
 	<body>
-		<main class="container" role="main">
-			<header>
-				<h1>Sarah Jumps</h1>
+		<main class="wrap" role="main">
+			<header class="project-header">
+				<div>
+					<h1 class="project-title">SARAH<br />JUMPS</h1>
+					<p class="project-subtitle">Browser Game</p>
+					<p class="project-description">
+						A Doodle Jump-inspired game built in 2024 to explore the then-new power of AI-assisted development.
+					</p>
+				</div>
 				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage">← Back to homepage</a>
 			</header>
 
-			<div class="game-container">
-				<div class="game-window">
-					<canvas id="gameCanvas" class="game-canvas" width="400" height="600"></canvas>
-				</div>
-			</div>
+			<hr class="rule" />
 
-			<div class="game-controls">
-				<p id="controls-text">Loading controls...</p>
-			</div>
+			<section>
+				<span class="section-label">Play</span>
+				<div class="game-container">
+					<div class="game-window">
+						<canvas id="gameCanvas" class="game-canvas" width="400" height="600"></canvas>
+					</div>
+				</div>
+
+				<div class="game-controls">
+					<p id="controls-text">Loading controls...</p>
+				</div>
+			</section>
 		</main>
 
 		<script>
