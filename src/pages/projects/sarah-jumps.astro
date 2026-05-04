@@ -1,4 +1,5 @@
 ---
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
 ---
 
 <html lang="en">
@@ -10,14 +11,7 @@
 		<title>Sarah Jumps | Noah Eisen</title>
 		<meta name="description" content="A Doodle Jump clone game built with JavaScript" />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-DW532NM54T');
-		</script>
+		<UmamiAnalytics />
 		<style>
 			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 			html, body { min-height: 100%; }
@@ -162,7 +156,7 @@
 						A Doodle Jump-inspired game built in 2024 to explore the then-new power of AI-assisted development.
 					</p>
 				</div>
-				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage">← Back to homepage</a>
+				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">← Back to homepage</a>
 			</header>
 
 			<hr class="rule" />

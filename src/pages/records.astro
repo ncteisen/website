@@ -1,4 +1,6 @@
 ---
+import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	strava: {
@@ -81,18 +83,7 @@ const formatTime = (seconds: number): string => {
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
-		<script>
-			interface Window {
-				dataLayer: any[];
-				gtag: (...args: any[]) => void;
-			}
-			window.dataLayer = window.dataLayer || [];
-			window.gtag = function() { window.dataLayer.push(arguments); };
-			window.gtag('js', new Date());
-			window.gtag('config', 'G-DW532NM54T');
-		</script>
+		<UmamiAnalytics />
 		<style>
 			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 			html, body { height: 100%; }
@@ -314,10 +305,10 @@ const formatTime = (seconds: number): string => {
 
 			<!-- HEADER -->
 			<div>
-				<a href="/" class="back-link">&larr; Back to Noah Eisen</a>
+				<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
 				<h1 class="page-title">Personal Records</h1>
 				<p class="page-desc">Longest and hardest runs, rides, and hikes.</p>
-				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>.</p>
+				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="strava-profile">Strava</a>.</p>
 			</div>
 
 			<!-- RECORDS -->
@@ -348,7 +339,7 @@ const formatTime = (seconds: number): string => {
 											<span class="entry-stat-label">Time</span>
 										</div>
 									</div>
-									<a href={`https://www.strava.com/activities/${row.longest.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+									<a href={`https://www.strava.com/activities/${row.longest.id}`} target="_blank" rel="noopener noreferrer" class="entry-link" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label={`${row.label.toLowerCase()}-longest`}>Strava &rarr;</a>
 								</div>
 							</div>
 						)}
@@ -375,7 +366,7 @@ const formatTime = (seconds: number): string => {
 											<span class="entry-stat-label">Time</span>
 										</div>
 									</div>
-									<a href={`https://www.strava.com/activities/${row.mostVert.id}`} target="_blank" rel="noopener noreferrer" class="entry-link">Strava &rarr;</a>
+									<a href={`https://www.strava.com/activities/${row.mostVert.id}`} target="_blank" rel="noopener noreferrer" class="entry-link" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label={`${row.label.toLowerCase()}-most-elevation`}>Strava &rarr;</a>
 								</div>
 							</div>
 						)}
@@ -384,7 +375,7 @@ const formatTime = (seconds: number): string => {
 			))}
 
 			<div class="page-end">
-				<a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer">Strava</a>
+				<a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="strava-profile">Strava</a>
 			</div>
 		</main>
 

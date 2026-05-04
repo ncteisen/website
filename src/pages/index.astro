@@ -1,4 +1,6 @@
 ---
+import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	letterboxd: {
@@ -210,18 +212,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
-		<script>
-			interface Window {
-				dataLayer: any[];
-				gtag: (...args: any[]) => void;
-			}
-			window.dataLayer = window.dataLayer || [];
-			window.gtag = function() { window.dataLayer.push(arguments); };
-			window.gtag('js', new Date());
-			window.gtag('config', 'G-DW532NM54T');
-		</script>
+		<UmamiAnalytics />
 		<script define:vars={{ statsData }}>
 			window.__STATS_DATA__ = statsData;
 		</script>
@@ -873,10 +864,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 						I'm a backend engineer obsessed with complex systems - both the technical kind (distributed infra at scale) and the human kind (how teams organize, grow, make decisions, and ship). Currently at Roblox. Previously Faire, Waymo, and Google. I have strong opinions about technical architecture, good movies, and whatever I'm reading lately.
 					</p>
 					<div class="hero-links">
-						<a href="https://github.com/ncteisen" target="_blank" rel="noopener noreferrer">GitHub</a>
-						<a href="https://linkedin.com/in/ncteisen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-						<a href="mailto:ncteisen@gmail.com">Email</a>
-						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+						<a href="https://github.com/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="hero" data-umami-event-label="github">GitHub</a>
+						<a href="https://linkedin.com/in/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="hero" data-umami-event-label="linkedin">LinkedIn</a>
+						<a href="mailto:ncteisen@gmail.com" data-umami-event="link_click" data-umami-event-area="hero" data-umami-event-label="email">Email</a>
+						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="hero" data-umami-event-label="resume">Resume</a>
 					</div>
 				</div>
 				<img
@@ -923,27 +914,27 @@ const latestBike = stravaData.recent_bikes?.[0];
 			<section class="projects">
 				<span class="section-label">Side Projects</span>
 				<div class="projects-grid">
-					<a href="https://www.roblox.com/games/88880963125700/2049-Puzzle" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.roblox.com/games/88880963125700/2049-Puzzle" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="2049-puzzle">
 						<div class="project-card-title">2049 Puzzle</div>
 						<div class="project-card-desc">2048-inspired puzzle game built on the Roblox platform.</div>
 					</a>
-					<a href="https://www.hypertextlibrary.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.hypertextlibrary.com/" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="hypertext-library">
 						<div class="project-card-title">Hypertext Library</div>
 						<div class="project-card-desc">Literature-based web project I built in college after a class on Ulysses.</div>
 					</a>
-					<a href="/projects/sarah-jumps" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="/projects/sarah-jumps" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="sarah-jumps">
 						<div class="project-card-title">Sarah Jumps</div>
 						<div class="project-card-desc">Doodle Jump–inspired game built in 2024 to explore the then-new power of AI-assisted development.</div>
 					</a>
-					<a href="/old/projects/p1/" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="/old/projects/p1/" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="room-game">
 						<div class="project-card-title">Room Game</div>
 						<div class="project-card-desc">Text-based adventure game built in college to teach myself JavaScript.</div>
 					</a>
-					<a href="https://playzingg.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="https://playzingg.com/" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="zingg">
 						<div class="project-card-title">Zingg</div>
 						<div class="project-card-desc">Online social game I built during the pandemic to stay connected with college friends.</div>
 					</a>
-					<a href="/old" class="project-card" target="_blank" rel="noopener noreferrer">
+					<a href="/old" class="project-card" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="projects" data-umami-event-label="old-website">
 						<div class="project-card-title">Old Website</div>
 						<div class="project-card-desc">The previous version of this site. I'm a digital archivist.</div>
 					</a>
@@ -961,12 +952,12 @@ const latestBike = stravaData.recent_bikes?.[0];
 					</div>
 				</div>
 				<div class="stats-row">
-					<a class="stat-cell stat-cell-link" href={statsData.year.filmsHref} target="_blank" rel="noopener noreferrer" data-stat-link="films">
+					<a class="stat-cell stat-cell-link" href={statsData.year.filmsHref} target="_blank" rel="noopener noreferrer" data-stat-link="films" data-umami-event="link_click" data-umami-event-area="stats" data-umami-event-label="films">
 						<div class="stat-value" data-stat="films">{statsData.year.films.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="films">{statsData.year.filmsLabel}</div>
 					</a>
 					<div class="stat-divider"></div>
-					<a class="stat-cell stat-cell-link" href={statsData.year.booksHref} target="_blank" rel="noopener noreferrer" data-stat-link="books">
+					<a class="stat-cell stat-cell-link" href={statsData.year.booksHref} target="_blank" rel="noopener noreferrer" data-stat-link="books" data-umami-event="link_click" data-umami-event-area="stats" data-umami-event-label="books">
 						<div class="stat-value" data-stat="books">{statsData.year.books.toLocaleString()}</div>
 						<div class="stat-label" data-stat-label="books">{statsData.year.booksLabel}</div>
 					</a>
@@ -988,11 +979,11 @@ const latestBike = stravaData.recent_bikes?.[0];
 				<section class="latest-activities">
 					<div class="section-header" style="margin-bottom: 28px;">
 						<span class="section-label">Latest Activities</span>
-						<a href="/activities" class="view-all">View all &rarr;</a>
+						<a href="/activities" class="view-all" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="activities">View all &rarr;</a>
 					</div>
 					<div class="latest-activities-grid">
 						{latestRun && (
-							<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card">
+							<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="latest-run">
 								<div class="latest-activity-map" id="latest-run-map" data-polyline={latestRun.map?.summary_polyline || ''}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
@@ -1019,7 +1010,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 							</a>
 						)}
 						{latestBike && (
-							<a href={`https://www.strava.com/activities/${latestBike.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card">
+							<a href={`https://www.strava.com/activities/${latestBike.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="latest-ride">
 								<div class="latest-activity-map" id="latest-bike-map" data-polyline={latestBike.map?.summary_polyline || ''}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
@@ -1055,10 +1046,10 @@ const latestBike = stravaData.recent_bikes?.[0];
 			<section class="reviews-section">
 				<div class="section-header" style="margin-bottom: 28px;">
 					<span class="section-label">Latest Reviews</span>
-					<a href="/journal" class="view-all">View all &rarr;</a>
+					<a href="/journal" class="view-all" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="journal">View all &rarr;</a>
 				</div>
 				<div class="reviews-grid">
-					<div class="review-card" data-href={featuredFilm?.link}>
+					<div class="review-card" data-href={featuredFilm?.link} data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="featured-film">
 						<div class="review-card-head">
 							<span class="review-card-title">{featuredFilm?.title}</span>
 							<span class="stars">
@@ -1069,7 +1060,7 @@ const latestBike = stravaData.recent_bikes?.[0];
 						<div class="review-card-text" set:html={featuredFilm?.review} />
 						<span class="review-card-link">View on Letterboxd →</span>
 					</div>
-					<div class="review-card" data-href={featuredBook?.link}>
+					<div class="review-card" data-href={featuredBook?.link} data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="featured-book">
 						<div class="review-card-head">
 							<span class="review-card-title">{featuredBook?.title}</span>
 							<span class="stars">
@@ -1206,21 +1197,6 @@ const latestBike = stravaData.recent_bikes?.[0];
 					});
 				});
 
-				// Track social link clicks
-				document.querySelectorAll('.hero-links a').forEach(link => {
-					link.addEventListener('click', function(this: HTMLElement) {
-						const href = this.getAttribute('href');
-						let label = 'unknown';
-						if (href?.includes('github.com')) label = 'github';
-						else if (href?.includes('linkedin.com')) label = 'linkedin';
-						else if (href?.includes('resume.pdf')) label = 'resume';
-						else if (href?.includes('mailto:')) label = 'email';
-						(window as any).gtag('event', 'click', {
-							'event_category': 'social',
-							'event_label': label
-						});
-					});
-				});
 			});
 		</script>
 	</body>

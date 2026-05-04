@@ -1,4 +1,6 @@
 ---
+import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
 	letterboxd: {
@@ -110,18 +112,7 @@ const formatDate = (dateStr: string): string => {
 		<title>Journal — Noah Eisen</title>
 		<meta name="description" content="Everything Noah Eisen has watched and read, with reviews." />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW532NM54T"></script>
-		<script>
-			interface Window {
-				dataLayer: any[];
-				gtag: (...args: any[]) => void;
-			}
-			window.dataLayer = window.dataLayer || [];
-			window.gtag = function() { window.dataLayer.push(arguments); };
-			window.gtag('js', new Date());
-			window.gtag('config', 'G-DW532NM54T');
-		</script>
+		<UmamiAnalytics />
 		<style>
 			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 			html, body { height: 100%; }
@@ -454,10 +445,10 @@ const formatDate = (dateStr: string): string => {
 
 			<!-- HEADER -->
 			<div>
-				<a href="/" class="back-link">← Back to Noah Eisen</a>
+				<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">← Back to Noah Eisen</a>
 				<h1 class="journal-title">Journal</h1>
-				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go. See my favorites <a href="/favorites">here</a>.</p>
-				<p class="journal-sources">Sourced from my <a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> and my <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>.</p>
+				<p class="journal-desc">Everything I've watched and read, with reviews. Updated as I go. See my favorites <a href="/favorites" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="favorites">here</a>.</p>
+				<p class="journal-sources">Sourced from my <a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="letterboxd-profile">Letterboxd</a> and my <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="goodreads-profile">Goodreads</a>.</p>
 			</div>
 
 			<!-- FILTERS -->
@@ -501,7 +492,7 @@ const formatDate = (dateStr: string): string => {
 							{entry.review && (
 								<div class="entry-review" set:html={entry.review} />
 							)}
-							<a href={entry.link} target="_blank" rel="noopener noreferrer" class="entry-link">
+							<a href={entry.link} target="_blank" rel="noopener noreferrer" class="entry-link" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label={entry.kind}>
 								{entry.kind === 'film' ? 'Letterboxd' : 'Goodreads'} →
 							</a>
 						</div>
@@ -513,7 +504,7 @@ const formatDate = (dateStr: string): string => {
 					</button>
 				)}
 				<div class="journal-end">
-					<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer">Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer">Goodreads</a>
+					<a href="https://letterboxd.com/ncteisen/" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="letterboxd-profile">Letterboxd</a> · <a href="https://www.goodreads.com/user/show/44763252-noah-eisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="goodreads-profile">Goodreads</a>
 				</div>
 			</div>
 		</main>
