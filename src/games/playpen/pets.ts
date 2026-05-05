@@ -34,4 +34,10 @@ export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
 		description: 'A shy but loving creature who slowly warms up, adores his brother Bugle, and is endearingly silly.',
 		spritePath: '/games/playpen/pets/hopkins/spritesheet.webp',
 	},
+	{
+		id: 'winnie',
+		displayName: 'Winnie',
+		description: 'The cutest mini aussie, shy at first but very loving and soft; his best friend is a cat named Steven.',
+		spritePath: '/games/playpen/pets/winnie/spritesheet.webp',
+	},
 ];
