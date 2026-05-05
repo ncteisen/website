@@ -374,23 +374,6 @@
     "guid": "https://www.goodreads.com/review/show/1654360642?utm_medium=api&utm_source=rss"
   },
   {
-    "book_id": "15881",
-    "title": "Harry Potter and the Chamber of Secrets (Harry Potter, #2)",
-    "author_name": "J.K. Rowling",
-    "user_rating": 5,
-    "user_read_at": null,
-    "user_date_added": "Mon, 17 Jul 2017 14:13:32 -0700",
-    "user_shelves": "page-turners",
-    "user_review": "",
-    "isbn": null,
-    "num_pages": null,
-    "book_published": "1998",
-    "average_rating": "4.42",
-    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881.jpg",
-    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881.jpg",
-    "guid": "https://www.goodreads.com/review/show/1654363230?utm_medium=api&utm_source=rss"
-  },
-  {
     "book_id": "865",
     "title": "The Alchemist",
     "author_name": "Paulo Coelho",
@@ -2765,7 +2748,7 @@
     "isbn": "1594634637",
     "num_pages": null,
     "book_published": "2016",
-    "average_rating": "3.64",
+    "average_rating": "3.65",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1447463920l/25810500.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1447463920l/25810500.jpg",
     "guid": "https://www.goodreads.com/review/show/2271089971?utm_medium=api&utm_source=rss"
@@ -3598,10 +3581,27 @@
     "isbn": "0374618593",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "3.99",
+    "average_rating": "4.00",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
     "guid": "https://www.goodreads.com/review/show/8458562550?utm_medium=api&utm_source=rss"
+  },
+  {
+    "book_id": "15881",
+    "title": "Harry Potter and the Chamber of Secrets (Harry Potter, #2)",
+    "author_name": "J.K. Rowling",
+    "user_rating": 5,
+    "user_read_at": "Wed, 15 Apr 2026 00:00:00 +0000",
+    "user_date_added": "Mon, 04 May 2026 12:55:10 -0700",
+    "user_shelves": "page-turners",
+    "user_review": "Full-cast Dolby audiobook. Kit Harrington does a good Lockhart.",
+    "isbn": null,
+    "num_pages": null,
+    "book_published": "1998",
+    "average_rating": "4.42",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881.jpg",
+    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881.jpg",
+    "guid": "https://www.goodreads.com/review/show/1654363230?utm_medium=api&utm_source=rss"
   },
   {
     "book_id": "231127223",
