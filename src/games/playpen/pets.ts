@@ -37,7 +37,7 @@ export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
 	{
 		id: 'winnie',
 		displayName: 'Winnie',
-		description: 'The cutest mini aussie, shy at first but very loving and soft; his best friend is a cat named Steven.',
+		description: 'The cutest mini aussie, shy at first but very loving and soft; her best friend is a cat named Steven.',
 		spritePath: '/games/playpen/pets/winnie/spritesheet.webp',
 	},
 ];
