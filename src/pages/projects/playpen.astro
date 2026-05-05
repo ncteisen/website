@@ -1,0 +1,248 @@
+---
+import SocialPreview from '../../components/SocialPreview.astro';
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import { PLAYPEN_PETS } from '../../games/playpen/pets';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>The Playpen | Noah Eisen</title>
+		<SocialPreview
+			title="Noah Eisen - The Playpen"
+			description="A cozy little canvas where my Codex pets wander around together."
+			path="/projects/playpen/"
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<UmamiAnalytics />
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { min-height: 100%; }
+
+			body {
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.wrap {
+				max-width: 940px;
+				margin: 0 auto;
+				padding: 72px 44px 80px;
+			}
+
+			.project-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 40px;
+			}
+
+			.project-title {
+				font-size: 76px;
+				font-weight: 700;
+				letter-spacing: -3px;
+				line-height: 0.92;
+				margin: 0 0 20px;
+				color: #eae7e0;
+			}
+
+			.project-subtitle {
+				font-size: 13px;
+				color: #5f6e58;
+				margin: 0 0 18px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.project-description {
+				font-size: 14px;
+				color: #999;
+				margin: 0;
+				max-width: 540px;
+				line-height: 1.75;
+			}
+
+			.rule {
+				border: none;
+				border-top: 1px solid #1e1e1e;
+				margin: 56px 0;
+			}
+
+			.section-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				margin-bottom: 28px;
+				display: block;
+			}
+
+			.back-link {
+				display: inline-block;
+				color: #5b8ef0;
+				text-decoration: none;
+				font-size: 13px;
+				font-weight: 500;
+				letter-spacing: 0.3px;
+				white-space: nowrap;
+				transition: opacity 0.15s;
+			}
+
+			.back-link:hover { opacity: 0.8; }
+
+			.playpen-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.playpen-window {
+				width: min(100%, 860px);
+				aspect-ratio: 16 / 10;
+				min-height: 320px;
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				overflow: hidden;
+				position: relative;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+			}
+
+			.playpen-canvas {
+				width: 100%;
+				height: 100%;
+				background: #111;
+				display: block;
+				touch-action: manipulation;
+				user-select: none;
+				-webkit-user-select: none;
+			}
+
+			.pet-roster {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 14px;
+				margin-top: 18px;
+			}
+
+			.pet-card {
+				background: #111;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				padding: 16px 18px;
+			}
+
+			.pet-name {
+				font-size: 13px;
+				font-weight: 600;
+				color: #d4d0c8;
+				margin-bottom: 6px;
+			}
+
+			.pet-description {
+				font-size: 12px;
+				color: #5f5f5f;
+				line-height: 1.6;
+			}
+
+			@media (max-width: 768px) {
+				.wrap {
+					padding: 48px 24px 60px;
+				}
+
+				.project-header {
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					gap: 28px;
+				}
+
+				.project-title {
+					font-size: 48px;
+					letter-spacing: -2px;
+				}
+
+				.project-description {
+					max-width: 100%;
+				}
+
+				.playpen-window {
+					aspect-ratio: 4 / 5;
+					min-height: 360px;
+				}
+
+				.pet-roster {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.project-title {
+					font-size: 40px;
+				}
+
+				.playpen-window {
+					min-height: 330px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap" role="main">
+			<header class="project-header">
+				<div>
+					<h1 class="project-title">THE<br />PLAYPEN</h1>
+					<p class="project-subtitle">Codex Pets</p>
+					<p class="project-description">
+						A little habitat for the Codex pets I have been making, built as a tiny local simulation where they can wander around together.
+					</p>
+				</div>
+				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">← Back to homepage</a>
+			</header>
+
+			<hr class="rule" />
+
+			<section>
+				<span class="section-label">Playpen</span>
+				<div class="playpen-container">
+					<div class="playpen-window">
+						<canvas id="playpenCanvas" class="playpen-canvas" width="860" height="538" aria-label="Animated Codex pet playpen"></canvas>
+					</div>
+				</div>
+
+				<div class="pet-roster" aria-label="Pets in the playpen">
+					{PLAYPEN_PETS.map((pet) => (
+						<div class="pet-card">
+							<div class="pet-name">{pet.displayName}</div>
+							<div class="pet-description">{pet.description}</div>
+						</div>
+					))}
+				</div>
+			</section>
+		</main>
+
+		<script>
+			import { Playpen } from '../../games/playpen/Playpen';
+
+			const startPlaypen = () => {
+				const playpen = new Playpen('playpenCanvas');
+				playpen.start();
+
+				window.addEventListener('pagehide', () => {
+					playpen.cleanup();
+				});
+			};
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', startPlaypen);
+			} else {
+				startPlaypen();
+			}
+		</script>
+	</body>
+</html>
