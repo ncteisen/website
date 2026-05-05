@@ -253,10 +253,9 @@ export class Playpen {
 
 		if (Math.abs(dx) > 1) {
 			pet.facing = dx > 0 ? 1 : -1;
-			pet.spriteState = pet.facing > 0 ? 'running-right' : 'running-left';
-		} else {
-			pet.spriteState = 'running';
 		}
+
+		pet.spriteState = this.runningSpriteState(pet);
 	}
 
 	private chooseNextAction(pet: PetActor): void {
@@ -289,8 +288,8 @@ export class Playpen {
 			const margin = this.petDrawSize(pet).width * 0.55;
 			pet.targetX = this.random.range(margin, this.worldWidth - margin);
 			pet.targetY = this.randomFloorY();
-			pet.spriteState = pet.targetX >= pet.x ? 'running-right' : 'running-left';
 			pet.facing = pet.targetX >= pet.x ? 1 : -1;
+			pet.spriteState = this.runningSpriteState(pet);
 			pet.actionTimer = this.random.range(1.7, 4.1);
 			return;
 		}
@@ -311,6 +310,15 @@ export class Playpen {
 
 		pet.spriteState = action === 'waiting' ? 'waiting' : 'idle';
 		pet.actionTimer = this.random.range(0.9, 2.7);
+	}
+
+	private runningSpriteState(pet: PetActor): SpriteState {
+		const runningSprites = pet.manifest.runningSprites ?? {
+			left: 'running-left',
+			right: 'running-right',
+		};
+
+		return pet.facing > 0 ? runningSprites.right : runningSprites.left;
 	}
 
 	private advanceFrames(pet: PetActor, deltaSeconds: number): void {

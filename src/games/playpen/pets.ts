@@ -1,8 +1,14 @@
+export type PlaypenRunningSprite = 'running-left' | 'running-right';
+
 export interface PlaypenPetManifest {
 	id: string;
 	displayName: string;
 	description: string;
 	spritePath: string;
+	runningSprites?: {
+		left: PlaypenRunningSprite;
+		right: PlaypenRunningSprite;
+	};
 }
 
 export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
@@ -11,6 +17,10 @@ export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
 		displayName: 'Gus',
 		description: 'A lovable dope who adores his ball, sticks, and his sister Trudy.',
 		spritePath: '/games/playpen/pets/gus/spritesheet.webp',
+		runningSprites: {
+			left: 'running-right',
+			right: 'running-left',
+		},
 	},
 	{
 		id: 'moby',
