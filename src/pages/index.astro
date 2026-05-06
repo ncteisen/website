@@ -876,7 +876,13 @@ const latestBike = stravaData.recent_bikes?.[0];
 			<section class="career">
 				<span class="section-label">Career</span>
 				{experiences.map((exp) => (
-					<div class="career-item" data-career>
+					<div
+						class="career-item"
+						data-career
+						data-umami-event="career_click"
+						data-umami-event-area="career"
+						data-umami-event-label={exp.company}
+					>
 						<div class="career-bar"></div>
 						<div class="career-body">
 							<div class="career-head">

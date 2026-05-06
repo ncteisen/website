@@ -1,12 +1,10 @@
 ---
-const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const websiteId = '158f1700-7cc4-4840-a335-57ed10823e86';
 ---
 
-{websiteId && (
-	<script
-		defer
-		src="https://cloud.umami.is/script.js"
-		data-website-id={websiteId}
-		data-domains="www.noaheisen.com,noaheisen.com"
-	></script>
-)}
+<script
+	defer
+	src="https://cloud.umami.is/script.js"
+	data-website-id={websiteId}
+	data-domains="www.noaheisen.com,noaheisen.com"
+></script>

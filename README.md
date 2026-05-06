@@ -63,25 +63,11 @@ Create a `.env` file in the repo root:
 STRAVA_CLIENT_ID=your_strava_client_id
 STRAVA_CLIENT_SECRET=your_strava_client_secret
 STRAVA_REFRESH_TOKEN=your_strava_refresh_token
-PUBLIC_UMAMI_WEBSITE_ID=your_umami_website_id
 ```
 
 ### Umami Analytics
 
-The site uses Umami Cloud for pageviews and lightweight click tracking.
-
-To finish setup:
-
-1. Create or log into an Umami Cloud account.
-2. Add a website:
-   - Name: `Noah Eisen`
-   - Domain: `www.noaheisen.com`
-3. Open the website's tracking code and copy only the `data-website-id` value.
-4. Add that value locally to `.env` as `PUBLIC_UMAMI_WEBSITE_ID`.
-5. Add the same value in GitHub:
-   - Repo settings → Secrets and variables → Actions → Variables
-   - New repository variable: `PUBLIC_UMAMI_WEBSITE_ID`
-6. After deploy, visit the live site and confirm data appears in Umami.
+The site uses Umami Cloud for pageviews and lightweight click tracking. The shared tracking script lives in `src/components/UmamiAnalytics.astro`; its public `data-website-id` is committed directly because it is visible in the rendered HTML anyway.
 
 Useful docs: [Add a website](https://docs.umami.is/docs/add-a-website), [Collect data](https://docs.umami.is/docs/collect-data), [Track events](https://docs.umami.is/docs/track-events).
 
