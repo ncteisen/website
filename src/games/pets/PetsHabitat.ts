@@ -104,11 +104,13 @@ export class PetsHabitat {
 
 				this.spawnPets();
 				this.isReady = true;
+				this.canvas.dispatchEvent(new CustomEvent('pets-habitat:ready', { bubbles: true }));
 				this.lastTimestamp = performance.now();
 				this.animationFrame = window.requestAnimationFrame(this.tick);
 			})
 			.catch((error: unknown) => {
 				console.error('Unable to load Codex pets.', error);
+				this.canvas.dispatchEvent(new CustomEvent('pets-habitat:error', { bubbles: true }));
 				this.drawErrorState();
 			});
 	}
