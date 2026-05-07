@@ -1,22 +1,22 @@
-export type PlaypenRunningSprite = 'running-left' | 'running-right';
+export type PetRunningSprite = 'running-left' | 'running-right';
 
-export interface PlaypenPetManifest {
+export interface PetManifest {
 	id: string;
 	displayName: string;
 	description: string;
 	spritePath: string;
 	runningSprites?: {
-		left: PlaypenRunningSprite;
-		right: PlaypenRunningSprite;
+		left: PetRunningSprite;
+		right: PetRunningSprite;
 	};
 }
 
-export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
+export const CODEX_PETS: readonly PetManifest[] = [
 	{
 		id: 'gus',
 		displayName: 'Gus',
 		description: 'A lovable dope who adores his ball, sticks, and his sister Trudy.',
-		spritePath: '/games/playpen/pets/gus/spritesheet.webp',
+		spritePath: '/games/pets/gus/spritesheet.webp',
 		runningSprites: {
 			left: 'running-right',
 			right: 'running-left',
@@ -25,19 +25,19 @@ export const PLAYPEN_PETS: readonly PlaypenPetManifest[] = [
 	{
 		id: 'moby',
 		displayName: 'Moby',
-		description: 'The cutest corgi in the world; silly, cuddly, energetic, and deeply loved.',
-		spritePath: '/games/playpen/pets/moby/spritesheet.webp',
+		description: 'The cutest corgi in the world.',
+		spritePath: '/games/pets/moby/spritesheet.webp',
 	},
 	{
 		id: 'hopkins',
 		displayName: 'Hopkins',
 		description: 'A shy but loving creature who slowly warms up, adores his brother Bugle, and is endearingly silly.',
-		spritePath: '/games/playpen/pets/hopkins/spritesheet.webp',
+		spritePath: '/games/pets/hopkins/spritesheet.webp',
 	},
 	{
 		id: 'winnie',
 		displayName: 'Winnie',
 		description: 'The cutest mini aussie, shy at first but very loving and soft; her best friend is a cat named Steven.',
-		spritePath: '/games/playpen/pets/winnie/spritesheet.webp',
+		spritePath: '/games/pets/winnie/spritesheet.webp',
 	},
 ];

@@ -1,4 +1,4 @@
-import { PLAYPEN_PETS, type PlaypenPetManifest } from './pets';
+import { CODEX_PETS, type PetManifest } from './pets';
 
 const CELL_WIDTH = 192;
 const CELL_HEIGHT = 208;
@@ -20,7 +20,7 @@ type PetAction = 'idle' | 'walk' | 'wave' | 'jump' | 'waiting';
 type Direction = -1 | 1;
 
 interface PetActor {
-	manifest: PlaypenPetManifest;
+	manifest: PetManifest;
 	image: HTMLImageElement;
 	x: number;
 	y: number;
@@ -59,10 +59,10 @@ class SeededRandom {
 	}
 }
 
-export class Playpen {
+export class PetsHabitat {
 	private readonly canvas: HTMLCanvasElement;
 	private readonly ctx: CanvasRenderingContext2D;
-	private readonly manifest: readonly PlaypenPetManifest[];
+	private readonly manifest: readonly PetManifest[];
 	private readonly random = new SeededRandom();
 	private readonly pets: PetActor[] = [];
 	private resizeObserver?: ResizeObserver;
@@ -77,15 +77,15 @@ export class Playpen {
 		this.resizeCanvas();
 	};
 
-	constructor(canvasId: string, manifest: readonly PlaypenPetManifest[] = PLAYPEN_PETS) {
+	constructor(canvasId: string, manifest: readonly PetManifest[] = CODEX_PETS) {
 		const canvas = document.getElementById(canvasId);
 		if (!(canvas instanceof HTMLCanvasElement)) {
-			throw new Error(`Playpen canvas "${canvasId}" was not found.`);
+			throw new Error(`Pets canvas "${canvasId}" was not found.`);
 		}
 
 		const context = canvas.getContext('2d');
 		if (!context) {
-			throw new Error('Playpen could not start because canvas rendering is unavailable.');
+			throw new Error('Pets could not start because canvas rendering is unavailable.');
 		}
 
 		this.canvas = canvas;
@@ -108,7 +108,7 @@ export class Playpen {
 				this.animationFrame = window.requestAnimationFrame(this.tick);
 			})
 			.catch((error: unknown) => {
-				console.error('Unable to load Playpen pets.', error);
+				console.error('Unable to load Codex pets.', error);
 				this.drawErrorState();
 			});
 	}
@@ -184,7 +184,7 @@ export class Playpen {
 		this.clampAllPets();
 	}
 
-	private createPetActor(manifest: PlaypenPetManifest, image: HTMLImageElement): PetActor {
+	private createPetActor(manifest: PetManifest, image: HTMLImageElement): PetActor {
 		const facing: Direction = this.random.next() > 0.5 ? 1 : -1;
 
 		return {
@@ -385,7 +385,7 @@ export class Playpen {
 
 	private draw(): void {
 		this.ctx.clearRect(0, 0, this.worldWidth, this.worldHeight);
-		this.drawPlaypen();
+		this.drawHabitat();
 
 		if (!this.isReady) return;
 
@@ -395,7 +395,7 @@ export class Playpen {
 		}
 	}
 
-	private drawPlaypen(): void {
+	private drawHabitat(): void {
 		const ctx = this.ctx;
 		const floorTop = this.floorTop();
 
@@ -479,7 +479,7 @@ export class Playpen {
 	}
 
 	private drawErrorState(): void {
-		this.drawPlaypen();
+		this.drawHabitat();
 		this.ctx.fillStyle = '#c77c62';
 		this.ctx.font = '500 13px DM Sans, sans-serif';
 		this.ctx.textAlign = 'center';
