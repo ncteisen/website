@@ -79,58 +79,143 @@ import { projects } from '../../data/projects';
 				border-bottom: 1px solid #1a1a1a;
 			}
 
-			.projects-grid {
-				display: grid;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				gap: 14px;
+			.projects-list {
+				display: flex;
+				flex-direction: column;
+				border-top: 1px solid #1a1a1a;
 			}
 
-			.project-card {
+			.project-entry {
 				text-decoration: none;
-				padding: 18px 20px;
-				background: #111;
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 30px;
+				align-items: center;
+				color: inherit;
+				padding: 30px 0;
+				border-bottom: 1px solid #1a1a1a;
+			}
+
+			.project-entry:nth-child(even) .project-visual {
+				order: 2;
+			}
+
+			.project-visual {
+				aspect-ratio: 16 / 9;
+				min-height: 170px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 22%, #111), #0f0f0f 58%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 18px);
 				border: 1px solid #1c1c1c;
 				border-radius: 6px;
-				display: block;
-				transition: background 0.15s, border-color 0.15s;
+				overflow: hidden;
+				position: relative;
+				display: flex;
+				align-items: flex-end;
+				padding: 22px;
+				transition: border-color 0.15s, transform 0.15s;
 			}
 
-			.project-card:hover,
-			.project-card:focus-visible {
-				background: #151515;
-				border-color: #2a2a2a;
+			.project-entry:hover .project-visual,
+			.project-entry:focus-visible .project-visual {
+				border-color: #2f2f2f;
+				transform: translateY(-2px);
 			}
 
-			.project-card-title {
-				font-size: 14px;
+			.project-image {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.project-visual-mark {
+				position: relative;
+				z-index: 1;
+				font-size: 11px;
+				color: color-mix(in srgb, var(--project-accent) 65%, #e2dfd8);
 				font-weight: 600;
-				color: #d4d0c8;
-				margin-bottom: 6px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
 			}
 
-			.project-card-desc {
+			.project-body {
+				max-width: 360px;
+				padding-left: 20px;
+				border-left: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
+			}
+
+			.project-entry:nth-child(even) .project-body {
+				justify-self: end;
+				text-align: right;
+				padding-left: 0;
+				padding-right: 20px;
+				border-left: 0;
+				border-right: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
+			}
+
+			.project-title {
+				font-size: 28px;
+				font-weight: 700;
+				letter-spacing: 0;
+				line-height: 1.05;
+				color: #eae7e0;
+				margin-bottom: 12px;
+			}
+
+			.project-desc {
+				font-size: 14px;
+				color: #777;
+				line-height: 1.7;
+				margin-bottom: 18px;
+			}
+
+			.project-link {
 				font-size: 12px;
-				color: #555;
-				line-height: 1.6;
+				color: var(--project-accent);
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-transform: uppercase;
 			}
 
 			@media (max-width: 768px) {
 				.wrap { padding: 36px 24px 60px; }
 				.page-title { font-size: 36px; }
 
-				.projects-grid {
-					grid-template-columns: repeat(2, minmax(0, 1fr));
-					gap: 12px;
+				.projects-list {
+					gap: 38px;
 				}
 
-				.project-card {
-					padding: 16px;
-				}
-			}
-
-			@media (max-width: 480px) {
-				.projects-grid {
+				.project-entry {
 					grid-template-columns: 1fr;
+					gap: 18px;
+					padding: 28px 0;
+				}
+
+				.project-entry:nth-child(even) .project-visual {
+					order: 0;
+				}
+
+				.project-visual {
+					min-height: 190px;
+				}
+
+				.project-body {
+					max-width: 100%;
+				}
+
+				.project-entry:nth-child(even) .project-body {
+					justify-self: stretch;
+					text-align: left;
+					padding-left: 20px;
+					padding-right: 0;
+					border-left: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
+					border-right: 0;
+				}
+
+				.project-title {
+					font-size: 24px;
 				}
 			}
 		</style>
@@ -145,19 +230,29 @@ import { projects } from '../../data/projects';
 
 			<section>
 				<span class="section-label">All Projects</span>
-				<div class="projects-grid">
+				<div class="projects-list">
 					{projects.map((project) => (
 						<a
 							href={project.href}
-							class="project-card"
+							class="project-entry"
+							style={`--project-accent: ${project.accent}`}
 							target={project.external ? '_blank' : undefined}
 							rel={project.external ? 'noopener noreferrer' : undefined}
 							data-umami-event="link_click"
 							data-umami-event-area="projects"
 							data-umami-event-label={project.label}
 						>
-							<div class="project-card-title">{project.title}</div>
-							<div class="project-card-desc">{project.description}</div>
+							<div class="project-visual">
+								{project.image && (
+									<img src={project.image} alt="" class="project-image" loading="lazy" />
+								)}
+								<span class="project-visual-mark">{project.visualLabel}</span>
+							</div>
+							<div class="project-body">
+								<h2 class="project-title">{project.title}</h2>
+								<p class="project-desc">{project.description}</p>
+								<span class="project-link">{project.external ? 'Visit project' : 'View project'} &rarr;</span>
+							</div>
 						</a>
 					))}
 				</div>

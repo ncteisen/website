@@ -5,6 +5,9 @@ export interface Project {
 	label: string;
 	external: boolean;
 	featured: boolean;
+	visualLabel: string;
+	accent: string;
+	image?: string;
 }
 
 export const projects: Project[] = [
@@ -15,6 +18,8 @@ export const projects: Project[] = [
 		label: 'sarahs-puzzle',
 		external: true,
 		featured: true,
+		visualLabel: 'Crossword',
+		accent: '#d6a561',
 	},
 	{
 		title: 'Hypertext Library',
@@ -23,6 +28,8 @@ export const projects: Project[] = [
 		label: 'hypertext-library',
 		external: true,
 		featured: true,
+		visualLabel: 'Library',
+		accent: '#8aa0d6',
 	},
 	{
 		title: '2049 Puzzle',
@@ -31,6 +38,8 @@ export const projects: Project[] = [
 		label: '2049-puzzle',
 		external: true,
 		featured: false,
+		visualLabel: '2049',
+		accent: '#d77f5f',
 	},
 	{
 		title: 'Sarah Jumps',
@@ -39,6 +48,8 @@ export const projects: Project[] = [
 		label: 'sarah-jumps',
 		external: false,
 		featured: false,
+		visualLabel: 'Arcade',
+		accent: '#83b8a1',
 	},
 	{
 		title: 'Codex Pets',
@@ -47,6 +58,8 @@ export const projects: Project[] = [
 		label: 'codex-pets',
 		external: false,
 		featured: false,
+		visualLabel: 'Habitat',
+		accent: '#8f9f86',
 	},
 	{
 		title: 'Zingg',
@@ -55,6 +68,8 @@ export const projects: Project[] = [
 		label: 'zingg',
 		external: true,
 		featured: true,
+		visualLabel: 'Game Night',
+		accent: '#b28ad6',
 	},
 	{
 		title: 'Old Website',
@@ -63,5 +78,7 @@ export const projects: Project[] = [
 		label: 'old-website',
 		external: false,
 		featured: false,
+		visualLabel: 'Archive',
+		accent: '#6d8fbd',
 	},
 ];
