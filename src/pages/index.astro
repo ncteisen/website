@@ -190,7 +190,7 @@ const formatTime = (seconds: number): string => {
 
 const latestRun = stravaData.recent_runs?.[0];
 const latestBike = stravaData.recent_bikes?.[0];
-const featuredProjects = projects.filter((project) => project.featured);
+const featuredProjects = projects.filter((project) => project.featured || project.featuredOnMobile);
 ---
 
 <html lang="en">
@@ -467,6 +467,10 @@ const featuredProjects = projects.filter((project) => project.featured);
 				border-radius: 6px;
 				display: block;
 				transition: background 0.15s, border-color 0.15s;
+			}
+
+			.project-card.mobile-feature {
+				display: none;
 			}
 
 			.project-card:hover {
@@ -825,6 +829,10 @@ const featuredProjects = projects.filter((project) => project.featured);
 					padding: 16px;
 				}
 
+				.project-card.mobile-feature {
+					display: block;
+				}
+
 				.stats-row {
 					display: grid;
 					grid-template-columns: 1fr 1fr;
@@ -928,7 +936,7 @@ const featuredProjects = projects.filter((project) => project.featured);
 					{featuredProjects.map((project) => (
 						<a
 							href={project.href}
-							class="project-card"
+							class={`project-card${project.featuredOnMobile && !project.featured ? ' mobile-feature' : ''}`}
 							target={project.external ? '_blank' : undefined}
 							rel={project.external ? 'noopener noreferrer' : undefined}
 							data-umami-event="link_click"

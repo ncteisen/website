@@ -5,6 +5,7 @@ export interface Project {
 	label: string;
 	external: boolean;
 	featured: boolean;
+	featuredOnMobile?: boolean;
 	visualLabel: string;
 	accent: string;
 	image?: string;
@@ -53,17 +54,18 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Codex Pets',
-		description: 'A virtual simulation habitat for all my Codex pets.',
+		description: 'A virtual habitat I built for my Codex pets.',
 		href: '/projects/pets',
 		label: 'codex-pets',
 		external: false,
 		featured: false,
+		featuredOnMobile: true,
 		visualLabel: 'Habitat',
 		accent: '#8f9f86',
 	},
 	{
 		title: 'Zingg',
-		description: 'Online social game I built during the pandemic to stay connected with college friends.',
+		description: 'Social game I built during the pandemic to stay connected with friends.',
 		href: 'https://playzingg.com/',
 		label: 'zingg',
 		external: true,
