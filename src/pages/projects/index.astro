@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
 import SocialPreview from '../../components/SocialPreview.astro';
 import { projects } from '../../data/projects';
 ---
@@ -111,7 +112,8 @@ import { projects } from '../../data/projects';
 				overflow: hidden;
 				position: relative;
 				display: flex;
-				align-items: flex-end;
+				align-items: center;
+				justify-content: center;
 				padding: 22px;
 				transition: border-color 0.15s, transform 0.15s;
 			}
@@ -120,24 +122,6 @@ import { projects } from '../../data/projects';
 			.project-entry:focus-visible .project-visual {
 				border-color: #2f2f2f;
 				transform: translateY(-2px);
-			}
-
-			.project-image {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			.project-visual-mark {
-				position: relative;
-				z-index: 1;
-				font-size: 11px;
-				color: color-mix(in srgb, var(--project-accent) 65%, #e2dfd8);
-				font-weight: 600;
-				letter-spacing: 2px;
-				text-transform: uppercase;
 			}
 
 			.project-body {
@@ -243,10 +227,7 @@ import { projects } from '../../data/projects';
 							data-umami-event-label={project.label}
 						>
 							<div class="project-visual">
-								{project.image && (
-									<img src={project.image} alt="" class="project-image" loading="lazy" />
-								)}
-								<span class="project-visual-mark">{project.visualLabel}</span>
+								<ProjectVisual label={project.label} />
 							</div>
 							<div class="project-body">
 								<h2 class="project-title">{project.title}</h2>

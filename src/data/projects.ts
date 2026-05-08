@@ -6,9 +6,7 @@ export interface Project {
 	external: boolean;
 	featured: boolean;
 	featuredOnMobile?: boolean;
-	visualLabel: string;
 	accent: string;
-	image?: string;
 }
 
 export const projects: Project[] = [
@@ -19,7 +17,6 @@ export const projects: Project[] = [
 		label: 'sarahs-puzzle',
 		external: true,
 		featured: true,
-		visualLabel: 'Crossword',
 		accent: '#d6a561',
 	},
 	{
@@ -29,7 +26,6 @@ export const projects: Project[] = [
 		label: 'hypertext-library',
 		external: true,
 		featured: true,
-		visualLabel: 'Library',
 		accent: '#8aa0d6',
 	},
 	{
@@ -39,7 +35,6 @@ export const projects: Project[] = [
 		label: '2049-puzzle',
 		external: true,
 		featured: false,
-		visualLabel: '2049',
 		accent: '#d77f5f',
 	},
 	{
@@ -49,7 +44,6 @@ export const projects: Project[] = [
 		label: 'sarah-jumps',
 		external: false,
 		featured: false,
-		visualLabel: 'Arcade',
 		accent: '#83b8a1',
 	},
 	{
@@ -60,7 +54,6 @@ export const projects: Project[] = [
 		external: false,
 		featured: false,
 		featuredOnMobile: true,
-		visualLabel: 'Habitat',
 		accent: '#8f9f86',
 	},
 	{
@@ -70,7 +63,6 @@ export const projects: Project[] = [
 		label: 'zingg',
 		external: true,
 		featured: true,
-		visualLabel: 'Game Night',
 		accent: '#b28ad6',
 	},
 	{
@@ -80,7 +72,6 @@ export const projects: Project[] = [
 		label: 'old-website',
 		external: false,
 		featured: false,
-		visualLabel: 'Archive',
 		accent: '#6d8fbd',
 	},
 ];

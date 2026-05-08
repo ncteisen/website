@@ -1,0 +1,297 @@
+---
+import sarahJumpingSprite from '../games/sarah-jumps/assets/sprites/player-jumping.png';
+
+interface Props {
+	label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class={`project-diagram project-diagram--${label}`} aria-hidden="true">
+	{label === 'sarahs-puzzle' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<g class="grid" transform="translate(49 18)">
+				<rect x="0" y="0" width="22" height="22" />
+				<rect x="22" y="0" width="22" height="22" />
+				<rect x="44" y="0" width="22" height="22" />
+				<rect x="66" y="0" width="22" height="22" />
+				<rect x="88" y="0" width="22" height="22" class="filled" />
+				<rect x="22" y="22" width="22" height="22" />
+				<rect x="66" y="22" width="22" height="22" />
+				<rect x="0" y="44" width="22" height="22" class="filled" />
+				<rect x="22" y="44" width="22" height="22" />
+				<rect x="44" y="44" width="22" height="22" />
+				<rect x="66" y="44" width="22" height="22" />
+				<rect x="88" y="44" width="22" height="22" />
+				<rect x="110" y="44" width="22" height="22" />
+				<rect x="66" y="66" width="22" height="22" />
+				<rect x="110" y="66" width="22" height="22" />
+				<rect x="22" y="88" width="22" height="22" />
+				<rect x="44" y="88" width="22" height="22" />
+				<rect x="66" y="88" width="22" height="22" />
+				<rect x="88" y="88" width="22" height="22" class="filled" />
+				<rect x="110" y="88" width="22" height="22" />
+			</g>
+			<circle cx="74" cy="29" r="2.5" class="accent-fill" />
+			<circle cx="119" cy="73" r="2.5" class="accent-fill" />
+			<circle cx="164" cy="117" r="2.5" class="accent-fill" />
+		</svg>
+	)}
+
+	{label === 'hypertext-library' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<path class="shelf" d="M46 116H174" />
+			<path class="shelf" d="M55 74H165" />
+			<g class="books">
+				<rect x="57" y="42" width="12" height="31" rx="2" />
+				<rect x="72" y="34" width="10" height="39" rx="2" />
+				<rect x="86" y="46" width="13" height="27" rx="2" />
+				<rect x="121" y="38" width="11" height="35" rx="2" />
+				<rect x="136" y="48" width="10" height="25" rx="2" />
+				<rect x="150" y="32" width="12" height="41" rx="2" />
+				<rect x="68" y="89" width="13" height="27" rx="2" />
+				<rect x="85" y="95" width="10" height="21" rx="2" />
+				<rect x="99" y="82" width="12" height="34" rx="2" />
+				<rect x="132" y="91" width="12" height="25" rx="2" />
+				<rect x="148" y="80" width="10" height="36" rx="2" />
+			</g>
+			<path class="link-line" d="M99 59C113 50 119 51 132 55" />
+			<path class="link-line" d="M111 100C121 91 128 90 139 96" />
+			<circle cx="99" cy="59" r="3" class="accent-fill" />
+			<circle cx="132" cy="55" r="3" class="accent-fill" />
+			<circle cx="111" cy="100" r="3" class="accent-fill" />
+			<circle cx="139" cy="96" r="3" class="accent-fill" />
+		</svg>
+	)}
+
+	{label === '2049-puzzle' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<rect x="61" y="21" width="98" height="98" rx="8" class="board" />
+			<g class="tiles">
+				<rect x="70" y="30" width="36" height="36" rx="5" />
+				<rect x="114" y="30" width="36" height="36" rx="5" class="tile-hot" />
+				<rect x="70" y="74" width="36" height="36" rx="5" class="tile-hot" />
+				<rect x="114" y="74" width="36" height="36" rx="5" />
+			</g>
+			<text x="88" y="50">2</text>
+			<text x="132" y="50">4</text>
+			<text x="132" y="94">8</text>
+		</svg>
+	)}
+
+	{label === 'sarah-jumps' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<path class="jump-arc" d="M99 100C113 64 132 53 148 74" />
+			<g class="platforms">
+				<rect x="70" y="102" width="48" height="7" rx="3.5" />
+				<rect x="127" y="83" width="42" height="7" rx="3.5" />
+				<rect x="158" y="58" width="31" height="7" rx="3.5" />
+			</g>
+			<image
+				href={sarahJumpingSprite.src}
+				x="75"
+				y="55"
+				width="48"
+				height="48"
+				class="sarah-sprite"
+			/>
+		</svg>
+	)}
+
+	{label === 'codex-pets' && (
+		<div class="moby-scene">
+			<div class="moby-shadow"></div>
+			<div class="moby-sprite"></div>
+		</div>
+	)}
+
+	{label === 'zingg' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<g class="cards">
+				<rect x="71" y="34" width="54" height="76" rx="7" transform="rotate(-10 98 72)" />
+				<rect x="92" y="28" width="54" height="76" rx="7" transform="rotate(8 119 66)" />
+				<rect x="112" y="40" width="54" height="76" rx="7" transform="rotate(18 139 78)" class="card-front" />
+			</g>
+			<circle cx="139" cy="70" r="8" class="accent-fill" />
+			<path class="card-mark" d="M126 94H152" />
+			<path class="card-mark" d="M131 102H147" />
+		</svg>
+	)}
+
+	{label === 'old-website' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<path class="archive-lid" d="M63 48H99L108 39H157V58H63Z" />
+			<path class="archive-box" d="M58 58H162L153 111H67Z" />
+			<g class="archive-pages">
+				<path d="M82 71H137" />
+				<path d="M80 83H146" />
+				<path d="M77 95H130" />
+			</g>
+			<path class="archive-tag" d="M93 58H127V72H93Z" />
+			<circle cx="148" cy="45" r="4" class="accent-fill" />
+		</svg>
+	)}
+</div>
+
+<style>
+	.project-diagram {
+		position: relative;
+		width: min(72%, 250px);
+		height: min(74%, 170px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: color-mix(in srgb, var(--project-accent) 68%, #e2dfd8);
+		opacity: 0.96;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		height: 100%;
+		overflow: visible;
+		filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.28));
+	}
+
+	.diagram-svg rect,
+	.diagram-svg path,
+	.diagram-svg circle {
+		vector-effect: non-scaling-stroke;
+	}
+
+	.grid rect {
+		fill: rgba(226, 223, 216, 0.08);
+		stroke: color-mix(in srgb, var(--project-accent) 56%, #e2dfd8);
+		stroke-width: 1.25;
+	}
+
+	.grid .filled {
+		fill: rgba(10, 10, 10, 0.82);
+		stroke: rgba(226, 223, 216, 0.2);
+	}
+
+	.accent-fill {
+		fill: var(--project-accent);
+		stroke: none;
+	}
+
+	.shelf,
+	.link-line,
+	.jump-arc,
+	.card-mark,
+	.archive-pages path {
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.link-line,
+	.jump-arc {
+		stroke-dasharray: 4 7;
+		opacity: 0.78;
+	}
+
+	.books rect {
+		fill: rgba(226, 223, 216, 0.08);
+		stroke: currentColor;
+		stroke-width: 1.6;
+	}
+
+	.board {
+		fill: rgba(10, 10, 10, 0.36);
+		stroke: rgba(226, 223, 216, 0.18);
+		stroke-width: 1.5;
+	}
+
+	.tiles rect {
+		fill: rgba(226, 223, 216, 0.08);
+		stroke: currentColor;
+		stroke-width: 1.5;
+	}
+
+	.tiles .tile-hot {
+		fill: color-mix(in srgb, var(--project-accent) 24%, rgba(226, 223, 216, 0.08));
+	}
+
+	.diagram-svg text {
+		fill: color-mix(in srgb, var(--project-accent) 70%, #e2dfd8);
+		font-family: 'DM Sans', sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 0;
+		text-anchor: middle;
+		dominant-baseline: middle;
+	}
+
+	.diagram-svg .tile-small {
+		font-size: 10px;
+	}
+
+	.platforms rect {
+		fill: color-mix(in srgb, var(--project-accent) 35%, rgba(226, 223, 216, 0.12));
+		stroke: currentColor;
+		stroke-width: 1.5;
+	}
+
+	.moby-scene {
+		position: relative;
+		width: 132px;
+		height: 132px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.3));
+	}
+
+	.moby-shadow {
+		position: absolute;
+		bottom: 2px;
+		width: 86px;
+		height: 12px;
+		border-radius: 50%;
+		background: color-mix(in srgb, var(--project-accent) 28%, rgba(0, 0, 0, 0.6));
+	}
+
+	.moby-sprite {
+		position: relative;
+		width: 96px;
+		aspect-ratio: 192 / 208;
+		background-image: url('/games/pets/moby/spritesheet.webp');
+		background-repeat: no-repeat;
+		background-size: 800% 900%;
+		background-position: 0 0;
+	}
+
+	.sarah-sprite {
+		image-rendering: auto;
+		transform: rotate(-6deg);
+		transform-box: fill-box;
+		transform-origin: center;
+	}
+
+	.cards rect,
+	.archive-lid,
+	.archive-box,
+	.archive-tag {
+		fill: rgba(226, 223, 216, 0.08);
+		stroke: currentColor;
+		stroke-width: 1.7;
+	}
+
+	.cards .card-front {
+		fill: color-mix(in srgb, var(--project-accent) 18%, rgba(226, 223, 216, 0.08));
+	}
+
+	.archive-pages path {
+		opacity: 0.74;
+	}
+
+	@media (max-width: 768px) {
+		.project-diagram {
+			width: min(78%, 280px);
+			height: min(76%, 178px);
+		}
+	}
+</style>
