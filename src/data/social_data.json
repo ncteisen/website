@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T11:54:55.602419",
+  "last_updated": "2026-05-08T11:24:22.094638",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -10,7 +10,7 @@
         "watched_date": "2026-05-03",
         "is_rewatch": false,
         "review": "<p>I've seen \"Sorry to Bother You\" so I thought I knew how freaky/batshit/psychotic/deranged this was gonna be. Anyway... I didn't.</p><p>Had it's moments, but it was a bit too messy and unfocussed for me. Maybe I just like capitalism too much to appreciate art like this.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=9d5e0be81f",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=a760551168",
         "link": "https://letterboxd.com/ncteisen/film/i-love-boosters/"
       },
       {
@@ -3602,7 +3602,7 @@
         "watched_date": "2026-05-03",
         "is_rewatch": false,
         "review": "<p>I've seen \"Sorry to Bother You\" so I thought I knew how freaky/batshit/psychotic/deranged this was gonna be. Anyway... I didn't.</p><p>Had it's moments, but it was a bit too messy and unfocussed for me. Maybe I just like capitalism too much to appreciate art like this.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=9d5e0be81f",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=a760551168",
         "link": "https://letterboxd.com/ncteisen/film/i-love-boosters/"
       },
       {
@@ -8218,11 +8218,11 @@
           "elevation_gain": 478078.0
         },
         "recent": {
-          "count": 19,
-          "distance": 100.58,
-          "moving_time": 55274,
-          "elapsed_time": 63538,
-          "elevation_gain": 8159.0
+          "count": 18,
+          "distance": 97.57,
+          "moving_time": 53771,
+          "elapsed_time": 62032,
+          "elevation_gain": 8100.0
         }
       },
       "biking": {
