@@ -52,7 +52,10 @@
     "https://www.goodreads.com/book/show/20613582-10-04",
     "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
     "https://www.goodreads.com/book/show/426504.Ficciones",
-    "https://www.goodreads.com/book/show/60811826"
+    {
+      "url": "https://www.goodreads.com/book/show/60811826",
+      "cover": "/images/favorites/books/i-who-have-never-known-men.jpg"
+    }
   ],
   "orders": {
     "desktop": {
