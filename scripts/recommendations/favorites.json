@@ -57,12 +57,7 @@
       "subtitle": "Jorge Luis Borges",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621713120l/426504.jpg"
     },
-    {
-      "url": "https://www.goodreads.com/book/show/4671.The_Great_Gatsby",
-      "title": "The Great Gatsby",
-      "subtitle": "F. Scott Fitzgerald",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671.jpg"
-    }
+    "https://www.goodreads.com/book/show/60811826"
   ],
   "orders": {
     "desktop": {
@@ -115,7 +110,7 @@
         "https://www.goodreads.com/book/show/426504.Ficciones",
         "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
         "https://www.goodreads.com/book/show/20613582-10-04",
-        "https://www.goodreads.com/book/show/4671.The_Great_Gatsby"
+        "https://www.goodreads.com/book/show/60811826"
       ]
     }
   }
