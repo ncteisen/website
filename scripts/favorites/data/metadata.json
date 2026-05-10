@@ -7,16 +7,16 @@
       "cover": "/images/favorites/films/spirited-away.jpg"
     },
     {
-      "url": "https://letterboxd.com/film/heat-1995/",
-      "title": "Heat",
-      "subtitle": "Michael Mann, 1995",
-      "cover": "/images/favorites/films/heat.jpg"
-    },
-    {
       "url": "https://letterboxd.com/film/arrival-2016/",
       "title": "Arrival",
       "subtitle": "Denis Villeneuve, 2016",
       "cover": "/images/favorites/films/arrival.jpg"
+    },
+    {
+      "url": "https://letterboxd.com/film/heat-1995/",
+      "title": "Heat",
+      "subtitle": "Michael Mann, 1995",
+      "cover": "https://a.ltrbxd.com/resized/film-poster/5/1/9/9/4/51994-heat-0-600-0-900-crop.jpg?v=54dce97dc6"
     },
     {
       "url": "https://letterboxd.com/film/the-prestige/",
@@ -28,7 +28,7 @@
       "url": "https://letterboxd.com/film/hereditary/",
       "title": "Hereditary",
       "subtitle": "Ari Aster, 2018",
-      "cover": "/images/favorites/films/hereditary.jpg"
+      "cover": "https://a.ltrbxd.com/resized/film-poster/4/2/4/3/4/8/424348-hereditary-0-600-0-900-crop.jpg?v=470e48b681"
     },
     {
       "url": "https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/",
@@ -37,16 +37,16 @@
       "cover": "/images/favorites/films/eternal-sunshine-of-the-spotless-mind.jpg"
     },
     {
-      "url": "http://letterboxd.com/film/la-la-land/",
-      "title": "La La Land",
-      "subtitle": "Damien Chazelle, 2016",
-      "cover": "/images/favorites/films/la-la-land.jpg"
-    },
-    {
       "url": "https://letterboxd.com/film/knives-out-2019/",
       "title": "Knives Out",
       "subtitle": "Rian Johnson, 2019",
       "cover": "/images/favorites/films/knives-out.jpg"
+    },
+    {
+      "url": "http://letterboxd.com/film/la-la-land/",
+      "title": "La La Land",
+      "subtitle": "Damien Chazelle, 2016",
+      "cover": "/images/favorites/films/la-la-land.jpg"
     },
     {
       "url": "https://letterboxd.com/film/spider-man-into-the-spider-verse/",
@@ -58,7 +58,7 @@
       "url": "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
       "title": "Portrait of a Lady on Fire",
       "subtitle": "C\u00e9line Sciamma, 2019",
-      "cover": "/images/favorites/films/portrait-of-a-lady-on-fire.jpg"
+      "cover": "https://a.ltrbxd.com/resized/film-poster/4/6/0/8/3/0/460830-portrait-of-a-lady-on-fire-0-600-0-900-crop.jpg?v=79b0f67aa9"
     },
     {
       "url": "https://letterboxd.com/film/inside-out-2015/",
@@ -78,13 +78,19 @@
       "url": "https://www.goodreads.com/book/show/41160292-exhalation",
       "title": "Exhalation",
       "subtitle": "Ted Chiang",
-      "cover": "/images/favorites/books/exhalation.jpg"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1534388394i/41160292.jpg"
     },
     {
       "url": "https://www.goodreads.com/book/show/205478762-playground",
       "title": "Playground",
       "subtitle": "Richard Powers",
-      "cover": "/images/favorites/books/playground.jpg"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1712677708i/205478762.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/13641208-tenth-of-december",
+      "title": "Tenth of December",
+      "subtitle": "George Saunders",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1349967540i/13641208.jpg"
     },
     {
       "url": "https://www.goodreads.com/book/show/338798.Ulysses",
@@ -93,34 +99,34 @@
       "cover": "/images/favorites/books/ulysses.jpg"
     },
     {
-      "url": "https://www.goodreads.com/book/show/13641208-tenth-of-december",
-      "title": "Tenth of December",
-      "subtitle": "George Saunders",
-      "cover": "/images/favorites/books/tenth-of-december.jpg"
-    },
-    {
-      "url": "https://www.goodreads.com/book/show/20579877-fictions",
-      "title": "Fictions",
-      "subtitle": "Jorge Luis Borges",
-      "cover": "/images/favorites/books/fictions.jpg"
+      "url": "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
+      "title": "The Remains of the Day",
+      "subtitle": "Kazuo Ishiguro",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1327128714i/28921.jpg"
     },
     {
       "url": "https://www.goodreads.com/book/show/20613582-10-04",
       "title": "10:04",
       "subtitle": "Ben Lerner",
-      "cover": "/images/favorites/books/10-04.jpg"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1405301226i/20613582.jpg"
     },
     {
       "url": "https://www.goodreads.com/book/show/59131600-cloud-cuckoo-land",
       "title": "Cloud Cuckoo Land",
       "subtitle": "Anthony Doerr",
-      "cover": "/images/favorites/books/cloud-cuckoo-land.jpg"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1633193927i/59131600.jpg"
     },
     {
-      "url": "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day",
-      "title": "The Remains of the Day",
-      "subtitle": "Kazuo Ishiguro",
-      "cover": "/images/favorites/books/the-remains-of-the-day.jpg"
+      "url": "https://www.goodreads.com/book/show/426504.Ficciones",
+      "title": "Ficciones",
+      "subtitle": "Jorge Luis Borges",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1621713120i/426504.jpg"
+    },
+    {
+      "url": "https://www.goodreads.com/book/show/60811826",
+      "title": "I Who Have Never Known Men",
+      "subtitle": "Jacqueline Harpman",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1649947133i/60811826.jpg"
     }
   ]
 }

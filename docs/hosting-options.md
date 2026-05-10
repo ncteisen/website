@@ -31,7 +31,7 @@ If you want the **least migration risk** from GitHub Pages while adding server-s
 ### Migration plan (high-level)
 1. Connect repo to Cloudflare Pages and deploy current Astro static output.
 2. Add preview/production environments with environment variables.
-3. Move one small server-side task into a Worker (e.g., an API endpoint for cached recommendations).
+3. Move one small server-side task into a Worker (e.g., an API endpoint for cached favorites).
 4. Add **Cron Triggers** for nightly scraping/fetching.
 5. Persist fetched data in KV/R2/D1 (or keep committing JSON to repo, depending on preference).
 6. Add alerting/logging for failed nightly jobs.

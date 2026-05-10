@@ -8,6 +8,7 @@ Python automation scripts for the website. Each subdirectory handles a different
 | `strava-fetcher/` | Fetches activity data from the Strava API |
 | `goodreads-fetcher/` | Fetches book data from the Goodreads RSS feed |
 | `letterboxd-fetcher/` | Fetches film data from the Letterboxd RSS feed |
+| `favorites/` | Stores curated favorites and generates favorites page metadata |
 | `resume-generator/` | Generates `resume.tex` from `resume/resume_data.json` |
 
 See [`social-data/README.md`](social-data/README.md) for the full data pipeline diagram and details.
@@ -32,6 +33,7 @@ All scripts should be run from the **repo root**, not from inside their director
 python scripts/strava-fetcher/fetch_activities.py
 python scripts/goodreads-fetcher/fetch_books.py --full
 python scripts/letterboxd-fetcher/fetch_films.py
+python scripts/favorites/fetch_covers.py
 
 # Run the orchestrator to combine everything into social_data.json
 python scripts/social-data/orchestrate.py

@@ -32,7 +32,7 @@ All scripts run from the **repo root**:
 python scripts/strava-fetcher/fetch_activities.py       # Strava API (requires .env)
 python scripts/goodreads-fetcher/fetch_books.py         # Goodreads RSS
 python scripts/letterboxd-fetcher/fetch_films.py        # Letterboxd RSS
-python scripts/recommendations/fetch_covers.py          # Scrape covers + metadata for favorites page
+python scripts/favorites/fetch_covers.py                # Scrape covers + metadata for favorites page
 
 # Stage 2 — Orchestrator (combines local JSON → social_data.json)
 python scripts/social-data/orchestrate.py
@@ -60,7 +60,7 @@ This is a **static personal website** deployed to GitHub Pages. Data flows in tw
 - `scripts/strava-fetcher/` — Strava API fetcher
 - `scripts/goodreads-fetcher/` — Goodreads RSS fetcher
 - `scripts/letterboxd-fetcher/` — Letterboxd RSS fetcher
-- `scripts/recommendations/reviews.json` — user-edited input for favorites page (URLs + reviews); run `fetch_covers.py` after adding/removing recommendations
+- `scripts/favorites/favorites.json` — user-edited input for favorites page (URLs plus viewport-specific ordering); run `fetch_covers.py` after adding/removing favorites
 - `src/games/sarah-jumps/` — TypeScript canvas game with `GameEngine`, `Player`, `Platform`, `PlatformManager`, `InputHandler`, `ScoreDisplay`
 
 ### CI/CD (GitHub Actions)
