@@ -8,7 +8,7 @@ Python automation scripts for the website. Each subdirectory handles a different
 | `strava-fetcher/` | Fetches activity data from the Strava API |
 | `goodreads-fetcher/` | Fetches book data from the Goodreads RSS feed |
 | `letterboxd-fetcher/` | Fetches film data from the Letterboxd RSS feed |
-| `favorites/` | Stores curated favorites and generates favorites page metadata |
+| `favorites/` | Stores curated favorites and generates favorites page metadata; see `favorites/README.md` before editing favorites |
 | `resume-generator/` | Generates `resume.tex` from `resume/resume_data.json` |
 
 See [`social-data/README.md`](social-data/README.md) for the full data pipeline diagram and details.

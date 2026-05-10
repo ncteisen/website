@@ -60,7 +60,7 @@ This is a **static personal website** deployed to GitHub Pages. Data flows in tw
 - `scripts/strava-fetcher/` — Strava API fetcher
 - `scripts/goodreads-fetcher/` — Goodreads RSS fetcher
 - `scripts/letterboxd-fetcher/` — Letterboxd RSS fetcher
-- `scripts/favorites/favorites.json` — user-edited input for favorites page (URLs plus viewport-specific ordering); run `fetch_covers.py` after adding/removing favorites
+- `scripts/favorites/favorites.json` — user-edited input for favorites page (URLs plus viewport-specific ordering); see `scripts/favorites/README.md` and run `fetch_covers.py` after adding/removing favorites
 - `src/games/sarah-jumps/` — TypeScript canvas game with `GameEngine`, `Player`, `Platform`, `PlatformManager`, `InputHandler`, `ScoreDisplay`
 
 ### CI/CD (GitHub Actions)
