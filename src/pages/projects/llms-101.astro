@@ -88,7 +88,7 @@ const throughlineExamples = [
 		tokens: [
 			{ id: '32', text: 'A' },
 			{ id: '1695', text: ' good' },
-			{ id: '13306', text: ' wedding' },
+			{ id: '306', text: ' wedding' },
 			{ id: '23211', text: ' toast' },
 			{ id: '1288', text: ' should' },
 			{ id: '387', text: ' be' },
@@ -103,7 +103,7 @@ const throughlineExamples = [
 		trainingTokens: [
 			{ id: '32', label: '"A"' },
 			{ id: '1695', label: '"good"' },
-			{ id: '13306', label: '"wedding"' },
+			{ id: '306', label: '"wedding"' },
 			{ id: '23211', label: '"toast"' },
 			{ id: '1288', label: '"should"' },
 		],
@@ -114,6 +114,284 @@ const throughlineExamples = [
 		],
 		correctAnswer: '387',
 		note: 'Training rewards probability maps that make the observed next token more likely in similar contexts.',
+	},
+];
+
+const inferenceStep = (sample, candidates) => ({
+	sample,
+	label: candidates[0].label,
+	candidates: candidates.map((candidate, index) => ({
+		...candidate,
+		selected: index === 0,
+	})),
+});
+
+const inferenceExamples = [
+	{
+		id: 'capital',
+		name: 'Capital',
+		initialContext: 'The capital of France is',
+		emptyGenerated: 'No sampled tokens yet.',
+		runs: [
+			{
+				completion: 'Paris.',
+				steps: [
+					inferenceStep(' Paris', [
+						{ label: 'Paris', probability: 92 },
+						{ label: 'France', probability: 4 },
+						{ label: 'London', probability: 2 },
+					]),
+					inferenceStep('.', [
+						{ label: '.', probability: 86 },
+						{ label: ',', probability: 7 },
+						{ label: 'and', probability: 4 },
+					]),
+				],
+			},
+		],
+	},
+	{
+		id: 'toast',
+		name: 'Toast',
+		initialContext: 'A good wedding toast should',
+		emptyGenerated: 'Reset to try another completion.',
+		runs: [
+			{
+				completion: 'make everyone feel lucky to be in the room.',
+				steps: [
+					inferenceStep(' make', [
+						{ label: 'make', probability: 34 },
+						{ label: 'honor', probability: 33 },
+						{ label: 'tell', probability: 31 },
+					]),
+					inferenceStep(' everyone', [
+						{ label: 'everyone', probability: 42 },
+						{ label: 'people', probability: 29 },
+						{ label: 'the', probability: 21 },
+					]),
+					inferenceStep(' feel', [
+						{ label: 'feel', probability: 49 },
+						{ label: 'laugh', probability: 22 },
+						{ label: 'remember', probability: 18 },
+					]),
+					inferenceStep(' lucky', [
+						{ label: 'lucky', probability: 52 },
+						{ label: 'welcome', probability: 24 },
+						{ label: 'seen', probability: 17 },
+					]),
+					inferenceStep(' to', [
+						{ label: 'to', probability: 67 },
+						{ label: 'they', probability: 16 },
+						{ label: 'and', probability: 10 },
+					]),
+					inferenceStep(' be', [
+						{ label: 'be', probability: 71 },
+						{ label: 'have', probability: 14 },
+						{ label: 'share', probability: 8 },
+					]),
+					inferenceStep(' in', [
+						{ label: 'in', probability: 64 },
+						{ label: 'here', probability: 18 },
+						{ label: 'part', probability: 11 },
+					]),
+					inferenceStep(' the', [
+						{ label: 'the', probability: 73 },
+						{ label: 'this', probability: 13 },
+						{ label: 'that', probability: 7 },
+					]),
+					inferenceStep(' room', [
+						{ label: 'room', probability: 76 },
+						{ label: 'story', probability: 11 },
+						{ label: 'moment', probability: 8 },
+					]),
+					inferenceStep('.', [
+						{ label: '.', probability: 82 },
+						{ label: ',', probability: 9 },
+						{ label: 'tonight', probability: 5 },
+					]),
+				],
+			},
+			{
+				completion: 'honor the couple without turning into a roast, résumé, or therapy session.',
+				steps: [
+					inferenceStep(' honor', [
+						{ label: 'honor', probability: 35 },
+						{ label: 'make', probability: 34 },
+						{ label: 'tell', probability: 29 },
+					]),
+					inferenceStep(' the', [
+						{ label: 'the', probability: 62 },
+						{ label: 'their', probability: 17 },
+						{ label: 'this', probability: 12 },
+					]),
+					inferenceStep(' couple', [
+						{ label: 'couple', probability: 58 },
+						{ label: 'moment', probability: 24 },
+						{ label: 'room', probability: 11 },
+					]),
+					inferenceStep(' without', [
+						{ label: 'without', probability: 54 },
+						{ label: 'with', probability: 27 },
+						{ label: 'by', probability: 12 },
+					]),
+					inferenceStep(' turning', [
+						{ label: 'turning', probability: 48 },
+						{ label: 'making', probability: 26 },
+						{ label: 'becoming', probability: 17 },
+					]),
+					inferenceStep(' into', [
+						{ label: 'into', probability: 70 },
+						{ label: 'it', probability: 13 },
+						{ label: 'toward', probability: 8 },
+					]),
+					inferenceStep(' a', [
+						{ label: 'a', probability: 78 },
+						{ label: 'the', probability: 10 },
+						{ label: 'your', probability: 6 },
+					]),
+					inferenceStep(' roast', [
+						{ label: 'roast', probability: 43 },
+						{ label: 'lecture', probability: 25 },
+						{ label: 'monologue', probability: 19 },
+					]),
+					inferenceStep(',', [
+						{ label: ',', probability: 74 },
+						{ label: '.', probability: 13 },
+						{ label: 'or', probability: 7 },
+					]),
+					inferenceStep(' résumé', [
+						{ label: 'résumé', probability: 41 },
+						{ label: 'speech', probability: 27 },
+						{ label: 'confession', probability: 18 },
+					]),
+					inferenceStep(',', [
+						{ label: ',', probability: 76 },
+						{ label: '.', probability: 11 },
+						{ label: 'and', probability: 7 },
+					]),
+					inferenceStep(' or', [
+						{ label: 'or', probability: 68 },
+						{ label: 'and', probability: 17 },
+						{ label: 'but', probability: 8 },
+					]),
+					inferenceStep(' therapy', [
+						{ label: 'therapy', probability: 46 },
+						{ label: 'career', probability: 22 },
+						{ label: 'family', probability: 17 },
+					]),
+					inferenceStep(' session', [
+						{ label: 'session', probability: 63 },
+						{ label: 'story', probability: 16 },
+						{ label: 'meeting', probability: 10 },
+					]),
+					inferenceStep('.', [
+						{ label: '.', probability: 85 },
+						{ label: ',', probability: 8 },
+						{ label: 'tonight', probability: 4 },
+					]),
+				],
+			},
+			{
+				completion: 'tell one true story, land one real emotion, and get out before anyone checks their phone.',
+				steps: [
+					inferenceStep(' tell', [
+						{ label: 'tell', probability: 34 },
+						{ label: 'make', probability: 33 },
+						{ label: 'honor', probability: 31 },
+					]),
+					inferenceStep(' one', [
+						{ label: 'one', probability: 52 },
+						{ label: 'a', probability: 28 },
+						{ label: 'the', probability: 13 },
+					]),
+					inferenceStep(' true', [
+						{ label: 'true', probability: 49 },
+						{ label: 'short', probability: 25 },
+						{ label: 'good', probability: 16 },
+					]),
+					inferenceStep(' story', [
+						{ label: 'story', probability: 61 },
+						{ label: 'thing', probability: 18 },
+						{ label: 'memory', probability: 12 },
+					]),
+					inferenceStep(',', [
+						{ label: ',', probability: 70 },
+						{ label: '.', probability: 16 },
+						{ label: 'and', probability: 8 },
+					]),
+					inferenceStep(' land', [
+						{ label: 'land', probability: 38 },
+						{ label: 'share', probability: 27 },
+						{ label: 'name', probability: 19 },
+					]),
+					inferenceStep(' one', [
+						{ label: 'one', probability: 57 },
+						{ label: 'the', probability: 20 },
+						{ label: 'a', probability: 15 },
+					]),
+					inferenceStep(' real', [
+						{ label: 'real', probability: 54 },
+						{ label: 'clear', probability: 23 },
+						{ label: 'big', probability: 14 },
+					]),
+					inferenceStep(' emotion', [
+						{ label: 'emotion', probability: 62 },
+						{ label: 'laugh', probability: 18 },
+						{ label: 'moment', probability: 13 },
+					]),
+					inferenceStep(',', [
+						{ label: ',', probability: 72 },
+						{ label: '.', probability: 15 },
+						{ label: 'and', probability: 7 },
+					]),
+					inferenceStep(' and', [
+						{ label: 'and', probability: 66 },
+						{ label: 'then', probability: 18 },
+						{ label: 'so', probability: 9 },
+					]),
+					inferenceStep(' get', [
+						{ label: 'get', probability: 48 },
+						{ label: 'sit', probability: 25 },
+						{ label: 'step', probability: 14 },
+					]),
+					inferenceStep(' out', [
+						{ label: 'out', probability: 58 },
+						{ label: 'done', probability: 18 },
+						{ label: 'back', probability: 13 },
+					]),
+					inferenceStep(' before', [
+						{ label: 'before', probability: 51 },
+						{ label: 'while', probability: 21 },
+						{ label: 'when', probability: 16 },
+					]),
+					inferenceStep(' anyone', [
+						{ label: 'anyone', probability: 47 },
+						{ label: 'someone', probability: 24 },
+						{ label: 'people', probability: 18 },
+					]),
+					inferenceStep(' checks', [
+						{ label: 'checks', probability: 44 },
+						{ label: 'looks', probability: 26 },
+						{ label: 'finds', probability: 17 },
+					]),
+					inferenceStep(' their', [
+						{ label: 'their', probability: 64 },
+						{ label: 'a', probability: 15 },
+						{ label: 'the', probability: 11 },
+					]),
+					inferenceStep(' phone', [
+						{ label: 'phone', probability: 72 },
+						{ label: 'watch', probability: 13 },
+						{ label: 'email', probability: 8 },
+					]),
+					inferenceStep('.', [
+						{ label: '.', probability: 88 },
+						{ label: ',', probability: 6 },
+						{ label: 'again', probability: 3 },
+					]),
+				],
+			},
+		],
 	},
 ];
 ---
@@ -857,9 +1135,11 @@ const throughlineExamples = [
 
 			.training-token-id {
 				color: #eae7e0;
-				font-size: 24px;
+				font-size: clamp(18px, 1.55vw, 22px);
 				font-weight: 700;
 				line-height: 1;
+				max-width: 100%;
+				white-space: nowrap;
 			}
 
 			.training-token-label {
@@ -1031,23 +1311,23 @@ const throughlineExamples = [
 			}
 
 			.training-visual.is-animating [data-train-part] {
-				animation: train-reveal 0.58s ease both;
+				animation: train-reveal 0.28s ease both;
 			}
 
 			.training-visual.is-animating [data-train-part='net'] {
-				animation-delay: 0.45s;
+				animation-delay: 0.14s;
 			}
 
 			.training-visual.is-animating [data-train-part='map'] {
-				animation-delay: 0.9s;
+				animation-delay: 0.28s;
 			}
 
 			.training-visual.is-animating [data-train-part='answer'] {
-				animation-delay: 1.35s;
+				animation-delay: 0.42s;
 			}
 
 			.training-visual.is-animating [data-train-part='note'] {
-				animation-delay: 1.8s;
+				animation-delay: 0.56s;
 			}
 
 			.weights-section {
@@ -1242,6 +1522,42 @@ const throughlineExamples = [
 				color: var(--llms-accent-green);
 			}
 
+			:global(.mini-probability-row) {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 12px;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				color: #eae7e0;
+				font-size: 13px;
+				font-weight: 700;
+				padding: 10px 12px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			:global(.mini-probability-row::before) {
+				content: '';
+				position: absolute;
+				inset: 0 auto 0 0;
+				width: var(--mini-probability-width);
+				background: color-mix(in srgb, var(--mini-probability-accent) 18%, transparent);
+				transition: width 0.35s ease;
+			}
+
+			:global(.mini-probability-row > span) {
+				position: relative;
+			}
+
+			:global(.mini-probability-row + .mini-probability-row) {
+				margin-top: 8px;
+			}
+
+			:global(.mini-probability-value) {
+				color: var(--llms-accent-green);
+			}
+
 			.knob-panel {
 				margin-top: 22px;
 				border: 1px solid rgba(226, 223, 216, 0.14);
@@ -1307,6 +1623,361 @@ const throughlineExamples = [
 				padding-left: 14px;
 			}
 
+			.inference-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.inference-layout {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 28px;
+				align-items: start;
+			}
+
+			.inference-copy {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 32px;
+				align-items: end;
+			}
+
+			.inference-copy .promise {
+				max-width: 760px;
+				margin-bottom: 14px;
+			}
+
+			.inference-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #84a6d8 14%, #111), #0f0f0f 55%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 34px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.inference-visual-title {
+				font-size: 12px;
+				color: #6f6f6f;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 24px;
+			}
+
+			.inference-flow {
+				display: grid;
+				grid-template-columns: minmax(300px, 1fr) minmax(120px, 0.3fr) minmax(320px, 1fr);
+				gap: 28px;
+				align-items: center;
+			}
+
+			.inference-panel {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				min-height: 250px;
+				padding: 20px;
+			}
+
+			.inference-map-panel {
+				border-color: rgba(132, 166, 216, 0.24);
+				background:
+					linear-gradient(135deg, rgba(132, 166, 216, 0.08), rgba(10, 10, 10, 0.42) 52%),
+					rgba(10, 10, 10, 0.42);
+			}
+
+			.inference-context-text {
+				color: #eae7e0;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1.35;
+			}
+
+			.inference-context-base {
+				color: #aaa49a;
+			}
+
+			.inference-context-generated {
+				color: var(--llms-accent);
+			}
+
+			.inference-net {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+				color: #777;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			.inference-step-count {
+				color: #777;
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				margin: -6px 0 16px;
+				text-transform: uppercase;
+			}
+
+			.inference-candidate {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.38);
+				color: #eae7e0;
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 1.25;
+				min-height: 54px;
+				padding: 9px 16px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.inference-candidate + .inference-candidate {
+				margin-top: 10px;
+			}
+
+			.inference-candidate::before {
+				display: none;
+			}
+
+			.inference-candidate.is-selected {
+				border-color: color-mix(in srgb, #8f9f86 70%, #e2dfd8);
+				background: color-mix(in srgb, #8f9f86 13%, rgba(10, 10, 10, 0.42));
+			}
+
+			.inference-candidate-content {
+				position: relative;
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 16px;
+				align-items: center;
+				min-height: 34px;
+			}
+
+			.inference-candidate-token,
+			.inference-candidate-score {
+				display: block;
+			}
+
+			.inference-candidate-score {
+				align-self: center;
+			}
+
+			.inference-candidate-kicker {
+				display: none;
+			}
+
+			.inference-candidate-label {
+				color: #eae7e0;
+				display: block;
+				font-size: 16px;
+				line-height: 1.25;
+				min-width: 0;
+			}
+
+			.inference-candidate-probability {
+				border: 1px solid color-mix(in srgb, var(--inference-probability-accent) 48%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, var(--inference-probability-accent) 12%, #101010);
+				color: var(--inference-probability-accent);
+				flex: 0 0 auto;
+				font-size: 17px;
+				font-weight: 700;
+				line-height: 1;
+				min-width: 60px;
+				padding: 8px 10px;
+				text-align: center;
+			}
+
+			.inference-candidate.is-selected .inference-candidate-content::after {
+				content: 'sampled';
+				border: 1px solid rgba(143, 159, 134, 0.5);
+				border-radius: 999px;
+				color: #b8c4ae;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 7px 8px;
+				text-transform: uppercase;
+				justify-self: end;
+				grid-column: 1 / -1;
+			}
+
+			:global(.inference-candidate) {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.38);
+				color: #eae7e0;
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 1.25;
+				min-height: 54px;
+				padding: 9px 16px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			:global(.inference-candidate + .inference-candidate) {
+				margin-top: 10px;
+			}
+
+			:global(.inference-candidate::before) {
+				display: none;
+			}
+
+			:global(.inference-candidate.is-selected) {
+				border-color: color-mix(in srgb, #8f9f86 70%, #e2dfd8);
+				background: color-mix(in srgb, #8f9f86 13%, rgba(10, 10, 10, 0.42));
+			}
+
+			:global(.inference-candidate-content) {
+				position: relative;
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 16px;
+				align-items: center;
+				min-height: 34px;
+			}
+
+			:global(.inference-candidate-token),
+			:global(.inference-candidate-score) {
+				display: block;
+			}
+
+			:global(.inference-candidate-score) {
+				align-self: center;
+			}
+
+			:global(.inference-candidate-kicker) {
+				display: none;
+			}
+
+			:global(.inference-candidate-label) {
+				color: #eae7e0;
+				display: block;
+				font-size: 16px;
+				line-height: 1.25;
+				min-width: 0;
+			}
+
+			:global(.inference-candidate-probability) {
+				border: 1px solid color-mix(in srgb, var(--inference-probability-accent) 48%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, var(--inference-probability-accent) 12%, #101010);
+				color: var(--inference-probability-accent);
+				flex: 0 0 auto;
+				font-size: 17px;
+				font-weight: 700;
+				line-height: 1;
+				min-width: 60px;
+				padding: 8px 10px;
+				text-align: center;
+			}
+
+			:global(.inference-candidate.is-selected .inference-candidate-content::after) {
+				content: 'sampled';
+				border: 1px solid rgba(143, 159, 134, 0.5);
+				border-radius: 999px;
+				color: #b8c4ae;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 7px 8px;
+				text-transform: uppercase;
+				justify-self: end;
+				grid-column: 1 / -1;
+			}
+
+			.inference-sampled {
+				margin-top: 16px;
+				border-left: 2px solid color-mix(in srgb, #84a6d8 60%, #222);
+				color: #999;
+				font-size: 13px;
+				line-height: 1.5;
+				padding-left: 14px;
+			}
+
+			.inference-sampled strong {
+				color: #eae7e0;
+			}
+
+			.inference-output {
+				margin-top: 22px;
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				padding: 18px 20px;
+			}
+
+			.inference-output-text {
+				color: #eae7e0;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 1.35;
+			}
+
+			.replay-button:disabled {
+				cursor: default;
+				opacity: 0.44;
+				transform: none;
+			}
+
+			.checkpoint-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.checkpoint-layout {
+				display: grid;
+				grid-template-columns: minmax(320px, 0.72fr) minmax(560px, 1.28fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.checkpoint-list {
+				border-top: 1px solid #1a1a1a;
+				color: #999;
+				font-size: 15px;
+				line-height: 1.65;
+				list-style: none;
+			}
+
+			.checkpoint-list li {
+				border-bottom: 1px solid #1a1a1a;
+				padding: 14px 0 14px 20px;
+				position: relative;
+			}
+
+			.checkpoint-list li::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 25px;
+				width: 5px;
+				height: 5px;
+				border-radius: 999px;
+				background: var(--llms-accent);
+			}
+
+			.demo-note {
+				margin-top: 18px;
+				border-left: 2px solid color-mix(in srgb, #d6a561 60%, #222);
+				color: #999;
+				font-size: 13px;
+				line-height: 1.6;
+				padding-left: 14px;
+			}
+
 			@keyframes train-reveal {
 				0% {
 					opacity: 0.2;
@@ -1357,7 +2028,9 @@ const throughlineExamples = [
 				.corpus-layout,
 				.token-layout,
 				.training-layout,
-				.weights-layout {
+				.weights-layout,
+				.inference-layout,
+				.checkpoint-layout {
 					grid-template-columns: 1fr;
 				}
 
@@ -1404,6 +2077,11 @@ const throughlineExamples = [
 					gap: 24px;
 				}
 
+				.inference-copy {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
 				.replay-button {
 					justify-self: start;
 				}
@@ -1413,7 +2091,8 @@ const throughlineExamples = [
 				}
 
 				.training-diagram,
-				.equation-flow {
+				.equation-flow,
+				.inference-flow {
 					grid-template-columns: 1fr;
 				}
 
@@ -1423,7 +2102,8 @@ const throughlineExamples = [
 				}
 
 				.training-arrow,
-				.equation-arrow {
+				.equation-arrow,
+				.inference-net .training-arrow {
 					transform: rotate(90deg);
 					justify-self: center;
 				}
@@ -1451,7 +2131,7 @@ const throughlineExamples = [
 				}
 
 				.training-token-id {
-					font-size: 21px;
+					font-size: 20px;
 				}
 
 				.neural-net-box {
@@ -1461,6 +2141,29 @@ const throughlineExamples = [
 
 				.weights-visual {
 					padding: 22px;
+				}
+
+				.inference-visual {
+					padding: 22px;
+				}
+
+				.inference-context-text,
+				.inference-output-text {
+					font-size: 19px;
+				}
+
+				.inference-candidate-content {
+					align-items: flex-start;
+					grid-template-columns: 1fr;
+				}
+
+				:global(.inference-candidate-content) {
+					align-items: flex-start;
+					grid-template-columns: 1fr;
+				}
+
+				:global(.inference-candidate-score) {
+					align-items: flex-start;
 				}
 
 				.knob-grid {
@@ -1511,9 +2214,9 @@ const throughlineExamples = [
 				<div class="intro-grid">
 					<div>
 						<span class="section-label">Opening</span>
-						<h2 id="llms-101-goals" class="promise">Understand the concepts. Hear the vocabulary. Build the mental model.</h2>
+						<h2 id="llms-101-goals" class="promise">Let's demystify LLMs.</h2>
 						<p class="body-copy body-copy--short">
-							This page is a visual track for a non-technical talk on how LLMs are built. The narration does most of the teaching.
+							A visual track for a non-technical talk on how LLMs are built. The narration does most of the teaching.
 						</p>
 						<a
 							class="source-link"
@@ -1674,7 +2377,7 @@ const throughlineExamples = [
 									data-token-example-toggle={example.id}
 									aria-pressed={index === 0 ? 'true' : 'false'}
 								>
-									{example.sourceText}
+									Example {index + 1}
 								</button>
 							))}
 						</div>
@@ -1732,14 +2435,19 @@ const throughlineExamples = [
 										data-training-example-toggle={example.id}
 										aria-pressed={index === 0 ? 'true' : 'false'}
 									>
-										{example.sourceText}
+										Example {index + 1}
 									</button>
 								))}
 							</div>
 						</div>
-						<button class="replay-button" type="button" data-training-replay>
-							Replay animation
-						</button>
+						<div class="control-row">
+							<button class="replay-button" type="button" data-training-step>
+								Step
+							</button>
+							<button class="replay-button" type="button" data-training-reset>
+								Reset
+							</button>
+						</div>
 					</div>
 
 					<div class="training-visual" data-training-visual aria-label="Training flow diagram">
@@ -1772,7 +2480,10 @@ const throughlineExamples = [
 											<>
 											<div
 												class={`probability-row${candidate.correct ? ' is-correct' : ''}`}
-												style={`--probability-width: ${candidate.width}; --probability-accent: ${['#84a6d8', '#d6a561', '#8f9f86'][index]}`}
+												data-training-candidate
+												data-training-correct={candidate.correct ? 'true' : 'false'}
+												data-training-probability={candidate.probability.replace('%', '')}
+												style={`--probability-width: ${candidate.probability}; --probability-accent: ${['#84a6d8', '#d6a561', '#8f9f86'][index]}`}
 											>
 												<div class="probability-row-content">
 													<span class="probability-label">{candidate.id} {candidate.label}</span>
@@ -1886,6 +2597,112 @@ const throughlineExamples = [
 					</div>
 				</div>
 			</section>
+
+			<hr class="rule" />
+
+			<section class="inference-section" aria-labelledby="inference-title">
+				<div class="inference-layout">
+					<div class="inference-copy">
+						<div>
+							<span class="section-label">Part Five</span>
+							<h2 id="inference-title" class="promise">Inference is repeated sampling.</h2>
+							<p class="body-copy body-copy--short">
+								The model samples one token, adds it to the context, then runs again. Generation is that loop repeated.
+							</p>
+							<div class="example-toggle-group" aria-label="Inference example selector">
+								{inferenceExamples.map((example, index) => (
+									<button
+										class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+										type="button"
+										data-inference-example-toggle={example.id}
+										aria-pressed={index === 0 ? 'true' : 'false'}
+									>
+										Example {index + 1}
+									</button>
+								))}
+							</div>
+						</div>
+						<div class="control-row">
+							<button class="replay-button" type="button" data-inference-next>
+								Next sample
+							</button>
+							<button class="replay-button" type="button" data-inference-reset>
+								Reset
+							</button>
+						</div>
+					</div>
+
+					<div class="inference-visual" aria-label="Inference sampling loop">
+						<p class="inference-visual-title">Sampling Loop</p>
+						<div class="inference-flow">
+							<div class="inference-panel">
+								<span class="equation-label">Current context</span>
+								<p class="inference-context-text">
+									<span class="inference-context-base" data-inference-context-base>{inferenceExamples[0].initialContext}</span><span class="inference-context-generated" data-inference-context-generated></span>
+								</p>
+							</div>
+
+							<div class="inference-net">
+								<span class="training-arrow" aria-hidden="true">&rarr;</span>
+								<div class="neural-net-box" aria-hidden="true"></div>
+								<span>Run model</span>
+							</div>
+
+							<div class="inference-panel inference-map-panel">
+								<span class="equation-label">Probability map</span>
+								<p class="inference-step-count" data-inference-step-count>Ready to sample</p>
+								<div data-inference-candidates>
+									{inferenceExamples[0].runs[0].steps[0].candidates.map((candidate, index) => (
+										<div
+											class="mini-probability-row"
+											style={`--mini-probability-width: ${candidate.probability}%; --mini-probability-accent: ${['#8f9f86', '#d6a561', '#84a6d8'][index]}`}
+										>
+											<span>{candidate.label}</span>
+											<span class="mini-probability-value">{candidate.probability}%</span>
+										</div>
+									))}
+								</div>
+								<p class="inference-sampled" data-inference-sampled>
+									Sampled token: <strong>waiting</strong>
+								</p>
+							</div>
+						</div>
+
+						<div class="inference-output">
+							<span class="equation-label">Generated text</span>
+							<p class="inference-output-text" data-inference-output>{inferenceExamples[0].emptyGenerated}</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="checkpoint-section" aria-labelledby="base-model-title">
+				<div class="checkpoint-layout">
+					<div>
+						<span class="section-label">Checkpoint</span>
+						<h2 id="base-model-title" class="promise">The psychology of a base model.</h2>
+						<p class="body-copy body-copy--short">
+							At this point, we have a trained internet-text generator. Powerful, but not yet a helpful assistant.
+						</p>
+						<p class="demo-note">
+							Demo note: run local nanoGPT here.
+						</p>
+					</div>
+
+					<ul class="checkpoint-list">
+						<li>Token-level internet document simulator.</li>
+						<li>Stochastic and probabilistic. Run it again and you may sample a different continuation.</li>
+						<li>It dreams internet documents one token at a time.</li>
+						<li>A lot of useful world knowledge is stored in the network parameters.</li>
+						<li>You can already build applications with clever prompts: few-shot translation, in-context learning, or a conversation-shaped assistant prompt.</li>
+						<li>But we can make it better.</li>
+					</ul>
+				</div>
+			</section>
+
+			<script id="inference-data" type="application/json" set:html={JSON.stringify(inferenceExamples)}></script>
 		</main>
 
 		<script>
@@ -1957,7 +2774,8 @@ const throughlineExamples = [
 				});
 			});
 
-			const trainingReplay = document.querySelector('[data-training-replay]');
+			const trainingStep = document.querySelector('[data-training-step]');
+			const trainingReset = document.querySelector('[data-training-reset]');
 			const trainingVisual = document.querySelector('[data-training-visual]');
 			const trainingExampleToggles = Array.from(document.querySelectorAll('[data-training-example-toggle]'));
 			const trainingExamplePanels = Array.from(document.querySelectorAll('[data-training-example-panel]'));
@@ -1968,6 +2786,58 @@ const throughlineExamples = [
 			const parisProbability = document.querySelector('[data-weight-probability="paris"]');
 			const franceProbability = document.querySelector('[data-weight-probability="france"]');
 			let parisProbabilityValue = 80;
+			const inferenceDataElement = document.getElementById('inference-data');
+			const inferenceData = inferenceDataElement?.textContent ? JSON.parse(inferenceDataElement.textContent) : [];
+			const inferenceExampleToggles = Array.from(document.querySelectorAll('[data-inference-example-toggle]'));
+			const inferenceNext = document.querySelector('[data-inference-next]');
+			const inferenceReset = document.querySelector('[data-inference-reset]');
+			const inferenceContextBase = document.querySelector('[data-inference-context-base]');
+			const inferenceContextGenerated = document.querySelector('[data-inference-context-generated]');
+			const inferenceCandidates = document.querySelector('[data-inference-candidates]');
+			const inferenceSampled = document.querySelector('[data-inference-sampled]');
+			const inferenceOutput = document.querySelector('[data-inference-output]');
+			const inferenceStepCount = document.querySelector('[data-inference-step-count]');
+			const inferenceCandidateColors = ['#8f9f86', '#d6a561', '#84a6d8'];
+			let activeInferenceId = 'capital';
+			let inferenceStepIndex = -1;
+			let toastRunIndex = 0;
+
+			const getActiveTrainingPanel = () => {
+				return trainingExamplePanels.find((panel) => panel.classList.contains('is-active'));
+			};
+
+			const getTrainingCandidates = () => {
+				const activePanel = getActiveTrainingPanel();
+				return Array.from(activePanel?.querySelectorAll('[data-training-candidate]') ?? []);
+			};
+
+			const setTrainingCandidateProbability = (candidate, value) => {
+				if (!(candidate instanceof HTMLElement)) return;
+
+				const roundedValue = Math.round(value);
+				candidate.dataset.trainingProbability = String(roundedValue);
+				candidate.style.setProperty('--probability-width', `${Math.min(92, Math.max(8, roundedValue))}%`);
+
+				const valueElement = candidate.querySelector('.probability-value');
+				if (valueElement instanceof HTMLElement) {
+					valueElement.textContent = `${roundedValue}%`;
+				}
+			};
+
+			const resetActiveTrainingProbabilities = () => {
+				getTrainingCandidates().forEach((candidate) => {
+					if (!(candidate instanceof HTMLElement)) return;
+
+					const initialValue = Number(candidate.getAttribute('data-training-initial-probability') ?? candidate.dataset.trainingProbability ?? 0);
+					setTrainingCandidateProbability(candidate, initialValue);
+				});
+			};
+
+			document.querySelectorAll('[data-training-candidate]').forEach((candidate) => {
+				if (!(candidate instanceof HTMLElement)) return;
+
+				candidate.setAttribute('data-training-initial-probability', candidate.dataset.trainingProbability ?? '0');
+			});
 
 			const setWeightProbability = (parisValue, franceValue) => {
 				if (parisProbability instanceof HTMLElement) {
@@ -2003,6 +2873,8 @@ const throughlineExamples = [
 				trainingExamplePanels.forEach((panel) => {
 					panel.classList.toggle('is-active', panel.getAttribute('data-training-example-panel') === exampleId);
 				});
+
+				resetActiveTrainingProbabilities();
 			};
 
 			trainingExampleToggles.forEach((toggle) => {
@@ -2015,7 +2887,25 @@ const throughlineExamples = [
 				});
 			});
 
-			trainingReplay?.addEventListener('click', () => {
+			trainingStep?.addEventListener('click', () => {
+				const candidates = getTrainingCandidates();
+				if (candidates.length === 0) return;
+
+				candidates.forEach((candidate) => {
+					if (!(candidate instanceof HTMLElement)) return;
+
+					const currentValue = Number(candidate.dataset.trainingProbability ?? 0);
+					const nextValue = candidate.dataset.trainingCorrect === 'true'
+						? Math.min(96, currentValue + 8)
+						: Math.max(1, currentValue - 4);
+					setTrainingCandidateProbability(candidate, nextValue);
+				});
+
+				replayTrainingAnimation();
+			});
+
+			trainingReset?.addEventListener('click', () => {
+				resetActiveTrainingProbabilities();
 				replayTrainingAnimation();
 			});
 
@@ -2064,6 +2954,132 @@ const throughlineExamples = [
 					needle.style.setProperty('--knob-end', `${initialAngle}deg`);
 				});
 			});
+
+			const getActiveInferenceExample = () => {
+				return inferenceData.find((example) => example.id === activeInferenceId) ?? inferenceData[0];
+			};
+
+			const getActiveInferenceRun = (example) => {
+				const runIndex = example?.id === 'toast' ? toastRunIndex : 0;
+				return example?.runs?.[runIndex] ?? example?.runs?.[0];
+			};
+
+			const getGeneratedSample = (run, stepIndex) => {
+				if (!run || stepIndex < 0) return '';
+
+				return run.steps
+					.slice(0, stepIndex + 1)
+					.map((step) => step.sample)
+					.join('');
+			};
+
+			const renderInferenceCandidates = (step, shouldHighlightSelection) => {
+				if (!(inferenceCandidates instanceof HTMLElement) || !step) return;
+
+				const rows = step.candidates.map((candidate, index) => {
+					const row = document.createElement('div');
+					row.className = 'mini-probability-row';
+					row.style.setProperty('--mini-probability-width', `${candidate.probability}%`);
+					row.style.setProperty('--mini-probability-accent', inferenceCandidateColors[index % inferenceCandidateColors.length]);
+
+					const label = document.createElement('span');
+					label.textContent = candidate.label;
+
+					const probability = document.createElement('span');
+					probability.className = 'mini-probability-value';
+					probability.textContent = `${candidate.probability}%`;
+
+					row.append(label, probability);
+					return row;
+				});
+
+				inferenceCandidates.replaceChildren(...rows);
+			};
+
+			const renderInference = () => {
+				const example = getActiveInferenceExample();
+				const run = getActiveInferenceRun(example);
+				if (!example || !run) return;
+
+				const generatedSample = getGeneratedSample(run, inferenceStepIndex);
+				const activeStep = inferenceStepIndex >= 0
+					? run.steps[inferenceStepIndex]
+					: run.steps[0];
+
+				if (inferenceContextBase instanceof HTMLElement) {
+					inferenceContextBase.textContent = example.initialContext;
+				}
+
+				if (inferenceContextGenerated instanceof HTMLElement) {
+					inferenceContextGenerated.textContent = generatedSample;
+				}
+
+				if (inferenceOutput instanceof HTMLElement) {
+					inferenceOutput.textContent = generatedSample
+						? `${example.initialContext}${generatedSample}`
+						: example.emptyGenerated;
+				}
+
+				if (inferenceStepCount instanceof HTMLElement) {
+					inferenceStepCount.textContent = inferenceStepIndex >= 0
+						? `Sample ${inferenceStepIndex + 1} of ${run.steps.length}`
+						: 'Ready to sample';
+				}
+
+				if (inferenceSampled instanceof HTMLElement) {
+					const sampledValue = inferenceStepIndex >= 0 ? activeStep.label : 'waiting';
+					inferenceSampled.innerHTML = `Sampled token: <strong>${sampledValue}</strong>`;
+				}
+
+				renderInferenceCandidates(activeStep, inferenceStepIndex >= 0);
+
+				if (inferenceNext instanceof HTMLButtonElement) {
+					inferenceNext.disabled = inferenceStepIndex >= run.steps.length - 1;
+				}
+			};
+
+			const setInferenceExample = (exampleId) => {
+				activeInferenceId = exampleId;
+				inferenceStepIndex = -1;
+
+				inferenceExampleToggles.forEach((toggle) => {
+					const isActive = toggle.getAttribute('data-inference-example-toggle') === exampleId;
+					toggle.classList.toggle('is-active', isActive);
+					toggle.setAttribute('aria-pressed', String(isActive));
+				});
+
+				renderInference();
+			};
+
+			inferenceExampleToggles.forEach((toggle) => {
+				toggle.addEventListener('click', () => {
+					const exampleId = toggle.getAttribute('data-inference-example-toggle');
+					if (!exampleId) return;
+
+					setInferenceExample(exampleId);
+				});
+			});
+
+			inferenceNext?.addEventListener('click', () => {
+				const example = getActiveInferenceExample();
+				const run = getActiveInferenceRun(example);
+				if (!run || inferenceStepIndex >= run.steps.length - 1) return;
+
+				inferenceStepIndex += 1;
+				renderInference();
+			});
+
+			inferenceReset?.addEventListener('click', () => {
+				const example = getActiveInferenceExample();
+				if (example?.id === 'toast') {
+					toastRunIndex = (toastRunIndex + 1) % example.runs.length;
+				}
+
+				inferenceStepIndex = -1;
+				renderInference();
+			});
+
+			renderInference();
 		</script>
 	</body>
 </html>
