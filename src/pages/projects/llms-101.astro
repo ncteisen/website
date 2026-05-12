@@ -1379,7 +1379,9 @@ const inferenceExamples = [
 				padding-left: 14px;
 			}
 
-			.training-visual.is-animating [data-train-part] {
+			.training-visual.is-animating [data-train-part='window'],
+			.training-visual.is-animating [data-train-part='net'],
+			.training-visual.is-animating [data-train-part='map'] {
 				animation: train-reveal 0.28s ease both;
 			}
 
@@ -1389,14 +1391,6 @@ const inferenceExamples = [
 
 			.training-visual.is-animating [data-train-part='map'] {
 				animation-delay: 0.28s;
-			}
-
-			.training-visual.is-animating [data-train-part='answer'] {
-				animation-delay: 0.42s;
-			}
-
-			.training-visual.is-animating [data-train-part='note'] {
-				animation-delay: 0.56s;
 			}
 
 			.weights-section {
@@ -1821,15 +1815,6 @@ const inferenceExamples = [
 			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-sampled] {
 				opacity: 0;
 				visibility: hidden;
-			}
-
-			.inference-step-count {
-				color: #777;
-				font-size: 11px;
-				font-weight: 700;
-				letter-spacing: 1.4px;
-				margin: -6px 0 16px;
-				text-transform: uppercase;
 			}
 
 			.inference-candidate {
@@ -2335,6 +2320,314 @@ const inferenceExamples = [
 				color: #eae7e0;
 			}
 
+			.tool-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.tool-layout {
+				display: grid;
+				grid-template-columns: minmax(320px, 0.68fr) minmax(620px, 1.32fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.tool-list {
+				border-top: 1px solid #1a1a1a;
+				color: #999;
+				font-size: 14px;
+				line-height: 1.65;
+				list-style: none;
+				margin-top: 26px;
+			}
+
+			.tool-list li {
+				border-bottom: 1px solid #1a1a1a;
+				padding: 13px 0 13px 20px;
+				position: relative;
+			}
+
+			.tool-list li::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 24px;
+				width: 5px;
+				height: 5px;
+				border-radius: 999px;
+				background: var(--llms-accent);
+			}
+
+			.tool-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #84a6d8 14%, #111), #0f0f0f 56%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 30px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.tool-visual-title {
+				color: #6f6f6f;
+				font-size: 12px;
+				letter-spacing: 2px;
+				margin-bottom: 22px;
+				text-transform: uppercase;
+			}
+
+			.tool-flow {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+				gap: 12px;
+				align-items: stretch;
+				margin-bottom: 24px;
+			}
+
+			.tool-flow-node {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				padding: 16px;
+			}
+
+			.tool-flow-label {
+				color: #777;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+			}
+
+			.tool-flow-main {
+				color: #eae7e0;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 1.2;
+			}
+
+			.tool-flow-copy {
+				color: #999;
+				font-size: 12px;
+				line-height: 1.5;
+				margin-top: 10px;
+			}
+
+			.tool-arrow {
+				align-self: center;
+				color: #555;
+				font-size: 24px;
+				font-weight: 700;
+			}
+
+			.tool-call-panel {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.46);
+				padding: 18px;
+				margin-bottom: 18px;
+			}
+
+			.tool-code-line {
+				color: #eae7e0;
+				font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 1.7;
+				white-space: pre-wrap;
+			}
+
+			.tool-token {
+				background: color-mix(in srgb, var(--llms-accent) 20%, #101010);
+				border: 1px solid color-mix(in srgb, var(--llms-accent) 45%, #252525);
+				border-radius: 4px;
+				color: #cfe0ff;
+				padding: 2px 5px;
+			}
+
+			.tool-json {
+				color: #d6a561;
+			}
+
+			.tool-result {
+				color: #8f9f86;
+			}
+
+			.memory-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 14px;
+			}
+
+			.memory-card {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				min-height: 180px;
+				padding: 20px;
+			}
+
+			.memory-card-label {
+				color: #777;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 14px;
+				text-transform: uppercase;
+			}
+
+			.memory-card-title {
+				color: #eae7e0;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1.12;
+				margin-bottom: 12px;
+			}
+
+			.memory-card-copy {
+				color: #999;
+				font-size: 14px;
+				line-height: 1.6;
+			}
+
+			.memory-analogy {
+				border-left: 2px solid color-mix(in srgb, var(--llms-accent) 60%, #222);
+				color: #aaa49a;
+				font-size: 14px;
+				line-height: 1.7;
+				margin-top: 22px;
+				max-width: 520px;
+				padding-left: 14px;
+			}
+
+			.rlhf-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.rlhf-layout {
+				display: grid;
+				grid-template-columns: minmax(320px, 0.68fr) minmax(620px, 1.32fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.rlhf-list {
+				border-top: 1px solid #1a1a1a;
+				color: #999;
+				font-size: 14px;
+				line-height: 1.65;
+				list-style: none;
+				margin-top: 26px;
+			}
+
+			.rlhf-list li {
+				border-bottom: 1px solid #1a1a1a;
+				padding: 13px 0 13px 20px;
+				position: relative;
+			}
+
+			.rlhf-list li::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 24px;
+				width: 5px;
+				height: 5px;
+				border-radius: 999px;
+				background: var(--llms-accent-warm);
+			}
+
+			.rlhf-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #d6a561 13%, #111), #0f0f0f 56%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 30px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.rlhf-visual-title {
+				color: #6f6f6f;
+				font-size: 12px;
+				letter-spacing: 2px;
+				margin-bottom: 22px;
+				text-transform: uppercase;
+			}
+
+			.rlhf-prompt {
+				border: 1px solid rgba(226, 223, 216, 0.16);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.46);
+				color: #eae7e0;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 18px;
+				padding: 18px;
+			}
+
+			.rlhf-prompt-label,
+			.rlhf-answer-label,
+			.rlhf-flow-label {
+				color: #777;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+			}
+
+			.rlhf-answer-grid {
+				display: grid;
+				gap: 12px;
+				margin-bottom: 22px;
+			}
+
+			.rlhf-answer {
+				border: 1px solid color-mix(in srgb, var(--answer-accent) 38%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, var(--answer-accent) 8%, rgba(10, 10, 10, 0.48));
+				display: grid;
+				grid-template-columns: auto minmax(0, 1fr);
+				gap: 14px;
+				align-items: start;
+				padding: 15px;
+			}
+
+			.rlhf-rank {
+				border: 1px solid color-mix(in srgb, var(--answer-accent) 50%, #252525);
+				border-radius: 999px;
+				color: color-mix(in srgb, var(--answer-accent) 86%, #eae7e0);
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 8px 9px;
+				text-transform: uppercase;
+			}
+
+			.rlhf-answer-copy {
+				color: #eae7e0;
+				font-size: 15px;
+				font-weight: 700;
+				line-height: 1.45;
+			}
+
+			.rlhf-answer-note {
+				color: #999;
+				font-size: 12px;
+				line-height: 1.5;
+				margin-top: 7px;
+			}
+
 			.demo-note {
 				margin-top: 18px;
 				border-left: 2px solid color-mix(in srgb, #d6a561 60%, #222);
@@ -2397,7 +2690,9 @@ const inferenceExamples = [
 				.weights-layout,
 				.inference-layout,
 				.checkpoint-layout,
-				.sft-layout {
+				.sft-layout,
+				.tool-layout,
+				.rlhf-layout {
 					grid-template-columns: 1fr;
 				}
 
@@ -2427,6 +2722,10 @@ const inferenceExamples = [
 				}
 
 				.token-demo-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.memory-grid {
 					grid-template-columns: 1fr;
 				}
 
@@ -2460,7 +2759,8 @@ const inferenceExamples = [
 				.training-diagram,
 				.equation-flow,
 				.inference-flow,
-				.sft-flow {
+				.sft-flow,
+				.tool-flow {
 					grid-template-columns: 1fr;
 				}
 
@@ -2472,7 +2772,8 @@ const inferenceExamples = [
 				.training-arrow,
 				.equation-arrow,
 				.inference-net .training-arrow,
-				.sft-arrow {
+				.sft-arrow,
+				.tool-arrow {
 					transform: rotate(90deg);
 					justify-self: center;
 				}
@@ -2499,10 +2800,22 @@ const inferenceExamples = [
 					padding: 22px;
 				}
 
+				.tool-visual {
+					padding: 22px;
+				}
+
+				.rlhf-visual {
+					padding: 22px;
+				}
+
 				.sft-message {
 					grid-template-columns: 1fr;
 					gap: 6px;
 					font-size: 16px;
+				}
+
+				.rlhf-answer {
+					grid-template-columns: 1fr;
 				}
 
 				.training-window {
@@ -2574,7 +2887,9 @@ const inferenceExamples = [
 
 				.pipeline-node,
 				.corpus-step,
-				.training-visual.is-animating [data-train-part],
+				.training-visual.is-animating [data-train-part='window'],
+				.training-visual.is-animating [data-train-part='net'],
+				.training-visual.is-animating [data-train-part='map'],
 				.weights-visual.is-tuning .weight-needle,
 				.inference-panel,
 				.inference-net,
@@ -3057,7 +3372,6 @@ const inferenceExamples = [
 
 							<div class="inference-panel inference-map-panel" data-inference-map-panel>
 								<span class="equation-label">Probability map</span>
-								<p class="inference-step-count" data-inference-step-count>Ready to sample</p>
 								<div data-inference-candidates>
 									{inferenceExamples[0].runs[0].steps[0].candidates.map((candidate, index) => (
 										<div
@@ -3104,7 +3418,7 @@ const inferenceExamples = [
 						<li>Stochastic and probabilistic. Run it again and you may sample a different continuation.</li>
 						<li>It dreams internet documents one token at a time.</li>
 						<li>A lot of useful world knowledge is stored in the network parameters.</li>
-						<li>You can already build applications with clever prompts: few-shot translation, in-context learning, or a conversation-shaped assistant prompt.</li>
+						<li>You can already build applications with clever prompts: few-shot translation, or a conversation-shaped assistant prompt.</li>
 						<li>But we can make it better.</li>
 					</ul>
 				</div>
@@ -3122,6 +3436,7 @@ const inferenceExamples = [
 							<li>The model trains on those examples after base-model training.</li>
 							<li>This tunes the model toward helpful assistant behavior.</li>
 							<li>Modern systems can also use synthetic conversation data.</li>
+							<li>Much cheaper and faster than the pre training step.</li>
 						</ul>
 					</div>
 
@@ -3205,6 +3520,148 @@ const inferenceExamples = [
 							<button class="sft-source-chip is-active" type="button" data-sft-example-toggle="math" aria-pressed="true">Example 1</button>
 							<button class="sft-source-chip" type="button" data-sft-example-toggle="science" aria-pressed="false">Example 2</button>
 							<button class="sft-source-chip" type="button" data-sft-example-toggle="safety" aria-pressed="false">Example 3</button>
+						</div>
+					</div>
+				</div>
+				<a
+					class="source-link"
+					href="https://tiktokenizer.vercel.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					data-umami-event="link_click"
+					data-umami-event-area="llms-101"
+					data-umami-event-label="tiktokenizer-special-separators-demo"
+				>
+					Demo: special separators in Tiktokenizer &rarr;
+				</a>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="tool-section" aria-labelledby="tool-title">
+				<div class="tool-layout">
+					<div>
+						<span class="section-label">Part Seven</span>
+						<h2 id="tool-title" class="promise">Tool use lets the assistant leave the text box.</h2>
+						<ul class="tool-list">
+							<li>The model can choose to call a tool instead of answering directly.</li>
+							<li>It triggers tool use by emitting special tool-call tokens.</li>
+							<li>The app runs the tool, then puts the tool result back into the context window.</li>
+							<li>Common tools include search, code execution, calculators, files, calendars, and APIs.</li>
+						</ul>
+					</div>
+
+					<div class="tool-visual" aria-label="Tool use special token flow">
+						<p class="tool-visual-title">Tool Call Loop</p>
+
+						<div class="tool-flow">
+							<div class="tool-flow-node">
+								<span class="tool-flow-label">Context</span>
+								<p class="tool-flow-main">User asks for fresh information.</p>
+								<p class="tool-flow-copy">The answer may not be stored in the weights.</p>
+							</div>
+							<div class="tool-arrow" aria-hidden="true">&rarr;</div>
+							<div class="tool-flow-node">
+								<span class="tool-flow-label">Special tokens</span>
+								<p class="tool-flow-main">The model emits a tool call.</p>
+								<p class="tool-flow-copy">The surrounding app recognizes the format.</p>
+							</div>
+							<div class="tool-arrow" aria-hidden="true">&rarr;</div>
+							<div class="tool-flow-node">
+								<span class="tool-flow-label">Tool result</span>
+								<p class="tool-flow-main">Result returns to context.</p>
+								<p class="tool-flow-copy">The model continues with new information.</p>
+							</div>
+						</div>
+
+						<div class="tool-call-panel" aria-label="Illustrative tool call tokens">
+							<p class="tool-code-line"><span class="tool-token">&lt;|tool_call|&gt;</span> <span class="tool-json">search(&#123; query: "weather in Paris today" &#125;)</span></p>
+							<p class="tool-code-line"><span class="tool-token">&lt;|tool_result|&gt;</span> <span class="tool-result">72°F and clear</span></p>
+							<p class="tool-code-line"><span class="tool-token">&lt;|assistant|&gt;</span> It is clear and about 72°F in Paris today.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="checkpoint-section" aria-labelledby="sft-summary-title">
+				<div class="checkpoint-layout">
+					<div>
+						<span class="section-label">Checkpoint</span>
+						<h2 id="sft-summary-title" class="promise">Where we are now.</h2>
+						<p class="body-copy body-copy--short">
+							An SFT model behaves like an assistant. It workes based off "knowledge" encoded in the parameters and what is visible in the context window. Tools can add information to the context window.
+						</p>
+					</div>
+
+					<div class="memory-grid" aria-label="Parameters and context window memory comparison">
+						<article class="memory-card">
+							<span class="memory-card-label">Knowledge in parameters</span>
+							<p class="memory-card-title">Vague recollection</p>
+							<p class="memory-card-copy">Like something you read one month ago: useful, compressed, and sometimes fuzzy.</p>
+						</article>
+
+						<article class="memory-card">
+							<span class="memory-card-label">Knowledge in context tokens</span>
+							<p class="memory-card-title">Working memory</p>
+							<p class="memory-card-copy">The text currently in front of the model: specific, fresh, and directly available.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="rlhf-section" aria-labelledby="rlhf-title">
+				<div class="rlhf-layout">
+					<div>
+						<span class="section-label">Part Eight</span>
+						<h2 id="rlhf-title" class="promise">RLHF nudges the assistant toward preferred behavior.</h2>
+						<ul class="rlhf-list">
+							<li>RLHF means Reinforcement Learning from Human Feedback.</li>
+							<li>Humans rank multiple model outputs for the same prompt.</li>
+							<li>Those rankings train a reward model to predict what humans prefer.</li>
+							<li>The LLM is optimized against that reward model.</li>
+							<li>It helps with behavior, not raw knowledge: helpful, honest, harmless, concise, and polite.</li>
+						</ul>
+					</div>
+
+					<div class="rlhf-visual" aria-label="RLHF ranking and reward model flow">
+						<p class="rlhf-visual-title">Human Preference Loop</p>
+
+						<div class="rlhf-prompt">
+							<span class="rlhf-prompt-label">Prompt</span>
+							Emily buys 3 apples and 2 oranges. Each orange costs $2. The total cost is $13. What is the cost of each apple?
+						</div>
+
+						<div class="rlhf-answer-grid" aria-label="Ranked model outputs">
+							<article class="rlhf-answer" style="--answer-accent: #8f9f86">
+								<span class="rlhf-rank">Rank 1</span>
+								<div>
+									<span class="rlhf-answer-label">Preferred output</span>
+									<p class="rlhf-answer-copy">The oranges cost 2 × $2 = $4. The total is $13, so the apples cost $13 - $4 = $9. There are 3 apples, so each apple costs $9 ÷ 3 = $3.</p>
+									<p class="rlhf-answer-note">Correct, clear, and works step by step toward the answer.</p>
+								</div>
+							</article>
+
+							<article class="rlhf-answer" style="--answer-accent: #d6a561">
+								<span class="rlhf-rank">Rank 2</span>
+								<div>
+									<span class="rlhf-answer-label">Less preferred</span>
+									<p class="rlhf-answer-copy">Each apple costs $3.</p>
+									<p class="rlhf-answer-note">Correct, but skips the reasoning the user may need.</p>
+								</div>
+							</article>
+
+							<article class="rlhf-answer" style="--answer-accent: #d86f61">
+								<span class="rlhf-rank">Rank 3</span>
+								<div>
+									<span class="rlhf-answer-label">Rejected output</span>
+									<p class="rlhf-answer-copy">Each apple costs $4.</p>
+									<p class="rlhf-answer-note">Confident, but wrong.</p>
+								</div>
+							</article>
 						</div>
 					</div>
 				</div>
@@ -3328,7 +3785,6 @@ const inferenceExamples = [
 			const inferenceCandidates = document.querySelector('[data-inference-candidates]');
 			const inferenceSampled = document.querySelector('[data-inference-sampled]');
 			const inferenceOutput = document.querySelector('[data-inference-output]');
-			const inferenceStepCount = document.querySelector('[data-inference-step-count]');
 			const inferenceMovingToken = document.querySelector('[data-inference-moving-token]');
 			const inferenceCandidateColors = ['#8f9f86', '#d6a561', '#84a6d8'];
 			const inferencePhases = ['context', 'neuralNet', 'map', 'choice', 'append'];
@@ -3338,13 +3794,6 @@ const inferenceExamples = [
 				map: 'is-map-active',
 				choice: 'is-choice-active',
 				append: 'is-append-active',
-			};
-			const inferencePhaseLabels = {
-				context: 'Current context',
-				neuralNet: 'Neural net',
-				map: 'Probability map',
-				choice: 'Sampled choice',
-				append: 'Append token',
 			};
 			let activeInferenceId = 'capital';
 			let inferenceTokenIndex = 0;
@@ -3606,12 +4055,6 @@ const inferenceExamples = [
 						? `${example.initialContext}${generatedSample}`
 						: example.emptyGenerated;
 					inferenceOutput.classList.toggle('is-appending', isAppending);
-				}
-
-				if (inferenceStepCount instanceof HTMLElement) {
-					inferenceStepCount.textContent = inferencePhaseIndex >= 0
-						? `${inferencePhaseLabels[phase] ?? 'Sampling'} ${inferenceTokenIndex + 1} of ${run.steps.length}`
-						: 'Ready to sample';
 				}
 
 				if (inferenceSampled instanceof HTMLElement) {
