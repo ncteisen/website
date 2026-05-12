@@ -467,10 +467,11 @@ export class PetsHabitat {
 		const row = SPRITE_ROWS[pet.spriteState];
 		const size = this.petDrawSize(pet);
 		const jumpOffset = this.jumpOffset(pet);
+		const groundOffsetY = this.petGroundOffsetY(pet);
 		const sourceX = pet.frameIndex * CELL_WIDTH;
 		const sourceY = row.row * CELL_HEIGHT;
 		const x = pet.x - size.width / 2;
-		const y = pet.y - size.height - jumpOffset;
+		const y = pet.y - size.height - jumpOffset + groundOffsetY;
 
 		ctx.fillStyle = 'rgba(0, 0, 0, 0.16)';
 		ctx.beginPath();
@@ -504,6 +505,10 @@ export class PetsHabitat {
 
 		const progress = this.clamp(pet.jumpElapsed / pet.jumpDuration, 0, 1);
 		return Math.sin(progress * Math.PI) * this.petDrawSize(pet).height * 0.28;
+	}
+
+	private petGroundOffsetY(pet: PetActor): number {
+		return (pet.manifest.groundOffsetY ?? 0) * (this.petDrawSize(pet).height / CELL_HEIGHT);
 	}
 
 	private randomFloorY(): number {

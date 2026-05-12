@@ -5,6 +5,7 @@ export interface PetManifest {
 	displayName: string;
 	description: string;
 	spritePath: string;
+	groundOffsetY?: number;
 	runningSprites?: {
 		left: PetRunningSprite;
 		right: PetRunningSprite;
@@ -39,5 +40,12 @@ export const CODEX_PETS: readonly PetManifest[] = [
 		displayName: 'Winnie',
 		description: 'The cutest mini aussie, shy at first but very loving and soft; her best friend is a cat named Steven.',
 		spritePath: '/games/pets/winnie/spritesheet.webp',
+	},
+	{
+		id: 'trudy',
+		displayName: 'Trudy',
+		description: 'Little wiener dog. Shy but spunky. Cuddlebug. The most perfect dog you will ever meet.',
+		spritePath: '/games/pets/trudy/spritesheet.webp',
+		groundOffsetY: 34,
 	},
 ];
