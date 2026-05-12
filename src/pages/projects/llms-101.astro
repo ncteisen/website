@@ -1,0 +1,2069 @@
+---
+import SocialPreview from '../../components/SocialPreview.astro';
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+
+const corpusSteps = [
+	{
+		id: 'scrape',
+		label: 'Scrape',
+		kicker: 'Gather raw text',
+		description: 'Start with ordinary human writing gathered from the web and other public sources.',
+	},
+	{
+		id: 'process',
+		label: 'Process',
+		kicker: 'Clean and normalize',
+		description: 'Turn messy pages and documents into cleaner text the training process can use.',
+	},
+	{
+		id: 'deduplicate',
+		label: 'Deduplicate',
+		kicker: 'Reduce repeats',
+		description: 'Reduce repeated articles, templates, snippets, and quoted passages.',
+	},
+	{
+		id: 'store',
+		label: 'Store',
+		kicker: 'Build the corpus',
+		description: 'Store the cleaned text as a corpus ready for tokenization and training.',
+	},
+];
+
+const tokenColors = ['#84a6d8', '#d6a561', '#8f9f86', '#b28ad6', '#6d8fbd'];
+const knobAngles = Array.from({ length: 80 }, (_, index) => ((index * 37) % 116) - 58);
+
+const throughlineExamples = [
+	{
+		id: 'capital',
+		name: 'Capital',
+		sourceText: 'The capital of France is',
+		sourceLabel: 'Travel note excerpt',
+		documentTitle: 'A Quick Guide To European Capitals',
+		documentUrl: 'travel-notes.example/europe/capitals',
+		documentMeta: 'Public travel notes · Geography basics',
+		documentText: 'The capital of France is Paris.',
+		documentParagraphs: [
+			'Students often mix up cities, regions, and countries when learning geography.',
+			'The capital of France is Paris. It appears in this toy document as ordinary web text, exactly the kind of sentence a crawler might collect before cleaning.',
+			'After collection, this page would be reduced to plain text and stored with many other documents.',
+		],
+		tokens: [
+			{ id: '791', text: 'The' },
+			{ id: '6864', text: ' capital' },
+			{ id: '315', text: ' of' },
+			{ id: '9822', text: ' France' },
+			{ id: '374', text: ' is' },
+			{ id: '12366', text: ' Paris' },
+			{ id: '13', text: '.' },
+		],
+		trainingTokens: [
+			{ id: '791', label: '"The"' },
+			{ id: '6864', label: '"capital"' },
+			{ id: '315', label: '"of"' },
+			{ id: '9822', label: '"France"' },
+			{ id: '374', label: '"is"' },
+		],
+		candidates: [
+			{ id: '12366', label: '"Paris"', probability: '80%', width: '58%', correct: true },
+			{ id: '9822', label: '"France"', probability: '18%', width: '30%' },
+			{ id: '9955', label: '"city"', probability: '6%', width: '18%' },
+		],
+		correctAnswer: '12366',
+		note: 'Training nudges the neural net toward the next token that actually appeared in the training text.',
+	},
+	{
+		id: 'toast',
+		name: 'Toast',
+		sourceText: 'A good wedding toast should',
+		sourceLabel: 'Wedding blog excerpt',
+		documentTitle: 'How To Give A Warm Wedding Toast',
+		documentUrl: 'small-events.example/blog/wedding-toast',
+		documentMeta: 'Personal blog · Reception advice',
+		documentText: 'A good wedding toast should be personal, brief, and kind.',
+		documentParagraphs: [
+			'The best speeches usually sound like one person speaking sincerely to another person.',
+			'A good wedding toast should be personal, brief, and kind. It can include a small story, a thank-you, and a clear wish for the couple.',
+			'This is another toy source document that can travel through the same scrape, process, deduplicate, and store pipeline.',
+		],
+		tokens: [
+			{ id: '32', text: 'A' },
+			{ id: '1695', text: ' good' },
+			{ id: '13306', text: ' wedding' },
+			{ id: '23211', text: ' toast' },
+			{ id: '1288', text: ' should' },
+			{ id: '387', text: ' be' },
+			{ id: '4443', text: ' personal' },
+			{ id: '11', text: ',' },
+			{ id: '10015', text: ' brief' },
+			{ id: '11', text: ',' },
+			{ id: '323', text: ' and' },
+			{ id: '3169', text: ' kind' },
+			{ id: '13', text: '.' },
+		],
+		trainingTokens: [
+			{ id: '32', label: '"A"' },
+			{ id: '1695', label: '"good"' },
+			{ id: '13306', label: '"wedding"' },
+			{ id: '23211', label: '"toast"' },
+			{ id: '1288', label: '"should"' },
+		],
+		candidates: [
+			{ id: '387', label: '"be"', probability: '34%', width: '50%', correct: true },
+			{ id: '2997', label: '"include"', probability: '12%', width: '28%' },
+			{ id: '1304', label: '"make"', probability: '7%', width: '20%' },
+		],
+		correctAnswer: '387',
+		note: 'Training rewards probability maps that make the observed next token more likely in similar contexts.',
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>LLMs 101 | Noah Eisen</title>
+		<SocialPreview
+			title="Noah Eisen - LLMs 101"
+			description="An interactive, non-technical talk about how large language models are built."
+			path="/projects/llms-101/"
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<UmamiAnalytics />
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { min-height: 100%; }
+			html { scroll-behavior: smooth; }
+
+			body {
+				--llms-accent: #84a6d8;
+				--llms-accent-warm: #d6a561;
+				--llms-accent-green: #8f9f86;
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.wrap {
+				max-width: 1240px;
+				margin: 0 auto;
+				padding: 72px 44px 92px;
+			}
+
+			.project-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 40px;
+			}
+
+			.header-copy {
+				max-width: 680px;
+			}
+
+			.project-title {
+				font-size: 76px;
+				font-weight: 700;
+				letter-spacing: 0;
+				line-height: 0.92;
+				margin: 0 0 20px;
+				color: #eae7e0;
+			}
+
+			.project-subtitle {
+				font-size: 13px;
+				color: var(--llms-accent);
+				margin: 0 0 18px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.project-description {
+				font-size: 15px;
+				color: #aaa49a;
+				margin: 0;
+				max-width: 600px;
+				line-height: 1.75;
+			}
+
+			.back-link {
+				display: inline-block;
+				color: #5b8ef0;
+				text-decoration: none;
+				font-size: 13px;
+				font-weight: 500;
+				letter-spacing: 0.3px;
+				white-space: nowrap;
+				transition: opacity 0.15s;
+			}
+
+			.back-link:hover { opacity: 0.8; }
+
+			.rule {
+				border: none;
+				border-top: 1px solid #1e1e1e;
+				margin: 56px 0;
+			}
+
+			.intro-grid {
+				display: grid;
+				grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.section-label {
+				font-size: 10px;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: #444;
+				margin-bottom: 24px;
+				display: block;
+			}
+
+			.promise {
+				font-size: 32px;
+				font-weight: 700;
+				line-height: 1.15;
+				color: #eae7e0;
+				max-width: 620px;
+				margin-bottom: 16px;
+			}
+
+			.body-copy {
+				color: #888;
+				font-size: 14px;
+				line-height: 1.8;
+				max-width: 620px;
+			}
+
+			.body-copy--short {
+				max-width: 500px;
+			}
+
+			.source-link {
+				margin-top: 24px;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				color: var(--llms-accent);
+				font-size: 12px;
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+
+			.source-link:hover { opacity: 0.82; }
+
+			.corpus-actions {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 14px;
+				margin-top: 28px;
+			}
+
+			.corpus-actions .source-link,
+			.corpus-actions .reveal-button {
+				margin-top: 0;
+			}
+
+			.reveal-button {
+				margin-top: 24px;
+				border: 1px solid color-mix(in srgb, var(--llms-accent) 46%, #252525);
+				border-radius: 999px;
+				background: #101010;
+				color: #eae7e0;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 12px 16px;
+				text-transform: uppercase;
+				transition: border-color 0.15s, transform 0.15s, color 0.15s;
+			}
+
+			.reveal-button:hover,
+			.reveal-button:focus-visible {
+				border-color: var(--llms-accent);
+				color: var(--llms-accent);
+				transform: translateY(-1px);
+			}
+
+			.reveal-panel {
+				display: none;
+			}
+
+			.reveal-panel.is-visible {
+				display: block;
+			}
+
+			.goal-list {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 10px;
+			}
+
+			.goal-chip {
+				min-height: 96px;
+				border: 1px solid #1c1c1c;
+				border-left: 2px solid color-mix(in srgb, var(--goal-accent) 60%, #222);
+				border-radius: 6px;
+				padding: 18px 18px;
+				background: #101010;
+			}
+
+			.goal-term {
+				display: block;
+				color: #eae7e0;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 1.1;
+				margin-bottom: 8px;
+			}
+
+			.goal-desc {
+				display: block;
+				color: #6f6f6f;
+				font-size: 12px;
+				line-height: 1.45;
+			}
+
+			.corpus-layout {
+				display: grid;
+				grid-template-columns: minmax(340px, 0.8fr) minmax(520px, 1.2fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.corpus-intro {
+				position: sticky;
+				top: 28px;
+			}
+
+			.pipeline-panel {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 18%, #111), #0f0f0f 54%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				min-height: 0;
+				padding: 26px;
+				margin-top: 24px;
+				position: relative;
+				overflow: hidden;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.pipeline-title {
+				font-size: 12px;
+				color: #6f6f6f;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+			}
+
+			.pipeline {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 8px;
+			}
+
+			.pipeline-node {
+				min-height: 64px;
+				border: 1px solid rgba(226, 223, 216, 0.16);
+				border-radius: 6px;
+				padding: 13px 15px;
+				background: rgba(10, 10, 10, 0.42);
+				transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+			}
+
+			.pipeline-node.is-active {
+				border-color: color-mix(in srgb, var(--node-accent) 72%, #e2dfd8);
+				background: color-mix(in srgb, var(--node-accent) 18%, rgba(10, 10, 10, 0.5));
+				transform: translateY(-2px);
+			}
+
+			.pipeline-arrow {
+				color: #3c3c3c;
+				text-align: center;
+				font-size: 18px;
+				line-height: 1;
+				transform: rotate(90deg);
+			}
+
+			.pipeline-node-label {
+				display: block;
+				color: #eae7e0;
+				font-size: 16px;
+				font-weight: 700;
+				line-height: 1.1;
+				margin-bottom: 10px;
+			}
+
+			.pipeline-node-copy {
+				color: #777;
+				font-size: 12px;
+				line-height: 1.55;
+			}
+
+			.example-thread {
+				margin-top: 18px;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 10%, #111), #0f0f0f 58%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 18px);
+				padding: 20px;
+			}
+
+			.example-thread-title {
+				color: #666;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.8px;
+				text-transform: uppercase;
+				margin-bottom: 12px;
+			}
+
+			.example-source-list {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 14px;
+			}
+
+			.example-source {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background: #f3f0e8;
+				color: #eae7e0;
+				line-height: 1.35;
+				overflow: hidden;
+				box-shadow: 0 20px 52px rgba(0, 0, 0, 0.24);
+			}
+
+			.example-browser-bar {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				border-bottom: 1px solid #d9d3c8;
+				background: #e7e1d6;
+				padding: 9px 11px;
+			}
+
+			.example-browser-dots {
+				display: flex;
+				gap: 5px;
+			}
+
+			.example-browser-dots span {
+				display: block;
+				width: 7px;
+				height: 7px;
+				border-radius: 999px;
+				background: #b9b0a2;
+			}
+
+			.example-url {
+				min-width: 0;
+				border-radius: 999px;
+				background: #f7f4ee;
+				color: #776f63;
+				flex: 1;
+				font-size: 11px;
+				line-height: 1;
+				overflow: hidden;
+				padding: 7px 10px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			.example-document {
+				padding: 22px;
+			}
+
+			.example-source-label {
+				color: #8b8377;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+			}
+
+			.example-document-title {
+				color: #171717;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1.05;
+				margin-bottom: 9px;
+			}
+
+			.example-document-meta {
+				border-bottom: 1px solid #ded7cc;
+				color: #8b8377;
+				font-size: 11px;
+				font-weight: 600;
+				letter-spacing: 0.2px;
+				margin-bottom: 16px;
+				padding-bottom: 13px;
+			}
+
+			.example-document p {
+				color: #3b3935;
+				font-size: 14px;
+				line-height: 1.58;
+			}
+
+			.example-document p + p {
+				margin-top: 12px;
+			}
+
+			.example-document mark {
+				background: color-mix(in srgb, var(--llms-accent-warm) 34%, transparent);
+				border-radius: 3px;
+				color: #171717;
+				font-weight: 700;
+				padding: 0 2px;
+			}
+
+			.step-list {
+				border-top: 1px solid #1a1a1a;
+			}
+
+			.corpus-step {
+				min-height: 220px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				border-bottom: 1px solid #1a1a1a;
+				padding: 38px 0 42px 22px;
+				border-left: 2px solid transparent;
+				transition: border-color 0.18s ease, opacity 0.18s ease;
+			}
+
+			.corpus-step.is-active {
+				border-left-color: color-mix(in srgb, var(--step-accent) 66%, #222);
+			}
+
+			.step-index {
+				color: var(--step-accent);
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 16px;
+			}
+
+			.step-title {
+				color: #eae7e0;
+				font-size: 34px;
+				font-weight: 700;
+				line-height: 1;
+				margin-bottom: 12px;
+			}
+
+			.step-kicker {
+				color: #777;
+				font-size: 13px;
+				letter-spacing: 1.7px;
+				text-transform: uppercase;
+				margin-bottom: 16px;
+			}
+
+			.step-copy {
+				color: #999;
+				font-size: 14px;
+				line-height: 1.65;
+				max-width: 440px;
+			}
+
+			.next-note {
+				margin-top: 48px;
+				padding-top: 24px;
+				border-top: 1px solid #1a1a1a;
+				color: #777;
+				font-size: 14px;
+				line-height: 1.75;
+				max-width: 640px;
+			}
+
+			.token-layout {
+				display: grid;
+				grid-template-columns: minmax(340px, 0.78fr) minmax(560px, 1.22fr);
+				gap: 56px;
+				align-items: start;
+			}
+
+			.token-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #84a6d8 16%, #111), #0f0f0f 54%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 26px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.token-visual-title {
+				font-size: 12px;
+				color: #6f6f6f;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 24px;
+			}
+
+			.token-stream {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-bottom: 24px;
+			}
+
+			.token-example + .token-example {
+				margin-top: 22px;
+			}
+
+			.token-example {
+				display: none;
+			}
+
+			.token-example.is-active {
+				display: block;
+			}
+
+			.token-example-label {
+				color: #777;
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				text-transform: uppercase;
+				margin-bottom: 10px;
+			}
+
+			.token-sentence {
+				border-left: 2px solid var(--llms-accent);
+				color: #eae7e0;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 18px;
+				padding-left: 14px;
+			}
+
+			.token-toggle-group {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin-bottom: 22px;
+			}
+
+			.token-piece {
+				border: 1px solid color-mix(in srgb, var(--token-accent) 58%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, var(--token-accent) 14%, #101010);
+				color: #eae7e0;
+				font-weight: 700;
+				line-height: 1;
+				min-width: 76px;
+				padding: 12px 13px;
+			}
+
+			.token-id {
+				color: color-mix(in srgb, var(--token-accent) 78%, #eae7e0);
+				display: block;
+				font-size: 11px;
+				letter-spacing: 1px;
+				margin-bottom: 9px;
+			}
+
+			.token-text {
+				display: block;
+				font-size: 16px;
+				white-space: pre;
+			}
+
+			.token-note-grid {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 10px;
+			}
+
+			.token-note {
+				min-height: 72px;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				color: #898989;
+				font-size: 12px;
+				line-height: 1.45;
+				padding: 13px;
+			}
+
+			.training-layout {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 28px;
+				align-items: start;
+			}
+
+			.training-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.training-copy {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 32px;
+				align-items: end;
+			}
+
+			.training-copy .promise {
+				max-width: 760px;
+				margin-bottom: 14px;
+			}
+
+			.example-toggle-group {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin-top: 24px;
+			}
+
+			.example-toggle {
+				border: 1px solid #1c1c1c;
+				border-radius: 999px;
+				background: #101010;
+				color: #777;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 10px 13px;
+				text-transform: uppercase;
+				transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+			}
+
+			.example-toggle.is-active,
+			.example-toggle:hover,
+			.example-toggle:focus-visible {
+				border-color: var(--llms-accent);
+				color: #eae7e0;
+				background: color-mix(in srgb, var(--llms-accent) 12%, #101010);
+			}
+
+			.replay-button {
+				margin-top: 0;
+				border: 1px solid color-mix(in srgb, var(--llms-accent) 46%, #252525);
+				border-radius: 999px;
+				background: #101010;
+				color: #eae7e0;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 12px 16px;
+				text-transform: uppercase;
+				transition: border-color 0.15s, transform 0.15s, color 0.15s;
+			}
+
+			.replay-button:hover,
+			.replay-button:focus-visible {
+				border-color: var(--llms-accent);
+				color: var(--llms-accent);
+				transform: translateY(-1px);
+			}
+
+			.control-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				justify-content: flex-end;
+			}
+
+			.training-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #d6a561 14%, #111), #0f0f0f 55%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 34px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.training-visual-title {
+				font-size: 12px;
+				color: #6f6f6f;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 24px;
+			}
+
+			.training-diagram {
+				display: grid;
+				grid-template-columns: minmax(360px, 1.05fr) minmax(130px, 0.36fr) minmax(360px, 1fr);
+				gap: 28px;
+				align-items: center;
+			}
+
+			.training-example-panel {
+				display: none;
+			}
+
+			.training-example-panel.is-active {
+				display: block;
+			}
+
+			.training-window {
+				display: grid;
+				grid-template-columns: repeat(5, minmax(0, 1fr));
+				gap: 10px;
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				padding: 18px;
+			}
+
+			.training-token {
+				min-height: 110px;
+				border: 1px solid color-mix(in srgb, #84a6d8 58%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, #84a6d8 14%, #101010);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 8px;
+				padding: 10px 8px;
+				text-align: center;
+			}
+
+			.training-token-id {
+				color: #eae7e0;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1;
+			}
+
+			.training-token-label {
+				color: #888;
+				font-size: 13px;
+				line-height: 1.1;
+			}
+
+			.neural-net {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+				color: #777;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			.neural-net-box {
+				width: 92px;
+				height: 126px;
+				border: 1px solid color-mix(in srgb, #d6a561 48%, #252525);
+				border-radius: 6px;
+				background:
+					radial-gradient(circle at 30% 25%, rgba(214, 165, 97, 0.2), transparent 36%),
+					#111;
+				position: relative;
+			}
+
+			.neural-net-box::before,
+			.neural-net-box::after {
+				content: '';
+				position: absolute;
+				left: 15px;
+				right: 15px;
+				border-top: 1px solid rgba(226, 223, 216, 0.24);
+			}
+
+			.neural-net-box::before {
+				top: 30px;
+				transform: rotate(18deg);
+			}
+
+			.neural-net-box::after {
+				bottom: 30px;
+				transform: rotate(-18deg);
+			}
+
+			.training-arrow {
+				color: #555;
+				font-size: 32px;
+				line-height: 1;
+			}
+
+			.probability-map {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				padding: 20px;
+			}
+
+			.probability-title {
+				color: #777;
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				text-transform: uppercase;
+				margin-bottom: 16px;
+			}
+
+			.probability-subtitle {
+				color: #8d8d8d;
+				font-size: 13px;
+				line-height: 1.5;
+				margin: -8px 0 16px;
+			}
+
+			.probability-row {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				padding: 16px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.probability-row + .probability-row {
+				margin-top: 12px;
+			}
+
+			.probability-ellipsis {
+				color: #555;
+				font-size: 18px;
+				letter-spacing: 6px;
+				line-height: 1;
+				margin: 12px 0;
+				text-align: center;
+			}
+
+			.probability-row::before {
+				content: '';
+				position: absolute;
+				inset: 0 auto 0 0;
+				width: var(--probability-width);
+				background: color-mix(in srgb, var(--probability-accent) 18%, transparent);
+			}
+
+			.probability-row.is-correct {
+				border-color: color-mix(in srgb, #8f9f86 70%, #e2dfd8);
+				background: color-mix(in srgb, #8f9f86 12%, rgba(10, 10, 10, 0.42));
+			}
+
+			.probability-row-content {
+				position: relative;
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 14px;
+			}
+
+			.probability-label {
+				color: #eae7e0;
+				font-size: 20px;
+				font-weight: 700;
+				line-height: 1.2;
+			}
+
+			.probability-value {
+				color: var(--probability-accent);
+				font-size: 18px;
+				font-weight: 700;
+			}
+
+			.correct-answer {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				margin-top: 24px;
+				border: 1px solid color-mix(in srgb, #8f9f86 64%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, #8f9f86 12%, #101010);
+				padding: 14px 18px;
+			}
+
+			.correct-answer-label {
+				color: #777;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.6px;
+				text-transform: uppercase;
+			}
+
+			.correct-answer-id {
+				color: #eae7e0;
+				font-size: 28px;
+				font-weight: 700;
+				line-height: 1;
+			}
+
+			.training-note {
+				margin-top: 18px;
+				border-left: 2px solid color-mix(in srgb, #d6a561 60%, #222);
+				color: #999;
+				font-size: 13px;
+				line-height: 1.6;
+				padding-left: 14px;
+			}
+
+			.training-visual.is-animating [data-train-part] {
+				animation: train-reveal 0.58s ease both;
+			}
+
+			.training-visual.is-animating [data-train-part='net'] {
+				animation-delay: 0.45s;
+			}
+
+			.training-visual.is-animating [data-train-part='map'] {
+				animation-delay: 0.9s;
+			}
+
+			.training-visual.is-animating [data-train-part='answer'] {
+				animation-delay: 1.35s;
+			}
+
+			.training-visual.is-animating [data-train-part='note'] {
+				animation-delay: 1.8s;
+			}
+
+			.weights-section {
+				width: auto;
+				margin-left: 0;
+				transform: none;
+			}
+
+			.weights-layout {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 28px;
+				align-items: start;
+			}
+
+			.weights-copy {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 32px;
+				align-items: end;
+			}
+
+			.weights-copy .promise {
+				max-width: 760px;
+				margin-bottom: 14px;
+			}
+
+			.weights-visual {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, #8f9f86 14%, #111), #0f0f0f 55%),
+					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				padding: 34px;
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+			}
+
+			.weights-visual-title {
+				font-size: 12px;
+				color: #6f6f6f;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin-bottom: 24px;
+			}
+
+			.equation-flow {
+				display: grid;
+				grid-template-columns: minmax(220px, 0.9fr) auto minmax(260px, 1.05fr) auto minmax(220px, 0.9fr);
+				gap: 18px;
+				align-items: center;
+			}
+
+			.equation-node,
+			.equation-core {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				min-height: 144px;
+				padding: 20px;
+			}
+
+			.equation-label {
+				color: #777;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 12px;
+				text-transform: uppercase;
+			}
+
+			.equation-main {
+				color: #eae7e0;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 1.15;
+			}
+
+			.equation-node .equation-main {
+				margin-bottom: 18px;
+			}
+
+			.equation-sub {
+				color: #8d8d8d;
+				font-size: 12px;
+				line-height: 1.5;
+				margin-top: 10px;
+			}
+
+			.equation-core {
+				min-height: 190px;
+				border-color: color-mix(in srgb, #d6a561 44%, #252525);
+				background:
+					radial-gradient(circle at 28% 24%, rgba(214, 165, 97, 0.2), transparent 36%),
+					rgba(10, 10, 10, 0.5);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+			}
+
+			.equation-symbol {
+				color: #eae7e0;
+				display: block;
+				font-size: 38px;
+				font-weight: 700;
+				letter-spacing: 0;
+				line-height: 1;
+				margin-bottom: 12px;
+			}
+
+			.equation-arrow {
+				color: #555;
+				font-size: 30px;
+				line-height: 1;
+			}
+
+			.mini-token-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+
+			.mini-token {
+				border: 1px solid color-mix(in srgb, #84a6d8 55%, #252525);
+				border-radius: 6px;
+				background: color-mix(in srgb, #84a6d8 14%, #101010);
+				color: #eae7e0;
+				font-weight: 700;
+				padding: 8px 9px;
+				text-align: center;
+				min-width: 50px;
+			}
+
+			.mini-token-id {
+				display: block;
+				font-size: 12px;
+				line-height: 1;
+			}
+
+			.mini-token-label {
+				color: #777;
+				display: block;
+				font-size: 9px;
+				font-weight: 600;
+				line-height: 1;
+				margin-top: 6px;
+			}
+
+			.mini-probability-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 12px;
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				color: #eae7e0;
+				font-size: 13px;
+				font-weight: 700;
+				padding: 10px 12px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.mini-probability-row::before {
+				content: '';
+				position: absolute;
+				inset: 0 auto 0 0;
+				width: var(--mini-probability-width);
+				background: color-mix(in srgb, var(--mini-probability-accent) 18%, transparent);
+				transition: width 0.35s ease;
+			}
+
+			.mini-probability-row > span {
+				position: relative;
+			}
+
+			.mini-probability-row + .mini-probability-row {
+				margin-top: 8px;
+			}
+
+			.mini-probability-ellipsis {
+				color: #555;
+				font-size: 18px;
+				letter-spacing: 6px;
+				line-height: 1;
+				margin-top: 10px;
+				text-align: center;
+			}
+
+			.mini-probability-value {
+				color: var(--llms-accent-green);
+			}
+
+			.knob-panel {
+				margin-top: 22px;
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				padding: 16px;
+			}
+
+			.knob-grid {
+				display: grid;
+				grid-template-columns: repeat(20, minmax(0, 1fr));
+				gap: 10px 8px;
+				justify-items: center;
+			}
+
+			.weight-knob {
+				aspect-ratio: 1;
+				width: 26px;
+				border: 1.5px solid rgba(226, 223, 216, 0.64);
+				border-bottom-color: transparent;
+				border-radius: 999px;
+				position: relative;
+				background:
+					radial-gradient(circle at center, rgba(10, 10, 10, 0.2) 0 38%, transparent 39%),
+					rgba(226, 223, 216, 0.03);
+			}
+
+			.weight-knob::before {
+				content: '';
+				position: absolute;
+				inset: 4px;
+				border-radius: 999px;
+				background:
+					repeating-conic-gradient(from -120deg, rgba(226, 223, 216, 0.7) 0 3deg, transparent 3deg 18deg);
+				mask: radial-gradient(circle, transparent 0 68%, #000 69%);
+				opacity: 0.85;
+			}
+
+			.weight-needle {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 2px;
+				height: 36%;
+				border-radius: 999px;
+				background: #30a6bf;
+				box-shadow: 0 0 12px rgba(48, 166, 191, 0.4);
+				transform: translate(-50%, -96%) rotate(var(--knob-start));
+				transform-origin: 50% 96%;
+			}
+
+			.weights-visual.is-tuning .weight-needle {
+				animation: tune-knob 0.8s ease both;
+				animation-delay: var(--knob-delay);
+			}
+
+			.weights-note {
+				margin-top: 18px;
+				border-left: 2px solid color-mix(in srgb, #8f9f86 60%, #222);
+				color: #999;
+				font-size: 13px;
+				line-height: 1.6;
+				padding-left: 14px;
+			}
+
+			@keyframes train-reveal {
+				0% {
+					opacity: 0.2;
+					transform: translateY(10px) scale(0.98);
+				}
+
+				100% {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			@keyframes tune-knob {
+				0% {
+					transform: translate(-50%, -96%) rotate(var(--knob-start));
+				}
+
+				46% {
+					transform: translate(-50%, -96%) rotate(calc(var(--knob-end) + 18deg));
+				}
+
+				100% {
+					transform: translate(-50%, -96%) rotate(var(--knob-end));
+				}
+			}
+
+			@media (max-width: 840px) {
+				.wrap {
+					padding: 48px 24px 68px;
+				}
+
+				.project-header {
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					gap: 28px;
+				}
+
+				.project-title {
+					font-size: 48px;
+				}
+
+				.project-description {
+					max-width: 100%;
+				}
+
+				.intro-grid,
+				.corpus-layout,
+				.token-layout,
+				.training-layout,
+				.weights-layout {
+					grid-template-columns: 1fr;
+				}
+
+				.goal-list {
+					grid-template-columns: 1fr;
+				}
+
+				.corpus-intro {
+					position: static;
+				}
+
+				.pipeline-panel {
+					min-height: 0;
+				}
+
+				.corpus-step {
+					min-height: 0;
+					padding: 30px 0 34px 18px;
+				}
+
+				.promise {
+					font-size: 24px;
+				}
+
+				.step-title {
+					font-size: 28px;
+				}
+
+				.token-note-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.example-source-list {
+					grid-template-columns: 1fr;
+				}
+
+				.training-copy {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
+				.weights-copy {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
+				.replay-button {
+					justify-self: start;
+				}
+
+				.control-row {
+					justify-content: flex-start;
+				}
+
+				.training-diagram,
+				.equation-flow {
+					grid-template-columns: 1fr;
+				}
+
+				.neural-net {
+					flex-direction: row;
+					justify-content: center;
+				}
+
+				.training-arrow,
+				.equation-arrow {
+					transform: rotate(90deg);
+					justify-self: center;
+				}
+
+				.knob-grid {
+					grid-template-columns: repeat(10, minmax(0, 1fr));
+				}
+			}
+
+			@media (max-width: 520px) {
+				.project-title {
+					font-size: 40px;
+				}
+
+				.training-window {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+
+				.training-visual {
+					padding: 22px;
+				}
+
+				.training-token {
+					min-height: 88px;
+				}
+
+				.training-token-id {
+					font-size: 21px;
+				}
+
+				.neural-net-box {
+					width: 72px;
+					height: 92px;
+				}
+
+				.weights-visual {
+					padding: 22px;
+				}
+
+				.knob-grid {
+					grid-template-columns: repeat(8, minmax(0, 1fr));
+					gap: 8px;
+				}
+
+				.weight-knob {
+					width: 23px;
+				}
+
+				.probability-row-content {
+					align-items: flex-start;
+					flex-direction: column;
+					gap: 6px;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html { scroll-behavior: auto; }
+
+				.pipeline-node,
+				.corpus-step,
+				.training-visual.is-animating [data-train-part],
+				.weights-visual.is-tuning .weight-needle {
+					animation: none;
+					transition: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap" role="main">
+			<header class="project-header">
+				<div class="header-copy">
+					<h1 class="project-title">LLMS<br />101</h1>
+					<p class="project-subtitle">Interactive Talk</p>
+					<p class="project-description">
+						A voice-over-first walkthrough of the core concepts behind large language models.
+					</p>
+				</div>
+				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to homepage</a>
+			</header>
+
+			<hr class="rule" />
+
+			<section aria-labelledby="llms-101-goals">
+				<div class="intro-grid">
+					<div>
+						<span class="section-label">Opening</span>
+						<h2 id="llms-101-goals" class="promise">Understand the concepts. Hear the vocabulary. Build the mental model.</h2>
+						<p class="body-copy body-copy--short">
+							This page is a visual track for a non-technical talk on how LLMs are built. The narration does most of the teaching.
+						</p>
+						<a
+							class="source-link"
+							href="https://www.youtube.com/watch?v=7xTGNNLPyMI"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="karpathy-video"
+						>
+							Based on Andrej Karpathy's talk &rarr;
+						</a>
+					</div>
+					<div class="goal-list" aria-label="Key terms this talk will explain">
+						<div class="goal-chip" style="--goal-accent: #84a6d8">
+							<span class="goal-term">Tokens</span>
+							<span class="goal-desc">The chunks of text models read and write.</span>
+						</div>
+						<div class="goal-chip" style="--goal-accent: #b28ad6">
+							<span class="goal-term">Context window</span>
+							<span class="goal-desc">What the model can see right now.</span>
+						</div>
+						<div class="goal-chip" style="--goal-accent: #d6a561">
+							<span class="goal-term">Training</span>
+							<span class="goal-desc">How the model learns from examples.</span>
+						</div>
+						<div class="goal-chip" style="--goal-accent: #8f9f86">
+							<span class="goal-term">Inference</span>
+							<span class="goal-desc">How a trained model produces an answer.</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="corpus-section" aria-labelledby="corpus-title">
+				<div class="corpus-layout">
+					<div class="corpus-intro">
+						<span class="section-label">Part One</span>
+						<h2 id="corpus-title" class="promise">From web text to useful corpus.</h2>
+						<p class="body-copy body-copy--short">
+							First: turn raw writing into training data.
+						</p>
+
+						<div class="pipeline-panel" aria-label="Corpus preparation pipeline">
+							<p class="pipeline-title">Corpus Pipeline</p>
+							<div class="pipeline">
+								<div class="pipeline-node is-active" style="--node-accent: #84a6d8" data-stage="scrape">
+									<span class="pipeline-node-label">Web</span>
+									<span class="pipeline-node-copy">Raw text</span>
+								</div>
+								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
+								<div class="pipeline-node" style="--node-accent: #d6a561" data-stage="process">
+									<span class="pipeline-node-label">Filter</span>
+									<span class="pipeline-node-copy">Clean text</span>
+								</div>
+								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
+								<div class="pipeline-node" style="--node-accent: #8f9f86" data-stage="deduplicate">
+									<span class="pipeline-node-label">Dedupe</span>
+									<span class="pipeline-node-copy">Fewer repeats</span>
+								</div>
+								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
+								<div class="pipeline-node pipeline-node--wide" style="--node-accent: #b28ad6" data-stage="store">
+									<span class="pipeline-node-label">Corpus</span>
+									<span class="pipeline-node-copy">Training data</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="step-list">
+						{corpusSteps.map((step, index) => (
+							<article
+								id={`corpus-${step.id}`}
+								class={`corpus-step${index === 0 ? ' is-active' : ''}`}
+								style={`--step-accent: ${['#84a6d8', '#d6a561', '#8f9f86', '#b28ad6'][index]}`}
+								data-corpus-step={step.id}
+							>
+								<p class="step-index">Step {index + 1}</p>
+								<h3 class="step-title">{step.label}</h3>
+								<p class="step-kicker">{step.kicker}</p>
+								<p class="step-copy">{step.description}</p>
+							</article>
+						))}
+					</div>
+				</div>
+
+				<div class="corpus-actions">
+					<button
+						class="reveal-button"
+						type="button"
+						data-reveal-toggle="corpus-examples"
+						aria-controls="corpus-examples"
+						aria-expanded="false"
+					>
+						Show example sources
+					</button>
+					<a
+						class="source-link"
+						href="https://huggingface.co/datasets/HuggingFaceFW/fineweb"
+						target="_blank"
+						rel="noopener noreferrer"
+						data-umami-event="link_click"
+						data-umami-event-area="llms-101"
+						data-umami-event-label="fineweb-demo"
+					>
+						Demo: FineWeb dataset &rarr;
+					</a>
+				</div>
+
+				<div id="corpus-examples" class="example-thread reveal-panel" aria-label="Example documents used through the talk">
+					<p class="example-thread-title">Throughline source documents</p>
+					<div class="example-source-list">
+						{throughlineExamples.map((example) => (
+							<article class="example-source">
+								<div class="example-browser-bar" aria-hidden="true">
+									<span class="example-browser-dots">
+										<span></span>
+										<span></span>
+										<span></span>
+									</span>
+									<span class="example-url">{example.documentUrl}</span>
+								</div>
+								<div class="example-document">
+									<span class="example-source-label">{example.sourceLabel}</span>
+									<h3 class="example-document-title">{example.documentTitle}</h3>
+									<p class="example-document-meta">{example.documentMeta}</p>
+									{example.documentParagraphs.map((paragraph) => (
+										<p set:html={paragraph.replace(example.documentText, `<mark>${example.documentText}</mark>`)} />
+									))}
+								</div>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="token-section" aria-labelledby="token-title">
+				<div class="token-layout">
+					<div>
+						<span class="section-label">Part Two</span>
+						<h2 id="token-title" class="promise">Tokenization turns text into model-readable chunks.</h2>
+						<p class="body-copy body-copy--short">
+							Not quite words. Not quite letters. Tokens are the pieces the model actually sees.
+						</p>
+					</div>
+
+					<div class="token-visual" aria-label="Illustrative token chunks">
+						<p class="token-visual-title">Illustrative Split</p>
+						<div class="token-toggle-group" aria-label="Tokenizer example selector">
+							{throughlineExamples.map((example, index) => (
+								<button
+									class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+									type="button"
+									data-token-example-toggle={example.id}
+									aria-pressed={index === 0 ? 'true' : 'false'}
+								>
+									{example.sourceText}
+								</button>
+							))}
+						</div>
+						{throughlineExamples.map((example, index) => (
+							<div class={`token-example${index === 0 ? ' is-active' : ''}`} data-token-example-panel={example.id}>
+								<p class="token-example-label">{example.name}</p>
+								<p class="token-sentence">{example.documentText}</p>
+								<div class="token-stream">
+									{example.tokens.map((token, index) => (
+										<span class="token-piece" style={`--token-accent: ${tokenColors[index % tokenColors.length]}`}>
+											<span class="token-id">{token.id}</span>
+											<span class="token-text">{token.text}</span>
+										</span>
+									))}
+								</div>
+							</div>
+						))}
+						<div class="token-note-grid">
+							<div class="token-note">Spaces can matter.</div>
+							<div class="token-note">Common words may stay together.</div>
+							<div class="token-note">Splits are model-specific.</div>
+						</div>
+					</div>
+				</div>
+
+				<a
+					class="source-link"
+					href="https://tiktokenizer.vercel.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					data-umami-event="link_click"
+					data-umami-event-area="llms-101"
+					data-umami-event-label="tiktokenizer-demo"
+				>
+					Demo: Tiktokenizer &rarr;
+				</a>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="training-section" aria-labelledby="training-title">
+				<div class="training-layout">
+					<div class="training-copy">
+						<div>
+							<span class="section-label">Part Three</span>
+							<h2 id="training-title" class="promise">Training teaches the model better next-token probabilities.</h2>
+							<p class="body-copy body-copy--short">
+								A token window goes in. A probability map comes out. During training, we know the right next token.
+							</p>
+							<div class="example-toggle-group" aria-label="Training example selector">
+								{throughlineExamples.map((example, index) => (
+									<button
+										class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+										type="button"
+										data-training-example-toggle={example.id}
+										aria-pressed={index === 0 ? 'true' : 'false'}
+									>
+										{example.sourceText}
+									</button>
+								))}
+							</div>
+						</div>
+						<button class="replay-button" type="button" data-training-replay>
+							Replay animation
+						</button>
+					</div>
+
+					<div class="training-visual" data-training-visual aria-label="Training flow diagram">
+						<p class="training-visual-title">Training Loop</p>
+						{throughlineExamples.map((example, exampleIndex) => (
+							<div
+								class={`training-example-panel${exampleIndex === 0 ? ' is-active' : ''}`}
+								data-training-example-panel={example.id}
+							>
+								<div class="training-diagram">
+									<div class="training-window" data-train-part="window" aria-label={`Window of training tokens for ${example.sourceText}`}>
+										{example.trainingTokens.map((token) => (
+											<div class="training-token">
+												<span class="training-token-id">{token.id}</span>
+												<span class="training-token-label">{token.label}</span>
+											</div>
+										))}
+									</div>
+
+									<div class="neural-net" data-train-part="net">
+										<span class="training-arrow" aria-hidden="true">&rarr;</span>
+										<div class="neural-net-box" aria-hidden="true"></div>
+										<span>Neural net</span>
+									</div>
+
+									<div class="probability-map" data-train-part="map">
+										<p class="probability-title">Probability map</p>
+										<p class="probability-subtitle">One probability for every token in the vocabulary. These are just a few examples.</p>
+										{example.candidates.map((candidate, index) => (
+											<>
+											<div
+												class={`probability-row${candidate.correct ? ' is-correct' : ''}`}
+												style={`--probability-width: ${candidate.width}; --probability-accent: ${['#84a6d8', '#d6a561', '#8f9f86'][index]}`}
+											>
+												<div class="probability-row-content">
+													<span class="probability-label">{candidate.id} {candidate.label}</span>
+													<span class="probability-value">{candidate.probability}</span>
+												</div>
+											</div>
+											{index === 1 && <div class="probability-ellipsis" aria-label="Many more token probabilities">...</div>}
+											</>
+										))}
+									</div>
+								</div>
+
+								<div class="correct-answer" data-train-part="answer">
+									<span class="correct-answer-label">Correct answer</span>
+									<span class="correct-answer-id">{example.correctAnswer}</span>
+								</div>
+
+								<p class="training-note" data-train-part="note">
+									{example.note}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="weights-section" aria-labelledby="weights-title">
+				<div class="weights-layout">
+					<div class="weights-copy">
+						<div>
+							<span class="section-label">Part Four</span>
+							<h2 id="weights-title" class="promise">The neural net is a huge equation with lots of knobs.</h2>
+							<p class="body-copy body-copy--short">
+								The context window goes in. The weights shape the equation. A probability map comes out.
+							</p>
+						</div>
+						<div class="control-row">
+							<button class="replay-button" type="button" data-weights-replay>
+								Tune knobs
+							</button>
+							<button class="replay-button" type="button" data-weights-reset>
+								Reset
+							</button>
+						</div>
+					</div>
+
+					<div class="weights-visual" data-weights-visual aria-label="Neural net weights diagram">
+						<p class="weights-visual-title">Inside The Neural Net</p>
+						<div class="equation-flow">
+							<div class="equation-node">
+								<span class="equation-label">Input</span>
+								<p class="equation-main">Context window</p>
+								<div class="mini-token-row" aria-label="Example context tokens">
+									{throughlineExamples[0].trainingTokens.map((token) => (
+										<span class="mini-token">
+											<span class="mini-token-id">{token.id}</span>
+											<span class="mini-token-label">{token.label.replaceAll('"', '')}</span>
+										</span>
+									))}
+								</div>
+							</div>
+
+							<div class="equation-arrow" aria-hidden="true">&rarr;</div>
+
+							<div class="equation-core">
+								<span class="equation-label">Neural net</span>
+								<span class="equation-symbol">f(x, weights)</span>
+								<p class="equation-sub">A gigantic mathematical equation with many learned parameters.</p>
+							</div>
+
+							<div class="equation-arrow" aria-hidden="true">&rarr;</div>
+
+							<div class="equation-node">
+								<span class="equation-label">Output</span>
+								<p class="equation-main">Probability map</p>
+								<div aria-label="Example output probabilities">
+									<div class="mini-probability-row" style="--mini-probability-width: 80%; --mini-probability-accent: #8f9f86">
+										<span>Paris</span>
+										<span class="mini-probability-value" data-weight-probability="paris">80%</span>
+									</div>
+									<div class="mini-probability-row" style="--mini-probability-width: 18%; --mini-probability-accent: #d6a561">
+										<span>France</span>
+										<span class="mini-probability-value" data-weight-probability="france">18%</span>
+									</div>
+									<div class="mini-probability-ellipsis" aria-label="Many more token probabilities">...</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="knob-panel">
+							<span class="equation-label">Parameters / weights</span>
+							<div class="knob-grid" aria-label="Illustration of many neural net weights as knobs">
+								{knobAngles.map((angle, index) => (
+									<div class="weight-knob" aria-hidden="true">
+										<span
+											class="weight-needle"
+											data-knob-angle={angle}
+											data-knob-initial={angle}
+											style={`--knob-start: ${angle}deg; --knob-end: ${angle + (index % 2 === 0 ? 28 : -24)}deg; --knob-delay: ${(index % 10) * 0.035}s`}
+										></span>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<p class="weights-note">
+							Training repeatedly tunes the weights so this equation gets better at producing useful next-token probability maps.
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			const steps = Array.from(document.querySelectorAll('[data-corpus-step]'));
+			const stages = Array.from(document.querySelectorAll('[data-stage]'));
+			const revealToggles = Array.from(document.querySelectorAll('[data-reveal-toggle]'));
+			const tokenExampleToggles = Array.from(document.querySelectorAll('[data-token-example-toggle]'));
+			const tokenExamplePanels = Array.from(document.querySelectorAll('[data-token-example-panel]'));
+
+			const setActiveStep = (activeId) => {
+				steps.forEach((step) => {
+					step.classList.toggle('is-active', step.dataset.corpusStep === activeId);
+				});
+
+				stages.forEach((stage) => {
+					stage.classList.toggle('is-active', stage.dataset.stage === activeId);
+				});
+			};
+
+			if ('IntersectionObserver' in window && steps.length > 0) {
+				const observer = new IntersectionObserver((entries) => {
+					const visibleEntry = entries
+						.filter((entry) => entry.isIntersecting)
+						.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+					if (visibleEntry instanceof IntersectionObserverEntry) {
+						setActiveStep(visibleEntry.target.dataset.corpusStep);
+					}
+				}, {
+					rootMargin: '-28% 0px -38% 0px',
+					threshold: [0.2, 0.45, 0.7],
+				});
+
+				steps.forEach((step) => observer.observe(step));
+			}
+
+			revealToggles.forEach((toggle) => {
+				toggle.addEventListener('click', () => {
+					const panelId = toggle.getAttribute('data-reveal-toggle');
+					if (!panelId) return;
+
+					const panel = document.getElementById(panelId);
+					const isVisible = panel?.classList.toggle('is-visible') ?? false;
+					toggle.setAttribute('aria-expanded', String(isVisible));
+					toggle.textContent = isVisible
+						? toggle.textContent?.replace('Show', 'Hide') ?? ''
+						: toggle.textContent?.replace('Hide', 'Show') ?? '';
+				});
+			});
+
+			const setTokenExample = (exampleId) => {
+				tokenExampleToggles.forEach((toggle) => {
+					const isActive = toggle.getAttribute('data-token-example-toggle') === exampleId;
+					toggle.classList.toggle('is-active', isActive);
+					toggle.setAttribute('aria-pressed', String(isActive));
+				});
+
+				tokenExamplePanels.forEach((panel) => {
+					panel.classList.toggle('is-active', panel.getAttribute('data-token-example-panel') === exampleId);
+				});
+			};
+
+			tokenExampleToggles.forEach((toggle) => {
+				toggle.addEventListener('click', () => {
+					const exampleId = toggle.getAttribute('data-token-example-toggle');
+					if (!exampleId) return;
+
+					setTokenExample(exampleId);
+				});
+			});
+
+			const trainingReplay = document.querySelector('[data-training-replay]');
+			const trainingVisual = document.querySelector('[data-training-visual]');
+			const trainingExampleToggles = Array.from(document.querySelectorAll('[data-training-example-toggle]'));
+			const trainingExamplePanels = Array.from(document.querySelectorAll('[data-training-example-panel]'));
+			const weightsReplay = document.querySelector('[data-weights-replay]');
+			const weightsReset = document.querySelector('[data-weights-reset]');
+			const weightsVisual = document.querySelector('[data-weights-visual]');
+			const weightNeedles = Array.from(document.querySelectorAll('.weight-needle'));
+			const parisProbability = document.querySelector('[data-weight-probability="paris"]');
+			const franceProbability = document.querySelector('[data-weight-probability="france"]');
+			let parisProbabilityValue = 80;
+
+			const setWeightProbability = (parisValue, franceValue) => {
+				if (parisProbability instanceof HTMLElement) {
+					parisProbability.textContent = `${parisValue}%`;
+					parisProbability.closest('.mini-probability-row')?.style.setProperty('--mini-probability-width', `${parisValue}%`);
+				}
+
+				if (franceProbability instanceof HTMLElement) {
+					franceProbability.textContent = `${franceValue}%`;
+					franceProbability.closest('.mini-probability-row')?.style.setProperty('--mini-probability-width', `${franceValue}%`);
+				}
+			};
+
+			const replayTrainingAnimation = () => {
+				trainingVisual?.classList.remove('is-animating');
+
+				if (trainingVisual instanceof HTMLElement) {
+					void trainingVisual.offsetWidth;
+				}
+
+				window.requestAnimationFrame(() => {
+					trainingVisual?.classList.add('is-animating');
+				});
+			};
+
+			const setTrainingExample = (exampleId) => {
+				trainingExampleToggles.forEach((toggle) => {
+					const isActive = toggle.getAttribute('data-training-example-toggle') === exampleId;
+					toggle.classList.toggle('is-active', isActive);
+					toggle.setAttribute('aria-pressed', String(isActive));
+				});
+
+				trainingExamplePanels.forEach((panel) => {
+					panel.classList.toggle('is-active', panel.getAttribute('data-training-example-panel') === exampleId);
+				});
+			};
+
+			trainingExampleToggles.forEach((toggle) => {
+				toggle.addEventListener('click', () => {
+					const exampleId = toggle.getAttribute('data-training-example-toggle');
+					if (!exampleId) return;
+
+					setTrainingExample(exampleId);
+					replayTrainingAnimation();
+				});
+			});
+
+			trainingReplay?.addEventListener('click', () => {
+				replayTrainingAnimation();
+			});
+
+			const replayWeightsAnimation = () => {
+				weightsVisual?.classList.remove('is-tuning');
+
+				weightNeedles.forEach((needle) => {
+					if (!(needle instanceof HTMLElement)) return;
+
+					const currentAngle = Number(needle.dataset.knobAngle ?? 0);
+					const nextAngle = Math.round(Math.random() * 116) - 58;
+					needle.style.setProperty('--knob-start', `${currentAngle}deg`);
+					needle.style.setProperty('--knob-end', `${nextAngle}deg`);
+					needle.style.setProperty('--knob-delay', `${Math.random() * 0.28}s`);
+					needle.dataset.knobAngle = String(nextAngle);
+				});
+
+				parisProbabilityValue = Math.min(98, parisProbabilityValue + 4);
+				const franceProbabilityValue = Math.max(1, 100 - parisProbabilityValue - 2);
+				setWeightProbability(parisProbabilityValue, franceProbabilityValue);
+
+				if (weightsVisual instanceof HTMLElement) {
+					void weightsVisual.offsetWidth;
+				}
+
+				window.requestAnimationFrame(() => {
+					weightsVisual?.classList.add('is-tuning');
+				});
+			};
+
+			weightsReplay?.addEventListener('click', () => {
+				replayWeightsAnimation();
+			});
+
+			weightsReset?.addEventListener('click', () => {
+				weightsVisual?.classList.remove('is-tuning');
+				parisProbabilityValue = 80;
+				setWeightProbability(80, 18);
+
+				weightNeedles.forEach((needle) => {
+					if (!(needle instanceof HTMLElement)) return;
+
+					const initialAngle = Number(needle.getAttribute('data-knob-initial') ?? 0);
+					needle.dataset.knobAngle = String(initialAngle);
+					needle.style.setProperty('--knob-start', `${initialAngle}deg`);
+					needle.style.setProperty('--knob-end', `${initialAngle}deg`);
+				});
+			});
+		</script>
+	</body>
+</html>
