@@ -903,11 +903,84 @@ const inferenceExamples = [
 				margin-bottom: 24px;
 			}
 
-			.token-stream {
+			.token-bullets {
+				border-top: 1px solid #1a1a1a;
+				color: #999;
+				font-size: 14px;
+				line-height: 1.6;
+				list-style: none;
+				margin-top: 26px;
+			}
+
+			.token-bullets li {
+				border-bottom: 1px solid #1a1a1a;
+				padding: 13px 0 13px 20px;
+				position: relative;
+			}
+
+			.token-bullets li::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 23px;
+				width: 5px;
+				height: 5px;
+				border-radius: 999px;
+				background: var(--llms-accent);
+			}
+
+			.token-demo-grid {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr);
+				gap: 18px;
+				margin-bottom: 18px;
+			}
+
+			.token-input-panel,
+			.token-count-panel,
+			.token-output-panel {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+			}
+
+			.token-input-panel {
+				padding: 22px;
+			}
+
+			.token-count-panel {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				gap: 18px;
+				padding: 16px 18px;
+			}
+
+			.token-count-label {
+				color: #b8b4ac;
+				font-size: 13px;
+				font-weight: 700;
+				letter-spacing: 0;
+				line-height: 1;
+				text-transform: uppercase;
+			}
+
+			.token-count-value {
+				color: #eae7e0;
+				font-size: 30px;
+				font-weight: 700;
+				line-height: 1;
+			}
+
+			.token-output-panel {
+				padding: 20px;
+			}
+
+			.token-output-stream {
+				align-content: start;
 				display: flex;
 				flex-wrap: wrap;
-				gap: 10px;
-				margin-bottom: 24px;
+				row-gap: 10px;
 			}
 
 			.token-example + .token-example {
@@ -932,13 +1005,13 @@ const inferenceExamples = [
 			}
 
 			.token-sentence {
-				border-left: 2px solid var(--llms-accent);
 				color: #eae7e0;
-				font-size: 18px;
+				font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+				font-size: 22px;
 				font-weight: 700;
-				line-height: 1.35;
-				margin-bottom: 18px;
-				padding-left: 14px;
+				line-height: 1.65;
+				margin: 0;
+				white-space: pre-wrap;
 			}
 
 			.token-toggle-group {
@@ -949,45 +1022,41 @@ const inferenceExamples = [
 			}
 
 			.token-piece {
-				border: 1px solid color-mix(in srgb, var(--token-accent) 58%, #252525);
-				border-radius: 6px;
-				background: color-mix(in srgb, var(--token-accent) 14%, #101010);
-				color: #eae7e0;
+				background: color-mix(in srgb, var(--token-accent) 58%, #161616);
+				color: #111;
+				display: inline-flex;
+				flex-direction: column;
 				font-weight: 700;
 				line-height: 1;
-				min-width: 76px;
-				padding: 12px 13px;
+				margin: 0 2px 7px 0;
+				min-width: 0;
+				padding: 4px 6px 5px;
 			}
 
 			.token-id {
-				color: color-mix(in srgb, var(--token-accent) 78%, #eae7e0);
+				color: color-mix(in srgb, #111 74%, var(--token-accent));
 				display: block;
-				font-size: 11px;
-				letter-spacing: 1px;
-				margin-bottom: 9px;
+				font-size: 9px;
+				font-weight: 700;
+				letter-spacing: 0;
+				margin-top: 5px;
+				opacity: 0.7;
+				order: 2;
 			}
 
 			.token-text {
 				display: block;
-				font-size: 16px;
+				font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+				font-size: 17px;
+				order: 1;
 				white-space: pre;
 			}
 
-			.token-note-grid {
-				display: grid;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				gap: 10px;
-			}
-
-			.token-note {
-				min-height: 72px;
-				border: 1px solid #1c1c1c;
-				border-radius: 6px;
-				background: rgba(10, 10, 10, 0.42);
-				color: #898989;
-				font-size: 12px;
-				line-height: 1.45;
-				padding: 13px;
+			.token-input-piece {
+				background: color-mix(in srgb, var(--token-accent) 58%, #161616);
+				color: #111;
+				display: inline;
+				padding: 1px 3px;
 			}
 
 			.training-layout {
@@ -2173,7 +2242,7 @@ const inferenceExamples = [
 					font-size: 28px;
 				}
 
-				.token-note-grid {
+				.token-demo-grid {
 					grid-template-columns: 1fr;
 				}
 
@@ -2230,6 +2299,14 @@ const inferenceExamples = [
 			@media (max-width: 520px) {
 				.project-title {
 					font-size: 40px;
+				}
+
+				.token-visual {
+					padding: 18px;
+				}
+
+				.token-visual-title {
+					font-size: 12px;
 				}
 
 				.training-window {
@@ -2376,9 +2453,9 @@ const inferenceExamples = [
 				<div class="corpus-layout">
 					<div class="corpus-intro">
 						<span class="section-label">Part One</span>
-						<h2 id="corpus-title" class="promise">From web text to useful corpus.</h2>
+						<h2 id="corpus-title" class="promise">Gathering the training data.</h2>
 						<p class="body-copy body-copy--short">
-							First: turn raw writing into training data.
+							We turn the messy internet into clean training data.
 						</p>
 
 						<div class="pipeline-panel" aria-label="Corpus preparation pipeline">
@@ -2386,7 +2463,7 @@ const inferenceExamples = [
 							<div class="pipeline">
 								<div class="pipeline-node is-active" style="--node-accent: #84a6d8" data-stage="scrape">
 									<span class="pipeline-node-label">Web</span>
-									<span class="pipeline-node-copy">Raw text</span>
+									<span class="pipeline-node-copy">Raw HTML</span>
 								</div>
 								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
 								<div class="pipeline-node" style="--node-accent: #d6a561" data-stage="process">
@@ -2481,9 +2558,12 @@ const inferenceExamples = [
 					<div>
 						<span class="section-label">Part Two</span>
 						<h2 id="token-title" class="promise">Tokenization turns text into model-readable chunks.</h2>
-						<p class="body-copy body-copy--short">
-							Not quite words. Not quite letters. Tokens are the pieces the model actually sees.
-						</p>
+						<ul class="token-bullets">
+							<li>Tokens are the chunks of text an LLM reads and writes.</li>
+							<li>A token can be a whole word, part of a word, punctuation, whitespace, or a special marker.</li>
+							<li>LLMs do not directly process raw words; they process token IDs.</li>
+							<li>Token count controls context size and cost.</li>
+						</ul>
 					</div>
 
 					<div class="token-visual" aria-label="Illustrative token chunks">
@@ -2502,23 +2582,35 @@ const inferenceExamples = [
 						</div>
 						{throughlineExamples.map((example, index) => (
 							<div class={`token-example${index === 0 ? ' is-active' : ''}`} data-token-example-panel={example.id}>
-								<p class="token-example-label">{example.name}</p>
-								<p class="token-sentence">{example.documentText}</p>
-								<div class="token-stream">
-									{example.tokens.map((token, index) => (
-										<span class="token-piece" style={`--token-accent: ${tokenColors[index % tokenColors.length]}`}>
-											<span class="token-id">{token.id}</span>
-											<span class="token-text">{token.text}</span>
-										</span>
-									))}
+								<div class="token-demo-grid">
+									<div class="token-input-panel">
+										<p class="token-example-label">{example.name}</p>
+										<p class="token-sentence">
+											{example.tokens.map((token, index) => (
+												<span class="token-input-piece" style={`--token-accent: ${tokenColors[index % tokenColors.length]}`}>{token.text}</span>
+											))}
+										</p>
+									</div>
+
+									<div class="token-count-panel">
+										<p class="token-count-label">Token count</p>
+										<p class="token-count-value">{example.tokens.length}</p>
+									</div>
+
+									<div class="token-output-panel">
+										<p class="token-example-label">Token IDs</p>
+										<div class="token-output-stream">
+											{example.tokens.map((token, index) => (
+												<span class="token-piece" style={`--token-accent: ${tokenColors[index % tokenColors.length]}`}>
+													<span class="token-id">{token.id}</span>
+													<span class="token-text">{token.text}</span>
+												</span>
+											))}
+										</div>
+									</div>
 								</div>
 							</div>
 						))}
-						<div class="token-note-grid">
-							<div class="token-note">Spaces can matter.</div>
-							<div class="token-note">Common words may stay together.</div>
-							<div class="token-note">Splits are model-specific.</div>
-						</div>
 					</div>
 				</div>
 
