@@ -117,12 +117,12 @@ const throughlineExamples = [
 	},
 ];
 
-const inferenceStep = (sample, candidates) => ({
+const inferenceStep = (sample, candidates, selectedIndex = 0) => ({
 	sample,
-	label: candidates[0].label,
+	label: candidates[selectedIndex]?.label ?? candidates[0].label,
 	candidates: candidates.map((candidate, index) => ({
 		...candidate,
-		selected: index === 0,
+		selected: index === selectedIndex,
 	})),
 });
 
@@ -160,10 +160,10 @@ const inferenceExamples = [
 				completion: 'make everyone feel lucky to be in the room.',
 				steps: [
 					inferenceStep(' make', [
-						{ label: 'make', probability: 34 },
-						{ label: 'honor', probability: 33 },
+						{ label: 'honor', probability: 34 },
+						{ label: 'make', probability: 33 },
 						{ label: 'tell', probability: 31 },
-					]),
+					], 1),
 					inferenceStep(' everyone', [
 						{ label: 'everyone', probability: 42 },
 						{ label: 'people', probability: 29 },
@@ -215,10 +215,10 @@ const inferenceExamples = [
 				completion: 'honor the couple without turning into a roast, résumé, or therapy session.',
 				steps: [
 					inferenceStep(' honor', [
-						{ label: 'honor', probability: 35 },
-						{ label: 'make', probability: 34 },
+						{ label: 'make', probability: 35 },
+						{ label: 'honor', probability: 34 },
 						{ label: 'tell', probability: 29 },
-					]),
+					], 1),
 					inferenceStep(' the', [
 						{ label: 'the', probability: 62 },
 						{ label: 'their', probability: 17 },
@@ -295,10 +295,10 @@ const inferenceExamples = [
 				completion: 'tell one true story, land one real emotion, and get out before anyone checks their phone.',
 				steps: [
 					inferenceStep(' tell', [
-						{ label: 'tell', probability: 34 },
-						{ label: 'make', probability: 33 },
-						{ label: 'honor', probability: 31 },
-					]),
+						{ label: 'make', probability: 34 },
+						{ label: 'honor', probability: 33 },
+						{ label: 'tell', probability: 31 },
+					], 2),
 					inferenceStep(' one', [
 						{ label: 'one', probability: 52 },
 						{ label: 'a', probability: 28 },
@@ -1655,6 +1655,8 @@ const inferenceExamples = [
 					linear-gradient(135deg, color-mix(in srgb, #84a6d8 14%, #111), #0f0f0f 55%),
 					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
 				padding: 34px;
+				position: relative;
+				overflow: hidden;
 				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
 			}
 
@@ -1679,6 +1681,11 @@ const inferenceExamples = [
 				background: rgba(10, 10, 10, 0.42);
 				min-height: 250px;
 				padding: 20px;
+				transition:
+					border-color 0.18s ease,
+					box-shadow 0.18s ease,
+					background 0.18s ease,
+					opacity 0.18s ease;
 			}
 
 			.inference-map-panel {
@@ -1714,6 +1721,37 @@ const inferenceExamples = [
 				letter-spacing: 1.4px;
 				text-align: center;
 				text-transform: uppercase;
+				transition:
+					color 0.18s ease,
+					transform 0.18s ease;
+			}
+
+			.inference-visual.is-context-active [data-inference-context-panel],
+			.inference-visual.is-map-active [data-inference-map-panel],
+			.inference-visual.is-choice-active [data-inference-map-panel],
+			.inference-visual.is-append-active [data-inference-context-panel],
+			.inference-visual.is-append-active .inference-output {
+				border-color: color-mix(in srgb, var(--llms-accent) 62%, #e2dfd8);
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 11%, transparent), rgba(10, 10, 10, 0.42)),
+					rgba(10, 10, 10, 0.42);
+				box-shadow: 0 0 0 1px color-mix(in srgb, var(--llms-accent) 18%, transparent);
+			}
+
+			.inference-visual.is-net-active [data-inference-net] {
+				color: #eae7e0;
+				transform: translateY(-2px);
+			}
+
+			.inference-visual.is-net-active [data-inference-net] .neural-net-box {
+				border-color: color-mix(in srgb, var(--llms-accent) 64%, #e2dfd8);
+				box-shadow: 0 0 26px color-mix(in srgb, var(--llms-accent) 18%, transparent);
+			}
+
+			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-candidates],
+			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-sampled] {
+				opacity: 0;
+				visibility: hidden;
 			}
 
 			.inference-step-count {
@@ -1923,6 +1961,82 @@ const inferenceExamples = [
 				font-size: 22px;
 				font-weight: 700;
 				line-height: 1.35;
+			}
+
+			.inference-context-generated.is-appending,
+			.inference-output-text.is-appending {
+				animation: inference-append-pop 0.42s ease both;
+			}
+
+			.inference-moving-token {
+				position: absolute;
+				top: 45%;
+				right: 26%;
+				border: 1px solid color-mix(in srgb, var(--llms-accent) 64%, #e2dfd8);
+				border-radius: 999px;
+				background: color-mix(in srgb, var(--llms-accent) 16%, #101010);
+				color: #eae7e0;
+				font-size: 13px;
+				font-weight: 700;
+				line-height: 1;
+				opacity: 0;
+				padding: 9px 12px;
+				pointer-events: none;
+				transform: translate(0, 0);
+				z-index: 2;
+			}
+
+			.inference-visual.is-append-active .inference-moving-token {
+				animation: inference-token-move 0.58s ease both;
+			}
+
+			:global(.mini-probability-row.is-selected) {
+				border-color: color-mix(in srgb, var(--mini-probability-accent) 72%, #e2dfd8);
+				box-shadow: 0 0 0 1px color-mix(in srgb, var(--mini-probability-accent) 22%, transparent);
+			}
+
+			:global(.mini-probability-row.is-selected::after) {
+				content: 'sampled';
+				position: relative;
+				border: 1px solid color-mix(in srgb, var(--mini-probability-accent) 48%, #252525);
+				border-radius: 999px;
+				color: color-mix(in srgb, var(--mini-probability-accent) 82%, #eae7e0);
+				font-size: 9px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				padding: 6px 7px;
+				text-transform: uppercase;
+			}
+
+			@keyframes inference-append-pop {
+				0% {
+					filter: brightness(1.35);
+				}
+
+				100% {
+					filter: brightness(1);
+				}
+			}
+
+			@keyframes inference-token-move {
+				0% {
+					opacity: 0;
+					transform: translate(120px, -8px) scale(0.96);
+				}
+
+				24% {
+					opacity: 1;
+				}
+
+				78% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+					transform: translate(-320px, -54px) scale(1.02);
+				}
 			}
 
 			.replay-button:disabled {
@@ -2188,7 +2302,12 @@ const inferenceExamples = [
 				.pipeline-node,
 				.corpus-step,
 				.training-visual.is-animating [data-train-part],
-				.weights-visual.is-tuning .weight-needle {
+				.weights-visual.is-tuning .weight-needle,
+				.inference-panel,
+				.inference-net,
+				.inference-context-generated.is-appending,
+				.inference-output-text.is-appending,
+				.inference-visual.is-append-active .inference-moving-token {
 					animation: none;
 					transition: none;
 				}
@@ -2607,7 +2726,7 @@ const inferenceExamples = [
 							<span class="section-label">Part Five</span>
 							<h2 id="inference-title" class="promise">Inference is repeated sampling.</h2>
 							<p class="body-copy body-copy--short">
-								The model samples one token, adds it to the context, then runs again. Generation is that loop repeated.
+								The neural net samples one token, adds it to the context, then runs again. Generation is that loop repeated.
 							</p>
 							<div class="example-toggle-group" aria-label="Inference example selector">
 								{inferenceExamples.map((example, index) => (
@@ -2624,7 +2743,7 @@ const inferenceExamples = [
 						</div>
 						<div class="control-row">
 							<button class="replay-button" type="button" data-inference-next>
-								Next sample
+								Step
 							</button>
 							<button class="replay-button" type="button" data-inference-reset>
 								Reset
@@ -2632,23 +2751,23 @@ const inferenceExamples = [
 						</div>
 					</div>
 
-					<div class="inference-visual" aria-label="Inference sampling loop">
+					<div class="inference-visual" data-inference-visual aria-label="Inference sampling loop">
 						<p class="inference-visual-title">Sampling Loop</p>
 						<div class="inference-flow">
-							<div class="inference-panel">
+							<div class="inference-panel" data-inference-context-panel>
 								<span class="equation-label">Current context</span>
 								<p class="inference-context-text">
 									<span class="inference-context-base" data-inference-context-base>{inferenceExamples[0].initialContext}</span><span class="inference-context-generated" data-inference-context-generated></span>
 								</p>
 							</div>
 
-							<div class="inference-net">
+							<div class="inference-net" data-inference-net>
 								<span class="training-arrow" aria-hidden="true">&rarr;</span>
 								<div class="neural-net-box" aria-hidden="true"></div>
-								<span>Run model</span>
+								<span>Neural net</span>
 							</div>
 
-							<div class="inference-panel inference-map-panel">
+							<div class="inference-panel inference-map-panel" data-inference-map-panel>
 								<span class="equation-label">Probability map</span>
 								<p class="inference-step-count" data-inference-step-count>Ready to sample</p>
 								<div data-inference-candidates>
@@ -2667,6 +2786,7 @@ const inferenceExamples = [
 								</p>
 							</div>
 						</div>
+						<span class="inference-moving-token" data-inference-moving-token aria-hidden="true"></span>
 
 						<div class="inference-output">
 							<span class="equation-label">Generated text</span>
@@ -2789,6 +2909,7 @@ const inferenceExamples = [
 			const inferenceDataElement = document.getElementById('inference-data');
 			const inferenceData = inferenceDataElement?.textContent ? JSON.parse(inferenceDataElement.textContent) : [];
 			const inferenceExampleToggles = Array.from(document.querySelectorAll('[data-inference-example-toggle]'));
+			const inferenceVisual = document.querySelector('[data-inference-visual]');
 			const inferenceNext = document.querySelector('[data-inference-next]');
 			const inferenceReset = document.querySelector('[data-inference-reset]');
 			const inferenceContextBase = document.querySelector('[data-inference-context-base]');
@@ -2797,9 +2918,26 @@ const inferenceExamples = [
 			const inferenceSampled = document.querySelector('[data-inference-sampled]');
 			const inferenceOutput = document.querySelector('[data-inference-output]');
 			const inferenceStepCount = document.querySelector('[data-inference-step-count]');
+			const inferenceMovingToken = document.querySelector('[data-inference-moving-token]');
 			const inferenceCandidateColors = ['#8f9f86', '#d6a561', '#84a6d8'];
+			const inferencePhases = ['context', 'neuralNet', 'map', 'choice', 'append'];
+			const inferencePhaseClasses = {
+				context: 'is-context-active',
+				neuralNet: 'is-net-active',
+				map: 'is-map-active',
+				choice: 'is-choice-active',
+				append: 'is-append-active',
+			};
+			const inferencePhaseLabels = {
+				context: 'Current context',
+				neuralNet: 'Neural net',
+				map: 'Probability map',
+				choice: 'Sampled choice',
+				append: 'Append token',
+			};
 			let activeInferenceId = 'capital';
-			let inferenceStepIndex = -1;
+			let inferenceTokenIndex = 0;
+			let inferencePhaseIndex = -1;
 			let toastRunIndex = 0;
 
 			const getActiveTrainingPanel = () => {
@@ -2964,21 +3102,39 @@ const inferenceExamples = [
 				return example?.runs?.[runIndex] ?? example?.runs?.[0];
 			};
 
-			const getGeneratedSample = (run, stepIndex) => {
-				if (!run || stepIndex < 0) return '';
+			const getGeneratedSample = (run, tokenCount) => {
+				if (!run || tokenCount <= 0) return '';
 
 				return run.steps
-					.slice(0, stepIndex + 1)
+					.slice(0, tokenCount)
 					.map((step) => step.sample)
 					.join('');
 			};
 
-			const renderInferenceCandidates = (step, shouldHighlightSelection) => {
-				if (!(inferenceCandidates instanceof HTMLElement) || !step) return;
+			const getInferencePhase = () => {
+				return inferencePhases[inferencePhaseIndex] ?? 'idle';
+			};
+
+			const getCompletedInferenceTokenCount = (run) => {
+				if (!run) return 0;
+
+				const shouldIncludeCurrentToken = getInferencePhase() === 'append';
+				const tokenCount = shouldIncludeCurrentToken ? inferenceTokenIndex + 1 : inferenceTokenIndex;
+				return Math.min(tokenCount, run.steps.length);
+			};
+
+			const renderInferenceCandidates = (step, shouldShowMap, shouldHighlightSelection) => {
+				if (!(inferenceCandidates instanceof HTMLElement)) return;
+
+				if (!step || !shouldShowMap) {
+					inferenceCandidates.replaceChildren();
+					return;
+				}
 
 				const rows = step.candidates.map((candidate, index) => {
 					const row = document.createElement('div');
 					row.className = 'mini-probability-row';
+					row.classList.toggle('is-selected', Boolean(shouldHighlightSelection && candidate.selected));
 					row.style.setProperty('--mini-probability-width', `${candidate.probability}%`);
 					row.style.setProperty('--mini-probability-accent', inferenceCandidateColors[index % inferenceCandidateColors.length]);
 
@@ -2996,15 +3152,34 @@ const inferenceExamples = [
 				inferenceCandidates.replaceChildren(...rows);
 			};
 
+			const renderInferencePhase = (phase) => {
+				if (!(inferenceVisual instanceof HTMLElement)) return;
+
+				Object.values(inferencePhaseClasses).forEach((className) => {
+					inferenceVisual.classList.remove(className);
+				});
+
+				const activeClass = inferencePhaseClasses[phase];
+				if (activeClass) {
+					inferenceVisual.classList.add(activeClass);
+				}
+			};
+
 			const renderInference = () => {
 				const example = getActiveInferenceExample();
 				const run = getActiveInferenceRun(example);
 				if (!example || !run) return;
 
-				const generatedSample = getGeneratedSample(run, inferenceStepIndex);
-				const activeStep = inferenceStepIndex >= 0
-					? run.steps[inferenceStepIndex]
-					: run.steps[0];
+				const phase = getInferencePhase();
+				const activeStep = run.steps[Math.min(inferenceTokenIndex, run.steps.length - 1)];
+				const completedTokenCount = getCompletedInferenceTokenCount(run);
+				const generatedSample = getGeneratedSample(run, completedTokenCount);
+				const shouldShowMap = ['map', 'choice', 'append'].includes(phase);
+				const shouldHighlightSelection = ['choice', 'append'].includes(phase);
+				const isAppending = phase === 'append';
+				const isComplete = inferenceTokenIndex >= run.steps.length - 1 && isAppending;
+
+				renderInferencePhase(phase);
 
 				if (inferenceContextBase instanceof HTMLElement) {
 					inferenceContextBase.textContent = example.initialContext;
@@ -3012,35 +3187,42 @@ const inferenceExamples = [
 
 				if (inferenceContextGenerated instanceof HTMLElement) {
 					inferenceContextGenerated.textContent = generatedSample;
+					inferenceContextGenerated.classList.toggle('is-appending', isAppending);
 				}
 
 				if (inferenceOutput instanceof HTMLElement) {
 					inferenceOutput.textContent = generatedSample
 						? `${example.initialContext}${generatedSample}`
 						: example.emptyGenerated;
+					inferenceOutput.classList.toggle('is-appending', isAppending);
 				}
 
 				if (inferenceStepCount instanceof HTMLElement) {
-					inferenceStepCount.textContent = inferenceStepIndex >= 0
-						? `Sample ${inferenceStepIndex + 1} of ${run.steps.length}`
+					inferenceStepCount.textContent = inferencePhaseIndex >= 0
+						? `${inferencePhaseLabels[phase] ?? 'Sampling'} ${inferenceTokenIndex + 1} of ${run.steps.length}`
 						: 'Ready to sample';
 				}
 
 				if (inferenceSampled instanceof HTMLElement) {
-					const sampledValue = inferenceStepIndex >= 0 ? activeStep.label : 'waiting';
-					inferenceSampled.innerHTML = `Sampled token: <strong>${sampledValue}</strong>`;
+					const sampledValue = shouldHighlightSelection ? activeStep.label : 'waiting';
+					inferenceSampled.textContent = `Sampled token: ${sampledValue}`;
 				}
 
-				renderInferenceCandidates(activeStep, inferenceStepIndex >= 0);
+				if (inferenceMovingToken instanceof HTMLElement) {
+					inferenceMovingToken.textContent = isAppending ? activeStep.label : '';
+				}
+
+				renderInferenceCandidates(activeStep, shouldShowMap, shouldHighlightSelection);
 
 				if (inferenceNext instanceof HTMLButtonElement) {
-					inferenceNext.disabled = inferenceStepIndex >= run.steps.length - 1;
+					inferenceNext.disabled = isComplete;
 				}
 			};
 
 			const setInferenceExample = (exampleId) => {
 				activeInferenceId = exampleId;
-				inferenceStepIndex = -1;
+				inferenceTokenIndex = 0;
+				inferencePhaseIndex = -1;
 
 				inferenceExampleToggles.forEach((toggle) => {
 					const isActive = toggle.getAttribute('data-inference-example-toggle') === exampleId;
@@ -3063,9 +3245,18 @@ const inferenceExamples = [
 			inferenceNext?.addEventListener('click', () => {
 				const example = getActiveInferenceExample();
 				const run = getActiveInferenceRun(example);
-				if (!run || inferenceStepIndex >= run.steps.length - 1) return;
+				if (!run) return;
 
-				inferenceStepIndex += 1;
+				const isComplete = inferenceTokenIndex >= run.steps.length - 1 && getInferencePhase() === 'append';
+				if (isComplete) return;
+
+				if (inferencePhaseIndex < inferencePhases.length - 1) {
+					inferencePhaseIndex += 1;
+				} else {
+					inferenceTokenIndex = Math.min(inferenceTokenIndex + 1, run.steps.length - 1);
+					inferencePhaseIndex = 0;
+				}
+
 				renderInference();
 			});
 
@@ -3075,7 +3266,8 @@ const inferenceExamples = [
 					toastRunIndex = (toastRunIndex + 1) % example.runs.length;
 				}
 
-				inferenceStepIndex = -1;
+				inferenceTokenIndex = 0;
+				inferencePhaseIndex = -1;
 				renderInference();
 			});
 
