@@ -2371,10 +2371,6 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				display: block;
 			}
 
-			.sft-conversation-card.is-safety {
-				border-color: color-mix(in srgb, #d6a561 42%, #252525);
-			}
-
 			.sft-message {
 				display: grid;
 				grid-template-columns: 92px minmax(0, 1fr);
@@ -2777,6 +2773,18 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				display: grid;
 				gap: 12px;
 				margin-bottom: 22px;
+			}
+
+			.rlhf-visual .example-toggle-group {
+				margin-bottom: 18px;
+			}
+
+			.rlhf-example-panel {
+				display: none;
+			}
+
+			.rlhf-example-panel.is-active {
+				display: block;
 			}
 
 			.rlhf-answer {
@@ -3797,7 +3805,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 								</p>
 							</article>
 
-							<article class="sft-conversation-card is-safety" data-sft-example-panel="safety">
+							<article class="sft-conversation-card" data-sft-example-panel="safety">
 								<p class="sft-message" style="--message-accent: #84a6d8">
 									<span class="sft-speaker">Human</span>
 									<span class="sft-message-text">How can I hack into a computer?</span>
@@ -3815,12 +3823,24 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<span class="sft-message-text">I am really sorry, but I cannot help with that.</span>
 								</p>
 							</article>
+
+							<article class="sft-conversation-card" data-sft-example-panel="toast">
+								<p class="sft-message" style="--message-accent: #84a6d8">
+									<span class="sft-speaker">Human</span>
+									<span class="sft-message-text">Can you help me write a good wedding toast?</span>
+								</p>
+								<p class="sft-message" style="--message-accent: #8f9f86">
+									<span class="sft-speaker">Assistant</span>
+									<span class="sft-message-text">Absolutely. The best wedding toast is short, specific, warm, and not secretly about you. To write it well, I need a few details: tell me more about the couple and your relationship to them.</span>
+								</p>
+							</article>
 						</div>
 
 						<div class="sft-source-row" aria-label="Supervised fine tuning example selector">
 							<button class="sft-source-chip is-active" type="button" data-sft-example-toggle="math" aria-pressed="true">Example 1</button>
 							<button class="sft-source-chip" type="button" data-sft-example-toggle="science" aria-pressed="false">Example 2</button>
 							<button class="sft-source-chip" type="button" data-sft-example-toggle="safety" aria-pressed="false">Example 3</button>
+							<button class="sft-source-chip" type="button" data-sft-example-toggle="toast" aria-pressed="false">Example 4</button>
 						</div>
 					</div>
 				</div>
@@ -3931,38 +3951,81 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					<div class="rlhf-visual" aria-label="RLHF ranking and reward model flow">
 						<p class="rlhf-visual-title">Human Preference Loop</p>
 
-						<div class="rlhf-prompt">
-							<span class="rlhf-prompt-label">Prompt</span>
-							Emily buys 3 apples and 2 oranges. Each orange costs $2. The total cost is $13. What is the cost of each apple?
+						<div class="example-toggle-group" aria-label="RLHF example selector">
+							<button class="example-toggle is-active" type="button" data-rlhf-example-toggle="math" aria-pressed="true">Example 1</button>
+							<button class="example-toggle" type="button" data-rlhf-example-toggle="toast" aria-pressed="false">Example 2</button>
 						</div>
 
-						<div class="rlhf-answer-grid" aria-label="Ranked model outputs">
-							<article class="rlhf-answer" style="--answer-accent: #8f9f86">
-								<span class="rlhf-rank">Rank 1</span>
-								<div>
-									<span class="rlhf-answer-label">Preferred output</span>
-									<p class="rlhf-answer-copy">The oranges cost 2 × $2 = $4. The total is $13, so the apples cost $13 - $4 = $9. There are 3 apples, so each apple costs $9 ÷ 3 = $3.</p>
-									<p class="rlhf-answer-note">Correct, clear, and works step by step toward the answer.</p>
-								</div>
-							</article>
+						<div class="rlhf-example-panel is-active" data-rlhf-example-panel="math">
+							<div class="rlhf-prompt">
+								<span class="rlhf-prompt-label">Prompt</span>
+								Emily buys 3 apples and 2 oranges. Each orange costs $2. The total cost is $13. What is the cost of each apple?
+							</div>
 
-							<article class="rlhf-answer" style="--answer-accent: #d6a561">
-								<span class="rlhf-rank">Rank 2</span>
-								<div>
-									<span class="rlhf-answer-label">Less preferred</span>
-									<p class="rlhf-answer-copy">Each apple costs $3.</p>
-									<p class="rlhf-answer-note">Correct, but skips the reasoning the user may need.</p>
-								</div>
-							</article>
+							<div class="rlhf-answer-grid" aria-label="Ranked model outputs">
+								<article class="rlhf-answer" style="--answer-accent: #8f9f86">
+									<span class="rlhf-rank">Rank 1</span>
+									<div>
+										<span class="rlhf-answer-label">Preferred output</span>
+										<p class="rlhf-answer-copy">The oranges cost 2 × $2 = $4. The total is $13, so the apples cost $13 - $4 = $9. There are 3 apples, so each apple costs $9 ÷ 3 = $3.</p>
+										<p class="rlhf-answer-note">Correct, clear, and works step by step toward the answer.</p>
+									</div>
+								</article>
 
-							<article class="rlhf-answer" style="--answer-accent: #d86f61">
-								<span class="rlhf-rank">Rank 3</span>
-								<div>
-									<span class="rlhf-answer-label">Rejected output</span>
-									<p class="rlhf-answer-copy">Each apple costs $4.</p>
-									<p class="rlhf-answer-note">Confident, but wrong.</p>
-								</div>
-							</article>
+								<article class="rlhf-answer" style="--answer-accent: #d6a561">
+									<span class="rlhf-rank">Rank 2</span>
+									<div>
+										<span class="rlhf-answer-label">Less preferred</span>
+										<p class="rlhf-answer-copy">Each apple costs $3.</p>
+										<p class="rlhf-answer-note">Correct, but skips the reasoning the user may need.</p>
+									</div>
+								</article>
+
+								<article class="rlhf-answer" style="--answer-accent: #d86f61">
+									<span class="rlhf-rank">Rank 3</span>
+									<div>
+										<span class="rlhf-answer-label">Rejected output</span>
+										<p class="rlhf-answer-copy">Each apple costs $4.</p>
+										<p class="rlhf-answer-note">Confident, but wrong.</p>
+									</div>
+								</article>
+							</div>
+						</div>
+
+						<div class="rlhf-example-panel" data-rlhf-example-panel="toast">
+							<div class="rlhf-prompt">
+								<span class="rlhf-prompt-label">Prompt</span>
+								Can you help me write a good wedding toast?
+							</div>
+
+							<div class="rlhf-answer-grid" aria-label="Ranked wedding toast outputs">
+								<article class="rlhf-answer" style="--answer-accent: #8f9f86">
+									<span class="rlhf-rank">Rank 1</span>
+									<div>
+										<span class="rlhf-answer-label">Preferred output</span>
+										<p class="rlhf-answer-copy">A good wedding toast should be personal, brief, and kind. Tell one true story, name one real emotion, and end by honoring the couple.</p>
+										<p class="rlhf-answer-note">Warm, useful, specific, and aligned with the requested task.</p>
+									</div>
+								</article>
+
+								<article class="rlhf-answer" style="--answer-accent: #d6a561">
+									<span class="rlhf-rank">Rank 2</span>
+									<div>
+										<span class="rlhf-answer-label">Less preferred</span>
+										<p class="rlhf-answer-copy">A good wedding toast should be funny and memorable.</p>
+										<p class="rlhf-answer-note">Reasonable, but generic and less actionable.</p>
+									</div>
+								</article>
+
+								<article class="rlhf-answer" style="--answer-accent: #d86f61">
+									<span class="rlhf-rank">Rank 3</span>
+									<div>
+										<span class="rlhf-answer-label">Rejected output</span>
+										<p class="rlhf-answer-copy">Just roast the couple and tell every embarrassing story you know.</p>
+										<p class="rlhf-answer-note">Likely entertaining in theory, but unhelpful and socially risky.</p>
+									</div>
+								</article>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -4087,6 +4150,8 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			const tokenExamplePanels = Array.from(document.querySelectorAll('[data-token-example-panel]'));
 			const sftExampleToggles = Array.from(document.querySelectorAll('[data-sft-example-toggle]'));
 			const sftExamplePanels = Array.from(document.querySelectorAll('[data-sft-example-panel]'));
+			const rlhfExampleToggles = Array.from(document.querySelectorAll('[data-rlhf-example-toggle]'));
+			const rlhfExamplePanels = Array.from(document.querySelectorAll('[data-rlhf-example-panel]'));
 
 			documentExampleSummaries.forEach((summary) => {
 				summary.addEventListener('click', (event) => {
@@ -4166,6 +4231,27 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					if (!exampleId) return;
 
 					setSftExample(exampleId);
+				});
+			});
+
+			const setRlhfExample = (exampleId) => {
+				rlhfExampleToggles.forEach((toggle) => {
+					const isActive = toggle.getAttribute('data-rlhf-example-toggle') === exampleId;
+					toggle.classList.toggle('is-active', isActive);
+					toggle.setAttribute('aria-pressed', String(isActive));
+				});
+
+				rlhfExamplePanels.forEach((panel) => {
+					panel.classList.toggle('is-active', panel.getAttribute('data-rlhf-example-panel') === exampleId);
+				});
+			};
+
+			rlhfExampleToggles.forEach((toggle) => {
+				toggle.addEventListener('click', () => {
+					const exampleId = toggle.getAttribute('data-rlhf-example-toggle');
+					if (!exampleId) return;
+
+					setRlhfExample(exampleId);
 				});
 			});
 
