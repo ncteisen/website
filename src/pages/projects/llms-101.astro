@@ -2,33 +2,6 @@
 import SocialPreview from '../../components/SocialPreview.astro';
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
 
-const corpusSteps = [
-	{
-		id: 'scrape',
-		label: 'Scrape',
-		kicker: 'Gather raw text',
-		description: 'Start with ordinary human writing gathered from the web and other public sources.',
-	},
-	{
-		id: 'process',
-		label: 'Process',
-		kicker: 'Clean and normalize',
-		description: 'Turn messy pages and documents into cleaner text the training process can use.',
-	},
-	{
-		id: 'deduplicate',
-		label: 'Deduplicate',
-		kicker: 'Reduce repeats',
-		description: 'Reduce repeated articles, templates, snippets, and quoted passages.',
-	},
-	{
-		id: 'store',
-		label: 'Store',
-		kicker: 'Build the corpus',
-		description: 'Store the cleaned text as a corpus ready for tokenization and training.',
-	},
-];
-
 const tokenColors = ['#84a6d8', '#d6a561', '#8f9f86', '#b28ad6', '#6d8fbd'];
 const knobAngles = Array.from({ length: 80 }, (_, index) => ((index * 37) % 116) - 58);
 
@@ -394,6 +367,34 @@ const inferenceExamples = [
 		],
 	},
 ];
+
+const buildDocumentHtml = (example: typeof throughlineExamples[number]) => {
+	const escapeHtml = (value: string) => {
+		return value
+			.replaceAll('&', '&amp;')
+			.replaceAll('<', '&lt;')
+			.replaceAll('>', '&gt;')
+			.replaceAll('"', '&quot;')
+			.replaceAll("'", '&#39;');
+	};
+	const openTag = (tag: string) => `<span class="html-punctuation">&lt;</span><span class="html-tag-name">${tag}</span><span class="html-punctuation">&gt;</span>`;
+	const closeTag = (tag: string) => `<span class="html-punctuation">&lt;/</span><span class="html-tag-name">${tag}</span><span class="html-punctuation">&gt;</span>`;
+
+	const paragraphLines = example.documentParagraphs
+		.map((paragraph) => `  ${openTag('p')}<span class="html-text">${escapeHtml(paragraph)}</span>${closeTag('p')}`)
+		.join('\n');
+
+	return [
+		openTag('article'),
+		`  ${openTag('h1')}<span class="html-text">${escapeHtml(example.documentTitle)}</span>${closeTag('h1')}`,
+		paragraphLines,
+		closeTag('article'),
+	].join('\n');
+};
+
+const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
+	return `${example.documentParagraphs.join(' ').slice(0, 118)}...`;
+};
 ---
 
 <html lang="en">
@@ -550,41 +551,8 @@ const inferenceExamples = [
 				margin-top: 28px;
 			}
 
-			.corpus-actions .source-link,
-			.corpus-actions .reveal-button {
+			.corpus-actions .source-link {
 				margin-top: 0;
-			}
-
-			.reveal-button {
-				margin-top: 24px;
-				border: 1px solid color-mix(in srgb, var(--llms-accent) 46%, #252525);
-				border-radius: 999px;
-				background: #101010;
-				color: #eae7e0;
-				cursor: pointer;
-				font-family: inherit;
-				font-size: 12px;
-				font-weight: 700;
-				letter-spacing: 1px;
-				line-height: 1;
-				padding: 12px 16px;
-				text-transform: uppercase;
-				transition: border-color 0.15s, transform 0.15s, color 0.15s;
-			}
-
-			.reveal-button:hover,
-			.reveal-button:focus-visible {
-				border-color: var(--llms-accent);
-				color: var(--llms-accent);
-				transform: translateY(-1px);
-			}
-
-			.reveal-panel {
-				display: none;
-			}
-
-			.reveal-panel.is-visible {
-				display: block;
 			}
 
 			.goal-list {
@@ -620,8 +588,8 @@ const inferenceExamples = [
 
 			.corpus-layout {
 				display: grid;
-				grid-template-columns: minmax(340px, 0.8fr) minmax(520px, 1.2fr);
-				gap: 56px;
+				grid-template-columns: minmax(320px, 0.62fr) minmax(680px, 1.38fr);
+				gap: 42px;
 				align-items: start;
 			}
 
@@ -630,95 +598,292 @@ const inferenceExamples = [
 				top: 28px;
 			}
 
-			.pipeline-panel {
+			.document-pipeline {
 				border: 1px solid #1c1c1c;
 				border-radius: 6px;
 				background:
 					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 18%, #111), #0f0f0f 54%),
 					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
 				min-height: 0;
-				padding: 26px;
-				margin-top: 24px;
+				padding: 18px;
 				position: relative;
 				overflow: hidden;
 				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
 			}
 
-			.pipeline-title {
+			.document-pipeline-title {
 				font-size: 12px;
 				color: #6f6f6f;
 				letter-spacing: 2px;
 				text-transform: uppercase;
-				margin-bottom: 30px;
+				margin-bottom: 18px;
 			}
 
-			.pipeline {
+			.document-flow {
 				display: grid;
-				grid-template-columns: 1fr;
-				gap: 8px;
+				gap: 10px;
 			}
 
-			.pipeline-node {
-				min-height: 64px;
-				border: 1px solid rgba(226, 223, 216, 0.16);
+			.document-stage {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-left: 2px solid color-mix(in srgb, var(--stage-accent) 66%, #222);
 				border-radius: 6px;
-				padding: 13px 15px;
-				background: rgba(10, 10, 10, 0.42);
-				transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+				background: rgba(10, 10, 10, 0.38);
+				display: grid;
+				grid-template-columns: 126px minmax(0, 1fr);
+				gap: 14px;
+				align-items: start;
+				padding: 14px;
 			}
 
-			.pipeline-node.is-active {
-				border-color: color-mix(in srgb, var(--node-accent) 72%, #e2dfd8);
-				background: color-mix(in srgb, var(--node-accent) 18%, rgba(10, 10, 10, 0.5));
-				transform: translateY(-2px);
-			}
-
-			.pipeline-arrow {
-				color: #3c3c3c;
-				text-align: center;
-				font-size: 18px;
-				line-height: 1;
-				transform: rotate(90deg);
-			}
-
-			.pipeline-node-label {
+			.document-stage-label {
 				display: block;
+				color: var(--stage-accent);
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.7px;
+				line-height: 1.2;
+				margin-bottom: 5px;
+				text-transform: uppercase;
+			}
+
+			.document-stage-title {
+				color: #eae7e0;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 1.12;
+				margin-bottom: 6px;
+			}
+
+			.document-stage-copy {
+				color: #999;
+				font-size: 12px;
+				line-height: 1.5;
+				margin-bottom: 10px;
+			}
+
+			.document-card {
+				border: 1px solid rgba(226, 223, 216, 0.12);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				overflow: hidden;
+			}
+
+			.document-card-bar {
+				border-bottom: 1px solid rgba(226, 223, 216, 0.1);
+				background: rgba(255, 255, 255, 0.04);
+				color: #777;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.2px;
+				padding: 9px 11px;
+				text-transform: uppercase;
+				overflow-wrap: anywhere;
+			}
+
+			.document-card-body {
+				padding: 14px;
+			}
+
+			.document-mini-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 10px;
+			}
+
+			.document-web-title {
 				color: #eae7e0;
 				font-size: 16px;
 				font-weight: 700;
 				line-height: 1.1;
-				margin-bottom: 10px;
+				margin-bottom: 7px;
 			}
 
-			.pipeline-node-copy {
+			.document-web-meta {
 				color: #777;
-				font-size: 12px;
-				line-height: 1.55;
-			}
-
-			.example-thread {
-				margin-top: 18px;
-				border: 1px solid #1c1c1c;
-				border-radius: 6px;
-				background:
-					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 10%, #111), #0f0f0f 58%),
-					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 18px);
-				padding: 20px;
-			}
-
-			.example-thread-title {
-				color: #666;
-				font-size: 10px;
-				font-weight: 700;
-				letter-spacing: 1.8px;
-				text-transform: uppercase;
+				font-size: 11px;
+				line-height: 1.4;
 				margin-bottom: 12px;
 			}
 
-			.example-source-list {
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 14px;
+			.document-web-copy {
+				color: #b8b4ac;
+				font-size: 13px;
+				line-height: 1.55;
+			}
+
+			.document-code {
+				color: #b8b4ac;
+				font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+				font-size: 12px;
+				line-height: 1.65;
+				margin: 0;
+				white-space: pre-wrap;
+			}
+
+			.document-text {
+				color: #eae7e0;
+				font-size: 15px;
+				font-weight: 700;
+				line-height: 1.5;
+			}
+
+			.document-example {
+				margin-top: 12px;
+			}
+
+			.document-example summary {
+				border: 1px solid rgba(132, 166, 216, 0.5);
+				border-radius: 999px;
+				color: #d4d0c8;
+				cursor: pointer;
+				display: inline-flex;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.4px;
+				line-height: 1;
+				list-style: none;
+				padding: 10px 12px;
+				text-transform: uppercase;
+				transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+			}
+
+			.document-example summary::-webkit-details-marker {
+				display: none;
+			}
+
+			.document-example summary:hover,
+			.document-example[open] summary {
+				background: rgba(132, 166, 216, 0.08);
+				border-color: rgba(132, 166, 216, 0.82);
+				color: #eae7e0;
+			}
+
+			.document-example-content {
+				margin-top: 10px;
+			}
+
+			.corpus-example-toggle-group {
+				margin: 0 0 10px;
+			}
+
+			.corpus-example-panel {
+				display: none;
+			}
+
+			.corpus-example-panel.is-active {
+				display: block;
+			}
+
+			.html-example-code,
+			.plaintext-example-block {
+				border: 1px solid rgba(226, 223, 216, 0.12);
+				border-radius: 6px;
+				background: #0c0c0c;
+				color: #b8b4ac;
+				font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+				font-size: 12px;
+				line-height: 1.65;
+				margin: 0;
+				overflow-x: auto;
+				padding: 16px;
+				white-space: pre-wrap;
+			}
+
+			.html-punctuation {
+				color: #84a6d8;
+			}
+
+			.html-tag-name {
+				color: #d6a561;
+			}
+
+			.html-text {
+				color: #d4d0c8;
+			}
+
+			.corpus-row-table-wrap {
+				border: 1px solid rgba(226, 223, 216, 0.12);
+				border-radius: 6px;
+				overflow-x: auto;
+			}
+
+			.corpus-row-table {
+				border-collapse: collapse;
+				min-width: 760px;
+				width: 100%;
+			}
+
+			.corpus-row-table th,
+			.corpus-row-table td {
+				border-bottom: 1px solid rgba(226, 223, 216, 0.1);
+				border-right: 1px solid rgba(226, 223, 216, 0.1);
+				font-size: 11px;
+				line-height: 1.45;
+				padding: 10px 12px;
+				text-align: left;
+				vertical-align: top;
+			}
+
+			.corpus-row-table th {
+				background: rgba(255, 255, 255, 0.04);
+				color: #777;
+				font-weight: 700;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+
+			.corpus-row-table td {
+				color: #d4d0c8;
+			}
+
+			.corpus-row-table th:last-child,
+			.corpus-row-table td:last-child {
+				border-right: 0;
+			}
+
+			.corpus-row-table tbody tr:last-child td {
+				border-bottom: 0;
+			}
+
+			.corpus-row-content {
+				color: #aaa49a;
+				display: block;
+				min-width: 220px;
+			}
+
+			.document-db {
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			.document-db th,
+			.document-db td {
+				border-bottom: 1px solid rgba(226, 223, 216, 0.1);
+				font-size: 12px;
+				line-height: 1.45;
+				padding: 9px 10px;
+				text-align: left;
+				vertical-align: top;
+			}
+
+			.document-db th {
+				color: #777;
+				font-weight: 700;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				width: 120px;
+			}
+
+			.document-db td {
+				color: #eae7e0;
+			}
+
+			.document-db-content {
+				color: #b8b4ac;
+				display: block;
+				font-size: 11px;
+				line-height: 1.45;
 			}
 
 			.example-source {
@@ -815,57 +980,6 @@ const inferenceExamples = [
 				color: #171717;
 				font-weight: 700;
 				padding: 0 2px;
-			}
-
-			.step-list {
-				border-top: 1px solid #1a1a1a;
-			}
-
-			.corpus-step {
-				min-height: 220px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				border-bottom: 1px solid #1a1a1a;
-				padding: 38px 0 42px 22px;
-				border-left: 2px solid transparent;
-				transition: border-color 0.18s ease, opacity 0.18s ease;
-			}
-
-			.corpus-step.is-active {
-				border-left-color: color-mix(in srgb, var(--step-accent) 66%, #222);
-			}
-
-			.step-index {
-				color: var(--step-accent);
-				font-size: 11px;
-				font-weight: 700;
-				letter-spacing: 2px;
-				text-transform: uppercase;
-				margin-bottom: 16px;
-			}
-
-			.step-title {
-				color: #eae7e0;
-				font-size: 34px;
-				font-weight: 700;
-				line-height: 1;
-				margin-bottom: 12px;
-			}
-
-			.step-kicker {
-				color: #777;
-				font-size: 13px;
-				letter-spacing: 1.7px;
-				text-transform: uppercase;
-				margin-bottom: 16px;
-			}
-
-			.step-copy {
-				color: #999;
-				font-size: 14px;
-				line-height: 1.65;
-				max-width: 440px;
 			}
 
 			.next-note {
@@ -2778,21 +2892,13 @@ const inferenceExamples = [
 					position: static;
 				}
 
-				.pipeline-panel {
-					min-height: 0;
-				}
-
-				.corpus-step {
-					min-height: 0;
-					padding: 30px 0 34px 18px;
+				.document-stage,
+				.document-mini-grid {
+					grid-template-columns: 1fr;
 				}
 
 				.promise {
 					font-size: 24px;
-				}
-
-				.step-title {
-					font-size: 28px;
 				}
 
 				.token-demo-grid {
@@ -2810,10 +2916,6 @@ const inferenceExamples = [
 				.next-item {
 					grid-template-columns: 1fr;
 					gap: 8px;
-				}
-
-				.example-source-list {
-					grid-template-columns: 1fr;
 				}
 
 				.training-copy {
@@ -2968,8 +3070,6 @@ const inferenceExamples = [
 			@media (prefers-reduced-motion: reduce) {
 				html { scroll-behavior: auto; }
 
-				.pipeline-node,
-				.corpus-step,
 				.training-visual.is-animating [data-train-part='window'],
 				.training-visual.is-animating [data-train-part='net'],
 				.training-visual.is-animating [data-train-part='map'],
@@ -3049,62 +3149,206 @@ const inferenceExamples = [
 						<span class="section-label">Part One</span>
 						<h2 id="corpus-title" class="promise">Gathering the training data.</h2>
 						<p class="body-copy body-copy--short">
-							We turn the messy internet into clean training data.
+							We turn a human-readable web page into a clean row of training text.
 						</p>
 
-						<div class="pipeline-panel" aria-label="Corpus preparation pipeline">
-							<p class="pipeline-title">Corpus Pipeline</p>
-							<div class="pipeline">
-								<div class="pipeline-node is-active" style="--node-accent: #84a6d8" data-stage="scrape">
-									<span class="pipeline-node-label">Web</span>
-									<span class="pipeline-node-copy">Raw HTML</span>
-								</div>
-								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
-								<div class="pipeline-node" style="--node-accent: #d6a561" data-stage="process">
-									<span class="pipeline-node-label">Filter</span>
-									<span class="pipeline-node-copy">Clean text</span>
-								</div>
-								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
-								<div class="pipeline-node" style="--node-accent: #8f9f86" data-stage="deduplicate">
-									<span class="pipeline-node-label">Dedupe</span>
-									<span class="pipeline-node-copy">Fewer repeats</span>
-								</div>
-								<div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
-								<div class="pipeline-node pipeline-node--wide" style="--node-accent: #b28ad6" data-stage="store">
-									<span class="pipeline-node-label">Corpus</span>
-									<span class="pipeline-node-copy">Training data</span>
-								</div>
-							</div>
-						</div>
+						<p class="body-copy body-copy--short">
+							The key move is extraction: keep the useful language, discard the web-page machinery.
+						</p>
 					</div>
 
-					<div class="step-list">
-						{corpusSteps.map((step, index) => (
-							<article
-								id={`corpus-${step.id}`}
-								class={`corpus-step${index === 0 ? ' is-active' : ''}`}
-								style={`--step-accent: ${['#84a6d8', '#d6a561', '#8f9f86', '#b28ad6'][index]}`}
-								data-corpus-step={step.id}
-							>
-								<p class="step-index">Step {index + 1}</p>
-								<h3 class="step-title">{step.label}</h3>
-								<p class="step-kicker">{step.kicker}</p>
-								<p class="step-copy">{step.description}</p>
+					<div class="document-pipeline" aria-label="Web document to training corpus pipeline">
+						<p class="document-pipeline-title">Web page to corpus row</p>
+						<div class="document-flow">
+							<article class="document-stage" style="--stage-accent: #84a6d8">
+								<div>
+									<p class="document-stage-label">Step 1</p>
+									<h3 class="document-stage-title">Filter URLs</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">Before fetching, the crawl can skip low-quality domains, spam, adult content, malware risk, and file types outside the training policy.</p>
+								</div>
 							</article>
-						))}
+
+							<article class="document-stage" style="--stage-accent: #84a6d8">
+								<div>
+									<p class="document-stage-label">Step 2</p>
+									<h3 class="document-stage-title">Rendered web page</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">A crawler starts with pages that look like documents people read.</p>
+									<details class="document-example">
+										<summary>Show example web page</summary>
+										<div class="document-example-content">
+											<div class="example-toggle-group corpus-example-toggle-group" aria-label="Web page example selector">
+												{throughlineExamples.map((example, index) => (
+													<button
+														class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+														type="button"
+														data-corpus-example-toggle="web"
+														data-corpus-example-id={example.id}
+														aria-pressed={index === 0 ? 'true' : 'false'}
+													>
+														Example {index + 1}
+													</button>
+												))}
+											</div>
+											{throughlineExamples.map((example, index) => (
+												<div
+													class={`corpus-example-panel${index === 0 ? ' is-active' : ''}`}
+													data-corpus-example-panel="web"
+													data-corpus-example-id={example.id}
+												>
+													<article class="example-source">
+														<div class="example-browser-bar" aria-hidden="true">
+															<span class="example-browser-dots">
+																<span></span>
+																<span></span>
+																<span></span>
+															</span>
+															<span class="example-url">{example.documentUrl}</span>
+														</div>
+														<div class="example-document">
+															<span class="example-source-label">{example.sourceLabel}</span>
+															<h3 class="example-document-title">{example.documentTitle}</h3>
+															<p class="example-document-meta">{example.documentMeta}</p>
+															{example.documentParagraphs.map((paragraph) => (
+																<p set:html={paragraph.replace(example.documentText, `<mark>${example.documentText}</mark>`)} />
+															))}
+														</div>
+													</article>
+												</div>
+											))}
+										</div>
+									</details>
+								</div>
+							</article>
+
+							<article class="document-stage" style="--stage-accent: #d6a561">
+								<div>
+									<p class="document-stage-label">Step 3</p>
+									<h3 class="document-stage-title">Under the hood: HTML</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">The crawler fetches markup, navigation, styling hooks, ads, and the text mixed together.</p>
+									<details class="document-example">
+										<summary>Show example HTML</summary>
+										<div class="document-example-content">
+											<div class="example-toggle-group corpus-example-toggle-group" aria-label="HTML example selector">
+												{throughlineExamples.map((example, index) => (
+													<button
+														class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+														type="button"
+														data-corpus-example-toggle="html"
+														data-corpus-example-id={example.id}
+														aria-pressed={index === 0 ? 'true' : 'false'}
+													>
+														Example {index + 1}
+													</button>
+												))}
+											</div>
+											{throughlineExamples.map((example, index) => (
+												<div
+													class={`corpus-example-panel${index === 0 ? ' is-active' : ''}`}
+													data-corpus-example-panel="html"
+													data-corpus-example-id={example.id}
+												>
+													<pre class="html-example-code"><code set:html={buildDocumentHtml(example)} /></pre>
+												</div>
+											))}
+										</div>
+									</details>
+								</div>
+							</article>
+
+							<article class="document-stage" style="--stage-accent: #8f9f86">
+								<div>
+									<p class="document-stage-label">Step 4</p>
+									<h3 class="document-stage-title">Extract plain text</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">Processing strips out the site chrome and keeps the useful language.</p>
+									<details class="document-example">
+										<summary>Show extracted text</summary>
+										<div class="document-example-content">
+											<div class="example-toggle-group corpus-example-toggle-group" aria-label="Plain text example selector">
+												{throughlineExamples.map((example, index) => (
+													<button
+														class={`example-toggle${index === 0 ? ' is-active' : ''}`}
+														type="button"
+														data-corpus-example-toggle="text"
+														data-corpus-example-id={example.id}
+														aria-pressed={index === 0 ? 'true' : 'false'}
+													>
+														Example {index + 1}
+													</button>
+												))}
+											</div>
+											{throughlineExamples.map((example, index) => (
+												<div
+													class={`corpus-example-panel${index === 0 ? ' is-active' : ''}`}
+													data-corpus-example-panel="text"
+													data-corpus-example-id={example.id}
+												>
+													<pre class="plaintext-example-block">{example.documentParagraphs.join('\n\n')}</pre>
+												</div>
+											))}
+										</div>
+									</details>
+								</div>
+							</article>
+
+							<article class="document-stage" style="--stage-accent: #b28ad6">
+								<div>
+									<p class="document-stage-label">Step 5</p>
+									<h3 class="document-stage-title">Filter and deduplicate</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">More passes remove boilerplate, normalize text, reduce near-copies, and drop low-value content.</p>
+								</div>
+							</article>
+
+							<article class="document-stage" style="--stage-accent: #84a6d8">
+								<div>
+									<p class="document-stage-label">Step 6</p>
+									<h3 class="document-stage-title">Store a corpus row</h3>
+								</div>
+								<div>
+									<p class="document-stage-copy">The output is stored with metadata so it can be sampled during training.</p>
+									<details class="document-example">
+										<summary>Show example row</summary>
+										<div class="document-example-content">
+											<div class="corpus-row-table-wrap">
+												<table class="corpus-row-table">
+													<thead>
+														<tr>
+															<th scope="col">url</th>
+															<th scope="col">title</th>
+															<th scope="col">source</th>
+															<th scope="col">content</th>
+														</tr>
+													</thead>
+													<tbody>
+														{throughlineExamples.map((example) => (
+																<tr>
+																	<td>{example.documentUrl}</td>
+																	<td>{example.documentTitle}</td>
+																	<td>{example.documentMeta}</td>
+																	<td><span class="corpus-row-content">{getDocumentExcerpt(example)}</span></td>
+																</tr>
+														))}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</details>
+								</div>
+							</article>
+						</div>
 					</div>
 				</div>
 
 				<div class="corpus-actions">
-					<button
-						class="reveal-button"
-						type="button"
-						data-reveal-toggle="corpus-examples"
-						aria-controls="corpus-examples"
-						aria-expanded="false"
-					>
-						Show example sources
-					</button>
 					<a
 						class="source-link"
 						href="https://huggingface.co/datasets/HuggingFaceFW/fineweb"
@@ -3116,32 +3360,6 @@ const inferenceExamples = [
 					>
 						Demo: FineWeb dataset &rarr;
 					</a>
-				</div>
-
-				<div id="corpus-examples" class="example-thread reveal-panel" aria-label="Example documents used through the talk">
-					<p class="example-thread-title">Throughline source documents</p>
-					<div class="example-source-list">
-						{throughlineExamples.map((example) => (
-							<article class="example-source">
-								<div class="example-browser-bar" aria-hidden="true">
-									<span class="example-browser-dots">
-										<span></span>
-										<span></span>
-										<span></span>
-									</span>
-									<span class="example-url">{example.documentUrl}</span>
-								</div>
-								<div class="example-document">
-									<span class="example-source-label">{example.sourceLabel}</span>
-									<h3 class="example-document-title">{example.documentTitle}</h3>
-									<p class="example-document-meta">{example.documentMeta}</p>
-									{example.documentParagraphs.map((paragraph) => (
-										<p set:html={paragraph.replace(example.documentText, `<mark>${example.documentText}</mark>`)} />
-									))}
-								</div>
-							</article>
-						))}
-					</div>
 				</div>
 			</section>
 
@@ -3862,52 +4080,50 @@ const inferenceExamples = [
 		</main>
 
 		<script>
-			const steps = Array.from(document.querySelectorAll('[data-corpus-step]'));
-			const stages = Array.from(document.querySelectorAll('[data-stage]'));
-			const revealToggles = Array.from(document.querySelectorAll('[data-reveal-toggle]'));
+			const corpusExampleToggles = Array.from(document.querySelectorAll('[data-corpus-example-toggle]'));
+			const corpusExamplePanels = Array.from(document.querySelectorAll('[data-corpus-example-panel]'));
+			const documentExampleSummaries = Array.from(document.querySelectorAll('.document-example > summary'));
 			const tokenExampleToggles = Array.from(document.querySelectorAll('[data-token-example-toggle]'));
 			const tokenExamplePanels = Array.from(document.querySelectorAll('[data-token-example-panel]'));
 			const sftExampleToggles = Array.from(document.querySelectorAll('[data-sft-example-toggle]'));
 			const sftExamplePanels = Array.from(document.querySelectorAll('[data-sft-example-panel]'));
 
-			const setActiveStep = (activeId) => {
-				steps.forEach((step) => {
-					step.classList.toggle('is-active', step.dataset.corpusStep === activeId);
+			documentExampleSummaries.forEach((summary) => {
+				summary.addEventListener('click', (event) => {
+					event.preventDefault();
+					const details = summary.parentElement;
+					if (details instanceof HTMLDetailsElement) {
+						details.open = !details.open;
+					}
+				});
+			});
+
+			const setCorpusExample = (group, exampleId) => {
+				corpusExampleToggles.forEach((toggle) => {
+					const isSameGroup = toggle.getAttribute('data-corpus-example-toggle') === group;
+					const isActive = isSameGroup && toggle.getAttribute('data-corpus-example-id') === exampleId;
+					if (isSameGroup) {
+						toggle.classList.toggle('is-active', isActive);
+						toggle.setAttribute('aria-pressed', String(isActive));
+					}
 				});
 
-				stages.forEach((stage) => {
-					stage.classList.toggle('is-active', stage.dataset.stage === activeId);
+				corpusExamplePanels.forEach((panel) => {
+					const isSameGroup = panel.getAttribute('data-corpus-example-panel') === group;
+					const isActive = isSameGroup && panel.getAttribute('data-corpus-example-id') === exampleId;
+					if (isSameGroup) {
+						panel.classList.toggle('is-active', isActive);
+					}
 				});
 			};
 
-			if ('IntersectionObserver' in window && steps.length > 0) {
-				const observer = new IntersectionObserver((entries) => {
-					const visibleEntry = entries
-						.filter((entry) => entry.isIntersecting)
-						.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-					if (visibleEntry instanceof IntersectionObserverEntry) {
-						setActiveStep(visibleEntry.target.dataset.corpusStep);
-					}
-				}, {
-					rootMargin: '-28% 0px -38% 0px',
-					threshold: [0.2, 0.45, 0.7],
-				});
-
-				steps.forEach((step) => observer.observe(step));
-			}
-
-			revealToggles.forEach((toggle) => {
+			corpusExampleToggles.forEach((toggle) => {
 				toggle.addEventListener('click', () => {
-					const panelId = toggle.getAttribute('data-reveal-toggle');
-					if (!panelId) return;
+					const group = toggle.getAttribute('data-corpus-example-toggle');
+					const exampleId = toggle.getAttribute('data-corpus-example-id');
+					if (!group || !exampleId) return;
 
-					const panel = document.getElementById(panelId);
-					const isVisible = panel?.classList.toggle('is-visible') ?? false;
-					toggle.setAttribute('aria-expanded', String(isVisible));
-					toggle.textContent = isVisible
-						? toggle.textContent?.replace('Show', 'Hide') ?? ''
-						: toggle.textContent?.replace('Hide', 'Show') ?? '';
+					setCorpusExample(group, exampleId);
 				});
 			});
 
