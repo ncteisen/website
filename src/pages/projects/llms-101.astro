@@ -2504,6 +2504,80 @@ const inferenceExamples = [
 				padding-left: 14px;
 			}
 
+			.recap-grid {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 14px;
+			}
+
+			.recap-card {
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(10, 10, 10, 0.42);
+				min-height: 150px;
+				padding: 18px;
+			}
+
+			.recap-index {
+				color: #777;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				margin-bottom: 12px;
+				text-transform: uppercase;
+			}
+
+			.recap-title {
+				color: #eae7e0;
+				font-size: 20px;
+				font-weight: 700;
+				line-height: 1.12;
+				margin-bottom: 10px;
+			}
+
+			.recap-copy {
+				color: #999;
+				font-size: 13px;
+				line-height: 1.55;
+			}
+
+			.next-list {
+				border-top: 1px solid #1a1a1a;
+			}
+
+			.next-item {
+				display: grid;
+				grid-template-columns: 150px minmax(0, 1fr);
+				gap: 24px;
+				align-items: baseline;
+				border-bottom: 1px solid #1a1a1a;
+				padding: 22px 0;
+			}
+
+			.next-label {
+				color: var(--llms-accent);
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.8px;
+				text-transform: uppercase;
+			}
+
+			.next-title {
+				color: #eae7e0;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1.08;
+				margin-bottom: 8px;
+			}
+
+			.next-copy {
+				color: #999;
+				font-size: 14px;
+				line-height: 1.6;
+				max-width: 560px;
+			}
+
 			.rlhf-section {
 				width: auto;
 				margin-left: 0;
@@ -2727,6 +2801,15 @@ const inferenceExamples = [
 
 				.memory-grid {
 					grid-template-columns: 1fr;
+				}
+
+				.recap-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.next-item {
+					grid-template-columns: 1fr;
+					gap: 8px;
 				}
 
 				.example-source-list {
@@ -3617,7 +3700,7 @@ const inferenceExamples = [
 				<div class="rlhf-layout">
 					<div>
 						<span class="section-label">Part Eight</span>
-						<h2 id="rlhf-title" class="promise">RLHF nudges the assistant toward preferred behavior.</h2>
+						<h2 id="rlhf-title" class="promise">Reinforcement learning nudges the assistant toward preferred behavior.</h2>
 						<ul class="rlhf-list">
 							<li>RLHF means Reinforcement Learning from Human Feedback.</li>
 							<li>Humans rank multiple model outputs for the same prompt.</li>
@@ -3663,6 +3746,114 @@ const inferenceExamples = [
 								</div>
 							</article>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="checkpoint-section" aria-labelledby="recap-title">
+				<div class="checkpoint-layout">
+					<div>
+						<span class="section-label">Recap</span>
+						<h2 id="recap-title" class="promise">What we built up.</h2>
+						<p class="body-copy body-copy--short">
+							LLMs start as text prediction machines, then become useful assistants through data, training, context, tools, and feedback.
+						</p>
+					</div>
+
+					<div class="recap-grid" aria-label="LLMs 101 recap">
+						<article class="recap-card">
+							<span class="recap-index">01</span>
+							<p class="recap-title">Data becomes tokens.</p>
+							<p class="recap-copy">Web text is collected, cleaned, tokenized, and turned into model-readable IDs.</p>
+						</article>
+
+						<article class="recap-card">
+							<span class="recap-index">02</span>
+							<p class="recap-title">Training tunes weights.</p>
+							<p class="recap-copy">The neural net learns to produce better next-token probability maps.</p>
+						</article>
+
+						<article class="recap-card">
+							<span class="recap-index">03</span>
+							<p class="recap-title">Inference samples outputs.</p>
+							<p class="recap-copy">Generation is repeated sampling: predict, choose, append, repeat.</p>
+						</article>
+
+						<article class="recap-card">
+							<span class="recap-index">04</span>
+							<p class="recap-title">SFT shapes conversation.</p>
+							<p class="recap-copy">Conversation examples tune the model toward assistant-style replies.</p>
+						</article>
+
+						<article class="recap-card">
+							<span class="recap-index">05</span>
+							<p class="recap-title">Tools add fresh context.</p>
+							<p class="recap-copy">Special tokens let the model ask the app to search, code, calculate, or call APIs.</p>
+						</article>
+
+						<article class="recap-card">
+							<span class="recap-index">06</span>
+							<p class="recap-title">RLHF shapes preference.</p>
+							<p class="recap-copy">Human rankings nudge the assistant toward answers people prefer.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="checkpoint-section" aria-labelledby="next-title">
+				<div class="checkpoint-layout">
+					<div>
+						<span class="section-label">What's Next</span>
+						<h2 id="next-title" class="promise">What's next.</h2>
+						<p class="body-copy body-copy--short">
+							Once the basics click, these are the next doors to open.
+						</p>
+					</div>
+
+					<div class="next-list" aria-label="Future topics">
+						<article class="next-item">
+							<span class="next-label">Agents</span>
+							<div>
+								<p class="next-title">Models that plan and act.</p>
+								<p class="next-copy">Longer loops where the assistant uses tools repeatedly to pursue a goal.</p>
+							</div>
+						</article>
+
+						<article class="next-item">
+							<span class="next-label">Harnesses</span>
+							<div>
+								<p class="next-title">The app around the model.</p>
+								<p class="next-copy">System prompts, tools, memory, permissions, and orchestration.</p>
+							</div>
+						</article>
+
+						<article class="next-item">
+							<span class="next-label">Multimodal</span>
+							<div>
+								<p class="next-title">More than text.</p>
+								<p class="next-copy">Models that read or generate images, audio, video, and mixed inputs.</p>
+							</div>
+						</article>
+
+						<article class="next-item">
+							<span class="next-label">Neural nets</span>
+							<div>
+								<p class="next-title">A deeper dive inside.</p>
+								<p class="next-copy">Transformers, attention, embeddings, gradients, and why scale matters.</p>
+							</div>
+						</article>
+
+						<article class="next-item">
+							<span class="next-label">Other ML models</span>
+							<div>
+								<p class="next-title">Not everything is an LLM.</p>
+								<p class="next-copy">Diffusion models, classifiers, recommenders, and other useful shapes of learning.</p>
+							</div>
+						</article>
 					</div>
 				</div>
 			</section>
