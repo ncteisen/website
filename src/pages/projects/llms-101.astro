@@ -18,7 +18,7 @@ const throughlineExamples = [
 		documentParagraphs: [
 			'Students often mix up cities, regions, and countries when learning geography.',
 			'The capital of France is Paris. It appears in this toy document as ordinary web text, exactly the kind of sentence a crawler might collect before cleaning.',
-			'After collection, this page would be reduced to plain text and stored with many other documents.',
+			'After collection, this page would be reduced to plain text and stored alongside many other documents.',
 		],
 		tokens: [
 			{ id: '791', text: 'The' },
@@ -56,7 +56,7 @@ const throughlineExamples = [
 		documentParagraphs: [
 			'The best speeches usually sound like one person speaking sincerely to another person.',
 			'A good wedding toast should be personal, brief, and kind. It can include a small story, a thank-you, and a clear wish for the couple.',
-			'This is another toy source document that can travel through the same scrape, process, deduplicate, and store pipeline.',
+			'This is another toy source document that can move through the same scrape, process, deduplicate, and store pipeline.',
 		],
 		tokens: [
 			{ id: '32', text: 'A' },
@@ -406,7 +406,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 		<title>LLMs 101 | Noah Eisen</title>
 		<SocialPreview
 			title="Noah Eisen - LLMs 101"
-			description="An interactive, non-technical talk about how large language models are built."
+			description="An interactive, non-technical talk about how large language models work."
 			path="/projects/llms-101/"
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
@@ -3097,10 +3097,10 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 		<main class="wrap" role="main">
 			<header class="project-header">
 				<div class="header-copy">
-					<h1 class="project-title">LLMS<br />101</h1>
+					<h1 class="project-title">LLMs<br />101</h1>
 					<p class="project-subtitle">Interactive Talk</p>
 					<p class="project-description">
-						A voice-over walkthrough of the core concepts behind large language models.
+						A guided walkthrough of the core concepts behind large language models.
 					</p>
 				</div>
 				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to homepage</a>
@@ -3112,9 +3112,9 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="intro-grid">
 					<div>
 						<span class="section-label">Opening</span>
-						<h2 id="llms-101-goals" class="promise">Let's demystify LLMs.</h2>
+						<h2 id="llms-101-goals" class="promise">Let's make LLMs feel less mysterious.</h2>
 						<p class="body-copy body-copy--short">
-							A visual track for a non-technical talk on how LLMs are built.
+							A visual, non-technical walkthrough of how LLMs are built and why they behave the way they do.
 						</p>
 						<a
 							class="source-link"
@@ -3155,14 +3155,14 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="corpus-layout">
 					<div class="corpus-intro">
 						<span class="section-label">Part One</span>
-						<h2 id="corpus-title" class="promise">Gathering the training data.</h2>
+						<h2 id="corpus-title" class="promise">First, gather the training data.</h2>
 						<p class="body-copy body-copy--short">
-							We turn the entire messy internet into a clean dataset of training text.
+							We turn messy web text into a cleaner dataset the model can learn from.
 						</p>
 					</div>
 
 					<div class="document-pipeline" aria-label="Web document to training corpus pipeline">
-						<p class="document-pipeline-title">Web page to corpus row</p>
+						<p class="document-pipeline-title">Web page to dataset row</p>
 						<div class="document-flow">
 							<article class="document-stage" style="--stage-accent: #84a6d8">
 								<div>
@@ -3170,7 +3170,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Filter URLs</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">Before fetching, the crawl skips low-quality domains, spam, adult content, malware, and file types that don't belong in the training set.</p>
+									<p class="document-stage-copy">Before fetching, the crawler skips low-quality domains, spam, adult content, malware, and file types that don't belong in the training set.</p>
 								</div>
 							</article>
 
@@ -3234,7 +3234,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Under the hood: HTML</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">The crawler fetches everything at once: markup, navigation, styling, ads, and the actual text, all jumbled together.</p>
+									<p class="document-stage-copy">The crawler downloads more than the article: markup, navigation, styling, ads, and the actual text, all mixed together.</p>
 									<details class="document-example">
 										<summary>Show example HTML</summary>
 										<div class="document-example-content">
@@ -3271,7 +3271,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Extract plain text</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">Processing strips out navigation, ads, and styling and keeps only the readable text.</p>
+									<p class="document-stage-copy">Processing strips out navigation, ads, and styling, then keeps the readable text.</p>
 									<details class="document-example">
 										<summary>Show extracted text</summary>
 										<div class="document-example-content">
@@ -3373,12 +3373,12 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="token-layout">
 					<div>
 						<span class="section-label">Part Two</span>
-						<h2 id="token-title" class="promise">Tokenization turns text into model-readable chunks.</h2>
+						<h2 id="token-title" class="promise">Tokenization turns text into chunks the model can read.</h2>
 						<ul class="token-bullets">
 							<li>Tokens are the chunks of text an LLM reads and writes.</li>
 							<li>A token can be a whole word, part of a word, punctuation, whitespace, or a special marker.</li>
 							<li>LLMs do not directly process raw words; they process token IDs.</li>
-							<li>Token count controls context size and cost.</li>
+							<li>Token counts shape how much fits in context and how much a request costs.</li>
 						</ul>
 					</div>
 
@@ -3450,9 +3450,9 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					<div class="training-copy">
 						<div>
 							<span class="section-label">Part Three</span>
-							<h2 id="training-title" class="promise">Training teaches the model better next-token probabilities.</h2>
+							<h2 id="training-title" class="promise">Training teaches the model which tokens are likely to come next.</h2>
 							<p class="body-copy body-copy--short">
-								A token window goes in. A probability map comes out. During training, we know the right next token.
+								A token window goes in. A probability map comes out. During training, the dataset tells us which token came next.
 							</p>
 							<div class="example-toggle-group" aria-label="Training example selector">
 								{throughlineExamples.map((example, index) => (
@@ -3502,7 +3502,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 									<div class="probability-map" data-train-part="map">
 										<p class="probability-title">Probability map</p>
-										<p class="probability-subtitle">One probability for every token in the vocabulary. Just showing the top three.</p>
+										<p class="probability-subtitle">One probability for every token in the vocabulary. Here, we only show the top three.</p>
 										{example.candidates.map((candidate, index) => (
 											<>
 											<div
@@ -3544,7 +3544,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					<div class="weights-copy">
 						<div>
 							<span class="section-label">Part Four</span>
-							<h2 id="weights-title" class="promise">The neural net is a huge equation with lots of knobs.</h2>
+							<h2 id="weights-title" class="promise">The neural net is a huge equation with learned knobs.</h2>
 							<p class="body-copy body-copy--short">
 								The context window goes in. The weights shape the equation. A probability map comes out.
 							</p>
@@ -3560,7 +3560,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					</div>
 
 					<div class="weights-visual" data-weights-visual aria-label="Neural net weights diagram">
-						<p class="weights-visual-title">Inside The Neural Net</p>
+						<p class="weights-visual-title">Inside the Neural Net</p>
 						<div class="equation-flow">
 							<div class="equation-node">
 								<span class="equation-label">Input</span>
@@ -3619,7 +3619,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						</div>
 
 						<p class="weights-note">
-							Training repeatedly tunes the weights so this equation gets better at producing useful next-token probability maps.
+							Training repeatedly tunes the weights so this equation gets better at predicting useful next-token probability maps.
 						</p>
 					</div>
 				</div>
@@ -3632,9 +3632,9 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					<div class="inference-copy">
 						<div>
 							<span class="section-label">Part Five</span>
-							<h2 id="inference-title" class="promise">Inference is repeated sampling.</h2>
+							<h2 id="inference-title" class="promise">Inference is the generation loop.</h2>
 							<p class="body-copy body-copy--short">
-								The neural net samples one token, appends it to the context, then runs again. Generation is just that loop, repeated.
+								The model predicts a probability map, samples one token, appends it to the context, then runs again.
 							</p>
 							<div class="example-toggle-group" aria-label="Inference example selector">
 								{inferenceExamples.map((example, index) => (
@@ -3709,7 +3709,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="checkpoint-layout">
 					<div>
 						<span class="section-label">Checkpoint</span>
-						<h2 id="base-model-title" class="promise">The psychology of a base model.</h2>
+						<h2 id="base-model-title" class="promise">A base model is not yet an assistant.</h2>
 						<p class="body-copy body-copy--short">
 							At this point, we have a trained internet-text generator. Powerful, but not yet a helpful assistant.
 						</p>
@@ -3719,12 +3719,12 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					</div>
 
 					<ul class="checkpoint-list">
-						<li>Token-level internet document simulator.</li>
+						<li>A token-level internet document simulator.</li>
 						<li>Probabilistic. Run it again and you may sample a different continuation.</li>
-						<li>It dreams internet documents one token at a time.</li>
-						<li>A lot of useful world knowledge is stored in the network parameters.</li>
+						<li>It continues internet documents one token at a time.</li>
+						<li>Some useful world knowledge is stored in the network parameters.</li>
 						<li>You can already build applications with clever prompts: few-shot translation, or a prompt that fakes an assistant conversation.</li>
-						<li>But we can make it better.</li>
+						<li>But we can make the behavior much more useful.</li>
 					</ul>
 				</div>
 			</section>
@@ -3735,13 +3735,13 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="sft-layout">
 					<div>
 						<span class="section-label">Part Six</span>
-						<h2 id="sft-title" class="promise">Supervised fine tuning teaches conversation.</h2>
+						<h2 id="sft-title" class="promise">Supervised fine tuning teaches the model to converse.</h2>
 						<ul class="sft-list">
 							<li>Human data labelers write example conversations.</li>
 							<li>The model trains on those examples after base-model training.</li>
 							<li>This tunes the model toward helpful assistant behavior.</li>
 							<li>Modern systems can also use synthetic conversation data.</li>
-							<li>Much cheaper and faster than the pre-training step.</li>
+							<li>It is much cheaper and faster than pre-training.</li>
 						</ul>
 					</div>
 
@@ -3752,7 +3752,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<div class="sft-flow-node">
 								<span class="sft-flow-label">Input</span>
 								<p class="sft-flow-main">Base model</p>
-								<p class="sft-flow-copy">Good at continuing internet text.</p>
+								<p class="sft-flow-copy">Good at continuing internet-style text.</p>
 							</div>
 							<div class="sft-arrow" aria-hidden="true">&rarr;</div>
 							<div class="sft-flow-node">
@@ -3859,11 +3859,11 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="tool-layout">
 					<div>
 						<span class="section-label">Part Seven</span>
-						<h2 id="tool-title" class="promise">Tool use lets the assistant leave the text box.</h2>
+						<h2 id="tool-title" class="promise">Tool use lets the assistant reach outside the text box.</h2>
 						<ul class="tool-list">
 							<li>The model can choose to call a tool instead of answering directly.</li>
 							<li>It triggers tool use by emitting special tool-call tokens.</li>
-							<li>The app runs the tool, then puts the tool result back into the context window.</li>
+							<li>The app runs the tool, then puts the result back into the context window.</li>
 							<li>Common tools include search, code execution, calculators, files, calendars, and APIs.</li>
 						</ul>
 					</div>
@@ -3875,7 +3875,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<div class="tool-flow-node">
 								<span class="tool-flow-label">Context</span>
 								<p class="tool-flow-main">User asks for fresh information.</p>
-								<p class="tool-flow-copy">The answer may not be stored in the weights.</p>
+								<p class="tool-flow-copy">The answer may not be stored in the model's weights.</p>
 							</div>
 							<div class="tool-arrow" aria-hidden="true">&rarr;</div>
 							<div class="tool-flow-node">
@@ -3908,7 +3908,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<span class="section-label">Checkpoint</span>
 						<h2 id="sft-summary-title" class="promise">Where we are now.</h2>
 						<p class="body-copy body-copy--short">
-							An SFT model behaves like an assistant. It works from the "knowledge" encoded in its parameters and whatever is visible in the context window. Tools can add fresh information to that context window.
+							An SFT model behaves like an assistant. It works from the "knowledge" encoded in its parameters and whatever is visible in the context window. Tools can add fresh information to that window.
 						</p>
 					</div>
 
@@ -3934,13 +3934,13 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="rlhf-layout">
 					<div>
 						<span class="section-label">Part Eight</span>
-						<h2 id="rlhf-title" class="promise">Reinforcement learning nudges the assistant toward preferred behavior.</h2>
+						<h2 id="rlhf-title" class="promise">Reinforcement learning nudges the assistant toward preferred answers.</h2>
 						<ul class="rlhf-list">
 							<li>RLHF means Reinforcement Learning from Human Feedback.</li>
 							<li>Humans rank multiple model outputs for the same prompt.</li>
 							<li>Those rankings train a reward model to predict what humans prefer.</li>
 							<li>The LLM is optimized against that reward model.</li>
-							<li>It helps with behavior, not raw knowledge: helpful, honest, harmless, concise, and polite.</li>
+							<li>It helps shape behavior more than raw knowledge: helpful, honest, harmless, concise, and polite.</li>
 						</ul>
 					</div>
 
@@ -4035,7 +4035,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<span class="section-label">Recap</span>
 						<h2 id="recap-title" class="promise">What we've covered.</h2>
 						<p class="body-copy body-copy--short">
-							LLMs start as text prediction machines, then become useful assistants through data, training, context, tools, and feedback.
+							LLMs start as text-prediction machines, then become useful assistants through data, training, context, tools, and feedback.
 						</p>
 					</div>
 
@@ -4067,7 +4067,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<article class="recap-card">
 							<span class="recap-index">05</span>
 							<p class="recap-title">Tools add fresh context.</p>
-							<p class="recap-copy">Special tokens let the model ask the app to search, code, calculate, or call APIs.</p>
+							<p class="recap-copy">Special tokens let the model ask the app to search, run code, calculate, or call APIs.</p>
 						</article>
 
 						<article class="recap-card">
@@ -4096,7 +4096,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<span class="next-label">Agents</span>
 							<div>
 								<p class="next-title">Models that plan and act.</p>
-								<p class="next-copy">Longer loops where the assistant uses tools repeatedly to pursue a goal.</p>
+								<p class="next-copy">Longer loops where the assistant uses tools repeatedly to work toward a goal.</p>
 							</div>
 						</article>
 
@@ -4128,7 +4128,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<span class="next-label">Other ML models</span>
 							<div>
 								<p class="next-title">Not everything is an LLM.</p>
-								<p class="next-copy">Diffusion models, classifiers, recommenders, and other useful shapes of learning.</p>
+								<p class="next-copy">Diffusion models, classifiers, recommenders, and other useful ways machines learn patterns.</p>
 							</div>
 						</article>
 					</div>
