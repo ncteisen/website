@@ -3170,7 +3170,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Filter URLs</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">Before fetching, the crawl can skip low-quality domains, spam, adult content, malware risk, and file types outside the training policy.</p>
+									<p class="document-stage-copy">Before fetching, the crawl skips low-quality domains, spam, adult content, malware, and file types that don't belong in the training set.</p>
 								</div>
 							</article>
 
@@ -3234,7 +3234,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Under the hood: HTML</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">The crawler fetches markup, navigation, styling hooks, ads, and the text mixed together.</p>
+									<p class="document-stage-copy">The crawler fetches everything at once: markup, navigation, styling, ads, and the actual text, all jumbled together.</p>
 									<details class="document-example">
 										<summary>Show example HTML</summary>
 										<div class="document-example-content">
@@ -3271,7 +3271,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 									<h3 class="document-stage-title">Extract plain text</h3>
 								</div>
 								<div>
-									<p class="document-stage-copy">Processing strips out the site chrome and keeps the useful language.</p>
+									<p class="document-stage-copy">Processing strips out navigation, ads, and styling and keeps only the readable text.</p>
 									<details class="document-example">
 										<summary>Show extracted text</summary>
 										<div class="document-example-content">
@@ -3502,7 +3502,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 									<div class="probability-map" data-train-part="map">
 										<p class="probability-title">Probability map</p>
-										<p class="probability-subtitle">One probability for every token in the vocabulary. These are just a few examples.</p>
+										<p class="probability-subtitle">One probability for every token in the vocabulary. Just showing the top three.</p>
 										{example.candidates.map((candidate, index) => (
 											<>
 											<div
@@ -3634,7 +3634,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<span class="section-label">Part Five</span>
 							<h2 id="inference-title" class="promise">Inference is repeated sampling.</h2>
 							<p class="body-copy body-copy--short">
-								The neural net samples one token, adds it to the context, then runs again. Generation is that loop repeated.
+								The neural net samples one token, appends it to the context, then runs again. Generation is just that loop, repeated.
 							</p>
 							<div class="example-toggle-group" aria-label="Inference example selector">
 								{inferenceExamples.map((example, index) => (
@@ -3720,10 +3720,10 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 					<ul class="checkpoint-list">
 						<li>Token-level internet document simulator.</li>
-						<li>Stochastic and probabilistic. Run it again and you may sample a different continuation.</li>
+						<li>Probabilistic. Run it again and you may sample a different continuation.</li>
 						<li>It dreams internet documents one token at a time.</li>
 						<li>A lot of useful world knowledge is stored in the network parameters.</li>
-						<li>You can already build applications with clever prompts: few-shot translation, or a conversation-shaped assistant prompt.</li>
+						<li>You can already build applications with clever prompts: few-shot translation, or a prompt that fakes an assistant conversation.</li>
 						<li>But we can make it better.</li>
 					</ul>
 				</div>
@@ -3741,7 +3741,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<li>The model trains on those examples after base-model training.</li>
 							<li>This tunes the model toward helpful assistant behavior.</li>
 							<li>Modern systems can also use synthetic conversation data.</li>
-							<li>Much cheaper and faster than the pre training step.</li>
+							<li>Much cheaper and faster than the pre-training step.</li>
 						</ul>
 					</div>
 
@@ -3908,7 +3908,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<span class="section-label">Checkpoint</span>
 						<h2 id="sft-summary-title" class="promise">Where we are now.</h2>
 						<p class="body-copy body-copy--short">
-							An SFT model behaves like an assistant. It workes based off "knowledge" encoded in the parameters and what is visible in the context window. Tools can add information to the context window.
+							An SFT model behaves like an assistant. It works from the "knowledge" encoded in its parameters and whatever is visible in the context window. Tools can add fresh information to that context window.
 						</p>
 					</div>
 
@@ -3916,7 +3916,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<article class="memory-card">
 							<span class="memory-card-label">Knowledge in parameters</span>
 							<p class="memory-card-title">Vague recollection</p>
-							<p class="memory-card-copy">Like something you read one month ago: useful, compressed, and sometimes fuzzy.</p>
+							<p class="memory-card-copy">Like something you read a month ago: useful, compressed, and sometimes fuzzy.</p>
 						</article>
 
 						<article class="memory-card">
@@ -4033,7 +4033,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="checkpoint-layout">
 					<div>
 						<span class="section-label">Recap</span>
-						<h2 id="recap-title" class="promise">What we built up.</h2>
+						<h2 id="recap-title" class="promise">What we've covered.</h2>
 						<p class="body-copy body-copy--short">
 							LLMs start as text prediction machines, then become useful assistants through data, training, context, tools, and feedback.
 						</p>
