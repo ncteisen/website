@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-13T12:09:56.686482",
+  "last_updated": "2026-05-14T11:57:18.673550",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -3726,7 +3726,7 @@
         "read_at": "Thu, 12 Feb 2026 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
         "link": "https://www.goodreads.com/review/show/8112761322?utm_medium=api&utm_source=rss",
-        "review": "With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts"
+        "review": "With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts \ud83e\udd37\u200d\u2642\ufe0f)"
       },
       {
         "title": "The Correspondent",
@@ -4077,7 +4077,7 @@
         "read_at": "Sun, 28 Jan 2024 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1663709589l/61327449.jpg",
         "link": "https://www.goodreads.com/review/show/6173008748?utm_medium=api&utm_source=rss",
-        "review": "We"
+        "review": "We \ud83d\udc4f love \ud83d\udc4f an \ud83d\udc4f engaging \ud83d\udc4f work \ud83d\udc4f read<br /><br />I wish there were deeper anecdotes about IT projects. Maybe I'll write that book in a decade \ud83d\udc40"
       },
       {
         "title": "The Handmaid\u2019s Tale (The Handmaid's Tale, #1)",
@@ -4275,7 +4275,7 @@
         "read_at": "Fri, 16 Jun 2023 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354651l/15839976.jpg",
         "link": "https://www.goodreads.com/review/show/5583744504?utm_medium=api&utm_source=rss",
-        "review": "Very fun, plot-driven sci fi. This exists somewhere between Ender's Game and Hunger Games, with characters that are a bit less empathetic. I have finally broken my 2023 reading dry spell"
+        "review": "Very fun, plot-driven sci fi. This exists somewhere between Ender's Game and Hunger Games, with characters that are a bit less empathetic. I have finally broken my 2023 reading dry spell \ud83d\ude2d\ud83d\ude2d\ud83d\ude2d"
       },
       {
         "title": "Our Missing Hearts",
@@ -5303,7 +5303,7 @@
         "read_at": "Thu, 12 Feb 2026 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
         "link": "https://www.goodreads.com/review/show/8112761322?utm_medium=api&utm_source=rss",
-        "review": "With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts"
+        "review": "With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts \ud83e\udd37\u200d\u2642\ufe0f)"
       },
       {
         "title": "The Correspondent",
@@ -5343,6 +5343,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 18496418308,
+        "name": "Last San Mateo Run \u270c\ufe0f",
+        "type": "Run",
+        "distance": 6.54,
+        "moving_time": 4181,
+        "elapsed_time": 4464,
+        "elevation_gain": 1020.0,
+        "average_pace": 10.65,
+        "average_heartrate": 143.5,
+        "max_heartrate": 173.0,
+        "average_cadence": 82.3,
+        "average_watts": 270.6,
+        "start_date": "2026-05-13T14:17:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18496418308",
+          "summary_polyline": "kz|cFfkqiVFeAR[F[N{AAe@Qo@sAeBUmASY_@GqBVu@IWO`@YXg@|@q@b@k@N_@Fi@Go@Sc@oAe@GoBoAaBLS`A]Nc@BUMkBh@sAf@qDDs@AgAQ_@a@KoA@OKRg@n@{@La@Ce@e@cBDsBOq@NAb@rA~@Mb@NBHGc@LCRZHh@F_@HTH?Fu@Gk@~@m@Dq@Gg@b@u@Eo@V{@Iy@F{@Im@BYTc@`@KPc@lA}AbC`Bt@X`@j@h@@p@d@x@R~@@n@f@PAMe@q@k@MYWOi@y@i@g@Q_A@c@\\iA^]S?CMPMN?l@j@bAvAjB|AXBLUFi@Tc@WwEIs@O[F[LKrADtBn@XZXAUeA]{@Ku@Ac@[a@Me@UYk@Qs@o@_A?E]JOjBk@bAGhAaAz@Fl@AJSRAHl@Vd@|@XHb@Al@v@TX`@f@AJb@TBRv@@d@To@QiAD_@H?J`@h@v@Sy@Fi@H[\\a@Tk@zBi@x@[NSN]Ky@qD}AeAk@Q_@@O\\s@D}@JUPaA?o@b@i@\\cAp@]XBTV^{@NMh@I^JY{@Jc@_APeBIgBg@Sc@Es@Dm@ZmBWyALmATi@D_ANaAHOH?|@v@CTRDONP?HJWPVB@FMDLHUJ\\LMJ^Jc@NGr@FHDUHEDNVEJb@XIJ`C|B`@n@ZhAPb@d@JdAJVIJu@GUPM\\@VT~@NhBCz@_@X_AMcAPUf@a@Zo@`@BRLN`AFHHEb@RxD@rA_@jAw@XOTw@VQd@C|Dd@pAA^e@r@m@\\y@v@aAd@Qh@DpAMxAWLc@CWOe@aBSkAQ{AFkCEOQMw@Kg@DgAqAkAYONCZDd@d@jAJfCIj@YTUBgB}@_ABQj@FpBI~AJ|@If@ONg@FmCy@OBGJBVj@|@Rl@BlAWv@NV?VLXYhA@RVf@hGvBPb@JdAHF`BK~Ab@p@On@?nAZV\\Jj@F~BIh@Wv@aA|@g@p@Qn@O~A_@r@s@v@oAr@w@|D[xC@hB`@~GEzJIdCaAzCWdBa@~@WROBk@OUUQa@kASg@Ye@o@i@GW[MuAWk@{BkAk@F_@fAu@\\Iz@MPWE_Ao@WC]LUp@QP_BAKKG]Hk@AY",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18477940403,
         "name": "Morning Run",
@@ -7520,28 +7542,6 @@
           "summary_polyline": "iwoeFxzljVLE^Gp@FXL^`@^b@d@t@t@~@DVn@vAJPZ~@f@fABd@AzCJfAp@tCn@lDVvB?VOvBQp@ODm@FSH[?o@Nc@@aAVi@\\KL[p@Sn@Yh@I\\UXo@hAo@hBMp@CXI\\MhAKf@EvA@t@NbCJj@`@zAb@t@VXNNl@TxATv@FLJTDv@dAJ\\r@lDFPBZVjAbAxGV~BWNWDm@Bk@EQFUDm@@k@RCRJ@HH?NQV]PgBL]G]Qk@?]BqAZm@EU@e@LgAB]O]c@IEMAGCEKUaBWiAGgA[_ACWAi@Fs@Jm@BqBCc@Ig@CWPkAl@gCT{A@s@GaA[oA[{@uAaCw@eAm@eAc@k@M[i@wBOyAIwAAcABeAA]Bc@EuDNiDLaB^mC\\wAPeARgBTmAL{@^yDTaDZsCNqCPcBJmD@uAAg@FaA?w@KeBM_Ak@}B_@_AUcARIFI?SK}@?ODUTi@DQL_ACa@EUg@yAQu@E]?ONcABe@C]Om@CyAB]?{@i@yAOaADq@@}AQw@UaBBaAA]BeAOsAEEc@I\\KBGAm@M{AISUe@KKSq@U[ESIS?MJm@FM@MM{APg@@KBqABUAw@Ea@Aa@Qs@?]Gm@Da@?SK}BGk@CoAGk@I{ABiASkBDaAYyAMsACe@?U",
           "resource_state": 2
         }
-      },
-      {
-        "id": 16896229655,
-        "name": "20 min HIIT & Hills Ride with Leanne Hainsby-Alldis",
-        "type": "Ride",
-        "distance": 7.29,
-        "moving_time": 1200,
-        "elapsed_time": 1200,
-        "elevation_gain": 0.0,
-        "average_pace": 2.74,
-        "average_heartrate": null,
-        "max_heartrate": null,
-        "average_cadence": 77.9,
-        "average_watts": 217.5,
-        "start_date": "2025-12-31T16:16:12Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a16896229655",
-          "summary_polyline": "",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7677,6 +7677,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 18496418308,
+        "name": "Last San Mateo Run \u270c\ufe0f",
+        "type": "Run",
+        "distance": 6.54,
+        "moving_time": 4181,
+        "elapsed_time": 4464,
+        "elevation_gain": 1020.0,
+        "average_pace": 10.65,
+        "average_heartrate": 143.5,
+        "max_heartrate": 173.0,
+        "average_cadence": 82.3,
+        "average_watts": 270.6,
+        "start_date": "2026-05-13T14:17:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18496418308",
+          "summary_polyline": "kz|cFfkqiVFeAR[F[N{AAe@Qo@sAeBUmASY_@GqBVu@IWO`@YXg@|@q@b@k@N_@Fi@Go@Sc@oAe@GoBoAaBLS`A]Nc@BUMkBh@sAf@qDDs@AgAQ_@a@KoA@OKRg@n@{@La@Ce@e@cBDsBOq@NAb@rA~@Mb@NBHGc@LCRZHh@F_@HTH?Fu@Gk@~@m@Dq@Gg@b@u@Eo@V{@Iy@F{@Im@BYTc@`@KPc@lA}AbC`Bt@X`@j@h@@p@d@x@R~@@n@f@PAMe@q@k@MYWOi@y@i@g@Q_A@c@\\iA^]S?CMPMN?l@j@bAvAjB|AXBLUFi@Tc@WwEIs@O[F[LKrADtBn@XZXAUeA]{@Ku@Ac@[a@Me@UYk@Qs@o@_A?E]JOjBk@bAGhAaAz@Fl@AJSRAHl@Vd@|@XHb@Al@v@TX`@f@AJb@TBRv@@d@To@QiAD_@H?J`@h@v@Sy@Fi@H[\\a@Tk@zBi@x@[NSN]Ky@qD}AeAk@Q_@@O\\s@D}@JUPaA?o@b@i@\\cAp@]XBTV^{@NMh@I^JY{@Jc@_APeBIgBg@Sc@Es@Dm@ZmBWyALmATi@D_ANaAHOH?|@v@CTRDONP?HJWPVB@FMDLHUJ\\LMJ^Jc@NGr@FHDUHEDNVEJb@XIJ`C|B`@n@ZhAPb@d@JdAJVIJu@GUPM\\@VT~@NhBCz@_@X_AMcAPUf@a@Zo@`@BRLN`AFHHEb@RxD@rA_@jAw@XOTw@VQd@C|Dd@pAA^e@r@m@\\y@v@aAd@Qh@DpAMxAWLc@CWOe@aBSkAQ{AFkCEOQMw@Kg@DgAqAkAYONCZDd@d@jAJfCIj@YTUBgB}@_ABQj@FpBI~AJ|@If@ONg@FmCy@OBGJBVj@|@Rl@BlAWv@NV?VLXYhA@RVf@hGvBPb@JdAHF`BK~Ab@p@On@?nAZV\\Jj@F~BIh@Wv@aA|@g@p@Qn@O~A_@r@s@v@oAr@w@|D[xC@hB`@~GEzJIdCaAzCWdBa@~@WROBk@OUUQa@kASg@Ye@o@i@GW[MuAWk@{BkAk@F_@fAu@\\Iz@MPWE_Ao@WC]LUp@QP_BAKKG]Hk@AY",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18477940403,
         "name": "Morning Run",
@@ -7828,28 +7850,6 @@
         "map": {
           "id": "a18349956568",
           "summary_polyline": "yopeFvjhjV?P_@j@ZTDTxAbBFXAn@Jh@EFl@v@HTC\\Bf@MT{@j@pAtAWX[p@h@RRVPf@mCz@ITDREXSJCNM?IRw@BOFLPJZF|@e@`@QBDVId@DH_@d@ChA[|@j@xAb@p@AHN\\GHD\\ETL^Df@HPA\\SR?NVpAWLFd@APOT@Zo@VLl@d@~@Af@LZAVKh@QF@Vp@~Aj@`Ah@vAXlAR`@SXCn@mA`@PfA?n@b@|Al@t@d@jADd@EDCZGVZ`Bn@bAd@fAz@lAZDh@b@rCUl@B~A_@fAGZe@\\K~AKhAOpCe@dCM`B]VSl@B~BWf@QdACh@UhAQlEi@hAErCa@zBKFGH~Ap@xDNd@N`A|@v@J\\^\\BXXb@DKIYDMEMO]KAGMAk@OIMWFYPLDTXHPr@`BnAAVYZCXVt@J|@Kb@?lBGHVDIXYJf@LLSHo@F^G`@NGS`AG@@`@XVPGBDCPODu@Ga@WYa@MAf@hAd@h@`@Tm@DEHXLnAHQLGTj@Kr@FXG`@R?SL@Ja@ZYVRDN^G\\Dv@vBVP^@\\c@vAPhAEh@ZPA@IIM_@KW@a@a@q@]q@m@]i@Co@DGTj@n@Vi@{@Ee@@qBRu@JaBm@kA@wACQQYEiCKWQSCSRo@zAi@Ta@Km@[m@DIVA@SZc@F@DNV\\b@FJLh@NDJLMTPDOD@?LFPRRZp@LDb@QhBKl@_@@[EOWqBq@m@Mq@g@m@EMGy@o@uA]}@G[KOc@Qc@{@Ii@B_@d@_@HUD}@Pq@Gg@n@WAS]QEO?QbDw@pBeA^g@DOCU}@gBq@e@Ov@Wh@UdAAb@FNRHbBw@d@IFTQXkCjA_Ch@c@GM[@k@lAcCJq@w@uFMYYEMHGXVtBAZO^k@n@O`@mBt@a@Vs@x@_@z@iB~A[N}B`@_AIi@uCk@iA_Ak@gBc@wBcAGIIe@Y@gA\\w@n@qDp@aASaBk@aAs@k@q@wBqAgFz@aBNoAPe@PuAFq@VmDRi@R_CVqBl@WAYQkA^oANQe@OaA[mESqA?u@Qs@Gu@@WQ{Be@gI@cAQ}@IgBAaAi@yHa@_DKoCIIm@IkA@q@\\{@Jq@X{@HKm@a@ByBf@s@BaA^mBNcAN",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18334360415,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.5,
-        "moving_time": 3253,
-        "elapsed_time": 3530,
-        "elevation_gain": 246.0,
-        "average_pace": 8.34,
-        "average_heartrate": 135.8,
-        "max_heartrate": 156.0,
-        "average_cadence": 89.7,
-        "average_watts": 317.9,
-        "start_date": "2026-05-01T14:14:23Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18334360415",
-          "summary_polyline": "uqpeF`lhjVHt@DT@VBP@NCRBD?XFVB^Cb@Ff@A~@CL?d@I\\DLLLDHFnAHTF`@E|@FXBx@OXCLH|@Ep@Dr@Nt@J`A?r@@^Cp@ALUf@CP?`@Jl@Ax@Ed@@PN`@RZZ|@j@bAD|@?TDZAVRrCC`C@b@LhAN\\BREf@Fj@?jAXbBNd@Hr@CdA@`@RxBATKh@Cf@LhAJj@Zv@Nh@@T@RG|@ENS\\IVFnA?NYPNl@Z|@Rv@`@jBTpBL\\BZCfAKbAElAO|BCl@Ir@Ah@i@hGItAOzAIfAWlC_@bCYhAK~@Qh@Kp@WjBg@vCIhAI|BLfD@tAPbFRzALf@Pb@t@~AbBlCtAbCh@|AP~@Bb@Ct@OdAOz@[hAKp@Cn@H~@AXBrAIpAWp@C^b@xBHTDf@Nb@DVDp@BN^jADJ^d@PH^@\\?vAKVEh@CXG^Qp@Ef@@RJ|@PpAG\\KLKNWDQCeASsBFe@@_ALsA@m@J{@D{@AQSa@ASBi@Li@D_@Bi@Ga@OS]S}@Oc@GaB]YWg@[m@k@Qa@c@i@Ui@_@m@QIMBIHCH@^XzA?VHh@Bl@^dEC|@CRa@pAc@z@a@`AIj@QjCGVURQ@c@Io@Sc@UKOCOGMIg@@y@TgAHu@DsAASGUS_@AQB[n@eCf@{BBs@?m@Cc@]qAo@{AeB}C}AsBUc@c@mBOoACo@A_ECa@EcE@qABk@TqCHo@vAmIJy@Py@VwBb@}Fx@gJV}DFaBGaBDeACcAKwAOy@Ok@E[i@aBOsALKBMIgA?U\\aADqAAOMm@[w@[aBBe@Hg@DeAQqA?s@C}AMm@Qe@O{@BmD]aBC_@?a@C[CCF}@Eg@AkAE[B_@QkAKaAa@aAW]e@{A?MNi@Aq@I{@@SVcA@qACo@@YGm@Qy@Gu@Dy@Ck@?e@O{AGaBQmCJw@GGI]Au@Io@@{@CUPUCc@Kq@CyA",
           "resource_state": 2
         }
       }
@@ -8213,25 +8213,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 82,
-          "distance": 465.1,
-          "moving_time": 260345,
-          "elapsed_time": 295917,
-          "elevation_gain": 45144.0
+          "count": 83,
+          "distance": 471.65,
+          "moving_time": 264526,
+          "elapsed_time": 300381,
+          "elevation_gain": 46165.0
         },
         "all_time": {
-          "count": 1223,
-          "distance": 6356.55,
-          "moving_time": 3457040,
-          "elapsed_time": 3917597,
-          "elevation_gain": 480709.0
+          "count": 1224,
+          "distance": 6363.1,
+          "moving_time": 3461221,
+          "elapsed_time": 3922061,
+          "elevation_gain": 481729.0
         },
         "recent": {
           "count": 17,
-          "distance": 92.18,
-          "moving_time": 50535,
-          "elapsed_time": 58266,
-          "elevation_gain": 6821.0
+          "distance": 94.33,
+          "moving_time": 52402,
+          "elapsed_time": 60209,
+          "elevation_gain": 7615.0
         }
       },
       "biking": {
