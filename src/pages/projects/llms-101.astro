@@ -1630,9 +1630,15 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 			.equation-flow {
 				display: grid;
-				grid-template-columns: minmax(220px, 0.9fr) auto minmax(260px, 1.05fr) auto minmax(220px, 0.9fr);
+				grid-template-columns: minmax(250px, 0.95fr) minmax(340px, 1.15fr) minmax(240px, 0.9fr);
 				gap: 18px;
-				align-items: center;
+				align-items: stretch;
+			}
+
+			.equation-input-stack {
+				display: grid;
+				grid-template-rows: auto 1fr;
+				gap: 18px;
 			}
 
 			.equation-node,
@@ -1673,7 +1679,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			}
 
 			.equation-core {
-				min-height: 190px;
+				min-height: 100%;
 				border-color: color-mix(in srgb, #d6a561 44%, #252525);
 				background:
 					radial-gradient(circle at 28% 24%, rgba(214, 165, 97, 0.2), transparent 36%),
@@ -1687,17 +1693,23 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			.equation-symbol {
 				color: #eae7e0;
 				display: block;
-				font-size: 38px;
-				font-weight: 700;
+				font-family: Georgia, 'Times New Roman', serif;
+				font-size: clamp(10px, 0.9vw, 14px);
+				font-weight: 600;
 				letter-spacing: 0;
-				line-height: 1;
-				margin-bottom: 12px;
+				line-height: 1.65;
+				margin-bottom: 18px;
+				text-align: center;
 			}
 
-			.equation-arrow {
-				color: #555;
-				font-size: 30px;
-				line-height: 1;
+			.equation-symbol strong {
+				color: #30a6bf;
+				font-weight: 700;
+			}
+
+			.equation-symbol em {
+				color: #84a6d8;
+				font-style: italic;
 			}
 
 			.mini-token-row {
@@ -1760,6 +1772,24 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				position: relative;
 			}
 
+			.mini-probability-token {
+				display: grid;
+				gap: 3px;
+			}
+
+			.mini-probability-id {
+				color: #eae7e0;
+				font-size: 15px;
+				line-height: 1;
+			}
+
+			.mini-probability-label {
+				color: #777;
+				font-size: 9px;
+				font-weight: 600;
+				line-height: 1;
+			}
+
 			.mini-probability-row + .mini-probability-row {
 				margin-top: 8px;
 			}
@@ -1775,6 +1805,10 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 			.mini-probability-value {
 				color: var(--llms-accent-green);
+			}
+
+			.mini-probability-value--zero {
+				color: #555;
 			}
 
 			:global(.mini-probability-row) {
@@ -1814,7 +1848,6 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			}
 
 			.knob-panel {
-				margin-top: 22px;
 				border: 1px solid rgba(226, 223, 216, 0.14);
 				border-radius: 6px;
 				background: rgba(10, 10, 10, 0.42);
@@ -1828,6 +1861,11 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				justify-items: center;
 			}
 
+			.equation-input-stack .knob-grid {
+				grid-template-columns: repeat(10, minmax(0, 1fr));
+				gap: 7px 5px;
+			}
+
 			.weight-knob {
 				aspect-ratio: 1;
 				width: 26px;
@@ -1838,6 +1876,10 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				background:
 					radial-gradient(circle at center, rgba(10, 10, 10, 0.2) 0 38%, transparent 39%),
 					rgba(226, 223, 216, 0.03);
+			}
+
+			.equation-input-stack .weight-knob {
+				width: 20px;
 			}
 
 			.weight-knob::before {
@@ -3067,13 +3109,20 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					grid-template-columns: 1fr;
 				}
 
+				.equation-core {
+					min-height: 260px;
+				}
+
+				.equation-symbol {
+					font-size: 12px;
+				}
+
 				.neural-net {
 					flex-direction: row;
 					justify-content: center;
 				}
 
 				.training-arrow,
-				.equation-arrow,
 				.inference-net .training-arrow,
 				.sft-arrow,
 				.tool-arrow {
@@ -3673,59 +3722,88 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					<div class="weights-visual" data-weights-visual aria-label="Neural net parameters diagram">
 						<p class="weights-visual-title">Inside the Neural Net</p>
 						<div class="equation-flow">
-							<div class="equation-node">
-								<span class="equation-label">Input</span>
-								<p class="equation-main">Context window</p>
-								<div class="mini-token-row" aria-label="Example context tokens">
-									{throughlineExamples[0].trainingTokens.map((token) => (
-										<span class="mini-token">
-											<span class="mini-token-id">{token.id}</span>
-											<span class="mini-token-label">{token.label.replaceAll('"', '')}</span>
-										</span>
-									))}
+							<div class="equation-input-stack">
+								<div class="equation-node">
+									<span class="equation-label">Input</span>
+									<p class="equation-main">Context window</p>
+									<div class="mini-token-row" aria-label="Example context tokens">
+										{throughlineExamples[0].trainingTokens.map((token) => (
+											<span class="mini-token">
+												<span class="mini-token-id">{token.id}</span>
+												<span class="mini-token-label">{token.label.replaceAll('"', '')}</span>
+											</span>
+										))}
+									</div>
+								</div>
+
+								<div class="knob-panel">
+									<span class="equation-label">Parameters</span>
+									<div class="knob-grid" aria-label="Illustration of many neural net parameters as knobs">
+										{knobAngles.map((angle, index) => (
+											<div class="weight-knob" aria-hidden="true">
+												<span
+													class="weight-needle"
+													data-knob-angle={angle}
+													data-knob-initial={angle}
+													style={`--knob-start: ${angle}deg; --knob-end: ${angle + (index % 2 === 0 ? 28 : -24)}deg; --knob-delay: ${(index % 10) * 0.035}s`}
+												></span>
+											</div>
+										))}
+									</div>
 								</div>
 							</div>
 
-							<div class="equation-arrow" aria-hidden="true">&rarr;</div>
-
 							<div class="equation-core">
 								<span class="equation-label">Neural net</span>
-								<span class="equation-symbol">f(x, parameters)</span>
+								<span class="equation-symbol">
+									1 / (1 + exp(-(<strong>p<sub>0</sub></strong> * (1 / (1 + exp(-(<strong>p<sub>1</sub></strong> * <em>x<sub>1</sub></em> + <strong>p<sub>2</sub></strong> * <em>x<sub>2</sub></em> + <strong>p<sub>3</sub></strong>)))))
+									+ <strong>p<sub>4</sub></strong> * (1 / (1 + exp(-(<strong>p<sub>5</sub></strong> * <em>x<sub>1</sub></em> + <strong>p<sub>6</sub></strong> * <em>x<sub>2</sub></em> + <strong>p<sub>7</sub></strong>)))))
+									+ <strong>p<sub>8</sub></strong> + ...
+								</span>
 								<p class="equation-sub">A gigantic mathematical equation with many learned parameters.</p>
 							</div>
-
-							<div class="equation-arrow" aria-hidden="true">&rarr;</div>
 
 							<div class="equation-node">
 								<span class="equation-label">Output</span>
 								<p class="equation-main">Probability map</p>
 								<div aria-label="Example output probabilities">
 									<div class="mini-probability-row" style="--mini-probability-width: 80%; --mini-probability-accent: #8f9f86">
-										<span>Paris</span>
+										<span class="mini-probability-token">
+											<span class="mini-probability-id">12366</span>
+											<span class="mini-probability-label">"Paris"</span>
+										</span>
 										<span class="mini-probability-value" data-weight-probability="paris">80%</span>
 									</div>
 									<div class="mini-probability-row" style="--mini-probability-width: 18%; --mini-probability-accent: #d6a561">
-										<span>France</span>
+										<span class="mini-probability-token">
+											<span class="mini-probability-id">279</span>
+											<span class="mini-probability-label">"the"</span>
+										</span>
 										<span class="mini-probability-value" data-weight-probability="france">18%</span>
+									</div>
+									<div class="mini-probability-row" style="--mini-probability-width: 2%; --mini-probability-accent: #84a6d8">
+										<span class="mini-probability-token">
+											<span class="mini-probability-id">9955</span>
+											<span class="mini-probability-label">"city"</span>
+										</span>
+										<span class="mini-probability-value mini-probability-value--zero">0%</span>
+									</div>
+									<div class="mini-probability-row" style="--mini-probability-width: 2%; --mini-probability-accent: #b28ad6">
+										<span class="mini-probability-token">
+											<span class="mini-probability-id">441</span>
+											<span class="mini-probability-label">"toast"</span>
+										</span>
+										<span class="mini-probability-value mini-probability-value--zero">0%</span>
+									</div>
+									<div class="mini-probability-row" style="--mini-probability-width: 2%; --mini-probability-accent: #8f9f86">
+										<span class="mini-probability-token">
+											<span class="mini-probability-id">18309</span>
+											<span class="mini-probability-label">"because"</span>
+										</span>
+										<span class="mini-probability-value mini-probability-value--zero">0%</span>
 									</div>
 									<div class="mini-probability-ellipsis" aria-label="Many more token probabilities">...</div>
 								</div>
-							</div>
-						</div>
-
-						<div class="knob-panel">
-							<span class="equation-label">Parameters</span>
-							<div class="knob-grid" aria-label="Illustration of many neural net parameters as knobs">
-								{knobAngles.map((angle, index) => (
-									<div class="weight-knob" aria-hidden="true">
-										<span
-											class="weight-needle"
-											data-knob-angle={angle}
-											data-knob-initial={angle}
-											style={`--knob-start: ${angle}deg; --knob-end: ${angle + (index % 2 === 0 ? 28 : -24)}deg; --knob-delay: ${(index % 10) * 0.035}s`}
-										></span>
-									</div>
-								))}
 							</div>
 						</div>
 
