@@ -602,35 +602,66 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				margin-top: 0;
 			}
 
-			.goal-list {
+			.opening-stack {
+				display: grid;
+				gap: 18px;
+			}
+
+			.mode-contrast {
+				border: 1px solid #1c1c1c;
+				border-radius: 6px;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 12%, #101010), #101010 58%);
+				padding: 18px;
+			}
+
+			.mode-title {
+				color: #777;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1.8px;
+				margin-bottom: 14px;
+				text-transform: uppercase;
+			}
+
+			.mode-grid {
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 10px;
 			}
 
-			.goal-chip {
-				min-height: 96px;
-				border: 1px solid #1c1c1c;
-				border-left: 2px solid color-mix(in srgb, var(--goal-accent) 60%, #222);
+			.mode-card {
+				border: 1px solid rgba(226, 223, 216, 0.12);
+				border-left: 2px solid color-mix(in srgb, var(--mode-accent) 66%, #222);
 				border-radius: 6px;
-				padding: 18px 18px;
-				background: #101010;
+				background: rgba(10, 10, 10, 0.38);
+				min-height: 118px;
+				padding: 14px;
 			}
 
-			.goal-term {
-				display: block;
+			.mode-term {
 				color: #eae7e0;
-				font-size: 22px;
+				display: block;
+				font-size: 20px;
 				font-weight: 700;
 				line-height: 1.1;
 				margin-bottom: 8px;
 			}
 
-			.goal-desc {
-				display: block;
-				color: #6f6f6f;
+			.mode-desc {
+				color: #999;
 				font-size: 12px;
+				line-height: 1.5;
+			}
+
+			.mode-note {
+				border-top: 1px solid rgba(226, 223, 216, 0.1);
+				color: #aaa49a;
+				font-size: 13px;
+				font-weight: 700;
 				line-height: 1.45;
+				margin-top: 14px;
+				padding-top: 13px;
 			}
 
 			.corpus-layout {
@@ -2971,7 +3002,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 					grid-template-columns: 1fr;
 				}
 
-				.goal-list {
+				.mode-grid {
 					grid-template-columns: 1fr;
 				}
 
@@ -3193,7 +3224,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="intro-grid">
 					<div>
 						<span class="section-label">Opening</span>
-						<h2 id="llms-101-goals" class="promise">Let's demystify LLMs.</h2>
+						<h2 id="llms-101-goals" class="promise">Let's demystify LLMs like ChatGPT.</h2>
 						<p class="body-copy body-copy--short">
 							A visual, non-technical walkthrough of how LLMs are built and why they behave the way they do.
 						</p>
@@ -3209,23 +3240,22 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							Based on Andrej Karpathy's talk &rarr;
 						</a>
 					</div>
-					<div class="goal-list" aria-label="Key terms this talk will explain">
-						<div class="goal-chip" style="--goal-accent: #84a6d8">
-							<span class="goal-term">Tokens</span>
-							<span class="goal-desc">The chunks of text models read and write.</span>
+					<div class="opening-stack">
+						<div class="mode-contrast" aria-label="Training and inference distinction">
+							<p class="mode-title">Two phases to keep separate</p>
+							<div class="mode-grid">
+								<div class="mode-card" style="--mode-accent: #d6a561">
+									<span class="mode-term">Training</span>
+									<p class="mode-desc">Building or tuning the model by changing its parameters from examples.</p>
+								</div>
+								<div class="mode-card" style="--mode-accent: #8f9f86">
+									<span class="mode-term">Inference</span>
+									<p class="mode-desc">Using the trained model to generate one token at a time.</p>
+								</div>
+							</div>
+							<p class="mode-note">Training changes the model. Inference uses the model.</p>
 						</div>
-						<div class="goal-chip" style="--goal-accent: #b28ad6">
-							<span class="goal-term">Context window</span>
-							<span class="goal-desc">What the model can see right now.</span>
-						</div>
-						<div class="goal-chip" style="--goal-accent: #d6a561">
-							<span class="goal-term">Training</span>
-							<span class="goal-desc">How the model learns from examples.</span>
-						</div>
-						<div class="goal-chip" style="--goal-accent: #8f9f86">
-							<span class="goal-term">Inference</span>
-							<span class="goal-desc">How a trained model produces an answer.</span>
-						</div>
+
 					</div>
 				</div>
 			</section>
@@ -3627,7 +3657,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<span class="section-label">Part Four</span>
 							<h2 id="weights-title" class="promise">The neural net is a huge equation with learned knobs.</h2>
 							<p class="body-copy body-copy--short">
-								The context window goes in. The weights shape the equation. A probability map comes out.
+								The context window goes in. The parameters shape the equation. A probability map comes out.
 							</p>
 						</div>
 						<div class="control-row">
@@ -3640,7 +3670,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						</div>
 					</div>
 
-					<div class="weights-visual" data-weights-visual aria-label="Neural net weights diagram">
+					<div class="weights-visual" data-weights-visual aria-label="Neural net parameters diagram">
 						<p class="weights-visual-title">Inside the Neural Net</p>
 						<div class="equation-flow">
 							<div class="equation-node">
@@ -3660,7 +3690,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 							<div class="equation-core">
 								<span class="equation-label">Neural net</span>
-								<span class="equation-symbol">f(x, weights)</span>
+								<span class="equation-symbol">f(x, parameters)</span>
 								<p class="equation-sub">A gigantic mathematical equation with many learned parameters.</p>
 							</div>
 
@@ -3684,8 +3714,8 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						</div>
 
 						<div class="knob-panel">
-							<span class="equation-label">Parameters / weights</span>
-							<div class="knob-grid" aria-label="Illustration of many neural net weights as knobs">
+							<span class="equation-label">Parameters</span>
+							<div class="knob-grid" aria-label="Illustration of many neural net parameters as knobs">
 								{knobAngles.map((angle, index) => (
 									<div class="weight-knob" aria-hidden="true">
 										<span
@@ -3700,7 +3730,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						</div>
 
 						<p class="weights-note">
-							Training repeatedly tunes the weights so this equation gets better at predicting useful next-token probability maps.
+							Training repeatedly tunes the parameters so this equation gets better at predicting useful next-token probability maps.
 						</p>
 					</div>
 				</div>
@@ -4018,7 +4048,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<div class="tool-flow-node">
 								<span class="tool-flow-label">Context</span>
 								<p class="tool-flow-main">User asks for fresh information.</p>
-								<p class="tool-flow-copy">The answer may not be stored in the model's weights.</p>
+								<p class="tool-flow-copy">The answer may not be stored in the model's parameters.</p>
 							</div>
 							<div class="tool-arrow" aria-hidden="true">&rarr;</div>
 							<div class="tool-flow-node">
@@ -4203,7 +4233,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 						<article class="recap-card">
 							<span class="recap-index">02</span>
-							<p class="recap-title">Training tunes weights.</p>
+							<p class="recap-title">Training tunes parameters.</p>
 							<p class="recap-copy">The neural net learns to produce better next-token probability maps.</p>
 						</article>
 
