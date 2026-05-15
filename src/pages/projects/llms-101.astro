@@ -37,9 +37,9 @@ const throughlineExamples = [
 			{ id: '374', label: '"is"' },
 		],
 		candidates: [
-			{ id: '12366', label: '"Paris"', probability: '80%', width: '58%', correct: true },
-			{ id: '9822', label: '"France"', probability: '18%', width: '30%' },
-			{ id: '9955', label: '"city"', probability: '6%', width: '18%' },
+			{ id: '12366', label: '"Paris"', probability: '.01%', width: '.5%', correct: true },
+			{ id: '19130', label: '"Big"', probability: '.01%', width: '.5%' },
+			{ id: '142894', label: '"Danger"', probability: '.01%', width: '.5%' },
 		],
 		correctAnswer: '12366',
 		note: 'Training nudges the neural net toward the next token that actually appeared in the training text.',
@@ -81,9 +81,9 @@ const throughlineExamples = [
 			{ id: '1288', label: '"should"' },
 		],
 		candidates: [
-			{ id: '387', label: '"be"', probability: '34%', width: '50%', correct: true },
-			{ id: '2997', label: '"include"', probability: '12%', width: '28%' },
-			{ id: '1304', label: '"make"', probability: '7%', width: '20%' },
+			{ id: '387', label: '"be"', probability: '33%', width: '33%', correct: true },
+			{ id: '2997', label: '"include"', probability: '33%', width: '33%' },
+			{ id: '1304', label: '"make"', probability: '33%', width: '33%' },
 		],
 		correctAnswer: '387',
 		note: 'Training rewards probability maps that make the observed next token more likely in similar contexts.',
@@ -1452,6 +1452,48 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				transform: rotate(-18deg);
 			}
 
+			.neural-net-box--with-params {
+				display: grid;
+				place-items: center;
+			}
+
+			.neural-net-box--with-params::before,
+			.neural-net-box--with-params::after {
+				opacity: 0.24;
+			}
+
+			.inference-param-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 5px;
+				position: relative;
+				z-index: 1;
+			}
+
+			.inference-param-knob {
+				aspect-ratio: 1;
+				width: 12px;
+				border: 1px solid rgba(226, 223, 216, 0.58);
+				border-bottom-color: transparent;
+				border-radius: 999px;
+				background: rgba(10, 10, 10, 0.38);
+				position: relative;
+			}
+
+			.inference-param-knob::after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 1.5px;
+				height: 36%;
+				border-radius: 999px;
+				background: #30a6bf;
+				box-shadow: 0 0 8px rgba(48, 166, 191, 0.42);
+				transform: translate(-50%, -95%) rotate(var(--mini-param-angle));
+				transform-origin: 50% 95%;
+			}
+
 			.training-arrow {
 				color: #555;
 				font-size: 32px;
@@ -1768,6 +1810,11 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				transition: width 0.35s ease;
 			}
 
+			.mini-probability-row.is-correct {
+				border-color: color-mix(in srgb, #8f9f86 70%, #e2dfd8);
+				background: color-mix(in srgb, #8f9f86 10%, rgba(10, 10, 10, 0.38));
+			}
+
 			.mini-probability-row > span {
 				position: relative;
 			}
@@ -2026,8 +2073,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			.inference-visual.is-context-active [data-inference-context-panel],
 			.inference-visual.is-map-active [data-inference-map-panel],
 			.inference-visual.is-choice-active [data-inference-map-panel],
-			.inference-visual.is-append-active [data-inference-context-panel],
-			.inference-visual.is-append-active .inference-output {
+			.inference-visual.is-append-active [data-inference-context-panel] {
 				border-color: color-mix(in srgb, var(--llms-accent) 62%, #e2dfd8);
 				background:
 					linear-gradient(135deg, color-mix(in srgb, var(--llms-accent) 11%, transparent), rgba(10, 10, 10, 0.42)),
@@ -2045,8 +2091,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				box-shadow: 0 0 26px color-mix(in srgb, var(--llms-accent) 18%, transparent);
 			}
 
-			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-candidates],
-			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-sampled] {
+			.inference-visual:not(.is-map-active):not(.is-choice-active):not(.is-append-active) [data-inference-candidates] {
 				opacity: 0;
 				visibility: hidden;
 			}
@@ -2223,36 +2268,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				grid-column: 1 / -1;
 			}
 
-			.inference-sampled {
-				margin-top: 16px;
-				border-left: 2px solid color-mix(in srgb, #84a6d8 60%, #222);
-				color: #999;
-				font-size: 13px;
-				line-height: 1.5;
-				padding-left: 14px;
-			}
-
-			.inference-sampled strong {
-				color: #eae7e0;
-			}
-
-			.inference-output {
-				margin-top: 22px;
-				border: 1px solid rgba(226, 223, 216, 0.14);
-				border-radius: 6px;
-				background: rgba(10, 10, 10, 0.42);
-				padding: 18px 20px;
-			}
-
-			.inference-output-text {
-				color: #eae7e0;
-				font-size: 22px;
-				font-weight: 700;
-				line-height: 1.35;
-			}
-
-			.inference-context-generated.is-appending,
-			.inference-output-text.is-appending {
+			.inference-context-generated.is-appending {
 				animation: inference-append-pop 0.42s ease both;
 			}
 
@@ -3202,7 +3218,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				}
 
 				.inference-context-text,
-				.inference-output-text {
+				.inference-context-generated {
 					font-size: 19px;
 				}
 
@@ -3246,7 +3262,6 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				.inference-panel,
 				.inference-net,
 				.inference-context-generated.is-appending,
-				.inference-output-text.is-appending,
 				.inference-visual.is-append-active .inference-moving-token {
 					animation: none;
 					transition: none;
@@ -3666,18 +3681,19 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 										{example.candidates.map((candidate, index) => (
 											<>
 											<div
-												class={`probability-row${candidate.correct ? ' is-correct' : ''}`}
+												class={`mini-probability-row${candidate.correct ? ' is-correct' : ''}`}
 												data-training-candidate
 												data-training-correct={candidate.correct ? 'true' : 'false'}
 												data-training-probability={candidate.probability.replace('%', '')}
-												style={`--probability-width: ${candidate.probability}; --probability-accent: ${['#84a6d8', '#d6a561', '#8f9f86'][index]}`}
+												style={`--mini-probability-width: ${candidate.probability}; --mini-probability-accent: ${['#84a6d8', '#d6a561', '#8f9f86'][index]}`}
 											>
-												<div class="probability-row-content">
-													<span class="probability-label">{candidate.id} {candidate.label}</span>
-													<span class="probability-value">{candidate.probability}</span>
-												</div>
+												<span class="mini-probability-token">
+													<span class="mini-probability-id">{candidate.id}</span>
+													<span class="mini-probability-label">{candidate.label}</span>
+												</span>
+												<span class="mini-probability-value">{candidate.probability}</span>
 											</div>
-											{index === 1 && <div class="probability-ellipsis" aria-label="Many more token probabilities">...</div>}
+											{index === 2 && <div class="mini-probability-ellipsis" aria-label="Many more token probabilities">...</div>}
 											</>
 										))}
 									</div>
@@ -3860,7 +3876,13 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 
 							<div class="inference-net" data-inference-net>
 								<span class="training-arrow" aria-hidden="true">&rarr;</span>
-								<div class="neural-net-box" aria-hidden="true"></div>
+								<div class="neural-net-box neural-net-box--with-params" aria-hidden="true">
+									<div class="inference-param-grid">
+										{knobAngles.slice(0, 12).map((angle) => (
+											<span class="inference-param-knob" style={`--mini-param-angle: ${angle}deg`}></span>
+										))}
+									</div>
+								</div>
 								<span>Neural net</span>
 							</div>
 
@@ -3877,17 +3899,9 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 										</div>
 									))}
 								</div>
-								<p class="inference-sampled" data-inference-sampled>
-									Sampled token: <strong>waiting</strong>
-								</p>
 							</div>
 						</div>
 						<span class="inference-moving-token" data-inference-moving-token aria-hidden="true"></span>
-
-						<div class="inference-output">
-							<span class="equation-label">Generated text</span>
-							<p class="inference-output-text" data-inference-output>{inferenceExamples[0].emptyGenerated}</p>
-						</div>
 					</div>
 				</div>
 			</section>
@@ -4535,8 +4549,6 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 			const inferenceContextBase = document.querySelector('[data-inference-context-base]');
 			const inferenceContextGenerated = document.querySelector('[data-inference-context-generated]');
 			const inferenceCandidates = document.querySelector('[data-inference-candidates]');
-			const inferenceSampled = document.querySelector('[data-inference-sampled]');
-			const inferenceOutput = document.querySelector('[data-inference-output]');
 			const inferenceMovingToken = document.querySelector('[data-inference-moving-token]');
 			const inferenceCandidateColors = ['#8f9f86', '#d6a561', '#84a6d8'];
 			const inferencePhases = ['context', 'neuralNet', 'map', 'choice', 'append'];
@@ -4567,8 +4579,9 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				const roundedValue = Math.round(value);
 				candidate.dataset.trainingProbability = String(roundedValue);
 				candidate.style.setProperty('--probability-width', `${Math.min(92, Math.max(8, roundedValue))}%`);
+				candidate.style.setProperty('--mini-probability-width', `${Math.min(92, Math.max(8, roundedValue))}%`);
 
-				const valueElement = candidate.querySelector('.probability-value');
+				const valueElement = candidate.querySelector('.probability-value, .mini-probability-value');
 				if (valueElement instanceof HTMLElement) {
 					valueElement.textContent = `${roundedValue}%`;
 				}
@@ -4800,18 +4813,6 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				if (inferenceContextGenerated instanceof HTMLElement) {
 					inferenceContextGenerated.textContent = generatedSample;
 					inferenceContextGenerated.classList.toggle('is-appending', isAppending);
-				}
-
-				if (inferenceOutput instanceof HTMLElement) {
-					inferenceOutput.textContent = generatedSample
-						? `${example.initialContext}${generatedSample}`
-						: example.emptyGenerated;
-					inferenceOutput.classList.toggle('is-appending', isAppending);
-				}
-
-				if (inferenceSampled instanceof HTMLElement) {
-					const sampledValue = shouldHighlightSelection ? activeStep.label : 'waiting';
-					inferenceSampled.textContent = `Sampled token: ${sampledValue}`;
 				}
 
 				if (inferenceMovingToken instanceof HTMLElement) {
