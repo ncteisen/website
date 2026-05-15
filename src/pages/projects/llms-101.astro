@@ -555,6 +555,53 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				margin-top: 0;
 			}
 
+			.demo-dropdown {
+				margin-top: 24px;
+				max-width: 520px;
+			}
+
+			.demo-dropdown summary {
+				border: 1px solid color-mix(in srgb, var(--llms-accent) 46%, #252525);
+				border-radius: 999px;
+				background: #101010;
+				color: var(--llms-accent);
+				cursor: pointer;
+				display: inline-flex;
+				font-size: 12px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 1;
+				list-style: none;
+				padding: 12px 16px;
+				text-transform: uppercase;
+			}
+
+			.demo-dropdown summary::-webkit-details-marker {
+				display: none;
+			}
+
+			.demo-dropdown summary::after {
+				content: '▾';
+				font-size: 10px;
+				margin-left: 10px;
+			}
+
+			.demo-dropdown[open] summary::after {
+				content: '▴';
+			}
+
+			.demo-dropdown-menu {
+				border-left: 2px solid color-mix(in srgb, var(--llms-accent) 42%, #222);
+				display: grid;
+				gap: 10px;
+				margin-top: 14px;
+				padding-left: 14px;
+			}
+
+			.demo-dropdown-menu .source-link {
+				margin-top: 0;
+			}
+
 			.goal-list {
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3898,17 +3945,55 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						</div>
 					</div>
 				</div>
-				<a
-					class="source-link"
-					href="https://tiktokenizer.vercel.app/"
-					target="_blank"
-					rel="noopener noreferrer"
-					data-umami-event="link_click"
-					data-umami-event-area="llms-101"
-					data-umami-event-label="tiktokenizer-special-separators-demo"
-				>
-					Demo: special separators in Tiktokenizer &rarr;
-				</a>
+				<details class="demo-dropdown">
+					<summary>Demo links</summary>
+					<div class="demo-dropdown-menu">
+						<a
+							class="source-link"
+							href="https://tiktokenizer.vercel.app/"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="tiktokenizer-special-separators-demo"
+						>
+							Special separators in Tiktokenizer &rarr;
+						</a>
+						<a
+							class="source-link"
+							href="https://huggingface.co/datasets/OpenAssistant/oasst1"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="openassistant-oasst1-demo"
+						>
+							OpenAssistant conversations &rarr;
+						</a>
+						<a
+							class="source-link"
+							href="https://atlas.nomic.ai/data/stingning/ultrachat-1/map"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="ultrachat-atlas-demo"
+						>
+							UltraChat Atlas map &rarr;
+						</a>
+						<a
+							class="source-link"
+							href="https://huggingface.co/datasets/openbmb/UltraChat/viewer/default/train"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="ultrachat-huggingface-demo"
+						>
+							UltraChat dataset &rarr;
+						</a>
+					</div>
+				</details>
 			</section>
 
 			<hr class="rule" />
