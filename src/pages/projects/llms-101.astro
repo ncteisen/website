@@ -2296,6 +2296,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				background:
 					linear-gradient(135deg, color-mix(in srgb, #d6a561 13%, #111), #0f0f0f 56%),
 					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				min-height: 520px;
 				padding: 30px;
 				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
 			}
@@ -2475,6 +2476,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				background:
 					linear-gradient(135deg, color-mix(in srgb, #84a6d8 14%, #111), #0f0f0f 56%),
 					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
+				min-height: 520px;
 				padding: 30px;
 				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
 			}
@@ -2833,6 +2835,36 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				padding-left: 14px;
 			}
 
+			.paper-link {
+				border-left: 2px solid rgba(132, 166, 216, 0.36);
+				color: #777;
+				display: block;
+				font-size: 11px;
+				font-weight: 600;
+				letter-spacing: 0.3px;
+				line-height: 1.5;
+				margin-top: 18px;
+				padding-left: 12px;
+				text-decoration: none;
+				transition: border-color 0.15s ease, color 0.15s ease;
+			}
+
+			.paper-link:hover,
+			.paper-link:focus-visible {
+				border-color: var(--llms-accent);
+				color: #aaa49a;
+			}
+
+			.paper-date {
+				color: #555;
+				display: block;
+				font-size: 10px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				margin-bottom: 3px;
+				text-transform: uppercase;
+			}
+
 			@keyframes train-reveal {
 				0% {
 					opacity: 0.2;
@@ -2990,10 +3022,12 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				}
 
 				.sft-visual {
+					min-height: 0;
 					padding: 22px;
 				}
 
 				.tool-visual {
+					min-height: 0;
 					padding: 22px;
 				}
 
@@ -3112,7 +3146,7 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 				<div class="intro-grid">
 					<div>
 						<span class="section-label">Opening</span>
-						<h2 id="llms-101-goals" class="promise">Let's make LLMs feel less mysterious.</h2>
+						<h2 id="llms-101-goals" class="promise">Let's demystify LLMs.</h2>
 						<p class="body-copy body-copy--short">
 							A visual, non-technical walkthrough of how LLMs are built and why they behave the way they do.
 						</p>
@@ -3716,6 +3750,18 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<p class="demo-note">
 							Demo note: run local nanoGPT here.
 						</p>
+						<a
+							class="paper-link"
+							href="https://arxiv.org/pdf/1706.03762"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="attention-is-all-you-need-paper"
+						>
+							<span class="paper-date">June 12, 2017</span>
+							Attention Is All You Need
+						</a>
 					</div>
 
 					<ul class="checkpoint-list">
@@ -3738,11 +3784,23 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 						<h2 id="sft-title" class="promise">Supervised fine tuning teaches the model to converse.</h2>
 						<ul class="sft-list">
 							<li>Human data labelers write example conversations.</li>
-							<li>The model trains on those examples after base-model training.</li>
+							<li>The model trains on those examples.</li>
 							<li>This tunes the model toward helpful assistant behavior.</li>
 							<li>Modern systems can also use synthetic conversation data.</li>
 							<li>It is much cheaper and faster than pre-training.</li>
 						</ul>
+						<a
+							class="paper-link"
+							href="https://arxiv.org/pdf/2203.02155"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="instructgpt-paper"
+						>
+							<span class="paper-date">March 4, 2022</span>
+							Training language models to follow instructions with human feedback
+						</a>
 					</div>
 
 					<div class="sft-visual" aria-label="Supervised fine tuning conversation examples">
@@ -3942,6 +4000,18 @@ const getDocumentExcerpt = (example: typeof throughlineExamples[number]) => {
 							<li>The LLM is optimized against that reward model.</li>
 							<li>It helps shape behavior more than raw knowledge: helpful, honest, harmless, concise, and polite.</li>
 						</ul>
+						<a
+							class="paper-link"
+							href="https://arxiv.org/pdf/2501.12948"
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="llms-101"
+							data-umami-event-label="deepseek-r1-paper"
+						>
+							<span class="paper-date">January 22, 2025</span>
+							Incentivizing Reasoning Capability in LLMs via Reinforcement Learning
+						</a>
 					</div>
 
 					<div class="rlhf-visual" aria-label="RLHF ranking and reward model flow">
