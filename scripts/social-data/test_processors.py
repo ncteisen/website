@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from goodreads_processor import clean_review_html, convert_book_to_review
+from goodreads_processor import calculate_stats as calculate_book_stats
+from goodreads_processor import clean_review_html, convert_book_to_review, dedupe_reviews
 from letterboxd_processor import convert_film_to_review, calculate_stats
 from strava_processor import StravaProcessor, METERS_TO_MILES, METERS_TO_FEET, MIN_COMMUTE_DISTANCE_MILES
 
@@ -60,6 +61,67 @@ class TestConvertBookToReview:
         assert review['author'] == ''
         assert review['rating'] == 0
         assert review['review'] == ''
+
+
+class TestDedupeReviews:
+    def test_prefers_review_text_for_same_book_and_read_date(self):
+        stale_duplicate = {
+            'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)',
+            'author': 'J.K. Rowling',
+            'rating': 5,
+            'read_at': 'Tue, 12 May 2026 00:00:00 +0000',
+            'image_url': 'https://example.com/old.jpg',
+            'review': '',
+        }
+        reviewed_entry = {
+            **stale_duplicate,
+            'image_url': 'https://example.com/new.jpg',
+            'review': 'Full-cast Dolby audiobook.',
+        }
+
+        assert dedupe_reviews([stale_duplicate, reviewed_entry]) == [reviewed_entry]
+
+    def test_preserves_separate_read_dates(self):
+        first_read = {
+            'title': 'Dune',
+            'author': 'Frank Herbert',
+            'rating': 5,
+            'read_at': 'Mon, 01 Jan 2024 00:00:00 +0000',
+            'review': '',
+        }
+        reread = {
+            **first_read,
+            'read_at': 'Wed, 01 Jan 2025 00:00:00 +0000',
+        }
+
+        assert dedupe_reviews([first_read, reread]) == [first_read, reread]
+
+
+class TestCalculateBookStats:
+    def test_dedupes_same_book_and_read_date_for_stats(self):
+        duplicate_books = [
+            {
+                'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)',
+                'author_name': 'J.K. Rowling',
+                'user_rating': 5,
+                'user_read_at': 'Tue, 12 May 2026 00:00:00 +0000',
+                'user_review': '',
+            },
+            {
+                'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)',
+                'author_name': 'J.K. Rowling',
+                'user_rating': 5,
+                'user_read_at': 'Tue, 12 May 2026 00:00:00 +0000',
+                'user_review': 'Full-cast Dolby audiobook.',
+            },
+        ]
+
+        stats = calculate_book_stats(duplicate_books)
+
+        assert stats['total_ratings'] == 1
+        assert stats['average_rating'] == 5
+        assert stats['total_reviews'] == 1
+        assert stats['books_this_year'] == 1
 
 
 # === Letterboxd processor tests ===

@@ -17,6 +17,23 @@ GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/44763252-noah-eisen
 BOOKS_DATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'goodreads-fetcher', 'data', 'books.json')
 
 
+def _dedupe_key(review: dict) -> tuple[str, str, str]:
+    return (
+        review.get('title', '').strip().casefold(),
+        review.get('author', '').strip().casefold(),
+        review.get('read_at') or '',
+    )
+
+
+def _review_quality_score(review: dict) -> tuple[int, int, int]:
+    """Rank duplicate Goodreads records by how useful they are for display."""
+    return (
+        1 if review.get('review') else 0,
+        len(review.get('review', '')),
+        1 if review.get('image_url') else 0,
+    )
+
+
 def load_books_data() -> list[dict]:
     """Load books from the goodreads-fetcher data store."""
     resolved = os.path.normpath(BOOKS_DATA_FILE)
@@ -49,6 +66,17 @@ def convert_book_to_review(book: dict) -> dict:
     }
 
 
+def dedupe_reviews(reviews: list[dict]) -> list[dict]:
+    """Collapse duplicate Goodreads edition records for the same read event."""
+    deduped: dict[tuple[str, str, str], dict] = {}
+    for review in reviews:
+        key = _dedupe_key(review)
+        existing = deduped.get(key)
+        if existing is None or _review_quality_score(review) > _review_quality_score(existing):
+            deduped[key] = review
+    return list(deduped.values())
+
+
 def parse_read_at(date_str: str) -> datetime | None:
     """Parse an RFC 2822 date string into a datetime."""
     try:
@@ -59,27 +87,28 @@ def parse_read_at(date_str: str) -> datetime | None:
 
 def calculate_stats(books: list[dict]) -> dict:
     """Calculate profile statistics from the books data."""
-    rated_books = [b for b in books if b.get('user_rating', 0) > 0]
-    reviewed_books = [b for b in books if b.get('user_review')]
+    reviews = [convert_book_to_review(b) for b in books]
+    rated_reviews = dedupe_reviews([r for r in reviews if r['rating'] > 0])
+    reviewed_reviews = dedupe_reviews([r for r in reviews if r['review']])
     current_year = date.today().year
 
     # Books read this year (by read date)
     books_this_year = []
-    for b in books:
-        read_at = b.get('user_read_at')
+    for review in rated_reviews:
+        read_at = review.get('read_at')
         if read_at:
             dt = parse_read_at(read_at)
             if dt and dt.year == current_year:
-                books_this_year.append(b)
+                books_this_year.append(review)
 
     # Average rating
-    ratings = [b['user_rating'] for b in rated_books]
+    ratings = [r['rating'] for r in rated_reviews]
     average_rating = round(sum(ratings) / len(ratings), 2) if ratings else 0.0
 
     return {
-        'total_ratings': len(rated_books),
+        'total_ratings': len(rated_reviews),
         'average_rating': average_rating,
-        'total_reviews': len(reviewed_books),
+        'total_reviews': len(reviewed_reviews),
         'books_this_year': len(books_this_year),
     }
 
@@ -90,7 +119,7 @@ def get_goodreads_data() -> dict:
     reviews = [convert_book_to_review(b) for b in books]
 
     # Filter out unrated books and books without read dates
-    all_reviews = [r for r in reviews if r['rating'] > 0 and r['read_at']]
+    all_reviews = dedupe_reviews([r for r in reviews if r['rating'] > 0 and r['read_at']])
     all_reviews.sort(
         key=lambda x: (x['read_at'] is None, parse_read_at(x['read_at']) or date.min),
         reverse=True,
