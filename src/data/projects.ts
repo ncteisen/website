@@ -65,6 +65,7 @@ export const projects: Project[] = [
 		featured: true,
 		accent: '#b28ad6',
 	},
+
 	{
 		title: 'Old Website',
 		description: "The previous version of this site. I'm a digital archivist.",
