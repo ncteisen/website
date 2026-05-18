@@ -12,204 +12,72 @@ import SocialPreview from '../../components/SocialPreview.astro';
 		<title>Date My Map | Noah Eisen</title>
 		<SocialPreview
 			title="Noah Eisen - Date My Map"
-			description="An interactive tool to estimate when a printed map or globe was made."
+			description="A project page in progress."
 			path="/projects/date-my-map/"
 		/>
-		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 		<UmamiAnalytics />
 		<style>
-			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-			html, body { min-height: 100%; }
-			body { background: #0a0a0a; color: #e2dfd8; font-family: 'DM Sans', sans-serif; }
-			.wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 70px; }
-			.header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
-			h1 { font-size: 54px; letter-spacing: -2px; line-height: 0.95; color: #ece9e2; }
-			.subtitle { margin-top: 16px; color: #9d9d9d; max-width: 620px; line-height: 1.65; font-size: 15px; }
-			.back-link { color: #5b8ef0; text-decoration: none; font-size: 13px; }
-			.grid { margin-top: 40px; display: grid; gap: 20px; grid-template-columns: 1.5fr 1fr; }
-			.panel { border: 1px solid #1f1f1f; background: #111; border-radius: 8px; padding: 20px; }
-			.pill { display: inline-block; font-size: 11px; color: #b9b9b9; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
-			.prompt { font-size: 24px; line-height: 1.3; margin-bottom: 14px; }
-			.description { color: #a8a8a8; margin-bottom: 16px; font-size: 14px; line-height: 1.6; }
-			.actions { display: grid; gap: 10px; }
-			button { background: #181818; color: #e2dfd8; border: 1px solid #2d2d2d; border-radius: 8px; padding: 12px; text-align: left; cursor: pointer; font: inherit; }
-			button:hover { border-color: #4e4e4e; }
-			button.secondary { display: inline-block; width: auto; margin-right: 10px; margin-top: 18px; }
-			.range { font-size: 31px; letter-spacing: -1px; }
-			.small { color: #9f9f9f; font-size: 13px; line-height: 1.6; margin-top: 10px; }
-			.timeline { margin-top: 14px; list-style: none; display: grid; gap: 12px; }
-			.timeline li { border-top: 1px solid #252525; padding-top: 12px; }
-			a { color: #8eb1ff; }
-			.hidden { display: none; }
-			@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 42px; } }
+			*, *::before, *::after {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				background: #0a0a0a;
+				color: #ece9e2;
+				font-family: 'DM Sans', sans-serif;
+			}
+
+			main {
+				display: grid;
+				min-height: 100vh;
+				place-items: center;
+				padding: 48px 24px;
+			}
+
+			.content {
+				width: min(100%, 680px);
+			}
+
+			a {
+				color: #8eb1ff;
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			h1 {
+				margin: 0;
+				font-size: clamp(44px, 9vw, 84px);
+				font-weight: 600;
+				line-height: 0.95;
+			}
+
+			p {
+				margin: 18px 0 0;
+				color: #b8b3a9;
+				font-size: 18px;
+				line-height: 1.55;
+			}
+
+			.back-link {
+				display: inline-flex;
+				margin-top: 32px;
+				font-size: 14px;
+			}
 		</style>
 	</head>
 	<body>
-		<main class="wrap">
-			<header class="header">
-				<div>
-					<h1>DATE<br/>MY MAP</h1>
-					<p class="subtitle">Answer a few clues about labels and borders on your map or globe. This MVP narrows a likely print date range and explains the historical transitions behind each clue.</p>
-				</div>
-				<a href="/" class="back-link">← Back to homepage</a>
-			</header>
-
-			<section class="grid">
-				<div class="panel" id="question-panel"></div>
-				<div class="panel" id="result-panel"></div>
-			</section>
+		<main>
+			<div class="content">
+				<h1>Date My Map</h1>
+				<p>This project is being restarted from scratch.</p>
+				<a href="/" class="back-link">Back to homepage</a>
+			</div>
 		</main>
-
-		<script>
-			const START_YEAR = 1800;
-			const END_YEAR = new Date().getFullYear();
-
-			const events = {
-				ussr: { title: 'USSR existed', summary: 'The Soviet Union existed from 1922 until it dissolved in 1991.', links: [{ label: 'Britannica: Soviet Union', href: 'https://www.britannica.com/place/Soviet-Union' }] },
-				eastWestGermany: { title: 'Germany was divided', summary: 'East and West Germany existed as separate states from 1949 to 1990.', links: [{ label: 'Britannica: Germany reunification', href: 'https://www.britannica.com/event/German-reunification' }] },
-				yugoslavia: { title: 'Yugoslavia appears', summary: 'Yugoslavia existed in different forms through 2003.', links: [{ label: 'Britannica: Yugoslavia', href: 'https://www.britannica.com/place/Yugoslavia-former-federated-nation-1929-2003' }] },
-				southSudan: { title: 'South Sudan appears', summary: 'South Sudan became independent on July 9, 2011.', links: [{ label: 'CIA World Factbook: South Sudan', href: 'https://www.cia.gov/the-world-factbook/countries/south-sudan/' }] },
-				burma: { title: 'Burma/Myanmar naming', summary: 'Burma was officially renamed Myanmar in 1989, though usage varied by publisher and country.', links: [{ label: 'Britannica: Myanmar', href: 'https://www.britannica.com/place/Myanmar' }] },
-				persia: { title: 'Persia renamed Iran', summary: 'International usage shifted from Persia to Iran in 1935.', links: [{ label: 'Britannica: Iran', href: 'https://www.britannica.com/place/Iran' }] }
-			};
-
-			const questions = [
-				{ id: 'ussr', prompt: 'Does the map show the USSR?', description: 'Look for a single state labeled USSR or Soviet Union.', options: [
-					{ label: 'Yes, USSR is shown', minYear: 1922, maxYear: 1991, eventIds: ['ussr'] },
-					{ label: 'No, USSR is not shown', minYear: 1992, maxYear: END_YEAR, eventIds: ['ussr'] },
-					{ label: "I'm not sure", skip: true }
-				] },
-				{ id: 'germany', prompt: 'How is Germany shown?', description: 'Cold War maps often show East/West Germany separately.', options: [
-					{ label: 'East and West Germany are separate', minYear: 1949, maxYear: 1990, eventIds: ['eastWestGermany'] },
-					{ label: 'One Germany', minYear: 1991, maxYear: END_YEAR, eventIds: ['eastWestGermany'] },
-					{ label: "I'm not sure", skip: true }
-				] },
-				{ id: 'yugoslavia', prompt: 'Is Yugoslavia present?', description: 'Its breakup helps narrow late-20th-century dates.', options: [
-					{ label: 'Yes', minYear: 1918, maxYear: 2003, eventIds: ['yugoslavia'] },
-					{ label: 'No', minYear: 2004, maxYear: END_YEAR, eventIds: ['yugoslavia'] },
-					{ label: "I'm not sure", skip: true }
-				] },
-				{ id: 'south-sudan', prompt: 'Does South Sudan appear as its own country?', description: 'A high-signal modern clue.', options: [
-					{ label: 'Yes', minYear: 2011, maxYear: END_YEAR, eventIds: ['southSudan'] },
-					{ label: 'No', minYear: START_YEAR, maxYear: 2010, eventIds: ['southSudan'] },
-					{ label: "I'm not sure", skip: true }
-				] },
-				{ id: 'burma', prompt: 'Is the country labeled Burma or Myanmar?', description: 'Name choice depends on publication date and editorial policy.', options: [
-					{ label: 'Burma', minYear: START_YEAR, maxYear: 1989, eventIds: ['burma'] },
-					{ label: 'Myanmar', minYear: 1990, maxYear: END_YEAR, eventIds: ['burma'] },
-					{ label: "I'm not sure", skip: true }
-				] },
-				{ id: 'persia', prompt: 'Does it say Persia or Iran?', description: 'A classic early-20th-century boundary clue.', options: [
-					{ label: 'Persia', minYear: START_YEAR, maxYear: 1934, eventIds: ['persia'] },
-					{ label: 'Iran', minYear: 1935, maxYear: END_YEAR, eventIds: ['persia'] },
-					{ label: "I'm not sure", skip: true }
-				] }
-			];
-
-			const state = { index: 0, answers: [], minYear: START_YEAR, maxYear: END_YEAR };
-			const questionPanel = document.getElementById('question-panel');
-			const resultPanel = document.getElementById('result-panel');
-
-			const updateRange = () => {
-				state.minYear = START_YEAR;
-				state.maxYear = END_YEAR;
-				for (const answer of state.answers) {
-					if (answer.skip) continue;
-					state.minYear = Math.max(state.minYear, answer.minYear);
-					state.maxYear = Math.min(state.maxYear, answer.maxYear);
-				}
-			};
-
-			const getConfidence = () => {
-				const decisive = state.answers.filter((a) => !a.skip).length;
-				if (state.minYear > state.maxYear) return 'Low (conflicting clues)';
-				if (decisive >= 4) return 'High';
-				if (decisive >= 2) return 'Medium';
-				return 'Low';
-			};
-
-			const renderResults = () => {
-				const answeredEvents = state.answers.flatMap((a) => a.eventIds || []).map((id) => events[id]);
-				const uniqueEvents = Array.from(new Set(answeredEvents));
-				const rangeText = state.minYear > state.maxYear
-					? 'No consistent date range'
-					: `${state.minYear}–${state.maxYear}`;
-				resultPanel.innerHTML = `
-					<span class="pill">Estimated range</span>
-					<div class="range">${rangeText}</div>
-					<p class="small"><strong>Confidence:</strong> ${getConfidence()}</p>
-					<p class="small">${state.minYear > state.maxYear ? 'These answers conflict. Try revising a clue or mark uncertain items as “I\'m not sure.”' : 'Range updates after every answer. Add more clues for a tighter estimate.'}</p>
-					<ul class="timeline">
-						${uniqueEvents.map((event) => `
-							<li>
-								<strong>${event.title}</strong>
-								<p class="small">${event.summary}</p>
-								${event.links.map((link) => `<a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>`).join('<br/>')}
-							</li>
-						`).join('') || '<li><p class="small">Answer questions to build a rationale timeline.</p></li>'}
-					</ul>
-				`;
-			};
-
-			const renderQuestion = () => {
-				if (state.index >= questions.length) {
-					questionPanel.innerHTML = `
-						<span class="pill">Complete</span>
-						<h2 class="prompt">You have reached the end of the MVP questionnaire.</h2>
-						<p class="description">Use Back to edit responses or Reset to start over.</p>
-						<button class="secondary" id="back-btn">Back</button>
-						<button class="secondary" id="reset-btn">Reset</button>
-					`;
-					document.getElementById('back-btn')?.addEventListener('click', handleBack);
-					document.getElementById('reset-btn')?.addEventListener('click', handleReset);
-					return;
-				}
-				const question = questions[state.index];
-				questionPanel.innerHTML = `
-					<span class="pill">Question ${state.index + 1} of ${questions.length}</span>
-					<h2 class="prompt">${question.prompt}</h2>
-					<p class="description">${question.description}</p>
-					<div class="actions">
-						${question.options.map((option, optionIndex) => `<button data-option-index="${optionIndex}">${option.label}</button>`).join('')}
-					</div>
-					<button class="secondary ${state.answers.length === 0 ? 'hidden' : ''}" id="back-btn">Back</button>
-					<button class="secondary" id="reset-btn">Reset</button>
-				`;
-				questionPanel.querySelectorAll('[data-option-index]').forEach((btn) => {
-					btn.addEventListener('click', () => handleAnswer(Number(btn.getAttribute('data-option-index'))));
-				});
-				document.getElementById('back-btn')?.addEventListener('click', handleBack);
-				document.getElementById('reset-btn')?.addEventListener('click', handleReset);
-			};
-
-			const handleAnswer = (optionIndex) => {
-				const question = questions[state.index];
-				state.answers[state.index] = question.options[optionIndex];
-				state.index += 1;
-				updateRange();
-				renderResults();
-				renderQuestion();
-			};
-
-			const handleBack = () => {
-				if (state.index === 0) return;
-				state.index -= 1;
-				state.answers = state.answers.slice(0, state.index);
-				updateRange();
-				renderResults();
-				renderQuestion();
-			};
-
-			const handleReset = () => {
-				state.index = 0;
-				state.answers = [];
-				updateRange();
-				renderResults();
-				renderQuestion();
-			};
-
-			renderResults();
-			renderQuestion();
-		</script>
 	</body>
 </html>
