@@ -1193,40 +1193,55 @@ const currentYear = new Date().getFullYear();
 				if (answeredTimeline) {
 					answeredTimeline.hidden = true;
 				}
-				if (shareStatus) {
-					shareStatus.textContent = 'Shared checklist loaded. This link preserves the completed result and answered clues.';
-				}
-
 				renderQuestion();
 			}
 
-			async function copyText(text) {
-				if (window.navigator?.clipboard?.writeText) {
-					try {
-						await window.navigator.clipboard.writeText(text);
-						return true;
-					} catch {
-						// Fall through to the temporary textarea fallback.
-					}
-				}
-
+			function copyTextWithSelection(text) {
 				const textarea = document.createElement('textarea');
+				const activeElement = document.activeElement;
 				textarea.value = text;
 				textarea.setAttribute('readonly', '');
+				textarea.setAttribute('aria-hidden', 'true');
 				textarea.style.position = 'fixed';
-				textarea.style.top = '-9999px';
-				textarea.style.left = '-9999px';
+				textarea.style.top = '0';
+				textarea.style.left = '0';
+				textarea.style.width = '1px';
+				textarea.style.height = '1px';
+				textarea.style.opacity = '0';
+				textarea.style.pointerEvents = 'none';
 				document.body.append(textarea);
+				textarea.focus({ preventScroll: true });
 				textarea.select();
+				textarea.setSelectionRange(0, textarea.value.length);
 
 				let copied = false;
 				try {
 					copied = document.execCommand('copy');
 				} finally {
 					textarea.remove();
+					if (activeElement instanceof HTMLElement) {
+						activeElement.focus({ preventScroll: true });
+					}
 				}
 
 				return copied;
+			}
+
+			async function copyText(text) {
+				if (copyTextWithSelection(text)) {
+					return true;
+				}
+
+				if (window.navigator?.clipboard?.writeText) {
+					try {
+						await window.navigator.clipboard.writeText(text);
+						return true;
+					} catch {
+						return false;
+					}
+				}
+
+				return false;
 			}
 
 			document.querySelectorAll('[data-answer]').forEach((button) => {
