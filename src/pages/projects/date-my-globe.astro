@@ -647,12 +647,10 @@ const currentYear = new Date().getFullYear();
 				<div>
 					<h1 class="project-title">Date My Globe</h1>
 					<p class="project-description">
-						Answer a short sequence of questions about borders and place names on your globe. The tool narrows the possible date by comparing what you see against a curated timeline of geopolitical changes.
-					</p>
-					<p class="range-note">
-						This map-backed checklist currently focuses on twentieth-century and modern clues. The full reference timeline still starts from the
-						<a href="https://en.wikipedia.org/wiki/Behaim_Globe" target="_blank" rel="noopener noreferrer">Behaim Globe</a>,
-						created around 1492. The result estimates the globe's map-data date, not necessarily its manufacturing date.
+						Answer a few questions about your globe&rsquo;s borders and place names, and we&rsquo;ll estimate when it was made. This site is a work in progress.
+						<br />
+						<br />
+						Looking to date a globe romantically? Wrong site. Probably wrong hobby.
 					</p>
 					<a class="inline-link" href="/map-my-globe/all-events">View all events &rarr;</a>
 				</div>
@@ -701,6 +699,7 @@ const currentYear = new Date().getFullYear();
 							<div class="share-panel">
 								<div class="share-row">
 									<button class="action-button secondary" type="button" id="copy-share-button">Copy link</button>
+									<button class="action-button secondary" type="button" id="restart-checklist-button">Restart</button>
 								</div>
 								<a class="result-utility-link" href="/map-my-globe/all-events">View all events &rarr;</a>
 							</div>
@@ -757,6 +756,7 @@ const currentYear = new Date().getFullYear();
 			const lowerBound = document.getElementById('lower-bound');
 			const upperBound = document.getElementById('upper-bound');
 			const copyShareButton = document.getElementById('copy-share-button');
+			const restartChecklistButton = document.getElementById('restart-checklist-button');
 			const answerHistoryList = document.getElementById('answer-history-list');
 			const answeredTimeline = document.getElementById('answered-timeline');
 			let copyResetTimer;
@@ -1141,7 +1141,7 @@ const currentYear = new Date().getFullYear();
 				history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
 			}
 
-			function restartChecklist() {
+			function restartChecklist({ scroll = false } = {}) {
 				resetChecklistState();
 				clearSharedUrl();
 
@@ -1156,6 +1156,9 @@ const currentYear = new Date().getFullYear();
 				}
 
 				renderQuestion();
+				if (scroll) {
+					questionCard?.scrollIntoView({ block: 'start' });
+				}
 			}
 
 			function loadSharedChecklist() {
@@ -1268,6 +1271,10 @@ const currentYear = new Date().getFullYear();
 				copyResetTimer = window.setTimeout(() => {
 					copyShareButton.textContent = 'Copy link';
 				}, 1800);
+			});
+
+			restartChecklistButton?.addEventListener('click', () => {
+				restartChecklist({ scroll: true });
 			});
 
 			loadSharedChecklist();
