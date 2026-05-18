@@ -1,3 +1,25 @@
+type Position = [number, number];
+type PolygonCoordinates = Position[][];
+
+export interface DateMyGlobeMapFeature {
+	type: 'Feature';
+	properties: {
+		label: string;
+		role: 'context' | 'changed' | 'removed' | 'added';
+	};
+	geometry: {
+		type: 'Polygon';
+		coordinates: PolygonCoordinates;
+	};
+}
+
+export interface DateMyGlobeMap {
+	type: 'FeatureCollection';
+	label: string;
+	note: string;
+	features: DateMyGlobeMapFeature[];
+}
+
 export interface DateMyGlobeEvent {
 	id: string;
 	name: string;
@@ -14,7 +36,44 @@ export interface DateMyGlobeEvent {
 		afterNote: string;
 	};
 	region: string;
+	includeInChecklist?: boolean;
+	mapViewport?: {
+		west: number;
+		south: number;
+		east: number;
+		north: number;
+	};
+	beforeMap?: DateMyGlobeMap;
+	afterMap?: DateMyGlobeMap;
+	mapSourceNote?: string;
 }
+
+const polygon = (
+	label: string,
+	role: DateMyGlobeMapFeature['properties']['role'],
+	coordinates: Position[],
+): DateMyGlobeMapFeature => ({
+	type: 'Feature',
+	properties: { label, role },
+	geometry: {
+		type: 'Polygon',
+		coordinates: [[...coordinates, coordinates[0]]],
+	},
+});
+
+const box = (
+	label: string,
+	role: DateMyGlobeMapFeature['properties']['role'],
+	west: number,
+	south: number,
+	east: number,
+	north: number,
+): DateMyGlobeMapFeature => polygon(label, role, [
+	[west, south],
+	[east, south],
+	[east, north],
+	[west, north],
+]);
 
 export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 	{
@@ -169,6 +228,31 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'Poland appears',
 		},
 		region: 'Europe',
+		includeInChecklist: true,
+		mapViewport: { west: 10, south: 45, east: 35, north: 58 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'Polish lands divided among neighboring empires.',
+			features: [
+				box('Germany', 'context', 10, 47, 17.5, 55.5),
+				box('Austria-Hungary', 'context', 14, 45, 25, 50.5),
+				box('Russian Empire', 'context', 22, 47, 35, 58),
+				box('Partitioned Polish lands', 'removed', 17.5, 49, 24.5, 54.5),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'Poland appears as an independent state.',
+			features: [
+				box('Germany', 'context', 10, 47, 17.5, 55.5),
+				box('Czechoslovakia', 'context', 15, 47, 23, 50),
+				box('Soviet Russia', 'context', 25, 48, 35, 58),
+				box('Poland', 'added', 17.5, 49, 24.5, 54.5),
+			],
+		},
+		mapSourceNote: 'Simplified regional comparison informed by post-WWI settlement maps and CShapes-style country-period boundaries.',
 	},
 	{
 		id: 'soviet-union',
@@ -186,6 +270,36 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'USSR label',
 		},
 		region: 'Eurasia',
+		includeInChecklist: true,
+		mapViewport: { west: 18, south: 38, east: 95, north: 72 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'Russia and neighboring successor areas shown separately.',
+			features: [
+				box('Poland', 'context', 18, 49, 25, 55),
+				box('Ukraine', 'removed', 25, 45, 38, 53),
+				box('Caucasus', 'removed', 38, 38, 49, 45),
+				box('Russia', 'context', 38, 50, 95, 72),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'A single USSR label spans Russia, Ukraine, and other republics.',
+			features: [
+				box('Poland', 'context', 18, 49, 25, 55),
+				polygon('USSR', 'added', [
+					[25, 45],
+					[38, 38],
+					[95, 46],
+					[95, 72],
+					[38, 72],
+					[25, 56],
+				]),
+			],
+		},
+		mapSourceNote: 'Simplified from twentieth-century Eurasian political boundary references; intended to show the label/state change.',
 	},
 	{
 		id: 'india-pakistan',
@@ -203,6 +317,52 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'India and Pakistan',
 		},
 		region: 'South Asia',
+		includeInChecklist: true,
+		mapViewport: { west: 60, south: 5, east: 98, north: 36 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'British India covers the subcontinent.',
+			features: [
+				box('Afghanistan', 'context', 60, 28, 72, 36),
+				box('China', 'context', 78, 28, 98, 36),
+				polygon('British India', 'removed', [
+					[66, 24],
+					[72, 34],
+					[88, 28],
+					[92, 22],
+					[88, 8],
+					[78, 6],
+					[70, 10],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'India and Pakistan appear as separate countries.',
+			features: [
+				box('Afghanistan', 'context', 60, 28, 72, 36),
+				box('China', 'context', 78, 28, 98, 36),
+				polygon('Pakistan', 'added', [
+					[61, 24],
+					[68, 32],
+					[74, 29],
+					[72, 24],
+					[66, 22],
+				]),
+				polygon('India', 'added', [
+					[72, 28],
+					[88, 27],
+					[91, 21],
+					[88, 8],
+					[78, 6],
+					[72, 16],
+				]),
+				box('East Pakistan', 'added', 88, 20, 93, 26),
+			],
+		},
+		mapSourceNote: 'Simplified subcontinent view focused on the 1947 political split.',
 	},
 	{
 		id: 'israel',
@@ -220,6 +380,42 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'Israel label',
 		},
 		region: 'Middle East',
+		includeInChecklist: true,
+		mapViewport: { west: 32, south: 28, east: 39, north: 35 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'The area is labeled as Mandate Palestine.',
+			features: [
+				box('Mediterranean', 'context', 32, 28, 34, 35),
+				box('Transjordan', 'context', 36, 29, 39, 34),
+				polygon('Mandate Palestine', 'removed', [
+					[34.2, 31],
+					[35.3, 33.5],
+					[35.8, 32],
+					[35.4, 29.5],
+					[34.7, 29.4],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'Israel appears on the eastern Mediterranean coast.',
+			features: [
+				box('Mediterranean', 'context', 32, 28, 34, 35),
+				box('Jordan', 'context', 36, 29, 39, 34),
+				polygon('Israel', 'added', [
+					[34.4, 31.1],
+					[35.2, 33.2],
+					[35.6, 32],
+					[35.2, 29.6],
+					[34.8, 29.5],
+				]),
+				box('Palestinian areas', 'context', 35.2, 31.3, 35.8, 32.4),
+			],
+		},
+		mapSourceNote: 'Simplified eastern Mediterranean crop focused on the 1948 label change.',
 	},
 	{
 		id: 'bangladesh',
@@ -237,6 +433,43 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'Bangladesh',
 		},
 		region: 'South Asia',
+		includeInChecklist: true,
+		mapViewport: { west: 84, south: 18, east: 94, north: 29 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'The region is labeled East Pakistan.',
+			features: [
+				box('India', 'context', 84, 20, 90, 29),
+				box('Burma', 'context', 92, 18, 94, 26),
+				polygon('East Pakistan', 'removed', [
+					[88.1, 21],
+					[90.4, 20.7],
+					[92.2, 22.2],
+					[91.5, 26.4],
+					[88.8, 26.8],
+					[87.4, 24.4],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'Bangladesh replaces East Pakistan.',
+			features: [
+				box('India', 'context', 84, 20, 90, 29),
+				box('Myanmar', 'context', 92, 18, 94, 26),
+				polygon('Bangladesh', 'added', [
+					[88.1, 21],
+					[90.4, 20.7],
+					[92.2, 22.2],
+					[91.5, 26.4],
+					[88.8, 26.8],
+					[87.4, 24.4],
+				]),
+			],
+		},
+		mapSourceNote: 'Simplified Bengal-region comparison focused on the 1971 name/state change.',
 	},
 	{
 		id: 'german-reunification',
@@ -254,6 +487,36 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'One Germany',
 		},
 		region: 'Europe',
+		includeInChecklist: true,
+		mapViewport: { west: 5, south: 47, east: 17, north: 56 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'East Germany and West Germany are separate.',
+			features: [
+				box('France', 'context', 5, 47, 8, 51.5),
+				box('Poland', 'context', 14, 49, 17, 55),
+				box('West Germany', 'removed', 7, 47.5, 10.8, 54.8),
+				box('East Germany', 'removed', 10.8, 50.5, 14.5, 54.8),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'One Germany replaces East and West Germany.',
+			features: [
+				box('France', 'context', 5, 47, 8, 51.5),
+				box('Poland', 'context', 14, 49, 17, 55),
+				polygon('Germany', 'added', [
+					[7, 47.5],
+					[10.8, 47.5],
+					[14.5, 50.5],
+					[14.5, 54.8],
+					[7, 54.8],
+				]),
+			],
+		},
+		mapSourceNote: 'Simplified central Europe view focused on the 1990 reunification label change.',
 	},
 	{
 		id: 'soviet-dissolution',
@@ -271,6 +534,38 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'Multiple republics',
 		},
 		region: 'Eurasia',
+		includeInChecklist: true,
+		mapViewport: { west: 18, south: 38, east: 95, north: 72 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'The USSR appears as one large state.',
+			features: [
+				box('Poland', 'context', 18, 49, 25, 55),
+				polygon('USSR', 'removed', [
+					[25, 45],
+					[38, 38],
+					[95, 46],
+					[95, 72],
+					[38, 72],
+					[25, 56],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'Russia, Ukraine, and other former Soviet republics appear separately.',
+			features: [
+				box('Poland', 'context', 18, 49, 25, 55),
+				box('Ukraine', 'added', 25, 45, 38, 53),
+				box('Baltic states', 'added', 21, 55, 28, 59),
+				box('Caucasus', 'added', 38, 38, 49, 45),
+				box('Russia', 'added', 38, 50, 95, 72),
+				box('Central Asia', 'added', 50, 39, 74, 49),
+			],
+		},
+		mapSourceNote: 'Simplified post-1991 comparison focused on the disappearance of the USSR label.',
 	},
 	{
 		id: 'czechoslovakia',
@@ -288,6 +583,46 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'Two country labels',
 		},
 		region: 'Europe',
+		includeInChecklist: true,
+		mapViewport: { west: 10, south: 47, east: 24, north: 52 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'Czechoslovakia appears as one country.',
+			features: [
+				box('Germany', 'context', 10, 48, 13, 52),
+				box('Poland', 'context', 16, 50, 24, 52),
+				polygon('Czechoslovakia', 'removed', [
+					[12, 48.5],
+					[18.5, 48],
+					[22.5, 49],
+					[21.5, 50.4],
+					[14, 50.6],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'The Czech Republic and Slovakia appear separately.',
+			features: [
+				box('Germany', 'context', 10, 48, 13, 52),
+				box('Poland', 'context', 16, 50, 24, 52),
+				polygon('Czech Republic', 'added', [
+					[12, 48.5],
+					[16.5, 48.4],
+					[17.4, 50.2],
+					[14, 50.6],
+				]),
+				polygon('Slovakia', 'added', [
+					[17.2, 48.4],
+					[22.5, 49],
+					[21.5, 50.4],
+					[17.4, 50.2],
+				]),
+			],
+		},
+		mapSourceNote: 'Simplified central Europe view focused on the 1993 split.',
 	},
 	{
 		id: 'south-sudan',
@@ -305,5 +640,48 @@ export const dateMyGlobeEvents: DateMyGlobeEvent[] = [
 			afterNote: 'South Sudan separated',
 		},
 		region: 'Africa',
+		includeInChecklist: true,
+		mapViewport: { west: 21, south: 3, east: 38, north: 23 },
+		beforeMap: {
+			type: 'FeatureCollection',
+			label: 'Before',
+			note: 'Sudan appears as one country.',
+			features: [
+				box('Chad', 'context', 21, 9, 25, 20),
+				box('Ethiopia', 'context', 34, 3, 38, 14),
+				polygon('Sudan', 'removed', [
+					[24, 4],
+					[34, 4],
+					[36, 12],
+					[32, 22],
+					[24, 21],
+					[22, 14],
+				]),
+			],
+		},
+		afterMap: {
+			type: 'FeatureCollection',
+			label: 'After',
+			note: 'South Sudan appears below Sudan.',
+			features: [
+				box('Chad', 'context', 21, 9, 25, 20),
+				box('Ethiopia', 'context', 34, 3, 38, 14),
+				polygon('Sudan', 'context', [
+					[24, 10],
+					[35, 10],
+					[36, 16],
+					[32, 22],
+					[24, 21],
+					[22, 14],
+				]),
+				polygon('South Sudan', 'added', [
+					[24, 4],
+					[34, 4],
+					[35, 10],
+					[24, 10],
+				]),
+			],
+		},
+		mapSourceNote: 'Simplified Sudan-region comparison focused on South Sudan independence in 2011.',
 	},
 ];

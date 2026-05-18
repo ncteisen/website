@@ -215,11 +215,12 @@ const currentYear = new Date().getFullYear();
 			}
 
 			.result-panel {
-				display: grid;
-				grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
-				gap: 34px;
 				padding: 30px 0;
 				border-bottom: 1px solid var(--globe-border);
+			}
+
+			.result-main {
+				max-width: 620px;
 			}
 
 			.question-title,
@@ -234,24 +235,11 @@ const currentYear = new Date().getFullYear();
 			.question-description,
 			.result-copy,
 			.bound-copy,
-			.skipped-copy,
 			:global(.bound-copy) {
 				margin-top: 14px;
 				color: #8d877f;
 				font-size: 14px;
 				line-height: 1.75;
-			}
-
-			.answer-row {
-				display: grid;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				gap: 10px;
-				margin-top: 18px;
-			}
-
-			.answer-button {
-				min-width: 0;
-				padding: 0 14px;
 			}
 
 			.source-link,
@@ -278,35 +266,30 @@ const currentYear = new Date().getFullYear();
 			}
 
 			.share-panel {
-				margin-top: 24px;
-				border-top: 1px solid var(--globe-border);
-				padding-top: 20px;
-			}
-
-			.share-label {
-				display: block;
-				color: #e2dfd8;
-				font-size: 13px;
-				font-weight: 700;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px 16px;
+				align-items: center;
+				margin-top: 14px;
 			}
 
 			.share-row {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 12px;
-				margin-top: 10px;
 			}
 
-			.share-status {
-				min-height: 18px;
-				margin-top: 8px;
-				color: #6f6960;
+			.result-utility-link {
+				display: inline-flex;
+				color: color-mix(in srgb, var(--globe-accent) 72%, #666);
 				font-size: 12px;
-				line-height: 1.5;
+				font-weight: 600;
 			}
 
-			.share-status.copied {
-				color: var(--globe-accent);
+			.share-panel .action-button {
+				min-height: 34px;
+				padding: 0 12px;
+				font-size: 12px;
 			}
 
 			.answer-history {
@@ -360,93 +343,177 @@ const currentYear = new Date().getFullYear();
 				line-height: 1.5;
 			}
 
+			:global(.answer-range) {
+				margin-top: 14px;
+			}
+
+			:global(.answer-range-labels) {
+				display: flex;
+				justify-content: space-between;
+				color: #5f5a53;
+				font-size: 10px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+
+			:global(.answer-range-track) {
+				position: relative;
+				height: 6px;
+				margin-top: 8px;
+				border-radius: 999px;
+				background: #242424;
+				overflow: hidden;
+			}
+
+			:global(.answer-range-window) {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				border-radius: inherit;
+				background: var(--globe-accent);
+				box-shadow: 0 0 18px color-mix(in srgb, var(--globe-accent) 28%, transparent);
+			}
+
+			:global(.answer-range-current) {
+				margin-top: 8px;
+				color: #8d877f;
+				font-size: 12px;
+				line-height: 1.5;
+			}
+
 			.visual-panel {
-				min-height: 340px;
 				margin-top: 24px;
-				border: 1px solid var(--globe-border);
-				border-radius: 6px;
-				background:
-					radial-gradient(circle at 30% 26%, color-mix(in srgb, var(--globe-accent) 20%, transparent), transparent 34%),
-					#101010;
-				padding: 20px;
 			}
 
 			.visual-grid {
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 12px;
-				height: 100%;
+				min-width: 0;
 			}
 
-			.map-state {
+			.map-choice {
 				display: flex;
-				min-height: 292px;
+				width: 100%;
+				min-width: 0;
+				min-height: 330px;
 				flex-direction: column;
 				justify-content: space-between;
 				border: 1px solid #252525;
 				border-radius: 6px;
-				background: #0c0c0c;
-				padding: 14px;
+				background:
+					radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--globe-accent) 14%, transparent), transparent 38%),
+					#0c0c0c;
+				color: inherit;
+				cursor: pointer;
+				padding: 16px;
+				text-align: left;
+				transition: border-color 0.15s, background 0.15s, transform 0.15s;
 			}
 
-			.map-state-title {
+			.map-choice:hover,
+			.map-choice:focus-visible {
+				border-color: color-mix(in srgb, var(--globe-accent) 62%, #333);
+				background:
+					radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--globe-accent) 20%, transparent), transparent 38%),
+					#101312;
+				transform: translateY(-1px);
+			}
+
+			.map-choice-title {
 				color: #e2dfd8;
-				font-size: 13px;
+				font-size: 14px;
 				font-weight: 700;
 				line-height: 1.25;
 			}
 
-			.abstract-map {
+			.map-choice-label {
+				display: block;
+				margin-bottom: 4px;
+				color: #666;
+				font-size: 10px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.map-svg {
 				position: relative;
-				height: 126px;
-				margin: 18px 0;
+				width: 100%;
+				min-width: 0;
+				aspect-ratio: 4 / 3;
+				margin: 16px 0;
 				border: 1px solid #242424;
-				border-radius: 50%;
+				border-radius: 6px;
 				background:
-					linear-gradient(90deg, transparent 48%, rgba(226, 223, 216, 0.08) 48% 52%, transparent 52%),
-					linear-gradient(0deg, transparent 48%, rgba(226, 223, 216, 0.08) 48% 52%, transparent 52%),
+					linear-gradient(90deg, transparent 49%, rgba(226, 223, 216, 0.05) 49% 51%, transparent 51%),
+					linear-gradient(0deg, transparent 49%, rgba(226, 223, 216, 0.05) 49% 51%, transparent 51%),
 					color-mix(in srgb, var(--globe-accent) 10%, #0f0f0f);
 				overflow: hidden;
-			}
-
-			.abstract-map::before,
-			.abstract-map::after {
-				content: '';
-				position: absolute;
-				background: color-mix(in srgb, var(--globe-accent) 34%, #d8d3c9);
-				opacity: 0.55;
-			}
-
-			.abstract-map::before {
-				left: 18%;
-				top: 24%;
-				width: 34%;
-				height: 28%;
-				border-radius: 40% 60% 55% 45%;
-			}
-
-			.abstract-map::after {
-				right: 18%;
-				bottom: 24%;
-				width: 30%;
-				height: 24%;
-				border-radius: 55% 45% 42% 58%;
-			}
-
-			.map-state.after .abstract-map::before {
-				width: 22%;
-				transform: translateX(16px);
-			}
-
-			.map-state.after .abstract-map::after {
-				width: 38%;
-				transform: translateX(-12px);
 			}
 
 			.map-note {
 				color: #777;
 				font-size: 12px;
 				line-height: 1.55;
+			}
+
+			.map-svg :global(svg) {
+				position: absolute;
+				inset: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			:global(.geo-feature) {
+				stroke: rgba(226, 223, 216, 0.42);
+				stroke-width: 0.7;
+				vector-effect: non-scaling-stroke;
+			}
+
+			:global(.geo-feature--context) {
+				fill: rgba(226, 223, 216, 0.12);
+			}
+
+			:global(.geo-feature--removed) {
+				fill: rgba(214, 165, 97, 0.34);
+				stroke: rgba(214, 165, 97, 0.8);
+			}
+
+			:global(.geo-feature--added),
+			:global(.geo-feature--changed) {
+				fill: color-mix(in srgb, var(--globe-accent) 42%, transparent);
+				stroke: color-mix(in srgb, var(--globe-accent) 88%, #e2dfd8);
+			}
+
+			:global(.geo-label) {
+				fill: #e2dfd8;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 4px;
+				font-weight: 700;
+				letter-spacing: 0;
+				text-anchor: middle;
+			}
+
+			.unsure-row {
+				margin-top: 14px;
+				text-align: center;
+			}
+
+			.unsure-link {
+				border: 0;
+				background: transparent;
+				color: #777;
+				cursor: pointer;
+				font-size: 12px;
+				font-weight: 500;
+				padding: 4px 8px;
+			}
+
+			.unsure-link:hover,
+			.unsure-link:focus-visible {
+				color: var(--globe-accent);
+				text-decoration: underline;
 			}
 
 			.result-range {
@@ -459,8 +526,9 @@ const currentYear = new Date().getFullYear();
 
 			.bound-list {
 				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 18px;
-				margin-top: 24px;
+				margin-top: 28px;
 				border-top: 1px solid var(--globe-border);
 				padding-top: 22px;
 			}
@@ -470,10 +538,6 @@ const currentYear = new Date().getFullYear();
 				font-size: 15px;
 				font-weight: 700;
 				line-height: 1.35;
-			}
-
-			.skipped-copy {
-				color: #6f6960;
 			}
 
 			.timeline,
@@ -547,11 +611,17 @@ const currentYear = new Date().getFullYear();
 
 				.answer-row,
 				.visual-grid {
-					grid-template-columns: 1fr;
+					grid-template-columns: minmax(0, 1fr);
 				}
 
-				.map-state {
-					min-height: 220px;
+				.map-choice {
+					min-height: 0;
+					padding: 12px;
+				}
+
+				.map-svg {
+					aspect-ratio: 16 / 11;
+					margin: 12px 0;
 				}
 
 				.timeline-event {
@@ -561,6 +631,10 @@ const currentYear = new Date().getFullYear();
 
 				.result-range {
 					font-size: 34px;
+				}
+
+				.bound-list {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>
@@ -576,7 +650,7 @@ const currentYear = new Date().getFullYear();
 						Answer a short sequence of questions about borders and place names on your globe. The tool narrows the possible date by comparing what you see against a curated timeline of geopolitical changes.
 					</p>
 					<p class="range-note">
-						This version works from 1500 onward, roughly the practical floor for surviving globes. The reference point is the
+						This map-backed checklist currently focuses on twentieth-century and modern clues. The full reference timeline still starts from the
 						<a href="https://en.wikipedia.org/wiki/Behaim_Globe" target="_blank" rel="noopener noreferrer">Behaim Globe</a>,
 						created around 1492. The result estimates the globe's map-data date, not necessarily its manufacturing date.
 					</p>
@@ -593,48 +667,42 @@ const currentYear = new Date().getFullYear();
 							<a class="source-link" id="question-source" target="_blank" rel="noopener noreferrer">Source &rarr;</a>
 						</div>
 
-						<div class="visual-panel" aria-label="Placeholder before and after visual">
+						<div class="visual-panel" aria-label="Before and after map choices">
 							<div class="visual-grid">
-								<div class="map-state before">
+								<button class="map-choice" type="button" data-answer="no" id="before-map-button">
 									<div>
-										<p class="map-state-title" id="before-label"></p>
-										<div class="abstract-map" aria-hidden="true"></div>
+										<span class="map-choice-label">Before</span>
+										<p class="map-choice-title" id="before-label"></p>
+										<div class="map-svg" id="before-map" aria-hidden="true"></div>
 									</div>
 									<p class="map-note" id="before-note"></p>
-								</div>
-								<div class="map-state after">
+								</button>
+								<button class="map-choice" type="button" data-answer="yes" id="after-map-button">
 									<div>
-										<p class="map-state-title" id="after-label"></p>
-										<div class="abstract-map" aria-hidden="true"></div>
+										<span class="map-choice-label">After</span>
+										<p class="map-choice-title" id="after-label"></p>
+										<div class="map-svg" id="after-map" aria-hidden="true"></div>
 									</div>
 									<p class="map-note" id="after-note"></p>
-								</div>
+								</button>
 							</div>
 						</div>
 
-						<div class="answer-row" aria-label="Answer the current globe dating question">
-							<button class="answer-button" type="button" data-answer="yes">Yes</button>
-							<button class="answer-button" type="button" data-answer="no">No</button>
-							<button class="answer-button" type="button" data-answer="unsure">Unsure</button>
+						<div class="unsure-row">
+							<button class="unsure-link" type="button" data-answer="unsure">Unsure</button>
 						</div>
 					</div>
 
 					<div class="result-panel" id="result-panel" hidden>
-						<div>
-							<p class="progress-label">Estimated map-data date</p>
+						<div class="result-main">
 							<h3 class="result-title">Your globe is likely from:</h3>
 							<p class="result-range" id="result-range"></p>
 							<p class="result-copy" id="result-copy"></p>
-							<p class="skipped-copy" id="skipped-copy"></p>
 							<div class="share-panel">
-								<p class="share-label">Share this checklist</p>
 								<div class="share-row">
 									<button class="action-button secondary" type="button" id="copy-share-button">Copy link</button>
 								</div>
-								<p class="share-status" id="share-status">This link opens the completed result and answered clues.</p>
-							</div>
-							<div class="action-row">
-								<a class="inline-link" href="/map-my-globe/all-events">View all events &rarr;</a>
+								<a class="result-utility-link" href="/map-my-globe/all-events">View all events &rarr;</a>
 							</div>
 						</div>
 
@@ -664,9 +732,12 @@ const currentYear = new Date().getFullYear();
 		<script type="application/json" id="date-my-globe-events" set:html={JSON.stringify(dateMyGlobeEvents)}></script>
 		<script>
 			const eventsElement = document.getElementById('date-my-globe-events');
-			const events = JSON.parse(eventsElement?.textContent || '[]').sort((a, b) => a.year - b.year);
+			const allEvents = JSON.parse(eventsElement?.textContent || '[]').sort((a, b) => a.year - b.year);
+			const events = allEvents.filter((event) => event.includeInChecklist && event.beforeMap && event.afterMap);
 			const minSupportedYear = Number(document.body.dataset.minYear || '1500');
 			const currentYear = Number(document.body.dataset.currentYear || String(new Date().getFullYear()));
+			const mappedTimelineStartYear = events[0]?.year ?? minSupportedYear;
+			const mappedTimelineEndYear = events[events.length - 1]?.year ?? currentYear;
 
 			const questionCard = document.getElementById('question-card');
 			const resultPanel = document.getElementById('result-panel');
@@ -677,15 +748,18 @@ const currentYear = new Date().getFullYear();
 			const afterLabel = document.getElementById('after-label');
 			const beforeNote = document.getElementById('before-note');
 			const afterNote = document.getElementById('after-note');
+			const beforeMap = document.getElementById('before-map');
+			const afterMap = document.getElementById('after-map');
+			const beforeMapButton = document.getElementById('before-map-button');
+			const afterMapButton = document.getElementById('after-map-button');
 			const resultRange = document.getElementById('result-range');
 			const resultCopy = document.getElementById('result-copy');
-			const skippedCopy = document.getElementById('skipped-copy');
 			const lowerBound = document.getElementById('lower-bound');
 			const upperBound = document.getElementById('upper-bound');
-			const shareStatus = document.getElementById('share-status');
 			const copyShareButton = document.getElementById('copy-share-button');
 			const answerHistoryList = document.getElementById('answer-history-list');
 			const answeredTimeline = document.getElementById('answered-timeline');
+			let copyResetTimer;
 
 			const answerCodes = {
 				yes: 'y',
@@ -698,8 +772,8 @@ const currentYear = new Date().getFullYear();
 				u: 'unsure',
 			};
 			const answerLabels = {
-				yes: 'Yes',
-				no: 'No',
+				yes: 'After',
+				no: 'Before',
 				unsure: 'Unsure',
 			};
 
@@ -714,6 +788,19 @@ const currentYear = new Date().getFullYear();
 
 			function formatRange() {
 				return `${earliestYear}-${latestYear >= currentYear ? 'present' : latestYear}`;
+			}
+
+			function formatRangeSnapshot(range) {
+				return `${range.earliestYear}-${range.latestYear >= currentYear ? 'present' : range.latestYear}`;
+			}
+
+			function getRangePercent(year) {
+				const span = mappedTimelineEndYear - mappedTimelineStartYear;
+				if (span <= 0) {
+					return 0;
+				}
+
+				return Math.min(100, Math.max(0, ((year - mappedTimelineStartYear) / span) * 100));
 			}
 
 			function getCandidates() {
@@ -731,6 +818,95 @@ const currentYear = new Date().getFullYear();
 				}
 
 				return candidates[Math.floor((candidates.length - 1) / 2)];
+			}
+
+			function projectPoint(point, viewport) {
+				const [lon, lat] = point;
+				const x = ((lon - viewport.west) / (viewport.east - viewport.west)) * 100;
+				const y = ((viewport.north - lat) / (viewport.north - viewport.south)) * 100;
+				return [x, y];
+			}
+
+			function polygonPath(feature, viewport) {
+				return feature.geometry.coordinates.map((ring) => ring.map((point, index) => {
+					const [x, y] = projectPoint(point, viewport);
+					return `${index === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`;
+				}).join(' ') + ' Z').join(' ');
+			}
+
+			function polygonCenter(feature, viewport) {
+				const ring = feature.geometry.coordinates[0];
+				const projected = ring.slice(0, -1).map((point) => projectPoint(point, viewport));
+				const total = projected.reduce((sum, point) => [sum[0] + point[0], sum[1] + point[1]], [0, 0]);
+				return [total[0] / projected.length, total[1] / projected.length];
+			}
+
+			function renderMap(target, event, map) {
+				if (!target || !event.mapViewport || !map) {
+					return;
+				}
+
+				const featureStyles = {
+					context: {
+						fill: 'rgba(226, 223, 216, 0.12)',
+						stroke: 'rgba(226, 223, 216, 0.42)',
+					},
+					removed: {
+						fill: 'rgba(214, 165, 97, 0.34)',
+						stroke: 'rgba(214, 165, 97, 0.8)',
+					},
+					added: {
+						fill: 'rgba(131, 184, 161, 0.42)',
+						stroke: 'rgba(184, 220, 202, 0.95)',
+					},
+				};
+				const svgNamespace = 'http://www.w3.org/2000/svg';
+				const svg = document.createElementNS(svgNamespace, 'svg');
+				svg.setAttribute('viewBox', '-4 -4 108 108');
+				svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+				svg.setAttribute('role', 'img');
+				svg.setAttribute('aria-label', map.label);
+
+				const background = document.createElementNS(svgNamespace, 'rect');
+				background.setAttribute('x', '0');
+				background.setAttribute('y', '0');
+				background.setAttribute('width', '100');
+				background.setAttribute('height', '100');
+				background.setAttribute('fill', 'transparent');
+				svg.append(background);
+
+				map.features.forEach((feature) => {
+					const style = featureStyles[feature.properties.role] ?? featureStyles.context;
+					const path = document.createElementNS(svgNamespace, 'path');
+					path.setAttribute('d', polygonPath(feature, event.mapViewport));
+					path.setAttribute('class', `geo-feature geo-feature--${feature.properties.role}`);
+					path.setAttribute('fill', style.fill);
+					path.setAttribute('stroke', style.stroke);
+					path.setAttribute('stroke-width', '0.7');
+					path.setAttribute('vector-effect', 'non-scaling-stroke');
+					svg.append(path);
+				});
+
+				map.features.forEach((feature) => {
+					if (feature.properties.role === 'context') {
+						return;
+					}
+
+					const [x, y] = polygonCenter(feature, event.mapViewport);
+					const label = document.createElementNS(svgNamespace, 'text');
+					label.setAttribute('x', x.toFixed(2));
+					label.setAttribute('y', y.toFixed(2));
+					label.setAttribute('class', 'geo-label');
+					label.setAttribute('fill', '#e2dfd8');
+					label.setAttribute('font-size', '4');
+					label.setAttribute('font-family', 'DM Sans, sans-serif');
+					label.setAttribute('font-weight', '700');
+					label.setAttribute('text-anchor', 'middle');
+					label.textContent = feature.properties.label;
+					svg.append(label);
+				});
+
+				target.replaceChildren(svg);
 			}
 
 			function renderQuestion() {
@@ -758,11 +934,19 @@ const currentYear = new Date().getFullYear();
 					afterLabel.textContent = currentEvent.afterLabel;
 				}
 				if (beforeNote) {
-					beforeNote.textContent = currentEvent.visualPlaceholder.beforeNote;
+					beforeNote.textContent = currentEvent.beforeMap?.note ?? currentEvent.visualPlaceholder.beforeNote;
 				}
 				if (afterNote) {
-					afterNote.textContent = currentEvent.visualPlaceholder.afterNote;
+					afterNote.textContent = currentEvent.afterMap?.note ?? currentEvent.visualPlaceholder.afterNote;
 				}
+				if (beforeMapButton) {
+					beforeMapButton.setAttribute('aria-label', `Before: ${currentEvent.beforeLabel}`);
+				}
+				if (afterMapButton) {
+					afterMapButton.setAttribute('aria-label', `After: ${currentEvent.afterLabel}`);
+				}
+				renderMap(beforeMap, currentEvent, currentEvent.beforeMap);
+				renderMap(afterMap, currentEvent, currentEvent.afterMap);
 			}
 
 			function renderBound(target, heading, event, fallbackCopy) {
@@ -826,7 +1010,36 @@ const currentYear = new Date().getFullYear();
 					event.className = 'answer-history-event';
 					event.textContent = `${entry.event.name} (${entry.event.year})`;
 
-					item.append(meta, question, event);
+					const range = document.createElement('div');
+					range.className = 'answer-range';
+
+					const labels = document.createElement('div');
+					labels.className = 'answer-range-labels';
+
+					const startLabel = document.createElement('span');
+					startLabel.textContent = String(mappedTimelineStartYear);
+					const endLabel = document.createElement('span');
+					endLabel.textContent = String(mappedTimelineEndYear);
+					labels.append(startLabel, endLabel);
+
+					const track = document.createElement('div');
+					track.className = 'answer-range-track';
+
+					const window = document.createElement('div');
+					window.className = 'answer-range-window';
+					const left = getRangePercent(entry.rangeAfter.earliestYear);
+					const right = getRangePercent(entry.rangeAfter.latestYear);
+					window.style.left = `${left}%`;
+					window.style.width = `${Math.max(1.5, right - left)}%`;
+					track.append(window);
+
+					const current = document.createElement('p');
+					current.className = 'answer-range-current';
+					current.textContent = `Possible after this answer: ${formatRangeSnapshot(entry.rangeAfter)}`;
+
+					range.append(labels, track, current);
+
+					item.append(meta, question, event, range);
 					answerHistoryList.append(item);
 				});
 			}
@@ -845,12 +1058,6 @@ const currentYear = new Date().getFullYear();
 				if (resultCopy) {
 					resultCopy.textContent = `This range comes from the clearest confirmed before-and-after clues. It dates the political geography represented on the globe, which can be earlier than the date the object was manufactured.`;
 				}
-				if (skippedCopy) {
-					skippedCopy.textContent = skippedEvents.length
-						? `${skippedEvents.length} unsure clue${skippedEvents.length === 1 ? '' : 's'} were skipped, so this range stays wider.`
-						: 'No clues were skipped.';
-				}
-
 				renderBound(
 					lowerBound,
 					'Earliest bound',
@@ -868,10 +1075,6 @@ const currentYear = new Date().getFullYear();
 					copyShareButton.textContent = 'Copy link';
 					copyShareButton.classList.remove('copied');
 				}
-				if (shareStatus) {
-					shareStatus.textContent = 'This link opens the completed result and answered clues.';
-					shareStatus.classList.remove('copied');
-				}
 				if (answeredTimeline) {
 					answeredTimeline.hidden = false;
 				}
@@ -883,7 +1086,6 @@ const currentYear = new Date().getFullYear();
 				}
 
 				askedEventIds.add(event.id);
-				answerHistory.push({ event, answer });
 
 				if (answer === 'yes') {
 					earliestYear = Math.max(earliestYear, event.year);
@@ -898,6 +1100,15 @@ const currentYear = new Date().getFullYear();
 				if (latestYear < earliestYear) {
 					latestYear = earliestYear;
 				}
+
+				answerHistory.push({
+					event,
+					answer,
+					rangeAfter: {
+						earliestYear,
+						latestYear,
+					},
+				});
 			}
 
 			function answerQuestion(answer) {
@@ -942,9 +1153,6 @@ const currentYear = new Date().getFullYear();
 				}
 				if (answeredTimeline) {
 					answeredTimeline.hidden = true;
-				}
-				if (shareStatus) {
-					shareStatus.textContent = 'This link opens the completed result and answered clues.';
 				}
 
 				renderQuestion();
@@ -1031,19 +1239,20 @@ const currentYear = new Date().getFullYear();
 				const shareUrl = getShareUrl();
 
 				if (await copyText(shareUrl)) {
+					window.clearTimeout(copyResetTimer);
 					copyShareButton.textContent = 'Copied';
 					copyShareButton.classList.add('copied');
-					if (shareStatus) {
-						shareStatus.textContent = 'Copied. Send it to someone and they will see the same answered checklist.';
-						shareStatus.classList.add('copied');
-					}
+					copyResetTimer = window.setTimeout(() => {
+						copyShareButton.textContent = 'Copy link';
+						copyShareButton.classList.remove('copied');
+					}, 1400);
 					return;
 				}
 
-				if (shareStatus) {
-					shareStatus.textContent = 'Copy failed. Try again from the browser address bar.';
-					shareStatus.classList.remove('copied');
-				}
+				copyShareButton.textContent = 'Copy failed';
+				copyResetTimer = window.setTimeout(() => {
+					copyShareButton.textContent = 'Copy link';
+				}, 1800);
 			});
 
 			loadSharedChecklist();

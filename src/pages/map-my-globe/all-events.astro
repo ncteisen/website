@@ -196,6 +196,7 @@ const sortedEvents = [...dateMyGlobeEvents].sort((a, b) => a.year - b.year);
 							<span class="event-region">{event.region}</span>
 							<h2 class="timeline-title">{event.name}</h2>
 							<p class="timeline-copy">{event.description}</p>
+							{event.mapSourceNote && <p class="timeline-copy">{event.mapSourceNote}</p>}
 							<a class="source-link" href={event.sourceUrl} target="_blank" rel="noopener noreferrer">{event.sourceLabel} &rarr;</a>
 						</div>
 					</article>
