@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "validate:date-my-globe": "node scripts/date-my-globe/validate-events.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "resume": "bash scripts/resume-generator/build_resume.sh"

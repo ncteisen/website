@@ -444,10 +444,7 @@ const currentYear = new Date().getFullYear();
 				margin: 16px 0;
 				border: 1px solid #242424;
 				border-radius: 6px;
-				background:
-					linear-gradient(90deg, transparent 49%, rgba(226, 223, 216, 0.05) 49% 51%, transparent 51%),
-					linear-gradient(0deg, transparent 49%, rgba(226, 223, 216, 0.05) 49% 51%, transparent 51%),
-					color-mix(in srgb, var(--globe-accent) 10%, #0f0f0f);
+				background: #152225;
 				overflow: hidden;
 			}
 
@@ -466,32 +463,51 @@ const currentYear = new Date().getFullYear();
 			}
 
 			:global(.geo-feature) {
-				stroke: rgba(226, 223, 216, 0.42);
-				stroke-width: 0.7;
+				stroke: rgba(235, 231, 220, 0.42);
+				stroke-width: 0.55;
 				vector-effect: non-scaling-stroke;
 			}
 
 			:global(.geo-feature--context) {
-				fill: rgba(226, 223, 216, 0.12);
+				fill: #39443c;
 			}
 
 			:global(.geo-feature--removed) {
-				fill: rgba(214, 165, 97, 0.34);
-				stroke: rgba(214, 165, 97, 0.8);
+				fill: #9f7c47;
+				stroke: #d7b36f;
 			}
 
 			:global(.geo-feature--added),
 			:global(.geo-feature--changed) {
-				fill: color-mix(in srgb, var(--globe-accent) 42%, transparent);
-				stroke: color-mix(in srgb, var(--globe-accent) 88%, #e2dfd8);
+				fill: #5f9279;
+				stroke: #b8dfca;
+			}
+
+			:global(.geo-feature--boundary) {
+				fill: transparent;
+				stroke: rgba(235, 231, 220, 0.74);
 			}
 
 			:global(.geo-label) {
 				fill: #e2dfd8;
 				font-family: 'DM Sans', sans-serif;
-				font-size: 4px;
+				font-size: 3.5px;
 				font-weight: 700;
 				letter-spacing: 0;
+				text-anchor: middle;
+			}
+
+			:global(.geo-label--context) {
+				fill: rgba(226, 223, 216, 0.68);
+				font-size: 2.8px;
+				font-weight: 600;
+			}
+
+			:global(.geo-label-halo) {
+				fill: none;
+				stroke: rgba(18, 28, 30, 0.82);
+				stroke-linejoin: round;
+				stroke-width: 1.2px;
 				text-anchor: middle;
 			}
 
@@ -731,8 +747,12 @@ const currentYear = new Date().getFullYear();
 		<script type="application/json" id="date-my-globe-events" set:html={JSON.stringify(dateMyGlobeEvents)}></script>
 		<script>
 			const eventsElement = document.getElementById('date-my-globe-events');
-			const allEvents = JSON.parse(eventsElement?.textContent || '[]').sort((a, b) => a.year - b.year);
-			const events = allEvents.filter((event) => event.includeInChecklist && event.beforeMap && event.afterMap);
+			const allEvents = JSON.parse(eventsElement?.textContent || '[]')
+				.sort((a, b) => (a.checklistOrder ?? a.year) - (b.checklistOrder ?? b.year) || a.id.localeCompare(b.id));
+			const events = allEvents
+				.filter((event) => event.includeInChecklist && event.beforeMap && event.afterMap)
+				.map((event, index) => ({ ...event, checklistIndex: index }));
+			const eventsById = new Map(events.map((event) => [event.id, event]));
 			const minSupportedYear = Number(document.body.dataset.minYear || '1500');
 			const currentYear = Number(document.body.dataset.currentYear || String(new Date().getFullYear()));
 			const mappedTimelineStartYear = events[0]?.year ?? minSupportedYear;
@@ -779,6 +799,8 @@ const currentYear = new Date().getFullYear();
 
 			let earliestYear = minSupportedYear;
 			let latestYear = currentYear;
+			let earliestIndex = -1;
+			let latestIndex = events.length;
 			let currentEvent = null;
 			let lowerBoundEvent = null;
 			let upperBoundEvent = null;
@@ -806,8 +828,8 @@ const currentYear = new Date().getFullYear();
 			function getCandidates() {
 				return events.filter((event) => (
 					!askedEventIds.has(event.id) &&
-					event.year > earliestYear &&
-					event.year <= latestYear
+					event.checklistIndex > earliestIndex &&
+					event.checklistIndex < latestIndex
 				));
 			}
 
@@ -827,18 +849,78 @@ const currentYear = new Date().getFullYear();
 				return [x, y];
 			}
 
+			function featureRings(feature) {
+				if (feature.geometry.type === 'MultiPolygon') {
+					return feature.geometry.coordinates.flat();
+				}
+
+				if (feature.geometry.type !== 'Polygon') {
+					return [];
+				}
+
+				return feature.geometry.coordinates;
+			}
+
 			function polygonPath(feature, viewport) {
-				return feature.geometry.coordinates.map((ring) => ring.map((point, index) => {
+				return featureRings(feature).map((ring) => ring.map((point, index) => {
 					const [x, y] = projectPoint(point, viewport);
 					return `${index === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`;
 				}).join(' ') + ' Z').join(' ');
 			}
 
 			function polygonCenter(feature, viewport) {
-				const ring = feature.geometry.coordinates[0];
-				const projected = ring.slice(0, -1).map((point) => projectPoint(point, viewport));
+				if (feature.properties.labelPosition) {
+					return projectPoint(feature.properties.labelPosition, viewport);
+				}
+
+				if (feature.geometry.type === 'Point') {
+					return projectPoint(feature.geometry.coordinates, viewport);
+				}
+
+				if (feature.geometry.type === 'LineString') {
+					return projectPoint(feature.geometry.coordinates[Math.floor(feature.geometry.coordinates.length / 2)], viewport);
+				}
+
+				const projected = featureRings(feature)
+					.flatMap((ring) => ring.slice(0, -1).map((point) => projectPoint(point, viewport)));
 				const total = projected.reduce((sum, point) => [sum[0] + point[0], sum[1] + point[1]], [0, 0]);
 				return [total[0] / projected.length, total[1] / projected.length];
+			}
+
+			function linePath(feature, viewport) {
+				return feature.geometry.coordinates.map((point, index) => {
+					const [x, y] = projectPoint(point, viewport);
+					return `${index === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`;
+				}).join(' ');
+			}
+
+			function appendLine(svg, svgNamespace, x1, y1, x2, y2) {
+				const line = document.createElementNS(svgNamespace, 'line');
+				line.setAttribute('x1', x1.toFixed(2));
+				line.setAttribute('y1', y1.toFixed(2));
+				line.setAttribute('x2', x2.toFixed(2));
+				line.setAttribute('y2', y2.toFixed(2));
+				line.setAttribute('stroke', 'rgba(226, 223, 216, 0.08)');
+				line.setAttribute('stroke-width', '0.35');
+				line.setAttribute('vector-effect', 'non-scaling-stroke');
+				svg.append(line);
+			}
+
+			function appendGraticule(svg, svgNamespace, viewport) {
+				const lonStep = viewport.east - viewport.west > 40 ? 20 : 5;
+				const latStep = viewport.north - viewport.south > 20 ? 10 : 5;
+				const firstLon = Math.ceil(viewport.west / lonStep) * lonStep;
+				const firstLat = Math.ceil(viewport.south / latStep) * latStep;
+
+				for (let lon = firstLon; lon < viewport.east; lon += lonStep) {
+					const [x] = projectPoint([lon, viewport.south], viewport);
+					appendLine(svg, svgNamespace, x, 0, x, 100);
+				}
+
+				for (let lat = firstLat; lat < viewport.north; lat += latStep) {
+					const [, y] = projectPoint([viewport.west, lat], viewport);
+					appendLine(svg, svgNamespace, 0, y, 100, y);
+				}
 			}
 
 			function renderMap(target, event, map) {
@@ -848,17 +930,32 @@ const currentYear = new Date().getFullYear();
 
 				const featureStyles = {
 					context: {
-						fill: 'rgba(226, 223, 216, 0.12)',
-						stroke: 'rgba(226, 223, 216, 0.42)',
+						fill: '#39443c',
+						stroke: 'rgba(235, 231, 220, 0.36)',
 					},
 					removed: {
-						fill: 'rgba(214, 165, 97, 0.34)',
-						stroke: 'rgba(214, 165, 97, 0.8)',
+						fill: '#9f7c47',
+						stroke: '#d7b36f',
 					},
 					added: {
-						fill: 'rgba(131, 184, 161, 0.42)',
-						stroke: 'rgba(184, 220, 202, 0.95)',
+						fill: '#5f9279',
+						stroke: '#b8dfca',
 					},
+					changed: {
+						fill: '#5f9279',
+						stroke: '#b8dfca',
+					},
+					boundary: {
+						fill: 'transparent',
+						stroke: 'rgba(235, 231, 220, 0.74)',
+					},
+				};
+				const featureOrder = {
+					context: 0,
+					removed: 1,
+					added: 1,
+					changed: 1,
+					boundary: 2,
 				};
 				const svgNamespace = 'http://www.w3.org/2000/svg';
 				const svg = document.createElementNS(svgNamespace, 'svg');
@@ -872,38 +969,71 @@ const currentYear = new Date().getFullYear();
 				background.setAttribute('y', '0');
 				background.setAttribute('width', '100');
 				background.setAttribute('height', '100');
-				background.setAttribute('fill', 'transparent');
+				background.setAttribute('fill', '#17282c');
 				svg.append(background);
 
-				map.features.forEach((feature) => {
+				appendGraticule(svg, svgNamespace, event.mapViewport);
+
+				[...map.features].sort((a, b) => (
+					(featureOrder[a.properties.role] ?? 0) - (featureOrder[b.properties.role] ?? 0)
+				)).forEach((feature) => {
 					const style = featureStyles[feature.properties.role] ?? featureStyles.context;
+					if (feature.geometry.type === 'Point') {
+						const [cx, cy] = projectPoint(feature.geometry.coordinates, event.mapViewport);
+						const circle = document.createElementNS(svgNamespace, 'circle');
+						circle.setAttribute('cx', cx.toFixed(2));
+						circle.setAttribute('cy', cy.toFixed(2));
+						circle.setAttribute('r', feature.properties.role === 'context' ? '1.1' : '1.7');
+						circle.setAttribute('class', `geo-feature geo-feature--${feature.properties.role}`);
+						circle.setAttribute('fill', style.fill);
+						circle.setAttribute('stroke', style.stroke);
+						circle.setAttribute('stroke-width', '0.8');
+						circle.setAttribute('vector-effect', 'non-scaling-stroke');
+						svg.append(circle);
+						return;
+					}
+
 					const path = document.createElementNS(svgNamespace, 'path');
-					path.setAttribute('d', polygonPath(feature, event.mapViewport));
+					path.setAttribute('d', feature.geometry.type === 'LineString'
+						? linePath(feature, event.mapViewport)
+						: polygonPath(feature, event.mapViewport));
 					path.setAttribute('class', `geo-feature geo-feature--${feature.properties.role}`);
-					path.setAttribute('fill', style.fill);
+					path.setAttribute('fill', feature.geometry.type === 'LineString' ? 'none' : style.fill);
 					path.setAttribute('stroke', style.stroke);
-					path.setAttribute('stroke-width', '0.7');
+					path.setAttribute('stroke-linecap', 'round');
+					path.setAttribute('stroke-linejoin', 'round');
+					path.setAttribute('stroke-width', feature.geometry.type === 'LineString' ? '1.4' : feature.properties.role === 'boundary' ? '0.85' : '0.55');
 					path.setAttribute('vector-effect', 'non-scaling-stroke');
 					svg.append(path);
 				});
 
 				map.features.forEach((feature) => {
-					if (feature.properties.role === 'context') {
+					if (feature.properties.showLabel === false || !feature.properties.label) {
 						return;
 					}
 
 					const [x, y] = polygonCenter(feature, event.mapViewport);
-					const label = document.createElementNS(svgNamespace, 'text');
-					label.setAttribute('x', x.toFixed(2));
-					label.setAttribute('y', y.toFixed(2));
-					label.setAttribute('class', 'geo-label');
-					label.setAttribute('fill', '#e2dfd8');
-					label.setAttribute('font-size', '4');
-					label.setAttribute('font-family', 'DM Sans, sans-serif');
-					label.setAttribute('font-weight', '700');
-					label.setAttribute('text-anchor', 'middle');
-					label.textContent = feature.properties.label;
+					const labelSize = feature.properties.labelSize === 'large'
+						? 4.2
+						: feature.properties.labelSize === 'small' || feature.properties.role === 'context'
+							? 2.7
+							: 3.4;
+
+					const halo = document.createElementNS(svgNamespace, 'text');
+					halo.setAttribute('x', x.toFixed(2));
+					halo.setAttribute('y', y.toFixed(2));
+					halo.setAttribute('class', 'geo-label geo-label-halo');
+					halo.setAttribute('font-size', String(labelSize));
+					halo.setAttribute('font-family', 'DM Sans, sans-serif');
+					halo.setAttribute('font-weight', feature.properties.role === 'context' ? '600' : '700');
+					halo.textContent = feature.properties.label;
+
+					const label = halo.cloneNode(true);
+					label.setAttribute('class', `geo-label geo-label--${feature.properties.role}`);
+					label.setAttribute('fill', feature.properties.role === 'context' ? 'rgba(226, 223, 216, 0.68)' : '#e2dfd8');
+					label.removeAttribute('stroke');
 					svg.append(label);
+					svg.insertBefore(halo, label);
 				});
 
 				target.replaceChildren(svg);
@@ -924,8 +1054,14 @@ const currentYear = new Date().getFullYear();
 					questionDescription.textContent = currentEvent.description;
 				}
 				if (questionSource) {
-					questionSource.innerHTML = `${currentEvent.sourceLabel} &rarr;`;
-					questionSource.setAttribute('href', currentEvent.sourceUrl);
+					if (currentEvent.sourceLabel && currentEvent.sourceUrl) {
+						questionSource.hidden = false;
+						questionSource.innerHTML = `${currentEvent.sourceLabel} &rarr;`;
+						questionSource.setAttribute('href', currentEvent.sourceUrl);
+					} else {
+						questionSource.hidden = true;
+						questionSource.removeAttribute('href');
+					}
 				}
 				if (beforeLabel) {
 					beforeLabel.textContent = currentEvent.beforeLabel;
@@ -965,7 +1101,7 @@ const currentYear = new Date().getFullYear();
 				target.innerHTML = `
 					<h4 class="bound-title">${heading}: ${event.name} (${event.year})</h4>
 					<p class="bound-copy">${event.description}</p>
-					<a class="source-link" href="${event.sourceUrl}" target="_blank" rel="noopener noreferrer">${event.sourceLabel} &rarr;</a>
+					${event.sourceLabel && event.sourceUrl ? `<a class="source-link" href="${event.sourceUrl}" target="_blank" rel="noopener noreferrer">${event.sourceLabel} &rarr;</a>` : ''}
 				`;
 			}
 
@@ -1088,9 +1224,11 @@ const currentYear = new Date().getFullYear();
 				askedEventIds.add(event.id);
 
 				if (answer === 'yes') {
+					earliestIndex = Math.max(earliestIndex, event.checklistIndex);
 					earliestYear = Math.max(earliestYear, event.year);
 					lowerBoundEvent = event;
 				} else if (answer === 'no') {
+					latestIndex = Math.min(latestIndex, event.checklistIndex);
 					latestYear = Math.min(latestYear, event.year - 1);
 					upperBoundEvent = event;
 				} else {
@@ -1123,6 +1261,8 @@ const currentYear = new Date().getFullYear();
 			function resetChecklistState() {
 				earliestYear = minSupportedYear;
 				latestYear = currentYear;
+				earliestIndex = -1;
+				latestIndex = events.length;
 				currentEvent = null;
 				lowerBoundEvent = null;
 				upperBoundEvent = null;
@@ -1179,12 +1319,12 @@ const currentYear = new Date().getFullYear();
 				});
 
 				for (const sharedAnswer of sharedAnswers) {
-					const expectedEvent = getNextEvent();
-					if (!expectedEvent || expectedEvent.id !== sharedAnswer.eventId || !sharedAnswer.answer) {
-						break;
+					const sharedEvent = eventsById.get(sharedAnswer.eventId);
+					if (!sharedEvent || !sharedAnswer.answer) {
+						continue;
 					}
 
-					applyAnswer(expectedEvent, sharedAnswer.answer);
+					applyAnswer(sharedEvent, sharedAnswer.answer);
 				}
 
 				if (questionCard) {
@@ -1230,18 +1370,36 @@ const currentYear = new Date().getFullYear();
 				return copied;
 			}
 
-			async function copyText(text) {
-				if (copyTextWithSelection(text)) {
-					return true;
+			function copyTextWithEvent(text) {
+				let copied = false;
+				const handleCopy = (event) => {
+					event.preventDefault();
+					event.clipboardData?.setData('text/plain', text);
+					copied = true;
+				};
+
+				document.addEventListener('copy', handleCopy);
+				try {
+					copied = document.execCommand('copy') || copied;
+				} finally {
+					document.removeEventListener('copy', handleCopy);
 				}
 
+				return copied;
+			}
+
+			async function copyText(text) {
 				if (window.navigator?.clipboard?.writeText) {
 					try {
 						await window.navigator.clipboard.writeText(text);
 						return true;
 					} catch {
-						return false;
+						// Try the synchronous fallbacks below for embedded/local browsers.
 					}
+				}
+
+				if (copyTextWithEvent(text) || copyTextWithSelection(text)) {
+					return true;
 				}
 
 				return false;
@@ -1255,22 +1413,23 @@ const currentYear = new Date().getFullYear();
 
 			copyShareButton?.addEventListener('click', async () => {
 				const shareUrl = getShareUrl();
-
-				if (await copyText(shareUrl)) {
+				const showCopyState = (label) => {
 					window.clearTimeout(copyResetTimer);
-					copyShareButton.textContent = 'Copied';
-					copyShareButton.classList.add('copied');
+					copyShareButton.textContent = label;
+					copyShareButton.classList.toggle('copied', label !== 'Copy failed');
 					copyResetTimer = window.setTimeout(() => {
 						copyShareButton.textContent = 'Copy link';
 						copyShareButton.classList.remove('copied');
 					}, 1400);
+				};
+
+				if (await copyText(shareUrl)) {
+					showCopyState('Copied');
 					return;
 				}
 
-				copyShareButton.textContent = 'Copy failed';
-				copyResetTimer = window.setTimeout(() => {
-					copyShareButton.textContent = 'Copy link';
-				}, 1800);
+				history.replaceState(null, '', shareUrl);
+				showCopyState('Link ready');
 			});
 
 			restartChecklistButton?.addEventListener('click', () => {
