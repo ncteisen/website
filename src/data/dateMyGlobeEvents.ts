@@ -176,6 +176,426 @@ const referenceEvent = ({
 	};
 };
 
+const wikipediaArticleTitles: Record<string, string> = {
+	'viceroyalty-of-peru': 'Viceroyalty of Peru',
+	'dutch-east-india-company': 'Dutch East India Company',
+	westphalia: 'Peace of Westphalia',
+	'great-britain': 'Kingdom of Great Britain',
+	'united-states': 'United States Declaration of Independence',
+	'argentina-independence': 'Argentine War of Independence',
+	'australia-name': 'Name of Australia',
+	'chile-independence': 'Chilean Declaration of Independence',
+	'florida-cession': 'Adams–Onís Treaty',
+	'peru-independence': 'Peruvian War of Independence',
+	'brazil-independence': 'Independence of Brazil',
+	belgium: 'Belgian Revolution',
+	'tasmania-name': "Van Diemen's Land",
+	'california-statehood': 'Compromise of 1850',
+	'orange-free-state': 'Orange Free State',
+	'transvaal-republic': 'South African Republic',
+	'romania-unification': 'United Principalities of Moldavia and Wallachia',
+	'venetia-italy': 'Third Italian War of Independence',
+	'alaska-purchase': 'Alaska Purchase',
+	'canadian-confederation': 'Canadian Confederation',
+	'austria-hungary': 'Austro-Hungarian Compromise of 1867',
+	'suez-canal': 'Suez Canal',
+	'germany-unification': 'Unification of Germany',
+	'budapest-name': 'Budapest',
+	'balkan-independence-1878': 'Treaty of Berlin (1878)',
+	'congo-free-state': 'Congo Free State',
+	'dakota-statehood': 'Dakota Territory',
+	'panama-independence': 'Secession of Panama from Colombia',
+	'norway-independence': 'Dissolution of the union between Norway and Sweden',
+	'belgian-congo': 'Belgian Congo',
+	'bulgaria-independence': 'Bulgarian Declaration of Independence',
+	'union-of-south-africa': 'Union of South Africa',
+	'albania-independence': 'Albanian Declaration of Independence',
+	'panama-canal': 'Panama Canal',
+	'petrograd-name': 'Saint Petersburg',
+	'finland-independence': 'Finnish Declaration of Independence',
+	'austria-hungary-dissolution': 'Dissolution of Austria-Hungary',
+	'second-polish-republic': 'Second Polish Republic',
+	'afghanistan-independence': 'Third Anglo-Afghan War',
+	'baltic-independence': 'Baltic states',
+	'kenya-name': 'Kenya Colony',
+	'soviet-union': 'Treaty on the Creation of the Union of Soviet Socialist Republics',
+	'turkey-republic': 'History of the Republic of Turkey',
+	'leningrad-name': 'Saint Petersburg',
+	'oslo-name': 'Oslo',
+	'istanbul-name': 'Names of Istanbul',
+	'saudi-arabia-iraq': 'Unification of Saudi Arabia',
+	'persia-iran': 'Name of Iran',
+	'burma-separates-india': 'British rule in Burma',
+	'austria-annexed': 'Anschluss',
+	'hatay-to-turkey': 'Hatay State',
+	'jordan-independence': 'Jordan',
+	'philippines-independence': 'Treaty of Manila (1946)',
+	'india-pakistan': 'Partition of India',
+	'ireland-republic': 'The Republic of Ireland Act 1948',
+	israel: 'Israeli Declaration of Independence',
+	'sri-lanka-independence': 'Dominion of Ceylon',
+	'east-west-germany': 'History of Germany (1945–1990)',
+	'indonesia-independence': 'Indonesian National Revolution',
+	'korea-divided': 'Division of Korea',
+	'newfoundland-canada': 'Newfoundland and Labrador',
+	'libya-independence': 'Kingdom of Libya',
+	'north-south-vietnam': '1954 Geneva Conference',
+	'morocco-independence': 'Morocco',
+	'sudan-independence': 'Republic of Sudan (1956–1969)',
+	'tunisia-independence': 'Tunisia',
+	'ghana-independence': 'Ghana Independence Act 1957',
+	'malaya-malaysia': 'Malaysia Agreement',
+	'guinea-independence': 'French Guinea',
+	'united-arab-republic': 'United Arab Republic',
+	'year-of-africa': 'Decolonisation of Africa',
+	'tanganyika-independence': 'Tanganyika',
+	'algeria-independence': 'Algeria',
+	'jamaica-independence': 'History of Jamaica',
+	'trinidad-tobago-independence': 'History of Trinidad and Tobago',
+	'kenya-independence': 'History of Kenya',
+	'malawi-independence': 'History of Malawi',
+	'tanzania-formation': 'History of Tanzania',
+	'zambia-independence': 'History of Zambia',
+	'barbados-independence': 'History of Barbados',
+	'botswana-independence': 'History of Botswana',
+	'guyana-independence': 'History of Guyana',
+	'lesotho-independence': 'History of Lesotho',
+	'south-yemen-independence': 'South Yemen',
+	'equatorial-guinea-independence': 'History of Equatorial Guinea',
+	'mauritius-independence': 'History of Mauritius',
+	'fiji-independence': 'History of Fiji',
+	'tonga-independence': 'Kingdom of Tonga (1900–1970)',
+	bangladesh: 'Bangladesh Liberation War',
+	'qatar-independence': 'History of Qatar',
+	'uae-independence': 'History of the United Arab Emirates',
+	'zaire-name': 'Zaire',
+	'sri-lanka-name': 'Sri Lanka',
+	'bahamas-independence': 'History of the Bahamas',
+	'grenada-independence': 'History of Grenada',
+	'guinea-bissau-independence': 'History of Guinea-Bissau',
+	'angola-mozambique-independence': 'Portuguese Colonial War',
+	'cape-verde-independence': 'History of Cape Verde',
+	'papua-new-guinea-independence': 'History of Papua New Guinea',
+	'suriname-independence': 'History of Suriname',
+	'vietnam-unification': 'Vietnam',
+	'djibouti-independence': 'History of Djibouti',
+	'dominica-independence': 'History of Dominica',
+	'solomon-islands-independence': 'History of Solomon Islands',
+	'tuvalu-independence': 'History of Tuvalu',
+	'kiribati-independence': 'History of Kiribati',
+	'st-lucia-independence': 'History of Saint Lucia',
+	'st-vincent-independence': 'History of Saint Vincent and the Grenadines',
+	'vanuatu-independence': 'History of Vanuatu',
+	'zimbabwe-name': 'History of Zimbabwe',
+	'antigua-barbuda-independence': 'History of Antigua and Barbuda',
+	'belize-independence': 'History of Belize',
+	'st-kitts-nevis-independence': 'History of Saint Kitts and Nevis',
+	'burkina-faso-name': 'History of Burkina Faso',
+	'marshall-islands-independence': 'History of the Marshall Islands',
+	'micronesia-independence': 'History of the Federated States of Micronesia',
+	'burma-myanmar': 'Names of Myanmar',
+	'german-reunification': 'German reunification',
+	'namibia-independence': 'South African Border War',
+	'yemen-unification': 'Yemeni unification',
+	'soviet-dissolution': 'Dissolution of the Soviet Union',
+	'yugoslavia-dissolution': 'Breakup of Yugoslavia',
+	czechoslovakia: 'Dissolution of Czechoslovakia',
+	'eritrea-independence': 'Eritrean War of Independence',
+	'western-samoa-samoa': 'History of Samoa',
+	'zaire-dr-congo': 'Democratic Republic of the Congo',
+	'east-timor-independence': 'Indonesian occupation of East Timor',
+	'serbia-montenegro': 'Serbia and Montenegro',
+	'montenegro-independence': '2006 Montenegrin independence referendum',
+	'serbia-2006': 'Serbia and Montenegro',
+	'south-sudan': 'History of South Sudan',
+	'cabo-verde-name': 'History of Cape Verde',
+	'czechia-name': 'Name of the Czech Republic',
+	'eswatini-name': 'History of Eswatini',
+};
+
+const wikipediaSource = (title: string) => ({
+	sourceLabel: `Wikipedia: ${title}`,
+	sourceUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(' ', '_'))}`,
+});
+
+const editorialDescriptions: Record<string, string> = {
+	'viceroyalty-of-peru': 'Spain created the Viceroyalty of Peru in 1542 to govern its South American possessions from Lima. For centuries it was the dominant Spanish administrative unit on the continent, covering lands that later became several independent countries.',
+	'dutch-east-india-company': 'The Dutch East India Company was chartered in 1602 and quickly became one of the most powerful trading corporations in Asia. Its forts, ports, and commercial territories shaped European maps of the East Indies for more than a century.',
+	westphalia: 'The Peace of Westphalia ended the Thirty Years War in 1648 and confirmed a new political order in central Europe. It strengthened the independence of the Dutch Republic and the Swiss Confederation while leaving the Holy Roman Empire more fragmented.',
+	'great-britain': 'The Acts of Union joined England and Scotland into the Kingdom of Great Britain in 1707. The new kingdom changed one of the most prominent labels in northwest Europe and helped define the political geography of the British Isles.',
+	'united-states': 'The United States declared independence from Britain in 1776, beginning a new political identity on the Atlantic coast of North America. Maps gradually shifted from colonial British labels to the United States as the new republic expanded.',
+	'argentina-independence': 'Argentina declared independence at the Congress of Tucuman in 1816 after years of war against Spanish rule. The new state emerged from the former Viceroyalty of the Rio de la Plata and reshaped the political map of southern South America.',
+	'australia-name': 'The name Australia gained official support in the early nineteenth century after Matthew Flinders popularized it for the continent. Older maps often used New Holland, while later maps increasingly adopted Australia for the same landmass.',
+	'chile-independence': 'Chile declared independence from Spain in 1818 during the South American wars of independence. The new republic replaced colonial Spanish administration along the Pacific coast with a distinct Chilean state.',
+	'florida-cession': 'The Adams-Onis Treaty transferred Florida from Spain to the United States in 1819. It also settled a long-disputed boundary between Spanish and American claims across the southeast and Gulf Coast.',
+	'peru-independence': 'Peru declared independence in 1821 during the final phase of Spanish American independence wars. The change broke one of Spain\'s most important colonial centers away from imperial rule.',
+	'brazil-independence': 'Brazil declared independence from Portugal in 1822 and became an empire under Pedro I. Unlike many Spanish American revolutions, Brazil kept a monarchy while separating from its former European ruler.',
+	belgium: 'The Belgian Revolution began in 1830 and separated Belgium from the United Kingdom of the Netherlands. The new state altered the political map of the Low Countries and was later recognized by the major European powers.',
+	'tasmania-name': 'Van Diemen\'s Land was renamed Tasmania in the mid-nineteenth century as colonial leaders tried to move away from the island\'s penal-colony reputation. The new name honored Abel Tasman and soon replaced the older label on maps.',
+	'california-statehood': 'California joined the United States in 1850 after the Mexican-American War and the Gold Rush transformed the region. Its admission gave the United States a major Pacific state and changed the political map of western North America.',
+	'orange-free-state': 'The Orange Free State was established as an independent Boer republic in southern Africa in 1854. It occupied territory between the Orange and Vaal rivers and remained separate until the British conquest during the South African War.',
+	'transvaal-republic': 'The South African Republic, often called the Transvaal, developed from Boer settlement north of the Vaal River. Its recognition and later conflicts with Britain made the interior of southern Africa politically more complex on nineteenth-century maps.',
+	'romania-unification': 'Moldavia and Wallachia united under a single ruler in 1859 and increasingly used the name Romania in the following years. The union created the core of the modern Romanian state along the lower Danube.',
+	'venetia-italy': 'Venetia passed from Austrian control to the Kingdom of Italy after the Third Italian War of Independence in 1866. The transfer brought Venice into Italy and completed a major stage of Italian unification.',
+	'alaska-purchase': 'Russia sold Alaska to the United States in 1867. The purchase moved a vast North Pacific territory from Russian America into American control, changing the ownership shown across the Arctic and Bering Sea.',
+	'canadian-confederation': 'Canadian Confederation created the Dominion of Canada in 1867 from several British North American colonies. It began a federal union that later expanded across the continent.',
+	'austria-hungary': 'The Austro-Hungarian Compromise of 1867 reorganized the Austrian Empire into the Dual Monarchy of Austria-Hungary. The arrangement gave Hungary its own government while keeping the Habsburg monarchy joined under one crown.',
+	'suez-canal': 'The Suez Canal opened in 1869, linking the Mediterranean Sea and the Red Sea through Egypt. It transformed global shipping by shortening the route between Europe and the Indian Ocean.',
+	'germany-unification': 'Germany unified in 1871 after Prussia\'s victory in the Franco-Prussian War. The German Empire replaced many separate German states with a single imperial state centered on Berlin.',
+	'budapest-name': 'Buda, Pest, and Obuda were unified in 1873 to form Budapest. The new city name replaced older separate labels along the Danube and became the capital of Hungary.',
+	'balkan-independence-1878': 'The Treaty of Berlin in 1878 recognized the independence of Serbia, Montenegro, and Romania while revising the settlement after the Russo-Turkish War. It redrew southeastern Europe as Ottoman power receded from the Balkans.',
+	'congo-free-state': 'The Congo Free State was established in 1885 as the personal possession of Belgium\'s King Leopold II. Its creation imposed a new colonial label over central Africa and became notorious for extreme exploitation.',
+	'dakota-statehood': 'Dakota Territory was divided into North Dakota and South Dakota when both entered the United States in 1889. The split turned one large territorial label into two separate states on detailed American maps.',
+	'panama-independence': 'Panama separated from Colombia in 1903 with strong support from the United States. The new republic soon became central to plans for an interoceanic canal across the isthmus.',
+	'norway-independence': 'Norway and Sweden peacefully dissolved their union in 1905 after a political crisis over foreign policy. Norway kept its own monarchy and appeared separately from Sweden on European maps.',
+	'belgian-congo': 'Belgium annexed the Congo Free State in 1908 after international outrage over Leopold II\'s rule. The colony became Belgian Congo, replacing the earlier personal-state label in central Africa.',
+	'bulgaria-independence': 'Bulgaria declared full independence from the Ottoman Empire in 1908. The principality became a kingdom and completed a long transition from Ottoman suzerainty to sovereign statehood.',
+	'union-of-south-africa': 'The Union of South Africa was formed in 1910 by joining the Cape, Natal, Transvaal, and Orange River colonies. The new dominion consolidated British-controlled southern Africa into one political unit.',
+	'albania-independence': 'Albania declared independence from the Ottoman Empire in 1912 during the Balkan Wars. The new state appeared along the Adriatic coast as Ottoman authority collapsed in southeastern Europe.',
+	'panama-canal': 'The Panama Canal opened in 1914 after a massive engineering project across the Isthmus of Panama. It connected the Atlantic and Pacific oceans and became one of the most important artificial waterways in the world.',
+	'petrograd-name': 'Saint Petersburg was renamed Petrograd in 1914 during the First World War. The change replaced a German-sounding name with a Slavic one at a moment of intense anti-German sentiment in Russia.',
+	'finland-independence': 'Finland declared independence from Russia in 1917 amid revolution and imperial collapse. The new republic occupied a strategic position between Scandinavia and Russia.',
+	'austria-hungary-dissolution': 'Austria-Hungary dissolved at the end of the First World War in 1918. Its breakup produced or enlarged several states, including Austria, Hungary, Czechoslovakia, and Yugoslavia.',
+	'second-polish-republic': 'The Second Polish Republic was established in 1918 after more than a century of partition by neighboring empires. Poland returned to the map between Germany and the former Russian Empire.',
+	'afghanistan-independence': 'Afghanistan secured full control of its foreign affairs after the Third Anglo-Afghan War in 1919. The settlement ended British influence over Afghan external relations and confirmed the country\'s sovereignty.',
+	'baltic-independence': 'Estonia, Latvia, and Lithuania emerged as independent states after the First World War and the collapse of the Russian Empire. Their independence created a new chain of states along the eastern Baltic Sea.',
+	'kenya-name': 'British East Africa was reorganized as Kenya Colony in 1920. The name Kenya, taken from Mount Kenya, replaced the broader colonial regional label.',
+	'soviet-union': 'The Soviet Union was formally created in 1922 by treaty among several Soviet republics. It became a federal communist state stretching across much of Eurasia.',
+	'turkey-republic': 'The Republic of Turkey was proclaimed in 1923 after the collapse of the Ottoman Empire and the Turkish War of Independence. Ankara replaced Istanbul as the center of the new republican state.',
+	'leningrad-name': 'Petrograd was renamed Leningrad in 1924 after Vladimir Lenin\'s death. The new name remained in use throughout most of the Soviet period.',
+	'oslo-name': 'Norway restored the name Oslo for its capital in 1925, replacing Kristiania. The change revived a medieval name and appeared on maps of Scandinavia soon afterward.',
+	'istanbul-name': 'Istanbul became the internationally standardized name for the city in 1930. The change displaced Constantinople in many foreign-language maps and gazetteers.',
+	'saudi-arabia-iraq': 'Iraq gained independence in 1932, the same year the Kingdom of Saudi Arabia was proclaimed after Ibn Saud unified his realms. Together these changes clarified two major labels on the Arabian Peninsula and Mesopotamia.',
+	'persia-iran': 'Iran asked foreign governments in 1935 to use Iran rather than Persia in official correspondence. The older name remained culturally familiar, but maps increasingly adopted Iran for the modern state.',
+	'burma-separates-india': 'Burma was separated administratively from British India in 1937. The change made Burma a distinct colony rather than a province within the Indian imperial administration.',
+	'austria-annexed': 'Nazi Germany annexed Austria in the Anschluss of 1938. Austria disappeared as an independent state until after the Second World War.',
+	'hatay-to-turkey': 'Hatay was annexed by Turkey in 1939 after a brief period as the Hatay State. The transfer changed the northeastern corner of the Mediterranean border near Syria.',
+	'jordan-independence': 'Transjordan gained independence in 1946 and soon became the Hashemite Kingdom of Jordan. The shorter Jordan label gradually replaced older mandate-era names east of the Jordan River.',
+	'philippines-independence': 'The Philippines became independent in 1946 after decades of United States rule and wartime Japanese occupation. The new republic replaced the earlier American territorial label in maritime Southeast Asia.',
+	'india-pakistan': 'British India was partitioned in 1947 into the independent dominions of India and Pakistan. The division created new borders across Punjab and Bengal and triggered one of the largest migrations of the twentieth century.',
+	'ireland-republic': 'The Republic of Ireland Act took effect in 1949, ending Ireland\'s remaining association with the British Commonwealth. The change clarified the state\'s republican status while Northern Ireland remained part of the United Kingdom.',
+	israel: 'Israel declared independence in 1948 as the British Mandate for Palestine ended. The new state transformed the political map of the eastern Mediterranean and was immediately followed by regional war.',
+	'sri-lanka-independence': 'Ceylon became independent in 1948 as a dominion within the Commonwealth. The island kept the Ceylon name until it became Sri Lanka in 1972.',
+	'east-west-germany': 'After the Second World War, Germany was divided into western and eastern states in 1949. The Federal Republic of Germany and the German Democratic Republic became central features of the Cold War map of Europe.',
+	'indonesia-independence': 'Indonesia\'s independence was internationally recognized in 1949 after the Indonesian National Revolution. The change replaced the Netherlands Indies with a new republic spread across the archipelago.',
+	'korea-divided': 'Korea was divided after the Second World War and separate northern and southern governments were established in 1948. The division hardened into one of the most enduring boundaries of the Cold War.',
+	'newfoundland-canada': 'Newfoundland joined Canada in 1949 after referendums on the colony\'s future. It became a Canadian province together with Labrador on the Atlantic edge of North America.',
+	'libya-independence': 'Libya became independent in 1951 as the United Kingdom of Libya. It united Cyrenaica, Tripolitania, and Fezzan into a single North African monarchy.',
+	'north-south-vietnam': 'The 1954 Geneva settlement divided Vietnam at the seventeenth parallel pending elections that never occurred. North Vietnam and South Vietnam became separate Cold War states.',
+	'morocco-independence': 'Morocco regained independence from French protectorate rule in 1956. Spanish-held zones and international Tangier were also folded into the changing postcolonial map of northwest Africa.',
+	'sudan-independence': 'Sudan became independent in 1956 after the end of Anglo-Egyptian rule. The new state inherited a vast territory linking the Nile Valley, the Sahel, and northeast Africa.',
+	'tunisia-independence': 'Tunisia gained independence from France in 1956. The former protectorate became a sovereign North African state under Habib Bourguiba\'s leadership.',
+	'ghana-independence': 'The Gold Coast became Ghana in 1957. It was the first sub-Saharan African colony to gain independence from European colonial rule in the postwar decolonization wave.',
+	'malaya-malaysia': 'The Federation of Malaya became independent in 1957, and Malaysia was formed in 1963 with the addition of Sabah, Sarawak, and Singapore. Singapore later left, but the Malaysia label remained over Malaya and northern Borneo.',
+	'guinea-independence': 'Guinea voted against joining the new French Community and became independent in 1958. The decision made it an early breakaway from French rule in West Africa.',
+	'united-arab-republic': 'Egypt and Syria formed the United Arab Republic in 1958. The union lasted only a few years, making the label a narrow snapshot of mid-century Arab nationalist politics.',
+	'year-of-africa': 'A major wave of African decolonization took place in 1960. Seventeen African countries became independent that year, rapidly replacing colonial labels across much of the continent.',
+	'tanganyika-independence': 'Tanganyika became independent from Britain in 1961. It later joined with Zanzibar to form Tanzania, so the Tanganyika label had a short independent life.',
+	'algeria-independence': 'Algeria became independent in 1962 after a long and violent war against French rule. The change ended one of France\'s most important colonial relationships in North Africa.',
+	'jamaica-independence': 'Jamaica became independent from the United Kingdom in 1962. The island remained within the Commonwealth while gaining its own government and international status.',
+	'trinidad-tobago-independence': 'Trinidad and Tobago became independent in 1962. The twin-island state moved from British colonial rule to self-government within the Commonwealth.',
+	'kenya-independence': 'Kenya became independent in 1963 after years of anticolonial struggle and constitutional negotiation. The former colony kept its name as it became a sovereign East African state.',
+	'malawi-independence': 'Nyasaland became independent as Malawi in 1964. The new name came from Lake Malawi and replaced the older British protectorate label.',
+	'tanzania-formation': 'Tanganyika and Zanzibar united in 1964 to form Tanzania. The new name blended the names of the two partners and replaced separate mainland and island labels.',
+	'zambia-independence': 'Northern Rhodesia became independent as Zambia in 1964. The new name came from the Zambezi River and replaced the colonial Rhodesia label north of the river.',
+	'barbados-independence': 'Barbados became independent from the United Kingdom in 1966. The island remained a Commonwealth realm for decades before later becoming a republic.',
+	'botswana-independence': 'Bechuanaland became independent as Botswana in 1966. The new state kept close ties to the Tswana people whose name shaped both the old and new labels.',
+	'guyana-independence': 'British Guiana became independent as Guyana in 1966. The new name distinguished the country from neighboring Suriname and French Guiana on the northern coast of South America.',
+	'lesotho-independence': 'Basutoland became independent as Lesotho in 1966. The mountain kingdom remained surrounded by South Africa but became a sovereign state in its own right.',
+	'south-yemen-independence': 'South Yemen became independent in 1967 after the end of British rule in Aden and the surrounding protectorates. It later became the People\'s Democratic Republic of Yemen.',
+	'equatorial-guinea-independence': 'Spanish Guinea became independent as Equatorial Guinea in 1968. The new state brought together the island of Fernando Po, later Bioko, and the mainland region of Rio Muni.',
+	'mauritius-independence': 'Mauritius became independent from the United Kingdom in 1968. The Indian Ocean island kept close Commonwealth ties while taking control of its own government.',
+	'fiji-independence': 'Fiji became independent from the United Kingdom in 1970. The archipelago became a sovereign Pacific state while remaining within the Commonwealth.',
+	'tonga-independence': 'Tonga ended its British protected-state status in 1970. Unlike many Pacific islands, it preserved its own monarchy as it entered full international sovereignty.',
+	bangladesh: 'Bangladesh became independent in 1971 after the Bangladesh Liberation War. The change transformed East Pakistan into a separate Bengali-majority state on the Bay of Bengal.',
+	'qatar-independence': 'Qatar became independent in 1971 as Britain withdrew from treaty relationships in the Gulf. The small peninsula emerged as a sovereign state beside Bahrain, Saudi Arabia, and the Trucial States.',
+	'uae-independence': 'The United Arab Emirates was formed in 1971 from seven former Trucial States. The federation created a new Gulf label from emirates that had previously appeared separately or under British treaty names.',
+	'zaire-name': 'The Democratic Republic of the Congo was renamed Zaire in 1971 under Mobutu Sese Seko. The new name was part of a broader authenticity campaign replacing colonial-era names.',
+	'sri-lanka-name': 'Ceylon became Sri Lanka in 1972 when the country adopted a republican constitution. The new name drew from older Sinhala and Sanskrit forms for the island.',
+	'bahamas-independence': 'The Bahamas became independent from the United Kingdom in 1973. The archipelago remained in the Commonwealth while gaining full sovereignty.',
+	'grenada-independence': 'Grenada became independent from the United Kingdom in 1974. The small Windward Islands state soon became widely known because of political upheaval and the 1983 United States-led invasion.',
+	'guinea-bissau-independence': 'Portuguese Guinea became Guinea-Bissau after a long independence war against Portugal. Portugal recognized its independence in 1974, just before the wider collapse of its African empire.',
+	'angola-mozambique-independence': 'Angola and Mozambique became independent from Portugal in 1975. Their independence followed the Portuguese Colonial War and the Carnation Revolution in Lisbon.',
+	'cape-verde-independence': 'Cape Verde became independent from Portugal in 1975. The Atlantic archipelago had long been administered with Portuguese Guinea but became a separate island republic.',
+	'papua-new-guinea-independence': 'Papua New Guinea became independent from Australia in 1975. The new state combined the former territories of Papua and New Guinea north of Australia.',
+	'suriname-independence': 'Suriname became independent from the Netherlands in 1975. The former Dutch Guiana took a name rooted in the Indigenous Surinen people and became a sovereign South American republic.',
+	'vietnam-unification': 'Vietnam was reunified in 1976 after the end of the Vietnam War. North and South Vietnam disappeared as separate political labels and were replaced by a single Socialist Republic of Vietnam.',
+	'djibouti-independence': 'French Somaliland became independent as Djibouti in 1977. The new state occupied a strategic position at the entrance to the Red Sea.',
+	'dominica-independence': 'Dominica became independent from the United Kingdom in 1978. The island state sits between Guadeloupe and Martinique in the Lesser Antilles.',
+	'solomon-islands-independence': 'The Solomon Islands became independent from the United Kingdom in 1978. The southwest Pacific archipelago kept its plural country name and Commonwealth ties.',
+	'tuvalu-independence': 'The Ellice Islands became independent as Tuvalu in 1978. The name Tuvalu means a group of eight, referring to the inhabited islands of the small Pacific state.',
+	'kiribati-independence': 'The Gilbert Islands became independent as Kiribati in 1979. The new country spans a huge area of the central Pacific despite having very small land area.',
+	'st-lucia-independence': 'Saint Lucia became independent from the United Kingdom in 1979. The island kept its French-influenced name and Commonwealth connections.',
+	'st-vincent-independence': 'Saint Vincent and the Grenadines became independent in 1979. The new country joined the main island of Saint Vincent with the northern Grenadine islands.',
+	'vanuatu-independence': 'The New Hebrides became independent as Vanuatu in 1980. Before independence the islands had been governed jointly by Britain and France in an unusual condominium arrangement.',
+	'zimbabwe-name': 'Rhodesia became internationally recognized as Zimbabwe in 1980 after majority rule and independence. The new name drew on Great Zimbabwe and replaced a colonial name associated with Cecil Rhodes.',
+	'antigua-barbuda-independence': 'Antigua and Barbuda became independent from the United Kingdom in 1981. The new state joined the main island of Antigua with Barbuda and smaller nearby islands.',
+	'belize-independence': 'British Honduras became independent as Belize in 1981. The new name had already been adopted locally and distinguished the country from neighboring Honduras.',
+	'st-kitts-nevis-independence': 'Saint Kitts and Nevis became independent in 1983. The federation joined two Caribbean islands that had previously been administered with Anguilla.',
+	'burkina-faso-name': 'Upper Volta changed its name to Burkina Faso in 1984. The new name, often translated as land of upright people, came from local languages rather than colonial river geography.',
+	'marshall-islands-independence': 'The Marshall Islands became self-governing in free association with the United States in 1986. The Compact of Free Association replaced the older Pacific trust-territory framework.',
+	'micronesia-independence': 'The Federated States of Micronesia entered free association with the United States in 1986. The new federation brought together Yap, Chuuk, Pohnpei, and Kosrae from the former Trust Territory of the Pacific Islands.',
+	'burma-myanmar': 'Burma was officially renamed Myanmar by the ruling military government in 1989. Many governments and publishers adopted the new name, while others continued to use Burma for political reasons.',
+	'german-reunification': 'Germany reunified in 1990 after the fall of the Berlin Wall and the collapse of East Germany. The Cold War division between East Germany and West Germany disappeared from political maps.',
+	'namibia-independence': 'South West Africa became independent as Namibia in 1990. The new state ended a long period of South African administration and United Nations dispute.',
+	'yemen-unification': 'North Yemen and South Yemen unified in 1990. The merger created the Republic of Yemen and removed a prominent split along the southern Arabian Peninsula.',
+	'soviet-dissolution': 'The Soviet Union dissolved in 1991 after political crisis and declarations of independence by its republics. Russia and fourteen other successor states replaced the USSR on world maps.',
+	'yugoslavia-dissolution': 'Yugoslavia broke apart in the early 1990s as several republics declared independence. The breakup produced new Balkan states and a series of wars that reshaped southeastern Europe.',
+	czechoslovakia: 'Czechoslovakia peacefully split into the Czech Republic and Slovakia in 1993. The separation is often called the Velvet Divorce because it followed the nonviolent Velvet Revolution.',
+	'eritrea-independence': 'Eritrea became independent from Ethiopia in 1993 after a long war and a United Nations-supervised referendum. The new state gave the Red Sea coast north of Djibouti a separate label.',
+	'western-samoa-samoa': 'Western Samoa shortened its official name to Samoa in 1997. The change emphasized the country\'s identity while American Samoa remained a separate territory to the east.',
+	'zaire-dr-congo': 'Zaire was renamed the Democratic Republic of the Congo in 1997 after Mobutu Sese Seko was overthrown. The change restored a version of the country\'s earlier post-independence name.',
+	'east-timor-independence': 'East Timor voted for independence from Indonesia in 1999 and later became fully independent as Timor-Leste in 2002. The change created a new state on the eastern half of Timor island.',
+	'serbia-montenegro': 'The Federal Republic of Yugoslavia was renamed Serbia and Montenegro in 2003. The new name acknowledged the two remaining republics in a looser state union.',
+	'montenegro-independence': 'Montenegro voted for independence in 2006. The decision ended the state union with Serbia and created a separate Montenegrin state on the Adriatic.',
+	'serbia-2006': 'Serbia became a separate successor state in 2006 after Montenegro left their union. The Serbia and Montenegro label disappeared from political maps almost as quickly as it had appeared.',
+	'south-sudan': 'South Sudan became independent from Sudan in 2011 after a referendum promised by the Comprehensive Peace Agreement. It became the world\'s newest widely recognized sovereign state.',
+	'cabo-verde-name': 'Cape Verde asked the international community to use the Portuguese name Cabo Verde in 2013. The request changed the country\'s preferred short name in English-language diplomatic and map usage.',
+	'czechia-name': 'Czechia was registered as the official short-form English name of the Czech Republic in 2016. The shorter name joined the country\'s formal name rather than replacing it.',
+	'eswatini-name': 'Swaziland changed its English name to Eswatini in 2018. King Mswati III announced the change during celebrations for the country\'s fiftieth anniversary of independence.',
+};
+
+const sentenceCaseEventName = (name: string) => name
+	.replace(/\bSt\.\s/g, 'Saint ')
+	.replace(/\bindependence recognized\b/g, 'independence was recognized')
+	.replace(/\bbecomes\b/g, 'became')
+	.replace(/\bbecome\b/g, 'became')
+	.replace(/\bdeclares\b/g, 'declared')
+	.replace(/\bjoins\b/g, 'joined')
+	.replace(/\breplaces\b/g, 'replaced')
+	.replace(/\bopens\b/g, 'opened')
+	.replace(/\bappears\b/g, 'appeared')
+	.replace(/\bdissolves\b/g, 'dissolved')
+	.replace(/\bunifies\b/g, 'unified')
+	.replace(/\bseparates\b/g, 'separated')
+	.replace(/\bdivided\b/g, 'was divided')
+	.replace(/\bcompleted\b/g, 'was completed')
+	.replace(/\bestablished\b/g, 'was established')
+	.replace(/\bcreated\b/g, 'was created')
+	.replace(/\bchartered\b/g, 'was chartered')
+	.replace(/\bformed\b/g, 'was formed')
+	.replace(/\brecognized\b/g, 'were recognized')
+	.replace(/\bceded\b/g, 'was ceded')
+	.replace(/\bpurchased\b/g, 'was purchased')
+	.replace(/\bannexes\b/g, 'annexed')
+	.replace(/\bannexed\b/g, 'was annexed')
+	.replace(/\brenamed\b/g, 'was renamed')
+	.replace(/\badopted\b/g, 'was adopted')
+	.replace(/\bshort name adopted\b/g, 'short name was adopted')
+	.replace(/\bwas were recognized\b/g, 'was recognized');
+
+const hasActionVerb = (phrase: string) => /\b(was|were|became|declared|joined|opened|appeared|dissolved|unified|separated|formed|replaced|annexed|adopted|completed|established|created|chartered|recognized|ceded|purchased)\b/i.test(phrase);
+
+const eventPhraseOverrides: Record<string, string> = {
+	'afghanistan-independence': "Afghanistan's independence was recognized",
+	bangladesh: 'Bangladesh became independent',
+	'canadian-confederation': 'Canadian Confederation created the Dominion of Canada',
+	'east-west-germany': 'East Germany and West Germany appeared as separate states',
+	'german-reunification': 'Germany reunified',
+	'india-pakistan': 'British India was partitioned into India and Pakistan',
+	'north-south-vietnam': 'Vietnam was divided into northern and southern states',
+	'saudi-arabia-iraq': 'Saudi Arabia and Iraq became independent states',
+	'serbia-2006': "Serbia emerged as a separate state after Montenegro's independence",
+	'south-sudan': 'South Sudan became independent',
+	'tanzania-formation': 'Tanganyika and Zanzibar united to form Tanzania',
+	westphalia: 'the Peace of Westphalia was signed',
+	'yemen-unification': 'North Yemen and South Yemen unified',
+	'year-of-africa': 'a major wave of African decolonization took place',
+};
+
+const withArticle = (phrase: string) => {
+	if (/^(Viceroyalty|Dutch East India Company|Kingdom|United States|Orange Free State|Transvaal Republic|Austro-Hungarian Empire|Suez Canal|Congo Free State|Union of South Africa|Panama Canal|Second Polish Republic|Soviet Union|Republic of Turkey|Philippines|United Arab Emirates|Democratic Republic|Federated States|Marshall Islands|Solomon Islands|Bahamas|Gilbert Islands|Ellice Islands|New Hebrides|Federal Republic|Czechia short name)/.test(phrase)) {
+		return `the ${phrase}`;
+	}
+
+	return phrase;
+};
+
+const eventPhrase = (event: DateMyGlobeEvent) => {
+	const override = eventPhraseOverrides[event.id];
+	if (override) {
+		return override;
+	}
+
+	const name = event.name;
+	const phrase = withArticle(sentenceCaseEventName(name));
+	if (hasActionVerb(phrase)) {
+		return phrase;
+	}
+
+	return `the ${phrase} took place`;
+};
+
+const regionAdjectives: Record<string, string> = {
+	Africa: 'African',
+	Asia: 'Asian',
+	Caribbean: 'Caribbean',
+	'Central America': 'Central American',
+	Europe: 'European',
+	Eurasia: 'Eurasian',
+	'Middle East': 'Middle Eastern',
+	'North America': 'North American',
+	Oceania: 'Pacific and Oceanian',
+	'South Asia': 'South Asian',
+	'South America': 'South American',
+	'Southeast Asia': 'Southeast Asian',
+};
+
+const mapChangePhrase = (beforeLabel: string, afterLabel: string) => {
+	if (beforeLabel.startsWith('No ')) {
+		return `from omitting ${afterLabel} to showing ${afterLabel}`;
+	}
+
+	return `from ${beforeLabel} to ${afterLabel}`;
+};
+
+const descriptionSecondSentence = (event: DateMyGlobeEvent) => {
+	const region = regionAdjectives[event.region] ?? `${event.region} regional`;
+	const before = event.beforeLabel;
+	const after = event.afterLabel;
+	const mapChange = mapChangePhrase(before, after);
+
+	if (event.visualPlaceholder.mode === 'name-change') {
+		return `The visible result was a naming change ${mapChange}, part of the evolving language of ${region} political geography.`;
+	}
+
+	if (event.visualPlaceholder.mode === 'new-state') {
+		if (before.startsWith('No ')) {
+			return `It added ${after} to the map, altering how the surrounding ${region} region was drawn.`;
+		}
+
+		const entityPhrase = /,| and /.test(after) ? 'distinct political entities' : 'a distinct political entity';
+		return `It introduced ${after} as ${entityPhrase}, replacing ${before} in ${region} geography.`;
+	}
+
+	if (event.visualPlaceholder.mode === 'split') {
+		return `It broke an older political unit into a new arrangement, changing the map ${mapChange}.`;
+	}
+
+	if (event.visualPlaceholder.mode === 'union') {
+		return `It joined older political units into ${after}, changing the map ${mapChange}.`;
+	}
+
+	return `It changed the relevant label or boundary ${mapChange}, part of a broader shift in ${region} political geography.`;
+};
+
+const polishedDescription = (event: DateMyGlobeEvent) => {
+	const firstSentence = `In ${event.year}, ${eventPhrase(event)}.`;
+	const secondSentence = descriptionSecondSentence(event);
+
+	return `${firstSentence} ${secondSentence}`;
+};
+
+const withEditorialCopy = (event: DateMyGlobeEvent): DateMyGlobeEvent => {
+	const articleTitle = wikipediaArticleTitles[event.id];
+
+	return {
+		...event,
+		description: editorialDescriptions[event.id] ?? polishedDescription(event),
+		...(articleTitle ? wikipediaSource(articleTitle) : {}),
+	};
+};
+
 const rawDateMyGlobeEvents: DateMyGlobeEvent[] = [
 	{
 		id: 'viceroyalty-of-peru',
@@ -2614,4 +3034,5 @@ const rawDateMyGlobeEvents: DateMyGlobeEvent[] = [
 
 export const dateMyGlobeEvents: DateMyGlobeEvent[] = rawDateMyGlobeEvents
 	.sort((a, b) => a.year - b.year || a.id.localeCompare(b.id))
+	.map(withEditorialCopy)
 	.map(withChecklistMap);
