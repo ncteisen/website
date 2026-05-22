@@ -106,6 +106,49 @@ const { label } = Astro.props;
 		</div>
 	)}
 
+	{label === 'date-my-globe' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<circle cx="110" cy="70" r="47" class="globe-orb" />
+			<ellipse cx="110" cy="70" rx="47" ry="17" class="globe-line" />
+			<ellipse cx="110" cy="70" rx="20" ry="47" class="globe-line" />
+			<path class="globe-line" d="M66 54C88 61 113 61 154 53" />
+			<path class="globe-line" d="M66 87C91 80 120 80 154 88" />
+			<path class="globe-land land-old" d="M83 49C92 41 105 43 108 54C99 58 95 66 84 63C78 60 76 54 83 49Z" />
+			<path class="globe-land land-new" d="M119 75C129 68 145 70 151 82C146 94 130 99 120 91C114 86 113 80 119 75Z" />
+			<path class="globe-land land-context" d="M96 91C103 87 111 88 114 96C109 103 99 105 92 99C90 95 91 93 96 91Z" />
+			<path class="timeline-line" d="M57 124H163" />
+			<circle cx="77" cy="124" r="4" class="timeline-dot muted" />
+			<circle cx="111" cy="124" r="5" class="timeline-dot active" />
+			<circle cx="145" cy="124" r="4" class="timeline-dot muted" />
+			<path class="timeline-bracket" d="M92 118H130" />
+		</svg>
+	)}
+
+	{label === 'llms-101' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<g class="token-stack">
+				<rect x="52" y="38" width="39" height="21" rx="5" />
+				<rect x="96" y="38" width="28" height="21" rx="5" />
+				<rect x="129" y="38" width="39" height="21" rx="5" />
+				<rect x="67" y="81" width="35" height="21" rx="5" />
+				<rect x="107" y="81" width="46" height="21" rx="5" />
+			</g>
+			<path class="model-link" d="M72 59C81 69 84 72 85 81" />
+			<path class="model-link" d="M110 59V81" />
+			<path class="model-link" d="M149 59C140 68 135 72 130 81" />
+			<g class="model-core">
+				<circle cx="110" cy="70" r="22" />
+				<circle cx="99" cy="67" r="3.5" />
+				<circle cx="112" cy="58" r="3.5" />
+				<circle cx="124" cy="71" r="3.5" />
+				<circle cx="108" cy="82" r="3.5" />
+				<path d="M99 67L112 58L124 71L108 82L99 67L124 71" />
+			</g>
+			<path class="prompt-line" d="M69 117H151" />
+			<path class="prompt-cursor" d="M158 110V124" />
+		</svg>
+	)}
+
 	{label === 'zingg' && (
 		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
 			<g class="cards">
@@ -286,6 +329,103 @@ const { label } = Astro.props;
 
 	.archive-pages path {
 		opacity: 0.74;
+	}
+
+	.globe-orb {
+		fill: rgba(226, 223, 216, 0.07);
+		stroke: currentColor;
+		stroke-width: 1.7;
+	}
+
+	.globe-line,
+	.timeline-line,
+	.timeline-bracket,
+	.model-link,
+	.prompt-line,
+	.prompt-cursor {
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.5;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.globe-line {
+		opacity: 0.44;
+	}
+
+	.globe-land {
+		stroke: currentColor;
+		stroke-width: 1.1;
+	}
+
+	.land-old {
+		fill: color-mix(in srgb, var(--project-accent) 18%, rgba(214, 165, 97, 0.34));
+	}
+
+	.land-new {
+		fill: color-mix(in srgb, var(--project-accent) 44%, rgba(226, 223, 216, 0.08));
+	}
+
+	.land-context {
+		fill: rgba(226, 223, 216, 0.08);
+		opacity: 0.72;
+	}
+
+	.timeline-line {
+		opacity: 0.48;
+	}
+
+	.timeline-dot {
+		stroke: none;
+	}
+
+	.timeline-dot.muted {
+		fill: rgba(226, 223, 216, 0.22);
+	}
+
+	.timeline-dot.active {
+		fill: var(--project-accent);
+	}
+
+	.token-stack rect {
+		fill: rgba(226, 223, 216, 0.08);
+		stroke: currentColor;
+		stroke-width: 1.5;
+	}
+
+	.token-stack rect:nth-child(2),
+	.token-stack rect:nth-child(5) {
+		fill: color-mix(in srgb, var(--project-accent) 20%, rgba(226, 223, 216, 0.08));
+	}
+
+	.model-link {
+		opacity: 0.52;
+		stroke-dasharray: 3 6;
+	}
+
+	.model-core circle:first-child {
+		fill: rgba(10, 10, 10, 0.38);
+		stroke: currentColor;
+		stroke-width: 1.6;
+	}
+
+	.model-core circle:not(:first-child) {
+		fill: var(--project-accent);
+		stroke: none;
+	}
+
+	.model-core path {
+		fill: none;
+		stroke: rgba(226, 223, 216, 0.46);
+		stroke-width: 1.2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.prompt-line,
+	.prompt-cursor {
+		opacity: 0.72;
 	}
 
 	@media (max-width: 768px) {

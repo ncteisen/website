@@ -1,6 +1,7 @@
 ---
 import SocialPreview from '../../components/SocialPreview.astro';
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
 import { dateMyGlobeEvents } from '../../data/dateMyGlobeEvents';
 
 const supportedStartYear = 1500;
@@ -78,9 +79,43 @@ const currentYear = new Date().getFullYear();
 			}
 
 			.hero {
-				max-width: 720px;
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) minmax(240px, 310px);
+				align-items: center;
+				gap: 46px;
+				max-width: 900px;
 				padding-bottom: 42px;
 				border-bottom: 1px solid var(--globe-border);
+			}
+
+			.hero-copy {
+				max-width: 620px;
+			}
+
+			.hero-visual {
+				--project-accent: var(--globe-accent);
+				min-height: 240px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				animation: globe-float 7s ease-in-out infinite;
+				filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.34));
+			}
+
+			.hero-visual :global(.project-diagram) {
+				width: min(100%, 300px);
+				height: 220px;
+			}
+
+			@keyframes globe-float {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-10px); }
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.hero-visual {
+					animation: none;
+				}
 			}
 
 			.project-kicker,
@@ -601,6 +636,15 @@ const currentYear = new Date().getFullYear();
 					padding: 44px 24px 68px;
 				}
 
+				.hero {
+					grid-template-columns: 1fr;
+					gap: 28px;
+				}
+
+				.hero-visual {
+					min-height: 190px;
+				}
+
 				.question-card,
 				.result-panel {
 					grid-template-columns: 1fr;
@@ -660,7 +704,7 @@ const currentYear = new Date().getFullYear();
 			<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
 
 			<header class="hero">
-				<div>
+				<div class="hero-copy">
 					<h1 class="project-title">Date My Globe</h1>
 					<p class="project-description">
 						Answer a few questions about your globe&rsquo;s borders and place names, and we&rsquo;ll estimate when it was made. This site is a work in progress.
@@ -669,6 +713,9 @@ const currentYear = new Date().getFullYear();
 						Looking to date a globe romantically? Wrong site. Probably wrong hobby.
 					</p>
 					<a class="inline-link" href="/map-my-globe/all-events">View all events &rarr;</a>
+				</div>
+				<div class="hero-visual">
+					<ProjectVisual label="date-my-globe" />
 				</div>
 			</header>
 
