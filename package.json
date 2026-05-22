@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:date-my-globe-maps": "node scripts/date-my-globe/generate-map-packs.mjs",
     "validate:date-my-globe": "node scripts/date-my-globe/validate-events.mjs",
     "preview": "astro preview",
     "astro": "astro",

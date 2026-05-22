@@ -483,12 +483,6 @@ const currentYear = new Date().getFullYear();
 				overflow: hidden;
 			}
 
-			.map-note {
-				color: #777;
-				font-size: 12px;
-				line-height: 1.55;
-			}
-
 			.map-svg :global(svg) {
 				position: absolute;
 				inset: 0;
@@ -552,19 +546,22 @@ const currentYear = new Date().getFullYear();
 			}
 
 			.unsure-link {
-				border: 0;
-				background: transparent;
-				color: #777;
+				border: 1px solid rgba(226, 223, 216, 0.1);
+				border-radius: 999px;
+				background: rgba(226, 223, 216, 0.025);
+				color: #686868;
 				cursor: pointer;
 				font-size: 12px;
 				font-weight: 500;
-				padding: 4px 8px;
+				padding: 7px 12px;
+				transition: border-color 0.15s, color 0.15s, background 0.15s;
 			}
 
 			.unsure-link:hover,
 			.unsure-link:focus-visible {
-				color: var(--globe-accent);
-				text-decoration: underline;
+				border-color: rgba(136, 192, 160, 0.24);
+				background: rgba(136, 192, 160, 0.055);
+				color: #9fc9ad;
 			}
 
 			.result-range {
@@ -736,7 +733,6 @@ const currentYear = new Date().getFullYear();
 										<p class="map-choice-title" id="before-label"></p>
 										<div class="map-svg" id="before-map" aria-hidden="true"></div>
 									</div>
-									<p class="map-note" id="before-note"></p>
 								</button>
 								<button class="map-choice" type="button" data-answer="yes" id="after-map-button">
 									<div>
@@ -744,13 +740,12 @@ const currentYear = new Date().getFullYear();
 										<p class="map-choice-title" id="after-label"></p>
 										<div class="map-svg" id="after-map" aria-hidden="true"></div>
 									</div>
-									<p class="map-note" id="after-note"></p>
 								</button>
 							</div>
 						</div>
 
 						<div class="unsure-row">
-							<button class="unsure-link" type="button" data-answer="unsure">Unsure</button>
+							<button class="unsure-link" type="button" data-answer="unsure">I&rsquo;m Unsure</button>
 						</div>
 					</div>
 
@@ -812,8 +807,6 @@ const currentYear = new Date().getFullYear();
 			const questionSource = document.getElementById('question-source');
 			const beforeLabel = document.getElementById('before-label');
 			const afterLabel = document.getElementById('after-label');
-			const beforeNote = document.getElementById('before-note');
-			const afterNote = document.getElementById('after-note');
 			const beforeMap = document.getElementById('before-map');
 			const afterMap = document.getElementById('after-map');
 			const beforeMapButton = document.getElementById('before-map-button');
@@ -1115,12 +1108,6 @@ const currentYear = new Date().getFullYear();
 				}
 				if (afterLabel) {
 					afterLabel.textContent = currentEvent.afterLabel;
-				}
-				if (beforeNote) {
-					beforeNote.textContent = currentEvent.beforeMap?.note ?? currentEvent.visualPlaceholder.beforeNote;
-				}
-				if (afterNote) {
-					afterNote.textContent = currentEvent.afterMap?.note ?? currentEvent.visualPlaceholder.afterNote;
 				}
 				if (beforeMapButton) {
 					beforeMapButton.setAttribute('aria-label', `Before: ${currentEvent.beforeLabel}`);

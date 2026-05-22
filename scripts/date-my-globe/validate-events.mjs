@@ -14,6 +14,8 @@ const checklistEvents = mappedEvents.filter((event) => event.includeInChecklist)
 const duplicateYears = new Set();
 const seenYears = new Set();
 const invalidGeometry = [];
+const placeholderMaps = [];
+const missingSourceNotes = [];
 
 for (const event of events) {
 	if (seenYears.has(event.year)) {
@@ -26,6 +28,10 @@ for (const event of events) {
 		if (!map?.features?.length) {
 			invalidGeometry.push(`${event.id}:${side}:missing features`);
 			continue;
+		}
+
+		if (map.features.some((feature) => ['Neighboring region', 'Nearby islands'].includes(feature.properties?.label))) {
+			placeholderMaps.push(`${event.id}:${side}:generic context label`);
 		}
 
 		for (const feature of map.features) {
@@ -46,6 +52,10 @@ for (const event of events) {
 			}
 		}
 	}
+
+	if (!event.mapSourceNote || !/Natural Earth/i.test(event.mapSourceNote) || /Generated reference|generalized regional crop/i.test(event.mapSourceNote)) {
+		missingSourceNotes.push(event.id);
+	}
 }
 
 const report = {
@@ -54,6 +64,8 @@ const report = {
 	checklistEvents: checklistEvents.length,
 	duplicateYears: [...duplicateYears].sort((a, b) => a - b),
 	invalidGeometry,
+	placeholderMaps,
+	missingSourceNotes,
 };
 
 console.log(JSON.stringify(report, null, 2));
@@ -72,4 +84,12 @@ if (checklistEvents.length !== EXPECTED_EVENT_COUNT) {
 
 if (invalidGeometry.length) {
 	throw new Error(`Found invalid map geometry: ${invalidGeometry.join(', ')}`);
+}
+
+if (placeholderMaps.length) {
+	throw new Error(`Found placeholder-style maps: ${placeholderMaps.join(', ')}`);
+}
+
+if (missingSourceNotes.length) {
+	throw new Error(`Found missing or generic map source notes: ${missingSourceNotes.join(', ')}`);
 }
