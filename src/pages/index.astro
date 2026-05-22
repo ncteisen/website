@@ -255,16 +255,26 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			}
 
 			.section-header .view-all {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				padding: 6px 10px;
+				border: 1px solid rgba(226, 223, 216, 0.14);
+				border-radius: 6px;
+				background: rgba(226, 223, 216, 0.035);
 				font-size: 12px;
 				letter-spacing: 1px;
-				color: #555;
+				color: #aaa49a;
 				text-decoration: none;
-				font-weight: 400;
-				transition: color 0.15s;
+				font-weight: 600;
+				transition: color 0.15s, border-color 0.15s, background 0.15s, transform 0.15s;
 			}
 
 			.section-header .view-all:hover {
-				color: #5b8ef0;
+				color: #d7d2c8;
+				border-color: rgba(226, 223, 216, 0.28);
+				background: rgba(226, 223, 216, 0.07);
+				transform: translateY(-1px);
 			}
 
 			/* === HERO === */
