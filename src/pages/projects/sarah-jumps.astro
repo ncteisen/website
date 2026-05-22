@@ -1,12 +1,13 @@
 ---
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
 import SocialPreview from '../../components/SocialPreview.astro';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sarah Jumps | Noah Eisen</title>
@@ -81,18 +82,31 @@ import SocialPreview from '../../components/SocialPreview.astro';
 				display: block;
 			}
 
-			.back-link {
-				display: inline-block;
-				color: #5b8ef0;
-				text-decoration: none;
-				font-size: 13px;
-				font-weight: 500;
-				letter-spacing: 0.3px;
-				white-space: nowrap;
-				transition: opacity 0.15s;
+			.back-links {
+				display: inline-flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 8px 18px;
+				margin-bottom: 34px;
 			}
 
-			.back-link:hover { opacity: 0.8; }
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				color: #666;
+				text-decoration: none;
+				font-size: 11px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				white-space: nowrap;
+				transition: color 0.15s;
+			}
+
+			.back-link:hover {
+				color: #999;
+				text-decoration: none;
+			}
 
 			.game-container {
 				display: flex;
@@ -153,6 +167,9 @@ import SocialPreview from '../../components/SocialPreview.astro';
 	</head>
 	<body>
 		<main class="wrap" role="main">
+			<nav class="back-links" aria-label="Project navigation">
+				<a href="/projects" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="projects">← Back to Projects</a>
+			</nav>
 			<header class="project-header">
 				<div>
 					<h1 class="project-title">SARAH<br />JUMPS</h1>
@@ -161,7 +178,6 @@ import SocialPreview from '../../components/SocialPreview.astro';
 						A Doodle Jump-inspired game built in 2024 to explore the then-new power of AI-assisted development.
 					</p>
 				</div>
-				<a href="/" class="back-link" tabindex="0" aria-label="Back to homepage" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">← Back to homepage</a>
 			</header>
 
 			<hr class="rule" />

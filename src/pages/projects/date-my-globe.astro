@@ -1,6 +1,7 @@
 ---
 import SocialPreview from '../../components/SocialPreview.astro';
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
 import ProjectVisual from '../../components/ProjectVisual.astro';
 import { dateMyGlobeEvents } from '../../data/dateMyGlobeEvents';
 
@@ -11,7 +12,7 @@ const currentYear = new Date().getFullYear();
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Date My Globe | Noah Eisen</title>
@@ -698,7 +699,7 @@ const currentYear = new Date().getFullYear();
 	</head>
 	<body data-min-year={supportedStartYear} data-current-year={currentYear}>
 		<main class="wrap" role="main">
-			<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
+			<a href="/projects" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="projects">&larr; Back to Projects</a>
 
 			<header class="hero">
 				<div class="hero-copy">

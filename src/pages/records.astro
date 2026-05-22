@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
@@ -76,7 +77,7 @@ const formatTime = (seconds: number): string => {
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Personal Records — Noah Eisen</title>
@@ -106,20 +107,31 @@ const formatTime = (seconds: number): string => {
 			}
 
 			/* === HEADER === */
-			.back-link {
-				font-size: 11px;
-				color: #666;
-				text-decoration: none;
-				letter-spacing: 1px;
-				text-transform: uppercase;
+			.back-links {
+				display: inline-flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 8px 18px;
+				margin-bottom: 34px;
+			}
+
+			.back-links .back-link {
 				display: inline-flex;
 				align-items: center;
 				gap: 8px;
-				margin-bottom: 28px;
+				color: #666;
+				text-decoration: none;
+				font-size: 11px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				white-space: nowrap;
 				transition: color 0.15s;
 			}
 
-			.back-link:hover { color: #999; }
+			.back-links .back-link:hover {
+				color: #999;
+				text-decoration: none;
+			}
 
 			.page-title {
 				font-size: 48px;
@@ -310,7 +322,9 @@ const formatTime = (seconds: number): string => {
 
 			<!-- HEADER -->
 			<div>
-				<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
+				<nav class="back-links" aria-label="Page navigation">
+					<a href="/activities" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="activities">← Back to Activities</a>
+				</nav>
 				<h1 class="page-title">Personal Records</h1>
 				<p class="page-desc">Longest and hardest runs, rides, and hikes.</p>
 				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="strava-profile">Strava</a>.</p>

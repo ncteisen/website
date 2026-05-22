@@ -1,12 +1,13 @@
 ---
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
 import SocialPreview from '../../components/SocialPreview.astro';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Date My Map | Noah Eisen</title>
@@ -76,7 +77,7 @@ import SocialPreview from '../../components/SocialPreview.astro';
 			<div class="content">
 				<h1>Date My Map</h1>
 				<p>This project is being restarted from scratch.</p>
-				<a href="/" class="back-link">Back to homepage</a>
+				<a href="/projects" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="projects">&larr; Back to Projects</a>
 			</div>
 		</main>
 	</body>

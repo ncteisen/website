@@ -1,5 +1,6 @@
 ---
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
 import favorites from '../../scripts/favorites/favorites.json';
 import metadata from '../../scripts/favorites/data/metadata.json';
@@ -68,7 +69,7 @@ const mobileBooks = resolveFavorites('books', 'mobile', metadata.books);
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Favorites — Noah Eisen</title>
@@ -96,20 +97,31 @@ const mobileBooks = resolveFavorites('books', 'mobile', metadata.books);
 			}
 
 			/* === HEADER === */
-			.back-link {
-				font-size: 11px;
-				color: #666;
-				text-decoration: none;
-				letter-spacing: 1px;
-				text-transform: uppercase;
+			.back-links {
+				display: inline-flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 8px 18px;
+				margin-bottom: 34px;
+			}
+
+			.back-links .back-link {
 				display: inline-flex;
 				align-items: center;
 				gap: 8px;
-				margin-bottom: 28px;
+				color: #666;
+				text-decoration: none;
+				font-size: 11px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				white-space: nowrap;
 				transition: color 0.15s;
 			}
 
-			.back-link:hover { color: #999; }
+			.back-links .back-link:hover {
+				color: #999;
+				text-decoration: none;
+			}
 
 			.page-title {
 				font-size: 48px;
@@ -215,7 +227,9 @@ const mobileBooks = resolveFavorites('books', 'mobile', metadata.books);
 	<body>
 		<main class="wrap">
 			<div>
-				<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
+				<nav class="back-links" aria-label="Page navigation">
+					<a href="/journal" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="journal">← Back to Journal</a>
+				</nav>
 				<h1 class="page-title">Favorites</h1>
 				<p class="page-desc">Some of my favorite movies and books, in no particular order.</p>
 			</div>

@@ -1,6 +1,7 @@
 ---
 import SocialPreview from '../../components/SocialPreview.astro';
 import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
 import { dateMyGlobeEvents } from '../../data/dateMyGlobeEvents';
 
 const sortedEvents = [...dateMyGlobeEvents].sort((a, b) => a.year - b.year);
@@ -9,7 +10,7 @@ const sortedEvents = [...dateMyGlobeEvents].sort((a, b) => a.year - b.year);
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<IconLinks />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Date My Globe Events | Noah Eisen</title>
