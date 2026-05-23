@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-05-22T12:27:32.250858",
+  "last_updated": "2026-05-23T11:18:24.893270",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "AlphaGo",
+        "year": 2017,
+        "rating": 4.5,
+        "watched_date": "2026-05-19",
+        "is_rewatch": false,
+        "review": "<p>Fascinating, heartbreaking, relevant</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/0/5/1/387051-alphago-0-600-0-900-crop.jpg?v=559f1fead2",
+        "link": "https://letterboxd.com/ncteisen/film/alphago/"
+      },
       {
         "title": "I Love Boosters",
         "year": 2026,
@@ -3596,6 +3606,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "AlphaGo",
+        "year": 2017,
+        "rating": 4.5,
+        "watched_date": "2026-05-19",
+        "is_rewatch": false,
+        "review": "<p>Fascinating, heartbreaking, relevant</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/0/5/1/387051-alphago-0-600-0-900-crop.jpg?v=559f1fead2",
+        "link": "https://letterboxd.com/ncteisen/film/alphago/"
+      },
+      {
         "title": "I Love Boosters",
         "year": 2026,
         "rating": 2.5,
@@ -3664,21 +3684,11 @@
         "review": "<p>Me watching a mom decapitate herself with a piano wire in a fucked up horror movie: \u201chell yeah\u201d</p><p>Me watching a publicly humiliating incident at a wedding: \u201cit\u2019s just a movie it\u2019s just a movie it\u2019s just a movie\u201d</p><p><br/>Also\u2026 \"shout out to Sally you're gonna fuckin die first\"</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5",
         "link": "https://letterboxd.com/ncteisen/film/the-drama/"
-      },
-      {
-        "title": "The Prince of Egypt",
-        "year": 1998,
-        "rating": 4.5,
-        "watched_date": "2026-04-03",
-        "is_rewatch": false,
-        "review": "<p>I can't believe it wasn't until my 31st passover on this earth that I watched this movie</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/6/7/7/8/46778-the-prince-of-egypt-0-600-0-900-crop.jpg?v=b29fc0a633",
-        "link": "https://letterboxd.com/ncteisen/film/the-prince-of-egypt/"
       }
     ],
     "stats": {
-      "total_films": 359,
-      "films_this_year": 23
+      "total_films": 360,
+      "films_this_year": 24
     }
   },
   "goodreads": {
@@ -5343,6 +5353,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 18612564290,
+        "name": "Ruby Ruby Ruby Ruby\u2019s",
+        "type": "Run",
+        "distance": 5.66,
+        "moving_time": 3078,
+        "elapsed_time": 3395,
+        "elevation_gain": 315.0,
+        "average_pace": 9.06,
+        "average_heartrate": 131.3,
+        "max_heartrate": 154.0,
+        "average_cadence": 87.6,
+        "average_watts": 299.0,
+        "start_date": "2026-05-22T18:47:51Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18612564290",
+          "summary_polyline": "crpeFnlhjVBp@Fp@B|@FVDLH`APxAHz@Ab@@XAT@t@TjEAf@Hx@Gx@Fr@N~@@R@dADnBKh@Ir@DzAGrA@JNRLb@PRLTHZLTDNDpA\\`EC`B@x@Nv@Db@Nj@?RGVDt@@t@Jj@@ZJRBLLjACrBRvB?\\KfA?`@Nn@j@hBJx@Ap@EZ]r@A^FvAEHMBEDr@tB^pBPn@Fp@LbCA`@K|@MPK?J_@?MGa@KMC?KHQMIQSQIOGWQWQe@OI[C[Ik@AKESSOKIAM@WPO\\k@n@QH]@KHGLYjAQ\\Ed@KPIXQNCX?RZrBHNn@d@JPNbAHVH^Fv@CRIDK?YSg@e@g@AGBGFBFRHJJJV?TK^DRT`@Xn@PNVFJTEd@Sf@Bn@P^?\\GJS@CBGRFh@JLVl@?RIPCTDTNh@Fd@?b@Kd@Af@FhAM|A?h@R|ABb@\\bACf@FrADXAl@Ff@?TFj@ZdB?LKj@Ad@Tf@DBPABBDXC\\_@`AK\\Gt@@XHn@Nh@RZh@d@LN`@v@FPAd@Ff@?VGNa@t@e@PKLMZGFk@FMBGX@RV\\@\\NrATz@Cz@DfCCn@Fh@?d@Iv@Bl@Ej@?~AV`BDf@A~ALx@Ol@Ef@Fj@FP@HIX?NB^JH@B?LCn@Hd@Br@N|@Zf@Gb@DTERLCHHFTHz@Pj@Ln@DDh@TXRx@lATd@PnAT`ABX@XCd@Fz@ALBr@JVf@d@HX?b@CXe@hBATDZXbAF\\HNLLJFHN`@^Tj@H\\j@vANRNr@@vAB`@J\\d@bALb@VbANdAb@t@ZX\\l@JHx@Pp@Z\\HVP\\ZHb@FNP@RHh@[PEH@LXTx@`@|@r@hCJVZtALtBBBHDxAHV?b@FLH@`BBd@L|@Kj@E^@|@OhC@hCJdBPh@X`B@fAN`BB`AX|BHnA?tAElAKpAOjAAZDx@@dACjCPvBBn@F\\P`BLvCBtAZdBJf@@b@Cp@YrCZpCNr@Ip@?ZDz@LtAFxBBPV?^WPCbA@|AKr@?jBSnAEvASbAIx@?d@ANCHGEYDe@C{@Dm@GkA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18596495124,
         "name": "Dudes of the Haight",
@@ -7520,28 +7552,6 @@
           "summary_polyline": "uhpeFhegjV`MwARFFTLdFHNNFjR_Av@\\x@`AjEnGzDbFfCpDnAnDJfAT~LLdDN|@^p@^fABvAZxAFr@E^C|BM`BF`Av@dCNbAJXf@j@hABpAv@b@p@Rv@t@fBr@t@zAf@X?p@SdBcA~@CV]H[YmB@m@Ze@\\QZ]z@qBTO`GuAl@e@V}@LUd@OhAH^L`@ZhAtAnBt@`BdAZ\\AT]t@ALKHEd@MJgAq@{A_@kAm@_AFmBj@eDJo@Xm@j@OZKr@FdAPv@HlAIr@GfBFD^QHUXGb@]Zc@Do@Eo@Qq@@e@NOZBN\\l@dF?RC\\IVgA`BMh@F\\b@Zh@AvBi@vAo@^[Tk@GGi@D}Ar@[EC_@h@{B?a@x@BTP^z@n@r@x@q@x@UV@TLbBhBp@P^CzA}@~@AXHCF]U]Kk@NqAz@k@Bc@U_BkBM?fBlBf@T^BXIxAw@ZCp@TfBbBN`@F|DNx@LXh@l@\\LdBh@`@@d@Cb@SXa@Dg@Mc@SYoDkCSe@@k@v@sD|AaDb@y@\\[PG\\JV`@DTEn@Qh@}BzDEl@Nd@XXdGtChEtAf@Z^b@z@vBRr@NdBLX^Nn@`CKxBE[JqANF`BtDxAvClC~DbDpDzDpB|@l@j@z@rBlEhAzDV`B`AlQl@jIJbDJhAd@fClArCl@dAbF|F|AtBPd@dCfD`FrGvB|BR`@TfANfRArFRfUpAvy@RfGj@jf@AhAU|Cg@nCu@|ByBlFq@pC_@xCKjC?nNGd@Ft@EjDGb@sJf@sg@lDoGl@Ed@[BGBBDnAMg@KM_@O?oqBzMYKKc@C_BEUU[KeAC{@Fs@e@sETgBBsASoBSiAK{Du@eJCuGPqAGmAFoCCu@gAoFa@s@sA}CgBaD]eAMsB@sBHgBj@gH?kBsCiKw@iBeBeFu@}D_AuJKuB@sHHwNH{CP{@x@}ADW_CyAmA]cBTeErB[G_AiD}A_FUoAq@_GGmBHqAxAeFjAaFXwB?w@c@sB{@uBqDeGo@{Ac@yBI{MByBRsCdCiOfBkRt@yLHuGYoA{AuEUqBc@cAS{@We@I[MwEMs@KcC?s@T{BEe@I]i@sASgACkAW{CHmCo@cBC}AK}AEwBUcDC{ADoAe@{D_@uAIq@BYLQ|B[H[CyAmAqOMaC",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17016018796,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 7.18,
-        "moving_time": 4420,
-        "elapsed_time": 5435,
-        "elevation_gain": 1273.0,
-        "average_pace": 10.26,
-        "average_heartrate": 140.2,
-        "max_heartrate": 179.0,
-        "average_cadence": 85.8,
-        "average_watts": 283.8,
-        "start_date": "2026-01-11T17:28:24Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17016018796",
-          "summary_polyline": "qlpeFdghjVVpCNvEHd@TlERhBBfAd@`GHpC`@~EBnAh@vFPzDn@xHHDbAChA[RVT?f@]`Bc@VAb@L|AYz@Dj@Wh@@`Ai@\\Cn@JpAe@NA?LFAlFs@xCSrAn@rBfBfBl@fABfBSr@GRtAA`@HnAPvGCh@NvD?|AHf@?`BHnAn@f@rA_@b@Ab@ObBG|AWLDHf@?r@Lf@?LTNHZPPDLCPLT?Je@^GX@ZFVZZd@v@P|A@d@FhAPt@ICMSO?^v@F`@XRGJY?RZQLSD?HRNM\\J?PQfAA\\Jd@`@]C_@HEDNLe@AW\\VAb@RYJG^VHVR@NK\\BXf@d@Jh@\\t@Ln@RVl@J`@c@bALfBA\\NVEcASiAs@}@cA[aA@W\\r@^JDEe@aA@_AG_@Fy@J]LmBKc@USIYAqA[kBA}@ES]e@F_@NYh@G~@e@Js@e@oAPCTg@FAHDN\\t@Fp@r@FGHCTPH]Vl@RPRf@TLN?tAYl@SRYH[YcC]Q_@a@Qq@[[MkASs@{@qAOm@e@[c@{@Cy@d@i@N_@@w@^sCBm@pCk@fBw@`ACDKDcAVa@r@e@l@E`@NnAxAZTrAZDN\\@JJRSb@JFNn@VHJLh@t@~@zBFDIM{@HGXRJCJy@HMJj@HJdCzAbBtAv@h@?Py@zECvEX|B\\b@f@fB?^WC?l@PbAN^FdAPJKPaAf@@t@ERKVSJEIAYW`Be@PAGFSUDGXB^Mk@Du@Mc@A\\IN]_@[J_@MQQ[@o@LWNAHHVQdA]`A?b@MdAH|A?`ASjBSVCn@D^Ej@BNNJHC@MIQ@ERVBToAhCAh@Pv@b@\\NC\\q@v@]B[NSZSd@N\\YJ]CMW@QVIB[CZi@nAy@bAcApAXd@CFD@JMNY@]TMGGe@]DAJFH?Hw@^IXC`@WPMTYXQd@W\\?Lj@Kv@y@ZSHWAa@DW\\ANY`AIVWRCBHORKp@m@^]d@g@?IZe@l@iAx@O\\_AFw@d@i@t@d@CBFg@`@g@PGN}AlAe@p@LVGXu@z@qAjAk@TcAlAw@t@}@NO^QNsAl@]@s@SgAI{BAiAF}CQWPsCVcCFaACe@PoCC{DJGDA\\Bt@@~GIR{J\\a@CqEZ",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7677,6 +7687,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 18612564290,
+        "name": "Ruby Ruby Ruby Ruby\u2019s",
+        "type": "Run",
+        "distance": 5.66,
+        "moving_time": 3078,
+        "elapsed_time": 3395,
+        "elevation_gain": 315.0,
+        "average_pace": 9.06,
+        "average_heartrate": 131.3,
+        "max_heartrate": 154.0,
+        "average_cadence": 87.6,
+        "average_watts": 299.0,
+        "start_date": "2026-05-22T18:47:51Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18612564290",
+          "summary_polyline": "crpeFnlhjVBp@Fp@B|@FVDLH`APxAHz@Ab@@XAT@t@TjEAf@Hx@Gx@Fr@N~@@R@dADnBKh@Ir@DzAGrA@JNRLb@PRLTHZLTDNDpA\\`EC`B@x@Nv@Db@Nj@?RGVDt@@t@Jj@@ZJRBLLjACrBRvB?\\KfA?`@Nn@j@hBJx@Ap@EZ]r@A^FvAEHMBEDr@tB^pBPn@Fp@LbCA`@K|@MPK?J_@?MGa@KMC?KHQMIQSQIOGWQWQe@OI[C[Ik@AKESSOKIAM@WPO\\k@n@QH]@KHGLYjAQ\\Ed@KPIXQNCX?RZrBHNn@d@JPNbAHVH^Fv@CRIDK?YSg@e@g@AGBGFBFRHJJJV?TK^DRT`@Xn@PNVFJTEd@Sf@Bn@P^?\\GJS@CBGRFh@JLVl@?RIPCTDTNh@Fd@?b@Kd@Af@FhAM|A?h@R|ABb@\\bACf@FrADXAl@Ff@?TFj@ZdB?LKj@Ad@Tf@DBPABBDXC\\_@`AK\\Gt@@XHn@Nh@RZh@d@LN`@v@FPAd@Ff@?VGNa@t@e@PKLMZGFk@FMBGX@RV\\@\\NrATz@Cz@DfCCn@Fh@?d@Iv@Bl@Ej@?~AV`BDf@A~ALx@Ol@Ef@Fj@FP@HIX?NB^JH@B?LCn@Hd@Br@N|@Zf@Gb@DTERLCHHFTHz@Pj@Ln@DDh@TXRx@lATd@PnAT`ABX@XCd@Fz@ALBr@JVf@d@HX?b@CXe@hBATDZXbAF\\HNLLJFHN`@^Tj@H\\j@vANRNr@@vAB`@J\\d@bALb@VbANdAb@t@ZX\\l@JHx@Pp@Z\\HVP\\ZHb@FNP@RHh@[PEH@LXTx@`@|@r@hCJVZtALtBBBHDxAHV?b@FLH@`BBd@L|@Kj@E^@|@OhC@hCJdBPh@X`B@fAN`BB`AX|BHnA?tAElAKpAOjAAZDx@@dACjCPvBBn@F\\P`BLvCBtAZdBJf@@b@Cp@YrCZpCNr@Ip@?ZDz@LtAFxBBPV?^WPCbA@|AKr@?jBSnAEvASbAIx@?d@ANCHGEYDe@C{@Dm@GkA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18596495124,
         "name": "Dudes of the Haight",
@@ -7828,28 +7860,6 @@
         "map": {
           "id": "a18496418308",
           "summary_polyline": "kz|cFfkqiVFeAR[F[N{AAe@Qo@sAeBUmASY_@GqBVu@IWO`@YXg@|@q@b@k@N_@Fi@Go@Sc@oAe@GoBoAaBLS`A]Nc@BUMkBh@sAf@qDDs@AgAQ_@a@KoA@OKRg@n@{@La@Ce@e@cBDsBOq@NAb@rA~@Mb@NBHGc@LCRZHh@F_@HTH?Fu@Gk@~@m@Dq@Gg@b@u@Eo@V{@Iy@F{@Im@BYTc@`@KPc@lA}AbC`Bt@X`@j@h@@p@d@x@R~@@n@f@PAMe@q@k@MYWOi@y@i@g@Q_A@c@\\iA^]S?CMPMN?l@j@bAvAjB|AXBLUFi@Tc@WwEIs@O[F[LKrADtBn@XZXAUeA]{@Ku@Ac@[a@Me@UYk@Qs@o@_A?E]JOjBk@bAGhAaAz@Fl@AJSRAHl@Vd@|@XHb@Al@v@TX`@f@AJb@TBRv@@d@To@QiAD_@H?J`@h@v@Sy@Fi@H[\\a@Tk@zBi@x@[NSN]Ky@qD}AeAk@Q_@@O\\s@D}@JUPaA?o@b@i@\\cAp@]XBTV^{@NMh@I^JY{@Jc@_APeBIgBg@Sc@Es@Dm@ZmBWyALmATi@D_ANaAHOH?|@v@CTRDONP?HJWPVB@FMDLHUJ\\LMJ^Jc@NGr@FHDUHEDNVEJb@XIJ`C|B`@n@ZhAPb@d@JdAJVIJu@GUPM\\@VT~@NhBCz@_@X_AMcAPUf@a@Zo@`@BRLN`AFHHEb@RxD@rA_@jAw@XOTw@VQd@C|Dd@pAA^e@r@m@\\y@v@aAd@Qh@DpAMxAWLc@CWOe@aBSkAQ{AFkCEOQMw@Kg@DgAqAkAYONCZDd@d@jAJfCIj@YTUBgB}@_ABQj@FpBI~AJ|@If@ONg@FmCy@OBGJBVj@|@Rl@BlAWv@NV?VLXYhA@RVf@hGvBPb@JdAHF`BK~Ab@p@On@?nAZV\\Jj@F~BIh@Wv@aA|@g@p@Qn@O~A_@r@s@v@oAr@w@|D[xC@hB`@~GEzJIdCaAzCWdBa@~@WROBk@OUUQa@kASg@Ye@o@i@GW[MuAWk@{BkAk@F_@fAu@\\Iz@MPWE_Ao@WC]LUp@QP_BAKKG]Hk@AY",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18477940403,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 5.29,
-        "moving_time": 2744,
-        "elapsed_time": 2844,
-        "elevation_gain": 187.0,
-        "average_pace": 8.64,
-        "average_heartrate": 146.2,
-        "max_heartrate": 166.0,
-        "average_cadence": 89.7,
-        "average_watts": 306.2,
-        "start_date": "2026-05-12T13:54:20Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18477940403",
-          "summary_polyline": "{speFnmhjVHRPPDRB\\ARDRCR@LH\\RJDTOPYp@BD?VRVA\\DJCRDTCRZz@@b@CLF`@f@t@@PFJ@PLZAj@D|@Ej@@NHV@^DLDb@H\\Cf@FdAA^K|@ERKNHrAGJCPDj@\\n@Jl@\\nABn@Jt@DbAP`A?v@P~@C\\@ZCXB`@Ad@Dh@CVNd@?n@F`ANx@GZJZBTBTC`@BP?THb@@\\HVB`@TbAEx@Ed@Mb@APLhAHZf@vAJl@?`@GdAQ\\Q`@JzAFBJ?f@?d@IPARD\\E\\MN?`@IF?TZVBnC_@f@CtDo@h@E~AQn@Ol@Cd@Ij@Eb@@@BNXF^Cl@DbBAj@EZ[p@BNNXJv@Er@B^CXFr@A\\D~@Cp@Ij@KTKLa@XODUBi@G[I_@]KOM]AS@i@AiBBk@CuBDi@FQDKPQ\\S`@K^ATDND`@XV^BJDZGxCAtAFj@?TKl@Wl@g@\\SFo@E_@Ig@g@Sa@A[Bi@AsFBw@N]TYn@[f@Ef@HFDd@`@LNDN?~@Gh@A\\?tABV@lACh@CRMTa@b@a@VINO|@Aj@CXMJe@TKJRv@K@]LMH]lDAf@@~@BZEZ?NLd@`@t@BRXl@DL`@v@J|@C\\INOD]^OXQPKV[Xm@bAYZINYX]f@Kb@@dBCZMn@GNe@\\a@JGD_@HU@KCUOQW[q@Ss@SqBUkAMeAa@aCO{AQiAGmABq@As@IuAW_BQe@MWWYoAw@GIAKAq@JqAHkCHc@F}@G{BDq@CmAKsA[kBUcAo@gBKm@TIFGGaB`@sAJ_AMu@Og@OOM[C]M{@@c@Fg@Bk@Ei@Kg@Ak@D{@Cc@OcAOi@MgA?{@Iu@Dg@CSKUG]CeAEe@FiAEkAQaBAa@Im@E}@M[EW[c@[u@Qa@CUB]DO@_@?m@EU?STwA?cCIiASs@Ci@GW?KHc@Am@@g@M{ACaAMuAEgB@[IaBIo@@q@Cc@RQ?g@OUCKMkB",
           "resource_state": 2
         }
       }
@@ -8213,25 +8223,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 89,
-          "distance": 503.94,
-          "moving_time": 282052,
-          "elapsed_time": 319883,
-          "elevation_gain": 48445.0
+          "count": 90,
+          "distance": 509.6,
+          "moving_time": 285130,
+          "elapsed_time": 323278,
+          "elevation_gain": 48760.0
         },
         "all_time": {
-          "count": 1230,
-          "distance": 6395.39,
-          "moving_time": 3478747,
-          "elapsed_time": 3941563,
-          "elevation_gain": 484010.0
+          "count": 1231,
+          "distance": 6401.05,
+          "moving_time": 3481825,
+          "elapsed_time": 3944958,
+          "elevation_gain": 484324.0
         },
         "recent": {
           "count": 20,
-          "distance": 111.77,
-          "moving_time": 62298,
-          "elapsed_time": 70744,
-          "elevation_gain": 9209.0
+          "distance": 113.4,
+          "moving_time": 63224,
+          "elapsed_time": 71806,
+          "elevation_gain": 9304.0
         }
       },
       "biking": {
