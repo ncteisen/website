@@ -1,6 +1,15 @@
 {
   "experiences": [
     {
+      "company": "OpenAI",
+      "title": "Member of Technical Staff",
+      "location": "San Francisco, CA",
+      "start_date": "May 2026",
+      "end_date": "Present",
+      "description": "Bringing the best models and products to democratic governments around the world",
+      "items": []
+    },
+    {
       "company": "Roblox",
       "title": "Principal Software Engineer",
       "location": "San Francisco, CA",
