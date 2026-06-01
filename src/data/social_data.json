@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-05-31T11:43:35.040516",
+  "last_updated": "2026-06-01T16:10:45.485893",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "The Chair",
+        "year": 2022,
+        "rating": 3.0,
+        "watched_date": "2026-05-31",
+        "is_rewatch": false,
+        "review": "<p>Fun to see him working out some concepts and ideas that got more fully realized in Obsession. Nice little 25 minute horror trip!</p><p>Separately, it's crazy this has a Letterboxd entry but Listers doesn't (though I know it's TMDB's fault).</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/7/9/8/5/1007985-the-chair-2022-1-0-600-0-900-crop.jpg?v=736dd8965d",
+        "link": "https://letterboxd.com/ncteisen/film/the-chair-2022-1/"
+      },
+      {
+        "title": "Backrooms",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-05-30",
+        "is_rewatch": false,
+        "review": "<p>Nailed the eerie, sinister vibes of the original internet lore. Very plot/character thin but I didn't mind, because I enjoyed the overall tone and loved exploring the world they created. Looking forward to future additions to the BCU.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
+        "link": "https://letterboxd.com/ncteisen/film/backrooms-2026/"
+      },
       {
         "title": "Pitch Perfect",
         "year": 2012,
@@ -3636,6 +3656,26 @@
     ],
     "recent_reviews": [
       {
+        "title": "The Chair",
+        "year": 2022,
+        "rating": 3.0,
+        "watched_date": "2026-05-31",
+        "is_rewatch": false,
+        "review": "<p>Fun to see him working out some concepts and ideas that got more fully realized in Obsession. Nice little 25 minute horror trip!</p><p>Separately, it's crazy this has a Letterboxd entry but Listers doesn't (though I know it's TMDB's fault).</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/7/9/8/5/1007985-the-chair-2022-1-0-600-0-900-crop.jpg?v=736dd8965d",
+        "link": "https://letterboxd.com/ncteisen/film/the-chair-2022-1/"
+      },
+      {
+        "title": "Backrooms",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-05-30",
+        "is_rewatch": false,
+        "review": "<p>Nailed the eerie, sinister vibes of the original internet lore. Very plot/character thin but I didn't mind, because I enjoyed the overall tone and loved exploring the world they created. Looking forward to future additions to the BCU.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
+        "link": "https://letterboxd.com/ncteisen/film/backrooms-2026/"
+      },
+      {
         "title": "Pitch Perfect",
         "year": 2012,
         "rating": 4.0,
@@ -3694,31 +3734,11 @@
         "review": "<p>Pizza time</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/pq/mi/kb/ck/7JtMVM58MnzxWeyubzLpXBiVnDC-0-600-0-900-crop.jpg?v=c5f2675b28",
         "link": "https://letterboxd.com/ncteisen/film/spider-man-2/"
-      },
-      {
-        "title": "The Invite",
-        "year": 2026,
-        "rating": 3.5,
-        "watched_date": "2026-04-24",
-        "is_rewatch": false,
-        "review": "<p>Step 1: someone says something crazy<br/>Step 2: quick rejoinder from Seth Rogan<br/>Step 3: audience loses their shit<br/>Step 4: repeat steps 1-3 for 100 minutes</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/8/5/4/8/3/1/854831-the-invite-2026-0-600-0-900-crop.jpg?v=ee72905e48",
-        "link": "https://letterboxd.com/ncteisen/film/the-invite-2026/"
-      },
-      {
-        "title": "Is This Thing On?",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2026-04-19",
-        "is_rewatch": false,
-        "review": "<p>Will Arnett didn\u2019t have to be good to succeed at stand up comedy here, and a movie doesn\u2019t need to be good to succeed at entertaining me! Pretty messy overall but it had a couple of moments</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/cu/cp/cr/2m/o0uOCDLZEwlForZ5Bf3IeBwlPLd-0-600-0-900-crop.jpg?v=371b64c948",
-        "link": "https://letterboxd.com/ncteisen/film/is-this-thing-on-2025/"
       }
     ],
     "stats": {
-      "total_films": 363,
-      "films_this_year": 27
+      "total_films": 365,
+      "films_this_year": 29
     }
   },
   "goodreads": {
@@ -5383,6 +5403,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 18734019414,
+        "name": "Me & The Slug",
+        "type": "Ride",
+        "distance": 19.38,
+        "moving_time": 6586,
+        "elapsed_time": 7032,
+        "elevation_gain": 2060.0,
+        "average_pace": 5.66,
+        "average_heartrate": 106.0,
+        "max_heartrate": 151.0,
+        "average_cadence": null,
+        "average_watts": 140.6,
+        "start_date": "2026-05-31T17:30:40Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18734019414",
+          "summary_polyline": "qlpeFrghjVjMpnB`f@mGbOuA@xBp@~Dt@tBpA~@b@|@cAuDDSfAtBrAz@WvAZrBQzCXD_@\\XH`@eABzA_@p@Nd@j@FGTy@IsAw@bAlBj@ZoAQs@yAvAvBdBVUb@tBMXkBy@sBNg@EcBX]TNM`@dBMx@h@_A@LPq@FMXb@I\\Vk@h@p@d@I|@l@r@hA`D^NbAe@pE\\iDmB_AqAEq@hAz@g@}@OiBn@yD{@yBSmEYuAfCoBoAgEP[lAMOaACmG`AoCbDe@vCiDt@K^Xv@rD|AfEvB@t@XxAxDjAfAdB\\|PEn@vB`@b@UTi@a@Cl@`AhDqApADh@_@t@W]WxA_@CQFIt@[cC?d@a@]sAGsAj@Jh@{@bC_@dCTzCk@bE`@p@Fo@Hf@oArC@VRhAx@F~BmCb@H\\eAcA`@Li@fDgCxBp@gAl@Ui@_@BH\\u@XShAaAz@i@hAz@Q~@{@NwAvBa@j@k@ATc@|@kAlAa@B]|@cBdB_ADaAj@i@j@l@?uE~DqGtIaBhAqC^wGq@cbAdDa@n@f@bE]~CcGt@kA`AcEpKi@lDBjDZdDv@lBjAz@fEdAhAxAxBbLpArKtA~G~@z^MzIPvJX|BMzJn@lNk@vDVrDc@fG@lEp@vD~@`Le@pJBvFhAlQb@rB_@xEj@tELnEOVs@Io@l@o@BcBMqM\\oIa@cEh@S|@NZO`B_Kt@wJC}Hl@yB`A{GzHeC|@q@g@Mo@GmDa@gB_B{@{Aj@sBNKwAlCuFL_@KQqMvJkAXwA_Am@wBUuC}AmC_CsIb@eD]wACmBmB{CkBZi@]f@uEOwDOoAkB}D?q@fBwCZkBgByDKgBR{CfB{IBmEa@kCqBwDe@oDdB{F[_F_AcByCaAq@kAE{Ab@aD]yTUqCs@{BcCyC}CiAcQ{DeD]uCsA{FL_BoC}EeBqA}By@EmDz@mBiBk@_BvBiAjEyDxBuOW}AH_An@Uv@^|@Ud@b@jCcAXe@IsB\\wAa@kCu@sBGuBLuAeAsCgAmFmAwB]cM^WhEBjAi@n@w@ZgBhAiCbG[lDaF|FiG@aBl@wAPuAjBEpAvCb`BgFzCbBs@oJV}Bx@sAfAu@~@MjExExAK\\oGoBsGeAqFq@kAc@aKToEgAiDc@{GD}Bm@uBq@aN@yDoAmHVc@nBUNk@}AiW",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18719500989,
         "name": "Morning Rip",
@@ -7560,28 +7602,6 @@
           "summary_polyline": "clpeFpfhjVJlDLp@BlAHz@N~@Ad@Jt@AZDP?b@Fl@R`APpB?`AD^Cl@RnA?n@Jp@?r@Dn@@pAJt@LXTrCFnDPnBB|BNz@@`AH\\JjABh@Lh@DBF@d@Sd@Gl@]lBIdA[vBE`@G\\Bx@Yd@?`AWrAGt@[z@KXKb@Fx@OTBtFm@PBv@b@hBfBx@\\bATlACLHdAKj@Mp@e@ZE?I\\MtAMTLPVv@VTPbCn@rAr@h@dAPf@Nv@A`@N`@dAPNA|B{@b@_@d@q@p@]d@o@f@y@j@]z@[NQDOnAiAF[AYYiAGa@Ja@TKNDV\\^~CPlAGx@sAtBIX?\\BL^\\XF|Be@lAe@x@e@Rg@GSUB_Bn@YGYc@p@{C`@CPBPLp@lAb@f@PApAw@d@CZRpAzAh@V\\Bj@K~@s@RITAXFdAx@|@|@Nb@@ZGr@BPDHXE`@HPCBEK_@C_@FGVLDABqALe@TqAC_@IQEUHe@@OEGE?[ZUFiBY_Bk@y@Cg@LoAn@m@@OKe@}@s@g@yAJs@GKOMs@Qk@Sa@OOsA_@_A?gAMW[Ue@Ka@?k@XQt@ORa@@GGMWKOSEi@D]n@a@ACMYWEc@WUEUUg@eAaAuCMq@?O]eADMHHEHDKHD@I]sCIwA?g@DQMqAkAFWHGPAfAK|@Qv@M`@u@`AWLg@J[Rg@n@KXUz@DVPTb@Bb@PHZAf@]AOJMBkCMIOGqA?oBImBDkAAsAEiAIa@[A{ATwA@iALaAIi@N]GwALiAAk@LeBDWHc@Gy@Lg@COS?KC?Jy@?WSWe@wASoBGkAu@w@k@PICOi@KEGBGN@VEj@KLMJ_@i@CACHBj@M~@?p@ERPDN`@^`@D`@O^?ROECGMd@C\\MPAFXf@D^VRETHh@IR_@p@a@b@W`A@vCF^DfAIl@?p@Kf@KRFp@EXGL_A~@ULVt@^h@\\pARTHTLxBA`@SLsCTWLuCMWDc@^W?i@Nm@Ca@RgALg@Xk@Dc@GMLQ@k@IiAAg@JIN?IIKu@NUL}AXS[G]Ey@UsBAk@QkAOcCM_@De@Q{@?g@Q_C@g@U{CEkAMk@Cg@KUQgA?kBC_@Ba@EeBKwAKi@AuAMcB?u@UsB_@yF",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17145341357,
-        "name": "Perfcrastinating",
-        "type": "Run",
-        "distance": 4.18,
-        "moving_time": 2045,
-        "elapsed_time": 2182,
-        "elevation_gain": 203.0,
-        "average_pace": 8.16,
-        "average_heartrate": 140.4,
-        "max_heartrate": 166.0,
-        "average_cadence": 88.9,
-        "average_watts": 327.5,
-        "start_date": "2026-01-23T00:16:59Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17145341357",
-          "summary_polyline": "gqpeFxkhjVDZNj@@PCFFp@ADWLB~@ARDT@d@h@`D?f@RnFL`ACr@Hv@GXFf@IVFf@N|BCZBn@ITARMh@?f@B^MzA@NXt@^n@V`AT~A@f@Sh@Lh@@RL^F^@hAEL?LHz@Hd@?XL`@Hz@@n@CdAF\\HRCF?H\\xA@b@Af@JzAH\\@v@I|@?|@Fj@TdATj@Jv@?\\Kt@WdAAb@FZ?\\EFSJGFNPDNb@jATfAVfAFb@JrAPz@?n@G`AIPMH]@YHIAOMa@e@c@o@S_@UWWi@UYcA[m@REF]R[Vo@p@]hAEb@Bf@I`@J|@@b@Fh@Pt@j@lDBp@F\\@j@F^Bn@Jh@B`ARv@Zh@bAn@Z\\Zf@Zt@Xd@L\\JLZBv@Ub@DNA\\HJ@HCN_@Fm@DQHe@LM^KBGHy@Dy@?g@G[DQNMJEb@CNGt@CRK\\e@XWLm@JUNg@@UOm@Wo@]a@So@Gq@Ws@CYBe@N}@JWHg@V_@Zo@LOd@gAHm@A]Bw@CYM_@?K{@u@GCACHD?EOa@G_@OUi@i@SDk@CSw@?SKa@BUE_AWcA@QCS@QI[AU?UBC@ICOBc@Kc@C]Uk@AOD_@A[S_A?ELOBOK}@A[CQAa@QaA@[Ku@GgA?a@Q_AAc@EW?UMi@Ce@?c@IaACa@E[Gs@EU@m@DC@O?]YoDQoDIy@MaCGq@GiAIs@Ac@OcDIiAM}@IkAOsC?e@SkB@c@c@sFCaAMw@?UK_B",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7896,6 +7916,28 @@
     ],
     "recent_bikes": [
       {
+        "id": 18734019414,
+        "name": "Me & The Slug",
+        "type": "Ride",
+        "distance": 19.38,
+        "moving_time": 6586,
+        "elapsed_time": 7032,
+        "elevation_gain": 2060.0,
+        "average_pace": 5.66,
+        "average_heartrate": 106.0,
+        "max_heartrate": 151.0,
+        "average_cadence": null,
+        "average_watts": 140.6,
+        "start_date": "2026-05-31T17:30:40Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18734019414",
+          "summary_polyline": "qlpeFrghjVjMpnB`f@mGbOuA@xBp@~Dt@tBpA~@b@|@cAuDDSfAtBrAz@WvAZrBQzCXD_@\\XH`@eABzA_@p@Nd@j@FGTy@IsAw@bAlBj@ZoAQs@yAvAvBdBVUb@tBMXkBy@sBNg@EcBX]TNM`@dBMx@h@_A@LPq@FMXb@I\\Vk@h@p@d@I|@l@r@hA`D^NbAe@pE\\iDmB_AqAEq@hAz@g@}@OiBn@yD{@yBSmEYuAfCoBoAgEP[lAMOaACmG`AoCbDe@vCiDt@K^Xv@rD|AfEvB@t@XxAxDjAfAdB\\|PEn@vB`@b@UTi@a@Cl@`AhDqApADh@_@t@W]WxA_@CQFIt@[cC?d@a@]sAGsAj@Jh@{@bC_@dCTzCk@bE`@p@Fo@Hf@oArC@VRhAx@F~BmCb@H\\eAcA`@Li@fDgCxBp@gAl@Ui@_@BH\\u@XShAaAz@i@hAz@Q~@{@NwAvBa@j@k@ATc@|@kAlAa@B]|@cBdB_ADaAj@i@j@l@?uE~DqGtIaBhAqC^wGq@cbAdDa@n@f@bE]~CcGt@kA`AcEpKi@lDBjDZdDv@lBjAz@fEdAhAxAxBbLpArKtA~G~@z^MzIPvJX|BMzJn@lNk@vDVrDc@fG@lEp@vD~@`Le@pJBvFhAlQb@rB_@xEj@tELnEOVs@Io@l@o@BcBMqM\\oIa@cEh@S|@NZO`B_Kt@wJC}Hl@yB`A{GzHeC|@q@g@Mo@GmDa@gB_B{@{Aj@sBNKwAlCuFL_@KQqMvJkAXwA_Am@wBUuC}AmC_CsIb@eD]wACmBmB{CkBZi@]f@uEOwDOoAkB}D?q@fBwCZkBgByDKgBR{CfB{IBmEa@kCqBwDe@oDdB{F[_F_AcByCaAq@kAE{Ab@aD]yTUqCs@{BcCyC}CiAcQ{DeD]uCsA{FL_BoC}EeBqA}By@EmDz@mBiBk@_BvBiAjEyDxBuOW}AH_An@Uv@^|@Ud@b@jCcAXe@IsB\\wAa@kCu@sBGuBLuAeAsCgAmFmAwB]cM^WhEBjAi@n@w@ZgBhAiCbG[lDaF|FiG@aBl@wAPuAjBEpAvCb`BgFzCbBs@oJV}Bx@sAfAu@~@MjExExAK\\oGoBsGeAqFq@kAc@aKToEgAiDc@{GD}Bm@uBq@aN@yDoAmHVc@nBUNk@}AiW",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 18639033254,
         "name": "Pretty City",
         "type": "Ride",
@@ -8046,28 +8088,6 @@
         "map": {
           "id": "a18256360200",
           "summary_polyline": "alpeF|ghjVDrEbKn|Ar@`I\\R~t@mIRlDlA`F~BvC{@mEhAxBpA`A[jA^lBS`DVF[^b@?V}@CfAXe@RaHdAcABiBl@|Ec@S~@nBYBV^i@LXVQb@hBM~@f@eA?JV_A\\`ANe@d@n@d@CnAn@jA}Ag@u@lAeCCQMVSgB]h@KkBkC|Az@v@Qi@EsCkEsAMsAfD\\tGUl@xAd@dC[j@T`@hAfFkAz@hDp@l@xDyCbEaAiE_Di@{AbAv@e@{@EmBn@wDs@sA{@gIXw@hB}@]gBt@}@Lf@jBx@t@MvAnBjDcAK}BuBeDg@yBwBeDa@yAn@}AV_Dj@Sg@cApIqBmAyDoAe@i@tCNr@nHqCtDpCvDmA`DtCG|E`ApBrD`A|@Ud@aAa@cA{DsCF}ATp@nGdEXt@{@xECxDXlCbAxCWjAx@tDeAj@CjAc@f@Ka@UvAq@BKx@WcCCl@qBk@mB^Th@y@bCDzC{@dFJnBd@j@?u@Zp@_BlCBr@Pn@p@V`CsC|@ITm@kAVNo@tCmBxBLj@j@}@tBaBv@{AvBoDvAi@l@j@BcEbDaH`JiEpBsHu@acAnDOl@h@fF]vBcGr@gAp@kDfIo@tCUbFRnEtBrDjDr@lBbB|BtK|AhMrAlG|@z^AfR`@~EGnLj@~Lm@|DRxC_@|M`AjFr@|Jc@tJFhHjBxSa@nFh@hDD`EkBlAiNRaLc@wIv@E{AEtAs@O@qAt@m@w@wPNeGXeAa@`EBbE?eDCzCh@FXi@]_CCcEWv@ZiBUhEToD]wB_AcAMiCrA{DuAxD|BkGLgC_As@KgAPxF\\p@XqDaAe@T~B]tARx@f@uAVoDIeAkAYPvFZx@`@gIk@X}@[GcCa@}Az@aCFiC~@kDmDgJBmHc@qEz@yBiA}LTsKs@mSfAkBTaHx@gFwAoAuBgLUsFRwAi@oHJ_Pe@uD]a@Bc@dDqBBs@O_BgBwCYgBr@{CAqKG{@mBiEQeCNkI[mADgAi@cBl@s@WoAPiByAkBCeBg@g@x@GvAh@s@yDaAkA]wCfBeFjCuBzDv@~A~Cb@?X|Cm@fKNbR~AbB`@lCBpDv@lC|AcBz@Wb@\\XuA?sJu@yFd@gCj@iEqBoH~@yFMsAeAw@mEw@}FmSk@gKPuEoAwEMwIm@kAg@qJEcHqAiI\\o@jBYRi@wAgW",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18163017544,
-        "name": "Neilville",
-        "type": "Ride",
-        "distance": 17.26,
-        "moving_time": 8100,
-        "elapsed_time": 12037,
-        "elevation_gain": 1745.0,
-        "average_pace": 7.82,
-        "average_heartrate": 114.7,
-        "max_heartrate": 162.0,
-        "average_cadence": null,
-        "average_watts": 80.6,
-        "start_date": "2026-04-18T15:52:09Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18163017544",
-          "summary_polyline": "qa`}E~l`~PSGBWnAGJo@Rf@f@Md@G]IIVbAJ{Bu@Iq@Zcc@~GGe@{BpAa@VyAMWoGWuCmA^p@q@BfA`Au@CsEsDqH}BuA{BaCc@wJAaAcB]j@F~@_BwB{@kBwGSY`@p@dFoA_Aq@`@l@yAGi@oCg@yBNkA~@w@@q@lA_AB}@y@nBa@i@g@mACAuBUYsNs@oNyD}LkBgCmAIaAl@kBNnCt@gDP`AVq@`@d@j@EA_CjBqAkAoAdAyHyAtAr@cCmCtDP_B}AoC`AyD?aA_FEm@q@b@qMdAiF_@}EfAuKc@}B_BsDyAaBcIm@{IiCu@cA_@cBg@Do@aDcBqD{DeEyA{Dq@q@q@?~@oAaIpDbEiDfEgGrAf@OhAb@hEt@vBrAdBWeDd@h@Ri@t@QrIzFlDDwBmCg@yBZcA~@i@_ABlD}BuKOoFiBeC{Ak@mAElAv@zAwAu@|AfBaEkAqBnEyKpG{HpKgFzA}AfAwAbDmHlWwAlHqCdUa@~Hh@`GnILtGfEzGL`IhDfQ_GfAApDtAPdCkGj@u@hBVXJe@WB`Az@c@lAy@BbAxAl@Zt@UHh@_B~@s@IlAz@jB[dAb@tDkAJ{BgBqGa@g@_DSiBXw@zB\\DK]E@rCiB|Cn@Um@cBUoCZw@jBf@JO[@\\m@LMhAZnFzA|AtAYd@bB\\HlBa@fEiDw@g@Dn@i@LK_AFiByBsGwC]kBReA|B`@LEo@dCuAbDh@Yk@eBSiCTw@tABl@^KYSI`AdAz@t@H[fAiAfAvArA`Db@xCa@ZkAB`AXGAu@~@b@uElDuFvHQvBmAbAs@vBgAdHaDu@cA_CRKQ?`@xAn@nAv@Mr@pAFWy@eAi@AQ\\`@QNtBYdAk@iCFw@Jd@Dk@Eh@\\]RdB_@tDfHs@]pCfAf@}@a@Du@`ByCjB_FEaAXu@dFiCbAZfDvFzDbAiEcHY{AJgArB_@xBPdDu@lC\\gAeAiEKyFsBNo@zBm@rDtAdHXpBpA|Bv@tCk@Xv@c@fBb@mBQqA_DiAcByBjCeBF_CaBgAtOrBzJ|CZEl@cBd@fBv@f@e@q@b@B_@y@?cCXoA_A`@Qa@sDdCu@C[s@JwApAVLkIb@iCYqBAoBb@[WiAJk@Ye@ByB^uArx@~@jFl@hXMz@h@r@c@xa@AxAHPh@[dh@wAjKMxRXbH|^v@WC",
           "resource_state": 2
         }
       }
@@ -8267,34 +8287,34 @@
           "elevation_gain": 490978.0
         },
         "recent": {
-          "count": 19,
-          "distance": 120.15,
-          "moving_time": 69020,
-          "elapsed_time": 76208,
-          "elevation_gain": 13267.0
+          "count": 18,
+          "distance": 115.47,
+          "moving_time": 66597,
+          "elapsed_time": 73460,
+          "elevation_gain": 13100.0
         }
       },
       "biking": {
         "ytd": {
-          "count": 20,
-          "distance": 473.61,
-          "moving_time": 148986,
-          "elapsed_time": 181928,
-          "elevation_gain": 43271.0
+          "count": 21,
+          "distance": 492.98,
+          "moving_time": 155572,
+          "elapsed_time": 188960,
+          "elevation_gain": 45331.0
         },
         "all_time": {
-          "count": 605,
-          "distance": 13522.28,
-          "moving_time": 3752901,
-          "elapsed_time": 4449781,
-          "elevation_gain": 1024377.0
+          "count": 606,
+          "distance": 13541.66,
+          "moving_time": 3759487,
+          "elapsed_time": 4456813,
+          "elevation_gain": 1026437.0
         },
         "recent": {
-          "count": 4,
-          "distance": 129.37,
-          "moving_time": 39164,
-          "elapsed_time": 43185,
-          "elevation_gain": 12700.0
+          "count": 5,
+          "distance": 148.75,
+          "moving_time": 45750,
+          "elapsed_time": 50217,
+          "elevation_gain": 14760.0
         }
       },
       "swimming": {

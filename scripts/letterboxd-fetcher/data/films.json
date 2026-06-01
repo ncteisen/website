@@ -1,5 +1,29 @@
 [
   {
+    "guid": "letterboxd-review-1337411486",
+    "title": "The Chair",
+    "year": 2022,
+    "rating": 3.0,
+    "watched_date": "2026-05-31",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/7/9/8/5/1007985-the-chair-2022-1-0-600-0-900-crop.jpg?v=736dd8965d",
+    "review": "<p>Fun to see him working out some concepts and ideas that got more fully realized in Obsession. Nice little 25 minute horror trip!</p><p>Separately, it's crazy this has a Letterboxd entry but Listers doesn't (though I know it's TMDB's fault).</p>",
+    "link": "https://letterboxd.com/ncteisen/film/the-chair-2022-1/",
+    "pub_date": "Mon, 1 Jun 2026 12:22:09 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1337424519",
+    "title": "Backrooms",
+    "year": 2026,
+    "rating": 3.0,
+    "watched_date": "2026-05-30",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
+    "review": "<p>Nailed the eerie, sinister vibes of the original internet lore. Very plot/character thin but I didn't mind, because I enjoyed the overall tone and loved exploring the world they created. Looking forward to future additions to the BCU.</p>",
+    "link": "https://letterboxd.com/ncteisen/film/backrooms-2026/",
+    "pub_date": "Mon, 1 Jun 2026 12:32:28 +1200"
+  },
+  {
     "guid": "letterboxd-review-1329877307",
     "title": "Pitch Perfect",
     "year": 2012,
