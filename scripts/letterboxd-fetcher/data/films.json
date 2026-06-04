@@ -1,5 +1,17 @@
 [
   {
+    "guid": "letterboxd-review-1341067953",
+    "title": "Warfare",
+    "year": 2025,
+    "rating": 3.5,
+    "watched_date": "2026-06-02",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/4/7/0/1/1124701-warfare-0-600-0-900-crop.jpg?v=f379233a1b",
+    "review": "<p>War is the h-word</p>",
+    "link": "https://letterboxd.com/ncteisen/film/warfare/",
+    "pub_date": "Thu, 4 Jun 2026 09:57:11 +1200"
+  },
+  {
     "guid": "letterboxd-review-1337411486",
     "title": "The Chair",
     "year": 2022,
@@ -10,6 +22,18 @@
     "review": "<p>Fun to see him working out some concepts and ideas that got more fully realized in Obsession. Nice little 25 minute horror trip!</p><p>Separately, it's crazy this has a Letterboxd entry but Listers doesn't (though I know it's TMDB's fault).</p>",
     "link": "https://letterboxd.com/ncteisen/film/the-chair-2022-1/",
     "pub_date": "Mon, 1 Jun 2026 12:22:09 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1341063629",
+    "title": "Petite Maman",
+    "year": 2021,
+    "rating": 4.0,
+    "watched_date": "2026-05-31",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/6/6/9/7/4/4/669744-petite-maman-0-600-0-900-crop.jpg?v=c7cbed5a06",
+    "review": "<p>Cozy and wonderful</p>",
+    "link": "https://letterboxd.com/ncteisen/film/petite-maman/",
+    "pub_date": "Thu, 4 Jun 2026 09:54:04 +1200"
   },
   {
     "guid": "letterboxd-review-1337424519",
