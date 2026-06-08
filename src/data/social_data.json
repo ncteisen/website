@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-06-07T11:55:17.777746",
+  "last_updated": "2026-06-08T14:15:28.678391",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Good Luck, Have Fun, Don't Die",
+        "year": 2025,
+        "rating": 1.5,
+        "watched_date": "2026-06-07",
+        "is_rewatch": false,
+        "review": "<p>Truly terrible, with a couple of redeeming chuckles and visual shock humor.</p><p>Letterboxd reviews almost as brainless as your average Reddit comment thread. How could anyone give this 5 stars??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48",
+        "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
+      },
       {
         "title": "Warfare",
         "year": 2025,
@@ -3676,6 +3686,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Good Luck, Have Fun, Don't Die",
+        "year": 2025,
+        "rating": 1.5,
+        "watched_date": "2026-06-07",
+        "is_rewatch": false,
+        "review": "<p>Truly terrible, with a couple of redeeming chuckles and visual shock humor.</p><p>Letterboxd reviews almost as brainless as your average Reddit comment thread. How could anyone give this 5 stars??</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48",
+        "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
+      },
+      {
         "title": "Warfare",
         "year": 2025,
         "rating": 3.5,
@@ -3744,21 +3764,11 @@
         "review": "<p>Charming, zany, and authentic. Ahoy sexy!</p><p>Sarah wanted to watch Pitch Perfect and now she's mad at me for picking this instead.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/9/6/0/8/3/96083-frances-ha-0-600-0-900-crop.jpg?v=0bb538988b",
         "link": "https://letterboxd.com/ncteisen/film/frances-ha/"
-      },
-      {
-        "title": "AlphaGo",
-        "year": 2017,
-        "rating": 4.5,
-        "watched_date": "2026-05-19",
-        "is_rewatch": false,
-        "review": "<p>Fascinating, heartbreaking, relevant</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/0/5/1/387051-alphago-0-600-0-900-crop.jpg?v=559f1fead2",
-        "link": "https://letterboxd.com/ncteisen/film/alphago/"
       }
     ],
     "stats": {
-      "total_films": 367,
-      "films_this_year": 31
+      "total_films": 368,
+      "films_this_year": 32
     }
   },
   "goodreads": {
