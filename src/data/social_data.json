@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T12:43:39.931846",
+  "last_updated": "2026-06-10T13:37:20.525606",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -12,6 +12,16 @@
         "review": "<p>Truly terrible, with a couple of redeeming chuckles and visual shock humor.</p><p>Letterboxd reviews almost as brainless as your average Reddit comment thread. How could anyone give this 5 stars??</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48",
         "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
+      },
+      {
+        "title": "Black Phone 2",
+        "year": 2025,
+        "rating": 2.5,
+        "watched_date": "2026-06-07",
+        "is_rewatch": false,
+        "review": "<p>Was the dialog in the first one this cringy? I don't remember it being this cringy</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/8/2/1/6/0/1082160-black-phone-2-0-600-0-900-crop.jpg?v=5ff6eeb27d",
+        "link": "https://letterboxd.com/ncteisen/film/black-phone-2/"
       },
       {
         "title": "Warfare",
@@ -3696,6 +3706,16 @@
         "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
       },
       {
+        "title": "Black Phone 2",
+        "year": 2025,
+        "rating": 2.5,
+        "watched_date": "2026-06-07",
+        "is_rewatch": false,
+        "review": "<p>Was the dialog in the first one this cringy? I don't remember it being this cringy</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/8/2/1/6/0/1082160-black-phone-2-0-600-0-900-crop.jpg?v=5ff6eeb27d",
+        "link": "https://letterboxd.com/ncteisen/film/black-phone-2/"
+      },
+      {
         "title": "Warfare",
         "year": 2025,
         "rating": 3.5,
@@ -3754,21 +3774,11 @@
         "review": "<p>I just can't believe the same guy made <a href=\"https://www.tiktok.com/@thats.a.bad.idea/video/7255507019518446890?lang=en\" rel=\"nofollow\">this</a>.</p><p>The scariest part was the idea of going on a date and she makes a big scene at a crowded restaurant.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/4/7/2/1234472-obsession-2025-2-0-600-0-900-crop.jpg?v=cff6fc00b6",
         "link": "https://letterboxd.com/ncteisen/film/obsession-2025-2/"
-      },
-      {
-        "title": "Frances Ha",
-        "year": 2012,
-        "rating": 4.0,
-        "watched_date": "2026-05-23",
-        "is_rewatch": false,
-        "review": "<p>Charming, zany, and authentic. Ahoy sexy!</p><p>Sarah wanted to watch Pitch Perfect and now she's mad at me for picking this instead.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/6/0/8/3/96083-frances-ha-0-600-0-900-crop.jpg?v=0bb538988b",
-        "link": "https://letterboxd.com/ncteisen/film/frances-ha/"
       }
     ],
     "stats": {
-      "total_films": 368,
-      "films_this_year": 32
+      "total_films": 369,
+      "films_this_year": 33
     }
   },
   "goodreads": {
@@ -5433,6 +5443,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 18851383115,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 5.71,
+        "moving_time": 2985,
+        "elapsed_time": 3262,
+        "elevation_gain": 196.0,
+        "average_pace": 8.71,
+        "average_heartrate": null,
+        "max_heartrate": null,
+        "average_cadence": null,
+        "average_watts": null,
+        "start_date": "2026-06-09T13:44:37Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18851383115",
+          "summary_polyline": "erpeFjlhjVDdADX@f@Jj@@XFd@ARDP?XF^DJAf@BLCTL`@AN@v@Bf@J|@J`CBJ?RADBn@BHARELARFbAFVBTFLB\\BfDGd@Ot@HjAGh@?x@DRVn@PXVt@DBF\\Fz@L|@RpCAxCNbABf@N\\?VEVFd@?p@Dz@b@zB@N@f@Ah@?r@RfBA`@KdA?XJp@n@tBLl@AZKbA[l@EXLlACP?C?B@AHCAFXr@N?FDDJD@DBHARGb@EZ?lAIXI\\?XIh@ITKn@?FE@GRW\\MdAO`@ITADBJETALG^Ar@MT?HENABCVAFEXAZGZAp@MLDH?JDB\\Lx@?LH|@C`@Fv@ALc@n@AHBFRPHh@@l@CTBN?v@E^DFCVDbAAd@@PCVQ^QTSJWRe@F[E]Og@c@M_@AY@W@GC_@Dw@Em@@uAA]BaAH[Zc@n@Ud@ATB\\NXTNRHX?PDRA~B@pBCjAI`@GJ_@^YRm@Da@GWMe@g@Ki@@{BE}@@wAAu@?UDUV_@TSNILANGf@@b@NZTZj@Dn@ClCCZBRB~ACb@KZWZ}@n@?HSt@EZEXGHSNEHIFIL?FN^jCdAeA]OC{AASDGNAf@U|BCp@@RAVFr@ELIHIITj@`@t@f@lAV`@J\\?FLZA`@@HAd@@`@ApAl@tDFZFJ?NHPTbA^`CHt@?x@Cb@ShBGBs@CQFQ@o@?{@JIDa@JSJo@b@MRE?YQoAgCs@kAk@s@e@_@k@eAS{@@XEIYmA]gCUmAEc@IQCe@I_@?Sg@aDC{@BS?s@BSC_@BA?GGaBI{@Mc@Wg@[_@oAu@MULyCNeBNyBG_@@EEgAFoA@u@Ku@?_@W}Ae@iBSq@EEXQM_@G]Ae@G}@BSLWLa@H{@?YC[GUg@wASkAAKPsAB_@M_AGQAu@Bs@Go@@IES?IGSSgACi@EM@OAi@Ee@He@AQS[?UIi@?OIg@D_BAu@SmCGc@Ac@Iu@Qi@ISOSk@wAAOHsA?[Ea@AWVoA?iBKgBK]Gc@AaAFYAWEa@@[AIII?EFC@E?KCEIw@OgDSiB?UG{@Ag@K}@?g@DGPG@DBa@EGEUAc@I_@@SEi@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18812144761,
         "name": "Mountain bikes and marriage",
@@ -7610,28 +7642,6 @@
           "summary_polyline": "{dseFnymjVa@[N[s@e@@WGIy@Dw@M{DVc@UQa@GgAg@aEk@kDa@yEi@wBqB_@cBCk@[_AHmAtByApAIZDz@CpB}BfC{AjBq@NeAE_ARe@Iu@VYdAq@z@S`A[r@o@b@gB\\wAFg@WSB]VKz@Lf@j@rAIdBH`@a@rADx@Jb@fAN\\\\D~@h@fCDv@n@fB\\h@F`AMn@L^FnBPl@St@UZCb@WRZj@AJoBBy@[SLA`@N|@YbA?dAyAv@M^RnBM|ADVCrBSr@EbAi@xA@N]zAdBd@dC|Bv@`@VI@M\\e@r@m@b@mATQ?YN_@V?\\u@fCaB`CYjCLvAe@bD_@p@RjDtBzAF`E[~@@Uv@p@~CV`EStCS\\Hj@jAVf@\\RWGaADO~@NJ\\UpA]v@Ih@DhAN`AEbBI\\Nd@Id@B\\g@jB[ViA[a@hAeADcEU{A_@Uj@a@nC{A`@iA@e@v@i@PuBaAgEsAiGmC[@[SaA@q@d@u@?eDkA@u@j@aC\\eCFmBXa@iBs@sAUo@FeA~Be@bBaA@iAq@o@ZCj@Uf@w@o@c@@aAyAAy@e@UEQFWo@Hs@uAa@Es@\\iBEy@g@Ga@a@?M_@@]^o@^QPy@[WQTa@FEU{@Yc@?aAe@_@g@c@gAu@s@iAYXYBUGk@QQg@G]LW`@QjAm@XyAK}A}@UHkA|Ac@LyBHsDYi@Na@YOm@iAqBOi@Ae@Hi@fAaAHoAl@mDl@eBScBKNYWq@|@]?C[f@u@U[bA]XaB`A_BxBkAtBiCvB{AjAU`A?p@V`@?x@e@x@wAz@c@dDm@`GBn@Ql@_AF[Qy@?g@Fw@r@aCJ{AGaC_@eAyAuAi@_AY{@Ei@H}@j@qCPyFd@gCsAoImAmE_@uBXsAf@k@^_BZwBx@aA|@aDjD{Jl@a@nB[l@Y`CyC|AiAfBw@h@Ed@Lt@|@TH~Du@tB}ARk@jCoCj@aAdB}AN_@h@a@p@y@BSZ?H_@bAJVYM`@HNjALn@X`@zA`CzTvAdLVhA@v@f@~Ch@|FXtAt@zHh@tEfBbM`@~EvAvLfAhIBlAl@`CZdBN[DwClB_Bn@MN[QeHBqDQiD",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17252669803,
-        "name": "Our with the old, in with the new",
-        "type": "Run",
-        "distance": 4.56,
-        "moving_time": 2358,
-        "elapsed_time": 2511,
-        "elevation_gain": 210.0,
-        "average_pace": 8.62,
-        "average_heartrate": 130.4,
-        "max_heartrate": 156.0,
-        "average_cadence": 87.7,
-        "average_watts": 311.4,
-        "start_date": "2026-01-30T23:11:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17252669803",
-          "summary_polyline": "eqpeFxkhjV@ZAPBj@CZJX@PAZGf@@n@NZ@|@Ab@Jp@A\\Hh@AX@PFPGXGvAHDCF?^Bf@DPFFWVXx@Cj@Bb@ThAF|@?h@NjAAXIr@IRGXH|@IbAET?NBPFRz@|AXt@V`CB\\GDO@IBAH`@nALPDLG|BRhBPv@Ep@BdAHfAXhADXBt@Ab@E^?\\Ft@Rz@OdB@XHn@ZrAFRNRJx@?LKv@IZO\\GXAXPrAJl@GP?^~@`EFnAFb@@\\A~@In@EJEFUFo@@SKOYk@i@i@s@S_@OMMQs@e@OA[B]Ra@Z}@~@INU`BCbAJlA?TDTFp@Pz@|@lGP|CJr@JZV^b@ZXLd@b@\\l@Xt@Vd@FPKfAa@|AQrAeAxFQhAKbBB`@DFH@BA@KHuBNmBZmBNeAZaBNwAT{@NUx@U^Cf@BNCZLVGHWHe@DkAHITANIHU?]Hg@@w@Ce@DSHGh@OPMn@@XMNUXYp@wAH[BM?MMm@m@}@M[EMGu@]qACYTyA\\kAn@uAf@s@HQFi@QoCq@qAQCGGOk@Qe@YSMQKEu@FKc@A_@Mm@IiAQuA@a@Ek@?s@C]Os@Aw@UsCB]QeAMsAG_BC[A{@MiACsAOkC?[OcA?[E_@@SIg@Em@?iAUeBC_ACG@SMy@CmAWsCCcA@MKy@GmAM_AGYB[Ca@Gy@Ks@EsAG[?OKiAEsAa@eFGgBIc@KwBGe@?MESEcBEe@",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7767,6 +7777,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 18851383115,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 5.71,
+        "moving_time": 2985,
+        "elapsed_time": 3262,
+        "elevation_gain": 196.0,
+        "average_pace": 8.71,
+        "average_heartrate": null,
+        "max_heartrate": null,
+        "average_cadence": null,
+        "average_watts": null,
+        "start_date": "2026-06-09T13:44:37Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18851383115",
+          "summary_polyline": "erpeFjlhjVDdADX@f@Jj@@XFd@ARDP?XF^DJAf@BLCTL`@AN@v@Bf@J|@J`CBJ?RADBn@BHARELARFbAFVBTFLB\\BfDGd@Ot@HjAGh@?x@DRVn@PXVt@DBF\\Fz@L|@RpCAxCNbABf@N\\?VEVFd@?p@Dz@b@zB@N@f@Ah@?r@RfBA`@KdA?XJp@n@tBLl@AZKbA[l@EXLlACP?C?B@AHCAFXr@N?FDDJD@DBHARGb@EZ?lAIXI\\?XIh@ITKn@?FE@GRW\\MdAO`@ITADBJETALG^Ar@MT?HENABCVAFEXAZGZAp@MLDH?JDB\\Lx@?LH|@C`@Fv@ALc@n@AHBFRPHh@@l@CTBN?v@E^DFCVDbAAd@@PCVQ^QTSJWRe@F[E]Og@c@M_@AY@W@GC_@Dw@Em@@uAA]BaAH[Zc@n@Ud@ATB\\NXTNRHX?PDRA~B@pBCjAI`@GJ_@^YRm@Da@GWMe@g@Ki@@{BE}@@wAAu@?UDUV_@TSNILANGf@@b@NZTZj@Dn@ClCCZBRB~ACb@KZWZ}@n@?HSt@EZEXGHSNEHIFIL?FN^jCdAeA]OC{AASDGNAf@U|BCp@@RAVFr@ELIHIITj@`@t@f@lAV`@J\\?FLZA`@@HAd@@`@ApAl@tDFZFJ?NHPTbA^`CHt@?x@Cb@ShBGBs@CQFQ@o@?{@JIDa@JSJo@b@MRE?YQoAgCs@kAk@s@e@_@k@eAS{@@XEIYmA]gCUmAEc@IQCe@I_@?Sg@aDC{@BS?s@BSC_@BA?GGaBI{@Mc@Wg@[_@oAu@MULyCNeBNyBG_@@EEgAFoA@u@Ku@?_@W}Ae@iBSq@EEXQM_@G]Ae@G}@BSLWLa@H{@?YC[GUg@wASkAAKPsAB_@M_AGQAu@Bs@Go@@IES?IGSSgACi@EM@OAi@Ee@He@AQS[?UIi@?OIg@D_BAu@SmCGc@Ac@Iu@Qi@ISOSk@wAAOHsA?[Ea@AWVoA?iBKgBK]Gc@AaAFYAWEa@@[AIII?EFC@E?KCEIw@OgDSiB?UG{@Ag@K}@?g@DGPG@DBa@EGEUAc@I_@@SEi@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18797875732,
         "name": "Life with a tan wife",
@@ -7918,28 +7950,6 @@
         "map": {
           "id": "a18690081316",
           "summary_polyline": "qlpeFbghjVLfCFRHtA?h@LdABlAFZ?ZJjBJh@J~BDXAVJx@Bn@Jh@HhAAXH|ADV?n@T|ABf@C\\H`@@h@DL@x@FTD|@FNXzE?b@L`AJlBHf@HdCPxB?^XbEATHNBp@FTLvCH`ADRLvCX`DPhDFX@h@N~@JDLRZD^K`D[n@Mr@C~AY|BUj@OnAI^@p@]XAjB_@f@B`@ITOL@NG`ABf@QL@h@EvAYpBQz@Mh@@p@Q\\?r@In@QnAMGDJx@Ab@PtAHLEPJ`@Dr@NRDV\\l@AHv@n@BNHBNRDBFV^d@BGMMK_AU_@DWAEUMGS?SFG@TPVPHLd@LP\\ZJLj@ZBHM\\Op@Tx@AXLVIP@dAG|@MDQGKSWQc@g@AROEIVGDEAEKSPEXGDUnAMNGXGD@LNb@@RV^Jd@AJWZIPLd@C\\HXBGIL?\\LJNBr@KNGx@?NLXHNPDf@LPROd@QfAQVWRIt@IVXNb@FZBt@H^Zd@XFZIROfAsAZYx@U`@AZM`AOn@]?OKMq@SO?c@a@MAQMi@m@KEEKIAGUQMC}@BAHHD^DH\\PPBDCKQM?IWMMAi@Be@Ia@LWCM@SP_@AYDOFm@?QAIKIEQOKIOG]?c@Hk@MSGSAWGK@WCSB]Ka@YUTu@zAc@\\_@BUCIc@uAZEBIEGPK@UHADFFRJLr@DHRNHX\\FIAGHBHLJBBe@DTLJ@LN^TX\\@r@KZDb@Ed@SJ_@BYMe@?QOs@g@{@KIKg@c@c@IU?]Qw@IIEUMM[q@MMA]WWYKI_@OIM]Cg@Bc@\\GPYBMAq@Jg@JUK_@DITAVIBKGOUGIKEQ?YKQIa@Be@DMZo@HGZg@JYD[Ae@WsAOkBOm@MMQCQDOTA^XlABj@KZ{@nAKTeBj@[N[ZYl@c@j@k@\\c@d@_@Xm@XgBb@eAIIwAGI?OOm@c@{@kAs@gCs@kAm@MKKYMMMAq@NeAn@OPOF{@FSFs@DMD_@?_@EaA_@WAe@YeA{@_@S_@_@mAq@gANGCSH]@s@Nu@JY?u@DqB^MCaALk@NmAF[LWCcARo@BaBTm@Lw@FqAHWRMB_AA{APGIBm@GS?]EU@e@GiASmBEcAM_B@EI]?e@MmAWmFQuAGeBOqCG[OgCEi@EMO{BCkBEk@Ig@A{@GYCyACGA@QcB@OUmD",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18651128190,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 7.06,
-        "moving_time": 4144,
-        "elapsed_time": 4872,
-        "elevation_gain": 978.0,
-        "average_pace": 9.78,
-        "average_heartrate": 137.5,
-        "max_heartrate": 172.0,
-        "average_cadence": 86.0,
-        "average_watts": 287.9,
-        "start_date": "2026-05-25T16:19:01Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18651128190",
-          "summary_polyline": "krpeFnlhjVNxCR~@PdB?b@Hj@?NEPBz@F~@Lr@NxCAb@Fr@@XKj@Bf@VvAPrDG^[r@BjAGt@?XJl@^~@T\\XbAAp@Jd@FbANr@Bp@C`@BTAbAD\\Cb@Pj@Jp@N^Kh@Dd@El@@d@Pn@D\\ARLn@B~B^xB?b@KNI|AXjAd@lARz@KpA_@bAJzA\\LT|@HPX@zBWx@C`Cm@f@Ab@e@l@Y~AInB[x@ErCe@jAEjAUz@UfAO`@@n@UbAITWdAAdAMrAIX?BBpDm@pACh@MvAMHZ@tAJd@Dz@FVFJLbAFHDXNZT^^NHVTXJ\\PVH@?CIIIu@WY?a@Wa@?OFKFXRNb@|@r@j@^LFJ@^S|@BTNVBf@DTGb@FhAEn@U?{AqAALO?GXKBGKQJKTQtAa@z@Dn@n@fAGN_@h@@d@Ld@@VF@KRFTPLdBYVAh@RLLFp@NLd@SfAM|@g@x@ARPN\\R|ALZPZ\\Jf@Qb@c@j@y@n@_@fAOpAUt@a@@OKM_AUyBeBUYUg@C_@FMPd@RTd@BQMQYS}BDs@PgAH[@e@CO_@k@EQG}@@WOo@C_@CwAI_@WY?SH[JO|@UVQZa@AYSWQg@DO^AEMHCBQFGLDV^j@DPVb@ZF?FORT@UDIVZBVHPX^VNP?d@Sn@Ct@MJGJq@a@kBIUSMS[Us@c@e@S}AQe@QWQe@QWMi@a@UO_@KKOk@?k@d@i@HQDcAPk@Em@d@KFIAQWMKSAMFIxDaAtAo@Xc@HCl@RBACSFIz@KNLFTXPCEUOEUKIaAJEF@XOE}A_DQQUGSLi@pAIfABVHHP@tBw@H@DFGVy@b@}Al@wBf@Q?OIIWB]Ng@x@{AH[B]A]UgAIwAQaAS][G[LGJCTD^XrA?\\M`@k@l@Qj@gA^w@\\a@^aAtAaA~@y@j@]RaBh@o@GWOI_BGUu@eBy@m@oCs@{As@GIYg@q@Jy@^_Ap@q@LgCNm@Gc@Qs@OqAcAe@Yi@g@eAm@s@FqATo@@SFeAHoB`@k@FWLaBD[Ji@@}AXm@FUHwAPm@Ag@Le@Vy@PSOe@A_Ab@gANICCEGa@OaDK}@CeA_@qDMiDWaCSsE[sEG{Ao@oIGuA]cE?_@MyBOaB?c@Ge@",
           "resource_state": 2
         }
       }
@@ -8303,25 +8313,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 99,
-          "distance": 566.86,
-          "moving_time": 319016,
-          "elapsed_time": 360101,
-          "elevation_gain": 56420.0
+          "count": 100,
+          "distance": 572.57,
+          "moving_time": 322001,
+          "elapsed_time": 363363,
+          "elevation_gain": 56616.0
         },
         "all_time": {
-          "count": 1240,
-          "distance": 6458.3,
-          "moving_time": 3515711,
-          "elapsed_time": 3981781,
-          "elevation_gain": 491985.0
+          "count": 1241,
+          "distance": 6464.02,
+          "moving_time": 3518696,
+          "elapsed_time": 3985043,
+          "elevation_gain": 492181.0
         },
         "recent": {
           "count": 18,
-          "distance": 107.05,
-          "moving_time": 61415,
-          "elapsed_time": 67028,
-          "elevation_gain": 11463.0
+          "distance": 107.47,
+          "moving_time": 61656,
+          "elapsed_time": 67446,
+          "elevation_gain": 11472.0
         }
       },
       "biking": {
