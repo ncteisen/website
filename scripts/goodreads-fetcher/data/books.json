@@ -3359,7 +3359,7 @@
     "user_review": "",
     "isbn": null,
     "num_pages": null,
-    "book_published": "1866",
+    "book_published": null,
     "average_rating": "4.27",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382846449l/7144.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382846449l/7144.jpg",
@@ -4006,7 +4006,7 @@
     "isbn": "0802161545",
     "num_pages": null,
     "book_published": "2023",
-    "average_rating": "3.45",
+    "average_rating": "3.44",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682375874l/123136728.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682375874l/123136728.jpg",
     "guid": "https://www.goodreads.com/review/show/7146784661?utm_medium=api&utm_source=rss"
