@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-13T11:58:05.201975",
+  "last_updated": "2026-06-14T12:04:31.549424",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -200,7 +200,7 @@
         "watched_date": "2026-03-25",
         "is_rewatch": false,
         "review": "<p>Watched this two days after Project Hail Mary and the rest of the week was the Battle of the Earworms: Golden vs Sign of the Times</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/0/9/5/3/720953-kpop-demon-hunters-0-600-0-900-crop.jpg?v=10b7464274",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/2/0/9/5/3/720953-kpop-demon-hunters-0-600-0-900-crop.jpg?v=c17c36fa7f",
         "link": "https://letterboxd.com/ncteisen/film/kpop-demon-hunters/"
       },
       {
@@ -5444,6 +5444,28 @@
   "strava": {
     "all_activities": [
       {
+        "id": 18908047628,
+        "name": "Morning Montara",
+        "type": "Run",
+        "distance": 10.2,
+        "moving_time": 7418,
+        "elapsed_time": 8048,
+        "elevation_gain": 2343.0,
+        "average_pace": 12.12,
+        "average_heartrate": 136.2,
+        "max_heartrate": 168.0,
+        "average_cadence": 81.5,
+        "average_watts": 250.5,
+        "start_date": "2026-06-13T16:09:03Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18908047628",
+          "summary_polyline": "amjdF~}ojVHu@S[cD_@Wy@PaCuBuBkAwBjCsKyE~FFyBz@wAPcEt@iC{BdAWk@BaCXgAvBg@zAiCg@@mAsBzAi@r@_AFw@e@sChA_C^j@nACw@pAhDWXkAZz@R_AFtBb@_BQpChA_Ce@xD{Af@n@xBOlCpAmCd@IGbAPMPsC~CeMb@s@vBe@h@}FFpF_@zA?fAz@vAsApARvAg@f@AbAtA~CxAa@\\dAj@b@v@c@nAwD{ArA{AkBjAl@d@OX}@_@LWo@~@{@i@q@Fi@ZOr@BPt@r@@PW]HQa@h@mCtBeA`@Dc@R[bAr@bAJv@b@DSYXmBRbBh@r@d@B_@q@Jo@xEgDqAzB|@dECmCbAqAn@Le@TEfAxAtANA]aAl@m@@z@|@t@We@Fi@dC}C[fA@dAlBFcAzCfAtAYlBR|@cBzBv@x@|ACNjBq@bBgAlAM_@LcAk@ZKQT]}@X?lAu@\\uBfFeDtDJtBgBnCa@zAwAR[rAiAlAw@m@{B^{Ac@Og@r@yA{Gz@]I}@uAM\\h@bAe@|@HbAQ|@v@Zf@dAHfAQNi@cAmAPQ{@q@_@?oBUU_Ax@}@rCq@CoAsBBoBmC]cAcAJw@e@j@OhBVd@u@_@nBtDa@Vj@tDo@d@d@t@kCq@o@VcA`BdBe@m@lAk@jD\\~Cp@t@SuBn@eAt@Md@Lo@`AEbBf@eA~@?a@fA^jA\\_ApFHkAx@Wt@f@tB`DnAVp@cAp@`@zBa@lCfArCbBzAb@BU{AX]lDv@iBd@FfCbEtBt@Ml@`GCtA|AtEPdDlDDbD}DfAk@z@`@Iu@l@m@KtAd@iBh@Qe@lBVj@Es@~@{A[fAHl@pApAt@@]t@^d@xABWrBk@r@LfB]jBz@h@lBC`BnGGgCw@k@g@_BuBBm@e@\\kBMgBn@q@Cu@Zw@aBKa@m@b@u@w@BoAkAKaA\\_A}@dBFv@YiA^uAe@Vk@bBLuAk@r@Hp@w@_@u@\\wDfEmBT_AYUkDwAoEFsAs@gGq@JE{@zAeErAe@h@fAfBUZ`Fj@yC^cG]eAu@Ex@k@o@q@k@n@iAk@SoBgBsAYaBg@c@qAYeD~@\\Wb@aDs@sEsAs@}C[gB{CyDYaBiAi@mA",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 18896701053,
         "name": "The search continues for the best Adirondack chair of GGB",
         "type": "Run",
@@ -7620,28 +7642,6 @@
           "summary_polyline": "_rpeFhlhjV@j@B\\@jAX~AEZ@^TpAA`@J`@@zBV|D?j@Dj@?PGVAl@Jv@Nv@D`@?l@DZExASv@A^F~AEPAf@Jd@N`@^n@Lb@HLDv@TlBCFSFCH^hALTD`@EtAB^?d@FRDf@Nj@Gr@@`BHr@d@jB@b@APFj@AjAHh@Dr@?LM`AA|@ZvAZt@Hn@?l@Kt@OZGXARJfAAJEFUFLt@h@`Bf@xBZvCChAK~@IJMD_@DQ?WG[WQa@o@q@o@cA[]MGSCM?SFUR_@PSTOJURS^MZU|@Ct@?`@B`@|@dGj@fFPdCPz@JPTTfAl@JJ`@l@jAhCJLNBfA]n@H`@JH?HEDIBo@Lu@Be@NMZIJUJqAEgA@YLK^AZOr@AVOZa@`@m@`@cABa@CY_@eAi@s@G}@[{AFk@d@{Br@_Bb@i@L]B]@s@KoAK}@EBC?MM[OMSI[MSMa@SQQYMGC?m@HGCCEOkDIc@?YMyA?{@OuBOkACsAGy@OeACcBQuAKoBIq@UiCA_A?g@Ky@Bg@GuAOcAC{@Is@Q{CIu@OiD_@aEAq@YsDCkAQaCMwCO{AEs@COYyEMkBE}@YyD",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17285455372,
-        "name": "Blustery",
-        "type": "Ride",
-        "distance": 24.29,
-        "moving_time": 6611,
-        "elapsed_time": 6900,
-        "elevation_gain": 2313.0,
-        "average_pace": 4.54,
-        "average_heartrate": 122.5,
-        "max_heartrate": 165.0,
-        "average_cadence": null,
-        "average_watts": 177.6,
-        "start_date": "2026-02-04T14:37:16Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17285455372",
-          "summary_polyline": "{vpeF~ohjV~Jf_BbFpPIrF}@b@s@OeEeFaBl@kApAa@lCx@jJQXkBeBqAO_~AfFoAwC_@UcDf@aEEaBbEUvDo@nBqJxGkAtGsE|D]nAFvDbCtDx@tDlA|BGx@kAtBC~@pAnEVxChAjC?`FlBvE\\zBe@rAcC~AgE`GgA^}@IwC{CyBg@mAd@_DpCaDnAsCXoGaDiCgCgHwDsACsA`B_APiGwCkBxASGs@oBo@[sA|ACtAgB|BkFjBuZnA_Bb@aeBzJoCx@gE~CyAf@_AUCnAXpAQz@oB~DqBxBiBl@iEN?p@zA`DhAFxBi@hCiEjEsAvFnBpB`@xBErBwBt@\\JbH|CvEeCjC{HRoEdCcD|DWhAz@nDq@bCnAzB@~@a@x@uBjA]l@kAvIhAj@~AjBpExAZlAArDh@pC`@f@zBv@~AjCvCWtD}A~@GfAvCj@~@hB`AdCJn@tAkAzIeCnDgArFxB~EtAbAp@nA\\~Ba@zDr@jBFtAsAfBoAvHeFfISlAFx@jDtKB|Hg@zDzAfChAxIoAvD}@vHmCjEe@`D^lBEx@kAvD^l@rAB`Bp@lEPv@j@~BvDTdDt@AzC_BbA?xChDHhAQ~@sBdAiAxBsBDcF}GK_Hi@wAq@g@iGeAyA^yCzDkAbCc@Po@c@mCaMLmIU{Aq@q@uBKqG_BgAgB]qCp@mPpA{F|BsE^sBh@mLO{Gh@mF|@aDtCwSN}BQoA\\u@MgDJ}GYKwAdCoEjEq@hAk@o@cAeEHkE]sB_CiBqCb@eAaBP}@pAmB|B_BpBgCNq@cEkE}CSa@sBdBwHjAkIp@}@IyBh@cFd@y@nBiA`@_AAs@oAcCl@kCs@}CJ{@rDeE|EgCzHa@~@aBLcAsBkDMsGk@_Aw@JgAvA}@V}C[sEkBwAB_EdA}B`EyAt@cAG{Aw@[kCfFa@jBgAzDwGPiAYyAHcAbAXvIgFj`@kCzAa@fGG`{AwInBo@`CkB|@uAL_B~@{AbB|C`CiAt@~@bEhBrAKnAqB~ARvHdEnBtBfG|CfGmA~GoEpB\\zDjD`Ca@nE}G|BaBTkAYoBuBeF?qF_AkBg@gEiAwDBgAjAiBJqAmAmBoAqE_BeB[iBHgCvAuBlDyC|@}FdCcAdGqGp@{FpA_DzDJpCm@l@Xx@zB`@Hh_ByExC`BD}Au@uFBcB|@{BfCyAjEhF`BQTiAJcE{ByHWyBmAaDm@gKNiFaAwC_@yGJaB{@eCk@wTgAaGNo@fCc@Fe@aBcW",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7777,6 +7777,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 18908047628,
+        "name": "Morning Montara",
+        "type": "Run",
+        "distance": 10.2,
+        "moving_time": 7418,
+        "elapsed_time": 8048,
+        "elevation_gain": 2343.0,
+        "average_pace": 12.12,
+        "average_heartrate": 136.2,
+        "max_heartrate": 168.0,
+        "average_cadence": 81.5,
+        "average_watts": 250.5,
+        "start_date": "2026-06-13T16:09:03Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18908047628",
+          "summary_polyline": "amjdF~}ojVHu@S[cD_@Wy@PaCuBuBkAwBjCsKyE~FFyBz@wAPcEt@iC{BdAWk@BaCXgAvBg@zAiCg@@mAsBzAi@r@_AFw@e@sChA_C^j@nACw@pAhDWXkAZz@R_AFtBb@_BQpChA_Ce@xD{Af@n@xBOlCpAmCd@IGbAPMPsC~CeMb@s@vBe@h@}FFpF_@zA?fAz@vAsApARvAg@f@AbAtA~CxAa@\\dAj@b@v@c@nAwD{ArA{AkBjAl@d@OX}@_@LWo@~@{@i@q@Fi@ZOr@BPt@r@@PW]HQa@h@mCtBeA`@Dc@R[bAr@bAJv@b@DSYXmBRbBh@r@d@B_@q@Jo@xEgDqAzB|@dECmCbAqAn@Le@TEfAxAtANA]aAl@m@@z@|@t@We@Fi@dC}C[fA@dAlBFcAzCfAtAYlBR|@cBzBv@x@|ACNjBq@bBgAlAM_@LcAk@ZKQT]}@X?lAu@\\uBfFeDtDJtBgBnCa@zAwAR[rAiAlAw@m@{B^{Ac@Og@r@yA{Gz@]I}@uAM\\h@bAe@|@HbAQ|@v@Zf@dAHfAQNi@cAmAPQ{@q@_@?oBUU_Ax@}@rCq@CoAsBBoBmC]cAcAJw@e@j@OhBVd@u@_@nBtDa@Vj@tDo@d@d@t@kCq@o@VcA`BdBe@m@lAk@jD\\~Cp@t@SuBn@eAt@Md@Lo@`AEbBf@eA~@?a@fA^jA\\_ApFHkAx@Wt@f@tB`DnAVp@cAp@`@zBa@lCfArCbBzAb@BU{AX]lDv@iBd@FfCbEtBt@Ml@`GCtA|AtEPdDlDDbD}DfAk@z@`@Iu@l@m@KtAd@iBh@Qe@lBVj@Es@~@{A[fAHl@pApAt@@]t@^d@xABWrBk@r@LfB]jBz@h@lBC`BnGGgCw@k@g@_BuBBm@e@\\kBMgBn@q@Cu@Zw@aBKa@m@b@u@w@BoAkAKaA\\_A}@dBFv@YiA^uAe@Vk@bBLuAk@r@Hp@w@_@u@\\wDfEmBT_AYUkDwAoEFsAs@gGq@JE{@zAeErAe@h@fAfBUZ`Fj@yC^cG]eAu@Ex@k@o@q@k@n@iAk@SoBgBsAYaBg@c@qAYeD~@\\Wb@aDs@sEsAs@}C[gB{CyDYaBiAi@mA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18896701053,
         "name": "The search continues for the best Adirondack chair of GGB",
@@ -7928,28 +7950,6 @@
         "map": {
           "id": "a18777332629",
           "summary_polyline": "erpeFnlhjVB`BA^XnB?^ZtCCdATjEFpBDl@Gl@@^ZtADdA?XBnBETSt@?^FpAI`@Ad@Lf@p@pABTTd@Jl@Hz@FlAF^H~@IbBAn@f@hCEf@Dh@C|@Bd@FZVz@Jr@?nCRzAKv@ChALt@Nh@^x@T~@AZGXANc@lAC`@NvAVhAAVDl@l@pCLhAHpAEdBEZGNOFAELYMm@MIKNO?CG?OS]MKEQWa@Oc@IMcAKUAOBOKKQIGMEO?KD]XMXGHMHQVQFS@MHQd@On@U^Ef@Ob@SVAVJdAPbAFJr@h@JPBd@Jb@LRDR?XF`@?NCFIFUAOMi@i@KCQ@OEIFXPJLDLBROh@@HVb@Nd@x@z@DZAZMX?LDLBTPb@?NIN]HENHZ@Rb@|@?LOZ?JDRRl@FbAATMt@@nAQz@Bz@NrBFd@Pj@p@xAZV\\\\LRRd@DBXAb@@^Kb@GtAYVKLAZQZg@Ps@A_@XQN?b@FLEHOP]l@_Ab@_@?O{@aF@q@Ci@@Y?]S_ASc@Mg@C]?sABa@A]Bi@Cg@Ja@LK\\ETBn@@`@Sx@mAHYHILc@B]Kq@Uk@WWKSGWA]YoAKSCSNcAf@aBb@eAx@mAFS@[Cy@Ko@Ak@Mg@@IFG?EGG]GGEKOMKGOEWISKGMMQIMMMCg@LGIGe@@MUqB[wBAQD_@?iAKs@K_@Ec@AgAKc@Em@Bg@Me@Ek@SsB?c@Gu@?s@Mu@Cw@QeB?c@E_@FQ?]Og@Ek@AUWyB@INk@AOMaAKe@GaAESCSE_AMk@Dg@Mu@QkCKo@Cu@@K?MGu@?e@IkAIa@ASKs@Bc@Ag@CUIU?g@C{AK{@K_@?a@Ea@CcAUsB@m@I_@Cm@Ms@?MDq@Ei@Om@?i@CM",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18757443943,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 4.58,
-        "moving_time": 2709,
-        "elapsed_time": 2954,
-        "elevation_gain": 515.0,
-        "average_pace": 9.85,
-        "average_heartrate": 131.7,
-        "max_heartrate": 159.0,
-        "average_cadence": 85.1,
-        "average_watts": 281.7,
-        "start_date": "2026-06-02T14:21:59Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18757443943",
-          "summary_polyline": "yeraHl{xhVx@b@F?FAFB^b@TLPO\\ARKLCPCHF?CB?f@@d@IRMV?JGHWF{E?{EB[EkDD{B?uD?q@Ei@@mAAc@@}AH{@DgBEu@@e@B_@DOB]NO`@Bf@CPDV@LDd@FTHZ?EWSCQg@SUWc@K[E_@_@qAMUG]MOOAm@YGEEKCq@EKAQ@iBBKLYNm@Gq@G[Am@JmABcAA]BQP]VEn@Cx@Kj@EX@VOb@s@`@]FI`@_@NMDW?]To@NQF@HRr@zB^d@PFPANML]DY?OJQLEL?VKZOZ[FABBZDLGDEDO@[E_@Ko@U]G[GO?OGGKAMGIS?_@Lk@EYKOKAEGk@cBBOCm@CO@g@FOJMN[NIDGGGASQw@?EHMFCFB\\?\\JRIL?DBVBHIFQFGNE?JUlA@NFFj@C`@SBAJH\\@NKLQNEf@@NRd@Lb@?BC?K[}@McAXwABmBAOGa@K_EESWs@Ok@Lu@Hw@CgC@{FBIHCn@Gr@Fl@@XBj@C\\QRQDKBkAAYAeJAMMSCKA[DKHEf@ANS?UA_@UuA@UFST_@LOHATBTGLSBUAiAMgAKcB?g@Gu@GSi@w@c@[_BYQ?K@WLa@HI?ICQKiAc@c@UWEo@Eu@JYAKCa@YUIIAWL[XUVGN@JBBTDLJZp@DTEPKNCRDj@G|@?VGl@@NZhA?r@EXI\\[p@Ev@Bd@L^HPD^I~BB|@C|BBbFCn@CFKDQR[@OE]?M@ME]BcA?OAO@GJLxABr@JLA\\GRC?MSIEKBCFBVL`@@VBHCF@JAL?NIb@SXGV@VJb@ALIZMTIBGACEI{@GUIGE@EvA@VE\\AXGVA^EV?b@G^IhBSlBLVDR?t@BNLNn@LJFHRD`@Ah@Bf@Af@Uz@KbAIN[JSRYr@IFKRIFOXKHM?IAk@a@OCGBKJMDqBDOFOLKZCPD`EEv@BZ?nBC|ABx@Jd@BT@d@M|A@|@Hj@@`@E\\Ur@CfBBf@?b@HPTJXBVTRf@PZTdAJNVp@b@j@Nf@NFGDq@ByBBk@Dw@?BvAA~AD~@Ap@BZ?b@Ax@K~AApBI~DDvBAfBOHEf@ABE?W?UD]@GFEJGVAf@Gb@FP?PCGEUHkAAIEQIGs@Bc@EKBWGG?e@SM\\M?MFU^AF",
           "resource_state": 2
         }
       }
@@ -8313,25 +8313,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 103,
-          "distance": 589.23,
-          "moving_time": 331346,
-          "elapsed_time": 373627,
-          "elevation_gain": 58122.0
+          "count": 104,
+          "distance": 599.43,
+          "moving_time": 338764,
+          "elapsed_time": 381675,
+          "elevation_gain": 60465.0
         },
         "all_time": {
-          "count": 1244,
-          "distance": 6480.68,
-          "moving_time": 3528041,
-          "elapsed_time": 3995307,
-          "elevation_gain": 493687.0
+          "count": 1245,
+          "distance": 6490.88,
+          "moving_time": 3535459,
+          "elapsed_time": 4003355,
+          "elevation_gain": 496030.0
         },
         "recent": {
           "count": 19,
-          "distance": 113.46,
-          "moving_time": 64642,
-          "elapsed_time": 70949,
-          "elevation_gain": 11735.0
+          "distance": 118.22,
+          "moving_time": 69114,
+          "elapsed_time": 75807,
+          "elevation_gain": 14002.0
         }
       },
       "biking": {
