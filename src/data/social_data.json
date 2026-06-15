@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-06-14T12:04:31.549424",
+  "last_updated": "2026-06-15T15:51:10.280558",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Disclosure Day",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-06-14",
+        "is_rewatch": false,
+        "review": "<p>Pretty bad, boring, trope filled, unfocussed, frustrating, etc etc etc, but Emily Blunt was good and that helps.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb",
+        "link": "https://letterboxd.com/ncteisen/film/disclosure-day/"
+      },
       {
         "title": "Good Luck, Have Fun, Don't Die",
         "year": 2025,
@@ -3696,6 +3706,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Disclosure Day",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-06-14",
+        "is_rewatch": false,
+        "review": "<p>Pretty bad, boring, trope filled, unfocussed, frustrating, etc etc etc, but Emily Blunt was good and that helps.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb",
+        "link": "https://letterboxd.com/ncteisen/film/disclosure-day/"
+      },
+      {
         "title": "Good Luck, Have Fun, Don't Die",
         "year": 2025,
         "rating": 1.5,
@@ -3764,21 +3784,11 @@
         "review": "<p>Men literally want one thing and it's for the girl they like to convince her entire a cappella group to sing a song from the movie he had been mansplaining to her.</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/yw/kc/ma/m9/cLUMPdwCV0Dxd3P1ZkCXe7bVImI-0-600-0-900-crop.jpg?v=cd134ffb49",
         "link": "https://letterboxd.com/ncteisen/film/pitch-perfect/"
-      },
-      {
-        "title": "Obsession",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2026-05-24",
-        "is_rewatch": false,
-        "review": "<p>I just can't believe the same guy made <a href=\"https://www.tiktok.com/@thats.a.bad.idea/video/7255507019518446890?lang=en\" rel=\"nofollow\">this</a>.</p><p>The scariest part was the idea of going on a date and she makes a big scene at a crowded restaurant.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/4/7/2/1234472-obsession-2025-2-0-600-0-900-crop.jpg?v=cff6fc00b6",
-        "link": "https://letterboxd.com/ncteisen/film/obsession-2025/"
       }
     ],
     "stats": {
-      "total_films": 369,
-      "films_this_year": 33
+      "total_films": 370,
+      "films_this_year": 34
     }
   },
   "goodreads": {
@@ -5443,6 +5453,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 18920837877,
+        "name": "Beach n Bagles",
+        "type": "Run",
+        "distance": 4.66,
+        "moving_time": 2824,
+        "elapsed_time": 3016,
+        "elevation_gain": 554.0,
+        "average_pace": 10.11,
+        "average_heartrate": 125.7,
+        "max_heartrate": 160.0,
+        "average_cadence": 86.0,
+        "average_watts": 285.7,
+        "start_date": "2026-06-14T16:56:52Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18920837877",
+          "summary_polyline": "ykteFbpqjVmAg@iA_@cB}@o@SGBk@a@i@MUOSBMAYUGUN[`@Uz@QNGPOHUGeAJ_@AIIGi@PQ@MAKEQSCAIMIEOB]TE?GCIKI[@mAg@mAUUo@Ci@IQIc@Iq@YQOQSi@_BIOKGUAOBeBn@O@]HUAWEqCcAWQg@Qs@K_ACo@M[O{@u@mAw@mAYeBq@[[Sm@MUOIUEEGmA_A}@[m@_@g@Ie@@QASDOFGFYh@Ip@GL[P_@F_@Ag@KSK{@k@QGSFiAxAGDm@N{BFSCc@KSAc@Dk@KM?a@JQIKMUq@MO_AkBKc@ASB[Pc@PMZMRUBgA\\iBCa@JQv@uBXSZ[^i@\\u@f@{@PKPe@r@uA`@_A^uA`@iBTq@@c@DKLI`@K~@I|@?PFRTV@HCVKXUd@}@V_@NM`@SdAUVMh@Mj@GFBDBx@Jb@Aj@I^Hh@?`AMRKNM\\q@BIEWDNMa@Ec@@{@DWRu@VULEHAhAH\\AZDRCNB@BLAXJNYZILBLJXLJPB?PSNGJFVBPFLPJd@?RQt@?P@TNd@TRRLNOj@IBGJm@AYBUC[EOC]KW@G^e@FEHBLZFDFSDELCJDHAFJDJGZDLL?HKHMJABFFd@DHf@`@\\NVVHBHANJN\\TTDPAp@@NRTDTHPF@^?ZIPMVEv@Lh@ZP@DCZc@f@]lAeAd@WZDhBvA`AjAT^j@jARRRHl@PlAf@XNbAb@hAn@^NbBfAvAdAl@`@`A\\ZAx@DbAP`@TnB|@x@v@~@h@LPRl@BL?JEFc@TKTa@PWn@CXBN\\b@Rt@HTF^ETINo@z@u@t@}@j@UPUNM@MEWc@GDQXBRJR`@`CFd@?h@FTFt@@rAO|@Gj@MXDXJTFDHDn@JZTLDLEFM@[Ge@DOLAn@LFFBH?XEVQp@[p@G^BrAP~@Iv@Bd@Kf@LTBNId@B\\Sb@Id@Od@QNOBi@KICIKEAIJY~@MFMBa@Ak@IqAC{@I_AWYGI?EFKXY|BGTGHqA^WBw@?MJ]n@QL[AqAo@_A[",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18908047628,
         "name": "Morning Montara",
@@ -7620,28 +7652,6 @@
           "summary_polyline": "avafFlw{jVg@IaBgA{@LPjDOzAaCrCcBdAo@x@oBx@kBR{Bl@GKl@o@`@uAzA{AqEZi@Og@u@o@YoBhAcBzBe@Ea@k@iBtAkCd@yBpC}EnBe@p@AbCj@tDKlBn@jB_@vAZzBzB~APv@ObAXr@dAb@x@x@zAZz@fANzAd@fAd@rCm@pCbB`@VXy@pCd@dCUjA?rDSl@_@BmA}@_@y@c@{B}BoBWq@KwAq@W_@ZAh@PnBfAhFkAh@sBuBoASQhANdEUL}Aq@YDWf@QvBSZi@GqByCsB}Ao@yAeBdAi@~@aAVm@bAc@T}A_@c@oAq@m@[?]`@qAIi@NWfAq@NVhAE\\g@\\_@bAeAr@i@bAc@FoAa@gATaAa@[B[f@CbAi@pAkAv@`@VwCd@KSVeAEUeEDm@Fu@x@{@PU\\c@pAX`AQ|@H|AfCtF~AFh@p@tAf@jAa@bAPpBfEl@v@hAjBhBTf@a@Tu@|AVf@_@VJ?^{@nAN|Ae@zBD~Ac@dB`@AEnANdACt@m@xAFpBXXi@dA]dC\\k@pALbD{C|BdCpEvDxDpBjAzAv@V~A@T`@E`Af@q@V}AIkAk@g@b@e@vBvA`@n@`F{@vFb@j@`APlF|@JnAhAz@Hr@YNkBY_A|@Z^xAhBC`A~@RvAl@x@k@rCQPH`Bb@Bh@s@StBz@{AA~@^vAB|@^OBgAhCvDiATgArAm@@e@Wj@l@~AHZb@vAJvCeAs@xAmDxDCJhBp@f@cBxAgAlBoDPaAIqCzBcBd@p@|@tE^j@l@TlCEtDuDjBYHbAk@vEN\\r@NhBeApCsC`AoAHoAl@oAp@{@x@g@v@uEh@kBNwBf@eALaAd@XQaAw@}AdAy@r@yAMkBcAqB?i@j@k@Di@WuBcA_Fx@Q~@Hf@YNe@tA@dAu@zABh@qAn@H@o@a@uBRoBVk@LeDUsAiAgBDoBv@LV`@pAj@vAhE?bAT~@`A`B@oAc@u@Py@bDVIiAP{Ac@qCPcAz@eBxAaA~@qA|Ao@Lc@Q_Fm@mDHoBnDeEn@oBjA_CEuBpAGXYTgAByA_AsJyAsGm@oEkAsAUy@BgBj@_CEqDb@wC@eEMsAkAiDsByCkCcCuAY}DXiEvA_DdBmBb@wD{@cJmAuAy@eBoCoHoE}BmC",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17312033857,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.05,
-        "moving_time": 2161,
-        "elapsed_time": 2250,
-        "elevation_gain": 217.0,
-        "average_pace": 8.89,
-        "average_heartrate": 127.2,
-        "max_heartrate": 156.0,
-        "average_cadence": 88.0,
-        "average_watts": 305.6,
-        "start_date": "2026-02-07T00:29:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17312033857",
-          "summary_polyline": "_rpeFhlhjV@j@B\\@jAX~AEZ@^TpAA`@J`@@zBV|D?j@Dj@?PGVAl@Jv@Nv@D`@?l@DZExASv@A^F~AEPAf@Jd@N`@^n@Lb@HLDv@TlBCFSFCH^hALTD`@EtAB^?d@FRDf@Nj@Gr@@`BHr@d@jB@b@APFj@AjAHh@Dr@?LM`AA|@ZvAZt@Hn@?l@Kt@OZGXARJfAAJEFUFLt@h@`Bf@xBZvCChAK~@IJMD_@DQ?WG[WQa@o@q@o@cA[]MGSCM?SFUR_@PSTOJURS^MZU|@Ct@?`@B`@|@dGj@fFPdCPz@JPTTfAl@JJ`@l@jAhCJLNBfA]n@H`@JH?HEDIBo@Lu@Be@NMZIJUJqAEgA@YLK^AZOr@AVOZa@`@m@`@cABa@CY_@eAi@s@G}@[{AFk@d@{Br@_Bb@i@L]B]@s@KoAK}@EBC?MM[OMSI[MSMa@SQQYMGC?m@HGCCEOkDIc@?YMyA?{@OuBOkACsAGy@OeACcBQuAKoBIq@UiCA_A?g@Ky@Bg@GuAOcAC{@Is@Q{CIu@OiD_@aEAq@YsDCkAQaCMwCO{AEs@COYyEMkBE}@YyD",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7777,6 +7787,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 18920837877,
+        "name": "Beach n Bagles",
+        "type": "Run",
+        "distance": 4.66,
+        "moving_time": 2824,
+        "elapsed_time": 3016,
+        "elevation_gain": 554.0,
+        "average_pace": 10.11,
+        "average_heartrate": 125.7,
+        "max_heartrate": 160.0,
+        "average_cadence": 86.0,
+        "average_watts": 285.7,
+        "start_date": "2026-06-14T16:56:52Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a18920837877",
+          "summary_polyline": "ykteFbpqjVmAg@iA_@cB}@o@SGBk@a@i@MUOSBMAYUGUN[`@Uz@QNGPOHUGeAJ_@AIIGi@PQ@MAKEQSCAIMIEOB]TE?GCIKI[@mAg@mAUUo@Ci@IQIc@Iq@YQOQSi@_BIOKGUAOBeBn@O@]HUAWEqCcAWQg@Qs@K_ACo@M[O{@u@mAw@mAYeBq@[[Sm@MUOIUEEGmA_A}@[m@_@g@Ie@@QASDOFGFYh@Ip@GL[P_@F_@Ag@KSK{@k@QGSFiAxAGDm@N{BFSCc@KSAc@Dk@KM?a@JQIKMUq@MO_AkBKc@ASB[Pc@PMZMRUBgA\\iBCa@JQv@uBXSZ[^i@\\u@f@{@PKPe@r@uA`@_A^uA`@iBTq@@c@DKLI`@K~@I|@?PFRTV@HCVKXUd@}@V_@NM`@SdAUVMh@Mj@GFBDBx@Jb@Aj@I^Hh@?`AMRKNM\\q@BIEWDNMa@Ec@@{@DWRu@VULEHAhAH\\AZDRCNB@BLAXJNYZILBLJXLJPB?PSNGJFVBPFLPJd@?RQt@?P@TNd@TRRLNOj@IBGJm@AYBUC[EOC]KW@G^e@FEHBLZFDFSDELCJDHAFJDJGZDLL?HKHMJABFFd@DHf@`@\\NVVHBHANJN\\TTDPAp@@NRTDTHPF@^?ZIPMVEv@Lh@ZP@DCZc@f@]lAeAd@WZDhBvA`AjAT^j@jARRRHl@PlAf@XNbAb@hAn@^NbBfAvAdAl@`@`A\\ZAx@DbAP`@TnB|@x@v@~@h@LPRl@BL?JEFc@TKTa@PWn@CXBN\\b@Rt@HTF^ETINo@z@u@t@}@j@UPUNM@MEWc@GDQXBRJR`@`CFd@?h@FTFt@@rAO|@Gj@MXDXJTFDHDn@JZTLDLEFM@[Ge@DOLAn@LFFBH?XEVQp@[p@G^BrAP~@Iv@Bd@Kf@LTBNId@B\\Sb@Id@Od@QNOBi@KICIKEAIJY~@MFMBa@Ak@IqAC{@I_AWYGI?EFKXY|BGTGHqA^WBw@?MJ]n@QL[AqAo@_A[",
+          "resource_state": 2
+        }
+      },
       {
         "id": 18908047628,
         "name": "Morning Montara",
@@ -7928,28 +7960,6 @@
         "map": {
           "id": "a18791580917",
           "summary_polyline": "{xrnGx}`~LTLrA~@RJP@JDNP\\NFFb@\\PRBVAVq@lAGH]r@BJJLt@t@HBPUxBiEZi@Pc@`@s@bBoCHY`@q@Pc@C]EQKEOKEI?MLWNi@DYGm@DO?c@Pe@@S^y@TuA?WASEIc@LSEGIEc@KQGEUGSLOQEQDo@AW@O\\w@FWXq@DETYFOBUEe@BQH_@?SE]EKMIIUU[?_@CG@ORo@Jk@NGFI?]HSJ]?SGUKOBU?SDc@b@i@L[`@Wj@mA@KAUQ_AMeAGSOOGk@IQAKBODIROX]PIHFRILWHERMREHUJMEeBGIWOKKSg@CUMUSOEOSFK@[GQASOEI@E~@}ANQx@m@`@KJKfAc@`@[NEFFN`@X^dApBd@t@N`@f@fAV`@lAxCPr@Ft@Ej@I^?JQj@?b@BbAATEd@Qj@m@nA]tAIb@K\\Q`AUpBKZ]`BQrBEl@B|BHb@t@nAHnAALKRk@ZMLOXWlA]Za@d@aAfBE^Vh@?F?NGRo@^UFQ@KLS^o@h@EAEGE[IOGBs@zAY`@OXmAbBo@pAiAhBkAjCs@jAk@jAMJIC]e@a@s@AK@M\\aAXi@D[GSWa@]UMCABHHB@BGCGIC",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18777332629,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.5,
-        "moving_time": 2498,
-        "elapsed_time": 2568,
-        "elevation_gain": 266.0,
-        "average_pace": 9.26,
-        "average_heartrate": 133.9,
-        "max_heartrate": 153.0,
-        "average_cadence": 84.7,
-        "average_watts": 292.4,
-        "start_date": "2026-06-03T23:16:49Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18777332629",
-          "summary_polyline": "erpeFnlhjVB`BA^XnB?^ZtCCdATjEFpBDl@Gl@@^ZtADdA?XBnBETSt@?^FpAI`@Ad@Lf@p@pABTTd@Jl@Hz@FlAF^H~@IbBAn@f@hCEf@Dh@C|@Bd@FZVz@Jr@?nCRzAKv@ChALt@Nh@^x@T~@AZGXANc@lAC`@NvAVhAAVDl@l@pCLhAHpAEdBEZGNOFAELYMm@MIKNO?CG?OS]MKEQWa@Oc@IMcAKUAOBOKKQIGMEO?KD]XMXGHMHQVQFS@MHQd@On@U^Ef@Ob@SVAVJdAPbAFJr@h@JPBd@Jb@LRDR?XF`@?NCFIFUAOMi@i@KCQ@OEIFXPJLDLBROh@@HVb@Nd@x@z@DZAZMX?LDLBTPb@?NIN]HENHZ@Rb@|@?LOZ?JDRRl@FbAATMt@@nAQz@Bz@NrBFd@Pj@p@xAZV\\\\LRRd@DBXAb@@^Kb@GtAYVKLAZQZg@Ps@A_@XQN?b@FLEHOP]l@_Ab@_@?O{@aF@q@Ci@@Y?]S_ASc@Mg@C]?sABa@A]Bi@Cg@Ja@LK\\ETBn@@`@Sx@mAHYHILc@B]Kq@Uk@WWKSGWA]YoAKSCSNcAf@aBb@eAx@mAFS@[Cy@Ko@Ak@Mg@@IFG?EGG]GGEKOMKGOEWISKGMMQIMMMCg@LGIGe@@MUqB[wBAQD_@?iAKs@K_@Ec@AgAKc@Em@Bg@Me@Ek@SsB?c@Gu@?s@Mu@Cw@QeB?c@E_@FQ?]Og@Ek@AUWyB@INk@AOMaAKe@GaAESCSE_AMk@Dg@Mu@QkCKo@Cu@@K?MGu@?e@IkAIa@ASKs@Bc@Ag@CUIU?g@C{AK{@K_@?a@Ea@CcAUsB@m@I_@Cm@Ms@?MDq@Ei@Om@?i@CM",
           "resource_state": 2
         }
       }
@@ -8313,25 +8323,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 104,
-          "distance": 599.43,
-          "moving_time": 338764,
-          "elapsed_time": 381675,
-          "elevation_gain": 60465.0
+          "count": 105,
+          "distance": 604.09,
+          "moving_time": 341588,
+          "elapsed_time": 384691,
+          "elevation_gain": 61019.0
         },
         "all_time": {
-          "count": 1245,
-          "distance": 6490.88,
-          "moving_time": 3535459,
-          "elapsed_time": 4003355,
-          "elevation_gain": 496030.0
+          "count": 1246,
+          "distance": 6495.53,
+          "moving_time": 3538283,
+          "elapsed_time": 4006371,
+          "elevation_gain": 496584.0
         },
         "recent": {
           "count": 19,
-          "distance": 118.22,
-          "moving_time": 69114,
-          "elapsed_time": 75807,
-          "elevation_gain": 14002.0
+          "distance": 116.71,
+          "moving_time": 68684,
+          "elapsed_time": 74963,
+          "elevation_gain": 14323.0
         }
       },
       "biking": {
