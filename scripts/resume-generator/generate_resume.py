@@ -176,31 +176,35 @@ def tex_escape(text: str) -> str:
 def render_experience(exp: dict, is_first: bool) -> str:
     company = tex_escape(exp['company'])
     title = tex_escape(exp['title'])
-    location = tex_escape(exp['location'])
     start = exp['start_date']
     end = exp['end_date']
     description = tex_escape(exp['description'])
+    visible_items = [item for item in exp['items'] if not item.get('skip_pdf', False)]
+    has_body = bool(description or visible_items)
 
     lines = [
-        f'\\runsubsection{{{company}}}',
-        f'\\descript{{| {title}}}',
-        '',
-        f'\\location{{{start} \u2013 {end} | {location}}}',
-        description,
+        f'\\noindent\\makebox[\\linewidth]{{\\runsubsection{{{company}}}\\descriptinline{{| {title}}}\\hfill\\timelineinline{{{start} \u2013 {end}}}}}\\par',
     ]
 
-    if is_first:
+    if has_body:
+        lines.append('\\vspace{1pt}')
+        lines.append('\\noindent\\hspace*{0.25em}\\begin{minipage}{\\dimexpr\\linewidth-0.25em\\relax}')
+    if description:
+        lines.append(f'{description}\\par')
+    if is_first and has_body:
         lines.append('\\vspace{\\topsep} % Hacky fix for awkward extra vertical space')
-    lines.append('\\vspace{\\topsep} % Hacky fix for awkward extra vertical space')
-    lines.append('\\begin{tightitemize}')
+    if visible_items:
+        lines.append('\\vspace{\\topsep} % Hacky fix for awkward extra vertical space')
+        lines.append('\\begin{tightitemize}')
 
-    for item in exp['items']:
-        if item.get('skip_pdf', False):
-            continue
-        lines.append(f'\\item {tex_escape(item["text"])}')
+        for item in visible_items:
+            lines.append(f'\\item {tex_escape(item["text"])}')
+
+        lines.append('\\end{tightitemize}')
+    if has_body:
+        lines.append('\\end{minipage}')
 
     lines += [
-        '\\end{tightitemize}',
         '',
         '\\sectionspace % Some whitespace after the section',
         '',

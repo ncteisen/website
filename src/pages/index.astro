@@ -54,7 +54,16 @@ const stravaData = socialData.strava;
 
 const resumeDataModules = await import.meta.glob('../../resume/resume_data.json');
 const resumeData = (await resumeDataModules['../../resume/resume_data.json']()) as { experiences: WorkExperience[] };
-const experiences = resumeData.experiences.filter((e) => !e.skip_web);
+const experiences = resumeData.experiences
+	.filter((e) => !e.skip_web)
+	.map((experience) => {
+		const detailsDescription = experience.web_description ?? experience.description;
+		return {
+			...experience,
+			detailsDescription,
+			hasDetails: Boolean(detailsDescription || experience.items.length)
+		};
+	});
 
 interface WorkItem {
 	text: string;
@@ -956,16 +965,20 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 								</span>
 							</div>
 							<div class="career-role">{exp.title}</div>
-							<div class="career-details">
-								<div class="career-details-inner">
-									<p class="career-desc">{exp.web_description ?? exp.description}</p>
-									<ul class="career-bullets">
-										{exp.items.map((item) => (
-											<li set:html={item.web_text ?? item.text}></li>
-										))}
-									</ul>
+							{exp.hasDetails && (
+								<div class="career-details">
+									<div class="career-details-inner">
+										{exp.detailsDescription && <p class="career-desc">{exp.detailsDescription}</p>}
+										{exp.items.length > 0 && (
+											<ul class="career-bullets">
+												{exp.items.map((item) => (
+													<li set:html={item.web_text ?? item.text}></li>
+												))}
+											</ul>
+										)}
+									</div>
 								</div>
-							</div>
+							)}
 						</div>
 					</div>
 				))}
