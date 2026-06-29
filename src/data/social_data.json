@@ -1,8 +1,38 @@
 {
-  "last_updated": "2026-06-28T11:51:47.765520",
+  "last_updated": "2026-06-29T14:11:22.810340",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Crazy Rich Asians",
+        "year": 2018,
+        "rating": 3.0,
+        "watched_date": "2026-06-28",
+        "is_rewatch": true,
+        "review": "<p>We need to the call in the movie scientists to study what makes this the perfect plane flick.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/2/3/8/387238-crazy-rich-asians-0-600-0-900-crop.jpg?v=21695f4b1f",
+        "link": "https://letterboxd.com/ncteisen/film/crazy-rich-asians/"
+      },
+      {
+        "title": "When Harry Met Sally...",
+        "year": 1989,
+        "rating": 5.0,
+        "watched_date": "2026-06-28",
+        "is_rewatch": true,
+        "review": "<p>The recent reporting on my dislike for rom coms has been greatly exaggerated.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
+        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/"
+      },
+      {
+        "title": "A Private Life",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-06-24",
+        "is_rewatch": false,
+        "review": "<p>Jodie Foster is an absolute icon and made this watchable, but it was still deeply flawed. I found it loose and confused, but maybe that just means it\u2019s French?\u00a0</p><p>Unrelatedly, I\u2019m craving a leisurely pasta dinner with two bottles of fancy red wine and three cigarettes for dessert.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/7/3/5/1/4/1173514-a-private-life-2025-0-600-0-900-crop.jpg?v=8f9f393d63",
+        "link": "https://letterboxd.com/ncteisen/film/a-private-life-2025/"
+      },
       {
         "title": "Voicemails for Isabelle",
         "year": 2026,
@@ -3716,6 +3746,36 @@
     ],
     "recent_reviews": [
       {
+        "title": "Crazy Rich Asians",
+        "year": 2018,
+        "rating": 3.0,
+        "watched_date": "2026-06-28",
+        "is_rewatch": true,
+        "review": "<p>We need to the call in the movie scientists to study what makes this the perfect plane flick.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/2/3/8/387238-crazy-rich-asians-0-600-0-900-crop.jpg?v=21695f4b1f",
+        "link": "https://letterboxd.com/ncteisen/film/crazy-rich-asians/"
+      },
+      {
+        "title": "When Harry Met Sally...",
+        "year": 1989,
+        "rating": 5.0,
+        "watched_date": "2026-06-28",
+        "is_rewatch": true,
+        "review": "<p>The recent reporting on my dislike for rom coms has been greatly exaggerated.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
+        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/"
+      },
+      {
+        "title": "A Private Life",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-06-24",
+        "is_rewatch": false,
+        "review": "<p>Jodie Foster is an absolute icon and made this watchable, but it was still deeply flawed. I found it loose and confused, but maybe that just means it\u2019s French?\u00a0</p><p>Unrelatedly, I\u2019m craving a leisurely pasta dinner with two bottles of fancy red wine and three cigarettes for dessert.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/7/3/5/1/4/1173514-a-private-life-2025-0-600-0-900-crop.jpg?v=8f9f393d63",
+        "link": "https://letterboxd.com/ncteisen/film/a-private-life-2025/"
+      },
+      {
         "title": "Voicemails for Isabelle",
         "year": 2026,
         "rating": 0.0,
@@ -3764,41 +3824,11 @@
         "review": "<p>War is the h-word</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/4/7/0/1/1124701-warfare-0-600-0-900-crop.jpg?v=f379233a1b",
         "link": "https://letterboxd.com/ncteisen/film/warfare/"
-      },
-      {
-        "title": "The Chair",
-        "year": 2022,
-        "rating": 3.0,
-        "watched_date": "2026-05-31",
-        "is_rewatch": false,
-        "review": "<p>Fun to see him working out some concepts and ideas that got more fully realized in Obsession. Nice little 25 minute horror trip!</p><p>Separately, it's crazy this has a Letterboxd entry but Listers doesn't (though I know it's TMDB's fault).</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/7/9/8/5/1007985-the-chair-2022-1-0-600-0-900-crop.jpg?v=736dd8965d",
-        "link": "https://letterboxd.com/ncteisen/film/the-chair-2022-1/"
-      },
-      {
-        "title": "Petite Maman",
-        "year": 2021,
-        "rating": 4.0,
-        "watched_date": "2026-05-31",
-        "is_rewatch": false,
-        "review": "<p>Cozy and wonderful</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/6/6/9/7/4/4/669744-petite-maman-0-600-0-900-crop.jpg?v=c7cbed5a06",
-        "link": "https://letterboxd.com/ncteisen/film/petite-maman/"
-      },
-      {
-        "title": "Backrooms",
-        "year": 2026,
-        "rating": 3.0,
-        "watched_date": "2026-05-30",
-        "is_rewatch": false,
-        "review": "<p>Nailed the eerie, sinister vibes of the original internet lore. Very plot/character thin but I didn't mind, because I enjoyed the overall tone and loved exploring the world they created. Looking forward to future additions to the BCU.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
-        "link": "https://letterboxd.com/ncteisen/film/backrooms-2026/"
       }
     ],
     "stats": {
-      "total_films": 371,
-      "films_this_year": 35
+      "total_films": 374,
+      "films_this_year": 38
     }
   },
   "goodreads": {
@@ -8370,11 +8400,11 @@
           "elevation_gain": 1029078.0
         },
         "recent": {
-          "count": 3,
-          "distance": 36.52,
-          "moving_time": 14618,
-          "elapsed_time": 17796,
-          "elevation_gain": 4701.0
+          "count": 2,
+          "distance": 17.14,
+          "moving_time": 8032,
+          "elapsed_time": 10764,
+          "elevation_gain": 2641.0
         }
       },
       "swimming": {
