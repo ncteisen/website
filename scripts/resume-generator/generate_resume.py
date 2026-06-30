@@ -187,20 +187,20 @@ def render_experience(exp: dict, is_first: bool) -> str:
     ]
 
     if has_body:
-        lines.append('\\vspace{1pt}')
+        lines.append('\\vspace{3pt}')
         lines.append('\\noindent\\hspace*{0.25em}\\begin{minipage}{\\dimexpr\\linewidth-0.25em\\relax}')
     if description:
         lines.append(f'{description}\\par')
     if is_first and has_body:
         lines.append('\\vspace{\\topsep} % Hacky fix for awkward extra vertical space')
     if visible_items:
-        lines.append('\\vspace{\\topsep} % Hacky fix for awkward extra vertical space')
         lines.append('\\begin{tightitemize}')
 
         for item in visible_items:
             lines.append(f'\\item {tex_escape(item["text"])}')
 
         lines.append('\\end{tightitemize}')
+        lines.append('\\vspace{2pt}')
     if has_body:
         lines.append('\\end{minipage}')
 
