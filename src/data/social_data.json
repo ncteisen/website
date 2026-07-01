@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T12:17:08.082144",
+  "last_updated": "2026-07-01T12:38:50.430682",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -3834,6 +3834,15 @@
   "goodreads": {
     "all_reviews": [
       {
+        "title": "The Making of the Atomic Bomb",
+        "author": "Richard Rhodes",
+        "rating": 5,
+        "read_at": "Tue, 30 Jun 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1440621221l/16884.jpg",
+        "link": "https://www.goodreads.com/review/show/8580327422?utm_medium=api&utm_source=rss",
+        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected weaponizing heavier-than-air chlorine for the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
+      },
+      {
         "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
         "author": "J.K. Rowling",
         "rating": 5,
@@ -5411,6 +5420,15 @@
     ],
     "recent_reviews": [
       {
+        "title": "The Making of the Atomic Bomb",
+        "author": "Richard Rhodes",
+        "rating": 5,
+        "read_at": "Tue, 30 Jun 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1440621221l/16884.jpg",
+        "link": "https://www.goodreads.com/review/show/8580327422?utm_medium=api&utm_source=rss",
+        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected weaponizing heavier-than-air chlorine for the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
+      },
+      {
         "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
         "author": "J.K. Rowling",
         "rating": 5,
@@ -5472,27 +5490,40 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1611927558l/424.jpg",
         "link": "https://www.goodreads.com/review/show/8046032162?utm_medium=api&utm_source=rss",
         "review": "Candidly, I struggle with collections of essays (which is surprising because I love collections of short stories). Not doing myself any favors by reading this late at night, I would sometimes catch my eyes just scanning the words. <b>However</b>, for the essays that caught me, and there were quite a few, I was loving the prose and structure. In particular, \"On Keeping a Notebook\" and \"Goodbye to All That\" resonated deeply and personally (having kept a journal for years, and having had a dreamlike 6 months of living in nyc in my early twenties)."
-      },
-      {
-        "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
-        "author": "J.K. Rowling",
-        "rating": 5,
-        "read_at": "Thu, 8 Jan 2026 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3.jpg",
-        "link": "https://www.goodreads.com/review/show/1654363198?utm_medium=api&utm_source=rss",
-        "review": "Full-cast Dolby audiobook for commuting / solo workouts.<br /><br />This was a really fun new addition to the many many many ways to consume the Harry Potter world. Shall I list them all? The original books, the Jim Dale audiobooks, the Stephen Fry audiobooks, the movies, <s>dramione smut</s>, the old PC video games, the newer Switch video game, the future HBO series.<br /><br />And now this, a full-cast audiobook with mind-boggling 3D sound effects and great voice acting (some of whom you will recognize, Matthew Macfadyen so good!)"
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 286,
-      "average_rating": 4.16,
-      "total_reviews": 128,
-      "books_this_year": 9
+      "total_ratings": 287,
+      "average_rating": 4.17,
+      "total_reviews": 129,
+      "books_this_year": 10
     }
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 19130731822,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.76,
+        "moving_time": 2466,
+        "elapsed_time": 2673,
+        "elevation_gain": 200.0,
+        "average_pace": 8.64,
+        "average_heartrate": 138.7,
+        "max_heartrate": 164.0,
+        "average_cadence": 87.7,
+        "average_watts": 320.6,
+        "start_date": "2026-06-30T23:01:39Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19130731822",
+          "summary_polyline": "_rpeFjlhjVBhBHfBAPBb@@`ABR@r@Fp@FtAPlARhC?x@Hx@CJ?RH~@CDBRFNFnAHh@G~@BZGRK~@GPDh@F^@^M|@B\\Tl@JNN^Vd@Lj@@r@TjCHdB?NEVCtABLJVDl@Pf@E`@J|@?bARpAJ\\ARJr@?t@Ll@@\\C\\D`@Bj@Ex@IPFlAb@lBJRDR?t@Gn@CTWn@?`@DVJbATx@CFC^@TXbA^jBFd@HtACp@Bl@Mp@@jAMrCKlAGTU`EOxAKh@En@MbAG`AIdAAd@G^E`AKn@K~@Qp@QpAa@hBGl@Mn@QrAQ~@Gd@KbCJp@@v@Jx@NJv@PRJTX|@lB~@rAp@hARPv@hAlAxA|@x@b@PPDp@\\`@BH[D{@HUVkADIHc@JWH[^o@^i@Ps@\\i@FyAKa@aAwBYg@]a@e@w@u@}@s@yAQq@aA{GUaCa@cCASDu@Au@@c@?i@Eo@FSJGh@CVMf@ATIXYDKFI^i@^w@Fc@Iw@Ug@_@e@MUCK?]Mq@U{@AUToAX}@dAwBFIVa@FUBs@U{BG[OWg@]WeAo@y@QGK@i@LGi@Kq@EiASiCAk@ES@e@KeBEc@Og@Co@Gc@CmAKs@c@uHAy@OyCOeBGmAYeCBm@g@iGEi@?y@SyAMwCOuACqAQmBGiA?e@QwAUiDA]WiC?YMw@Aq@IgBK{@UiEGc@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19114686440,
         "name": "Morning Ride",
@@ -7670,28 +7701,6 @@
           "summary_polyline": "kqpeFxkhjV?RJ^ADCB?DFZCn@FXBZId@?LRn@F\\IhAD^CVBJLZ@l@Lf@?b@BJ?\\FTK`@BTPj@Q`@?fAG^LlAJ^DTF~@@n@Db@EnAUbAJz@GzB@LHLLZZj@^bAHfAMl@@BH@HFBJ@d@FZDh@AJ@b@An@IbBDNNVL`ADn@CX@R?`AHz@b@~B@x@Ev@N|@DdAOfBHj@RdARn@TfA?XGt@Y`ACVR`BLx@ATBRJd@z@fCLf@DX@tAC`BQpAC`@E|B_@xCShDSjBKfB]vDEv@e@bDOl@E`@k@tDy@~D[lCEvBRzF?nAH~BJjAF^Vz@Vv@T`@h@x@Zl@TT\\j@~@jBp@bBNj@Hl@Bf@Ch@[tBc@pBK`AJnABl@AfBOnB@^Lt@NXRVNJRDt@BJANMFKHa@NeBJo@Pc@l@aAVw@Lk@Fe@?]OwBIg@QyCWwB?WHURIJAXJJLh@pA\\l@p@v@\\Zd@XRHb@Jp@HXBp@NVLJPL^@L?\\UvAC`@Fz@ApAOtAAp@GTGx@I\\[`AIb@@\\A^DRRH\\FLJ@FCJILYLsBPSCe@Qa@Ae@BaAZYBk@IU@e@LcA?OEKG_@c@[GECKQI_@IEEGD_@AWOw@KmAM]Mm@?m@PyBDeBAe@Uw@B[ZiAd@oBN}@H_AC{@Qu@c@gAw@aB{@{A}A{B[m@k@gBIq@QiH?cAEy@BgACe@?_@H{A@o@R}B~@_GTeANaBLITB^KXAVAVDPA^JHCHGDID]No@Hw@JMXKFKJwAAwADSRGd@AXO^BNEHQLK`@m@l@mAJg@Gm@So@e@s@IOAe@EY]qA@SDe@VsAXw@Xm@\\i@TUFKBMFs@Ac@My@EgAKOKWYMMOUu@O[WQIKQKQAg@JCAE_@KuBQmCIiCWmCAaAKuAIa@KiBO}ACmAKqBSwBEw@ESO_COsDGUK}@GuAIq@I_CW_COyCM}AAq@YkDCk@QoBIgBSuBG{B]iE?YUkBUmE",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17466664201,
-        "name": "Afternoon Run",
-        "type": "Run",
-        "distance": 4.89,
-        "moving_time": 2713,
-        "elapsed_time": 3303,
-        "elevation_gain": 194.0,
-        "average_pace": 9.24,
-        "average_heartrate": 123.3,
-        "max_heartrate": 147.0,
-        "average_cadence": 86.7,
-        "average_watts": 291.8,
-        "start_date": "2026-02-20T23:58:54Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17466664201",
-          "summary_polyline": "sqpeFblhjVBVBB?VDX@b@Hh@B`@Ld@Fn@@f@MPGv@J`@Dh@HZBRI^Nr@?b@ETBR?n@Hv@PRFf@STELGx@Ht@Lf@FNDTBfAAJ@b@Cr@CXSf@ALJrABf@It@Lj@P`@j@v@Db@Nl@Af@Ol@?BPBLt@LlC?lCNf@RfA@LGb@Bd@Cz@JfAVpAHh@BpBNzA@d@MpA?d@Jl@HRJb@Xh@J`AAb@Eb@GXO\\GP?`@H`AZrAEJCT@\\L^j@pCL~BCn@?t@Cf@GFKFu@BUMGQc@m@i@g@}@wAMKOQe@IQ?q@d@[`@m@h@OVO`@StACh@Bd@P~BH\\Hr@TfAFl@EBVlAd@lFF^JXRXd@`@THLJh@p@\\z@d@z@DR?VuCzUFTRvADNFF^BXJd@b@zBpDjC~Db@x@`@ZL@LGdAsA`@q@f@i@FK@MWw@Q[sBoCIWa@o@Ia@OWi@s@UIYGOAUBUCS?]Fs@Ra@D[HO@i@G]LGEEY?iADg@@w@XcDVeBn@yCRaB^uBR_CRiBN_C^eEF]JWVuFFi@Bq@F]HqBCc@?WE_@@]IOGy@Mg@AWIWQeAiAuDVKDM?QGk@A]d@qAFq@A[Oq@]{@YkB?[Lw@@WCq@Qm@BiB?u@Kq@Kc@S}A@{ABo@[qA?_@MeADkAAe@KgAGeAEQGCI@CM?UDSBSIu@IOMe@KWIK_@w@E]FgA?_@G{@TmABg@AeACw@Ga@?OQeA?m@COBa@Cu@@[M_BGwAKeAAO\\Q?UUeAMqACgAG_@G{@Bc@Iw@?]Cg@Mi@Ck@M}@@GPCPGp@IN?x@Q@CBg@IiA?m@CWA{@Gq@GY`@~F@r@AJIFKCi@@k@HE?GCI?KHGX?|@CZBN?n@JXBXHV?T?LWRFt@FTBRER@XF`@Lb@D~@",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7827,6 +7836,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 19130731822,
+        "name": "Afternoon Run",
+        "type": "Run",
+        "distance": 4.76,
+        "moving_time": 2466,
+        "elapsed_time": 2673,
+        "elevation_gain": 200.0,
+        "average_pace": 8.64,
+        "average_heartrate": 138.7,
+        "max_heartrate": 164.0,
+        "average_cadence": 87.7,
+        "average_watts": 320.6,
+        "start_date": "2026-06-30T23:01:39Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19130731822",
+          "summary_polyline": "_rpeFjlhjVBhBHfBAPBb@@`ABR@r@Fp@FtAPlARhC?x@Hx@CJ?RH~@CDBRFNFnAHh@G~@BZGRK~@GPDh@F^@^M|@B\\Tl@JNN^Vd@Lj@@r@TjCHdB?NEVCtABLJVDl@Pf@E`@J|@?bARpAJ\\ARJr@?t@Ll@@\\C\\D`@Bj@Ex@IPFlAb@lBJRDR?t@Gn@CTWn@?`@DVJbATx@CFC^@TXbA^jBFd@HtACp@Bl@Mp@@jAMrCKlAGTU`EOxAKh@En@MbAG`AIdAAd@G^E`AKn@K~@Qp@QpAa@hBGl@Mn@QrAQ~@Gd@KbCJp@@v@Jx@NJv@PRJTX|@lB~@rAp@hARPv@hAlAxA|@x@b@PPDp@\\`@BH[D{@HUVkADIHc@JWH[^o@^i@Ps@\\i@FyAKa@aAwBYg@]a@e@w@u@}@s@yAQq@aA{GUaCa@cCASDu@Au@@c@?i@Eo@FSJGh@CVMf@ATIXYDKFI^i@^w@Fc@Iw@Ug@_@e@MUCK?]Mq@U{@AUToAX}@dAwBFIVa@FUBs@U{BG[OWg@]WeAo@y@QGK@i@LGi@Kq@EiASiCAk@ES@e@KeBEc@Og@Co@Gc@CmAKs@c@uHAy@OyCOeBGmAYeCBm@g@iGEi@?y@SyAMwCOuACqAQmBGiA?e@QwAUiDA]WiC?YMw@Aq@IgBK{@UiEGc@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19086116087,
         "name": "Lakes are people too",
@@ -7978,28 +8009,6 @@
         "map": {
           "id": "a18986580134",
           "summary_polyline": "mc|eFheqjVJzB|@~Az@fAfA^j@`@_CPw@GUZiAGq@l@GTr@EOFa@x@w@f@a@|@y@^o@dCnAk@iA`BtCiAg@t@yB|BqChEWTiGf@{Az@s@i@g@qAUG}@bAKb@GpAUl@o@\\y@jAaAJg@Zo@nA{Ah@^PjBHIl@?\\f@z@NzAKx@Bl@Fb@Xl@rA\\zDu@jAz@rA@bAVl@\\b@x@NjAKpAJ`@|BtCr@JzA_@NjAs@fDM|Ac@bC{@zCCz@TdARTlBCv@Ln@hArB~ANn@a@v@aAdA]n@gCfBmA|BE^Np@b@f@VJjBe@n@?h@\\~@jATv@FbAIpDDh@|@dDf@r@RIt@qArAcA|BmCbAuBNEFL?dEIpBJfD_@z@RlAQpBgCpQcAvEcAvGR|EWjGw@f@k@`AiAuAoBO_@tAsAxBm@dCy@rBe@bCcA^gAAoAe@aA_A}@i@eDoAcCqAmH}Bq@e@[g@Ow@EiAUm@eAi@qDi@wBeBe@q@S{@AaD{@qEkBoDw@sCQuAyA}Ek@sAq@}@_@LWlBwBhDw@l@qA@w@[WYEaB}@cBw@aCc@]g@GiBR]CKOCWj@k@Ck@USgBQWOO]IcBQq@IiABu@KMu@n@u@b@mCx@{C`@i@I_@Yc@s@g@aB[Ya@IoArAcApBo@Lg@QS[YyCQo@a@a@uAk@_@DWTs@tB[f@c@T[IpBcJBkBJk@tAoBNaAE_A~@i@RmA~@uBBe@QyAFw@P_@t@o@Nk@A[e@uABeCPm@VSh@Gl@L^CjAcBzAMVUVm@`@YNALXLC`A}@n@Y^q@Jo@aAeBCSn@w@l@kA|Ag@|@k@t@Mb@_Bd@w@pAUh@q@p@SdAw@bAIfAe@d@eAE[_@s@Gq@n@aBXcB|AwBr@uAN{@zBKtAVvA@zAr@pEdAdA?nBx@dE^nD`DTOj@Ih@Yd@aAVU|AUn@mAx@q@XyB^o@f@a@TJj@tAl@b@xA_AjFc@h@QnAqBhE}Ef@{@{CrAjAiBoAt@n@aC|@m@n@qAf@]P_@`@]s@Np@}@pA@HQ~BdAbDXx@Uz@wAaA|AWNi@D_CSwCmAdA@bCOoBu@c@w@c@Su@{AAwA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18972438451,
-        "name": "\ud83d\udc36\ud83d\udc36\ud83d\udc36\ud83d\udc36",
-        "type": "Run",
-        "distance": 6.42,
-        "moving_time": 3818,
-        "elapsed_time": 4334,
-        "elevation_gain": 876.0,
-        "average_pace": 9.91,
-        "average_heartrate": 138.4,
-        "max_heartrate": 172.0,
-        "average_cadence": 86.7,
-        "average_watts": 285.3,
-        "start_date": "2026-06-18T13:41:13Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18972438451",
-          "summary_polyline": "}kpeFlfhjVDd@E\\?VJh@?b@Px@Eh@?^H~@ApAD\\@f@DRJtAJhBLt@HtAFb@?f@F~@Hd@F|ADPFrEThBFXBr@NzA@JEV@ZPjB?XJz@JbBDVFzADx@DTDb@@j@Db@J^Aj@LnA?ZFVAf@R~A@`@NjAB|@FTAtADf@HxBJj@Bp@RjA@~@NzCHd@?f@Rb@HFR?nASpCSl@Ol@Eb@OZ?b@O~@KfAM`@A~@Mb@?ZULCxAUx@U~@?VChAQJEz@OPFd@A`AYtBMp@QV?TEf@WhBMpAWf@JFAGNBZDJBt@XxA@NLX?\\DVCH?TXd@n@f@A@^ZIRJJAb@TV@LFFH@C_@KSCS[g@AEDGAKMMGS@KDCHFFNLHDHD^^PbA|@ATEDMf@h@bAD`@JVCPAn@HlA?PCDA@{Aw@OUGABNO?GTCBYGGDMRS`ASd@Kb@ARJd@L`@FLTRBJe@n@Ab@@t@FHARH\\TDVAVMf@LZPDJF\\RTJ@TEZQj@IHKPEVQh@G\\BXPNTH\\?PNb@p@x@VJL@n@IJKBMNENSRMJSZSv@KRKLOVKXGZANGR?\\]@MMK[Mg@GaAm@[_@a@YYg@Gm@AGDGFBHVVXHBTCSMQ_@Km@@UIo@FU?WN]TyBK[UKOWEc@D_AM{@IqAIk@GIQMAKBKNQL]`AMXW?QDOAQIYc@q@UsAF]PSPGf@BJIFSUkCAeAIyAJm@^mAXg@l@Wf@E\\a@DW?_@BYNc@Ce@DEb@KDKEQ]SG]@GlB]fA[|Aw@RSNc@@SCQi@sAOUEY_@LY`@g@hC@NFJN@b@UpAa@H@BH?LINgAn@cAb@oB`@a@BOEIGIS?e@H[|@_BJ]@]ASUyAIkASgAGMIEW@ONCPV|AFj@IZQXa@b@_@NSTqBbAe@l@Yp@e@j@UTo@^SR[Pk@NqAP_AIQaBOo@M[c@m@c@a@]Q}@Sq@UiBy@IMEUMIS@{@XYXmAl@sANU?i@HeAS_@ScAY_BgAcA{@{@a@iCXQHwANq@Nc@BIDaAF[NwAH]Li@Be@NoBF_@JsBJ[FGHa@Vo@D]Nk@Cw@FWJ{@LKAGIOe@OsAMk@IsADc@G_@I]K_AIwA?c@OiA?UU{COgCGa@MqCa@sF_@}GUiCM_C[{EKaC",
           "resource_state": 2
         }
       }
@@ -8363,25 +8372,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 114,
-          "distance": 653.78,
-          "moving_time": 369517,
-          "elapsed_time": 419322,
-          "elevation_gain": 65353.0
+          "count": 115,
+          "distance": 658.53,
+          "moving_time": 371983,
+          "elapsed_time": 421995,
+          "elevation_gain": 65553.0
         },
         "all_time": {
-          "count": 1255,
-          "distance": 6545.22,
-          "moving_time": 3566212,
-          "elapsed_time": 4041002,
-          "elevation_gain": 500918.0
+          "count": 1256,
+          "distance": 6549.98,
+          "moving_time": 3568678,
+          "elapsed_time": 4043675,
+          "elevation_gain": 501118.0
         },
         "recent": {
           "count": 19,
-          "distance": 103.76,
-          "moving_time": 59874,
-          "elapsed_time": 69063,
-          "elevation_gain": 9940.0
+          "distance": 103.93,
+          "moving_time": 59631,
+          "elapsed_time": 68782,
+          "elevation_gain": 9625.0
         }
       },
       "biking": {
