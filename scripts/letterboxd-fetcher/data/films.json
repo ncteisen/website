@@ -1,5 +1,29 @@
 [
   {
+    "guid": "letterboxd-review-1377898905",
+    "title": "Mamma Mia!",
+    "year": 2008,
+    "rating": 3.5,
+    "watched_date": "2026-07-02",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/sm/upload/10/5l/wu/jl/gOm2iMMbC6EonrFzmSQ8xvCa4Ei.jpg-0-600-0-900-crop.jpg?v=e49de6f770",
+    "review": "<p>Sarah watched Return of the King while I watched this next to her on the plane. It\u2019s the little things we do to fight gender stereotypes \ud83e\udd2a</p>",
+    "link": "https://letterboxd.com/ncteisen/film/mamma-mia/",
+    "pub_date": "Thu, 2 Jul 2026 20:30:36 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1377893550",
+    "title": "Wuthering Heights",
+    "year": 2026,
+    "rating": 2.5,
+    "watched_date": "2026-07-02",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-600-0-900-crop.jpg?v=7d02cf3bdc",
+    "review": "<p>Felt like it prioritized good\u00a0<i>moments</i>\u00a0over being a good <i>movie, </i>which is a common affliction these days.</p>",
+    "link": "https://letterboxd.com/ncteisen/film/wuthering-heights-2026/",
+    "pub_date": "Thu, 2 Jul 2026 20:21:24 +1200"
+  },
+  {
     "guid": "letterboxd-review-1373735349",
     "title": "Crazy Rich Asians",
     "year": 2018,

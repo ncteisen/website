@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-07-01T12:38:50.430682",
+  "last_updated": "2026-07-02T12:14:27.792914",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Mamma Mia!",
+        "year": 2008,
+        "rating": 3.5,
+        "watched_date": "2026-07-02",
+        "is_rewatch": false,
+        "review": "<p>Sarah watched Return of the King while I watched this next to her on the plane. It\u2019s the little things we do to fight gender stereotypes \ud83e\udd2a</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/10/5l/wu/jl/gOm2iMMbC6EonrFzmSQ8xvCa4Ei.jpg-0-600-0-900-crop.jpg?v=e49de6f770",
+        "link": "https://letterboxd.com/ncteisen/film/mamma-mia/"
+      },
+      {
+        "title": "Wuthering Heights",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-07-02",
+        "is_rewatch": false,
+        "review": "<p>Felt like it prioritized good\u00a0<i>moments</i>\u00a0over being a good <i>movie, </i>which is a common affliction these days.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-600-0-900-crop.jpg?v=7d02cf3bdc",
+        "link": "https://letterboxd.com/ncteisen/film/wuthering-heights-2026/"
+      },
       {
         "title": "Crazy Rich Asians",
         "year": 2018,
@@ -3746,6 +3766,26 @@
     ],
     "recent_reviews": [
       {
+        "title": "Mamma Mia!",
+        "year": 2008,
+        "rating": 3.5,
+        "watched_date": "2026-07-02",
+        "is_rewatch": false,
+        "review": "<p>Sarah watched Return of the King while I watched this next to her on the plane. It\u2019s the little things we do to fight gender stereotypes \ud83e\udd2a</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/10/5l/wu/jl/gOm2iMMbC6EonrFzmSQ8xvCa4Ei.jpg-0-600-0-900-crop.jpg?v=e49de6f770",
+        "link": "https://letterboxd.com/ncteisen/film/mamma-mia/"
+      },
+      {
+        "title": "Wuthering Heights",
+        "year": 2026,
+        "rating": 2.5,
+        "watched_date": "2026-07-02",
+        "is_rewatch": false,
+        "review": "<p>Felt like it prioritized good\u00a0<i>moments</i>\u00a0over being a good <i>movie, </i>which is a common affliction these days.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-600-0-900-crop.jpg?v=7d02cf3bdc",
+        "link": "https://letterboxd.com/ncteisen/film/wuthering-heights-2026/"
+      },
+      {
         "title": "Crazy Rich Asians",
         "year": 2018,
         "rating": 3.0,
@@ -3804,31 +3844,11 @@
         "review": "<p>Truly terrible, with a couple of redeeming chuckles and visual shock humor.</p><p>Letterboxd reviews almost as brainless as your average Reddit comment thread. How could anyone give this 5 stars??</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48",
         "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
-      },
-      {
-        "title": "Black Phone 2",
-        "year": 2025,
-        "rating": 2.5,
-        "watched_date": "2026-06-07",
-        "is_rewatch": false,
-        "review": "<p>Was the dialog in the first one this cringy? I don't remember it being this cringy</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/8/2/1/6/0/1082160-black-phone-2-0-600-0-900-crop.jpg?v=5ff6eeb27d",
-        "link": "https://letterboxd.com/ncteisen/film/black-phone-2/"
-      },
-      {
-        "title": "Warfare",
-        "year": 2025,
-        "rating": 3.5,
-        "watched_date": "2026-06-02",
-        "is_rewatch": false,
-        "review": "<p>War is the h-word</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/2/4/7/0/1/1124701-warfare-0-600-0-900-crop.jpg?v=f379233a1b",
-        "link": "https://letterboxd.com/ncteisen/film/warfare/"
       }
     ],
     "stats": {
-      "total_films": 374,
-      "films_this_year": 38
+      "total_films": 376,
+      "films_this_year": 40
     }
   },
   "goodreads": {
@@ -3840,7 +3860,7 @@
         "read_at": "Tue, 30 Jun 2026 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1440621221l/16884.jpg",
         "link": "https://www.goodreads.com/review/show/8580327422?utm_medium=api&utm_source=rss",
-        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected weaponizing heavier-than-air chlorine for the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
+        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected the weaponization of heavier-than-air chlorine in the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
       },
       {
         "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
@@ -5426,7 +5446,7 @@
         "read_at": "Tue, 30 Jun 2026 00:00:00 +0000",
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1440621221l/16884.jpg",
         "link": "https://www.goodreads.com/review/show/8580327422?utm_medium=api&utm_source=rss",
-        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected weaponizing heavier-than-air chlorine for the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
+        "review": "Man, what a journey this one was. Couple of thoughts, in no particular order:<br />- Neutron chain reaction was proposed very early on (by Leo Szilard in 1933, only one year after the particle was discovered). It took nearly 10 years of subsequent research until Fermi achieved it practically.<br />- The race for the first lab to split the atom (or rather, to recognize uranium fission) was decided by a matter of WEEKS.<br />- A powerful bomb was imagined in the days after fission was recognized, but many brilliant, Nobel prize-winning scientists (Fermi, Bohr, Heisenberg) discounted it actually being feasible to industrialize and produce.<br />- Lots of the physicists were in their 20s and 30s while discovering major precursors to the atomic age.<br />- The importance of parallel development (both in terms of Uranium vs Plutonium and also the three different technologies pursued for Uranium enrichment).<br />- The early inclusion of details about technological breakthroughs leading to horrifying chemical warfare in WW1 was poignant. The comparison was never made overtly, but it reinforces the pattern of science milestones leading to more efficient or terrible killings. The duality of science. Fritz invented the Haber process which feeds the world, but also architected the weaponization of heavier-than-air chlorine in the Second Battle of Ypres.<br /><br />Anyway, not sure if reading this book helped or worsened my SF-tech-twitter-induced AI psychosis."
       },
       {
         "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
@@ -5502,6 +5522,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 19138663126,
+        "name": "Norway Shakeout",
+        "type": "Run",
+        "distance": 4.28,
+        "moving_time": 2339,
+        "elapsed_time": 2659,
+        "elevation_gain": 203.0,
+        "average_pace": 9.11,
+        "average_heartrate": 126.5,
+        "max_heartrate": 149.0,
+        "average_cadence": 88.6,
+        "average_watts": 290.9,
+        "start_date": "2026-07-01T14:30:31Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19138663126",
+          "summary_polyline": "qqpeF`lhjVBNAJBXANT~@Dp@G`@FRB`@Bh@C`@^bBELI?KTNvAVfEBxAATGRAf@Fv@T`AHbBAJ@b@Cd@EVILI^?XFx@?RIl@?l@b@dAZh@Z|@T|BHvAHp@ARBXB~@AtABLJL@h@J^@PE^FhACRAd@Jz@HNBZLf@J`A@v@ATLxADTGt@Od@APDb@L\\Nv@Th@JPJp@A`@M|@Un@EP?f@Hf@@PADc@Hz@nCd@pBRrAFrAEzAIh@ONm@?]MWQWa@i@m@KU]c@W_@QSIE[CW@GBYXC?UPM@EHm@d@Qd@S|@Id@C|@J~AT`B`@dBJ~ARzAFtAFZFjALn@JVd@h@~@j@TXR`@Tp@\\l@FPA`@S|@e@dDYxASv@m@~DEl@Ct@@jAB~@FTFDDEDOA{@BcCDaAL}AZwBf@eCf@mCFm@TkA^yDJy@VaETaB\\qEFoB^yEBuAEg@IOIIEKQmBk@wCc@uASg@PEHK@UGm@A_@DSTg@DQFq@@c@Ok@Ys@MQC]Oq@Aa@PmBEe@Ii@C{@@u@?]UuAWmA?{@KmAFa@]kBA[E[B_@@y@Ay@Ge@Ac@Ik@Es@SiBMe@Ys@Y]Oy@LqAA[Kg@?WLo@Fq@?UBMC[?k@AYUiB?q@EUDc@Ck@@aASkCIo@IcBA_AEs@Ak@Qs@Bm@Ec@NMEc@?s@KcB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19130731822,
         "name": "Afternoon Run",
@@ -7679,28 +7721,6 @@
           "summary_polyline": "uqpeFdlhjVFzA?r@Db@Xx@At@@\\H`@Dz@F`@?dBLdDHdAA^Fv@I`@B~@VdAB^?n@Dz@ApAQnABnACTER@r@BLVl@NX^`AJf@Dj@Ot@Bf@Lh@Zr@BRBv@GtABb@BTHJDp@Lh@Cl@@`@?t@JfAFVZjBBd@Ej@Bl@RdB?NQdAAd@N`Ad@zAPx@@NKfAGRQ^ET?j@Fn@[`@`@pAXl@Nl@Jz@JZTzBDpAKdAKVSH[@U?MIa@i@e@]_@c@_@k@ISOW]WQIc@EMLYf@[VGBQVI?W^Yv@G\\GdA?j@PdBl@tDb@tERlCHf@Rd@PTPPd@T`@ZX^h@dAPNLBJCFIH[PaCDkAN{Br@}HD_A@e@PoAHiA?k@Cm@G[De@?aBIgAOcAu@aDQi@XSAQSy@OcA?MD[Vk@FSD[@k@C_@Yw@[q@Mo@Ao@NgADw@McACgA@WCq@Qu@I}@IUGe@EkB@a@E_@K]Ga@IcAAWDkAAW?}@Eo@Ec@]c@Jw@MeAWs@y@}AG]D}@H[A]EYCU@MJUFm@BeCGsAMm@KeA?MDM@QCY?w@OyASuD?ITKBi@_@wAOa@?cACm@KWAQB}@Ge@@c@Em@",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17475104059,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.55,
-        "moving_time": 3501,
-        "elapsed_time": 3808,
-        "elevation_gain": 240.0,
-        "average_pace": 8.91,
-        "average_heartrate": 127.5,
-        "max_heartrate": 157.0,
-        "average_cadence": 88.6,
-        "average_watts": 305.4,
-        "start_date": "2026-02-21T16:37:07Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17475104059",
-          "summary_polyline": "kqpeFxkhjV?RJ^ADCB?DFZCn@FXBZId@?LRn@F\\IhAD^CVBJLZ@l@Lf@?b@BJ?\\FTK`@BTPj@Q`@?fAG^LlAJ^DTF~@@n@Db@EnAUbAJz@GzB@LHLLZZj@^bAHfAMl@@BH@HFBJ@d@FZDh@AJ@b@An@IbBDNNVL`ADn@CX@R?`AHz@b@~B@x@Ev@N|@DdAOfBHj@RdARn@TfA?XGt@Y`ACVR`BLx@ATBRJd@z@fCLf@DX@tAC`BQpAC`@E|B_@xCShDSjBKfB]vDEv@e@bDOl@E`@k@tDy@~D[lCEvBRzF?nAH~BJjAF^Vz@Vv@T`@h@x@Zl@TT\\j@~@jBp@bBNj@Hl@Bf@Ch@[tBc@pBK`AJnABl@AfBOnB@^Lt@NXRVNJRDt@BJANMFKHa@NeBJo@Pc@l@aAVw@Lk@Fe@?]OwBIg@QyCWwB?WHURIJAXJJLh@pA\\l@p@v@\\Zd@XRHb@Jp@HXBp@NVLJPL^@L?\\UvAC`@Fz@ApAOtAAp@GTGx@I\\[`AIb@@\\A^DRRH\\FLJ@FCJILYLsBPSCe@Qa@Ae@BaAZYBk@IU@e@LcA?OEKG_@c@[GECKQI_@IEEGD_@AWOw@KmAM]Mm@?m@PyBDeBAe@Uw@B[ZiAd@oBN}@H_AC{@Qu@c@gAw@aB{@{A}A{B[m@k@gBIq@QiH?cAEy@BgACe@?_@H{A@o@R}B~@_GTeANaBLITB^KXAVAVDPA^JHCHGDID]No@Hw@JMXKFKJwAAwADSRGd@AXO^BNEHQLK`@m@l@mAJg@Gm@So@e@s@IOAe@EY]qA@SDe@VsAXw@Xm@\\i@TUFKBMFs@Ac@My@EgAKOKWYMMOUu@O[WQIKQKQAg@JCAE_@KuBQmCIiCWmCAaAKuAIa@KiBO}ACmAKqBSwBEw@ESO_COsDGUK}@GuAIq@I_CW_COyCM}AAq@YkDCk@QoBIgBSuBG{B]iE?YUkBUmE",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7836,6 +7856,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 19138663126,
+        "name": "Norway Shakeout",
+        "type": "Run",
+        "distance": 4.28,
+        "moving_time": 2339,
+        "elapsed_time": 2659,
+        "elevation_gain": 203.0,
+        "average_pace": 9.11,
+        "average_heartrate": 126.5,
+        "max_heartrate": 149.0,
+        "average_cadence": 88.6,
+        "average_watts": 290.9,
+        "start_date": "2026-07-01T14:30:31Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19138663126",
+          "summary_polyline": "qqpeF`lhjVBNAJBXANT~@Dp@G`@FRB`@Bh@C`@^bBELI?KTNvAVfEBxAATGRAf@Fv@T`AHbBAJ@b@Cd@EVILI^?XFx@?RIl@?l@b@dAZh@Z|@T|BHvAHp@ARBXB~@AtABLJL@h@J^@PE^FhACRAd@Jz@HNBZLf@J`A@v@ATLxADTGt@Od@APDb@L\\Nv@Th@JPJp@A`@M|@Un@EP?f@Hf@@PADc@Hz@nCd@pBRrAFrAEzAIh@ONm@?]MWQWa@i@m@KU]c@W_@QSIE[CW@GBYXC?UPM@EHm@d@Qd@S|@Id@C|@J~AT`B`@dBJ~ARzAFtAFZFjALn@JVd@h@~@j@TXR`@Tp@\\l@FPA`@S|@e@dDYxASv@m@~DEl@Ct@@jAB~@FTFDDEDOA{@BcCDaAL}AZwBf@eCf@mCFm@TkA^yDJy@VaETaB\\qEFoB^yEBuAEg@IOIIEKQmBk@wCc@uASg@PEHK@UGm@A_@DSTg@DQFq@@c@Ok@Ys@MQC]Oq@Aa@PmBEe@Ii@C{@@u@?]UuAWmA?{@KmAFa@]kBA[E[B_@@y@Ay@Ge@Ac@Ik@Es@SiBMe@Ys@Y]Oy@LqAA[Kg@?WLo@Fq@?UBMC[?k@AYUiB?q@EUDc@Ck@@aASkCIo@IcBA_AEs@Ak@Qs@Bm@Ec@NMEc@?s@KcB",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19130731822,
         "name": "Afternoon Run",
@@ -7987,28 +8029,6 @@
         "map": {
           "id": "a19000807486",
           "summary_polyline": "}lpeFvghjVVjFLjAJpBFn@DzA\\jEJv@?b@LxANvCV~BJrCL~@NpCHn@DL?v@Dn@PjCNhA?b@b@jGFfBd@nFVnEHl@@^Hp@FnAATDv@Lj@@bARlBNlCJd@Ff@LJXFlAS~AMn@SjBSp@C`Fq@j@El@@ZQv@KjA_@NKn@?`AONIfBO~@A\\Qf@KbFk@TFt@Gn@Q~BUD@BZ@r@Cd@Fp@ARLV?ZJPBn@N`@@PPRLf@TRLBHN@JLPNHX^VPKy@OWGSFUEIQIGO?OBATVM]CA?RTZAh@NT@b@Vp@QKEUOQEQ[MKMAIc@QKOaAkBAs@OW?SIUEs@DaAGOJQHf@@l@H~@CZBz@F^FJDTFBXf@Pf@ZNDLNFTf@TZNHBICw@Qg@CSOSCe@NRCMKGEDAJVXAf@h@pBIEQaAWQO?CGa@QWWK[OQEYU_@Es@Q{@GeA@i@Iu@BRLV?b@Fh@ARL^Hr@?ZHVB\\Ll@NPDP`@XFPFFBHATZPHXRFBCAc@Ic@QUG_@YOGKAQBUNL@PK_@GBBJLRJHHx@LZ@JLRNd@KMe@{@g@UGOUOIOUOU_@EWIQCmAW]@OEUA}@Fa@QiABCAO_@Pm@D_APmABa@Nw@Ao@JS?i@Li@Ty@G]Re@?g@RaAGi@@WJ_@Z_AA{@Nu@CSZ?~APfB?^D^G^UXMHKRBJXb@Hn@?nBFfBEdBI`@U\\y@d@SVQn@KfAo@`@ANNp@a@Pe@j@yAOUGmD}HZp@IJNh@j@lAL^APGNCT?f@LhAMn@EHIBo@AcAT[t@i@x@]Zc@BiAMEDQn@El@DtAC|@c@PKLKx@O\\Eh@KL}@C_@KoA\\MCIc@i@aAe@sAa@a@q@Wy@_AQeAG}@Iq@Ai@WwCWcAWqAGsAKm@G_AHwAPaAZu@\\]t@g@f@S`@EXLn@r@|@rAh@l@`@Tl@HXKLWDu@@aAK{Aa@aCsAsEJMJ[@MIo@@MDO`@w@D[@w@Qy@]u@W_B@u@Hg@EeAIy@@qB?OOa@ASUcAIo@C}AEk@BSC_@OSG[?}@Kq@NkBOs@EgB[_CQi@CSi@u@W{@Aw@H]?e@GcABYPi@DqCE_@QsAGy@D{@E_@CmBKcBIo@?]Io@Cc@BKEg@OuAAyAQyAO{C",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 18986580134,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 9.0,
-        "moving_time": 5769,
-        "elapsed_time": 6002,
-        "elevation_gain": 1657.0,
-        "average_pace": 10.68,
-        "average_heartrate": 146.6,
-        "max_heartrate": 185.0,
-        "average_cadence": 85.0,
-        "average_watts": 282.5,
-        "start_date": "2026-06-19T15:18:23Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18986580134",
-          "summary_polyline": "mc|eFheqjVJzB|@~Az@fAfA^j@`@_CPw@GUZiAGq@l@GTr@EOFa@x@w@f@a@|@y@^o@dCnAk@iA`BtCiAg@t@yB|BqChEWTiGf@{Az@s@i@g@qAUG}@bAKb@GpAUl@o@\\y@jAaAJg@Zo@nA{Ah@^PjBHIl@?\\f@z@NzAKx@Bl@Fb@Xl@rA\\zDu@jAz@rA@bAVl@\\b@x@NjAKpAJ`@|BtCr@JzA_@NjAs@fDM|Ac@bC{@zCCz@TdARTlBCv@Ln@hArB~ANn@a@v@aAdA]n@gCfBmA|BE^Np@b@f@VJjBe@n@?h@\\~@jATv@FbAIpDDh@|@dDf@r@RIt@qArAcA|BmCbAuBNEFL?dEIpBJfD_@z@RlAQpBgCpQcAvEcAvGR|EWjGw@f@k@`AiAuAoBO_@tAsAxBm@dCy@rBe@bCcA^gAAoAe@aA_A}@i@eDoAcCqAmH}Bq@e@[g@Ow@EiAUm@eAi@qDi@wBeBe@q@S{@AaD{@qEkBoDw@sCQuAyA}Ek@sAq@}@_@LWlBwBhDw@l@qA@w@[WYEaB}@cBw@aCc@]g@GiBR]CKOCWj@k@Ck@USgBQWOO]IcBQq@IiABu@KMu@n@u@b@mCx@{C`@i@I_@Yc@s@g@aB[Ya@IoArAcApBo@Lg@QS[YyCQo@a@a@uAk@_@DWTs@tB[f@c@T[IpBcJBkBJk@tAoBNaAE_A~@i@RmA~@uBBe@QyAFw@P_@t@o@Nk@A[e@uABeCPm@VSh@Gl@L^CjAcBzAMVUVm@`@YNALXLC`A}@n@Y^q@Jo@aAeBCSn@w@l@kA|Ag@|@k@t@Mb@_Bd@w@pAUh@q@p@SdAw@bAIfAe@d@eAE[_@s@Gq@n@aBXcB|AwBr@uAN{@zBKtAVvA@zAr@pEdAdA?nBx@dE^nD`DTOj@Ih@Yd@aAVU|AUn@mAx@q@XyB^o@f@a@TJj@tAl@b@xA_AjFc@h@QnAqBhE}Ef@{@{CrAjAiBoAt@n@aC|@m@n@qAf@]P_@`@]s@Np@}@pA@HQ~BdAbDXx@Uz@wAaA|AWNi@D_CSwCmAdA@bCOoBu@c@w@c@Su@{AAwA",
           "resource_state": 2
         }
       }
@@ -8372,25 +8392,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 115,
-          "distance": 658.53,
-          "moving_time": 371983,
-          "elapsed_time": 421995,
-          "elevation_gain": 65553.0
+          "count": 116,
+          "distance": 662.81,
+          "moving_time": 374322,
+          "elapsed_time": 424654,
+          "elevation_gain": 65757.0
         },
         "all_time": {
-          "count": 1256,
-          "distance": 6549.98,
-          "moving_time": 3568678,
-          "elapsed_time": 4043675,
-          "elevation_gain": 501118.0
+          "count": 1257,
+          "distance": 6554.26,
+          "moving_time": 3571017,
+          "elapsed_time": 4046334,
+          "elevation_gain": 501322.0
         },
         "recent": {
           "count": 19,
-          "distance": 103.93,
-          "moving_time": 59631,
-          "elapsed_time": 68782,
-          "elevation_gain": 9625.0
+          "distance": 103.71,
+          "moving_time": 59472,
+          "elapsed_time": 68873,
+          "elevation_gain": 9563.0
         }
       },
       "biking": {
