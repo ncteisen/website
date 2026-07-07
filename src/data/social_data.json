@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T13:53:22.892822",
+  "last_updated": "2026-07-07T12:31:43.575044",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -3854,6 +3854,24 @@
   "goodreads": {
     "all_reviews": [
       {
+        "title": "On the Calculation of Volume I",
+        "author": "Solvej Balle",
+        "rating": 3,
+        "read_at": "Sun, 5 Jul 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
+        "link": "https://www.goodreads.com/review/show/8580331580?utm_medium=api&utm_source=rss",
+        "review": "Time loops are my favorite trope, but I\u2019m starting to think that they work better in movies than books. This got kind of repetitive (this is serious, it\u2019s not a joke about it being a time loop)"
+      },
+      {
+        "title": "Whistler",
+        "author": "Ann Patchett",
+        "rating": 4,
+        "read_at": "Fri, 3 Jul 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
+        "link": "https://www.goodreads.com/review/show/8747238533?utm_medium=api&utm_source=rss",
+        "review": "3.5 rounded up to 4 because Goodreads is brave and doesn\u2019t allow half stars.<br /><br />Ann Patchett\u2019s books are so consistently enjoyable. Upscale beach reads (complimentary)."
+      },
+      {
         "title": "The Making of the Atomic Bomb",
         "author": "Richard Rhodes",
         "rating": 5,
@@ -5440,6 +5458,24 @@
     ],
     "recent_reviews": [
       {
+        "title": "On the Calculation of Volume I",
+        "author": "Solvej Balle",
+        "rating": 3,
+        "read_at": "Sun, 5 Jul 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
+        "link": "https://www.goodreads.com/review/show/8580331580?utm_medium=api&utm_source=rss",
+        "review": "Time loops are my favorite trope, but I\u2019m starting to think that they work better in movies than books. This got kind of repetitive (this is serious, it\u2019s not a joke about it being a time loop)"
+      },
+      {
+        "title": "Whistler",
+        "author": "Ann Patchett",
+        "rating": 4,
+        "read_at": "Fri, 3 Jul 2026 00:00:00 +0000",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
+        "link": "https://www.goodreads.com/review/show/8747238533?utm_medium=api&utm_source=rss",
+        "review": "3.5 rounded up to 4 because Goodreads is brave and doesn\u2019t allow half stars.<br /><br />Ann Patchett\u2019s books are so consistently enjoyable. Upscale beach reads (complimentary)."
+      },
+      {
         "title": "The Making of the Atomic Bomb",
         "author": "Richard Rhodes",
         "rating": 5,
@@ -5492,36 +5528,106 @@
         "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
         "link": "https://www.goodreads.com/review/show/8112761322?utm_medium=api&utm_source=rss",
         "review": "With recent Saunders (this and Liberation Day) I found myself craving more of the intense novelty that permeates his earlier collections. This book shares the same conceit as Lincoln in the Bardo, which is a great conceit for exploring themes on morality and humanity, but loses some of the freshness of reading about a limbo-world for the first time.<br /><br />That being said, this book still delivers all the good Saunders-stuff that has him as my favorite contemporary author. He portrays his characters with a blunt sincerity that truly <b>understands</b> them without judgement.<br /><br />Recency bias, but I found myself thinking about Joachim Trier and how his movies are filled with real, three-dimensional people instead of archetypes of good and bad. Same with Saunders (except sometimes the real people are ghosts \ud83e\udd37\u200d\u2642\ufe0f)"
-      },
-      {
-        "title": "The Correspondent",
-        "author": "Virginia      Evans",
-        "rating": 4,
-        "read_at": "Fri, 6 Feb 2026 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1735235942l/223001257.jpg",
-        "link": "https://www.goodreads.com/review/show/8315115350?utm_medium=api&utm_source=rss",
-        "review": "Easy reading, creative structure, well-wrought main character, funny at points, sad at points, what is not to like here??"
-      },
-      {
-        "title": "Slouching Towards Bethlehem",
-        "author": "Joan Didion",
-        "rating": 4,
-        "read_at": "Thu, 29 Jan 2026 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1611927558l/424.jpg",
-        "link": "https://www.goodreads.com/review/show/8046032162?utm_medium=api&utm_source=rss",
-        "review": "Candidly, I struggle with collections of essays (which is surprising because I love collections of short stories). Not doing myself any favors by reading this late at night, I would sometimes catch my eyes just scanning the words. <b>However</b>, for the essays that caught me, and there were quite a few, I was loving the prose and structure. In particular, \"On Keeping a Notebook\" and \"Goodbye to All That\" resonated deeply and personally (having kept a journal for years, and having had a dreamlike 6 months of living in nyc in my early twenties)."
       }
     ],
     "profile_url": "https://www.goodreads.com/user/show/44763252-noah-eisen",
     "stats": {
-      "total_ratings": 287,
-      "average_rating": 4.17,
-      "total_reviews": 129,
-      "books_this_year": 10
+      "total_ratings": 289,
+      "average_rating": 4.16,
+      "total_reviews": 131,
+      "books_this_year": 12
     }
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 19212666340,
+        "name": "Norway Day 4: Spiterstulen -> Leirvassbu",
+        "type": "Run",
+        "distance": 9.65,
+        "moving_time": 13536,
+        "elapsed_time": 14152,
+        "elevation_gain": 1486.0,
+        "average_pace": 23.38,
+        "average_heartrate": 90.6,
+        "max_heartrate": 147.0,
+        "average_cadence": 60.3,
+        "average_watts": 81.8,
+        "start_date": "2026-07-07T06:47:09Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19212666340",
+          "summary_polyline": "iacwJonhr@IABu@YQA\\Ka@LV`@WxDfCvFpAtBnB\\C`BtAjAn@f@IjA~@r@nAbGnBn@EhClCbBb@j@z@j@Nd@n@lACbBrCbAj@h@EVh@bDP`CnAZh@dA^^[h@JrAz@bE_@n@Jz@t@jB]z@v@lDpAtFhArD?`@m@bFaBhD\\~C_AhAd@dFFl@Xd@d@@`@|AxAbANPr@jBFb@\\z@Yv@^fAi@jAJtBmBTy@vA?d@k@|B}AxDApB|AZCRb@^Uv@^Xi@fBs@bE}BhAkAz@KbAf@xC]vCqAtAuBz@cC~Aq@hA`@h@p@bCQfBoAnCK~TfG|Ae@tB\\lAhAXnAf@l@dCxBj@H|@fAv@Ex@l@xBhAf@G`AzAbBfALd@fBfB|@tBVxAd@nAh@n@`@nBvAhE~AtA`B\\xBvAXlAl@Tf@|AfAbBfAn@~AhDlAhGHjAx@|@?`AZz@TG^fBVtE~@dDl@|CZ~Bn@xAN|Dx@`FHhC\\hCbAfC`@rB|@~@P|AIvA~@xBRdBp@vAl@vCv@dGBdCjAbEb@jCrAvDVpCXv@BfAdAtCDx@PIPv@f@lKh@dAzAzFFrAVh@XdCh@nA`@pCNHLn@Z\\`@vAVPz@~B|@bEHlAx@tCVtBn@~AhBhCj@^j@zAbA\\z@~@Xr@l@bCF~@|BvE`@xBtAvDp@|@TdAXn@^Nf@tAt@fAjBtAvAbD^dBZ^z@pD`@RfA`Db@n@ZzA|@jA^Fl@xBvAlBj@rBd@b@l@lBjC|DLx@RLbAbEOdANdAz@hBWnDhC`VCf@z@dDd@b@zA`Fx@xERjC`@U?t@p@pAZzAlAzDRFt@lCxAhKh@pMN`KVjBT|GF|JUxE?dKNt@b@FHnAGnAYv@FbC_@|BEx@ExBJRa@xBJEIxFBrBXtEPj@AzDV`ED~LObHPdFk@pK]xDsAzDe@d@i@fEg@h@Op@g@dEo@xKONJjCWxBAfGLjAPfJVjC?pC\\jCFtFl@|CZjD~@|DPrCMtBIpG@lDTj@CdC_@xDBv@k@xAeBxLo@jAwBvL?t@}@rIi@bBOzE]vAGxAWvAWVBn@Y`@Mx@]vIWxAMbFc@zEUzIFj@]zDRbBf@`ATnBXt@n@d@pAjChEfF\\dBn@xAvAhC^Xx@lCZpB`AlCr@Bz@y@",
+          "resource_state": 2
+        }
+      },
+      {
+        "id": 19201644529,
+        "name": "Norway Day 3: Glitterheim -> Spiterstulen",
+        "type": "Hike",
+        "distance": 10.26,
+        "moving_time": 18677,
+        "elapsed_time": 23996,
+        "elevation_gain": 3717.0,
+        "average_pace": 30.34,
+        "average_heartrate": 85.0,
+        "max_heartrate": 129.0,
+        "average_cadence": 53.5,
+        "average_watts": 42.5,
+        "start_date": "2026-07-06T07:17:34Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201644529",
+          "summary_polyline": "stbwJe`us@P~@eAhHg@xDWzGk@bADl@q@f@Iv@E|KWfCq@xD_AbBGfAyAbFm@lE}AfGsA|@gAHYg@e@E}@yAo@IMi@oBIw@R[i@o@Ym@AiAp@YUmAfBQKOv@c@Do@hB]HiAtA]z@uBt@{@B}AjBcB|@yA@yAfBwAl@sA~BSz@w@~@YdAcBdBiBbG}AdAWdBk@bASfAmA|@mBfFeAdBKbAg@j@Ed@_@A{@t@oA~BaBDS`Bk@TcArA_AtDQ|Aa@|@aAn@yB?}@Vg@^cAfBm@vBq@dA}@n@OfBk@v@eAAOr@}@~B[NAf@gClCy@nEOxCg@|DoBxEO~BeAlF_AdBi@Xk@lFYP]|Am@lHwAnBW`Bo@~@U|@{@bAeAt@i@tB_AzAQbBm@rACjFYl@IfBJzEm@`Ce@`@a@bCc@t@SnDVlH|@xGIbDRpBdApEfAdK\\xEz@dQIrA[FGt@MbGUdBOpFHhNUdPu@jHw@pEt@xDBhKnBfDt@bDInMN|B[`DJ`DMbKQzBHlCGnFu@tMEtEWlBYbENbGZ`AMlA\\pFEhCVjBHtGXvA@rB\\fAArBV`CBhIVnCPXBhAn@vADf@_@hERbGj@tAh@rFh@|@EbHh@xBEtBX|@DbB\\d@H~DlB~L?bA^vA@`@YVHn@GpC_AN^nAG~@r@rEx@RJ`@A|BTj@LvDVz@Mj@Rd@A|CTxB@xA[xBPj@EpB|@~Et@hB`@tBpAnPFnFSfBEfDH|F`AjIK`Lr@jHdA~@j@`Bf@xBx@rHZZvBlGHzAfA~DX|DQnBhCpJ\\nCzA|Fp@~HfAlGH`BvBjKb@bFN|GtDrMF`Dt@fDTXHlAUtA]Zg@S_At@q@tAs@h@oAzCOdIq@`GH`AOjDm@dBe@tCq@dNk@zCAbFWzA[nHVlANnC@zF]nBLbJWhFT`HO`AL|Cs@bEY~INz@ErC]bCKvGTdBIx@HrBTbAL~C`@lAR~BdBxIrDrJ@h@VLbAvA\\rAt@\\t@lArBnEJ~@TN@`@hAhCt@ZxAdCnDtD\\B|@hATdAhArCr@f@bAjCZjAb@D~@|@h@`ALhBx@rBDbBf@xAKdD`@j@HxAf@z@Cv@b@`CMbCLHEh@L|@BjG[zAVhCO^bAlH`@|AJfChD|DvKxMhCtD|CtC~DtF|DtDnGlBp@K",
+          "resource_state": 2
+        }
+      },
+      {
+        "id": 19201803044,
+        "name": "Norway Day 2: Memurubu -> Glitterheim",
+        "type": "Run",
+        "distance": 12.54,
+        "moving_time": 15935,
+        "elapsed_time": 21164,
+        "elevation_gain": 3363.0,
+        "average_pace": 21.19,
+        "average_heartrate": 94.4,
+        "max_heartrate": 161.0,
+        "average_cadence": 54.8,
+        "average_watts": 65.4,
+        "start_date": "2026-07-05T06:52:04Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201803044",
+          "summary_polyline": "e{hvJonts@Lt@GdGYIW}AQIFxCm@MqAbA_A_@{AdDMl@k@@u@zAc@RC`@uA|@aDc@]r@Yi@u@n@_BCwBvESv@sCrCkA{CD}@c@gA_@k@[IWf@SMk@gCBgAe@KYgBNmAEsEe@eIBiDZ_DA{DwAqKCyFc@c@s@cCqCkMg@cAuB[e@SYeAJy@QmAk@m@}AYk@x@]EUvBu@WWFMv@o@FMz@iBWc@iAqCcCsAwBkGwWyA_BwAiDqAKoCw@{@y@}BdAkEMeB{Ay@HqAkAeI}DgBaE}FcHcByDeAyAsE}EgFgDo@X}G_F}AGyBiCcAM}DaCaBQs@s@oCCgDx@eC~BsATwBfCcBnHi@pEs@lKWpKWtB_AxCoCrAoDUoApA]@qB|Di@Ne@cA}@}Fu@}@gAuCSmBc@m@uBm@cAVk@oAgEcBgFqAuBkCkAOeCsDuDgA}AiD{AwA_AO_BcDcFeB_B_EiDgGqBoMk@MUiBy@kCkCkCKm@wBkCaA}B{@g@y@\\q@s@_Er@aC_Dq@c@uAg@gHuKeDeHkCuBaDaIw@D]e@cAhAu@Jm@jA}@PcCm@oDgCUb@u@q@aAeB{@yBaBmGWWq@qEcCcDiCmEuA}E}CgFwAmGsEmGmAyBcBgEGgAeBsDY}CiAaGW}EELOEy@mDcAoBRDgAKgA_D[vAm@VYr@MzBoCtKi@h@gAxCwA|@iBrC{AjGg@\\gBrEeCj@cBeAQv@w@nLwAlHkCvIsAfJgB~BuB~@gAhB{AlAi@xAo@i@}DRi@w@w@DkAlAsGmA}BZyDrBuMfBwA~CaB~@gAhBs@lCmCdEeDpCoC|EmAt@aCpDqD`AaAk@eFc@aA}@c@Ri@iAaEgA{@{AkBaAkAqCeBoAa@eA{Ca@}BgC}Ac@{FjAU`B{A~Cc@fBEbBw@tC}@lCwAxAgANWh@Ck@STaDxG]~@O~A]VGh@cBfDUzAeAvAMt@oB`A[`AwBlCYUs@j@e@bAa@jCg@l@o@~Dy@`A[pBSDqApDK`AaBnBk@hB{AhBgCpHcAfGoArBFXu@bBK`AoBtC_AFyFtLsBnDqBHuD{@uAu@qC_C{ABk@m@My@}@QaCiBw@Z}@s@aBZm@eAcDHu@[eA}AkDGgBqAoBQmAcAiBPi@[]}@cIfAJGaBcAoBvBiBf@JAo@pBWfCcDbHSxBDxBYbCf@hKa@`ELxAQhBz@~DX~DOlJVnCIzGVv@",
+          "resource_state": 2
+        }
+      },
+      {
+        "id": 19201930488,
+        "name": "Norway Day 1: Gjendesheim -> Memerubu",
+        "type": "Run",
+        "distance": 9.06,
+        "moving_time": 18304,
+        "elapsed_time": 18787,
+        "elevation_gain": 3648.0,
+        "average_pace": 33.7,
+        "average_heartrate": 100.0,
+        "max_heartrate": 154.0,
+        "average_cadence": 54.0,
+        "average_watts": 88.5,
+        "start_date": "2026-07-04T06:39:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201930488",
+          "summary_polyline": "qtivJqdxt@}@{BuAkAUBmCmCy@MaARsA[_Cx@mAWyA`@kBeB_AEaBFeBy@uBPiCx@i@rAg@j@u@Ow@nA{@i@oApC_@dBAfCYbCUj@LdHn@nFOp@E~CaAQA|Ae@~@w@?s@rAsALOrA[i@_A|@qBi@_@mABu@SaAQfD]dASjC]KOqAs@e@OBIl@e@a@SLK\\}@e@RLRtAK|He@x@GbA{@f@Fh@s@zHCvEOb@JlAMIAZYAM^[pEe@Jg@fAa@lB^qAi@|Ae@m@Sh@b@dCVvBAj@`@tAD~Bh@|AFbAQzETd@JxBb@fBHdMWlFZlCCxAZdDIrA^tJjCfT~@zCdAjB`AxH?hAF\\REORKtCHfH^lCjA|DE|Hm@nGw@rSk@|E_@tGXxAnAvOj@|JV`Br@zKMtAt@pEBzBx@`Gk@hIKxIZlATdJn@`EN~Df@nClA^s@ESv@Nl@BvCh@vEh@hC\\~CTtDn@vBBb@ML^XZvBVNz@xD?b@a@e@MlBB`BMn@RrCc@fH?nCQfAT~@FxC^`D\\p@\\fD[Sb@pBPHKd@p@~BAt@d@dAHpA~BtKJpFTf@HlDb@fDKr@@bDLdDVvCQt@JhCd@pCMj@Vp@GdAo@nBMrA@hAN`@UrCc@rCc@t@JEEfAm@XLdDeAzFQNK`CSVe@lEAvAk@zCBhBYtABbASpDeAhEi@vAKpADhAMj@^vALDH|ATrBVL?`Az@hEKfE_@jC?lKo@`EBdBSzABlBPHQDEp@FbAW~J@hHMxALdA?hFf@~D@tCmAtDCdBg@xDHnA_@bBJdAvAfEb@jDt@l@xCzEn@vDVzFt@vAh@`DXdNRhBCdNe@j@Cp@p@pELdBGj@t@pAGzAa@~@AvBWnAB|B^jDt@tAf@~BrAjDLdBt@xAd@lCl@d@@dAb@`BTrI}@jH]|ACv@RbAu@vLTnEZfBx@fB~AvFDpE\\|AWtAJv@O^Br@T`@QdFBxA`@~FMfC@bETtEAlGJ`C|@lEN`BFnD]bCOtBE`EhBrOCbFWhCMbGl@rEG~BPlBQlAXxAb@LC|@l@pCbAa@Hj@TFf@rAKp@LFRtARBRz@TBn@sAhAo@ZkARIDq@v@iAZkA`CGXIDY\\b@Nk@dDZ\\k@x@QDa@f@WBa@p@u@b@@Ru@rA_DdA`@bAeAz@FC{Bv@?HoA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19138663126,
         "name": "Norway Shakeout",
@@ -7633,94 +7739,6 @@
           "summary_polyline": "uyrvFhmliTDCh@AnCg@n@Dx@Tb@Ab@KTQb@a@Va@Q^i@f@WNi@Pi@@SMUGeAGo@NeAPU@UAEH@BHB\\?^Lx@n@RR`@jAPX@ADc@XYTOh@MZO`@AdA[TCH@Rd@Ff@Er@Dr@Jf@?f@Hp@Cr@FND^NVHnAHRDZLNNVF?RQHED@\\Tb@d@dA`@l@^^o@LGLEn@@f@HPEp@@d@ETBRHj@Gh@JbA@zBq@`@If@SNC~@e@J?RFP@\\ITDRL^LNPHVHPHFVDFDJBNAXEXA`@GRAHMDWFGJC|Aj@jB~@rC`A`@Bv@M|@Pb@^JV@RANKp@Kd@Gl@AXB`@Jl@Pd@Xj@FTAv@Q`FSxAKfAS~@K`@e@dA[l@QxA?d@Eb@@LN^@HATQXI^OXIVKJAH@LLRBJFFd@LRCFF@\\Lh@ATMh@D`@?Ns@rAQTc@xASV_@NU`@GTEFa@RWDKHCJ@lBDbDE`@Sx@EZAbAKnAAjBW|@Gl@BRP^V|@Hp@?ZIr@CnCALEL_@`@MT]`ACNFv@Nj@BTEjEQ`BEzCGlAe@|EANHj@AdAP~A?v@GpA?VE~ASzAKrBMhAGnBEZEHq@j@MPa@pAO~@IXq@hAo@`BSVOHU?o@QKGW]EaAB]A_@Q{A@w@C]Fw@CcA@_ACs@?cARqBHuDGaGCq@F}@?s@IeD@c@FoAl@kAL_@ViABYCo@u@kBYoCFeBVcARoALyAOkBKWYWK[Ms@Eo@F_AJ_@Xu@PeA^k@F_@Ai@MkAUw@E[?UFaAEi@OgABwAAaAAg@G]Cc@@gAAM@]Lo@FyAMaAOuBAq@PwAXcAJq@L}DNkBDmA?a@C_@IQ_@g@]_AQS]Uc@Iw@Ye@GeA[s@Ii@So@QcBWe@CW?aAFe@@KA_AWO?a@NiBB]Go@[WIq@c@SUa@o@k@y@US[Ou@E_@SQUQ_@SsAOi@AK?q@EK?_@LsBCiC@kBC_@E_@Uq@c@}@[y@OSq@i@[Mi@C]@",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17546633929,
-        "name": "Ski weather or running weather \ud83e\udd14",
-        "type": "Run",
-        "distance": 3.02,
-        "moving_time": 1637,
-        "elapsed_time": 1643,
-        "elevation_gain": 157.0,
-        "average_pace": 9.03,
-        "average_heartrate": 138.1,
-        "max_heartrate": 155.0,
-        "average_cadence": 87.4,
-        "average_watts": 310.2,
-        "start_date": "2026-02-27T23:07:05Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17546633929",
-          "summary_polyline": "ymawFl}mgTHCFITeCV}AT}@Xy@|@cDTm@dAqA`B}Al@s@n@m@JOd@c@d@i@f@g@~AiBT[tCmHl@qAn@_Ab@g@`@k@d@]XCl@OjBGTD\\?r@Dh@HHAJGRs@FwAAy@Og@o@k@YIWS_@EaDC]@_BAeDBiCKaCAKCSK{@@]IKA}@D_AQa@US_@mAgA_AeA[QeAKMGIQC[Ko@U]MKQ@YKWCiBC}BKSESKQMIQO_@a@aBSg@MOa@]OGOC[CU@c@FcA@eBJ_@H]NSN[JWBq@E[@[LeBb@]LmAP_@JUHQJKLI`AIV]b@u@n@MPOh@Gl@@XHLJDN?b@Gx@A`@Gn@Wf@IvA@l@C~ABhAOh@A^Bl@At@DRAj@LTHbAz@JD\\d@n@n@P\\t@t@n@Tb@Dh@Ph@BLJNjAJb@zAhD\\jAR\\^|@rCnIhAxDRvABfACr@BdBDXHT@TFX?JQb@y@rCQ|@Wn@WrAUrBIvAQpBE`AIr@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17531329422,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2498,
-        "elapsed_time": 2569,
-        "elevation_gain": 243.0,
-        "average_pace": 8.33,
-        "average_heartrate": 148.8,
-        "max_heartrate": 170.0,
-        "average_cadence": 88.5,
-        "average_watts": 325.5,
-        "start_date": "2026-02-26T15:08:09Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17531329422",
-          "summary_polyline": "}ppeFrkhjVDdACl@Lr@BhBH`@?d@BRAVJt@AJSd@?ZRlBVnD@lAGr@@f@Hr@Rn@@\\An@Bv@An@WbBHt@AvBBVLd@Td@PRT~@Jz@Kn@H?HDBJ?VLpC?hC`@|BC~@BnAp@xEC\\Bz@P`CATMf@@v@RnAh@~AJj@?XGz@g@dA?NLfA?LSNAHr@pCb@rBJr@N~AEdBGh@EFOHSB]ASIOMw@aAWg@o@{@c@e@k@MO@SF]R_A~@OTQj@Ox@G~@?v@Df@T`Bb@hCDb@Jj@b@vGPv@JRX\\z@b@^`@Xd@Pj@d@x@J\\JNHBrAWv@@TFH?BARa@J{@Bm@BONIZCFITkBEi@?g@DM|@Gf@@VG`@e@~@aBPSRK^C\\B^F^@jAMv@@JA@AP{@HaATk@RANIDg@b@y@Jg@Ba@Nc@hA{@Vu@D[@gAAS?u@CcA@wAGi@EIY_@OQOKi@GQ?]Dc@VWXK\\Cb@EhD@jCFd@JXJNVTf@PZBj@Q^WZ_@Pi@IsIEWWc@?EBUXk@@o@EaB@c@CS?m@?GGI[?o@D}@LgAL}Cd@OF_@@kATaABm@Yo@ES@c@LS@GEK[?}@Qy@S_CE}@?yACUMg@]oEM_AAw@UoCIsBYmBAc@Is@AU@_AIkA?o@UsCMkCGe@KaBQkACgA?k@Mw@Ao@OwA?aAQiA?[M_C?O[iEe@kJEa@EWFOCUOu@McCOaB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17498179892,
-        "name": "Misty Morning Run",
-        "type": "Run",
-        "distance": 4.76,
-        "moving_time": 2461,
-        "elapsed_time": 2510,
-        "elevation_gain": 157.0,
-        "average_pace": 8.62,
-        "average_heartrate": 137.0,
-        "max_heartrate": 155.0,
-        "average_cadence": 88.4,
-        "average_watts": 310.4,
-        "start_date": "2026-02-23T15:15:51Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17498179892",
-          "summary_polyline": "gqpeFtkhjVDl@B`AJ|@@ZAT?^J|A?\\Fx@?^j@|EFzAUn@@bAEd@@b@\\vBFrBAj@El@Qv@DfAEtAB^Lb@Pb@Zh@Rp@L`AK`@?JBBF@FJVhCBp@CZA|ANt@B^Nh@El@DpBR|ATbAFlBA`@PxAA`@Mx@C`@@VTdAf@zALv@IjAIZUb@CL?VJbA@HB@R?RDRt@HJFBF?PGVA\\IX?bCYf@KD@h@h@HNH~@FJTPT?VHNHBFFz@?f@AlAIrA?`@LlAEPQNEJANBTJ`@^j@Xz@\\x@T~@^h@r@p@PhAf@pATb@A`BH`ANl@Pd@T`@JXPVPb@Bz@GfBDdAZdBV|@JdAXlA`@bCHn@@n@KpAKl@CHYH[?_BJ]Ha@Bo@Pe@XQPm@fAs@lBq@pAm@tAGHi@pCKhAG^EBWOYM}@S]Wa@c@_@q@kAsAuAsBcBoCk@kAWc@UQe@MOOS}@AeC@w@Fg@@m@HcAVqADa@HSf@aCBa@H[NwARiAD}@Lw@FeA\\iDDq@@s@T_BTeCNeCD]FyADc@EkBByBE{@[_Ce@aB[}@Mq@?KLYBSQ{AGQQ]O}@IOWUGa@CS@u@CWEiAEq@K[E[C}ABkAPwA?u@Ga@AWOc@Yi@S{@Gu@@c@Cg@OcAIcALkBK_@c@w@KoBA}@Gg@BmAE]Ok@COMcEJ_AGkAOs@ASQo@Gm@ISS]GSEw@?[Ke@KcAMkCK_AAq@SyAMyCEQIIY@UFEAMI]Gg@J[LYBa@@]CIF_@HQ@w@T]Fm@AQBk@AUH",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 17498176452,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 4.0,
-        "moving_time": 2058,
-        "elapsed_time": 2117,
-        "elevation_gain": 246.0,
-        "average_pace": 8.57,
-        "average_heartrate": 137.9,
-        "max_heartrate": 164.0,
-        "average_cadence": 88.3,
-        "average_watts": 315.4,
-        "start_date": "2026-02-22T16:18:53Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17498176452",
-          "summary_polyline": "uqpeFdlhjVFzA?r@Db@Xx@At@@\\H`@Dz@F`@?dBLdDHdAA^Fv@I`@B~@VdAB^?n@Dz@ApAQnABnACTER@r@BLVl@NX^`AJf@Dj@Ot@Bf@Lh@Zr@BRBv@GtABb@BTHJDp@Lh@Cl@@`@?t@JfAFVZjBBd@Ej@Bl@RdB?NQdAAd@N`Ad@zAPx@@NKfAGRQ^ET?j@Fn@[`@`@pAXl@Nl@Jz@JZTzBDpAKdAKVSH[@U?MIa@i@e@]_@c@_@k@ISOW]WQIc@EMLYf@[VGBQVI?W^Yv@G\\GdA?j@PdBl@tDb@tERlCHf@Rd@PTPPd@T`@ZX^h@dAPNLBJCFIH[PaCDkAN{Br@}HD_A@e@PoAHiA?k@Cm@G[De@?aBIgAOcAu@aDQi@XSAQSy@OcA?MD[Vk@FSD[@k@C_@Yw@[q@Mo@Ao@NgADw@McACgA@WCq@Qu@I}@IUGe@EkB@a@E_@K]Ga@IcAAWDkAAW?}@Eo@Ec@]c@Jw@MeAWs@y@}AG]D}@H[A]EYCU@MJUFm@BeCGsAMm@KeA?MDM@QCY?w@OyASuD?ITKBi@_@wAOa@?cACm@KWAQB}@Ge@@c@Em@",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7790,24 +7808,24 @@
       }
     },
     "most_vert_run": {
-      "id": 9631415342,
-      "name": "Day 3 - Rifugio Fanes to Rifugio Lagazuoi",
+      "id": 19201930488,
+      "name": "Norway Day 1: Gjendesheim -> Memerubu",
       "type": "Run",
-      "distance": 8.35,
-      "moving_time": 10107,
-      "elapsed_time": 13477,
-      "elevation_gain": 3445.0,
-      "average_pace": 20.18,
-      "average_heartrate": 120.2,
-      "max_heartrate": 164.0,
-      "average_cadence": 65.6,
-      "average_watts": null,
-      "start_date": "2023-08-12T06:21:58Z",
+      "distance": 9.06,
+      "moving_time": 18304,
+      "elapsed_time": 18787,
+      "elevation_gain": 3648.0,
+      "average_pace": 33.7,
+      "average_heartrate": 100.0,
+      "max_heartrate": 154.0,
+      "average_cadence": 54.0,
+      "average_watts": 88.5,
+      "start_date": "2026-07-04T06:39:15Z",
       "description": null,
       "commute": false,
       "map": {
-        "id": "a9631415342",
-        "summary_polyline": "c~n{GaqihAl@Fe@aCc@u@Fc@`AAr@Zt@tAVbA^`@NIKiA\\{@TgBOeEHe@n@zAL?zBjFdAf@\\Qw@s@d@n@XFjBeCtDyBnBoCdAs@R[SmAB_ApA_DbBcCz@m@~ASbBeAlCT`AWbADv@i@T_@j@yDp@iCL@QhBNR|BgBvCKBu@d@?xFfCb@r@nA|@|@L`@KbAy@z@aBnBm@j@_@J[x@HrBnBzBd@xAzA`Cr@pAfBzAr@vCh@f@lAhBxBnBvA~AjCXv@`A|A|FnCdEbGtA|@tAhBD|@\\xBbEhMj@bCJnAt@bCVxAlBrB`@zAl@bAnF|BzDHjNrBvObA|Bi@|@C|@jA~@`Ax@yA`@LbAi@~@LZj@b@Lv@WLi@N@DUb@Bj@c@vAkBvCy@fAw@p@_Ab@qAR?Xu@f@]pAQjBeAvAJnAc@r@HjAzDl@VPZTM\\GpAl@zBRxEa@YPfBU`Ad@x@?jAp@`Aa@d@zAVT`BK~Cp@tAIzBb@b@n@`@zAx@t@tBGdA\\r@c@`Eo@`@Sd@{@t@[pAh@f@MpA^|C_@LJEPFILXLGpBjAq@LVNZWLa@]h@M@o@q@f@EEHj@ZT]J}@[nAHHb@u@?Lc@lAp@gAHc@I`@HFHUEx@Wx@K?Jq@^SjBnAPd@_Ao@BUW]P@K\\p@Z|@kCGU@hBPv@JD?r@ZDLO@LOCDNCGTKQf@VLKAAUDLEEvQaCd@f@F[l@Ab@{@XBIc@HEjAd@j@u@`@`@n@O~AgDt@fBnCpAjA_Aj@UVF`CuBhDiAd@?tBmAlAEn@]PJVUxAS|@m@fCe@rANlAm@x@FtAt@Nq@x@{@h@gAz@oAxAcBl@{AFi@xByAjDiAPg@hA}@f@}@Lc@fBSv@i@r@N~Ac@x@`Cx@hAFhATx@lAdAR`@|@Tx@b@d@v@t@NnAo@t@ArAe@`@NRMzCFfAyCVuBf@aAXyA?cANI\\VfAfDPAEl@XSCm@PJj@f@LrAVe@@~@R]@n@`@_AJdANEFg@LBAxBJVHONRJIFrAn@u@Fn@j@m@?nAv@}@WhBTS@lBD[\\_@c@f@D|@Y|C^i@aAlET]I^LBiA^?Ng@H",
+        "id": "a19201930488",
+        "summary_polyline": "qtivJqdxt@}@{BuAkAUBmCmCy@MaARsA[_Cx@mAWyA`@kBeB_AEaBFeBy@uBPiCx@i@rAg@j@u@Ow@nA{@i@oApC_@dBAfCYbCUj@LdHn@nFOp@E~CaAQA|Ae@~@w@?s@rAsALOrA[i@_A|@qBi@_@mABu@SaAQfD]dASjC]KOqAs@e@OBIl@e@a@SLK\\}@e@RLRtAK|He@x@GbA{@f@Fh@s@zHCvEOb@JlAMIAZYAM^[pEe@Jg@fAa@lB^qAi@|Ae@m@Sh@b@dCVvBAj@`@tAD~Bh@|AFbAQzETd@JxBb@fBHdMWlFZlCCxAZdDIrA^tJjCfT~@zCdAjB`AxH?hAF\\REORKtCHfH^lCjA|DE|Hm@nGw@rSk@|E_@tGXxAnAvOj@|JV`Br@zKMtAt@pEBzBx@`Gk@hIKxIZlATdJn@`EN~Df@nClA^s@ESv@Nl@BvCh@vEh@hC\\~CTtDn@vBBb@ML^XZvBVNz@xD?b@a@e@MlBB`BMn@RrCc@fH?nCQfAT~@FxC^`D\\p@\\fD[Sb@pBPHKd@p@~BAt@d@dAHpA~BtKJpFTf@HlDb@fDKr@@bDLdDVvCQt@JhCd@pCMj@Vp@GdAo@nBMrA@hAN`@UrCc@rCc@t@JEEfAm@XLdDeAzFQNK`CSVe@lEAvAk@zCBhBYtABbASpDeAhEi@vAKpADhAMj@^vALDH|ATrBVL?`Az@hEKfE_@jC?lKo@`EBdBSzABlBPHQDEp@FbAW~J@hHMxALdA?hFf@~D@tCmAtDCdBg@xDHnA_@bBJdAvAfEb@jDt@l@xCzEn@vDVzFt@vAh@`DXdNRhBCdNe@j@Cp@p@pELdBGj@t@pAGzAa@~@AvBWnAB|B^jDt@tAf@~BrAjDLdBt@xAd@lCl@d@@dAb@`BTrI}@jH]|ACv@RbAu@vLTnEZfBx@fB~AvFDpE\\|AWtAJv@O^Br@T`@QdFBxA`@~FMfC@bETtEAlGJ`C|@lEN`BFnD]bCOtBE`EhBrOCbFWhCMbGl@rEG~BPlBQlAXxAb@LC|@l@pCbAa@Hj@TFf@rAKp@LFRtARBRz@TBn@sAhAo@ZkARIDq@v@iAZkA`CGXIDY\\b@Nk@dDZ\\k@x@QDa@f@WBa@p@u@b@@Ru@rA_DdA`@bAeAz@FC{Bv@?HoA",
         "resource_state": 2
       }
     },
@@ -7856,6 +7874,72 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 19212666340,
+        "name": "Norway Day 4: Spiterstulen -> Leirvassbu",
+        "type": "Run",
+        "distance": 9.65,
+        "moving_time": 13536,
+        "elapsed_time": 14152,
+        "elevation_gain": 1486.0,
+        "average_pace": 23.38,
+        "average_heartrate": 90.6,
+        "max_heartrate": 147.0,
+        "average_cadence": 60.3,
+        "average_watts": 81.8,
+        "start_date": "2026-07-07T06:47:09Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19212666340",
+          "summary_polyline": "iacwJonhr@IABu@YQA\\Ka@LV`@WxDfCvFpAtBnB\\C`BtAjAn@f@IjA~@r@nAbGnBn@EhClCbBb@j@z@j@Nd@n@lACbBrCbAj@h@EVh@bDP`CnAZh@dA^^[h@JrAz@bE_@n@Jz@t@jB]z@v@lDpAtFhArD?`@m@bFaBhD\\~C_AhAd@dFFl@Xd@d@@`@|AxAbANPr@jBFb@\\z@Yv@^fAi@jAJtBmBTy@vA?d@k@|B}AxDApB|AZCRb@^Uv@^Xi@fBs@bE}BhAkAz@KbAf@xC]vCqAtAuBz@cC~Aq@hA`@h@p@bCQfBoAnCK~TfG|Ae@tB\\lAhAXnAf@l@dCxBj@H|@fAv@Ex@l@xBhAf@G`AzAbBfALd@fBfB|@tBVxAd@nAh@n@`@nBvAhE~AtA`B\\xBvAXlAl@Tf@|AfAbBfAn@~AhDlAhGHjAx@|@?`AZz@TG^fBVtE~@dDl@|CZ~Bn@xAN|Dx@`FHhC\\hCbAfC`@rB|@~@P|AIvA~@xBRdBp@vAl@vCv@dGBdCjAbEb@jCrAvDVpCXv@BfAdAtCDx@PIPv@f@lKh@dAzAzFFrAVh@XdCh@nA`@pCNHLn@Z\\`@vAVPz@~B|@bEHlAx@tCVtBn@~AhBhCj@^j@zAbA\\z@~@Xr@l@bCF~@|BvE`@xBtAvDp@|@TdAXn@^Nf@tAt@fAjBtAvAbD^dBZ^z@pD`@RfA`Db@n@ZzA|@jA^Fl@xBvAlBj@rBd@b@l@lBjC|DLx@RLbAbEOdANdAz@hBWnDhC`VCf@z@dDd@b@zA`Fx@xERjC`@U?t@p@pAZzAlAzDRFt@lCxAhKh@pMN`KVjBT|GF|JUxE?dKNt@b@FHnAGnAYv@FbC_@|BEx@ExBJRa@xBJEIxFBrBXtEPj@AzDV`ED~LObHPdFk@pK]xDsAzDe@d@i@fEg@h@Op@g@dEo@xKONJjCWxBAfGLjAPfJVjC?pC\\jCFtFl@|CZjD~@|DPrCMtBIpG@lDTj@CdC_@xDBv@k@xAeBxLo@jAwBvL?t@}@rIi@bBOzE]vAGxAWvAWVBn@Y`@Mx@]vIWxAMbFc@zEUzIFj@]zDRbBf@`ATnBXt@n@d@pAjChEfF\\dBn@xAvAhC^Xx@lCZpB`AlCr@Bz@y@",
+          "resource_state": 2
+        }
+      },
+      {
+        "id": 19201803044,
+        "name": "Norway Day 2: Memurubu -> Glitterheim",
+        "type": "Run",
+        "distance": 12.54,
+        "moving_time": 15935,
+        "elapsed_time": 21164,
+        "elevation_gain": 3363.0,
+        "average_pace": 21.19,
+        "average_heartrate": 94.4,
+        "max_heartrate": 161.0,
+        "average_cadence": 54.8,
+        "average_watts": 65.4,
+        "start_date": "2026-07-05T06:52:04Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201803044",
+          "summary_polyline": "e{hvJonts@Lt@GdGYIW}AQIFxCm@MqAbA_A_@{AdDMl@k@@u@zAc@RC`@uA|@aDc@]r@Yi@u@n@_BCwBvESv@sCrCkA{CD}@c@gA_@k@[IWf@SMk@gCBgAe@KYgBNmAEsEe@eIBiDZ_DA{DwAqKCyFc@c@s@cCqCkMg@cAuB[e@SYeAJy@QmAk@m@}AYk@x@]EUvBu@WWFMv@o@FMz@iBWc@iAqCcCsAwBkGwWyA_BwAiDqAKoCw@{@y@}BdAkEMeB{Ay@HqAkAeI}DgBaE}FcHcByDeAyAsE}EgFgDo@X}G_F}AGyBiCcAM}DaCaBQs@s@oCCgDx@eC~BsATwBfCcBnHi@pEs@lKWpKWtB_AxCoCrAoDUoApA]@qB|Di@Ne@cA}@}Fu@}@gAuCSmBc@m@uBm@cAVk@oAgEcBgFqAuBkCkAOeCsDuDgA}AiD{AwA_AO_BcDcFeB_B_EiDgGqBoMk@MUiBy@kCkCkCKm@wBkCaA}B{@g@y@\\q@s@_Er@aC_Dq@c@uAg@gHuKeDeHkCuBaDaIw@D]e@cAhAu@Jm@jA}@PcCm@oDgCUb@u@q@aAeB{@yBaBmGWWq@qEcCcDiCmEuA}E}CgFwAmGsEmGmAyBcBgEGgAeBsDY}CiAaGW}EELOEy@mDcAoBRDgAKgA_D[vAm@VYr@MzBoCtKi@h@gAxCwA|@iBrC{AjGg@\\gBrEeCj@cBeAQv@w@nLwAlHkCvIsAfJgB~BuB~@gAhB{AlAi@xAo@i@}DRi@w@w@DkAlAsGmA}BZyDrBuMfBwA~CaB~@gAhBs@lCmCdEeDpCoC|EmAt@aCpDqD`AaAk@eFc@aA}@c@Ri@iAaEgA{@{AkBaAkAqCeBoAa@eA{Ca@}BgC}Ac@{FjAU`B{A~Cc@fBEbBw@tC}@lCwAxAgANWh@Ck@STaDxG]~@O~A]VGh@cBfDUzAeAvAMt@oB`A[`AwBlCYUs@j@e@bAa@jCg@l@o@~Dy@`A[pBSDqApDK`AaBnBk@hB{AhBgCpHcAfGoArBFXu@bBK`AoBtC_AFyFtLsBnDqBHuD{@uAu@qC_C{ABk@m@My@}@QaCiBw@Z}@s@aBZm@eAcDHu@[eA}AkDGgBqAoBQmAcAiBPi@[]}@cIfAJGaBcAoBvBiBf@JAo@pBWfCcDbHSxBDxBYbCf@hKa@`ELxAQhBz@~DX~DOlJVnCIzGVv@",
+          "resource_state": 2
+        }
+      },
+      {
+        "id": 19201930488,
+        "name": "Norway Day 1: Gjendesheim -> Memerubu",
+        "type": "Run",
+        "distance": 9.06,
+        "moving_time": 18304,
+        "elapsed_time": 18787,
+        "elevation_gain": 3648.0,
+        "average_pace": 33.7,
+        "average_heartrate": 100.0,
+        "max_heartrate": 154.0,
+        "average_cadence": 54.0,
+        "average_watts": 88.5,
+        "start_date": "2026-07-04T06:39:15Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201930488",
+          "summary_polyline": "qtivJqdxt@}@{BuAkAUBmCmCy@MaARsA[_Cx@mAWyA`@kBeB_AEaBFeBy@uBPiCx@i@rAg@j@u@Ow@nA{@i@oApC_@dBAfCYbCUj@LdHn@nFOp@E~CaAQA|Ae@~@w@?s@rAsALOrA[i@_A|@qBi@_@mABu@SaAQfD]dASjC]KOqAs@e@OBIl@e@a@SLK\\}@e@RLRtAK|He@x@GbA{@f@Fh@s@zHCvEOb@JlAMIAZYAM^[pEe@Jg@fAa@lB^qAi@|Ae@m@Sh@b@dCVvBAj@`@tAD~Bh@|AFbAQzETd@JxBb@fBHdMWlFZlCCxAZdDIrA^tJjCfT~@zCdAjB`AxH?hAF\\REORKtCHfH^lCjA|DE|Hm@nGw@rSk@|E_@tGXxAnAvOj@|JV`Br@zKMtAt@pEBzBx@`Gk@hIKxIZlATdJn@`EN~Df@nClA^s@ESv@Nl@BvCh@vEh@hC\\~CTtDn@vBBb@ML^XZvBVNz@xD?b@a@e@MlBB`BMn@RrCc@fH?nCQfAT~@FxC^`D\\p@\\fD[Sb@pBPHKd@p@~BAt@d@dAHpA~BtKJpFTf@HlDb@fDKr@@bDLdDVvCQt@JhCd@pCMj@Vp@GdAo@nBMrA@hAN`@UrCc@rCc@t@JEEfAm@XLdDeAzFQNK`CSVe@lEAvAk@zCBhBYtABbASpDeAhEi@vAKpADhAMj@^vALDH|ATrBVL?`Az@hEKfE_@jC?lKo@`EBdBSzABlBPHQDEp@FbAW~J@hHMxALdA?hFf@~D@tCmAtDCdBg@xDHnA_@bBJdAvAfEb@jDt@l@xCzEn@vDVzFt@vAh@`DXdNRhBCdNe@j@Cp@p@pELdBGj@t@pAGzAa@~@AvBWnAB|B^jDt@tAf@~BrAjDLdBt@xAd@lCl@d@@dAb@`BTrI}@jH]|ACv@RbAu@vLTnEZfBx@fB~AvFDpE\\|AWtAJv@O^Br@T`@QdFBxA`@~FMfC@bETtEAlGJ`C|@lEN`BFnD]bCOtBE`EhBrOCbFWhCMbGl@rEG~BPlBQlAXxAb@LC|@l@pCbAa@Hj@TFf@rAKp@LFRtARBRz@TBn@sAhAo@ZkARIDq@v@iAZkA`CGXIDY\\b@Nk@dDZ\\k@x@QDa@f@WBa@p@u@b@@Ru@rA_DdA`@bAeAz@FC{Bv@?HoA",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19138663126,
         "name": "Norway Shakeout",
@@ -7963,72 +8047,6 @@
         "map": {
           "id": "a19062923827",
           "summary_polyline": "mgd|F|expNUhAA`@GHGBQ@WCWLU?_AH}AMgAEOBe@G[@WCCGCK@]I]G{@H}@Ce@WeAAQOu@IiAYg@Sy@QSe@Q[?MEU@i@Ng@@_@Oc@WUi@I]MqBKUQWGCSBi@?UDOROd@GjAB`CEn@_@fA_@d@Yj@URI`@Hh@Af@DLP~BR`ACzA@z@Fd@?b@GlACJMhBIn@Qn@StCUzASzB?RLrAFhALl@TbB@dAGxAB\\Ml@A`@GX[v@GZaArBGb@c@~ASfBEt@Bn@Aj@ITAZB`ADVCnAFbAC`@Az@Il@AjACLWx@IJ_@bBMNGTIPEZW\\ERSd@Y|@Mn@Ix@Qp@AT?j@GVm@~@Mh@Sh@GJONQn@OXETO^e@x@K^k@vAGb@K\\INWRGRQVYr@a@v@[dAMVMd@a@f@Yb@Md@[h@Wn@[`AW\\e@zAIl@Sd@IXSVWf@[`@Kl@@XLVXVVF`BNf@J^@PCNQ`@QHOHa@Bk@J]Jm@N]T[\\SXYt@k@LIx@Ob@WfAkAPMp@ULSNKBG?SSiAUa@Yw@A_@E_@Ai@BUDKZYZOf@i@Vi@Va@La@@O^o@NOJQRMPUZ[n@y@Vc@HGZOZYz@[l@i@n@]XI`@S`@Mx@Cr@BTEZOx@@JAXH|@?j@DhARf@Cf@LFCXQZGR?FKZURWf@Yh@q@h@aBJe@Pc@J]Jq@T_A\\OtAkAd@u@\\e@PEN?j@\\Xd@XJNBBFh@Ox@Gp@Ql@[JKJY`@Wz@wAZ[`@[~Ag@x@Ot@c@PQDKJo@Ty@Ho@N{@RuAFyAEi@Ka@Wk@_@g@I[S[Oe@Ea@Be@BMXe@jA_DD[?UB[EaA?e@Kc@So@Mq@MeBGuAA_@FoACs@F_@Bq@D]Lg@J[BMKoAWeB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 19043580798,
-        "name": "Evening Run",
-        "type": "Run",
-        "distance": 4.43,
-        "moving_time": 2397,
-        "elapsed_time": 2573,
-        "elevation_gain": 240.0,
-        "average_pace": 9.02,
-        "average_heartrate": 123.1,
-        "max_heartrate": 145.0,
-        "average_cadence": 88.1,
-        "average_watts": 310.4,
-        "start_date": "2026-06-24T01:10:41Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a19043580798",
-          "summary_polyline": "erpeFnlhjVRrDPt@?j@Rr@DVBdADz@ET?`@HbA@x@LfB@r@Hd@Gv@Bv@RdAHbA@vBWbBJx@@b@Il@GT?T|@|BJJPp@D~@XvCDrAEvA@XPbBPf@E\\@t@Cv@Fj@Rl@Hv@Ph@?h@Dl@Ch@Ht@J^BZCf@SlATbBf@|ADb@EbAGX]r@AXNrAJZBv@BPz@rCRv@Ff@CdBGvAGVSRYDm@?KAQIWUm@_A_@o@KYW[EMWOYES@MFOPg@VORe@^Yl@YtAAt@Bt@P~@Df@XjBp@lFNjCRvAL^VZd@Zh@TVXLR`@jAR`@DP?\\O`Aa@rBq@~D]|AKr@OrBAl@@BJCBM@cCDg@Ha@NsANg@F]t@iDNw@Fs@JYb@EVIh@ITHVEb@@HBHAFOB_@ZcBd@SFMHmAF[Gw@@MBMLMd@EVOd@@^Oh@s@r@_BFa@Ce@M_@i@u@M[KcAW}@C_@F{@PaARq@Ra@BKKo@]y@De@N[PKt@_AJWEa@c@w@?EG?KCWg@Ke@c@i@WQYDWJGAGOGgB]{C?a@IkB?OIu@A[Ie@Em@?q@CSCu@G_AGe@GuAOcBGoAG[O{CKiAAq@K_AGsA[uC?i@Eu@g@uGGqAOkBCu@EWG{AYeEY{EGk@QuDcAqMGiB",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 19022772878,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 3.72,
-        "moving_time": 2035,
-        "elapsed_time": 2783,
-        "elevation_gain": 167.0,
-        "average_pace": 9.13,
-        "average_heartrate": 118.1,
-        "max_heartrate": 143.0,
-        "average_cadence": 88.7,
-        "average_watts": 293.2,
-        "start_date": "2026-06-22T13:42:38Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a19022772878",
-          "summary_polyline": "sqpeFblhjVBt@H|@fApTdFvqA~@pCPv@\\~BHnCGvAEPi@?e@Ic@W]k@c@c@CGmAwAUOOEIAO?YLKJi@^w@|@Wr@OjAAv@Hp@?^n@bEFr@PpA^`FRpABJV\\bAt@p@p@~@lBFXCd@W`BATg@zCSn@SlA]zBIx@GzBBzAFRD@BKA}AD{BZ{DFg@b@cCPo@h@iDFMFE^Gv@QLAPHX?VFR?HEDKBi@HOPoADCVEHI@KBi@AeADaADQTUPMFA\\@f@J\\Mn@iAj@{ABYEg@Ym@e@s@EQEs@_@qA?SHo@XkAPi@f@mAV_@ROHSFWBo@QyBEYs@_AKEE?GEEK?[KQCOEKSOQUKE_@DMFKAE_@YeEMm@CcBQcAAo@Gm@Kc@?u@COEoAMcBGaBKw@CeAE[EkA[oDCk@MmBQgBAq@i@}I?{@Oy@CaAESMkAOkDMmACq@Gy@CuAO}@?q@QcBKyBE_@?YEYWwD?]QoBEOGwAOoA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 19000807486,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.66,
-        "moving_time": 3805,
-        "elapsed_time": 8236,
-        "elevation_gain": 784.0,
-        "average_pace": 9.52,
-        "average_heartrate": 135.0,
-        "max_heartrate": 178.0,
-        "average_cadence": 87.6,
-        "average_watts": 289.8,
-        "start_date": "2026-06-20T16:18:57Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a19000807486",
-          "summary_polyline": "}lpeFvghjVVjFLjAJpBFn@DzA\\jEJv@?b@LxANvCV~BJrCL~@NpCHn@DL?v@Dn@PjCNhA?b@b@jGFfBd@nFVnEHl@@^Hp@FnAATDv@Lj@@bARlBNlCJd@Ff@LJXFlAS~AMn@SjBSp@C`Fq@j@El@@ZQv@KjA_@NKn@?`AONIfBO~@A\\Qf@KbFk@TFt@Gn@Q~BUD@BZ@r@Cd@Fp@ARLV?ZJPBn@N`@@PPRLf@TRLBHN@JLPNHX^VPKy@OWGSFUEIQIGO?OBATVM]CA?RTZAh@NT@b@Vp@QKEUOQEQ[MKMAIc@QKOaAkBAs@OW?SIUEs@DaAGOJQHf@@l@H~@CZBz@F^FJDTFBXf@Pf@ZNDLNFTf@TZNHBICw@Qg@CSOSCe@NRCMKGEDAJVXAf@h@pBIEQaAWQO?CGa@QWWK[OQEYU_@Es@Q{@GeA@i@Iu@BRLV?b@Fh@ARL^Hr@?ZHVB\\Ll@NPDP`@XFPFFBHATZPHXRFBCAc@Ic@QUG_@YOGKAQBUNL@PK_@GBBJLRJHHx@LZ@JLRNd@KMe@{@g@UGOUOIOUOU_@EWIQCmAW]@OEUA}@Fa@QiABCAO_@Pm@D_APmABa@Nw@Ao@JS?i@Li@Ty@G]Re@?g@RaAGi@@WJ_@Z_AA{@Nu@CSZ?~APfB?^D^G^UXMHKRBJXb@Hn@?nBFfBEdBI`@U\\y@d@SVQn@KfAo@`@ANNp@a@Pe@j@yAOUGmD}HZp@IJNh@j@lAL^APGNCT?f@LhAMn@EHIBo@AcAT[t@i@x@]Zc@BiAMEDQn@El@DtAC|@c@PKLKx@O\\Eh@KL}@C_@KoA\\MCIc@i@aAe@sAa@a@q@Wy@_AQeAG}@Iq@Ai@WwCWcAWqAGsAKm@G_AHwAPaAZu@\\]t@g@f@S`@EXLn@r@|@rAh@l@`@Tl@HXKLWDu@@aAK{Aa@aCsAsEJMJ[@MIo@@MDO`@w@D[@w@Qy@]u@W_B@u@Hg@EeAIy@@qB?OOa@ASUcAIo@C}AEk@BSC_@OSG[?}@Kq@NkBOs@EgB[_CQi@CSi@u@W{@Aw@H]?e@GcABYPi@DqCE_@QsAGy@D{@E_@CmBKcBIo@?]Io@Cc@BKEg@OuAAyAQyAO{C",
           "resource_state": 2
         }
       }
@@ -8213,6 +8231,28 @@
     ],
     "recent_hikes": [
       {
+        "id": 19201644529,
+        "name": "Norway Day 3: Glitterheim -> Spiterstulen",
+        "type": "Hike",
+        "distance": 10.26,
+        "moving_time": 18677,
+        "elapsed_time": 23996,
+        "elevation_gain": 3717.0,
+        "average_pace": 30.34,
+        "average_heartrate": 85.0,
+        "max_heartrate": 129.0,
+        "average_cadence": 53.5,
+        "average_watts": 42.5,
+        "start_date": "2026-07-06T07:17:34Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19201644529",
+          "summary_polyline": "stbwJe`us@P~@eAhHg@xDWzGk@bADl@q@f@Iv@E|KWfCq@xD_AbBGfAyAbFm@lE}AfGsA|@gAHYg@e@E}@yAo@IMi@oBIw@R[i@o@Ym@AiAp@YUmAfBQKOv@c@Do@hB]HiAtA]z@uBt@{@B}AjBcB|@yA@yAfBwAl@sA~BSz@w@~@YdAcBdBiBbG}AdAWdBk@bASfAmA|@mBfFeAdBKbAg@j@Ed@_@A{@t@oA~BaBDS`Bk@TcArA_AtDQ|Aa@|@aAn@yB?}@Vg@^cAfBm@vBq@dA}@n@OfBk@v@eAAOr@}@~B[NAf@gClCy@nEOxCg@|DoBxEO~BeAlF_AdBi@Xk@lFYP]|Am@lHwAnBW`Bo@~@U|@{@bAeAt@i@tB_AzAQbBm@rACjFYl@IfBJzEm@`Ce@`@a@bCc@t@SnDVlH|@xGIbDRpBdApEfAdK\\xEz@dQIrA[FGt@MbGUdBOpFHhNUdPu@jHw@pEt@xDBhKnBfDt@bDInMN|B[`DJ`DMbKQzBHlCGnFu@tMEtEWlBYbENbGZ`AMlA\\pFEhCVjBHtGXvA@rB\\fAArBV`CBhIVnCPXBhAn@vADf@_@hERbGj@tAh@rFh@|@EbHh@xBEtBX|@DbB\\d@H~DlB~L?bA^vA@`@YVHn@GpC_AN^nAG~@r@rEx@RJ`@A|BTj@LvDVz@Mj@Rd@A|CTxB@xA[xBPj@EpB|@~Et@hB`@tBpAnPFnFSfBEfDH|F`AjIK`Lr@jHdA~@j@`Bf@xBx@rHZZvBlGHzAfA~DX|DQnBhCpJ\\nCzA|Fp@~HfAlGH`BvBjKb@bFN|GtDrMF`Dt@fDTXHlAUtA]Zg@S_At@q@tAs@h@oAzCOdIq@`GH`AOjDm@dBe@tCq@dNk@zCAbFWzA[nHVlANnC@zF]nBLbJWhFT`HO`AL|Cs@bEY~INz@ErC]bCKvGTdBIx@HrBTbAL~C`@lAR~BdBxIrDrJ@h@VLbAvA\\rAt@\\t@lArBnEJ~@TN@`@hAhCt@ZxAdCnDtD\\B|@hATdAhArCr@f@bAjCZjAb@D~@|@h@`ALhBx@rBDbBf@xAKdD`@j@HxAf@z@Cv@b@`CMbCLHEh@L|@BjG[zAVhCO^bAlH`@|AJfChD|DvKxMhCtD|CtC~DtF|DtDnGlBp@K",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 16582969825,
         "name": "Turkey Day Stroll w/ the Machatunim",
         "type": "Hike",
@@ -8365,52 +8405,30 @@
           "summary_polyline": "kyhvGnmqsVU@QKW[Wk@aAsA_@AOMiAgBKBEj@EH@TAJFPHdANZT|@Dp@Np@?n@Gb@BpBIj@AXJTJj@JZ\\ZR\\@PZ|@@d@HLAFP\\J\\BRDHHBDJHz@@TDPFTR\\Ln@d@hA@JHJBf@DNPzANz@?b@X^ETJL`@zANV@DGTIHCJ[Aq@o@Q]W[CMg@m@Yu@QSEKWKEY[_@GM@EGCBCCOQ??GMG@CY[@IEGLEG_@OOIWSUc@KOH[GOGUSIQm@\\Bh@WbADVANBNJLNJFJFt@Bx@AVMj@?LIPI|@GT?^ABIAQMOAk@t@]AUUWQUc@u@s@Q]q@w@M[KEAEMBEGSEKHFVSl@@LQrAIJc@HKHALHb@FBRXDTXn@Lp@^j@D\\CXRl@PT?NJf@FPDv@Xv@?NJRB^Vb@h@DFZBj@DXAt@DL?ZGXKLAj@Ul@Il@V|AOj@?HVp@BJWRCV@DKJDRFHTFBD?PO`@_@VGLDF^DTPX@NLLb@Dh@CP@LGHICAp@VAJQXERZLn@N^@`@N|@G`AEH?LJRBNG^BVA^RfA@LAXIPAT@d@Oh@Kl@?HVd@NLHZATBHLDTS?FIDCVAn@Lb@@f@FLRRBL@LKf@DnANd@b@^L`@|@bAXf@HBXSTEf@RDL?BE@KO?MEM?BECDJNLSSB?@F@ACA@AA?sNy`AG]GOFc@?e@FYGQKGMKSAKIEOGe@@MCOKEGI]y@CWM[Gk@M]Q}@Oa@Yg@M[WgBUg@IIIa@@ML]TU`@q@BUMqA?GDCHUZF`@^PVVNLXVTFRJLP^\\Th@n@VPL@JGZ_@R_@`@TVIF@Ng@?e@BQCQJc@?SGw@Mo@@GGSSWAKDW@_@Rc@FuABGTSBQDED?DHDJ?JFH`@L\\C\\RJ@PXLj@B|@AT@RZDHJBPZTLXHFRB\\t@FXFHf@n@b@ZTp@`@ZZJN@HCXVLIDKMe@Cq@OWAm@COFi@FO@[FKBn@f@FRXFj@b@j@p@TFWDaAIYUtDCIL[?e@DEA?ASHk@Aw@Ds@Gc@OKSgA?{@BON_@?QEQ]QSEQUSD}@k@GYKGAGCU@WGUGKGm@i@eA?eAKg@OWK]?WqAOMKKS@UCMBa@Ia@DQEO?a@Mu@?q@K]SYEQNkAFOXMZH",
           "resource_state": 2
         }
-      },
-      {
-        "id": 11435221230,
-        "name": "Tillamoooooooook",
-        "type": "Hike",
-        "distance": 7.87,
-        "moving_time": 11792,
-        "elapsed_time": 13022,
-        "elevation_gain": 2693.0,
-        "average_pace": 24.97,
-        "average_heartrate": 104.6,
-        "max_heartrate": 143.0,
-        "average_cadence": 56.0,
-        "average_watts": null,
-        "start_date": "2024-05-17T18:14:38Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a11435221230",
-          "summary_polyline": "wekuGrwqpVl@zAxB\\^\\Dj@U\\{AX{@d@yB_AIHBTd@^GRHLGQWd@s@OM`@_AOCj@RVSH{AdDBLSRAv@cA~BWjDMf@Md@i@ZCz@KHOjALZSZCrAUP?j@Yr@SbAHXKJ@b@Qj@PDg@zAFA@Nc@n@PHQ`@NhAOTGt@Dl@UAi@v@FpBUbBFl@Un@FAKCEv@Ff@o@|BJbCyAUsBbAEUId@a@Bu@`A{@Nm@d@Yz@]VT~@@x@d@dAi@v@FnAK~@HPMSWJAR@NHAENLHROWTcA[Mk@[r@]DEQ_By@m@}@u@@YSQ@v@^DVTRAZu@LGU_@CS_@iAF_AQ{ABe@T}@Mc@aACy@g@Da@l@Mp@e@j@aAbC]nEFzAHJ?`CqAf@oAtBcAr@a@z@eAbAKXDf@c@z@K~@i@|AyAtBRHxAe@n@_AVAD^{DnHwDf@u@lAHLp@WRP_AdBcAfA|@GhAa@TFER{AfAKXDNbA_@HhBBUME[BCTIKp@u@AvALFKFc@dDEnDiAjKAlCOhAHfA[rAOhBmAhE[l@M`Aa@j@_@xEWhBUf@uAd@aDi@m@UgCuBiC_CmA_@eBaCu@y@gB{EeA_AgBgC{Am@}@@wAnDiAhCwAy@Qm@c@i@KsAfAn@t@{@Yw@CqBOeAlDeDb@O^Hd@g@@_@OI{BBOc@B[bAe@dDW\\[`@FtBmAf@q@r@Q^pAt@fANxCnA~A^`BrBbB|AbBRt@Zt@v@LfAaAdAyEU_CFeBNoAl@{@EwA^kBK]e@a@H]KmBFwA_F{UFo@MsAZ{AOg@^_Bl@m@x@MTYh@kD`@s@^Qf@s@pAY`@]]a@{DXyAz@Ip@c@bAeCP{@h@S?ISBq@Zw@|A{@`@wClA{ADo@DJZc@RsA`A{BtB_B|@KN]j@@m@gAa@mAFY`@[PcAj@eAZsARiAr@aABoAhAaCj@[?wBl@iAVmAx@oAZaAl@w@X{@Z[P}@jA{@|DaF~Aq@TJt@Sp@aCbBiCl@_CdAWfByBvA{@Re@CY~CgA|CJv@_@r@?Ta@n@Kj@NzAa@Rq@j@s@z@Iv@ZnAWl@sCdA_B~@[bAaAxA?TS`BkDr@}@v@qB|@uA`@YjAQfCb@",
-          "resource_state": 2
-        }
       }
     ],
     "stats": {
       "running": {
         "ytd": {
-          "count": 116,
-          "distance": 662.81,
-          "moving_time": 374322,
-          "elapsed_time": 424654,
-          "elevation_gain": 65757.0
+          "count": 119,
+          "distance": 694.05,
+          "moving_time": 422097,
+          "elapsed_time": 478757,
+          "elevation_gain": 74254.0
         },
         "all_time": {
-          "count": 1257,
-          "distance": 6554.26,
-          "moving_time": 3571017,
-          "elapsed_time": 4046334,
-          "elevation_gain": 501322.0
+          "count": 1260,
+          "distance": 6585.5,
+          "moving_time": 3618792,
+          "elapsed_time": 4100437,
+          "elevation_gain": 509819.0
         },
         "recent": {
-          "count": 17,
-          "distance": 95.95,
-          "moving_time": 55306,
-          "elapsed_time": 64553,
-          "elevation_gain": 9337.0
+          "count": 20,
+          "distance": 127.2,
+          "moving_time": 103081,
+          "elapsed_time": 118656,
+          "elevation_gain": 17834.0
         }
       },
       "biking": {

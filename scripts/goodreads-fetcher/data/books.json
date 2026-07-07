@@ -555,7 +555,7 @@
     "isbn": "0679879242",
     "num_pages": null,
     "book_published": "1995",
-    "average_rating": "4.02",
+    "average_rating": "4.03",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505766203l/119322.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505766203l/119322.jpg",
     "guid": "https://www.goodreads.com/review/show/1654363289?utm_medium=api&utm_source=rss"
@@ -2170,7 +2170,7 @@
     "isbn": "1668020793",
     "num_pages": null,
     "book_published": "2023",
-    "average_rating": "3.70",
+    "average_rating": "3.71",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676322697l/101145361.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676322697l/101145361.jpg",
     "guid": "https://www.goodreads.com/review/show/5899741577?utm_medium=api&utm_source=rss"
@@ -2255,7 +2255,7 @@
     "isbn": "006268017X",
     "num_pages": null,
     "book_published": "2016",
-    "average_rating": "3.52",
+    "average_rating": "3.53",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1499980698l/33385444.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1499980698l/33385444.jpg",
     "guid": "https://www.goodreads.com/review/show/5766901055?utm_medium=api&utm_source=rss"
@@ -3536,23 +3536,6 @@
     "guid": "https://www.goodreads.com/review/show/1333885692?utm_medium=api&utm_source=rss"
   },
   {
-    "book_id": "208511270",
-    "title": "On the Calculation of Volume I",
-    "author_name": "Solvej Balle",
-    "user_rating": 0,
-    "user_read_at": null,
-    "user_date_added": "Wed, 06 May 2026 08:41:39 -0700",
-    "user_shelves": "to-read",
-    "user_review": "",
-    "isbn": "0811237257",
-    "num_pages": null,
-    "book_published": "2020",
-    "average_rating": "3.70",
-    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
-    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
-    "guid": "https://www.goodreads.com/review/show/8580331580?utm_medium=api&utm_source=rss"
-  },
-  {
     "book_id": "241126782",
     "title": "Land",
     "author_name": "Maggie O'Farrell",
@@ -3585,6 +3568,40 @@
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "guid": "https://www.goodreads.com/review/show/8732863157?utm_medium=api&utm_source=rss"
+  },
+  {
+    "book_id": "208511270",
+    "title": "On the Calculation of Volume I",
+    "author_name": "Solvej Balle",
+    "user_rating": 3,
+    "user_read_at": "Sun, 5 Jul 2026 00:00:00 +0000",
+    "user_date_added": "Mon, 06 Jul 2026 11:53:50 -0700",
+    "user_shelves": null,
+    "user_review": "Time loops are my favorite trope, but I\u2019m starting to think that they work better in movies than books. This got kind of repetitive (this is serious, it\u2019s not a joke about it being a time loop)",
+    "isbn": "0811237257",
+    "num_pages": null,
+    "book_published": "2020",
+    "average_rating": "3.70",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
+    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270.jpg",
+    "guid": "https://www.goodreads.com/review/show/8580331580?utm_medium=api&utm_source=rss"
+  },
+  {
+    "book_id": "242693052",
+    "title": "Whistler",
+    "author_name": "Ann Patchett",
+    "user_rating": 4,
+    "user_read_at": "Fri, 3 Jul 2026 00:00:00 +0000",
+    "user_date_added": "Mon, 06 Jul 2026 11:49:21 -0700",
+    "user_shelves": null,
+    "user_review": "3.5 rounded up to 4 because Goodreads is brave and doesn\u2019t allow half stars.<br /><br />Ann Patchett\u2019s books are so consistently enjoyable. Upscale beach reads (complimentary).",
+    "isbn": "0063511630",
+    "num_pages": null,
+    "book_published": "2026",
+    "average_rating": "4.44",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
+    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
+    "guid": "https://www.goodreads.com/review/show/8747238533?utm_medium=api&utm_source=rss"
   },
   {
     "book_id": "16884",
@@ -4210,7 +4227,7 @@
     "isbn": "059331817X",
     "num_pages": null,
     "book_published": "2021",
-    "average_rating": "3.71",
+    "average_rating": "3.70",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1603206535l/54120408.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1603206535l/54120408.jpg",
     "guid": "https://www.goodreads.com/review/show/6600609683?utm_medium=api&utm_source=rss"
