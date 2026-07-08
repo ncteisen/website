@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-07T12:31:43.575044",
+  "last_updated": "2026-07-08T11:50:51.927185",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -5541,6 +5541,28 @@
   "strava": {
     "all_activities": [
       {
+        "id": 19216027848,
+        "name": "Norway Day 4 Bonus: Kyrkja",
+        "type": "Hike",
+        "distance": 5.79,
+        "moving_time": 8603,
+        "elapsed_time": 10446,
+        "elevation_gain": 2562.0,
+        "average_pace": 24.77,
+        "average_heartrate": 114.5,
+        "max_heartrate": 168.0,
+        "average_cadence": 61.0,
+        "average_watts": 91.5,
+        "start_date": "2026-07-07T12:21:54Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19216027848",
+          "summary_polyline": "uctvJu|iq@PNn@hBr@hAf@`Bh@d@\\CbEoClAWxCJdA_BfA_@\\_@v@oEh@iBbCkCbBwDlAaAl@SxAlAt@vAl@|CLLP]n@QN]r@gDpAeCb@a@j@GZa@d@Qn@Fr@m@L[xCcA`BkAnCQZa@j@OJUE]DYOm@QMCe@Nw@M_ADiAl@KNm@dAsBVuBj@cAXwBh@sArAeHDo@N[LsAHwDNsAEaCIk@HSZsDKy@C_B[yAFe@j@i@u@uAS}@Ac@ZgAEeCKo@l@{@Ic@Y?[WQk@AcBZGd@u@Kg@UaCFq@UIMk@HwBSsBK}AZSX_BZs@M@Zw@IIBm@[cAD[S[?_AUc@@}AUaCWs@G_AGIEsAPk@A}BVi@BiCZe@AqDS{BKFMc@o@sDi@sBCmAJeBI_CKc@BwBUo@?wAo@cDDmAHOFaAA}A[i@[SQq@M}Ai@u@u@{Cg@a@Q}@[i@@{@IYYYK[QH_@_@Ev@kABQWo@DYgAUa@EZOPE_@KGU?CQSOc@NMSUd@GSYB[s@[ZKe@WQw@\\e@?Yk@i@QMS}@G[i@c@[UCUi@|AvAnA^|@z@l@MHQF@D`@LSj@HJRNp@XKNPv@FFSHFDWDLFOVx@R?F`@NLpBKNm@j@CLURDLTHWFNXLb@xBZd@?nAFl@C~@FPGxARt@Fv@Ir@@dBb@lCXbAr@DNbAJJPbAhAl@N`@RFFbA`A|APvCKzEl@~E^lBI`AP`CDtGHhAOvAFz@MhABhBLjAj@bBMn@JN?^VlAJCDXn@@O@Kd@?l@Q^JNIVHd@MJGfBMj@OzAFR\\BDl@q@bAB^Ud@Gf@STGn@Bl@UtBBPVRApATLKv@Pv@BtBCVMFCfAHl@PNFZIb@Hl@O^BXOPHnAUf@Nd@CZj@HM`@RrBB~Al@hE^rAG`A]z@MdBWjA?f@e@bAa@rByApI}@xBKrAmArAs@bAkANy@rBk@b@q@pA]Tw@IKd@MO?l@[\\KEUd@A|ASdB]|@QfBQZ[FOb@QC_@d@sALS\\o@F_@Xe@jAe@d@Ov@}A`BoABUu@{@qAcAy@c@Kq@\\u@j@gB~DuBrBs@vB_@rCc@xA{Ah@{@vAaDOsA`@wDhCYDk@_@o@mBk@{@]}@QF",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 19212666340,
         "name": "Norway Day 4: Spiterstulen -> Leirvassbu",
         "type": "Run",
@@ -7717,28 +7739,6 @@
           "summary_polyline": "uqpeF`lhjVH`AHZ?`@Lt@El@?f@DJFJDRAJENAX@fBNZHXDf@@lEDVGZ@VF^?^CPBRC\\D\\Lb@BTJnBAbBUfAFxBIx@BLRTr@zAL^Hb@H|AN~A?~ACr@?x@DZNb@D\\Ld@D\\Er@ArABRLr@Nh@Dj@JZ?ZCd@BXA\\Dx@H`@?ZIlA?p@Lt@n@vBH`@ATKz@a@hA?^NlARr@EJCXB^h@xBRxAJlABfAKxA?x@ElACbBw@`JGX_@fFGf@S`COxAMd@Ip@{@fFWdA[lBWpCExAJr@CL?l@B`@BtBJzBGn@@XRxAh@dBb@|@\\h@LLx@tAv@~AHHTLTDx@Dj@KP@VHX@f@_@NAFJCXDV\\XJh@n@hAPb@j@~@l@l@n@d@`@Hh@FxAAJCDKm@Ss@Is@Qq@Yc@a@_@q@c@uAKq@GeAEcAA}BHqAHWJcAPy@LUNq@^{@l@aAJYr@_BHWZq@RQ`@WXKlBWdBKRCLYJi@HcBA]WeBi@oCOaAWmAO_@SoACu@@cAB_@GeAUy@Uc@[{@WWQ_@[YQ]Qk@e@o@IU]]_@{BIWCSBw@Je@@MASGS[k@Ui@M_@Q]KYCg@HQPU@MQkBFyAW}C]i@WKKKCGIe@M]e@k@IEIAk@FI?ECESEqBEm@UkAEyB[yDIqCSeBOoCAcAUeBKuAEaBa@sGAkAKm@OgBKq@EmCGk@IcAE[Es@U{BIgA?m@Gi@?[Ii@IkA?m@OeDGs@Mq@EkAWeDEgAIw@Am@EYa@{F",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17607839215,
-        "name": "SLC \u2764\ufe0f",
-        "type": "Run",
-        "distance": 5.22,
-        "moving_time": 2942,
-        "elapsed_time": 3127,
-        "elevation_gain": 548.0,
-        "average_pace": 9.4,
-        "average_heartrate": 147.9,
-        "max_heartrate": 175.0,
-        "average_cadence": 84.8,
-        "average_watts": 301.3,
-        "start_date": "2026-03-04T23:18:37Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17607839215",
-          "summary_polyline": "uyrvFhmliTDCh@AnCg@n@Dx@Tb@Ab@KTQb@a@Va@Q^i@f@WNi@Pi@@SMUGeAGo@NeAPU@UAEH@BHB\\?^Lx@n@RR`@jAPX@ADc@XYTOh@MZO`@AdA[TCH@Rd@Ff@Er@Dr@Jf@?f@Hp@Cr@FND^NVHnAHRDZLNNVF?RQHED@\\Tb@d@dA`@l@^^o@LGLEn@@f@HPEp@@d@ETBRHj@Gh@JbA@zBq@`@If@SNC~@e@J?RFP@\\ITDRL^LNPHVHPHFVDFDJBNAXEXA`@GRAHMDWFGJC|Aj@jB~@rC`A`@Bv@M|@Pb@^JV@RANKp@Kd@Gl@AXB`@Jl@Pd@Xj@FTAv@Q`FSxAKfAS~@K`@e@dA[l@QxA?d@Eb@@LN^@HATQXI^OXIVKJAH@LLRBJFFd@LRCFF@\\Lh@ATMh@D`@?Ns@rAQTc@xASV_@NU`@GTEFa@RWDKHCJ@lBDbDE`@Sx@EZAbAKnAAjBW|@Gl@BRP^V|@Hp@?ZIr@CnCALEL_@`@MT]`ACNFv@Nj@BTEjEQ`BEzCGlAe@|EANHj@AdAP~A?v@GpA?VE~ASzAKrBMhAGnBEZEHq@j@MPa@pAO~@IXq@hAo@`BSVOHU?o@QKGW]EaAB]A_@Q{A@w@C]Fw@CcA@_ACs@?cARqBHuDGaGCq@F}@?s@IeD@c@FoAl@kAL_@ViABYCo@u@kBYoCFeBVcARoALyAOkBKWYWK[Ms@Eo@F_AJ_@Xu@PeA^k@F_@Ai@MkAUw@E[?UFaAEi@OgABwAAaAAg@G]Cc@@gAAM@]Lo@FyAMaAOuBAq@PwAXcAJq@L}DNkBDmA?a@C_@IQ_@g@]_AQS]Uc@Iw@Ye@GeA[s@Ii@So@QcBWe@CW?aAFe@@KA_AWO?a@NiBB]Go@[WIq@c@SUa@o@k@y@US[Ou@E_@SQUQ_@SsAOi@AK?q@EK?_@LsBCiC@kBC_@E_@Uq@c@}@[y@OSq@i@[Mi@C]@",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -8231,6 +8231,28 @@
     ],
     "recent_hikes": [
       {
+        "id": 19216027848,
+        "name": "Norway Day 4 Bonus: Kyrkja",
+        "type": "Hike",
+        "distance": 5.79,
+        "moving_time": 8603,
+        "elapsed_time": 10446,
+        "elevation_gain": 2562.0,
+        "average_pace": 24.77,
+        "average_heartrate": 114.5,
+        "max_heartrate": 168.0,
+        "average_cadence": 61.0,
+        "average_watts": 91.5,
+        "start_date": "2026-07-07T12:21:54Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19216027848",
+          "summary_polyline": "uctvJu|iq@PNn@hBr@hAf@`Bh@d@\\CbEoClAWxCJdA_BfA_@\\_@v@oEh@iBbCkCbBwDlAaAl@SxAlAt@vAl@|CLLP]n@QN]r@gDpAeCb@a@j@GZa@d@Qn@Fr@m@L[xCcA`BkAnCQZa@j@OJUE]DYOm@QMCe@Nw@M_ADiAl@KNm@dAsBVuBj@cAXwBh@sArAeHDo@N[LsAHwDNsAEaCIk@HSZsDKy@C_B[yAFe@j@i@u@uAS}@Ac@ZgAEeCKo@l@{@Ic@Y?[WQk@AcBZGd@u@Kg@UaCFq@UIMk@HwBSsBK}AZSX_BZs@M@Zw@IIBm@[cAD[S[?_AUc@@}AUaCWs@G_AGIEsAPk@A}BVi@BiCZe@AqDS{BKFMc@o@sDi@sBCmAJeBI_CKc@BwBUo@?wAo@cDDmAHOFaAA}A[i@[SQq@M}Ai@u@u@{Cg@a@Q}@[i@@{@IYYYK[QH_@_@Ev@kABQWo@DYgAUa@EZOPE_@KGU?CQSOc@NMSUd@GSYB[s@[ZKe@WQw@\\e@?Yk@i@QMS}@G[i@c@[UCUi@|AvAnA^|@z@l@MHQF@D`@LSj@HJRNp@XKNPv@FFSHFDWDLFOVx@R?F`@NLpBKNm@j@CLURDLTHWFNXLb@xBZd@?nAFl@C~@FPGxARt@Fv@Ir@@dBb@lCXbAr@DNbAJJPbAhAl@N`@RFFbA`A|APvCKzEl@~E^lBI`AP`CDtGHhAOvAFz@MhABhBLjAj@bBMn@JN?^VlAJCDXn@@O@Kd@?l@Q^JNIVHd@MJGfBMj@OzAFR\\BDl@q@bAB^Ud@Gf@STGn@Bl@UtBBPVRApATLKv@Pv@BtBCVMFCfAHl@PNFZIb@Hl@O^BXOPHnAUf@Nd@CZj@HM`@RrBB~Al@hE^rAG`A]z@MdBWjA?f@e@bAa@rByApI}@xBKrAmArAs@bAkANy@rBk@b@q@pA]Tw@IKd@MO?l@[\\KEUd@A|ASdB]|@QfBQZ[FOb@QC_@d@sALS\\o@F_@Xe@jAe@d@Ov@}A`BoABUu@{@qAcAy@c@Kq@\\u@j@gB~DuBrBs@vB_@rCc@xA{Ah@{@vAaDOsA`@wDhCYDk@_@o@mBk@{@]}@QF",
+          "resource_state": 2
+        }
+      },
+      {
         "id": 19201644529,
         "name": "Norway Day 3: Glitterheim -> Spiterstulen",
         "type": "Hike",
@@ -8383,28 +8405,6 @@
           "summary_polyline": "_}rnG`geiNBF?n@Db@Mv@Cn@O`ABh@EVIv@BVI^?z@AR@VIbABj@DXN^FHLLJBLIBBACBGEEFQd@h@Vn@Xf@BRKj@JZRRFBLNVRDJNFAHBHB?DFEZNZ@JADFNI@?HFJLHBFAH]HUJJJPHPPXb@ABC?ELEz@C?BPC@BACG@C@DCECBD@FVJp@@j@C~@LZBT?n@DZATAbABTDA@GPs@Lj@?RET?BFGDAFJ?FDJDDHGLYDYH@B`@DCL[DCBMFIJa@DACdAKRCX?f@MZCJDTFEHBBRCF@NCr@GZO`@AJBJAKCAB@FCn@q@p@g@l@o@t@g@REJEhAq@h@i@j@q@b@]NOz@a@FIr@GJEl@IZDLANGFMAQCGOCKOMY@CF?@@C@HC?AGAEDAK?@BFA@?CB?ED@A@BCADAA@ACBD@AAD?IhAd@BFB@`@{@JIv@QXS^MX@j@]L?n@Nl@Bz@L^?JCJMFYH}BB]Pq@Tg@~@mB\\k@f@c@LANBJCLMFS`@m@r@q@d@YF@JL@EDB~AHPCVKRQh@YRg@Pq@\\}@Xg@H[LoABGLIVAWJIHKx@Kb@W^Sp@U`@Mh@e@b@]h@_@TM@_@AMFo@IGBGCGK?KFULQZaAZUTUXKBC@GEQDGH?JIEA?MG@IOO@MSJMBIGSIMG@IEEGGEE@CIOAS@OEUUSBOEACF]AYACIEGMAG]k@K[GJG?MI?KKWI@EEAOKc@Uc@C[O[?[EQA_@EOOUGoAEOEOGKQw@g@mAUkBB_@DSJSVW`AsAn@c@H@ZZPBhAh@B@DA@GMA[c@MYOOICGUYQGKMKGME_@IUEEOEK@OD[^a@Zi@PYZQJWB]?ULC?CED_@T{@\\cATa@Lm@FSX_@LGVCHEVYDS?WJW@KQUCMOWi@MMAOW?OBGHE`@ADEAIMGa@]YGWDECCIAQ@GCMWIMKGO[Yc@u@KY?IIAID_@^OBSJ_@Hu@`@w@v@MZS\\KXeApAMKQGc@I[Ai@KKEO[I]BSEMCCK?QFQBIDUf@_@jAcAvCS^EPu@fAk@hAk@x@WV_@Xm@\\kAbA]NIj@Q\\_@d@g@f@]|@}A`BULM?GCQ?o@Q",
           "resource_state": 2
         }
-      },
-      {
-        "id": 11443817863,
-        "name": "Morning Hike",
-        "type": "Hike",
-        "distance": 3.82,
-        "moving_time": 5572,
-        "elapsed_time": 9454,
-        "elevation_gain": 607.0,
-        "average_pace": 24.34,
-        "average_heartrate": 87.1,
-        "max_heartrate": 120.0,
-        "average_cadence": 55.0,
-        "average_watts": null,
-        "start_date": "2024-05-18T17:59:51Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a11443817863",
-          "summary_polyline": "kyhvGnmqsVU@QKW[Wk@aAsA_@AOMiAgBKBEj@EH@TAJFPHdANZT|@Dp@Np@?n@Gb@BpBIj@AXJTJj@JZ\\ZR\\@PZ|@@d@HLAFP\\J\\BRDHHBDJHz@@TDPFTR\\Ln@d@hA@JHJBf@DNPzANz@?b@X^ETJL`@zANV@DGTIHCJ[Aq@o@Q]W[CMg@m@Yu@QSEKWKEY[_@GM@EGCBCCOQ??GMG@CY[@IEGLEG_@OOIWSUc@KOH[GOGUSIQm@\\Bh@WbADVANBNJLNJFJFt@Bx@AVMj@?LIPI|@GT?^ABIAQMOAk@t@]AUUWQUc@u@s@Q]q@w@M[KEAEMBEGSEKHFVSl@@LQrAIJc@HKHALHb@FBRXDTXn@Lp@^j@D\\CXRl@PT?NJf@FPDv@Xv@?NJRB^Vb@h@DFZBj@DXAt@DL?ZGXKLAj@Ul@Il@V|AOj@?HVp@BJWRCV@DKJDRFHTFBD?PO`@_@VGLDF^DTPX@NLLb@Dh@CP@LGHICAp@VAJQXERZLn@N^@`@N|@G`AEH?LJRBNG^BVA^RfA@LAXIPAT@d@Oh@Kl@?HVd@NLHZATBHLDTS?FIDCVAn@Lb@@f@FLRRBL@LKf@DnANd@b@^L`@|@bAXf@HBXSTEf@RDL?BE@KO?MEM?BECDJNLSSB?@F@ACA@AA?sNy`AG]GOFc@?e@FYGQKGMKSAKIEOGe@@MCOKEGI]y@CWM[Gk@M]Q}@Oa@Yg@M[WgBUg@IIIa@@ML]TU`@q@BUMqA?GDCHUZF`@^PVVNLXVTFRJLP^\\Th@n@VPL@JGZ_@R_@`@TVIF@Ng@?e@BQCQJc@?SGw@Mo@@GGSSWAKDW@_@Rc@FuABGTSBQDED?DHDJ?JFH`@L\\C\\RJ@PXLj@B|@AT@RZDHJBPZTLXHFRB\\t@FXFHf@n@b@ZTp@`@ZZJN@HCXVLIDKMe@Cq@OWAm@COFi@FO@[FKBn@f@FRXFj@b@j@p@TFWDaAIYUtDCIL[?e@DEA?ASHk@Aw@Ds@Gc@OKSgA?{@BON_@?QEQ]QSEQUSD}@k@GYKGAGCU@WGUGKGm@i@eA?eAKg@OWK]?WqAOMKKS@UCMBa@Ia@DQEO?a@Mu@?q@K]SYEQNkAFOXMZH",
-          "resource_state": 2
-        }
       }
     ],
     "stats": {
@@ -8424,11 +8424,11 @@
           "elevation_gain": 509819.0
         },
         "recent": {
-          "count": 20,
-          "distance": 127.2,
-          "moving_time": 103081,
-          "elapsed_time": 118656,
-          "elevation_gain": 17834.0
+          "count": 19,
+          "distance": 121.48,
+          "moving_time": 100096,
+          "elapsed_time": 115394,
+          "elevation_gain": 17638.0
         }
       },
       "biking": {
