@@ -1,8 +1,48 @@
 {
-  "last_updated": "2026-07-16T11:45:59.801411",
+  "last_updated": "2026-07-17T11:25:41.038469",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Strangers on a Train",
+        "year": 1951,
+        "rating": 4.0,
+        "watched_date": "2026-07-16",
+        "is_rewatch": false,
+        "review": "<p>Its crazy that I, a self-described \"guy who likes movies\", can see a scene shot in a totally inventive way that I have never seen before in a movie that was made 75 years ago.</p><p>I had thought all of Hitchcock's shots / ideas had so fully suffused into the modern movie milieu that nothing would feel new watching an oldie. Happy to be wrong here.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/7/51307-strangers-on-a-train-0-600-0-900-crop.jpg?v=2d81dafc02",
+        "link": "https://letterboxd.com/ncteisen/film/strangers-on-a-train/"
+      },
+      {
+        "title": "Oppenheimer",
+        "year": 2023,
+        "rating": 4.5,
+        "watched_date": "2026-07-15",
+        "is_rewatch": true,
+        "review": "<p>Fun to re-watch this after reading The Making of the Atomic Bomb but also frustrating because now I knew more parts that I wanted to see explored more deeply (like the Bohr-Heisenberg conversation and the Bohr escape and the heavy water sabotage). I guess there are only so many hours in a day...</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-600-0-900-crop.jpg?v=e3c6e7a32c",
+        "link": "https://letterboxd.com/ncteisen/film/oppenheimer-2023/1/"
+      },
+      {
+        "title": "Nirvanna the Band the Show the Movie",
+        "year": 2025,
+        "rating": 4.5,
+        "watched_date": "2026-07-15",
+        "is_rewatch": false,
+        "review": "<p>Man you can get away with anything in Canada eh</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/0/1/2/1041012-nirvanna-the-band-the-show-the-movie-0-600-0-900-crop.jpg?v=4d80f82f8a",
+        "link": "https://letterboxd.com/ncteisen/film/nirvanna-the-band-the-show-the-movie/"
+      },
+      {
+        "title": "Sir\u0101t",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-07-15",
+        "is_rewatch": false,
+        "review": "<p>Yeesh...</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/7/7/7/1037777-sirat-2025-0-600-0-900-crop.jpg?v=1660cb1f29",
+        "link": "https://letterboxd.com/ncteisen/film/sirat-2025/"
+      },
       {
         "title": "Mamma Mia!",
         "year": 2008,
@@ -3766,6 +3806,46 @@
     ],
     "recent_reviews": [
       {
+        "title": "Strangers on a Train",
+        "year": 1951,
+        "rating": 4.0,
+        "watched_date": "2026-07-16",
+        "is_rewatch": false,
+        "review": "<p>Its crazy that I, a self-described \"guy who likes movies\", can see a scene shot in a totally inventive way that I have never seen before in a movie that was made 75 years ago.</p><p>I had thought all of Hitchcock's shots / ideas had so fully suffused into the modern movie milieu that nothing would feel new watching an oldie. Happy to be wrong here.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/7/51307-strangers-on-a-train-0-600-0-900-crop.jpg?v=2d81dafc02",
+        "link": "https://letterboxd.com/ncteisen/film/strangers-on-a-train/"
+      },
+      {
+        "title": "Oppenheimer",
+        "year": 2023,
+        "rating": 4.5,
+        "watched_date": "2026-07-15",
+        "is_rewatch": true,
+        "review": "<p>Fun to re-watch this after reading The Making of the Atomic Bomb but also frustrating because now I knew more parts that I wanted to see explored more deeply (like the Bohr-Heisenberg conversation and the Bohr escape and the heavy water sabotage). I guess there are only so many hours in a day...</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-600-0-900-crop.jpg?v=e3c6e7a32c",
+        "link": "https://letterboxd.com/ncteisen/film/oppenheimer-2023/1/"
+      },
+      {
+        "title": "Nirvanna the Band the Show the Movie",
+        "year": 2025,
+        "rating": 4.5,
+        "watched_date": "2026-07-15",
+        "is_rewatch": false,
+        "review": "<p>Man you can get away with anything in Canada eh</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/0/1/2/1041012-nirvanna-the-band-the-show-the-movie-0-600-0-900-crop.jpg?v=4d80f82f8a",
+        "link": "https://letterboxd.com/ncteisen/film/nirvanna-the-band-the-show-the-movie/"
+      },
+      {
+        "title": "Sir\u0101t",
+        "year": 2025,
+        "rating": 3.0,
+        "watched_date": "2026-07-15",
+        "is_rewatch": false,
+        "review": "<p>Yeesh...</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/7/7/7/1037777-sirat-2025-0-600-0-900-crop.jpg?v=1660cb1f29",
+        "link": "https://letterboxd.com/ncteisen/film/sirat-2025/"
+      },
+      {
         "title": "Mamma Mia!",
         "year": 2008,
         "rating": 3.5,
@@ -3804,51 +3884,11 @@
         "review": "<p>The recent reporting on my dislike for rom coms has been greatly exaggerated.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
         "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/"
-      },
-      {
-        "title": "A Private Life",
-        "year": 2025,
-        "rating": 3.0,
-        "watched_date": "2026-06-24",
-        "is_rewatch": false,
-        "review": "<p>Jodie Foster is an absolute icon and made this watchable, but it was still deeply flawed. I found it loose and confused, but maybe that just means it\u2019s French?\u00a0</p><p>Unrelatedly, I\u2019m craving a leisurely pasta dinner with two bottles of fancy red wine and three cigarettes for dessert.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/7/3/5/1/4/1173514-a-private-life-2025-0-600-0-900-crop.jpg?v=8f9f393d63",
-        "link": "https://letterboxd.com/ncteisen/film/a-private-life-2025/"
-      },
-      {
-        "title": "Voicemails for Isabelle",
-        "year": 2026,
-        "rating": 0.0,
-        "watched_date": "2026-06-20",
-        "is_rewatch": false,
-        "review": "<p>If you want to know my review for this Netflix rom-com Sarah and Becca made me watch you\u2019re gonna have to ask me in person</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/4/1/9/7/5/541975-voicemails-for-isabelle-0-600-0-900-crop.jpg?v=1a9f45496a",
-        "link": "https://letterboxd.com/ncteisen/film/voicemails-for-isabelle/"
-      },
-      {
-        "title": "Disclosure Day",
-        "year": 2026,
-        "rating": 2.5,
-        "watched_date": "2026-06-14",
-        "is_rewatch": false,
-        "review": "<p>Pretty bad, boring, trope filled, unfocussed, frustrating, etc etc etc, but Emily Blunt was good and that helps.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb",
-        "link": "https://letterboxd.com/ncteisen/film/disclosure-day/"
-      },
-      {
-        "title": "Good Luck, Have Fun, Don't Die",
-        "year": 2025,
-        "rating": 1.5,
-        "watched_date": "2026-06-07",
-        "is_rewatch": false,
-        "review": "<p>Truly terrible, with a couple of redeeming chuckles and visual shock humor.</p><p>Letterboxd reviews almost as brainless as your average Reddit comment thread. How could anyone give this 5 stars??</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48",
-        "link": "https://letterboxd.com/ncteisen/film/good-luck-have-fun-dont-die/"
       }
     ],
     "stats": {
-      "total_films": 376,
-      "films_this_year": 40
+      "total_films": 380,
+      "films_this_year": 44
     }
   },
   "goodreads": {
@@ -5540,6 +5580,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 19337031286,
+        "name": "Back to your regularly scheduled programming",
+        "type": "Run",
+        "distance": 4.59,
+        "moving_time": 2485,
+        "elapsed_time": 2551,
+        "elevation_gain": 210.0,
+        "average_pace": 9.03,
+        "average_heartrate": 137.4,
+        "max_heartrate": 162.0,
+        "average_cadence": 88.7,
+        "average_watts": 297.8,
+        "start_date": "2026-07-16T13:07:12Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19337031286",
+          "summary_polyline": "_qpeFpkhjVB\\AVL\\?XIZ@|@Ef@BFDDBJJrB@NFNDZGN?XR|AAf@FZ?RLnARj@BXAJUVCHBj@ERAZDZGNLd@Lx@CJBl@JXAd@GVIdAGNALARD^KxA@THb@v@hBT|@l@vGFrAGh@?t@JTDh@Pl@?LEj@F|BZnAB`@Jd@Dn@C|@@`@N|AGh@BRCTAp@P~@f@zA?VJVGv@Ml@Yz@AZFbA?BYPJTNn@\\~@l@hCNhB@`@AtAIn@OZGBS?a@E]O_AqAi@i@MUo@w@WOSCI@YPON[HMPa@XIJSf@WxAGbAHtB\\~BRfAZfCRrCNtAPr@TZfA|@\\\\j@vAZj@DVAb@c@lCMd@Gn@K`@QlAe@`CIz@MzB?N@DD@FCBKFeACWDs@JoAXsBz@kEHWDi@Ha@FSBCb@KL?b@I\\?NBPC`@JPIBMC[Ni@J}@HK^KDKCq@He@D}ABKHIPEb@GLKj@BXGl@s@h@eAHWF]Gi@So@c@m@KWGaA[iAA[T}ARq@f@iAx@kAF[BeAKeAOSMYCI@OO_@GWc@sAQQMGWWI?q@FC?EKYsEe@oEKcAAq@Ic@IeAGuASgCWsFKsAAa@YiE[aDCi@BoAOaAMmCOyAA_@Ku@QuDEi@EuAWyCIuBOyA_@wFGe@IqBMwAEqAc@kFCk@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19291012912,
         "name": "Morning Run",
@@ -7717,28 +7779,6 @@
           "summary_polyline": "awpeFrohjVhKl}Av@zAn@bCNjAYP~BxHBnDQdAiBPaDoEm@YoBjAy@tAYnBNnDj@vDI\\gB}AoA_@y~AbFQEk@mBe@q@aDf@gDKy@ZiAfD[hEcA|BiIvFuA~GeEbDq@vAG~BJlAXt@jBvBn@nDrAjCEz@cA`BKtAnA~DRjCtAjD?jFpAnCt@zCSvAmBlAaEfG}@n@kAPo@UyCwCuB_@{EjDgE|AaCN_G{CcFcEwD_AaA?o@Z]|Aa@VeBM}As@kBfBgBXwDSyAaA}CtBsCv@qaBnJca@`CwC~@iD~CiD`LGf@LXjCQ`EhB|C^~@EtAkB~@GXdA?pFnBzCPp@wArCsGJoFdCmEdFC~@x@bDg@rAC~@~@pAPdA_@dAcCrAWf@kAbJjA`@bBlBnEpAXjAClDn@hDdCbAlBxCb@JnDo@~BsAx@G`@ZfAhDhBhAxCRp@vAInAqAzHwB|B_AvDKnAvBjEdC`Cb@zCi@bDv@dCFpA}ArBkArH}EvHSbAFjAjDrKFbHm@tEvArBpAbJMlAeAbCu@dHsCpEe@rCZfDmAzD^f@|ADfBv@~Eb@vCvEVdDb@H`EoBj@FpCzCTzASz@gBt@wAhCkBBcAu@gDgFM{Ga@yA_Aq@qF}@aBRaDfEiA`Cw@Da@a@iCmMJiIQgA_A{@aKmBqAiCOoDl@mMbA_FhBmDdAsDf@eLMyHj@iF`AwDpCiSLyBQiA`@i@CiNYAq@|AoBbC_EzDk@}@_A_EFcE[qBaAmAo@Y}C`@u@u@Ky@Ps@rAmBxByAxAgBd@wAeEkEsCGc@_AEy@~AgHrAaJl@q@E{Ah@eGb@y@nBkA`@cAA{@kAwBl@qCs@mCD_ArEeFlEqBlGOfAy@h@{AUiAgBsCE{F[}@u@IqAbBwAZyC]gEkBcC@Ak@d@}@bCeJ`CcC~DuAf_@{BveAgGx@L|YyBxCk@rDaC`BfAjBHjDSjBeBfDhA|@UZ}AfAg@fDd@dDtBtA`B~GhDhCO|DkAlF{D~AZ~DnDz@ChAi@zDaGpCoBTyAa@sBaBsDOwG}@sBo@uE{@eCAmAlAcCA{@cAsB{@}DcCkDKuBP_Bv@iAlDwCdAuF`@{@|B}@xFaG\\{AJiCfAaDZYxDNrCm@VJ~@hCXRl{A_F|CCfCbBJo@w@mHRaCl@uAzAkAn@Kl@\\vC`En@P`Ae@XkG}BkHUoBwAuEg@yJRoE_AyCG}CWyAFuCq@aBg@aJGiHmAwHR{@pBWTe@}AuT",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17733967114,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 4.08,
-        "moving_time": 2175,
-        "elapsed_time": 2338,
-        "elevation_gain": 190.0,
-        "average_pace": 8.89,
-        "average_heartrate": 135.5,
-        "max_heartrate": 166.0,
-        "average_cadence": 88.0,
-        "average_watts": 301.1,
-        "start_date": "2026-03-15T15:50:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17733967114",
-          "summary_polyline": "{qpeFhlhjV?NBhBCl@JbAD`ADRFPHv@DLDVE|AXzEB|@F|@If@?p@Db@JRHh@D`BA`@DRCr@G\\IZDvAAPM`@?VDb@Zv@Xd@`@hABTAl@DRPlBJv@B`AAF@NE|AJj@Bf@Nt@@RERF`BFn@F^?PLb@Jt@?bADd@@^N|AGn@Mp@?PHp@Jl@Tp@Xj@D^@ZKx@EPO\\GPAR@b@L|@Vz@Kb@?Rt@dDPhAFnAEnAIz@EDUDo@@MESOe@q@s@{@GMk@o@OUGE[GO@YTw@b@q@p@c@hAKl@EdAJfBhA`Hh@vGPz@LTRVz@h@`@`@RXPh@LTPNNBDAHGJOF[d@sEDUXaFd@aFFkATqCGw@Cs@FcAEeAIwAKu@Kc@Ga@_AeCUeAVIFK@MEq@?]DSR_@J]Dk@?UMu@[w@a@iB@e@NsAAc@Kq@@gCE[?GK]YyACkC@a@Gg@KUQ_AEmAFkAIoBK}@IsAQoAUi@US]_AGUAKJmACg@Gc@?YLa@F_@@eDGw@Om@Gq@@YD_@EaBI{@KmBOsBAUDWEo@CO?y@Mm@DOAi@COAQDGXEXW`@KXCd@QRs@_@kF",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7874,6 +7914,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 19337031286,
+        "name": "Back to your regularly scheduled programming",
+        "type": "Run",
+        "distance": 4.59,
+        "moving_time": 2485,
+        "elapsed_time": 2551,
+        "elevation_gain": 210.0,
+        "average_pace": 9.03,
+        "average_heartrate": 137.4,
+        "max_heartrate": 162.0,
+        "average_cadence": 88.7,
+        "average_watts": 297.8,
+        "start_date": "2026-07-16T13:07:12Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19337031286",
+          "summary_polyline": "_qpeFpkhjVB\\AVL\\?XIZ@|@Ef@BFDDBJJrB@NFNDZGN?XR|AAf@FZ?RLnARj@BXAJUVCHBj@ERAZDZGNLd@Lx@CJBl@JXAd@GVIdAGNALARD^KxA@THb@v@hBT|@l@vGFrAGh@?t@JTDh@Pl@?LEj@F|BZnAB`@Jd@Dn@C|@@`@N|AGh@BRCTAp@P~@f@zA?VJVGv@Ml@Yz@AZFbA?BYPJTNn@\\~@l@hCNhB@`@AtAIn@OZGBS?a@E]O_AqAi@i@MUo@w@WOSCI@YPON[HMPa@XIJSf@WxAGbAHtB\\~BRfAZfCRrCNtAPr@TZfA|@\\\\j@vAZj@DVAb@c@lCMd@Gn@K`@QlAe@`CIz@MzB?N@DD@FCBKFeACWDs@JoAXsBz@kEHWDi@Ha@FSBCb@KL?b@I\\?NBPC`@JPIBMC[Ni@J}@HK^KDKCq@He@D}ABKHIPEb@GLKj@BXGl@s@h@eAHWF]Gi@So@c@m@KWGaA[iAA[T}ARq@f@iAx@kAF[BeAKeAOSMYCI@OO_@GWc@sAQQMGWWI?q@FC?EKYsEe@oEKcAAq@Ic@IeAGuASgCWsFKsAAa@YiE[aDCi@BoAOaAMmCOyAA_@Ku@QuDEi@EuAWyCIuBOyA_@wFGe@IqBMwAEqAc@kFCk@",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19291012912,
         "name": "Morning Run",
@@ -8025,28 +8087,6 @@
         "map": {
           "id": "a19201930488",
           "summary_polyline": "qtivJqdxt@}@{BuAkAUBmCmCy@MaARsA[_Cx@mAWyA`@kBeB_AEaBFeBy@uBPiCx@i@rAg@j@u@Ow@nA{@i@oApC_@dBAfCYbCUj@LdHn@nFOp@E~CaAQA|Ae@~@w@?s@rAsALOrA[i@_A|@qBi@_@mABu@SaAQfD]dASjC]KOqAs@e@OBIl@e@a@SLK\\}@e@RLRtAK|He@x@GbA{@f@Fh@s@zHCvEOb@JlAMIAZYAM^[pEe@Jg@fAa@lB^qAi@|Ae@m@Sh@b@dCVvBAj@`@tAD~Bh@|AFbAQzETd@JxBb@fBHdMWlFZlCCxAZdDIrA^tJjCfT~@zCdAjB`AxH?hAF\\REORKtCHfH^lCjA|DE|Hm@nGw@rSk@|E_@tGXxAnAvOj@|JV`Br@zKMtAt@pEBzBx@`Gk@hIKxIZlATdJn@`EN~Df@nClA^s@ESv@Nl@BvCh@vEh@hC\\~CTtDn@vBBb@ML^XZvBVNz@xD?b@a@e@MlBB`BMn@RrCc@fH?nCQfAT~@FxC^`D\\p@\\fD[Sb@pBPHKd@p@~BAt@d@dAHpA~BtKJpFTf@HlDb@fDKr@@bDLdDVvCQt@JhCd@pCMj@Vp@GdAo@nBMrA@hAN`@UrCc@rCc@t@JEEfAm@XLdDeAzFQNK`CSVe@lEAvAk@zCBhBYtABbASpDeAhEi@vAKpADhAMj@^vALDH|ATrBVL?`Az@hEKfE_@jC?lKo@`EBdBSzABlBPHQDEp@FbAW~J@hHMxALdA?hFf@~D@tCmAtDCdBg@xDHnA_@bBJdAvAfEb@jDt@l@xCzEn@vDVzFt@vAh@`DXdNRhBCdNe@j@Cp@p@pELdBGj@t@pAGzAa@~@AvBWnAB|B^jDt@tAf@~BrAjDLdBt@xAd@lCl@d@@dAb@`BTrI}@jH]|ACv@RbAu@vLTnEZfBx@fB~AvFDpE\\|AWtAJv@O^Br@T`@QdFBxA`@~FMfC@bETtEAlGJ`C|@lEN`BFnD]bCOtBE`EhBrOCbFWhCMbGl@rEG~BPlBQlAXxAb@LC|@l@pCbAa@Hj@TFf@rAKp@LFRtARBRz@TBn@sAhAo@ZkARIDq@v@iAZkA`CGXIDY\\b@Nk@dDZ\\k@x@QDa@f@WBa@p@u@b@@Ru@rA_DdA`@bAeAz@FC{Bv@?HoA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 19138663126,
-        "name": "Norway Shakeout",
-        "type": "Run",
-        "distance": 4.28,
-        "moving_time": 2339,
-        "elapsed_time": 2659,
-        "elevation_gain": 203.0,
-        "average_pace": 9.11,
-        "average_heartrate": 126.5,
-        "max_heartrate": 149.0,
-        "average_cadence": 88.6,
-        "average_watts": 290.9,
-        "start_date": "2026-07-01T14:30:31Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a19138663126",
-          "summary_polyline": "qqpeF`lhjVBNAJBXANT~@Dp@G`@FRB`@Bh@C`@^bBELI?KTNvAVfEBxAATGRAf@Fv@T`AHbBAJ@b@Cd@EVILI^?XFx@?RIl@?l@b@dAZh@Z|@T|BHvAHp@ARBXB~@AtABLJL@h@J^@PE^FhACRAd@Jz@HNBZLf@J`A@v@ATLxADTGt@Od@APDb@L\\Nv@Th@JPJp@A`@M|@Un@EP?f@Hf@@PADc@Hz@nCd@pBRrAFrAEzAIh@ONm@?]MWQWa@i@m@KU]c@W_@QSIE[CW@GBYXC?UPM@EHm@d@Qd@S|@Id@C|@J~AT`B`@dBJ~ARzAFtAFZFjALn@JVd@h@~@j@TXR`@Tp@\\l@FPA`@S|@e@dDYxASv@m@~DEl@Ct@@jAB~@FTFDDEDOA{@BcCDaAL}AZwBf@eCf@mCFm@TkA^yDJy@VaETaB\\qEFoB^yEBuAEg@IOIIEKQmBk@wCc@uASg@PEHK@UGm@A_@DSTg@DQFq@@c@Ok@Ys@MQC]Oq@Aa@PmBEe@Ii@C{@@u@?]UuAWmA?{@KmAFa@]kBA[E[B_@@y@Ay@Ge@Ac@Ik@Es@SiBMe@Ys@Y]Oy@LqAA[Kg@?WLo@Fq@?UBMC[?k@AYUiB?q@EUDc@Ck@@aASkCIo@IcBA_AEs@Ak@Qs@Bm@Ec@NMEc@?s@KcB",
           "resource_state": 2
         }
       }
@@ -8410,25 +8450,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 123,
-          "distance": 724.38,
-          "moving_time": 455203,
-          "elapsed_time": 515035,
-          "elevation_gain": 78099.0
+          "count": 124,
+          "distance": 728.96,
+          "moving_time": 457688,
+          "elapsed_time": 517586,
+          "elevation_gain": 78309.0
         },
         "all_time": {
-          "count": 1264,
-          "distance": 6615.82,
-          "moving_time": 3651898,
-          "elapsed_time": 4136715,
-          "elevation_gain": 513664.0
+          "count": 1265,
+          "distance": 6620.41,
+          "moving_time": 3654383,
+          "elapsed_time": 4139266,
+          "elevation_gain": 513874.0
         },
         "recent": {
           "count": 17,
-          "distance": 116.24,
-          "moving_time": 111527,
-          "elapsed_time": 128061,
-          "elevation_gain": 16873.0
+          "distance": 114.41,
+          "moving_time": 110194,
+          "elapsed_time": 126278,
+          "elevation_gain": 16207.0
         }
       },
       "biking": {

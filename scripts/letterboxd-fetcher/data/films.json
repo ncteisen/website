@@ -1,5 +1,53 @@
 [
   {
+    "guid": "letterboxd-review-1399041145",
+    "title": "Strangers on a Train",
+    "year": 1951,
+    "rating": 4.0,
+    "watched_date": "2026-07-16",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/7/51307-strangers-on-a-train-0-600-0-900-crop.jpg?v=2d81dafc02",
+    "review": "<p>Its crazy that I, a self-described \"guy who likes movies\", can see a scene shot in a totally inventive way that I have never seen before in a movie that was made 75 years ago.</p><p>I had thought all of Hitchcock's shots / ideas had so fully suffused into the modern movie milieu that nothing would feel new watching an oldie. Happy to be wrong here.</p>",
+    "link": "https://letterboxd.com/ncteisen/film/strangers-on-a-train/",
+    "pub_date": "Fri, 17 Jul 2026 10:21:50 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1399029863",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "rating": 4.5,
+    "watched_date": "2026-07-15",
+    "is_rewatch": true,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-600-0-900-crop.jpg?v=e3c6e7a32c",
+    "review": "<p>Fun to re-watch this after reading The Making of the Atomic Bomb but also frustrating because now I knew more parts that I wanted to see explored more deeply (like the Bohr-Heisenberg conversation and the Bohr escape and the heavy water sabotage). I guess there are only so many hours in a day...</p>",
+    "link": "https://letterboxd.com/ncteisen/film/oppenheimer-2023/1/",
+    "pub_date": "Fri, 17 Jul 2026 10:13:45 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1399023950",
+    "title": "Nirvanna the Band the Show the Movie",
+    "year": 2025,
+    "rating": 4.5,
+    "watched_date": "2026-07-15",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/0/1/2/1041012-nirvanna-the-band-the-show-the-movie-0-600-0-900-crop.jpg?v=4d80f82f8a",
+    "review": "<p>Man you can get away with anything in Canada eh</p>",
+    "link": "https://letterboxd.com/ncteisen/film/nirvanna-the-band-the-show-the-movie/",
+    "pub_date": "Fri, 17 Jul 2026 10:09:07 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1399004935",
+    "title": "Sir\u0101t",
+    "year": 2025,
+    "rating": 3.0,
+    "watched_date": "2026-07-15",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/7/7/7/1037777-sirat-2025-0-600-0-900-crop.jpg?v=1660cb1f29",
+    "review": "<p>Yeesh...</p>",
+    "link": "https://letterboxd.com/ncteisen/film/sirat-2025/",
+    "pub_date": "Fri, 17 Jul 2026 09:56:44 +1200"
+  },
+  {
     "guid": "letterboxd-review-1377898905",
     "title": "Mamma Mia!",
     "year": 2008,
