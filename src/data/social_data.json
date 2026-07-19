@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-07-18T11:10:23.058505",
+  "last_updated": "2026-07-19T11:14:17.526074",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "The Odyssey",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-07-18",
+        "is_rewatch": false,
+        "review": "<p>Things I liked:<br/>- some great visual representations of the text (Cyclops, Circe's transformations, Scylla, the Trojan horse even though that is mostly from a different text)<br/>- emotional gravity of a couple of the nostos scenes<br/>- loud sounds<br/>- robert \ud83d\ude0d</p><p>Thinks I didn't like:<br/>- completely inventing the Sinon &lt;&gt; Antonius backstory (they're not even from the same story, come on)<br/>- nerfing the Hades scene<br/>- dog deaths</p><p>Thinks I neither liked nor disliked but found interesting<br/>- revisionist re-theming to emphasize guilt over hubris<br/>- downplaying the gods impact on the story</p><p>Thinks I hated:<br/>- \"Our age of bronze is collapsing\" \ud83e\udd2e\ud83e\udd2e\ud83e\udd2e</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+        "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/"
+      },
       {
         "title": "Strangers on a Train",
         "year": 1951,
@@ -3806,6 +3816,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "The Odyssey",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-07-18",
+        "is_rewatch": false,
+        "review": "<p>Things I liked:<br/>- some great visual representations of the text (Cyclops, Circe's transformations, Scylla, the Trojan horse even though that is mostly from a different text)<br/>- emotional gravity of a couple of the nostos scenes<br/>- loud sounds<br/>- robert \ud83d\ude0d</p><p>Thinks I didn't like:<br/>- completely inventing the Sinon &lt;&gt; Antonius backstory (they're not even from the same story, come on)<br/>- nerfing the Hades scene<br/>- dog deaths</p><p>Thinks I neither liked nor disliked but found interesting<br/>- revisionist re-theming to emphasize guilt over hubris<br/>- downplaying the gods impact on the story</p><p>Thinks I hated:<br/>- \"Our age of bronze is collapsing\" \ud83e\udd2e\ud83e\udd2e\ud83e\udd2e</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+        "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/"
+      },
+      {
         "title": "Strangers on a Train",
         "year": 1951,
         "rating": 4.0,
@@ -3874,21 +3894,11 @@
         "review": "<p>We need to the call in the movie scientists to study what makes this the perfect plane flick.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/2/3/8/387238-crazy-rich-asians-0-600-0-900-crop.jpg?v=21695f4b1f",
         "link": "https://letterboxd.com/ncteisen/film/crazy-rich-asians/"
-      },
-      {
-        "title": "When Harry Met Sally...",
-        "year": 1989,
-        "rating": 5.0,
-        "watched_date": "2026-06-28",
-        "is_rewatch": true,
-        "review": "<p>The recent reporting on my dislike for rom coms has been greatly exaggerated.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
-        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/"
       }
     ],
     "stats": {
-      "total_films": 380,
-      "films_this_year": 44
+      "total_films": 381,
+      "films_this_year": 45
     }
   },
   "goodreads": {
@@ -8464,11 +8474,11 @@
           "elevation_gain": 513874.0
         },
         "recent": {
-          "count": 16,
-          "distance": 105.41,
-          "moving_time": 104425,
-          "elapsed_time": 120276,
-          "elevation_gain": 14551.0
+          "count": 15,
+          "distance": 98.75,
+          "moving_time": 100620,
+          "elapsed_time": 112040,
+          "elevation_gain": 13766.0
         }
       },
       "biking": {
