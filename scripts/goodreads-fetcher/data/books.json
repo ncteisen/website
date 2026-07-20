@@ -3564,7 +3564,7 @@
     "isbn": "1035081318",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.36",
+    "average_rating": "4.37",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "guid": "https://www.goodreads.com/review/show/8732863157?utm_medium=api&utm_source=rss"
@@ -4717,7 +4717,7 @@
     "user_date_added": "Mon, 14 Aug 2023 04:39:55 -0700",
     "user_shelves": "shortlist",
     "user_review": "Still a good read, but a little less cohesive than the second book and a lot less cohesive than the first. This most likely will be the end of my journey with this series.",
-    "isbn": "0345539842",
+    "isbn": null,
     "num_pages": null,
     "book_published": "2016",
     "average_rating": "4.55",
