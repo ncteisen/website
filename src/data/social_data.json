@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-07-27T13:15:03.208185",
+  "last_updated": "2026-07-28T12:02:27.750914",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Following",
+        "year": 1998,
+        "rating": 3.0,
+        "watched_date": "2026-07-27",
+        "is_rewatch": false,
+        "review": "<p>16mm to 70mm what a career</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/0/9/3/45093-following-0-600-0-900-crop.jpg?v=27b572a020",
+        "link": "https://letterboxd.com/ncteisen/film/following/"
+      },
       {
         "title": "The Odyssey",
         "year": 2026,
@@ -3816,6 +3826,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Following",
+        "year": 1998,
+        "rating": 3.0,
+        "watched_date": "2026-07-27",
+        "is_rewatch": false,
+        "review": "<p>16mm to 70mm what a career</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/0/9/3/45093-following-0-600-0-900-crop.jpg?v=27b572a020",
+        "link": "https://letterboxd.com/ncteisen/film/following/"
+      },
+      {
         "title": "The Odyssey",
         "year": 2026,
         "rating": 3.5,
@@ -3884,21 +3904,11 @@
         "review": "<p>Felt like it prioritized good\u00a0<i>moments</i>\u00a0over being a good <i>movie, </i>which is a common affliction these days.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-600-0-900-crop.jpg?v=7d02cf3bdc",
         "link": "https://letterboxd.com/ncteisen/film/wuthering-heights-2026/"
-      },
-      {
-        "title": "Crazy Rich Asians",
-        "year": 2018,
-        "rating": 3.0,
-        "watched_date": "2026-06-28",
-        "is_rewatch": true,
-        "review": "<p>We need to the call in the movie scientists to study what makes this the perfect plane flick.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/3/8/7/2/3/8/387238-crazy-rich-asians-0-600-0-900-crop.jpg?v=21695f4b1f",
-        "link": "https://letterboxd.com/ncteisen/film/crazy-rich-asians/"
       }
     ],
     "stats": {
-      "total_films": 381,
-      "films_this_year": 45
+      "total_films": 382,
+      "films_this_year": 46
     }
   },
   "goodreads": {
@@ -8497,11 +8507,11 @@
           "elevation_gain": 1033412.0
         },
         "recent": {
-          "count": 2,
-          "distance": 48.03,
-          "moving_time": 13337,
-          "elapsed_time": 13915,
-          "elevation_gain": 4334.0
+          "count": 1,
+          "distance": 20.58,
+          "moving_time": 5819,
+          "elapsed_time": 5967,
+          "elevation_gain": 1785.0
         }
       },
       "swimming": {
