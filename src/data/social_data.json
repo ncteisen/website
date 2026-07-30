@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-29T12:06:50.534160",
+  "last_updated": "2026-07-30T11:56:37.500798",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -12,6 +12,16 @@
         "review": "<p>16mm to 70mm what a career</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/5/0/9/3/45093-following-0-600-0-900-crop.jpg?v=27b572a020",
         "link": "https://letterboxd.com/ncteisen/film/following/"
+      },
+      {
+        "title": "The Sheep Detectives",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-07-26",
+        "is_rewatch": false,
+        "review": "<p>Good sheep</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/8/3/1/3/5/1183135-the-sheep-detectives-0-600-0-900-crop.jpg?v=c7b622176e",
+        "link": "https://letterboxd.com/ncteisen/film/the-sheep-detectives/"
       },
       {
         "title": "The Odyssey",
@@ -3836,6 +3846,16 @@
         "link": "https://letterboxd.com/ncteisen/film/following/"
       },
       {
+        "title": "The Sheep Detectives",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-07-26",
+        "is_rewatch": false,
+        "review": "<p>Good sheep</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/8/3/1/3/5/1183135-the-sheep-detectives-0-600-0-900-crop.jpg?v=c7b622176e",
+        "link": "https://letterboxd.com/ncteisen/film/the-sheep-detectives/"
+      },
+      {
         "title": "The Odyssey",
         "year": 2026,
         "rating": 3.5,
@@ -3894,21 +3914,11 @@
         "review": "<p>Sarah watched Return of the King while I watched this next to her on the plane. It\u2019s the little things we do to fight gender stereotypes \ud83e\udd2a</p>",
         "image_url": "https://a.ltrbxd.com/resized/sm/upload/10/5l/wu/jl/gOm2iMMbC6EonrFzmSQ8xvCa4Ei.jpg-0-600-0-900-crop.jpg?v=e49de6f770",
         "link": "https://letterboxd.com/ncteisen/film/mamma-mia/"
-      },
-      {
-        "title": "Wuthering Heights",
-        "year": 2026,
-        "rating": 2.5,
-        "watched_date": "2026-07-02",
-        "is_rewatch": false,
-        "review": "<p>Felt like it prioritized good\u00a0<i>moments</i>\u00a0over being a good <i>movie, </i>which is a common affliction these days.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-600-0-900-crop.jpg?v=7d02cf3bdc",
-        "link": "https://letterboxd.com/ncteisen/film/wuthering-heights-2026/"
       }
     ],
     "stats": {
-      "total_films": 382,
-      "films_this_year": 46
+      "total_films": 383,
+      "films_this_year": 47
     }
   },
   "goodreads": {
@@ -8484,11 +8494,11 @@
           "elevation_gain": 514074.0
         },
         "recent": {
-          "count": 10,
-          "distance": 75.5,
-          "moving_time": 88448,
-          "elapsed_time": 98622,
-          "elevation_gain": 12956.0
+          "count": 9,
+          "distance": 71.23,
+          "moving_time": 86109,
+          "elapsed_time": 95963,
+          "elevation_gain": 12753.0
         }
       },
       "biking": {
