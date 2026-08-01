@@ -164,7 +164,7 @@
     "isbn": "0330426648",
     "num_pages": null,
     "book_published": "2002",
-    "average_rating": "4.27",
+    "average_rating": "4.28",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1356138316l/223380.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1356138316l/223380.jpg",
     "guid": "https://www.goodreads.com/review/show/4183773919?utm_medium=api&utm_source=rss"
@@ -1181,7 +1181,7 @@
     "user_date_added": "Tue, 31 May 2016 11:56:11 -0700",
     "user_shelves": null,
     "user_review": "",
-    "isbn": "1400033411",
+    "isbn": null,
     "num_pages": null,
     "book_published": "1987",
     "average_rating": "3.98",
@@ -3734,7 +3734,7 @@
     "isbn": "0525509623",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "3.41",
+    "average_rating": "3.40",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753151765l/238873074.jpg",
     "guid": "https://www.goodreads.com/review/show/8112761322?utm_medium=api&utm_source=rss"
