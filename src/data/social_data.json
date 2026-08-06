@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-08-05T12:04:12.117018",
+  "last_updated": "2026-08-06T12:06:56.801843",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Spider-Man: Brand New Day",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-08-02",
+        "is_rewatch": false,
+        "review": "<p>Very solid edition to the THSCU</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
+        "link": "https://letterboxd.com/ncteisen/film/spider-man-brand-new-day/"
+      },
       {
         "title": "Following",
         "year": 1998,
@@ -3836,6 +3846,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Spider-Man: Brand New Day",
+        "year": 2026,
+        "rating": 3.5,
+        "watched_date": "2026-08-02",
+        "is_rewatch": false,
+        "review": "<p>Very solid edition to the THSCU</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
+        "link": "https://letterboxd.com/ncteisen/film/spider-man-brand-new-day/"
+      },
+      {
         "title": "Following",
         "year": 1998,
         "rating": 3.0,
@@ -3904,21 +3924,11 @@
         "review": "<p>Yeesh...</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/7/7/7/1037777-sirat-2025-0-600-0-900-crop.jpg?v=1660cb1f29",
         "link": "https://letterboxd.com/ncteisen/film/sirat-2025/"
-      },
-      {
-        "title": "Mamma Mia!",
-        "year": 2008,
-        "rating": 3.5,
-        "watched_date": "2026-07-02",
-        "is_rewatch": false,
-        "review": "<p>Sarah watched Return of the King while I watched this next to her on the plane. It\u2019s the little things we do to fight gender stereotypes \ud83e\udd2a</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/10/5l/wu/jl/gOm2iMMbC6EonrFzmSQ8xvCa4Ei.jpg-0-600-0-900-crop.jpg?v=e49de6f770",
-        "link": "https://letterboxd.com/ncteisen/film/mamma-mia/"
       }
     ],
     "stats": {
-      "total_films": 383,
-      "films_this_year": 47
+      "total_films": 384,
+      "films_this_year": 48
     }
   },
   "goodreads": {
@@ -8503,11 +8513,11 @@
           "elevation_gain": 514074.0
         },
         "recent": {
-          "count": 5,
-          "distance": 28.51,
-          "moving_time": 24759,
-          "elapsed_time": 26103,
-          "elevation_gain": 3379.0
+          "count": 4,
+          "distance": 18.03,
+          "moving_time": 9839,
+          "elapsed_time": 10925,
+          "elevation_gain": 584.0
         }
       },
       "biking": {
