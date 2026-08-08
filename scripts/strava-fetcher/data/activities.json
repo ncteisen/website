@@ -156433,5 +156433,73 @@
     "pr_count": 0,
     "total_photo_count": 3,
     "has_kudoed": false
+  },
+  {
+    "resource_state": 2,
+    "athlete": {
+      "id": 33004088,
+      "id_str": "33004088",
+      "resource_state": 1
+    },
+    "name": "What the Hecker",
+    "distance": 5167.2,
+    "moving_time": 3898,
+    "elapsed_time": 4715,
+    "total_elevation_gain": 121.0,
+    "type": "Hike",
+    "sport_type": "Hike",
+    "device_name": "Garmin Forerunner 945 LTE",
+    "id": 19643518813,
+    "id_str": "19643518813",
+    "start_date": "2026-08-07T15:50:50Z",
+    "start_date_local": "2026-08-07T08:50:50Z",
+    "timezone": "(GMT-08:00) America/Los_Angeles",
+    "utc_offset": -25200.0,
+    "location_city": null,
+    "location_state": null,
+    "location_country": null,
+    "achievement_count": 0,
+    "kudos_count": 8,
+    "comment_count": 2,
+    "athlete_count": 4,
+    "photo_count": 0,
+    "map": {
+      "id": "a19643518813",
+      "summary_polyline": "ktmlFbbf{U]SK@_@EIOc@uCCg@GWo@_BY}@i@m@U]cAoAMIk@w@w@oA}@kAAQ{@{@aAq@sAq@sAe@]IKI@KRq@HOl@o@HEf@e@Va@H[D{@DGCGCyAGi@GKFg@Be@A_@B[Li@?Ob@m@RORITQBGzA_Ab@IFEb@@RCBB\\AHBXAn@IdAm@T_@j@_@H?LERD^BVANDN?JDZBb@LlAOH@JCT@^EFDBWFWBGHIBMCKFc@BARc@RILCRDX?XXLBJHV@?DVJj@IRKFSFk@Ha@Ro@Hq@NQ?GDEPe@TKJKXo@HIDOVSFAd@UJ?LJPD@DFCHF`@@JCJBLCV_@HCFIXk@DATYC?d@w@VMNW@G\\]A@CIHGPYFSEKEAEa@IKBGGM@a@I]FWAGCAGMB@ABAWB]JM?QFEF?DED_@DMf@a@ASFEJ]?QE[BQCIHs@CQDKDi@AADO@]AILGEGDSAc@DW@WEM?QDI?GFMACBECEBB?ELI^MJQ@MDI?IDKCGFOLEDFT@d@TBCBBJALNDRHTDBB^DFF@VEXLLIL?^YTCN@h@]HAVBJHHBJBPENUBKZIFO`@Yb@SHAFBJJTf@Nz@Ab@Kb@QJQVAFMLSl@?NIVCZFv@?b@Mj@?HFXKn@?\\CNM\\ELCz@]nBGv@ERKNGZO\\@ROv@C`@Kf@@JEJA\\BTGX?RGfACLMXMlAAl@OtACt@Qh@UXaBhA?REPBN^XThA@\\Af@Fb@Qj@BLAPf@ZT\\HFPXL^Hv@?LFb@A\\Fd@BBDXN\\@XBJHFFTAh@FfA?b@L~@APFX?TANBz@CLCv@@RANBHAd@CRAf@Dt@CF?VDZHRHb@?FEPMNAHSAYJE?c@^UZWL}@Gm@Fa@Z?@EDEJILEb@MTSNaATSBo@@UAwAAcc@rE",
+      "resource_state": 2
+    },
+    "trainer": false,
+    "commute": false,
+    "manual": false,
+    "private": false,
+    "visibility": "followers_only",
+    "flagged": false,
+    "gear_id": null,
+    "start_latlng": [
+      38.905183,
+      -119.96722
+    ],
+    "end_latlng": [
+      38.905129,
+      -119.967164
+    ],
+    "average_speed": 1.326,
+    "max_speed": 2.32,
+    "average_cadence": 56.9,
+    "has_heartrate": true,
+    "average_heartrate": 99.9,
+    "max_heartrate": 147.0,
+    "heartrate_opt_out": false,
+    "display_hide_heartrate_option": true,
+    "elev_high": 2031.2,
+    "elev_low": 1922.8,
+    "upload_id": 20771424949,
+    "upload_id_str": "20771424949",
+    "external_id": "garmin_ping_610038662515",
+    "from_accepted_tag": false,
+    "pr_count": 0,
+    "total_photo_count": 2,
+    "has_kudoed": false,
+    "suffer_score": 10.0
   }
 ]
