@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-13T11:04:24.017023",
+  "last_updated": "2026-08-14T11:02:13.373334",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -4370,7 +4370,7 @@
         "author": "Margaret Atwood",
         "rating": 5,
         "read_at": "Mon, 15 Jan 2024 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578028274l/38447.jpg",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1786676399l/38447.jpg",
         "link": "https://www.goodreads.com/review/show/1907463917?utm_medium=api&utm_source=rss",
         "review": "Re reading this in a post-Trump world hits different"
       },
@@ -8513,11 +8513,11 @@
           "elevation_gain": 514074.0
         },
         "recent": {
-          "count": 2,
-          "distance": 9.66,
-          "moving_time": 5228,
-          "elapsed_time": 5582,
-          "elevation_gain": 410.0
+          "count": 1,
+          "distance": 5.07,
+          "moving_time": 2743,
+          "elapsed_time": 3031,
+          "elevation_gain": 200.0
         }
       },
       "biking": {

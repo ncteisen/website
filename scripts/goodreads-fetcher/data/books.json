@@ -1167,7 +1167,7 @@
     "isbn": null,
     "num_pages": null,
     "book_published": "1987",
-    "average_rating": "3.78",
+    "average_rating": "3.79",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385297074l/50.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385297074l/50.jpg",
     "guid": "https://www.goodreads.com/review/show/1654366845?utm_medium=api&utm_source=rss"
@@ -3564,7 +3564,7 @@
     "isbn": "0593321464",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.39",
+    "average_rating": "4.37",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "guid": "https://www.goodreads.com/review/show/8815306023?utm_medium=api&utm_source=rss"
@@ -4415,8 +4415,8 @@
     "num_pages": null,
     "book_published": "1985",
     "average_rating": "4.15",
-    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578028274l/38447.jpg",
-    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578028274l/38447.jpg",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1786676399l/38447.jpg",
+    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1786676399l/38447.jpg",
     "guid": "https://www.goodreads.com/review/show/1907463917?utm_medium=api&utm_source=rss"
   },
   {
