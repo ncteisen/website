@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-08-17T10:38:12.145683",
+  "last_updated": "2026-08-18T10:35:51.661289",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "The Odyssey",
+        "year": 2026,
+        "rating": 4.0,
+        "watched_date": "2026-08-17",
+        "is_rewatch": true,
+        "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+        "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
+      },
       {
         "title": "Troy",
         "year": 2004,
@@ -3856,6 +3866,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "The Odyssey",
+        "year": 2026,
+        "rating": 4.0,
+        "watched_date": "2026-08-17",
+        "is_rewatch": true,
+        "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+        "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
+      },
+      {
         "title": "Troy",
         "year": 2004,
         "rating": 3.0,
@@ -3924,21 +3944,11 @@
         "review": "<p>Fun to re-watch this after reading The Making of the Atomic Bomb but also frustrating because now I knew more parts that I wanted to see explored more deeply (like the Bohr-Heisenberg conversation and the Bohr escape and the heavy water sabotage). I guess there are only so many hours in a day...</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-600-0-900-crop.jpg?v=e3c6e7a32c",
         "link": "https://letterboxd.com/ncteisen/film/oppenheimer-2023/1/"
-      },
-      {
-        "title": "Nirvanna the Band the Show the Movie",
-        "year": 2025,
-        "rating": 4.5,
-        "watched_date": "2026-07-15",
-        "is_rewatch": false,
-        "review": "<p>Man you can get away with anything in Canada eh</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/4/1/0/1/2/1041012-nirvanna-the-band-the-show-the-movie-0-600-0-900-crop.jpg?v=4d80f82f8a",
-        "link": "https://letterboxd.com/ncteisen/film/nirvanna-the-band-the-show-the-movie/"
       }
     ],
     "stats": {
-      "total_films": 385,
-      "films_this_year": 49
+      "total_films": 386,
+      "films_this_year": 50
     }
   },
   "goodreads": {
