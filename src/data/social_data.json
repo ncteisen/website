@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-08-20T10:37:20.654894",
+  "last_updated": "2026-08-21T10:36:52.479460",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "When Harry Met Sally...",
+        "year": 1989,
+        "rating": 5.0,
+        "watched_date": "2026-08-19",
+        "is_rewatch": true,
+        "review": "<p>This was my way of telling Sarah that she's high maintenance but she thinks she's low maintenance</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
+        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/1/"
+      },
       {
         "title": "The Odyssey",
         "year": 2026,
@@ -12,6 +22,16 @@
         "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
         "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
+      },
+      {
+        "title": "Donnie Darko",
+        "year": 2001,
+        "rating": 4.0,
+        "watched_date": "2026-08-14",
+        "is_rewatch": false,
+        "review": "<p>Couple of notes:<br/>- Frank's voice is just as creepy as I remembered<br/>- Many visual moments have really stuck with me even though I saw this once, more than 15 years ago<br/>- Sarah fell asleep just before the scene with the liquid spears and I woke her up and made us rewind<br/>- Anyway, what is this movie about?</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/ye/jq/f3/22/nmb4QhCRmdfNP6rgb81yUFgI83l-0-600-0-900-crop.jpg?v=caa3999c6f",
+        "link": "https://letterboxd.com/ncteisen/film/donnie-darko/"
       },
       {
         "title": "Troy",
@@ -3866,6 +3886,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "When Harry Met Sally...",
+        "year": 1989,
+        "rating": 5.0,
+        "watched_date": "2026-08-19",
+        "is_rewatch": true,
+        "review": "<p>This was my way of telling Sarah that she's high maintenance but she thinks she's low maintenance</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
+        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/1/"
+      },
+      {
         "title": "The Odyssey",
         "year": 2026,
         "rating": 4.0,
@@ -3874,6 +3904,16 @@
         "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
         "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
+      },
+      {
+        "title": "Donnie Darko",
+        "year": 2001,
+        "rating": 4.0,
+        "watched_date": "2026-08-14",
+        "is_rewatch": false,
+        "review": "<p>Couple of notes:<br/>- Frank's voice is just as creepy as I remembered<br/>- Many visual moments have really stuck with me even though I saw this once, more than 15 years ago<br/>- Sarah fell asleep just before the scene with the liquid spears and I woke her up and made us rewind<br/>- Anyway, what is this movie about?</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/ye/jq/f3/22/nmb4QhCRmdfNP6rgb81yUFgI83l-0-600-0-900-crop.jpg?v=caa3999c6f",
+        "link": "https://letterboxd.com/ncteisen/film/donnie-darko/"
       },
       {
         "title": "Troy",
@@ -3924,31 +3964,11 @@
         "review": "<p>Things I liked:<br/>- some great visual representations of the text (Cyclops, Circe's transformations, Scylla, the Trojan horse even though that is mostly from a different text)<br/>- emotional gravity of a couple of the nostos scenes<br/>- loud sounds<br/>- robert \ud83d\ude0d</p><p>Thinks I didn't like:<br/>- completely inventing the Sinon &lt;&gt; Antonius backstory (they're not even from the same story, come on)<br/>- nerfing the Hades scene<br/>- dog deaths</p><p>Thinks I neither liked nor disliked but found interesting<br/>- revisionist re-theming to emphasize guilt over hubris<br/>- downplaying the gods impact on the story</p><p>Thinks I hated:<br/>- \"Our age of bronze is collapsing\" \ud83e\udd2e\ud83e\udd2e\ud83e\udd2e</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
         "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/"
-      },
-      {
-        "title": "Strangers on a Train",
-        "year": 1951,
-        "rating": 4.0,
-        "watched_date": "2026-07-16",
-        "is_rewatch": false,
-        "review": "<p>Its crazy that I, a self-described \"guy who likes movies\", can see a scene shot in a totally inventive way that I have never seen before in a movie that was made 75 years ago.</p><p>I had thought all of Hitchcock's shots / ideas had so fully suffused into the modern movie milieu that nothing would feel new watching an oldie. Happy to be wrong here.</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/3/0/7/51307-strangers-on-a-train-0-600-0-900-crop.jpg?v=2d81dafc02",
-        "link": "https://letterboxd.com/ncteisen/film/strangers-on-a-train/"
-      },
-      {
-        "title": "Oppenheimer",
-        "year": 2023,
-        "rating": 4.5,
-        "watched_date": "2026-07-15",
-        "is_rewatch": true,
-        "review": "<p>Fun to re-watch this after reading The Making of the Atomic Bomb but also frustrating because now I knew more parts that I wanted to see explored more deeply (like the Bohr-Heisenberg conversation and the Bohr escape and the heavy water sabotage). I guess there are only so many hours in a day...</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-600-0-900-crop.jpg?v=e3c6e7a32c",
-        "link": "https://letterboxd.com/ncteisen/film/oppenheimer-2023/1/"
       }
     ],
     "stats": {
-      "total_films": 386,
-      "films_this_year": 50
+      "total_films": 388,
+      "films_this_year": 52
     }
   },
   "goodreads": {
@@ -5649,6 +5669,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 19825354612,
+        "name": "Am I Back?",
+        "type": "Run",
+        "distance": 4.29,
+        "moving_time": 2294,
+        "elapsed_time": 2604,
+        "elevation_gain": 118.0,
+        "average_pace": 8.92,
+        "average_heartrate": 150.3,
+        "max_heartrate": 170.0,
+        "average_cadence": 88.0,
+        "average_watts": 295.3,
+        "start_date": "2026-08-20T13:44:28Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19825354612",
+          "summary_polyline": "iqpeF|khjVDb@?RFV?t@CHI@O?CP?XHXNRFp@DP?DAD\\hA?f@GV?n@FrAFh@B~@LzBANBp@Ef@HhAALNx@FrBDPAZEv@Sr@HtACd@Kz@HXVZH\\b@j@Pr@DxAJ~@Bj@DXF~@@v@Eb@?l@Lx@D`@?PPb@APETFvACd@JZ@PXnAFbBCv@P`ADh@Ap@O|@?PHf@JXJl@Rb@J^Jt@EhAK^Uf@AJ@f@J~@Pn@IHELBd@|@xDJ|@HdA?b@IbB@~AEt@@XO~AQfC[bDKhBQxBOjAKxAU`CKl@UjAGh@e@zBW~Ak@zCOzAIbAAf@NbE?nAFzBDrAHt@Pt@V~@h@nAv@jAnAzBm@mAsAwBKYMUc@uAOy@OeBEgE@eAIgC@cADgBL}ArAeIVeAFu@Rw@Bo@VyBBw@PoBP{APkCd@yENsDEmBHwA?mAEu@OqAk@sC[aAWkANIFM@UI_AF]Pc@DQHq@?_@Ka@EIIWU]GYC_@Ki@?c@Je@By@MqBBm@E[D[AKU}@K}@KWEWEaBEe@Di@Me@Cm@Oy@@a@Ce@B[?c@CQIuAKq@MgBGe@IWIOES]i@[s@EU@c@R_AAc@Ig@VkA?e@AmACi@_@aDDgA?_AQ}DKuA?CZY?GKi@E_AMy@GeAOw@@O?q@Ce@EMB]CKAa@CK",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19771097843,
         "name": "Pain is the Moat",
@@ -7826,28 +7868,6 @@
           "summary_polyline": "uqpeFblhjVD\\Rz@@Xc@bADN@b@J|@JpBNr@DnBHpADRH`BFfBIr@AVDb@TjADrAHn@Gz@EBC`@Mb@@\\J~@ExADXFVRf@V^Xz@Db@J|ARjBDl@EjCNbABf@Lj@@JCZFh@@xA`@hCD`A?v@H^Bp@Fb@?j@M|@ATZdBf@fBFh@I`AGRQTIh@JrA[ZPv@d@|Ab@lBR~AFzBEj@Kj@SDu@?OOGOKIMSaA_A[]e@u@OKWMQ?o@^_@ZWPa@`@Q`@UhAEb@Ab@VdDf@xCT~AJjABn@DTHnA@f@BLJZ^t@l@`@^P\\ZLXDT\\v@Xb@Lf@@DH@`AWx@?TCPBJ?RIBI?YFc@B_@Lc@FIZIBCDONoA?g@Ee@@YHGRGXEXM`@@\\MX]dAgBVKVEr@BRKL]@KIsBHc@?YCSOg@S]Yw@S_@IUEU?[Tg@BUIg@EaAF{@Ac@Ek@Mm@Ai@AIMEIQ[QIOa@qAKMYSKOICI?e@HG?KaAGkAQuAI_@Gc@?aBB_AE[_@sAEq@I_@@iAWeCSwCAoA]iCAe@Kw@?MBi@M_AAUDg@Cm@EUGIGa@L}@]_DGSGu@Ao@IYC{@OqBAi@@OGi@?c@Im@IeCO}AKo@?w@MiB?k@Ic@MsACgA@e@_@aCIyAE_@Ag@YuDIeB",
           "resource_state": 2
         }
-      },
-      {
-        "id": 17819612337,
-        "name": "\ud83e\udd85",
-        "type": "Run",
-        "distance": 5.68,
-        "moving_time": 3039,
-        "elapsed_time": 3484,
-        "elevation_gain": 276.0,
-        "average_pace": 8.92,
-        "average_heartrate": 129.8,
-        "max_heartrate": 159.0,
-        "average_cadence": 87.9,
-        "average_watts": 304.4,
-        "start_date": "2026-03-22T16:14:16Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a17819612337",
-          "summary_polyline": "krpeFtlhjVJ`B?^@FFHBPBr@Jx@FdBDP?d@DVNhEJlA@`@P~@GvA\\zBBt@@z@EbACPOx@DtAIpA@RBPTl@JVRV`@fA?`@JxAVtCCfDPp@@h@LTDN?LG\\Fj@?r@DVBl@Rx@Fl@BXCdABh@VbB?h@Q~@A^Ln@j@jBLl@BVCl@Gf@[r@ALFbAHr@FXIv@d@jBHf@Rx@PpBBv@KvAC|AKdCgAnO_ArJUjA{@`F[xAe@rCMtAApBNxD@z@?fAHvBNzAj@zB\\r@JLJVd@l@p@xAhAfBp@ATB\\?n@CZFX@PIZc@LIDD?h@DVDJTTDb@NLHNPd@T`@\\t@hAxAZTd@LtB@ZGDIEMi@I]ASGm@IIEwAgAOYG[Si@Sy@Cw@EYGmC@m@AUDq@HU@UNkAl@}BtBsETm@Ze@Vk@ZWd@Sl@Gl@?b@CxAOHCFGBMTgB?SCy@WqBa@eCc@uBOe@Ic@Kg@Es@BuADw@EW[eA_@o@wAkD_B{BSa@GUYiBCsAJk@ASK_@Yq@CSKW_@k@Mg@Ca@FKNQBKKk@Gi@?g@F{@@e@KkAIg@@s@IKWC[MMWG]O[GKSKOWICI?o@HC?CGG{@G_@Ck@Mq@?c@OuB?{@AY?MEY@_@U_AC[E}@?[QwBBa@Gs@GWOkCOmAAc@SmBGwBEi@GWKyB?yAIy@EyAQmAOaCKg@IsAIw@SyDIu@IoAIk@@a@CU?m@QkCU_BGoBIq@?gAQaCA{@i@oFCo@EOAU?c@HQF@b@NL?RFV@V?LEXWHCNAd@MV?PGRApAe@j@G~@Oh@Ed@GLGh@CNEBKKcD?u@EKGEg@Cg@UYGq@Hu@NaALU?]B]DOFs@D",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -7983,6 +8003,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 19825354612,
+        "name": "Am I Back?",
+        "type": "Run",
+        "distance": 4.29,
+        "moving_time": 2294,
+        "elapsed_time": 2604,
+        "elevation_gain": 118.0,
+        "average_pace": 8.92,
+        "average_heartrate": 150.3,
+        "max_heartrate": 170.0,
+        "average_cadence": 88.0,
+        "average_watts": 295.3,
+        "start_date": "2026-08-20T13:44:28Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a19825354612",
+          "summary_polyline": "iqpeF|khjVDb@?RFV?t@CHI@O?CP?XHXNRFp@DP?DAD\\hA?f@GV?n@FrAFh@B~@LzBANBp@Ef@HhAALNx@FrBDPAZEv@Sr@HtACd@Kz@HXVZH\\b@j@Pr@DxAJ~@Bj@DXF~@@v@Eb@?l@Lx@D`@?PPb@APETFvACd@JZ@PXnAFbBCv@P`ADh@Ap@O|@?PHf@JXJl@Rb@J^Jt@EhAK^Uf@AJ@f@J~@Pn@IHELBd@|@xDJ|@HdA?b@IbB@~AEt@@XO~AQfC[bDKhBQxBOjAKxAU`CKl@UjAGh@e@zBW~Ak@zCOzAIbAAf@NbE?nAFzBDrAHt@Pt@V~@h@nAv@jAnAzBm@mAsAwBKYMUc@uAOy@OeBEgE@eAIgC@cADgBL}ArAeIVeAFu@Rw@Bo@VyBBw@PoBP{APkCd@yENsDEmBHwA?mAEu@OqAk@sC[aAWkANIFM@UI_AF]Pc@DQHq@?_@Ka@EIIWU]GYC_@Ki@?c@Je@By@MqBBm@E[D[AKU}@K}@KWEWEaBEe@Di@Me@Cm@Oy@@a@Ce@B[?c@CQIuAKq@MgBGe@IWIOES]i@[s@EU@c@R_AAc@Ig@VkA?e@AmACi@_@aDDgA?_AQ}DKuA?CZY?GKi@E_AMy@GeAOw@@O?q@Ce@EMB]CKAa@CK",
+          "resource_state": 2
+        }
+      },
       {
         "id": 19433263829,
         "name": "It\u2019s my birthday I can run if I want to",
@@ -8134,28 +8176,6 @@
         "map": {
           "id": "a19212666340",
           "summary_polyline": "iacwJonhr@IABu@YQA\\Ka@LV`@WxDfCvFpAtBnB\\C`BtAjAn@f@IjA~@r@nAbGnBn@EhClCbBb@j@z@j@Nd@n@lACbBrCbAj@h@EVh@bDP`CnAZh@dA^^[h@JrAz@bE_@n@Jz@t@jB]z@v@lDpAtFhArD?`@m@bFaBhD\\~C_AhAd@dFFl@Xd@d@@`@|AxAbANPr@jBFb@\\z@Yv@^fAi@jAJtBmBTy@vA?d@k@|B}AxDApB|AZCRb@^Uv@^Xi@fBs@bE}BhAkAz@KbAf@xC]vCqAtAuBz@cC~Aq@hA`@h@p@bCQfBoAnCK~TfG|Ae@tB\\lAhAXnAf@l@dCxBj@H|@fAv@Ex@l@xBhAf@G`AzAbBfALd@fBfB|@tBVxAd@nAh@n@`@nBvAhE~AtA`B\\xBvAXlAl@Tf@|AfAbBfAn@~AhDlAhGHjAx@|@?`AZz@TG^fBVtE~@dDl@|CZ~Bn@xAN|Dx@`FHhC\\hCbAfC`@rB|@~@P|AIvA~@xBRdBp@vAl@vCv@dGBdCjAbEb@jCrAvDVpCXv@BfAdAtCDx@PIPv@f@lKh@dAzAzFFrAVh@XdCh@nA`@pCNHLn@Z\\`@vAVPz@~B|@bEHlAx@tCVtBn@~AhBhCj@^j@zAbA\\z@~@Xr@l@bCF~@|BvE`@xBtAvDp@|@TdAXn@^Nf@tAt@fAjBtAvAbD^dBZ^z@pD`@RfA`Db@n@ZzA|@jA^Fl@xBvAlBj@rBd@b@l@lBjC|DLx@RLbAbEOdANdAz@hBWnDhC`VCf@z@dDd@b@zA`Fx@xERjC`@U?t@p@pAZzAlAzDRFt@lCxAhKh@pMN`KVjBT|GF|JUxE?dKNt@b@FHnAGnAYv@FbC_@|BEx@ExBJRa@xBJEIxFBrBXtEPj@AzDV`ED~LObHPdFk@pK]xDsAzDe@d@i@fEg@h@Op@g@dEo@xKONJjCWxBAfGLjAPfJVjC?pC\\jCFtFl@|CZjD~@|DPrCMtBIpG@lDTj@CdC_@xDBv@k@xAeBxLo@jAwBvL?t@}@rIi@bBOzE]vAGxAWvAWVBn@Y`@Mx@]vIWxAMbFc@zEUzIFj@]zDRbBf@`ATnBXt@n@d@pAjChEfF\\dBn@xAvAhC^Xx@lCZpB`AlCr@Bz@y@",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 19201803044,
-        "name": "Norway Day 2: Memurubu -> Glitterheim",
-        "type": "Run",
-        "distance": 12.54,
-        "moving_time": 15935,
-        "elapsed_time": 21164,
-        "elevation_gain": 3363.0,
-        "average_pace": 21.19,
-        "average_heartrate": 94.4,
-        "max_heartrate": 161.0,
-        "average_cadence": 54.8,
-        "average_watts": 65.4,
-        "start_date": "2026-07-05T06:52:04Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a19201803044",
-          "summary_polyline": "e{hvJonts@Lt@GdGYIW}AQIFxCm@MqAbA_A_@{AdDMl@k@@u@zAc@RC`@uA|@aDc@]r@Yi@u@n@_BCwBvESv@sCrCkA{CD}@c@gA_@k@[IWf@SMk@gCBgAe@KYgBNmAEsEe@eIBiDZ_DA{DwAqKCyFc@c@s@cCqCkMg@cAuB[e@SYeAJy@QmAk@m@}AYk@x@]EUvBu@WWFMv@o@FMz@iBWc@iAqCcCsAwBkGwWyA_BwAiDqAKoCw@{@y@}BdAkEMeB{Ay@HqAkAeI}DgBaE}FcHcByDeAyAsE}EgFgDo@X}G_F}AGyBiCcAM}DaCaBQs@s@oCCgDx@eC~BsATwBfCcBnHi@pEs@lKWpKWtB_AxCoCrAoDUoApA]@qB|Di@Ne@cA}@}Fu@}@gAuCSmBc@m@uBm@cAVk@oAgEcBgFqAuBkCkAOeCsDuDgA}AiD{AwA_AO_BcDcFeB_B_EiDgGqBoMk@MUiBy@kCkCkCKm@wBkCaA}B{@g@y@\\q@s@_Er@aC_Dq@c@uAg@gHuKeDeHkCuBaDaIw@D]e@cAhAu@Jm@jA}@PcCm@oDgCUb@u@q@aAeB{@yBaBmGWWq@qEcCcDiCmEuA}E}CgFwAmGsEmGmAyBcBgEGgAeBsDY}CiAaGW}EELOEy@mDcAoBRDgAKgA_D[vAm@VYr@MzBoCtKi@h@gAxCwA|@iBrC{AjGg@\\gBrEeCj@cBeAQv@w@nLwAlHkCvIsAfJgB~BuB~@gAhB{AlAi@xAo@i@}DRi@w@w@DkAlAsGmA}BZyDrBuMfBwA~CaB~@gAhBs@lCmCdEeDpCoC|EmAt@aCpDqD`AaAk@eFc@aA}@c@Ri@iAaEgA{@{AkBaAkAqCeBoAa@eA{Ca@}BgC}Ac@{FjAU`B{A~Cc@fBEbBw@tC}@lCwAxAgANWh@Ck@STaDxG]~@O~A]VGh@cBfDUzAeAvAMt@oB`A[`AwBlCYUs@j@e@bAa@jCg@l@o@~Dy@`A[pBSDqApDK`AaBnBk@hB{AhBgCpHcAfGoArBFXu@bBK`AoBtC_AFyFtLsBnDqBHuD{@uAu@qC_C{ABk@m@My@}@QaCiBw@Z}@s@aBZm@eAcDHu@[eA}AkDGgBqAoBQmAcAiBPi@[]}@cIfAJGaBcAoBvBiBf@JAo@pBWfCcDbHSxBDxBYbCf@hKa@`ELxAQhBz@~DX~DOlJVnCIzGVv@",
           "resource_state": 2
         }
       }
@@ -8519,25 +8539,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 125,
-          "distance": 734.04,
-          "moving_time": 460431,
-          "elapsed_time": 520617,
-          "elevation_gain": 78510.0
+          "count": 126,
+          "distance": 738.32,
+          "moving_time": 462725,
+          "elapsed_time": 523221,
+          "elevation_gain": 78628.0
         },
         "all_time": {
-          "count": 1266,
-          "distance": 6625.48,
-          "moving_time": 3657126,
-          "elapsed_time": 4142297,
-          "elevation_gain": 514074.0
+          "count": 1267,
+          "distance": 6629.77,
+          "moving_time": 3659420,
+          "elapsed_time": 4144901,
+          "elevation_gain": 514192.0
         },
         "recent": {
           "count": 1,
-          "distance": 5.07,
-          "moving_time": 2743,
-          "elapsed_time": 3031,
-          "elevation_gain": 200.0
+          "distance": 4.29,
+          "moving_time": 2294,
+          "elapsed_time": 2604,
+          "elevation_gain": 118.0
         }
       },
       "biking": {

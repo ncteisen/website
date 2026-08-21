@@ -1,5 +1,17 @@
 [
   {
+    "guid": "letterboxd-review-1460790310",
+    "title": "When Harry Met Sally...",
+    "year": 1989,
+    "rating": 5.0,
+    "watched_date": "2026-08-19",
+    "is_rewatch": true,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
+    "review": "<p>This was my way of telling Sarah that she's high maintenance but she thinks she's low maintenance</p>",
+    "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/1/",
+    "pub_date": "Fri, 21 Aug 2026 14:46:44 +1200"
+  },
+  {
     "guid": "letterboxd-review-1456494439",
     "title": "The Odyssey",
     "year": 2026,
@@ -10,6 +22,18 @@
     "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
     "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/",
     "pub_date": "Tue, 18 Aug 2026 16:57:15 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1460787590",
+    "title": "Donnie Darko",
+    "year": 2001,
+    "rating": 4.0,
+    "watched_date": "2026-08-14",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/sm/upload/ye/jq/f3/22/nmb4QhCRmdfNP6rgb81yUFgI83l-0-600-0-900-crop.jpg?v=caa3999c6f",
+    "review": "<p>Couple of notes:<br/>- Frank's voice is just as creepy as I remembered<br/>- Many visual moments have really stuck with me even though I saw this once, more than 15 years ago<br/>- Sarah fell asleep just before the scene with the liquid spears and I woke her up and made us rewind<br/>- Anyway, what is this movie about?</p>",
+    "link": "https://letterboxd.com/ncteisen/film/donnie-darko/",
+    "pub_date": "Fri, 21 Aug 2026 14:44:23 +1200"
   },
   {
     "guid": "letterboxd-review-1450176433",
