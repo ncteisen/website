@@ -1,0 +1,215 @@
+---
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
+import SocialPreview from '../../components/SocialPreview.astro';
+
+const stories = [
+	{
+		number: '01',
+		title: 'To Sleep, Perchance to Dream',
+		href: '/writing/to-sleep-perchance-to-dream/',
+		readTime: '20 min read',
+		accent: '#9b86d8',
+	},
+	{
+		number: '02',
+		title: 'The Rattling Tracks',
+		href: '/writing/the-rattling-tracks/',
+		readTime: '17 min read',
+		accent: '#6f9ee8',
+	},
+	{
+		number: '03',
+		title: 'Doors',
+		href: '/writing/doors/',
+		readTime: '12 min read',
+		accent: '#d0a45b',
+	},
+	{
+		number: '04',
+		title: 'The Book',
+		href: '/writing/the-book/',
+		readTime: '12 min read',
+		accent: '#70a889',
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<IconLinks />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Writing | Noah Eisen</title>
+		<SocialPreview
+			title="Writing - Noah Eisen"
+			description="Four short stories by Noah Eisen."
+			path="/writing/"
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+		<UmamiAnalytics />
+		<style>
+			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { min-height: 100%; }
+
+			body {
+				background: #0a0a0a;
+				font-family: 'DM Sans', sans-serif;
+				color: #e2dfd8;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.wrap {
+				max-width: 920px;
+				margin: 0 auto;
+				padding: 52px 44px 88px;
+			}
+
+			.back-link {
+				font-size: 11px;
+				color: #666;
+				text-decoration: none;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 28px;
+				transition: color 0.15s;
+			}
+
+			.back-link:hover { color: #999; }
+
+			.page-title {
+				font-size: 48px;
+				font-weight: 700;
+				letter-spacing: -1.5px;
+				line-height: 1;
+				color: #eae7e0;
+			}
+
+			.stories {
+				margin-top: 52px;
+				border-top: 1px solid #1a1a1a;
+			}
+
+			.story {
+				--accent: #888;
+				display: grid;
+				grid-template-columns: 56px minmax(0, 1fr) auto;
+				gap: 24px;
+				align-items: center;
+				padding: 38px 0;
+				border-bottom: 1px solid #1a1a1a;
+				color: inherit;
+				text-decoration: none;
+				position: relative;
+			}
+
+			.story::before {
+				content: '';
+				position: absolute;
+				left: -18px;
+				top: 30px;
+				bottom: 30px;
+				width: 2px;
+				background: var(--accent);
+				transform: scaleY(0);
+				transform-origin: center;
+				transition: transform 0.18s ease;
+			}
+
+			.story:hover::before,
+			.story:focus-visible::before { transform: scaleY(1); }
+
+			.story-number {
+				align-self: start;
+				padding-top: 7px;
+				font-size: 10px;
+				letter-spacing: 2px;
+				color: var(--accent);
+			}
+
+			.story-title {
+				font-family: 'Newsreader', Georgia, serif;
+				font-size: clamp(28px, 4vw, 42px);
+				font-weight: 400;
+				letter-spacing: -0.6px;
+				line-height: 1.08;
+				color: #eae7e0;
+				transition: color 0.15s;
+			}
+
+			.story:hover .story-title,
+			.story:focus-visible .story-title { color: #fff; }
+
+			.story-meta {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				white-space: nowrap;
+				font-size: 10px;
+				letter-spacing: 1.4px;
+				text-transform: uppercase;
+				color: #444;
+			}
+
+			.story-arrow {
+				font-size: 19px;
+				color: var(--accent);
+				transition: transform 0.15s;
+			}
+
+			.story:hover .story-arrow,
+			.story:focus-visible .story-arrow { transform: translateX(4px); }
+
+			@media (max-width: 700px) {
+				.wrap { padding: 36px 24px 60px; }
+				.page-title { font-size: 36px; }
+				.stories { margin-top: 38px; }
+				.story {
+					grid-template-columns: 36px minmax(0, 1fr);
+					gap: 12px;
+					padding: 30px 0;
+				}
+				.story::before { left: -10px; }
+				.story-number { padding-top: 5px; }
+				.story-title { font-size: 30px; }
+				.story-meta {
+					grid-column: 2;
+					justify-content: space-between;
+					margin-top: 4px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap">
+			<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">&larr; Back to Noah Eisen</a>
+			<h1 class="page-title">Writing</h1>
+
+			<div class="stories">
+				{stories.map((story) => (
+					<a
+						href={story.href}
+						class="story"
+						style={`--accent: ${story.accent}`}
+						data-umami-event="link_click"
+						data-umami-event-area="writing"
+						data-umami-event-label={story.title}
+					>
+						<span class="story-number">{story.number}</span>
+						<div>
+							<h2 class="story-title">{story.title}</h2>
+						</div>
+						<div class="story-meta">
+							<span>{story.readTime}</span>
+							<span class="story-arrow" aria-hidden="true">&rarr;</span>
+						</div>
+					</a>
+				))}
+			</div>
+		</main>
+	</body>
+</html>
