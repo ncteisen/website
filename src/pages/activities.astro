@@ -221,22 +221,31 @@ const filterKey = (type: string): string => {
 			}
 
 			/* Hide zoom controls on thumbnails */
-			.entry-map .leaflet-control-zoom {
+			:global(.entry-map .leaflet-control-zoom) {
 				display: none !important;
 			}
 
-			.entry-map .leaflet-control-attribution {
+			:global(.entry-map .leaflet-control-attribution) {
 				max-width: 100%;
-				background: rgba(10, 10, 10, 0.78);
-				color: #777;
+				background: #0a0a0a;
+				color: #626262;
 				font-size: 7px;
 				line-height: 1.2;
 				padding: 1px 3px;
 				text-align: right;
+				transition: color 0.15s;
 				white-space: normal;
 			}
 
-			.entry-map .leaflet-control-attribution a { color: #999; }
+			:global(.entry-map .leaflet-control-attribution a) {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			:global(.entry-map .leaflet-control-attribution:hover),
+			:global(.entry-map .leaflet-control-attribution:focus-within) {
+				color: #8a8a8a;
+			}
 
 			.entry-meta {
 				display: flex;

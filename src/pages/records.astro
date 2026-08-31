@@ -226,22 +226,31 @@ const formatTime = (seconds: number): string => {
 				background: #0d0d0d;
 			}
 
-			.record-card-map .leaflet-control-zoom {
+			:global(.record-card-map .leaflet-control-zoom) {
 				display: none !important;
 			}
 
-			.record-card-map .leaflet-control-attribution {
+			:global(.record-card-map .leaflet-control-attribution) {
 				max-width: 100%;
-				background: rgba(10, 10, 10, 0.78);
-				color: #777;
+				background: #0a0a0a;
+				color: #626262;
 				font-size: 8px;
 				line-height: 1.25;
 				padding: 2px 4px;
 				text-align: right;
+				transition: color 0.15s;
 				white-space: normal;
 			}
 
-			.record-card-map .leaflet-control-attribution a { color: #999; }
+			:global(.record-card-map .leaflet-control-attribution a) {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			:global(.record-card-map .leaflet-control-attribution:hover),
+			:global(.record-card-map .leaflet-control-attribution:focus-within) {
+				color: #8a8a8a;
+			}
 
 			.record-card-body {
 				padding: 16px;
