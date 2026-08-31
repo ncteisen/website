@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: 22.12.0
         env:
+          PUBLIC_CARTO_BASEMAP_KEY: ${{ vars.PUBLIC_CARTO_BASEMAP_KEY }}
           PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
 
 

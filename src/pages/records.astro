@@ -226,10 +226,22 @@ const formatTime = (seconds: number): string => {
 				background: #0d0d0d;
 			}
 
-			.record-card-map .leaflet-control-zoom,
-			.record-card-map .leaflet-control-attribution {
+			.record-card-map .leaflet-control-zoom {
 				display: none !important;
 			}
+
+			.record-card-map .leaflet-control-attribution {
+				max-width: 100%;
+				background: rgba(10, 10, 10, 0.78);
+				color: #777;
+				font-size: 8px;
+				line-height: 1.25;
+				padding: 2px 4px;
+				text-align: right;
+				white-space: normal;
+			}
+
+			.record-card-map .leaflet-control-attribution a { color: #999; }
 
 			.record-card-body {
 				padding: 16px;
@@ -399,6 +411,8 @@ const formatTime = (seconds: number): string => {
 		</main>
 
 		<script>
+			import { CARTO_TILE_OPTIONS, CARTO_TILE_URL } from '../lib/cartoBasemap';
+
 			const decodePolyline = (encoded: string): [number, number][] => {
 				const points: [number, number][] = [];
 				let index = 0;
@@ -452,7 +466,6 @@ const formatTime = (seconds: number): string => {
 
 					const map = (window as any).L.map(el.id, {
 						zoomControl: false,
-						attributionControl: false,
 						dragging: false,
 						scrollWheelZoom: false,
 						doubleClickZoom: false,
@@ -461,9 +474,9 @@ const formatTime = (seconds: number): string => {
 						keyboard: false,
 					});
 
-					(window as any).L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-						maxZoom: 19,
-					}).addTo(map);
+					map.attributionControl.setPrefix(false);
+
+					(window as any).L.tileLayer(CARTO_TILE_URL, CARTO_TILE_OPTIONS).addTo(map);
 
 					const line = (window as any).L.polyline(points, {
 						color: '#5b8ef0',
