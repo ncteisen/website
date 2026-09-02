@@ -157141,7 +157141,7 @@
     "total_elevation_gain": 58.0,
     "type": "Run",
     "sport_type": "Run",
-    "workout_type": 0,
+    "workout_type": null,
     "device_name": "Garmin Forerunner 945",
     "id": 19869883477,
     "id_str": "19869883477",
@@ -157168,7 +157168,7 @@
     "private": false,
     "visibility": "followers_only",
     "flagged": false,
-    "gear_id": "g28748484",
+    "gear_id": "g33500568",
     "start_latlng": [
       37.774895,
       -122.431206
@@ -157299,7 +157299,7 @@
     "private": false,
     "visibility": "followers_only",
     "flagged": false,
-    "gear_id": "g28748484",
+    "gear_id": "g33500568",
     "start_latlng": [
       37.77498,
       -122.431051
@@ -157373,7 +157373,7 @@
     "private": false,
     "visibility": "followers_only",
     "flagged": false,
-    "gear_id": "g28748484",
+    "gear_id": "g33500568",
     "start_latlng": [
       37.773285,
       -122.437471
@@ -157447,7 +157447,7 @@
     "private": false,
     "visibility": "followers_only",
     "flagged": false,
-    "gear_id": "g28748484",
+    "gear_id": "g33500568",
     "start_latlng": [
       37.764718,
       -122.467432
@@ -157565,7 +157565,7 @@
     "total_elevation_gain": 74.0,
     "type": "Run",
     "sport_type": "Run",
-    "workout_type": 0,
+    "workout_type": null,
     "device_name": "Garmin Forerunner 945",
     "id": 19968090525,
     "id_str": "19968090525",
@@ -157592,7 +157592,7 @@
     "private": false,
     "visibility": "followers_only",
     "flagged": false,
-    "gear_id": "g28748484",
+    "gear_id": "g33500568",
     "start_latlng": [
       37.774703,
       -122.430988
@@ -157681,5 +157681,79 @@
     "pr_count": 0,
     "total_photo_count": 3,
     "has_kudoed": false
+  },
+  {
+    "resource_state": 2,
+    "athlete": {
+      "id": 33004088,
+      "id_str": "33004088",
+      "resource_state": 1
+    },
+    "name": "Afternoon Run",
+    "distance": 7540.1,
+    "moving_time": 2375,
+    "elapsed_time": 2635,
+    "total_elevation_gain": 63.0,
+    "type": "Run",
+    "sport_type": "Run",
+    "workout_type": null,
+    "device_name": "Garmin Forerunner 945",
+    "id": 19998212874,
+    "id_str": "19998212874",
+    "start_date": "2026-09-01T23:04:07Z",
+    "start_date_local": "2026-09-01T16:04:07Z",
+    "timezone": "(GMT-08:00) America/Los_Angeles",
+    "utc_offset": -25200.0,
+    "location_city": null,
+    "location_state": null,
+    "location_country": null,
+    "achievement_count": 0,
+    "kudos_count": 2,
+    "comment_count": 0,
+    "athlete_count": 1,
+    "photo_count": 0,
+    "map": {
+      "id": "a19998212874",
+      "summary_polyline": "gqpeFxkhjVHlBNb@Aj@Fb@Bx@DVAzABP?dAFXJPFZ@`@DZCb@Sx@B|@NrBId@Ab@PhANpA?ZFz@IxAQr@?\\Hz@EvA@`@DRL\\JPPLf@xABVA\\b@nEAh@@l@CBANAp@FPFD@j@TdACfBBn@Fl@Rt@F|@DPCr@DdABb@TnACZKZG^Bp@F^Nn@Xx@L~@An@CZ_@fAHfBCDWPTv@b@nA^zAPhAJ`BCvBG^GJGBg@@YCWKgAwAGO_@]Ye@[UEIUGQAYHgAz@GJ[XMTOh@G^K^AJ@z@\\fDTbBRz@XbDBvAF\\HdAJb@JVPPjAn@j@p@b@vA\\h@DR?NIr@Qx@O^WpBu@bEGr@GZQzAA~@L|@@`@Hb@LTLJNDf@FLFTZTv@b@l@nAzBTZ`AbBTXf@b@~@rAb@TZFXCJa@NUXI^UB?FEHYJINQTu@H_@lAaCJ]Z_AD[Ce@[y@Q[EQq@kAm@{@k@cAa@i@EM[e@[y@_AwFEa@?cAEi@OeAEe@Oy@KiB@oBCo@FUFI^Uh@?XBNAJEV[f@q@`@_AH]?SC[K[Q_@Y_@O]O_BSw@?UFm@Lo@T}@f@aA^i@T_@J_@Dq@C[SoA?m@s@o@BEE?ACWKIg@MWe@i@IGIAu@DCCCGAk@Ec@Js@Eq@Ic@I}AOs@Ci@E[BGAIYyBCiAEq@@SO}AGS?m@Mq@?m@ScCG_BGc@?M@UE]A{@MuAMw@Ay@K]Cg@@w@Ks@C_AMkAMiCOqA[mFWeBAyAMiBAi@KaACy@G[K{AOgDYyDAmADQp@EXCNGB@",
+      "resource_state": 2
+    },
+    "trainer": false,
+    "commute": false,
+    "manual": false,
+    "private": false,
+    "visibility": "followers_only",
+    "flagged": false,
+    "gear_id": "g33500568",
+    "start_latlng": [
+      37.774883,
+      -122.430965
+    ],
+    "end_latlng": [
+      37.771665,
+      -122.437032
+    ],
+    "average_speed": 3.175,
+    "max_speed": 6.64,
+    "average_cadence": 87.2,
+    "average_watts": 330.7,
+    "max_watts": 428,
+    "weighted_average_watts": 318,
+    "device_watts": true,
+    "kilojoules": 782.5,
+    "has_heartrate": true,
+    "average_heartrate": 145.3,
+    "max_heartrate": 163.0,
+    "heartrate_opt_out": false,
+    "display_hide_heartrate_option": true,
+    "elev_high": 96.0,
+    "elev_low": 54.0,
+    "upload_id": 21136945712,
+    "upload_id_str": "21136945712",
+    "external_id": "garmin_ping_622432226451",
+    "from_accepted_tag": false,
+    "pr_count": 0,
+    "total_photo_count": 0,
+    "has_kudoed": false,
+    "suffer_score": 45.0
   }
 ]
