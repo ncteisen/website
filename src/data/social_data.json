@@ -1,8 +1,28 @@
 {
-  "last_updated": "2026-09-11T14:14:02.269703",
+  "last_updated": "2026-09-12T13:30:13.423891",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Mother Mary",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-09-11",
+        "is_rewatch": false,
+        "review": "<p>It had its moments</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4",
+        "link": "https://letterboxd.com/ncteisen/film/mother-mary-2026/"
+      },
+      {
+        "title": "10 Things I Hate About You",
+        "year": 1999,
+        "rating": 4.0,
+        "watched_date": "2026-09-11",
+        "is_rewatch": true,
+        "review": "<p>Person: \u201cwanna watch a cheesy high school rom-com?\u201d<br/>Me: \u201chell no\u201d<br/>Person: \u201cit\u2019s loosely based on Shakespeare\u201d<br/>Me: \u201cspectacular give me 14 of them right now\u201d</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/0/4/7/49047-10-things-i-hate-about-you-0-600-0-900-crop.jpg?v=55ccac3542",
+        "link": "https://letterboxd.com/ncteisen/film/10-things-i-hate-about-you/"
+      },
       {
         "title": "Eternity",
         "year": 2025,
@@ -3926,6 +3946,26 @@
     ],
     "recent_reviews": [
       {
+        "title": "Mother Mary",
+        "year": 2026,
+        "rating": 3.0,
+        "watched_date": "2026-09-11",
+        "is_rewatch": false,
+        "review": "<p>It had its moments</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4",
+        "link": "https://letterboxd.com/ncteisen/film/mother-mary-2026/"
+      },
+      {
+        "title": "10 Things I Hate About You",
+        "year": 1999,
+        "rating": 4.0,
+        "watched_date": "2026-09-11",
+        "is_rewatch": true,
+        "review": "<p>Person: \u201cwanna watch a cheesy high school rom-com?\u201d<br/>Me: \u201chell no\u201d<br/>Person: \u201cit\u2019s loosely based on Shakespeare\u201d<br/>Me: \u201cspectacular give me 14 of them right now\u201d</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/0/4/7/49047-10-things-i-hate-about-you-0-600-0-900-crop.jpg?v=55ccac3542",
+        "link": "https://letterboxd.com/ncteisen/film/10-things-i-hate-about-you/"
+      },
+      {
         "title": "Eternity",
         "year": 2025,
         "rating": 3.0,
@@ -3984,31 +4024,11 @@
         "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
         "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
-      },
-      {
-        "title": "Donnie Darko",
-        "year": 2001,
-        "rating": 4.0,
-        "watched_date": "2026-08-14",
-        "is_rewatch": false,
-        "review": "<p>Couple of notes:<br/>- Frank's voice is just as creepy as I remembered<br/>- Many visual moments have really stuck with me even though I saw this once, more than 15 years ago<br/>- Sarah fell asleep just before the scene with the liquid spears and I woke her up and made us rewind<br/>- Anyway, what is this movie about?</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/ye/jq/f3/22/nmb4QhCRmdfNP6rgb81yUFgI83l-0-600-0-900-crop.jpg?v=caa3999c6f",
-        "link": "https://letterboxd.com/ncteisen/film/donnie-darko/"
-      },
-      {
-        "title": "Troy",
-        "year": 2004,
-        "rating": 3.0,
-        "watched_date": "2026-08-08",
-        "is_rewatch": false,
-        "review": "<p>Bad writing? Sure. Frustrating departures from the text? Of course. Epic, well crafted battle and fight scenes? Hell yes brother.</p><p><br/>Eric Bana was good!! I wrote my freshman year great books essay on Hector so perhaps I\u2019m biased</p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/s4/d9/77/ed/edMlij7nw2NMla32xskDnzMCFBM-0-600-0-900-crop.jpg?v=e7b13d27e0",
-        "link": "https://letterboxd.com/ncteisen/film/troy/"
       }
     ],
     "stats": {
-      "total_films": 392,
-      "films_this_year": 56
+      "total_films": 394,
+      "films_this_year": 58
     }
   },
   "goodreads": {
