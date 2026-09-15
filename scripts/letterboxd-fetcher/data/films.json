@@ -1,5 +1,17 @@
 [
   {
+    "guid": "letterboxd-review-1496838516",
+    "title": "Sick of Myself",
+    "year": 2022,
+    "rating": 3.5,
+    "watched_date": "2026-09-14",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/7/0/6/7/4/7/706747-sick-of-myself-0-600-0-900-crop.jpg?v=37c57e2cfe",
+    "review": "<p>I could have fixed her</p>",
+    "link": "https://letterboxd.com/ncteisen/film/sick-of-myself/",
+    "pub_date": "Tue, 15 Sep 2026 16:21:18 +1200"
+  },
+  {
     "guid": "letterboxd-review-1492585188",
     "title": "Mother Mary",
     "year": 2026,
@@ -22,6 +34,18 @@
     "review": "<p>Person: \u201cwanna watch a cheesy high school rom-com?\u201d<br/>Me: \u201chell no\u201d<br/>Person: \u201cit\u2019s loosely based on Shakespeare\u201d<br/>Me: \u201cspectacular give me 14 of them right now\u201d</p>",
     "link": "https://letterboxd.com/ncteisen/film/10-things-i-hate-about-you/",
     "pub_date": "Sat, 12 Sep 2026 17:15:02 +1200"
+  },
+  {
+    "guid": "letterboxd-review-1496836812",
+    "title": "The Devil Wears Prada",
+    "year": 2006,
+    "rating": 3.5,
+    "watched_date": "2026-09-11",
+    "is_rewatch": true,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/7/1/2/51712-the-devil-wears-prada-0-600-0-900-crop.jpg?v=65a9cdb330",
+    "review": "<p>That\u2019s all \ud83d\udc85\ud83d\udc85\ud83d\udc85</p>",
+    "link": "https://letterboxd.com/ncteisen/film/the-devil-wears-prada/",
+    "pub_date": "Tue, 15 Sep 2026 16:19:04 +1200"
   },
   {
     "guid": "letterboxd-review-1489867301",
@@ -55,7 +79,7 @@
     "watched_date": "2026-09-01",
     "is_rewatch": false,
     "image_url": "https://a.ltrbxd.com/resized/film-poster/8/1/8/7/9/8/818798-red-rooms-0-600-0-900-crop.jpg?v=af37112bc2",
-    "review": "<p>Unintentionally timely watch, on my part</p>",
+    "review": "<p><em>This review may contain spoilers.</em></p><p>Unintentionally timely watch, on my part</p>",
     "link": "https://letterboxd.com/ncteisen/film/red-rooms/",
     "pub_date": "Sat, 5 Sep 2026 12:25:09 +1200"
   },

@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-09-14T16:16:34.486490",
+  "last_updated": "2026-09-15T14:48:57.285040",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Sick of Myself",
+        "year": 2022,
+        "rating": 3.5,
+        "watched_date": "2026-09-14",
+        "is_rewatch": false,
+        "review": "<p>I could have fixed her</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/0/6/7/4/7/706747-sick-of-myself-0-600-0-900-crop.jpg?v=37c57e2cfe",
+        "link": "https://letterboxd.com/ncteisen/film/sick-of-myself/"
+      },
       {
         "title": "Mother Mary",
         "year": 2026,
@@ -22,6 +32,16 @@
         "review": "<p>Person: \u201cwanna watch a cheesy high school rom-com?\u201d<br/>Me: \u201chell no\u201d<br/>Person: \u201cit\u2019s loosely based on Shakespeare\u201d<br/>Me: \u201cspectacular give me 14 of them right now\u201d</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/0/4/7/49047-10-things-i-hate-about-you-0-600-0-900-crop.jpg?v=55ccac3542",
         "link": "https://letterboxd.com/ncteisen/film/10-things-i-hate-about-you/"
+      },
+      {
+        "title": "The Devil Wears Prada",
+        "year": 2006,
+        "rating": 3.5,
+        "watched_date": "2026-09-11",
+        "is_rewatch": true,
+        "review": "<p>That\u2019s all \ud83d\udc85\ud83d\udc85\ud83d\udc85</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/7/1/2/51712-the-devil-wears-prada-0-600-0-900-crop.jpg?v=65a9cdb330",
+        "link": "https://letterboxd.com/ncteisen/film/the-devil-wears-prada/"
       },
       {
         "title": "Eternity",
@@ -49,7 +69,7 @@
         "rating": 3.5,
         "watched_date": "2026-09-01",
         "is_rewatch": false,
-        "review": "<p>Unintentionally timely watch, on my part</p>",
+        "review": "<p><em>This review may contain spoilers.</em></p><p>Unintentionally timely watch, on my part</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/8/1/8/7/9/8/818798-red-rooms-0-600-0-900-crop.jpg?v=af37112bc2",
         "link": "https://letterboxd.com/ncteisen/film/red-rooms/"
       },
@@ -3946,6 +3966,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Sick of Myself",
+        "year": 2022,
+        "rating": 3.5,
+        "watched_date": "2026-09-14",
+        "is_rewatch": false,
+        "review": "<p>I could have fixed her</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/7/0/6/7/4/7/706747-sick-of-myself-0-600-0-900-crop.jpg?v=37c57e2cfe",
+        "link": "https://letterboxd.com/ncteisen/film/sick-of-myself/"
+      },
+      {
         "title": "Mother Mary",
         "year": 2026,
         "rating": 3.0,
@@ -3964,6 +3994,16 @@
         "review": "<p>Person: \u201cwanna watch a cheesy high school rom-com?\u201d<br/>Me: \u201chell no\u201d<br/>Person: \u201cit\u2019s loosely based on Shakespeare\u201d<br/>Me: \u201cspectacular give me 14 of them right now\u201d</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/0/4/7/49047-10-things-i-hate-about-you-0-600-0-900-crop.jpg?v=55ccac3542",
         "link": "https://letterboxd.com/ncteisen/film/10-things-i-hate-about-you/"
+      },
+      {
+        "title": "The Devil Wears Prada",
+        "year": 2006,
+        "rating": 3.5,
+        "watched_date": "2026-09-11",
+        "is_rewatch": true,
+        "review": "<p>That\u2019s all \ud83d\udc85\ud83d\udc85\ud83d\udc85</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/7/1/2/51712-the-devil-wears-prada-0-600-0-900-crop.jpg?v=65a9cdb330",
+        "link": "https://letterboxd.com/ncteisen/film/the-devil-wears-prada/"
       },
       {
         "title": "Eternity",
@@ -3991,7 +4031,7 @@
         "rating": 3.5,
         "watched_date": "2026-09-01",
         "is_rewatch": false,
-        "review": "<p>Unintentionally timely watch, on my part</p>",
+        "review": "<p><em>This review may contain spoilers.</em></p><p>Unintentionally timely watch, on my part</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/8/1/8/7/9/8/818798-red-rooms-0-600-0-900-crop.jpg?v=af37112bc2",
         "link": "https://letterboxd.com/ncteisen/film/red-rooms/"
       },
@@ -4004,31 +4044,11 @@
         "review": "<p>Did a couple things right (I \u2764\ufe0f Cape Cod sunsets) but also did a lot of things wrong. For example:<br/>- cartoonishly unlikeable characters<br/>- bland and trope-filled plot development <br/>- failing the bechdel test so hard I am shocked that Becca liked it</p><p>Definitely better than Voicemails for Isabelle tho</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/0/9/0/0/1/1209001-tony-2026-0-600-0-900-crop.jpg?v=63ce7b9234",
         "link": "https://letterboxd.com/ncteisen/film/tony-2026/"
-      },
-      {
-        "title": "When Harry Met Sally...",
-        "year": 1989,
-        "rating": 5.0,
-        "watched_date": "2026-08-19",
-        "is_rewatch": true,
-        "review": "<p>This was my way of telling Sarah that she's high maintenance but she thinks she's low maintenance</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/5/51485-when-harry-met-sally--0-600-0-900-crop.jpg?v=2f277e2fe7",
-        "link": "https://letterboxd.com/ncteisen/film/when-harry-met-sally/1/"
-      },
-      {
-        "title": "The Odyssey",
-        "year": 2026,
-        "rating": 4.0,
-        "watched_date": "2026-08-17",
-        "is_rewatch": true,
-        "review": "<p>RIP to everyone killed by the gods for their hubris but im different. and better. maybe even better than the gods</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
-        "link": "https://letterboxd.com/ncteisen/film/the-odyssey-2026/1/"
       }
     ],
     "stats": {
-      "total_films": 394,
-      "films_this_year": 58
+      "total_films": 396,
+      "films_this_year": 60
     }
   },
   "goodreads": {
@@ -5729,6 +5749,28 @@
   },
   "strava": {
     "all_activities": [
+      {
+        "id": 20185866055,
+        "name": "Sunrise runs are back",
+        "type": "Run",
+        "distance": 5.01,
+        "moving_time": 2788,
+        "elapsed_time": 3494,
+        "elevation_gain": 558.0,
+        "average_pace": 9.28,
+        "average_heartrate": 144.3,
+        "max_heartrate": 169.0,
+        "average_cadence": 85.4,
+        "average_watts": 290.2,
+        "start_date": "2026-09-15T13:35:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a20185866055",
+          "summary_polyline": "gkpeFlehjVNCNG`@Kj@G^MNDLAz@ON@FDT?VENIh@@f@OH?d@YRBV?`@En@CREJJHRV^@RGT@JDLD@z@@^GbA?n@KlA?L@J^X@lAK`@IZCF?RCLD`@EPKLCTD^EVDf@O\\APEFFLAB@FH@v@BD@LDLDr@@p@BLRLAPJ^HLVBBDCFQLCLA`AKRQJKAQQIYGHDp@O`A?TEr@RDHVf@j@DTCPOP?TA@ICQJE?GD?`@ELIL@JV^H\\RN@HEPHp@ERUb@m@p@Un@Ez@@f@E~@NlAAr@Kb@BPBhAIAII_@m@Wk@SWs@YK_@MWc@o@a@]OEc@Uu@Q_@ESGo@e@QIM?IDQb@DLJJLBZEXRLVTfBPh@FHHBd@JNN?NKLUD[PQDw@?IBADDL^VDJTDRFN?HHNn@n@fAP`@J^ADEBcBVg@REFC~@NdBG^ARJx@Pj@?r@DZ@b@BVL^?^DR?p@Jx@B~AA`@BF?l@AZBZ?NFlA?b@Lb@FFDTAd@HP@L?d@Gb@DXPp@Ab@Fh@AVEX@XNtBDZLX@N?NGX?JTdBH^@f@DTAd@CJOZEZ?JPb@@j@?jBAt@EJBbACrAGXQZWV[NIHWz@Ef@K^UTQDGF@PNl@c@FIDIJSnACd@EPQJk@?_@DKAe@Ja@BaAY[?ODWPs@~Ao@x@KFUBe@?m@GKBGDEJCVA~AGhAEH[HGFK~@WhAINC@WI[A[GUD}@RC?GG?OVaETgBJyAFoAFg@?_@d@yDX}FFw@Ha@@}AU}AIyAE[WoAg@kBc@mBXE@CK{@Cc@ZcAFe@@s@Gu@Ue@Qe@WoA@_@ReB?OQ}C?q@Ks@IYAa@GWI{@GiBB]Su@@k@Ie@A_@@aADYKwAU}AIyAQiAYo@[g@Sm@EU?u@H{@Gy@V{A@o@C_ABa@Cg@W}@CYCc@Ds@Ak@Ei@Ac@KsAKiCIaA@iAEw@Fk@I]Ee@EW@SLQMgAIqAG]",
+          "resource_state": 2
+        }
+      },
       {
         "id": 20161760634,
         "name": "Morning Run",
@@ -7906,28 +7948,6 @@
           "summary_polyline": "uqpeF`lhjVPjAB^CVJj@AzAL^D^EfAJd@?PPZAHQTCP`@fHFV?^Cf@@v@N|@LpBCtAWnA?b@DPBp@GZCr@BPZt@RVh@~@DPBnB^jEAvBFX@n@P~@?x@DlBP~AT|@H|@?n@RbBAx@QhABz@RnATj@Pl@BXM|@IZQZEXFd@APHn@dBIr@NvBIJZD@PIPUdB]l@A~@Or@EzB]lAI~@SnCQn@W\\AvA]l@?n@QfAEXM~C]VKxAAzAYN?~@Ul@@~A[xAGDR?dBP~@D`@JXBf@LXHd@Th@BRJJ\\NJ\\VDLLN^AJDVHHBAAUMU?SKIC]KK?YYk@?OFCFPLPVVHd@DDJ@BJ?HHBTVb@PFV?XMVCNBLPb@ANJd@Ib@?nACb@OFUKg@e@EMQQGA@NU@KXGACGK@KJKXQfA]x@?VLj@`@t@LH[RKNDnABVFBGR?N@LHLLDRGR?\\Ul@AXR`@LN\\@XHLFBf@OPONCJ@PGXUv@c@RDPAZZ?NDHFbATv@DF@LRZTDPAZU\\g@@@j@{@LKZO~AWl@WXCr@[@QGK]M_@Ec@a@c@Sq@k@m@u@G{@HFDXPVb@HFEUOU]Ek@?m@GYFSEKBSRg@RaBCMYi@I[CAIWA[Bi@O{@IcBIWSQGODQTi@lAa@ROR]QcAQQIYQWIm@?SV[RCh@FHMA{@IgAES@w@GK@O?aBT_Ah@mAj@[n@E\\k@DkAPe@Eg@d@IHKEUc@SEQ?QjEaIUACBC`A_@`B@JFNLHNCdBw@NAJF?NQT}@\\cAf@gCn@O?QGM[D_@Pe@v@wAL_@B][{BEy@Ks@Ma@IO[K[LGHGT@T^fBA\\KTiAhAMVeAf@o@`@QTu@lAg@f@mA~@}@^uAT_@@i@KI{AEWg@iAMOkAw@iAa@aAUsAq@KOEWGEy@Rc@Ny@j@g@L]Fm@BcA\\u@E_@IYO[GiAu@WWm@]k@i@}@g@k@HuBHk@Pq@BgATgCZg@Ta@I_AR[AUFqAHq@Pc@@q@Rg@EM@uAXc@RaAM_AZ_ARKAIOG}@Ie@CcAKeAAmAOuAMyB?SMy@@g@UcBIgACcAK_A?c@Ks@EiAKq@GqA?gAEUMiCQ_AGo@?i@OcCU}CDg@Mg@Ea@?YIi@QqC",
           "resource_state": 2
         }
-      },
-      {
-        "id": 18083722844,
-        "name": "More rain training",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2462,
-        "elapsed_time": 2625,
-        "elevation_gain": 246.0,
-        "average_pace": 8.2,
-        "average_heartrate": 143.0,
-        "max_heartrate": 172.0,
-        "average_cadence": 90.6,
-        "average_watts": 333.4,
-        "start_date": "2026-04-12T17:39:07Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a18083722844",
-          "summary_polyline": "sppeFfkhjVDTCZE\\DXPl@Jf@CVBP?RNd@CPHJO^@Jb@XENHf@G`@IHQHCJ@v@CX?`@Fb@BpAF|@CrAEl@Dd@ITLn@H~@Ab@@\\ET@XFZC\\Bf@KPANFj@?VIp@Qd@?JJ`@PVFPPVFBHJTp@Hh@Ar@Hd@AZXfBGP@PIj@D~@?h@N`@?NDLBbAFx@DLAXFj@?`@Hh@?j@DX?LDRB`@Eh@Fb@E^J`AAp@G|@Pt@N`AH\\f@`AVlA?zAGVYj@E`@Fh@ALVjACVBp@HR\\bBV~AF~BEpAGXIFSDm@Ca@We@i@[e@c@g@QYi@o@YSQGI?ODKPk@\\CFWRGF_@\\_@~@Ij@AlAFlATnABd@PnARt@Fb@P`BN~@?XH~@?v@BTLb@LT`@Z^Rh@j@Vb@f@lATZFTC`@Qj@OpA[bBK|@_@nBWzBQhB?|@Tx@HTFDTEXAR?f@KPAf@MTKp@Gn@?b@LVRX\\hA~AvAvBN^RXPJPKD@PVNPRLNRTNH?HAPO`@o@^iAf@y@Jg@L]T[b@Wp@Ur@ENB^CzAOJAJGDKBMB]PaBAo@CWe@oCe@_BQaAGe@[qAMkB@o@Fg@?k@AMGQOq@[u@KQGY[]m@{@YYgAmBM[_@_BUoB?YNo@C[o@iBQ]_@e@C_@@WFIVS@EKi@Gg@Cm@HcAAg@GYAc@Ke@BMLc@AEGIc@KKIQUQm@SY]U_@Kw@DEEGcCCe@MuAGe@EMI{BYwCAi@GeAK_AKeCQ_BSsDK{@MuB?]QsBCsAQ{AG_BMkAEcAKqAEu@MuAGeBGWEy@K_DMe@G[CqBE}@MyAOuCGYAi@Y_FQ{AK}BQwBCk@",
-          "resource_state": 2
-        }
       }
     ],
     "longest_run": {
@@ -8063,6 +8083,28 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 20185866055,
+        "name": "Sunrise runs are back",
+        "type": "Run",
+        "distance": 5.01,
+        "moving_time": 2788,
+        "elapsed_time": 3494,
+        "elevation_gain": 558.0,
+        "average_pace": 9.28,
+        "average_heartrate": 144.3,
+        "max_heartrate": 169.0,
+        "average_cadence": 85.4,
+        "average_watts": 290.2,
+        "start_date": "2026-09-15T13:35:42Z",
+        "description": null,
+        "commute": false,
+        "map": {
+          "id": "a20185866055",
+          "summary_polyline": "gkpeFlehjVNCNG`@Kj@G^MNDLAz@ON@FDT?VENIh@@f@OH?d@YRBV?`@En@CREJJHRV^@RGT@JDLD@z@@^GbA?n@KlA?L@J^X@lAK`@IZCF?RCLD`@EPKLCTD^EVDf@O\\APEFFLAB@FH@v@BD@LDLDr@@p@BLRLAPJ^HLVBBDCFQLCLA`AKRQJKAQQIYGHDp@O`A?TEr@RDHVf@j@DTCPOP?TA@ICQJE?GD?`@ELIL@JV^H\\RN@HEPHp@ERUb@m@p@Un@Ez@@f@E~@NlAAr@Kb@BPBhAIAII_@m@Wk@SWs@YK_@MWc@o@a@]OEc@Uu@Q_@ESGo@e@QIM?IDQb@DLJJLBZEXRLVTfBPh@FHHBd@JNN?NKLUD[PQDw@?IBADDL^VDJTDRFN?HHNn@n@fAP`@J^ADEBcBVg@REFC~@NdBG^ARJx@Pj@?r@DZ@b@BVL^?^DR?p@Jx@B~AA`@BF?l@AZBZ?NFlA?b@Lb@FFDTAd@HP@L?d@Gb@DXPp@Ab@Fh@AVEX@XNtBDZLX@N?NGX?JTdBH^@f@DTAd@CJOZEZ?JPb@@j@?jBAt@EJBbACrAGXQZWV[NIHWz@Ef@K^UTQDGF@PNl@c@FIDIJSnACd@EPQJk@?_@DKAe@Ja@BaAY[?ODWPs@~Ao@x@KFUBe@?m@GKBGDEJCVA~AGhAEH[HGFK~@WhAINC@WI[A[GUD}@RC?GG?OVaETgBJyAFoAFg@?_@d@yDX}FFw@Ha@@}AU}AIyAE[WoAg@kBc@mBXE@CK{@Cc@ZcAFe@@s@Gu@Ue@Qe@WoA@_@ReB?OQ}C?q@Ks@IYAa@GWI{@GiBB]Su@@k@Ie@A_@@aADYKwAU}AIyAQiAYo@[g@Sm@EU?u@H{@Gy@V{A@o@C_ABa@Cg@W}@CYCc@Ds@Ak@Ei@Ac@KsAKiCIaA@iAEw@Fk@I]Ee@EW@SLQMgAIqAG]",
+          "resource_state": 2
+        }
+      },
       {
         "id": 20161760634,
         "name": "Morning Run",
@@ -8214,28 +8256,6 @@
         "map": {
           "id": "a20035188509",
           "summary_polyline": "gvpeF`zejVCPBlANtA@d@Np@CXA~ARbBDRHdBNv@DLDhAX~ABrCLlANb@@PBz@TdD?j@NvAXhFH`@BjAD`@BbALbABpARtADbADh@DrAEP_@TSFk@Xq@FEDANA\\L`AA`@@VNt@Bn@DX@t@Gd@Dh@JVBVCjADZ?`@@HNXDT?ZBn@An@Fd@DHDfA@b@WLHlAEnAHt@Nx@DfA?hBW`A@d@DV@XEzAL`@Tf@HXJPTr@DHJtBPxBF\\FxACb@?b@Jt@@`@Lr@FPC`@B\\CtAJz@`@bB@dBHpAJz@?ZOnA?\\DZL`@?NFL@Pf@fBAn@Gh@Qh@GHGBEACE[k@Ou@g@{@?a@COGqDQ{@EaAIo@?MFY?[C[@WPsAC_@?SQg@UYMYIg@MkABY?m@YsB?ML}AA[I[[i@KWKq@A_@GSE_ACMDqAD_@Km@AcBGa@Cq@Ei@N}@Aq@E[w@_EYi@K}AWyAIgCGSSYCK?QFMb@KXO^EL@LFP@JABG?UJm@Ee@Fk@?QKa@AUDs@EWKKG]Gq@QwA",
-          "resource_state": 2
-        }
-      },
-      {
-        "id": 20021496769,
-        "name": "Look who\u2019s back",
-        "type": "Run",
-        "distance": 5.0,
-        "moving_time": 2604,
-        "elapsed_time": 2781,
-        "elevation_gain": 180.0,
-        "average_pace": 8.68,
-        "average_heartrate": 150.0,
-        "max_heartrate": 172.0,
-        "average_cadence": 87.8,
-        "average_watts": 303.7,
-        "start_date": "2026-09-03T14:56:48Z",
-        "description": null,
-        "commute": false,
-        "map": {
-          "id": "a20021496769",
-          "summary_polyline": "erpeFplhjVBj@Hv@@`APx@BlBLv@DJBRC`APjBLpCAn@FbACh@@v@RlAN~CAj@Mb@EZCl@FbAG|APZL`@RZ^v@Z`ENpA@tAEr@A\\BPFRJz@Ln@BfD@LRt@B^N|@?fBVfCATQ`BNdANf@Tl@V`AAZIz@]v@CPF`BW\\ZlAZt@n@vCLzADpAGhAI\\OFYBY?QEMGWWSMWg@UUi@YIGE[GK@ICIUQYG]P]\\WJOL[LQRWp@Kb@Mx@@rANjBHl@d@tBb@tEBz@JpALh@HZPXnAz@\\\\Xf@r@xADPAb@OfAm@|CCb@ShA[xA_@nCEdA?t@Hf@Hz@Pn@LLv@Z^ZjCzEdBnC`@d@n@~@`@\\j@Tf@Lh@Xl@F@CLy@Bc@j@eDAOa@]YISSS_@Ym@yAgCi@w@Yk@y@eAMMMISEQAk@?i@De@NcBZO?YCQ?GCAKA]Dq@HqD\\{A`@sBZ{BVkABWNg@?EMS?MTyBNsBLeAHaADYXoDZ}CZ_FD}@Ca@?k@CSD_AC}AOcBWwAo@eCT[Qq@Ii@C]?g@D[To@Hg@@k@QgAc@eAS}@Fm@?]DU@s@K_AEq@COBaAC[OkAQk@Ks@?w@EgAH[M]SmBAWHyAIu@?YEs@Mc@AcASyAq@iBUa@I]?k@CUHy@EO?w@Nq@?]Hw@?UGg@BYEg@Me@Q{@AQJy@C_@?k@YcFOaB@c@C_@MqAEY?kAKa@@CRM?g@Qm@BS?i@?QGS",
           "resource_state": 2
         }
       }
@@ -8599,25 +8619,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 140,
-          "distance": 801.11,
-          "moving_time": 497256,
-          "elapsed_time": 560553,
-          "elevation_gain": 83513.0
+          "count": 141,
+          "distance": 806.12,
+          "moving_time": 500044,
+          "elapsed_time": 564047,
+          "elevation_gain": 84071.0
         },
         "all_time": {
-          "count": 1281,
-          "distance": 6692.56,
-          "moving_time": 3693951,
-          "elapsed_time": 4182233,
-          "elevation_gain": 519077.0
+          "count": 1282,
+          "distance": 6697.56,
+          "moving_time": 3696739,
+          "elapsed_time": 4185727,
+          "elevation_gain": 519635.0
         },
         "recent": {
-          "count": 15,
-          "distance": 67.08,
-          "moving_time": 36825,
-          "elapsed_time": 39936,
-          "elevation_gain": 5003.0
+          "count": 16,
+          "distance": 72.08,
+          "moving_time": 39613,
+          "elapsed_time": 43430,
+          "elevation_gain": 5561.0
         }
       },
       "biking": {
