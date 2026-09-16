@@ -1,0 +1,352 @@
+{
+	"title": "To Sleep, Perchance to Dream",
+	"sourceSha256": "18d8cd251791cba979e3a42595b0af936d17bf70f0a6bd13cda7939997729d5e",
+	"pdf": "/writing/to-sleep-perchance-to-dream/manga/proof/to-sleep-perchance-to-dream.pdf",
+	"pdfBytes": 46620200,
+	"pages": [
+		{
+			"number": 0,
+			"label": "Cover",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-00.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-00-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 1,
+			"label": "Page 1",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-01.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-01-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 2,
+			"label": "Page 2",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-02.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-02-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 3,
+			"label": "Page 3",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-03.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-03-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 4,
+			"label": "Page 4",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-04.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-04-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 5,
+			"label": "Page 5",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-05.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-05-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 6,
+			"label": "Page 6",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-06.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-06-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 7,
+			"label": "Page 7",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-07.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-07-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 8,
+			"label": "Page 8",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-08.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-08-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 9,
+			"label": "Page 9",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-09.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-09-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 10,
+			"label": "Page 10",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-10.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-10-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 11,
+			"label": "Page 11",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-11.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-11-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 12,
+			"label": "Page 12",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-12.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-12-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 13,
+			"label": "Page 13",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-13.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-13-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 14,
+			"label": "Page 14",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-14.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-14-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 15,
+			"label": "Page 15",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-15.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-15-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 16,
+			"label": "Page 16",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-16.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-16-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 17,
+			"label": "Page 17",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-17.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-17-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 18,
+			"label": "Page 18",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-18.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-18-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 19,
+			"label": "Page 19",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-19.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-19-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 20,
+			"label": "Page 20",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-20.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-20-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 21,
+			"label": "Page 21",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-21.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-21-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 22,
+			"label": "Page 22",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-22.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-22-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 23,
+			"label": "Page 23",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-23.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-23-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 24,
+			"label": "Page 24",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-24.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-24-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 25,
+			"label": "Page 25",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-25.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-25-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 26,
+			"label": "Page 26",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-26.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-26-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 27,
+			"label": "Page 27",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-27.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-27-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 28,
+			"label": "Page 28",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-28.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-28-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 29,
+			"label": "Page 29",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-29.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-29-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 30,
+			"label": "Page 30",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-30.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-30-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 31,
+			"label": "Page 31",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-31.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-31-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 32,
+			"label": "Page 32",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-32.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-32-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 33,
+			"label": "Page 33",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-33.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-33-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 34,
+			"label": "Page 34",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-34.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-34-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 35,
+			"label": "Page 35",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-35.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-35-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 36,
+			"label": "Page 36",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-36.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-36-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 37,
+			"label": "Page 37",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-37.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-37-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 38,
+			"label": "Page 38",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-38.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-38-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 39,
+			"label": "Page 39",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-39.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-39-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 40,
+			"label": "Page 40",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-40.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-40-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 41,
+			"label": "Page 41",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-41.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-41-800.webp",
+			"width": 1600,
+			"height": 2400
+		},
+		{
+			"number": 42,
+			"label": "Page 42",
+			"image": "/writing/to-sleep-perchance-to-dream/manga/proof/page-42.webp",
+			"smallImage": "/writing/to-sleep-perchance-to-dream/manga/proof/page-42-800.webp",
+			"width": 1600,
+			"height": 2400
+		}
+	]
+}

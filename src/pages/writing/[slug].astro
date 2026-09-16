@@ -86,6 +86,11 @@ const { story } = Astro.props;
 			.story-nav a:hover,
 			.story-nav a:focus-visible { color: #aaa; }
 
+			.story-nav__links {
+				display: flex;
+				gap: 24px;
+			}
+
 			.story-header {
 				padding: 78px 0 58px;
 				border-bottom: 1px solid #1d1d1d;
@@ -159,6 +164,10 @@ const { story } = Astro.props;
 			}
 
 			.story-return {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 24px;
 				padding-top: 32px;
 				border-top: 1px solid #1d1d1d;
 				font-family: 'DM Sans', sans-serif;
@@ -191,16 +200,26 @@ const { story } = Astro.props;
 		<main class="shell">
 			<nav class="story-nav" aria-label="Story navigation">
 				<a href="/writing/">&larr; All writing</a>
-				{story.pdfPath && (
-					<a
-						href={story.pdfPath}
-						target="_blank"
-						rel="noopener noreferrer"
-						data-umami-event="link_click"
-						data-umami-event-area="writing"
-						data-umami-event-label={`${story.slug}-pdf`}
-					>PDF &nearr;</a>
-				)}
+				<div class="story-nav__links">
+					{story.mangaPath && (
+						<a
+							href={story.mangaPath}
+							data-umami-event="link_click"
+							data-umami-event-area="writing"
+							data-umami-event-label={`${story.slug}-manga`}
+						>Manga &rarr;</a>
+					)}
+					{!story.mangaPath && story.pdfPath && (
+						<a
+							href={story.pdfPath}
+							target="_blank"
+							rel="noopener noreferrer"
+							data-umami-event="link_click"
+							data-umami-event-area="writing"
+							data-umami-event-label={`${story.slug}-pdf`}
+						>PDF &nearr;</a>
+					)}
+				</div>
 			</nav>
 
 			<header class="story-header">
@@ -217,6 +236,7 @@ const { story } = Astro.props;
 
 			<nav class="story-return" aria-label="Back to writing">
 				<a href="/writing/">&larr; Back to writing</a>
+				{story.mangaPath && <a href={story.mangaPath}>Read the manga &rarr;</a>}
 			</nav>
 		</main>
 

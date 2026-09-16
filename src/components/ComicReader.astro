@@ -1,0 +1,252 @@
+---
+interface ComicPage {
+	number: number;
+	label: string;
+	image: string;
+	smallImage: string;
+	width: number;
+	height: number;
+}
+interface Props {
+	title: string;
+	pages: ComicPage[];
+	storageKey: string;
+}
+const { title, pages, storageKey } = Astro.props;
+---
+
+<section class="comic" data-comic data-storage-key={storageKey} aria-label={`${title} manga reader`}>
+	<div class="reader-options" data-reader-controls hidden>
+		<div class="view-options" role="group" aria-label="Reading mode">
+			<button type="button" data-mode="pages" aria-pressed="true">Pages</button>
+			<button type="button" data-mode="scroll" aria-pressed="false">Scroll</button>
+		</div>
+		<button type="button" class="zoom-button" data-zoom aria-pressed="false">Enlarge</button>
+	</div>
+	<div class="resume-row" data-resume-row hidden><button type="button" data-resume></button></div>
+	<div class="page-stage" data-stage>
+		{pages.map((page, index) => (
+			<figure class="comic-page" id={index === 0 ? 'cover' : `page-${page.number}`} data-page={index}>
+				<img
+					src={page.smallImage}
+					srcset={`${page.smallImage} 800w, ${page.image} 1600w`}
+					sizes="(max-width: 600px) 100vw, 1000px"
+					width={page.width} height={page.height}
+					alt={index === 0 ? `${title}, cover. A woman's portrait dissolves into a city above a writer at his desk.` : `${title}, page ${page.number} of ${pages.length - 1}.`}
+					loading={index === 0 ? 'eager' : 'lazy'}
+					fetchpriority={index === 0 ? 'high' : 'auto'} decoding="async"
+				/>
+			</figure>
+		))}
+	</div>
+	<nav class="page-controls" data-reader-controls aria-label="Page navigation" hidden>
+		<button type="button" data-previous aria-label="Previous page" title="Previous page (left arrow)"><span aria-hidden="true">←</span> Previous</button>
+		<div class="page-picker">
+			<label class="sr-only" for="comic-page-picker">Go to page</label>
+			<select id="comic-page-picker" data-page-picker>
+				{pages.map((page, index) => <option value={index}>{index === 0 ? 'Cover' : `${page.label} / ${pages.length - 1}`}</option>)}
+			</select>
+		</div>
+		<button type="button" data-next aria-label="Next page" title="Next page (right arrow)">Next <span aria-hidden="true">→</span></button>
+	</nav>
+	<p class="sr-only" data-page-status role="status" aria-live="polite" aria-atomic="true"></p>
+	<p class="reader-hint keyboard-hint" data-reader-controls hidden>Use ← → to turn pages.</p>
+	<noscript><p class="reader-hint">Scroll to read the manga. Each page appears in order below the cover.</p></noscript>
+</section>
+
+<style>
+	[hidden] { display: none !important; }
+	.comic { --reader-accent: var(--accent, #9b86d8); padding-bottom: 1rem; }
+	button, select { font: inherit; }
+	button { cursor: pointer; }
+	button:focus-visible, select:focus-visible { outline: 2px solid var(--reader-accent); outline-offset: 4px; }
+	.reader-options { display: flex; align-items: center; justify-content: center; gap: 24px; max-width: 800px; margin: 0 auto 12px; }
+	.view-options { display: flex; gap: 4px; }
+	.view-options button, .zoom-button { min-height: 44px; border: 0; background: transparent; color: #666; padding: 0 12px; font-size: 11px; }
+	.view-options button[aria-pressed="true"] { color: #aaa; text-decoration: underline; text-decoration-color: #555; text-underline-offset: 7px; text-decoration-thickness: 1px; }
+	.view-options button:hover, .zoom-button:hover, .zoom-button[aria-pressed="true"] { color: #aaa; }
+	.resume-row { text-align: center; margin: 0 auto 20px; }
+	.resume-row button { padding: 10px 14px; border: 0; background: transparent; color: var(--reader-accent); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+	.page-stage { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #666 #1d1d1d; }
+	.comic-page { width: 100%; max-width: 800px; margin: 0 auto 36px; scroll-margin-top: 20px; }
+	.comic-page img { display: block; background: #fff; width: 100%; height: auto; }
+	.comic[data-mode="pages"] .comic-page { max-width: calc((100svh - 40px) * 2 / 3); margin-bottom: 16px; }
+	.comic[data-zoomed="true"] .comic-page { width: 100%; max-width: 1000px; }
+	.page-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 5; width: min(100% - 24px, 340px); margin: 12px auto 0; background: #0a0a0af5; }
+	.comic[data-mode="pages"] .page-controls { position: static; }
+	.comic[data-mode="scroll"] .page-controls,
+	.comic[data-mode="scroll"] .keyboard-hint { display: none; }
+	.page-controls button { min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #666; font-size: 11px; white-space: nowrap; }
+	.page-controls button:hover:not(:disabled) { color: #aaa; }
+	.page-controls button:disabled { color: #333; cursor: default; }
+	.page-picker { min-width: 0; }
+	.page-picker select { width: 100%; min-height: 44px; padding: 0 8px; color: #666; background: #0a0a0a; border: 0; font-size: 11px; cursor: pointer; }
+	.reader-hint { margin: 14px 0 0; color: #555; text-align: center; font-size: 10px; line-height: 1.6; }
+	.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+	@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+		.reader-options { justify-content: center; padding-inline: 14px; margin-bottom: 8px; }
+		.zoom-button, .keyboard-hint { display: none; }
+		.comic[data-mode="pages"] .comic-page,
+		.comic[data-zoomed="true"] .comic-page { width: 100%; max-width: 100%; }
+		.page-controls { gap: 4px; }
+		.comic[data-mode="pages"] .page-controls { position: sticky; }
+		.page-controls button { padding: 0 12px; }
+		.reader-hint { padding: 0 22px; }
+	}
+</style>
+
+<script>
+	const reader = document.querySelector<HTMLElement>('[data-comic]');
+	if (reader) {
+		const pages = Array.from(reader.querySelectorAll<HTMLElement>('[data-page]'));
+		const stage = reader.querySelector<HTMLElement>('[data-stage]')!;
+		const picker = reader.querySelector<HTMLSelectElement>('[data-page-picker]')!;
+		const previous = reader.querySelector<HTMLButtonElement>('[data-previous]')!;
+		const next = reader.querySelector<HTMLButtonElement>('[data-next]')!;
+		const zoom = reader.querySelector<HTMLButtonElement>('[data-zoom]')!;
+		const status = reader.querySelector<HTMLElement>('[data-page-status]')!;
+		const resumeRow = reader.querySelector<HTMLElement>('[data-resume-row]')!;
+		const resume = reader.querySelector<HTMLButtonElement>('[data-resume]')!;
+		const modeButtons = Array.from(reader.querySelectorAll<HTMLButtonElement>('[data-mode]'));
+		const storageKey = reader.dataset.storageKey!;
+		const mobileLayout = window.matchMedia('(max-width: 600px), (hover: none) and (pointer: coarse)');
+		let current = 0;
+		let mode = 'pages';
+		let zoomed = false;
+		let framePending = false;
+		let swipe: { id: number; x: number; y: number; started: number } | null = null;
+		const readSavedPage = () => {
+			try {
+				const value = Number(localStorage.getItem(storageKey));
+				return Number.isInteger(value) && value > 0 && value < pages.length ? value : 0;
+			} catch { return 0; }
+		};
+		const pageFromHash = () => pages.findIndex((page) => `#${page.id}` === window.location.hash);
+		const updatePosition = (save: boolean) => {
+			picker.value = String(current);
+			previous.disabled = current === 0;
+			next.disabled = current === pages.length - 1;
+			status.textContent = current === 0 ? 'Cover' : `Page ${current} of ${pages.length - 1}`;
+			if (save) {
+				try { localStorage.setItem(storageKey, String(current)); } catch { /* Reading works without storage. */ }
+				history.replaceState(null, '', `#${pages[current].id}`);
+				resumeRow.hidden = true;
+			}
+		};
+		const showPage = (index: number, { save = true, scroll = true } = {}) => {
+			swipe = null;
+			current = Math.max(0, Math.min(index, pages.length - 1));
+			pages.forEach((page, pageIndex) => { page.hidden = mode === 'pages' && pageIndex !== current; });
+			// Preload the next page without fetching the entire book.
+			for (const page of pages.slice(current, current + 2)) page.querySelector('img')!.loading = 'eager';
+			updatePosition(save);
+			if (scroll) {
+				const target = mode === 'pages' ? stage : pages[current];
+				window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top - 20, behavior: 'instant' });
+				stage.scrollLeft = 0;
+			}
+		};
+		reader.dataset.mode = mode;
+		reader.querySelectorAll<HTMLElement>('[data-reader-controls]').forEach((control) => { control.hidden = false; });
+		const initial = pageFromHash();
+		const saved = readSavedPage();
+		showPage(initial >= 0 ? initial : 0, { save: false, scroll: false });
+		if (saved > 0 && initial < 0) {
+			resume.textContent = `Continue from page ${saved} →`;
+			resumeRow.hidden = false;
+			resume.addEventListener('click', () => showPage(saved));
+		}
+		previous.addEventListener('click', () => showPage(current - 1));
+		next.addEventListener('click', () => showPage(current + 1));
+		picker.addEventListener('change', () => showPage(Number(picker.value)));
+		window.addEventListener('hashchange', () => {
+			const index = pageFromHash();
+			if (index >= 0) showPage(index);
+		});
+		modeButtons.forEach((button) => button.addEventListener('click', () => {
+			mode = button.dataset.mode!;
+			reader.dataset.mode = mode;
+			modeButtons.forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
+			showPage(current);
+		}));
+		const setZoom = (enlarged: boolean) => {
+			zoomed = enlarged;
+			reader.dataset.zoomed = String(zoomed);
+			zoom.setAttribute('aria-pressed', String(zoomed));
+			zoom.textContent = zoomed ? 'Fit page' : 'Enlarge';
+			pages.forEach((page) => { page.querySelector('img')!.sizes = zoomed ? '1600px' : '(max-width: 600px) 100vw, 1000px'; });
+		};
+		mobileLayout.addEventListener('change', () => {
+			if (mobileLayout.matches) {
+				setZoom(false);
+				stage.scrollLeft = 0;
+			}
+		});
+		zoom.addEventListener('click', () => {
+			if (mobileLayout.matches) return;
+			setZoom(!zoomed);
+			showPage(current);
+		});
+		const canSwipe = () => mobileLayout.matches && mode === 'pages' && !zoomed
+			&& (window.visualViewport?.scale ?? 1) <= 1.01;
+		stage.addEventListener('touchstart', (event) => {
+			swipe = null;
+			if (!canSwipe() || event.touches.length !== 1) return;
+			const touch = event.touches[0];
+			// Leave screen-edge gestures to the browser's back/forward navigation.
+			if (touch.clientX < 24 || touch.clientX > window.innerWidth - 24) return;
+			swipe = { id: touch.identifier, x: touch.clientX, y: touch.clientY, started: performance.now() };
+		}, { passive: true });
+		stage.addEventListener('touchmove', (event) => {
+			if (!swipe) return;
+			if (!canSwipe() || event.touches.length !== 1 || performance.now() - swipe.started > 700) {
+				swipe = null;
+				return;
+			}
+			const touch = event.touches[0];
+			if (touch.identifier !== swipe.id) { swipe = null; return; }
+			const horizontal = Math.abs(touch.clientX - swipe.x);
+			const vertical = Math.abs(touch.clientY - swipe.y);
+			if (Math.max(horizontal, vertical) < 12) return;
+			// A vertical or diagonal start stays a scroll, even if it later turns sideways.
+			if (horizontal < vertical * 2) { swipe = null; return; }
+			if (event.cancelable) event.preventDefault();
+		}, { passive: false });
+		stage.addEventListener('touchend', (event) => {
+			const gesture = swipe;
+			swipe = null;
+			if (!gesture || !canSwipe() || event.touches.length !== 0) return;
+			const touch = Array.from(event.changedTouches).find((item) => item.identifier === gesture.id);
+			if (!touch || performance.now() - gesture.started > 700) return;
+			const deltaX = touch.clientX - gesture.x;
+			const deltaY = touch.clientY - gesture.y;
+			const minimumDistance = Math.max(64, Math.min(96, stage.clientWidth * 0.2));
+			if (Math.abs(deltaX) < minimumDistance || Math.abs(deltaX) < Math.abs(deltaY) * 2) return;
+			const target = current + (deltaX < 0 ? 1 : -1);
+			if (target >= 0 && target < pages.length) showPage(target);
+		}, { passive: true });
+		stage.addEventListener('touchcancel', () => { swipe = null; }, { passive: true });
+		window.addEventListener('keydown', (event) => {
+			if (event.altKey || event.ctrlKey || event.metaKey || zoomed) return;
+			if (event.target instanceof HTMLElement && event.target.closest('input, select, textarea, [contenteditable="true"]')) return;
+			if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+				event.preventDefault();
+				showPage(current + (event.key === 'ArrowLeft' ? -1 : 1));
+			}
+		});
+		window.addEventListener('scroll', () => {
+			if (mode !== 'scroll' || framePending) return;
+			framePending = true;
+			requestAnimationFrame(() => {
+				framePending = false;
+				if (mode !== 'scroll') return;
+				const midpoint = window.innerHeight * 0.45;
+				const index = pages.findIndex((page) => {
+					const rect = page.getBoundingClientRect();
+					return rect.top <= midpoint && rect.bottom >= midpoint;
+				});
+				if (index >= 0 && index !== current) { current = index; updatePosition(true); }
+			});
+		}, { passive: true });
+	}
+</script>
