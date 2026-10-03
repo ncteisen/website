@@ -1,5 +1,29 @@
 [
   {
+    "guid": "letterboxd-review-1520997769",
+    "title": "Resident Evil",
+    "year": 2026,
+    "rating": 3.0,
+    "watched_date": "2026-10-02",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/1/3/0/2/7/1/7/1302717-untitled-resident-evil-reboot-0-600-0-900-crop.jpg?v=a688bf1bc7",
+    "review": "<p>Kinda fun, kinda dumb</p>",
+    "link": "https://letterboxd.com/ncteisen/film/resident-evil-2026/",
+    "pub_date": "Sat, 3 Oct 2026 17:11:12 +1300"
+  },
+  {
+    "guid": "letterboxd-review-1520208337",
+    "title": "Candyman",
+    "year": 2021,
+    "rating": 3.0,
+    "watched_date": "2026-09-30",
+    "is_rewatch": false,
+    "image_url": "https://a.ltrbxd.com/resized/film-poster/4/9/3/4/4/1/493441-candyman-2021-0-600-0-900-crop.jpg?v=c789b96463",
+    "review": "<p>Good style and vibes, bad writing and plot</p>",
+    "link": "https://letterboxd.com/ncteisen/film/candyman-2021/",
+    "pub_date": "Sat, 3 Oct 2026 06:52:47 +1300"
+  },
+  {
     "guid": "letterboxd-review-1506874971",
     "title": "Memories of Murder",
     "year": 2003,
