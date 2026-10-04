@@ -2850,7 +2850,7 @@
     "isbn": "0316261254",
     "num_pages": null,
     "book_published": "2016",
-    "average_rating": "3.75",
+    "average_rating": "3.74",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1498054180l/32940838.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1498054180l/32940838.jpg",
     "guid": "https://www.goodreads.com/review/show/2137128736?utm_medium=api&utm_source=rss"
@@ -3547,7 +3547,7 @@
     "isbn": "1035081318",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.05",
+    "average_rating": "4.04",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767644639l/241683548.jpg",
     "guid": "https://www.goodreads.com/review/show/8732863157?utm_medium=api&utm_source=rss"
@@ -3564,7 +3564,7 @@
     "isbn": "0593321464",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.10",
+    "average_rating": "4.11",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "guid": "https://www.goodreads.com/review/show/8815306023?utm_medium=api&utm_source=rss"
@@ -3683,7 +3683,7 @@
     "isbn": "0374618593",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "3.81",
+    "average_rating": "3.80",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1754068063l/231387262.jpg",
     "guid": "https://www.goodreads.com/review/show/8458562550?utm_medium=api&utm_source=rss"
@@ -3717,7 +3717,7 @@
     "isbn": "1250828015",
     "num_pages": null,
     "book_published": "2025",
-    "average_rating": "3.92",
+    "average_rating": "3.91",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747583366l/231127223.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747583366l/231127223.jpg",
     "guid": "https://www.goodreads.com/review/show/8437477062?utm_medium=api&utm_source=rss"
@@ -6530,7 +6530,7 @@
   {
     "book_id": "29056083",
     "title": "Harry Potter and the Cursed Child: Parts One and Two (Harry Potter, #8)",
-    "author_name": "J.K. Rowling",
+    "author_name": "John Tiffany",
     "user_rating": 5,
     "user_read_at": "Tue, 9 Aug 2016 00:00:00 +0000",
     "user_date_added": "Sat, 07 Jan 2017 11:09:44 -0800",
