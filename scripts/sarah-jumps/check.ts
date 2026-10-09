@@ -67,17 +67,24 @@ for (let i = 0; i < 10000; i++) {
 // Drive the next landing through the same steering model, across many seeded courses.
 let totalLandings = 0;
 let maxPlatforms = 0;
+const viewportHeights = [595, 772, 950];
 for (let seed = 1; seed <= 100; seed++) {
 	const world = new World(seeded(seed));
+	world.setViewport(viewportHeights[seed % viewportHeights.length]);
 	let launchY = world.player.y;
 	for (let step = 0; step < 120 * 90; step++) {
+		if (step % (120 * 20) === 0) {
+			const before = { y: world.player.y, velocity: world.player.velocityY, camera: world.camera, score: world.score };
+			world.setViewport(viewportHeights[(seed + step / (120 * 20)) % viewportHeights.length]);
+			assert.deepEqual({ y: world.player.y, velocity: world.player.velocityY, camera: world.camera, score: world.score }, before, 'resizing never moves or restarts a jump');
+		}
 		const target = world.platforms.platforms.filter(p => !p.broken && p.baseY < launchY - 20).sort((a, b) => b.baseY - a.baseY)[0];
 		assert.ok(target, 'a next platform always exists');
 		const landing = world.update(1 / 120, { axis: 0, target: target.x + target.width / 2 });
 		if (landing) { launchY = landing.baseY; totalLandings++; }
 		assert.equal(world.ended, false, `course ${seed} remains reachable, step ${step}`);
 		maxPlatforms = Math.max(maxPlatforms, world.platforms.platforms.length);
-		assert.ok(world.platforms.platforms.length < 16, 'platform count stays bounded');
+		assert.ok(world.platforms.platforms.length < 20, 'platform count stays bounded on tall phones');
 	}
 	assert.ok(world.score > 60, 'the run climbs rather than bouncing on one platform');
 }
@@ -128,9 +135,20 @@ input.cleanup();
 dispatch(windowStub, 'keydown', { code: 'ArrowLeft' });
 assert.equal(input.read().axis, 0, 'cleanup removes input listeners');
 
+let playing = false;
+let starts = 0;
+const touchInput = new InputHandler(canvas as unknown as HTMLCanvasElement, canvas as unknown as HTMLElement,
+	() => playing, () => { starts++; touchInput.reset(); playing = true; }, () => {}, () => !playing);
+dispatch(canvas, 'pointerdown', { pointerId: 4, pointerType: 'touch', clientX: 160 });
+assert.equal(starts, 1, 'touching the ready playfield starts the game');
+assert.equal(touchInput.read().target, 300, 'the same held finger immediately steers');
+dispatch(canvas, 'pointermove', { pointerId: 4, clientX: 60 });
+assert.equal(touchInput.read().target, 100, 'holding and sliding steers without repeated taps');
+touchInput.cleanup();
+
 Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new Error('Storage blocked'); } });
 assert.equal(readBest('best'), 0);
 assert.doesNotThrow(() => saveBest('best', 10));
 Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: { getItem: () => 'corrupt' } });
 assert.equal(readBest('best'), 0, 'invalid saved scores never become NaN');
-console.log(JSON.stringify({ passed: true, refreshRates: [30, 60, 90, 120, 144], seededCourses: 100, simulatedMinutes: 150, totalLandings, maxPlatforms, jumpApex: apex.toFixed(1) }));
+console.log(JSON.stringify({ passed: true, refreshRates: [30, 60, 90, 120, 144], viewportHeights, seededCourses: 100, simulatedMinutes: 150, totalLandings, maxPlatforms, jumpApex: apex.toFixed(1) }));

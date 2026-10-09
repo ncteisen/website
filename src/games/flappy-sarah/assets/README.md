@@ -1,6 +1,27 @@
 # Flappy Sarah sprites
 
-The active default is `sarah-flap-denim.png`, an alternate atlas based on the user's denim-jacket/dress photo. The original `sarah-flap.png` hiking set is preserved unchanged. Use **Outfit: Denim / Hiking** on the start, pause, or game-over panel to compare them; the browser remembers the selection. Both were generated with the built-in imagegen tool.
+The game uses `sarah-flap-pixel.png`: a simpler four-pose atlas based on Sarah's photo and the original Sarah Jumps sprite. It is cached at 40 × 40 pixels per pose, with nearest-neighbor rendering and registered torso positions. There is no outfit picker or appearance preference in the game. The older `sarah-flap-denim.png` and `sarah-flap.png` files remain as source alternatives and are not imported by the game. All sets were created with the built-in imagegen tool.
+
+## Current generation prompt
+
+```text
+Use case: stylized-concept
+Asset type: low-resolution 8-bit sprite sheet for Flappy Sarah.
+Image 1 is the EXISTING Sarah Jumps sprite: it is the authoritative style, resolution and body-proportion reference. Image 2 is Sarah's actual photo: use her face, hair and clothing.
+Create a new transparent 2 by 2 sprite sheet with exactly four full-body sprites, one centered in each equal square cell. Crucial: these must look like alternate animations from the SAME game as image 1, not detailed cartoon portraits. Design every cell at only 40 by 40 logical pixels, enlarged with nearest-neighbor square pixels. Each woman is about 30 pixels tall, head about 5 by 6 pixels. Normal slim adult proportions, small head, long limbs. A restrained palette of around 16 flat colors, one or two shades per material, simple pixel clusters, thin dark edges. No anti-aliasing, glossy shading, anime eyes, large head, chibi proportions, detailed facial illustration or smooth gradients.
+Sarah wears the photo's open mid-blue jean jacket, dark plum calf-length dress, black crossbody bag and gray sandals. Brown hair loosely tied back with strands around her face. Light skin, recognizable narrow oval face and nose, simple smiling profile. No hat, sunglasses, hiking gear or bird wings. Leave hands bare. The body is mostly upright, hovering, oriented to the RIGHT in a three-quarter/side view like the style reference. Legs hang with knees slightly bent and feet trailing left.
+Use four arm-flap poses: top-left arms UP diagonally; top-right arms OUT horizontally; bottom-left arms DOWN diagonally; bottom-right arms halfway out for recovery. Arms move like wings. Keep head, torso, bag, dress and legs identical in position, scale and drawing across all cells. Only arms move.
+Every torso is centered at exactly the same point in its cell. Include generous transparent margins around the entire sprite, even the hands. Use a genuinely transparent alpha background, no scenery, ground, shadows, checkerboard pixels, captions, borders or labels. The result must be substantially simpler and more 8-bit than typical 64px cartoon sprite art.
+```
+
+### Proportion refinement
+
+```text
+Use case: precise-object-edit
+Image 1 is the sprite atlas to refine. Image 2 is the original Sarah Jumps style reference. Image 3 is Sarah's photo for likeness.
+Make one precise change to image 1: reduce the head INCLUDING face AND hair in ALL FOUR poses by about one third (to 65 percent of its current width and height). The face should have the narrow oval/profile silhouette from the photo, tiny nose, natural smile and simple brown hair. Anchor the bottom of each resized head at its existing neck. Do not enlarge the eyes or redraw a cartoon face. At the target 40px-per-cell scale, the head should be about 5 by 6 logical pixels, matching the small natural adult head-to-body proportion in image 2.
+Keep each torso, jacket, dress, bag, arms, hands, legs, feet, body pose, cell boundaries and overall atlas positions unchanged. Do NOT shrink the whole character. Only shrink and simplify the head/hair. Keep the same four arm-flap poses. Keep crisp low-resolution square-pixel clusters, restrained flat colors and genuine alpha transparency. No labels, background, new props, shadows, scenery or extra details.
+```
 
 ## Denim generation prompt
 

@@ -53,7 +53,7 @@ export class GameEngine {
 		this.status = find('[data-status]');
 		this.renderer = new Renderer(this.canvas);
 		this.loop = new FixedStepLoop(this.update, this.render);
-		this.input = new InputHandler(this.canvas, root, () => this.state === 'playing', this.startGame, this.togglePause);
+		this.input = new InputHandler(this.canvas, root, () => this.state === 'playing', this.startGame, this.togglePause, () => this.state === 'ready');
 		const signal = this.events.signal;
 		this.startButton.addEventListener('click', this.startGame, { signal });
 		this.pauseButton.addEventListener('click', this.togglePause, { signal });
@@ -75,12 +75,12 @@ export class GameEngine {
 		// A bfcache restore retains this instance; never leave an old loop running.
 		window.addEventListener('pagehide', () => this.pause(), { signal });
 		this.observer = new ResizeObserver(() => {
-			this.renderer.resize();
+			this.world.setViewport(this.renderer.resize());
 			this.renderer.render(this.world);
 		});
 		this.observer.observe(this.canvas);
 		this.bestLabel.textContent = String(this.best);
-		this.renderer.resize();
+		this.world.setViewport(this.renderer.resize());
 		this.renderer.render(this.world);
 	}
 
@@ -99,6 +99,7 @@ export class GameEngine {
 		this.input.reset();
 		if (this.state !== 'paused') {
 			this.world = new World();
+			this.world.setViewport(this.renderer.viewportHeight);
 			this.runBest = this.best;
 			this.renderer.reset();
 			this.previousScore = -1;

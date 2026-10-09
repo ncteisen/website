@@ -39,9 +39,9 @@ const game = getGame(Astro.props.gameId);
 						<div class="panel">
 							<h2 data-title hidden></h2>
 							<p data-description hidden></p>
+							{game.input === 'steer' && <p class="touch-guide"><strong>Keep a finger on the game.</strong><br />Slide left or right to steer.<br /><span>Sarah jumps automatically.</span></p>}
 							<button class="primary" data-start disabled>Loading…</button>
 							<button class="share" data-share hidden>Share score</button>
-							{game.id === 'flappy-sarah' && <button class="outfit" data-outfit disabled>Outfit: Denim</button>}
 						</div>
 					</div>
 				</div>

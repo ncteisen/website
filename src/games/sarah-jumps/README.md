@@ -1,6 +1,6 @@
 # Sarah Jumps
 
-A small canvas jumping game with Sarah's original photo sprites. Drag on the playfield, hold the left/right buttons, or use arrows / A / D. Sarah jumps automatically. P or Escape pauses; Space starts or resumes. A hidden tab or window blur pauses the run until the player resumes it.
+A small canvas jumping game with Sarah's original pixel sprites. On a phone, touch anywhere on the ready playfield and keep that finger down, sliding left/right to steer. Sarah jumps automatically. Desktop players can drag, hold the left/right buttons, or use arrows / A / D. P or Escape pauses; Space starts or resumes. A hidden tab or window blur pauses the run until the player resumes it.
 
 ## Structure
 
@@ -17,7 +17,7 @@ A small canvas jumping game with Sarah's original photo sprites. Drag on the pla
 
 The simulation runs at a fixed 120 Hz, with interpolated rendering on every display refresh. There is no mobile frame cap. Catch-up is bounded to 100 ms after a stall, and pause resets the clock. Ready, paused, and game-over screens do not run an animation loop.
 
-World dimensions stay at 400 × 600 regardless of screen size or rotation. Only the backing canvas changes, at up to 2× device pixel ratio. Resizing does not restart a run or change its physics. Background shapes use simple fills; platforms are culled and particles use a fixed pool. Score DOM updates happen only when the score changes.
+The world stays 400 units wide, with uniform rendering at up to 2× device pixel ratio. Portrait phones fill the dynamic viewport below a compact header; extra height reveals more course above the original 600-unit play camera. Resizing does not move the player, restart a run, or change physics, scoring, or the fall boundary. Background shapes use simple fills; platforms are culled and particles use a fixed pool. Score DOM updates happen only when the score changes.
 
 Input uses one Pointer Events handler with pointer capture, scroll-aware coordinates, and cancellation/blur cleanup. Keyboard input is ignored while typing in form controls. All listeners, observers, animation frames, and audio are disposed at the mount boundary. Native page-cache restores retain a paused game.
 

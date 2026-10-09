@@ -13,10 +13,19 @@ function steer(world: World): void {
 }
 let totalPipes = 0;
 let maxPipes = 0;
+const viewportHeights = [595, 772, 950];
 for (let seed = 1; seed <= 100; seed++) {
-	const world = new World(seeded(seed));
+	const world = new World(seeded(seed), viewportHeights[seed % viewportHeights.length]);
 	world.flap();
 	for (let step = 0; step < 120 * 90; step++) {
+		if (step % (120 * 20) === 0) {
+			const height = viewportHeights[(seed + step / (120 * 20)) % viewportHeights.length];
+			const relativeY = world.y - world.pipes[0].center;
+			const before = { velocity: world.velocity, score: world.score, distance: world.distance };
+			world.setViewport(height);
+			assert.deepEqual({ velocity: world.velocity, score: world.score, distance: world.distance }, before, 'resizing preserves the flight');
+			assert.ok(Math.abs(world.y - world.pipes[0].center - relativeY) < 1e-8, 'Sarah and pipes move together on resize');
+		}
 		steer(world);
 		world.update(1 / 120);
 		assert.equal(world.ended, false, `course ${seed} is flyable at step ${step}, score ${world.score}`);
@@ -25,7 +34,7 @@ for (let seed = 1; seed <= 100; seed++) {
 		for (const pipe of world.pipes) {
 			assert.equal(pipe.gap, PIPE_GAP, 'pipe gaps stay consistent throughout a run');
 			assert.ok(pipe.center - pipe.gap / 2 >= 65);
-			assert.ok(pipe.center + pipe.gap / 2 <= FLOOR - 65);
+			assert.ok(pipe.center + pipe.gap / 2 <= world.floor - 65);
 		}
 	}
 	assert.ok(world.score > 50, 'the run clears pipes');
@@ -119,4 +128,4 @@ assert.equal(pauses, 1);
 input.cleanup();
 dispatch(windowStub, 'keydown', { code: 'Space', repeat: false });
 assert.equal(flaps, 3, 'disposing a game removes its input');
-console.log(JSON.stringify({ passed: true, game: 'Flappy Sarah', refreshRates: [30, 60, 90, 120, 144], seededCourses: 100, simulatedMinutes: 150, totalPipes, maxPipes }));
+console.log(JSON.stringify({ passed: true, game: 'Flappy Sarah', refreshRates: [30, 60, 90, 120, 144], viewportHeights, seededCourses: 100, simulatedMinutes: 150, totalPipes, maxPipes }));

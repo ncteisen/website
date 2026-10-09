@@ -15,6 +15,7 @@ export class InputHandler {
 		private canSteer: () => boolean,
 		private start: () => void,
 		private pause: () => void,
+		private canStartFromTouch: () => boolean = () => false,
 	) {
 		this.bounds = canvas.getBoundingClientRect();
 		const signal = this.events.signal;
@@ -62,7 +63,9 @@ export class InputHandler {
 	private point(event: PointerEvent): void { this.target = (event.clientX - this.bounds.left) / this.bounds.width * WORLD_WIDTH; }
 
 	private handlePointerDown = (event: PointerEvent): void => {
-		if (!this.canSteer() || this.pointerId !== null || (event.pointerType === 'mouse' && event.button !== 0)) return;
+		if (this.pointerId !== null || (event.pointerType === 'mouse' && event.button !== 0)) return;
+		if (!this.canSteer() && this.canStartFromTouch()) this.start();
+		if (!this.canSteer()) return;
 		event.preventDefault();
 		this.canvas.focus({ preventScroll: true });
 		this.measure();

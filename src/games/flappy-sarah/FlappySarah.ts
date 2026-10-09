@@ -6,7 +6,6 @@ import { shareScore } from '../arcade/shareScore';
 import { World } from './World';
 import { Renderer } from './Renderer';
 import { FlapInput } from './FlapInput';
-import { outfits, readOutfit, saveOutfit } from './outfits';
 
 const BEST_KEY = getGame('flappy-sarah').bestKey;
 type GameState = 'loading' | 'ready' | 'playing' | 'paused' | 'over';
@@ -23,8 +22,6 @@ export class FlappySarah {
 	private events = new AbortController();
 	private observer: ResizeObserver;
 	private renderer: Renderer;
-	private outfit = readOutfit();
-	private outfitButton: HTMLButtonElement;
 	private input: FlapInput;
 	private audio = new GameAudio();
 	private loop: FixedStepLoop;
@@ -55,14 +52,11 @@ export class FlappySarah {
 		this.scoreLabel = find('[data-score]');
 		this.bestLabel = find('[data-best]');
 		this.status = find('[data-status]');
-		this.renderer = new Renderer(this.canvas, this.outfit);
-		this.outfitButton = find<HTMLButtonElement>('[data-outfit]');
-		this.outfitButton.textContent = `Outfit: ${outfits[this.outfit].label}`;
+		this.renderer = new Renderer(this.canvas);
 		this.loop = new FixedStepLoop(this.update, this.render);
 		this.input = new FlapInput(this.canvas, find<HTMLButtonElement>('[data-flap]'), this.flap, this.togglePause);
 		const signal = this.events.signal;
 		this.startButton.addEventListener('click', this.startGame, { signal });
-		this.outfitButton.addEventListener('click', this.handleOutfit, { signal });
 		this.pauseButton.addEventListener('click', this.togglePause, { signal });
 		const soundButton = find<HTMLButtonElement>('[data-sound]');
 		soundButton.addEventListener('click', () => {
@@ -80,10 +74,10 @@ export class FlappySarah {
 		document.addEventListener('visibilitychange', () => { if (document.hidden) this.pause(); }, { signal });
 		window.addEventListener('blur', () => this.pause(), { signal });
 		window.addEventListener('pagehide', () => this.pause(), { signal });
-		this.observer = new ResizeObserver(() => { this.renderer.resize(); this.renderer.render(this.world); });
+		this.observer = new ResizeObserver(() => { this.world.setViewport(this.renderer.resize()); this.renderer.render(this.world); });
 		this.observer.observe(this.canvas);
 		this.bestLabel.textContent = String(this.best);
-		this.renderer.resize();
+		this.world.setViewport(this.renderer.resize());
 		this.renderer.render(this.world);
 	}
 
@@ -92,30 +86,15 @@ export class FlappySarah {
 		if (this.destroyed) return;
 		this.state = 'ready';
 		this.startButton.disabled = false;
-		this.outfitButton.disabled = false;
 		this.startButton.textContent = 'Play';
 		this.renderer.render(this.world);
 	}
-
-	private handleOutfit = async (): Promise<void> => {
-		this.outfitButton.disabled = true;
-		const next = this.outfit === 'denim' ? 'hiking' : 'denim';
-		const loaded = await this.renderer.setOutfit(next);
-		if (this.destroyed) return;
-		if (loaded) {
-			this.outfit = next;
-			saveOutfit(next);
-			this.outfitButton.textContent = `Outfit: ${outfits[next].label}`;
-			this.renderer.render(this.world);
-		} else this.status.textContent = 'Could not load that outfit. Try again.';
-		this.outfitButton.disabled = false;
-	};
 
 	startGame = (): void => {
 		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
 		this.audio.unlock();
 		if (this.state !== 'paused') {
-			this.world = new World();
+			this.world = new World(Math.random, this.renderer.viewportHeight);
 			this.world.flap();
 			this.runBest = this.best;
 			this.lastScore = -1;

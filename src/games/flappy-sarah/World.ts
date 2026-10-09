@@ -29,13 +29,31 @@ export class World {
 	flapAge = 0;
 	score = 0;
 	ended = false;
+	height = HEIGHT;
 	pipes: Pipe[] = [];
 	private lastCenter = 290;
 
-	constructor(private random: () => number = Math.random) {
+	constructor(private random: () => number = Math.random, height = HEIGHT) {
+		this.setViewport(height);
 		this.spawn(480, true);
 		this.spawn(480 + PIPE_SPACING);
 		this.spawn(480 + PIPE_SPACING * 2);
+	}
+
+	get floor(): number { return this.height - (HEIGHT - FLOOR); }
+	private get minimumCenter(): number { return Math.max(PIPE_GAP / 2 + 65, 155 + (this.height - HEIGHT) / 2); }
+	private get maximumCenter(): number { return Math.min(this.floor - PIPE_GAP / 2 - 65, 405 + (this.height - HEIGHT) / 2); }
+
+	setViewport(height: number): void {
+		const next = Math.max(400, height);
+		const shift = (next - this.height) / 2;
+		this.height = next;
+		const y = Math.max(RADIUS + 1, Math.min(this.floor - RADIUS - 1, this.y + shift));
+		this.previousY += y - this.y;
+		if (y !== this.y + shift) this.velocity = 0;
+		this.y = y;
+		this.lastCenter = Math.max(this.minimumCenter, Math.min(this.maximumCenter, this.lastCenter + shift));
+		for (const pipe of this.pipes) pipe.center = Math.max(this.minimumCenter, Math.min(this.maximumCenter, pipe.center + shift));
 	}
 
 	flap(): void {
@@ -58,8 +76,8 @@ export class World {
 			pipe.previousX = pipe.x;
 			pipe.x -= travel;
 		}
-		if (this.y - RADIUS <= 0 || this.y + RADIUS >= FLOOR) {
-			this.y = Math.max(RADIUS, Math.min(FLOOR - RADIUS, this.y));
+		if (this.y - RADIUS <= 0 || this.y + RADIUS >= this.floor) {
+			this.y = Math.max(RADIUS, Math.min(this.floor - RADIUS, this.y));
 			this.ended = true;
 			return;
 		}
@@ -89,7 +107,7 @@ export class World {
 	}
 
 	private spawn(x: number, first = false): void {
-		if (!first) this.lastCenter = Math.max(155, Math.min(405, this.lastCenter + (this.random() - 0.5) * 150));
+		if (!first) this.lastCenter = Math.max(this.minimumCenter, Math.min(this.maximumCenter, this.lastCenter + (this.random() - 0.5) * 150));
 		this.pipes.push({ x, previousX: x, center: this.lastCenter, gap: PIPE_GAP, passed: false });
 	}
 }

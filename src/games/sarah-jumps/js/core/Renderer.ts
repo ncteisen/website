@@ -15,6 +15,7 @@ export class Renderer {
 	private particles = Array.from({ length: 30 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, life: 0 }));
 	private nextParticle = 0;
 	readonly ready: Promise<void>;
+	viewportHeight = WORLD_HEIGHT;
 	readonly reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	constructor(readonly canvas: HTMLCanvasElement) {
@@ -34,17 +35,23 @@ export class Renderer {
 		})).then(() => undefined);
 	}
 
-	resize(): void {
+	resize(): number {
 		const bounds = this.canvas.getBoundingClientRect();
-		// Cap backing pixels, not the frame rate. Physics always uses 400 × 600.
+		// Keep square world pixels while allowing the visible sky to grow taller.
 		const scale = Math.min(window.devicePixelRatio || 1, 2) * bounds.width / WORLD_WIDTH;
+		this.viewportHeight = bounds.height / bounds.width * WORLD_WIDTH;
 		const width = Math.max(1, Math.round(WORLD_WIDTH * scale));
-		const height = Math.max(1, Math.round(WORLD_HEIGHT * scale));
+		const height = Math.max(1, Math.round(this.viewportHeight * scale));
 		if (this.canvas.width !== width || this.canvas.height !== height) {
 			this.canvas.width = width;
 			this.canvas.height = height;
 		}
-		this.ctx.setTransform(width / WORLD_WIDTH, 0, 0, height / WORLD_HEIGHT, 0, 0);
+		this.ctx.setTransform(width / WORLD_WIDTH, 0, 0, height / this.viewportHeight, 0, 0);
+		this.ctx.imageSmoothingEnabled = false;
+		this.sky = this.ctx.createLinearGradient(0, 0, 0, this.viewportHeight);
+		this.sky.addColorStop(0, '#c3e4eb');
+		this.sky.addColorStop(1, '#f3f4df');
+		return this.viewportHeight;
 	}
 
 	bounce(x: number, y: number): void {
@@ -69,9 +76,9 @@ export class Renderer {
 
 	render(world: World, alpha = 1): void {
 		const ctx = this.ctx;
-		const camera = lerp(world.previousCamera, world.camera, alpha);
+		const camera = lerp(world.previousCamera, world.camera, alpha) + this.viewportHeight - WORLD_HEIGHT;
 		ctx.fillStyle = this.sky;
-		ctx.fillRect(0, 0, WORLD_WIDTH, WORLD_HEIGHT);
+		ctx.fillRect(0, 0, WORLD_WIDTH, this.viewportHeight);
 		// Cheap parallax shapes; no blur, filters, or full-screen translucent layers.
 		ctx.fillStyle = '#ffffff66';
 		for (let i = 0; i < 5; i++) {
@@ -85,7 +92,7 @@ export class Renderer {
 		for (const platform of world.platforms.platforms) {
 			const x = lerp(platform.previousX, platform.x, alpha);
 			const y = lerp(platform.previousY, platform.y, alpha) + camera;
-			if (y < -20 || y > WORLD_HEIGHT + 10) continue;
+			if (y < -20 || y > this.viewportHeight + 10) continue;
 			const sink = this.reducedMotion ? 0 : platform.pulse * 3;
 			ctx.globalAlpha = platform.fade;
 			ctx.fillStyle = '#254b3c26';

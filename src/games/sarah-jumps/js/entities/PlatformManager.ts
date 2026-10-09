@@ -15,10 +15,10 @@ export class PlatformManager {
 		this.topCenter = WORLD_WIDTH / 2;
 		this.count = 0;
 		this.platforms = [new Platform(130, 550, 140)];
-		this.fill(0);
+		this.cover(0);
 	}
 
-	update(dt: number, camera: number): void {
+	update(dt: number, camera: number, extraHeight = 0): void {
 		for (const platform of this.platforms) platform.update(dt);
 		// In-place compaction avoids allocating arrays during every physics step.
 		let live = 0;
@@ -26,10 +26,10 @@ export class PlatformManager {
 			if (platform.y + camera < WORLD_HEIGHT + 60 && platform.fade > 0) this.platforms[live++] = platform;
 		}
 		this.platforms.length = live;
-		this.fill(camera);
+		this.cover(camera + extraHeight);
 	}
 
-	private fill(camera: number): void {
+	cover(camera: number): void {
 		while (this.topY + camera > -180) {
 			this.count++;
 			const difficulty = Math.min(1, this.count / 65);
