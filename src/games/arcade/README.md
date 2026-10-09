@@ -15,7 +15,7 @@ To add a game:
 
 Both games keep a 400-unit world width and uniform drawing scale. A taller phone reveals extra course above Sarah Jumps' original camera without changing its physics or score scale. Flappy Sarah adapts its sky/floor height, moving Sarah and pipe gaps together when the viewport changes so a resize preserves the flight. Its classic-style tuning uses a roughly 41-pixel hop with a 0.22-second ascent, a constant 165 px/s scroll, 136-pixel gaps, and 230-pixel pipe spacing. Speed and gap size stay fixed as the score rises; pipe centers move by at most 75 world pixels between gaps. Pausing or backgrounding stops the animation loop. The game ignores key repeat and secondary touches. Retry is explicit, and score sharing is optional.
 
-Flappy Sarah uses the photo-inspired `sarah-flap-pixel.png` atlas in `../flappy-sarah/assets/`, with four 40-pixel poses cached once at load. Each tap triggers an arm flap. Sarah Jumps retains its original sprites, now also rendered without smoothing. Previous sprite sets remain in the source assets, but there is no outfit UI or persisted choice. The asset README records the generation prompts.
+Flappy Sarah combines a compact yellow bird body with the original Sarah Jumps head. `../flappy-sarah/Sprite.ts` reuses the original cap, face and ponytail pixels and caches four wing poses once at load. Each tap triggers an up/middle/down/recovery wing stroke, with the head and body fixed. The Arcade menu shares the same composition. Sarah Jumps retains its original sprites, rendered without smoothing. Previous sprite sets remain in the source assets, but there is no outfit UI or persisted choice. The asset README records the source and generation prompts.
 
 ## Validation
 

@@ -94,7 +94,7 @@ export class World {
 	}
 
 	private hitsPipe(pipe: Pipe): boolean {
-		// The collision circle follows Sarah's torso, leaving hair/limbs forgiving.
+		// The collision circle follows the bird body, leaving the head/wing forgiving.
 		// 120Hz steps cap relative travel below the collision radius, even after stalls.
 		const nearestX = Math.max(pipe.x - 4, Math.min(PLAYER_X, pipe.x + PIPE_WIDTH + 4));
 		const dx = PLAYER_X - nearestX;

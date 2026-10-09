@@ -1,8 +1,32 @@
 # Flappy Sarah sprites
 
-The game uses `sarah-flap-pixel.png`: a simpler four-pose atlas based on Sarah's photo and the original Sarah Jumps sprite. It is cached at 40 × 40 pixels per pose, with nearest-neighbor rendering and registered torso positions. There is no outfit picker or appearance preference in the game. The older `sarah-flap-denim.png` and `sarah-flap.png` files remain as source alternatives and are not imported by the game. All sets were created with the built-in imagegen tool.
+The game uses `bird-body.png` with the **unchanged original Sarah Jumps head**. `../Sprite.ts` defines the approved source crops, placement, and a four-pose wing animation. The head is copied at native pixel resolution; only the extracted cream wing rotates. The atlas is cached at 40 × 40 pixels per pose once at load, then drawn at the existing 64-unit size. The body center anchors rendering to the collision circle. The rest pose matches the approved original-head concept, and reduced motion keeps that pose. The Arcade menu uses the same crop and placement definitions.
 
-## Current generation prompt
+The previous `sarah-flap-pixel.png`, `sarah-flap-denim.png`, and `sarah-flap.png` files remain as archived alternatives and are not imported by the game. There is no outfit picker. The body was created with the built-in imagegen tool using the prompts below. Sarah Jumps retains all its original sprite files.
+
+## Bird body generation
+
+### Body generation prompt
+
+```text
+Use case: stylized-concept
+Asset type: a small pixel-art BIRD BODY component for a 40x40 game character.
+Reference image: the original Sarah Jumps sprite, provided only for its coarse pixel density and simple retro palette treatment.
+Create exactly ONE headless bird BODY facing right, to attach the existing Sarah Jumps human head in game code. The body should resemble the classic Flappy Bird silhouette: very compact rounded horizontal oval, almost egg-shaped, short blunt tail sticking out left, one small cream oval wing attached on the visible side. Golden yellow upper body, warm orange lower shadow, cream breast/wing, restrained thin dark brown pixel edging. Keep it very simple and charming with around 6 flat colors. No feather pattern or texture. No raised long feather wings. No realistic bird anatomy.
+CRITICAL: absolutely NO head, face, eye, mouth, beak, cap, neck, human body or feet. It is only the oval body, wing and short tail. The human head will be composited at the upper-right edge afterwards.
+Design as a true low-resolution object roughly 24 pixels wide by 16 pixels high, enlarged with perfectly hard square nearest-neighbor pixel edges for inspection. Broad clear clusters, no gradients or anti-aliasing. Entire body visible and centered with generous transparent margins. Genuinely transparent alpha background. One component only, no text, labels, grid, shadows, scenery, comparison or additional poses.
+```
+
+### Body cleanup prompt
+
+```text
+Use case: background-extraction
+Edit target: the supplied golden pixel-art bird body.
+Remove ALL of the soft brown/orange glow and haze around the bird. Return only the hard-edged pixel silhouette on a genuinely transparent alpha background. Every pixel outside the sharp stair-stepped dark outline must be fully transparent. No cast shadow, ambient glow, halo, vignette, brown backdrop or feathered edge.
+Preserve the oval body, small white wing, short left tail, cream breast, yellow/orange palette and exact silhouette. Flatten any soft color gradients inside into crisp flat pixel-art color blocks. One clean sprite component, no head, eyes, text or new elements.
+```
+
+## Archived human sprite generation prompt
 
 ```text
 Use case: stylized-concept
@@ -14,14 +38,7 @@ Use four arm-flap poses: top-left arms UP diagonally; top-right arms OUT horizon
 Every torso is centered at exactly the same point in its cell. Include generous transparent margins around the entire sprite, even the hands. Use a genuinely transparent alpha background, no scenery, ground, shadows, checkerboard pixels, captions, borders or labels. The result must be substantially simpler and more 8-bit than typical 64px cartoon sprite art.
 ```
 
-### Proportion refinement
-
-```text
-Use case: precise-object-edit
-Image 1 is the sprite atlas to refine. Image 2 is the original Sarah Jumps style reference. Image 3 is Sarah's photo for likeness.
-Make one precise change to image 1: reduce the head INCLUDING face AND hair in ALL FOUR poses by about one third (to 65 percent of its current width and height). The face should have the narrow oval/profile silhouette from the photo, tiny nose, natural smile and simple brown hair. Anchor the bottom of each resized head at its existing neck. Do not enlarge the eyes or redraw a cartoon face. At the target 40px-per-cell scale, the head should be about 5 by 6 logical pixels, matching the small natural adult head-to-body proportion in image 2.
-Keep each torso, jacket, dress, bag, arms, hands, legs, feet, body pose, cell boundaries and overall atlas positions unchanged. Do NOT shrink the whole character. Only shrink and simplify the head/hair. Keep the same four arm-flap poses. Keep crisp low-resolution square-pixel clusters, restrained flat colors and genuine alpha transparency. No labels, background, new props, shadows, scenery or extra details.
-```
+This human sprite concept was superseded by the original-head bird design.
 
 ## Denim generation prompt
 

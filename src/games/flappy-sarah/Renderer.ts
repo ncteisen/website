@@ -1,10 +1,9 @@
-import flapSheet from './assets/sarah-flap-pixel.png';
+import { birdSprite, createBirdAtlas } from './Sprite';
 import { WIDTH, HEIGHT, PLAYER_X, PIPE_WIDTH, type World } from './World';
 
 const mix = (a: number, b: number, alpha: number) => a + (b - a) * alpha;
-const SPRITE_SIZE = 40;
-const DRAW_SIZE = 64;
-const ANCHORS = [[350, 335], [303, 333], [348, 317], [303, 314]] as const;
+const SPRITE_SIZE = birdSprite.size;
+const DRAW_SIZE = birdSprite.drawSize;
 
 export class Renderer {
 	private ctx: CanvasRenderingContext2D;
@@ -18,33 +17,8 @@ export class Renderer {
 		const ctx = canvas.getContext('2d', { alpha: false });
 		if (!ctx) throw new Error('Canvas is unavailable');
 		this.ctx = ctx;
-		this.ready = new Promise<void>(resolve => {
-			const image = new Image();
-			image.onerror = () => resolve();
-			image.onload = () => {
-				// Rasterize once at game resolution, keeping per-frame work to one
-				// small drawImage call and preserving hard pixel edges.
-				const atlas = document.createElement('canvas');
-				atlas.width = SPRITE_SIZE * 4;
-				atlas.height = SPRITE_SIZE;
-				const ctx = atlas.getContext('2d');
-				if (ctx) {
-					ctx.imageSmoothingEnabled = false;
-					const cell = image.naturalWidth / 2;
-					const scale = SPRITE_SIZE / cell;
-					// Register the torso so only the arms move between poses.
-					ANCHORS.forEach(([x, y], index) => {
-						ctx.save();
-						ctx.beginPath(); ctx.rect(index * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE); ctx.clip();
-						ctx.drawImage(image, index % 2 * cell, Math.floor(index / 2) * cell, cell, cell,
-							index * SPRITE_SIZE + SPRITE_SIZE / 2 - x * scale, SPRITE_SIZE / 2 - y * scale, SPRITE_SIZE, SPRITE_SIZE);
-						ctx.restore();
-					});
-					this.sprites = atlas;
-				}
-				resolve();
-			};
-			image.src = flapSheet.src;
+		this.ready = createBirdAtlas().then(atlas => { this.sprites = atlas; }).catch(() => {
+			// Keep the game playable with the fallback if an asset cannot load.
 		});
 	}
 
@@ -104,13 +78,15 @@ export class Renderer {
 		ctx.fillStyle = '#aa97874d';
 		for (let i = 0; i < 13; i++) ctx.fillRect(i * 36 - distance % 36, floor + 16, 18, 3);
 		const y = mix(world.previousY, world.y, alpha);
+		const resting = world.distance === 0 && world.velocity === 0;
 		ctx.save();
 		ctx.translate(PLAYER_X, y);
-		if (!this.reducedMotion) ctx.rotate(Math.max(-0.35, Math.min(1.4, (world.flapAge - 0.18) * 3.5 - 0.35)));
-		// Every tap restarts an up/out/down/recovery stroke. The pose uses
+		if (!this.reducedMotion && !resting) ctx.rotate(Math.max(-0.35, Math.min(1.4, (world.flapAge - 0.18) * 3.5 - 0.35)));
+		// Every tap restarts an up/middle/down/recovery wing stroke. The pose uses
 		// simulation time, so it freezes on pause and is independent of FPS.
-		const frame = this.reducedMotion ? 3 : world.flapAge < 0.055 ? 0 : world.flapAge < 0.12 ? 1 : world.flapAge < 0.24 ? 2 : 3;
-		if (this.sprites) ctx.drawImage(this.sprites, frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, -DRAW_SIZE / 2, -DRAW_SIZE / 2, DRAW_SIZE, DRAW_SIZE);
+		const frame = this.reducedMotion || resting ? 3 : world.flapAge < 0.055 ? 0 : world.flapAge < 0.12 ? 1 : world.flapAge < 0.24 ? 2 : 3;
+		if (this.sprites) ctx.drawImage(this.sprites, frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE,
+			-birdSprite.pivot.x * DRAW_SIZE / SPRITE_SIZE, -birdSprite.pivot.y * DRAW_SIZE / SPRITE_SIZE, DRAW_SIZE, DRAW_SIZE);
 		else { ctx.fillStyle = '#de463c'; ctx.beginPath(); ctx.ellipse(0, 0, 13, 18, 0, 0, Math.PI * 2); ctx.fill(); }
 		ctx.restore();
 	}
