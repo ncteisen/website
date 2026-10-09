@@ -11,7 +11,9 @@
     "validate:date-my-globe": "node scripts/date-my-globe/validate-events.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "resume": "bash scripts/resume-generator/build_resume.sh"
+    "resume": "bash scripts/resume-generator/build_resume.sh",
+    "test:sarah-jumps": "node scripts/sarah-jumps/run-checks.mjs",
+    "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.17",
-    "@types/mapbox__polyline": "^1.0.5"
+    "@types/mapbox__polyline": "^1.0.5",
+    "esbuild": "0.27.7"
   }
 }

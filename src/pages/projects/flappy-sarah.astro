@@ -1,18 +1,17 @@
 ---
 import ArcadeGame from '../../layouts/ArcadeGame.astro';
 ---
-
-<ArcadeGame gameId="sarah-jumps">
+<ArcadeGame gameId="flappy-sarah">
 	<script>
-		import { SarahJumps } from '../../games/sarah-jumps/js/SarahJumps';
-		const root = document.querySelector<HTMLElement>('[data-game="sarah-jumps"]');
+		import { FlappySarah } from '../../games/flappy-sarah/FlappySarah';
+		const root = document.querySelector<HTMLElement>('[data-game="flappy-sarah"]');
 		if (root) {
-			const game = new SarahJumps(root);
-			void game.start();
+			const game = new FlappySarah(root);
+			void game.init();
 			document.addEventListener('astro:before-swap', () => game.cleanup(), { once: true });
 			if (import.meta.hot) import.meta.hot.dispose(() => game.cleanup());
 			if (import.meta.env.DEV && new URLSearchParams(location.search).has('playtest')) {
-				void import('../../../scripts/sarah-jumps/browser-harness').then(({ installPlaytest }) => installPlaytest(game));
+				void import('../../../scripts/arcade/browser-harness').then(({ installPlaytest }) => installPlaytest(game));
 			}
 		}
 	</script>

@@ -1,107 +1,40 @@
-# Sarah Jumps Game
+# Sarah Jumps
 
-A Doodle Jump clone built with TypeScript and Astro.
+A small canvas jumping game with Sarah's original photo sprites. Drag on the playfield, hold the left/right buttons, or use arrows / A / D. Sarah jumps automatically. P or Escape pauses; Space starts or resumes. A hidden tab or window blur pauses the run until the player resumes it.
 
-## Game Structure
+## Structure
 
-The game is structured in a modular way to make it easy to extend and maintain:
+- `js/SarahJumps.ts`: mount/start/cleanup boundary, with exactly one engine and input handler.
+- `js/core/GameEngine.ts`: game states, accessible HTML controls, score persistence, audio, lifecycle.
+- `js/core/World.ts`: browser-independent simulation and swept landing detection.
+- `js/core/Renderer.ts`: canvas drawing, original sprites, and a bounded particle pool.
+- `js/entities/`: seconds-based player physics and a bounded, progressively harder course.
+- `js/utils/`: pointer/keyboard steering input.
+- `../arcade/`: the shared clock, score storage, audio, sharing, and catalog used by Sarah Jumps and Flappy Sarah. See its README for arcade structure and validation.
+- `src/pages/projects/sarah-jumps.astro`: game mount using the responsive `src/layouts/ArcadeGame.astro` shell and real DOM buttons/score labels.
 
-```
-src/games/sarah-jumps/
-├── js/
-│   ├── core/
-│   │   └── GameEngine.ts       # Core game engine that handles the game loop and state management
-│   ├── entities/
-│   │   ├── Player.ts           # Player entity
-│   │   ├── Platform.ts         # Platform entity
-│   │   └── PlatformManager.ts  # Manages multiple platforms and their interactions with the player
-│   ├── ui/
-│   │   └── ScoreDisplay.ts     # UI component for displaying the current score
-│   ├── utils/
-│   │   └── InputHandler.ts     # Manages keyboard input for the game
-│   └── SarahJumps.ts           # Main game class that initializes and runs the game
-└── README.md                   # This file
-```
+## Performance and behavior
 
-## How to Extend the Game
+The simulation runs at a fixed 120 Hz, with interpolated rendering on every display refresh. There is no mobile frame cap. Catch-up is bounded to 100 ms after a stall, and pause resets the clock. Ready, paused, and game-over screens do not run an animation loop.
 
-### Adding New Entities
+World dimensions stay at 400 × 600 regardless of screen size or rotation. Only the backing canvas changes, at up to 2× device pixel ratio. Resizing does not restart a run or change its physics. Background shapes use simple fills; platforms are culled and particles use a fixed pool. Score DOM updates happen only when the score changes.
 
-To add a new entity to the game:
+Input uses one Pointer Events handler with pointer capture, scroll-aware coordinates, and cancellation/blur cleanup. Keyboard input is ignored while typing in form controls. All listeners, observers, animation frames, and audio are disposed at the mount boundary. Native page-cache restores retain a paused game.
 
-1. Create a new file in the `entities` directory
-2. Implement the entity with the following methods:
-   - `init(game)`: Initialize the entity
-   - `update(deltaTime, game)`: Update the entity
-   - `render(ctx)`: Render the entity
-   - `reset()`: Reset the entity
+Platforms introduce horizontal movement, crumbling, and then vertical movement. Special platforms alternate with stable ones. Vertical spacing and lateral reach are bounded against the jump trajectory. Landings sweep the feet between previous/current simulation positions, including moving platforms. A crumbling platform is immediately non-collidable.
 
-3. Add the entity to the game in `SarahJumps.ts`:
+Best scores retain the existing `sarahJumpsHighScore` key and score scale. Storage failures do not prevent play. Sharing is an optional game-over button; retry never opens a modal. Audio is decoded once after user interaction and is optional if loading fails.
 
-```typescript
-// Initialize the new entity
-const newEntity = new NewEntity(this.game.getCanvas());
+## Validate
 
-// Add the entity to the game
-this.game.addEntity(newEntity);
+```sh
+npm run test:sarah-jumps
+npm run build
+npm run preview -- --host 127.0.0.1
 ```
 
-### Adding New UI Components
+The checks cover refresh-rate independence (30/60/90/120/144 Hz), bounded stall recovery, stop/resume, swept collisions, bounded moving platforms, scaled touch coordinates, pointer cancellation, listener cleanup, unavailable/corrupt storage, and 100 seeded 90-second courses (150 simulated minutes).
 
-To add a new UI component:
+For browser measurements, run `npm run dev` and open `/projects/sarah-jumps/?playtest`. The explicitly enabled local harness drives the real keyboard handler for 30 seconds and reports rendered FPS, frame intervals, long tasks, landings, and live platform count. It is excluded from production builds. It is an automated endurance check, not a substitute for playing with touch.
 
-1. Create a new file in the `ui` directory
-2. Implement the component with the following methods:
-   - `init(game)`: Initialize the component
-   - `update(deltaTime, game)`: Update the component
-   - `render(ctx, game)`: Render the component
-   - `reset()`: Reset the component
-
-3. Add the component to the game in `SarahJumps.ts`:
-
-```typescript
-// Initialize the new UI component
-const newUIComponent = new NewUIComponent();
-
-// Add the component to the game
-this.game.addEntity(newUIComponent);
-```
-
-### Adding New Game Features
-
-To add a new game feature:
-
-1. Identify which part of the game the feature belongs to (core, entities, ui, utils)
-2. Implement the feature in the appropriate file
-3. If the feature requires a new entity or UI component, follow the steps above
-
-## Game States
-
-The game has three states:
-
-- `start`: The game is at the start screen
-- `playing`: The game is being played
-- `gameOver`: The game is over
-
-## Input Handling
-
-The game handles keyboard input through the `InputHandler` class. To add new input handling:
-
-1. Modify the `InputHandler.ts` file
-2. Add new key handlers in the `handleKeyDown` and `handleKeyUp` methods
-3. Add new continuous key handling in the `update` method
-
-## Rendering
-
-The game uses the HTML5 Canvas API for rendering. To add new rendering:
-
-1. Modify the appropriate entity or UI component
-2. Add new rendering code in the `render` method
-
-## Physics
-
-The game uses a simple physics system for the player and platforms. To modify the physics:
-
-1. Modify the `Player.ts` and `Platform.ts` files
-2. Adjust the physics parameters in the constructor
-3. Modify the physics calculations in the `update` method 
+Manually check 320 × 568, 390 × 844, landscape, and desktop: start, drag/hold steering, releasing outside the canvas, lose/retry, pause/resume, switching tabs, sound, saved bests, and resize during a run. Physical iPhone Safari remains the final device-performance check; desktop phone-size emulation cannot establish actual device frame rate.

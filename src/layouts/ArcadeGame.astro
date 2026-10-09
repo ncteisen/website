@@ -1,0 +1,64 @@
+---
+import UmamiAnalytics from '../components/UmamiAnalytics.astro';
+import IconLinks from '../components/IconLinks.astro';
+import SocialPreview from '../components/SocialPreview.astro';
+import { ARCADE_PATH, getGame, type ArcadeGameId } from '../games/arcade/catalog';
+import '../games/arcade/game.css';
+interface Props { gameId: ArcadeGameId }
+const game = getGame(Astro.props.gameId);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<IconLinks />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0a0a0a" />
+		<title>{game.title} | Sarah Arcade</title>
+		<SocialPreview title={game.title} description={game.description} path={game.path} />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+		<UmamiAnalytics />
+	</head>
+	<body>
+		<main class="shell">
+			<header>
+				<a class="back-link" href={ARCADE_PATH}>← Sarah Arcade</a>
+				<h1>{game.title}</h1>
+			</header>
+			<section class="game" data-game={game.id} aria-label={`${game.title} game`} data-state="ready">
+				<div class="game-window">
+					<canvas id="gameCanvas" width="400" height="600" tabindex="0" aria-label={game.canvasLabel} aria-describedby="controls-text">
+						{game.title} needs a browser with canvas support.
+					</canvas>
+					<div class="hud">
+						<div class="score"><span>Score</span><strong data-score>0</strong></div>
+						<div class="best"><span>Best</span><strong data-best>0</strong></div>
+						<button class="pause" data-pause disabled aria-label="Pause game">Ⅱ</button>
+					</div>
+					<div class="overlay" data-panel>
+						<div class="panel">
+							<h2 data-title hidden></h2>
+							<p data-description hidden></p>
+							<button class="primary" data-start disabled>Loading…</button>
+							<button class="share" data-share hidden>Share score</button>
+							{game.id === 'flappy-sarah' && <button class="outfit" data-outfit disabled>Outfit: Denim</button>}
+						</div>
+					</div>
+				</div>
+				<div class="steering" aria-label={game.input === 'steer' ? 'Movement controls' : 'Flight controls'}>
+					{game.input === 'steer' ? <>
+						<button data-move="-1" aria-label="Move left">← <span>Left</span></button>
+						<button data-move="1" aria-label="Move right"><span>Right</span> →</button>
+					</> : <button data-flap aria-label="Flap">↑ <span>Flap</span></button>}
+				</div>
+				<div class="game-footer">
+					<p id="controls-text"><span class="touch-hint">{game.touchHint}</span><span class="key-hint">{game.keyboardHint}</span></p>
+					<button class="sound" data-sound aria-pressed="true">Sound on</button>
+				</div>
+				<p class="sr-only" data-status role="status" aria-live="polite"></p>
+				<noscript><p class="no-script">Turn on JavaScript to play {game.title}.</p></noscript>
+			</section>
+		</main>
+		<slot />
+	</body>
+</html>

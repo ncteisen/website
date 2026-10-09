@@ -1,223 +1,52 @@
-import { Platform } from './Platform';
-import type { PlatformProps } from './Platform';
-import { Player } from './Player';
-import type { GameEngine } from '../core/GameEngine';
+import { Platform, type PlatformType } from './Platform.ts';
+import { WORLD_WIDTH, WORLD_HEIGHT } from './Player.ts';
 
-/**
- * PlatformManager - Manages multiple platforms and their interactions with the player
- */
+/** A bounded ribbon of platforms; randomness is injectable for repeatable checks. */
 export class PlatformManager {
-  private platforms: Platform[] = [];
-  private platformWidth: number;
-  private platformHeight: number;
-  private canvas: HTMLCanvasElement;
-  private maxJumpHeight: number;
-  private minPlatformSpacing: number;
-  private maxHorizontalDistance: number;
-  private minPlatforms: number;
+	platforms: Platform[] = [];
+	private topY = 550;
+	private topCenter = WORLD_WIDTH / 2;
+	private count = 0;
 
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
-    this.platformWidth = 100;
-    this.platformHeight = 20;
-    this.maxJumpHeight = 200;
-    this.minPlatformSpacing = 30;
-    this.maxHorizontalDistance = 100;
-    this.minPlatforms = 20;
-  }
+	constructor(private random: () => number = Math.random) { this.reset(); }
 
-  /**
-   * Initialize the platform manager
-   */
-  public init(): void {
-    this.generateInitialPlatforms();
-  }
+	reset(): void {
+		this.topY = 550;
+		this.topCenter = WORLD_WIDTH / 2;
+		this.count = 0;
+		this.platforms = [new Platform(130, 550, 140)];
+		this.fill(0);
+	}
 
-  /**
-   * Generate initial platforms
-   */
-  private generateInitialPlatforms(): void {
-    this.platforms = [];
+	update(dt: number, camera: number): void {
+		for (const platform of this.platforms) platform.update(dt);
+		// In-place compaction avoids allocating arrays during every physics step.
+		let live = 0;
+		for (const platform of this.platforms) {
+			if (platform.y + camera < WORLD_HEIGHT + 60 && platform.fade > 0) this.platforms[live++] = platform;
+		}
+		this.platforms.length = live;
+		this.fill(camera);
+	}
 
-    // Create the starting platform at the bottom
-    const startPlatform = new Platform({
-      x: this.canvas.width / 2 - this.platformWidth / 2,
-      y: this.canvas.height - 50,
-      width: this.platformWidth,
-      height: this.platformHeight,
-      platformType: 'normal'
-    });
-    this.platforms.push(startPlatform);
-
-    // Generate additional platforms above with proper spacing
-    let currentY = startPlatform.getY();
-    let currentX = startPlatform.getX();
-
-    for (let i = 0; i < this.minPlatforms - 1; i++) {
-      // Calculate the next platform's y position
-      const minY = Math.floor(currentY - this.maxJumpHeight);
-      const maxY = Math.floor(currentY - this.minPlatformSpacing);
-      const platformY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-
-      // Calculate the next platform's x position
-      const minX = Math.max(0, Math.floor(currentX - this.maxHorizontalDistance));
-      const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(currentX + this.maxHorizontalDistance));
-      const platformX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-
-      // Create the platform (always normal type for initial platforms)
-      const platform = new Platform({
-        x: platformX,
-        y: platformY,
-        width: this.platformWidth,
-        height: this.platformHeight,
-        platformType: 'normal'
-      });
-
-      this.platforms.push(platform);
-      currentY = platformY;
-      currentX = platformX;
-    }
-  }
-
-  /**
-   * Update the platform manager
-   */
-  public update(deltaTime: number, game: GameEngine): void {
-    if (game.getGameState() !== 'playing') return;
-
-    const player = game.getPlayer() as Player;
-    if (!player) return;
-
-    const viewOffset = game.getViewOffset();
-    const canvasHeight = this.canvas.height;
-
-    // Update only platforms that are near the player
-    this.platforms.forEach(platform => {
-      const platformY = platform.getY() + viewOffset;
-      if (platformY >= -platform.getHeight() && platformY <= canvasHeight + 100) {
-        platform.update(deltaTime);
-      }
-    });
-
-    // Remove platforms that are below the screen or fully dissolved
-    this.platforms = this.platforms.filter(platform => {
-      const platformY = platform.getY() + viewOffset;
-      return platformY < canvasHeight + platform.getHeight() && !platform.isFullyDissolved();
-    });
-
-    // Add new platforms at the top
-    while (this.platforms.length < this.minPlatforms) {
-      // Find the highest platform
-      const highestPlatform = this.platforms.reduce((highest, current) =>
-        current.getY() < highest.getY() ? current : highest
-      );
-
-      // Calculate the next platform's y position
-      const minY = Math.floor(highestPlatform.getY() - this.maxJumpHeight);
-      const maxY = Math.floor(highestPlatform.getY() - this.minPlatformSpacing);
-      const newY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-
-      // Calculate the next platform's x position
-      const minX = Math.max(0, Math.floor(highestPlatform.getX() - this.maxHorizontalDistance));
-      const maxX = Math.min(this.canvas.width - this.platformWidth, Math.floor(highestPlatform.getX() + this.maxHorizontalDistance));
-      const newX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-
-      // Determine platform type based on score
-      const score = game.getScore();
-      const rand = Math.random() * 100;
-      let platformType: 'normal' | 'horizontal' | 'vertical' | 'dissolving' = 'normal';
-
-      if (score >= 50) {
-        // Score 50+: 60% normal, 20% horizontal, 10% vertical, 10% dissolving
-        if (rand < 60) {
-          platformType = 'normal';
-        } else if (rand < 80) {
-          platformType = 'horizontal';
-        } else if (rand < 90) {
-          platformType = 'vertical';
-        } else {
-          platformType = 'dissolving';
-        }
-      } else if (score >= 25) {
-        // Score 25+: 70% normal, 20% horizontal, 10% vertical
-        if (rand < 70) {
-          platformType = 'normal';
-        } else if (rand < 90) {
-          platformType = 'horizontal';
-        } else {
-          platformType = 'vertical';
-        }
-      } else if (score >= 10) {
-        // Score 10+: 85% normal, 10% horizontal, 5% vertical
-        if (rand < 85) {
-          platformType = 'normal';
-        } else if (rand < 95) {
-          platformType = 'horizontal';
-        } else {
-          platformType = 'vertical';
-        }
-      }
-      // Score 0+: 100% normal (default)
-
-      // Create new platform
-      const newPlatform = new Platform({
-        x: newX,
-        y: newY,
-        width: this.platformWidth,
-        height: this.platformHeight,
-        platformType
-      });
-
-      this.platforms.push(newPlatform);
-    }
-
-    // Check for collisions with the player
-    this.platforms.forEach(platform => {
-      const platformY = platform.getY() + viewOffset;
-      if (platformY >= -platform.getHeight() && platformY <= canvasHeight + 100) {
-        if (player.checkPlatformCollision(platform)) {
-          if (platform.getPlatformType() === 'dissolving') {
-            platform.startDissolving();
-          }
-          player.handlePlatformCollision(platform);
-        }
-      }
-    });
-  }
-
-  /**
-   * Render the platform manager
-   */
-  public render(ctx: CanvasRenderingContext2D, game: GameEngine): void {
-    const viewOffset = game.getViewOffset();
-    const canvasHeight = this.canvas.height;
-    const fastRender = game.isMobileDevice();
-
-    // Only render platforms that are visible on screen
-    this.platforms.forEach(platform => {
-      const platformY = platform.getY() + viewOffset;
-      if (platformY >= -platform.getHeight() && platformY <= canvasHeight) {
-        // Apply camera offset for rendering
-        const originalY = platform.getY();
-        platform.setY(originalY + viewOffset);
-        platform.render(ctx, fastRender);
-        // Reset platform position
-        platform.setY(originalY);
-      }
-    });
-  }
-
-  /**
-   * Reset the platform manager
-   */
-  public reset(): void {
-    this.generateInitialPlatforms();
-  }
-
-  /**
-   * Get all platforms
-   */
-  public getPlatforms(): Platform[] {
-    return this.platforms;
-  }
+	private fill(camera: number): void {
+		while (this.topY + camera > -180) {
+			this.count++;
+			const difficulty = Math.min(1, this.count / 65);
+			const width = 100 - difficulty * 24;
+			// Gaps remain below the 157px jump apex, including vertical motion.
+			// Lateral travel is bounded, including moving-platform endpoints.
+			this.topY -= 78 + this.random() * 24 + difficulty * 18;
+			this.topCenter = Math.max(68, Math.min(WORLD_WIDTH - 68, this.topCenter + (this.random() - 0.5) * 190));
+			const roll = this.random();
+			let type: PlatformType = 'normal';
+			// Teach one mechanic at a time, leaving a stable landing after each special.
+			if (this.count > 8 && this.count % 2 === 0) {
+				if (roll < 0.28) type = 'horizontal';
+				else if (this.count > 18 && roll < 0.45) type = 'dissolving';
+				else if (this.count > 30 && roll < 0.6) type = 'vertical';
+			}
+			this.platforms.push(new Platform(this.topCenter - width / 2, this.topY, width, type));
+		}
+	}
 }

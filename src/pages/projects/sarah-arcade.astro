@@ -1,0 +1,83 @@
+---
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import IconLinks from '../../components/IconLinks.astro';
+import SocialPreview from '../../components/SocialPreview.astro';
+import GamePreview from '../../components/arcade/GamePreview.astro';
+import { games, ARCADE_PATH } from '../../games/arcade/catalog';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<IconLinks />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0a0a0a" />
+		<title>Sarah Arcade | Noah Eisen</title>
+		<SocialPreview title="Sarah Arcade" description="Play Sarah Jumps and Flappy Sarah." path={ARCADE_PATH} />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+		<UmamiAnalytics />
+	</head>
+	<body>
+		<main>
+			<header>
+				<a class="back-link" href="/projects">← Back to Projects</a>
+				<h1>Sarah Arcade</h1>
+			</header>
+			<div class="games">
+				{games.map(game => (
+					<a class="game-card" href={game.path} aria-label={`Play ${game.title}`}>
+						<div class="preview"><GamePreview gameId={game.id} /></div>
+						<div class="card-body">
+							<h2>{game.title}</h2>
+							<p>{game.description}</p>
+							<div class="card-footer"><span>Best <strong data-best-for={game.id}>0</strong></span><span class="play">Play →</span></div>
+						</div>
+					</a>
+				))}
+			</div>
+		</main>
+		<script>
+			import { games } from '../../games/arcade/catalog';
+			import { readBest } from '../../games/arcade/storage';
+			function updateBests() {
+				for (const game of games) {
+					const label = document.querySelector(`[data-best-for="${game.id}"]`);
+					if (label) label.textContent = String(readBest(game.bestKey));
+				}
+			}
+			updateBests();
+			window.addEventListener('pageshow', updateBests);
+			window.addEventListener('storage', updateBests);
+		</script>
+	</body>
+</html>
+<style>
+	*, *::before, *::after { box-sizing: border-box; }
+	:global(html) { background: #0a0a0a; }
+	body { margin: 0; color: #e2dfd8; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+	main { max-width: 860px; margin: 0 auto; padding: 32px 44px 48px; }
+	header { padding-bottom: 24px; border-bottom: 1px solid #1e1e1e; margin-bottom: 28px; }
+	.back-link { display: flex; align-items: center; min-height: 32px; width: fit-content; color: #777; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+	.back-link:hover { color: #aaa; }
+	h1 { font-size: 48px; line-height: 1; letter-spacing: -1.5px; font-weight: 700; text-transform: uppercase; margin: 12px 0 0; color: #eae7e0; }
+	.games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+	.game-card { color: inherit; text-decoration: none; border: 1px solid #222; border-radius: 6px; overflow: hidden; background: #101010; transition: border-color 0.15s; }
+	.game-card:hover { border-color: #555; }
+	a:focus-visible { outline: 2px solid #aaa; outline-offset: 4px; }
+	.preview { overflow: hidden; }
+	.card-body { padding: 20px; }
+	h2 { font-size: 25px; font-weight: 600; letter-spacing: -0.6px; margin: 0 0 8px; color: #eae7e0; }
+	p { font-size: 13px; color: #999; margin: 0; line-height: 1.5; }
+	.card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #242424; padding-top: 16px; margin-top: 22px; font-size: 11px; color: #999; }
+	strong { margin-left: 5px; font-weight: 500; color: #ccc; font-variant-numeric: tabular-nums; }
+	.play { color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+	@media (max-width: 600px) {
+		main { padding: max(14px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+		header { margin-bottom: 20px; padding-bottom: 16px; }
+		h1 { font-size: 36px; margin-top: 8px; }
+		.games { gap: 18px; }
+		.card-body { padding: 16px; }
+		h2 { font-size: 22px; }
+		.card-footer { padding-top: 12px; margin-top: 14px; }
+	}
+	@media (max-width: 480px) { .games { grid-template-columns: 1fr; } }
+</style>

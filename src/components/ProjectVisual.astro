@@ -80,7 +80,7 @@ const { label } = Astro.props;
 		</svg>
 	)}
 
-	{label === 'sarah-jumps' && (
+	{label === 'sarah-arcade' && (
 		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
 			<path class="jump-arc" d="M99 100C113 64 132 53 148 74" />
 			<g class="platforms">
@@ -88,6 +88,7 @@ const { label } = Astro.props;
 				<rect x="127" y="83" width="42" height="7" rx="3.5" />
 				<rect x="158" y="58" width="31" height="7" rx="3.5" />
 			</g>
+			<path d="M35 22h22v26H35z M35 87h22v32H35z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
 			<image
 				href={sarahJumpingSprite.src}
 				x="75"

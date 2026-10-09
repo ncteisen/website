@@ -1,0 +1,43 @@
+---
+import sarah from '../../games/sarah-jumps/assets/sprites/player-jumping-flipped.png';
+import flappySarah from '../../games/flappy-sarah/assets/sarah-flap-denim.png';
+import type { ArcadeGameId } from '../../games/arcade/catalog';
+interface Props { gameId: ArcadeGameId }
+const { gameId } = Astro.props;
+const jumping = gameId === 'sarah-jumps';
+const gradientId = `sky-${gameId}`;
+const flapCell = flappySarah.width / 2;
+---
+<svg viewBox="0 0 360 180" aria-hidden="true" class="game-preview">
+	<defs>
+		<linearGradient id={gradientId} x2="0" y2="1">
+			<stop stop-color={jumping ? '#c3e4eb' : '#cbd9ee'} />
+			<stop offset="1" stop-color={jumping ? '#f3f4df' : '#f6e7d7'} />
+		</linearGradient>
+	</defs>
+	<rect width="360" height="180" fill={`url(#${gradientId})`} />
+	<g fill="#fff" opacity="0.5">
+		<ellipse cx="56" cy="40" rx="45" ry="9" /><ellipse cx="68" cy="31" rx="20" ry="13" />
+		<ellipse cx="294" cy="126" rx="55" ry="11" /><ellipse cx="279" cy="113" rx="26" ry="16" />
+	</g>
+	{jumping ? <>
+		<g fill="#598b62">
+			<rect x="24" y="145" width="82" height="9" rx="4.5" />
+			<rect x="142" y="111" width="90" height="9" rx="4.5" />
+			<rect x="266" y="69" width="65" height="9" rx="4.5" />
+		</g>
+		<image href={sarah.src} x="157" y="53" width="60" height="60" />
+	</> : <>
+		<g fill="#6f83a5" stroke="#53698b" stroke-width="2">
+			<path d="M232 0h42v50h-42z M232 133h42v47h-42z" />
+			<rect x="227" y="44" width="52" height="12" rx="3" />
+			<rect x="227" y="127" width="52" height="12" rx="3" />
+		</g>
+		<svg x="112" y="53" width="76" height="76" viewBox={`${flapCell} 0 ${flapCell} ${flapCell}`} overflow="hidden">
+			<image href={flappySarah.src} width={flappySarah.width} height={flappySarah.height} style="image-rendering: pixelated" />
+		</svg>
+	</>}
+</svg>
+<style>
+	.game-preview { display: block; width: 100%; height: auto; }
+</style>

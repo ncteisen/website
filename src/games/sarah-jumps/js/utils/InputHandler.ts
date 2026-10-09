@@ -1,169 +1,95 @@
-import { GameEngine } from '../core/GameEngine';
-import { Player } from '../entities/Player';
+import { WORLD_WIDTH, type Steering } from '../entities/Player.ts';
 
-/**
- * InputHandler - Manages keyboard and touch input for the game
- */
 export class InputHandler {
-  private game: GameEngine;
-  private player: Player;
-  private keys: { [key: string]: boolean } = {};
-  private isTouching: boolean = false;
-  private touchX: number = 0;
-  private isMobile: boolean = false;
-  private canvasRect: DOMRect;
-  private touchEventOptions: AddEventListenerOptions = { passive: false };
+	private events = new AbortController();
+	private keys = new Set<string>();
+	private pointers = new Map<number, number>();
+	private pointerId: number | null = null;
+	private target: number | null = null;
+	private bounds: DOMRect;
+	private steering: Steering = { axis: 0, target: null };
 
-  constructor(game: GameEngine, player: Player) {
-    this.game = game;
-    this.player = player;
+	constructor(
+		private canvas: HTMLCanvasElement,
+		root: HTMLElement,
+		private canSteer: () => boolean,
+		private start: () => void,
+		private pause: () => void,
+	) {
+		this.bounds = canvas.getBoundingClientRect();
+		const signal = this.events.signal;
+		canvas.addEventListener('pointerdown', this.handlePointerDown, { signal });
+		canvas.addEventListener('pointermove', this.handlePointerMove, { signal });
+		canvas.addEventListener('lostpointercapture', this.handlePointerUp, { signal });
+		window.addEventListener('pointerup', this.handlePointerUp, { signal });
+		window.addEventListener('pointercancel', this.handlePointerUp, { signal });
+		window.addEventListener('keydown', this.handleKeyDown, { signal });
+		window.addEventListener('keyup', event => this.keys.delete(event.code), { signal });
+		window.addEventListener('blur', () => this.reset(), { signal });
+		window.addEventListener('resize', this.measure, { signal });
+		window.addEventListener('scroll', this.measure, { signal, capture: true, passive: true });
+		for (const button of root.querySelectorAll<HTMLButtonElement>('[data-move]')) {
+			button.addEventListener('pointerdown', event => {
+				if (!this.canSteer() || (event.pointerType === 'mouse' && event.button !== 0)) return;
+				event.preventDefault();
+				button.setPointerCapture(event.pointerId);
+				this.pointers.set(event.pointerId, Number(button.dataset.move));
+				this.target = null;
+			}, { signal });
+			button.addEventListener('lostpointercapture', this.handlePointerUp, { signal });
+		}
+	}
 
-    // Check if user is on mobile
-    this.isMobile = this.detectMobileEnvironment();
+	read(): Steering {
+		let axis = Number(this.keys.has('ArrowRight') || this.keys.has('KeyD')) - Number(this.keys.has('ArrowLeft') || this.keys.has('KeyA'));
+		for (const direction of this.pointers.values()) axis += direction;
+		this.steering.axis = Math.sign(axis);
+		this.steering.target = axis === 0 ? this.target : null;
+		return this.steering;
+	}
 
-    // Cache canvas rect; refresh on resize to avoid querying layout on every touch
-    this.canvasRect = this.game.getCanvas().getBoundingClientRect();
-    window.addEventListener('resize', () => {
-      this.canvasRect = this.game.getCanvas().getBoundingClientRect();
-    });
+	reset(): void {
+		this.keys.clear();
+		this.pointers.clear();
+		this.target = null;
+		if (this.pointerId !== null && this.canvas.hasPointerCapture(this.pointerId)) this.canvas.releasePointerCapture(this.pointerId);
+		this.pointerId = null;
+	}
 
-    // Set up event listeners
-    window.addEventListener('keydown', this.handleKeyDown);
-    window.addEventListener('keyup', this.handleKeyUp);
+	cleanup(): void { this.reset(); this.events.abort(); }
 
-    // Add touch event listeners if on mobile
-    if (this.isMobile) {
-      const canvas = this.game.getCanvas();
-      canvas.addEventListener('touchstart', this.handleTouchStart, this.touchEventOptions);
-      canvas.addEventListener('touchmove', this.handleTouchMove, this.touchEventOptions);
-      canvas.addEventListener('touchend', this.handleTouchEnd, this.touchEventOptions);
-    }
-  }
+	private measure = (): void => { this.bounds = this.canvas.getBoundingClientRect(); };
+	private point(event: PointerEvent): void { this.target = (event.clientX - this.bounds.left) / this.bounds.width * WORLD_WIDTH; }
 
-  /**
-   * Update the input handler
-   */
-  public update(deltaTime: number, game: GameEngine): void {
-    if (game.getGameState() !== 'playing') return;
+	private handlePointerDown = (event: PointerEvent): void => {
+		if (!this.canSteer() || this.pointerId !== null || (event.pointerType === 'mouse' && event.button !== 0)) return;
+		event.preventDefault();
+		this.canvas.focus({ preventScroll: true });
+		this.measure();
+		this.pointerId = event.pointerId;
+		this.canvas.setPointerCapture(event.pointerId);
+		this.point(event);
+	};
 
-    const dt = deltaTime / 16.67;
+	private handlePointerMove = (event: PointerEvent): void => {
+		if (event.pointerId === this.pointerId) this.point(event);
+	};
 
-    // Handle continuous key presses
-    if (this.keys['ArrowLeft'] || this.keys['KeyA']) {
-      this.player.moveLeft(dt);
-    }
+	private handlePointerUp = (event: PointerEvent): void => {
+		this.pointers.delete(event.pointerId);
+		if (event.pointerId === this.pointerId) { this.pointerId = null; this.target = null; }
+	};
 
-    if (this.keys['ArrowRight'] || this.keys['KeyD']) {
-      this.player.moveRight(dt);
-    }
-
-    // Handle touch movement
-    if (this.isTouching) {
-      this.updateTouchMovement(dt);
-    }
-  }
-
-  /**
-   * Handle key down events
-   */
-  private handleKeyDown = (e: KeyboardEvent): void => {
-    // Store the key state
-    this.keys[e.code] = true;
-
-    // Handle one-time key presses
-    if (e.code === 'Space') {
-      if (this.game.getGameState() === 'start' || this.game.getGameState() === 'gameOver') {
-        this.game.startGame();
-      }
-    }
-  };
-
-  /**
-   * Handle key up events
-   */
-  private handleKeyUp = (e: KeyboardEvent): void => {
-    // Clear the key state
-    this.keys[e.code] = false;
-  };
-
-  /**
-   * Handle touch start event
-   */
-  private handleTouchStart = (e: TouchEvent): void => {
-    e.preventDefault();
-
-    // Start/restart game if not playing
-    if (this.game.getGameState() === 'start' || this.game.getGameState() === 'gameOver') {
-      this.game.startGame();
-      return;
-    }
-
-    // Otherwise handle movement
-    this.isTouching = true;
-    this.updateTouchPosition(e);
-  };
-
-  /**
-   * Handle touch move event
-   */
-  private handleTouchMove = (e: TouchEvent): void => {
-    e.preventDefault();
-    this.updateTouchPosition(e);
-  };
-
-  /**
-   * Handle touch end event
-   */
-  private handleTouchEnd = (e: TouchEvent): void => {
-    e.preventDefault();
-    this.isTouching = false;
-  };
-
-  /**
-   * Update touch position
-   */
-  private updateTouchPosition(e: TouchEvent): void {
-    const touch = e.touches[0];
-    if (!touch) return;
-
-    this.touchX = touch.clientX - this.canvasRect.left;
-  }
-
-  /**
-   * Update player movement based on touch position
-   */
-  private updateTouchMovement(dt: number): void {
-    const playerX = this.player.getX();
-    const touchDiff = this.touchX - playerX;
-
-    if (Math.abs(touchDiff) > 20) { // Dead zone to prevent jitter
-      if (touchDiff > 0) {
-        this.player.moveRight(dt);
-      } else {
-        this.player.moveLeft(dt);
-      }
-    }
-  }
-
-  /**
-   * Clean up event listeners
-   */
-  public cleanup(): void {
-    window.removeEventListener('keydown', this.handleKeyDown);
-    window.removeEventListener('keyup', this.handleKeyUp);
-
-    if (this.isMobile) {
-      const canvas = this.game.getCanvas();
-      canvas.removeEventListener('touchstart', this.handleTouchStart, this.touchEventOptions);
-      canvas.removeEventListener('touchmove', this.handleTouchMove, this.touchEventOptions);
-      canvas.removeEventListener('touchend', this.handleTouchEnd, this.touchEventOptions);
-    }
-  }
-
-  private detectMobileEnvironment(): boolean {
-    return (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-      window.matchMedia('(pointer: coarse)').matches
-    );
-  }
+	private handleKeyDown = (event: KeyboardEvent): void => {
+		if (event.target instanceof HTMLElement && event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+		if (['ArrowLeft', 'ArrowRight', 'KeyA', 'KeyD'].includes(event.code)) {
+			if (!this.canSteer()) return;
+			event.preventDefault(); this.keys.add(event.code);
+		} else if (event.code === 'Space' && !(event.target instanceof HTMLButtonElement)) {
+			event.preventDefault();
+			if (!event.repeat && !this.canSteer()) this.start();
+		} else if ((event.code === 'Escape' || event.code === 'KeyP') && !event.repeat) {
+			event.preventDefault(); this.pause();
+		}
+	};
 }
