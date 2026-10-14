@@ -23,6 +23,66 @@ export const games = [
 		keyboardHint: 'Space or ↑ to flap · P to pause',
 		canvasLabel: 'Flappy Sarah playfield. Tap, click, or press Space or Up to flap. P pauses.',
 	},
+	{
+		id: "sarah-skis",
+		title: "Sarah Skis",
+		path: "/projects/sarah-skis/",
+		description: "Carve through gates. Outrun the yeti.",
+		bestKey: "sarahSkisHighScore",
+		input: "ski",
+		touchHint: "Hold and slide to steer through the flags.",
+		keyboardHint: "← → or A / D to steer · P to pause",
+		instructions: "Slide to steer. Go between flags for bonus points; blue ramps launch you over trees.",
+		canvasLabel: "Sarah Skis playfield. Slide to steer. Go between flags for bonus points; blue ramps launch you over trees. P pauses."
+	},
+	{
+		id: "crossy-sarah",
+		title: "Crossy Sarah",
+		path: "/projects/crossy-sarah/",
+		description: "Dodge traffic. Hop across the river.",
+		bestKey: "crossySarahHighScore",
+		input: "hop",
+		touchHint: "Tap to hop forward. Swipe to change direction.",
+		keyboardHint: "Arrow keys or WASD to hop · P to pause",
+		instructions: "Tap to hop forward; swipe left, right, or down. Land on logs and watch the railway signals.",
+		canvasLabel: "Crossy Sarah playfield. Tap to hop forward; swipe left, right, or down. Land on logs and watch the railway signals. P pauses."
+	},
+	{
+		id: "sarah-swings",
+		title: "Sarah Swings",
+		path: "/projects/sarah-swings/",
+		description: "Catch a rope. Fly across the canyon.",
+		bestKey: "sarahSwingsHighScore",
+		input: "swing",
+		touchHint: "Hold to grab a rope. Release to fly.",
+		keyboardHint: "Hold Space or ↑ to grab · Release to fly · P to pause",
+		instructions: "Hold to grab the highlighted rope. Release as Sarah swings upward, then hold for the next rope.",
+		canvasLabel: "Sarah Swings playfield. Hold to grab the highlighted rope. Release as Sarah swings upward, then hold for the next rope. P pauses."
+	},
+	{
+		id: "sarah-stacks",
+		title: "Sarah Stacks",
+		path: "/projects/sarah-stacks/",
+		description: "Stack a tower. Make every drop count.",
+		bestKey: "sarahStacksHighScore",
+		input: "stack",
+		touchHint: "Tap when the blocks line up.",
+		keyboardHint: "Space to drop · P to pause",
+		instructions: "Tap to drop the moving block. Three perfect drops in a row make your block wider.",
+		canvasLabel: "Sarah Stacks playfield. Tap to drop the moving block. Three perfect drops in a row make your block wider. P pauses."
+	},
+	{
+		id: "sarah-rolls",
+		title: "Sarah Rolls",
+		path: "/projects/sarah-rolls/",
+		description: "Roll over spring pads and collect stars.",
+		bestKey: "sarahRollsHighScore",
+		input: "roll",
+		touchHint: "Hold the right or left half of the game to roll.",
+		keyboardHint: "← → or A / D to roll · P to pause",
+		instructions: "Hold either side to roll. Build speed for orange spring pads; release to brake under red bumpers.",
+		canvasLabel: "Sarah Rolls playfield. Hold either side to roll. Build speed for orange spring pads; release to brake under red bumpers. P pauses."
+	},
 ] as const;
 
 export type ArcadeGameId = typeof games[number]['id'];

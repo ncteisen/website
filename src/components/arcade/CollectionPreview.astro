@@ -1,0 +1,52 @@
+---
+import sarah from '../../games/sarah-jumps/assets/sprites/player-jumping-flipped.png';
+import type { ArcadeGameId } from '../../games/arcade/catalog';
+interface Props { gameId: ArcadeGameId }
+const { gameId: id } = Astro.props;
+const colors: Record<string, string> = { 'sarah-skis': '#e4eff1', 'crossy-sarah': '#b8d39e', 'sarah-swings': '#d7e7d8', 'sarah-stacks': '#e5dcec', 'sarah-rolls': '#ede5d1' };
+---
+<svg viewBox="0 0 360 180" aria-hidden="true" class="preview-art">
+	<rect width="360" height="180" fill={colors[id]} />
+	{id === 'sarah-skis' && <>
+		<path d="M120 0 Q110 50 160 80 T170 180 M132 0 Q122 50 172 80 T182 180" fill="none" stroke="#c5dce2" stroke-width="3" />
+		<g fill="#548b7c"><path d="M35 65l23-48 23 48z M269 156l24-50 24 50z M290 45l17-35 17 35z" /></g>
+		<g fill="#fffdf4"><path d="M47 40l11-23 11 23z M282 131l11-25 11 25z" /></g>
+		<path d="M103 123v34 M233 123v34" stroke="#547887" stroke-width="3" />
+		<path d="M103 123l25 7-25 7 M233 123l25 7-25 7" fill="#df806c" />
+		<path d="M164 88l4 28 M176 88l4 28" stroke="#d57461" stroke-width="4" />
+		<image href={sarah.src} x="143" y="51" width="52" height="52" />
+	</>}
+	{id === 'crossy-sarah' && <>
+		<rect y="28" width="360" height="42" fill="#78adbd" />
+		<g fill="#ac845c"><rect x="20" y="35" width="120" height="28" rx="8" /><rect x="206" y="35" width="120" height="28" rx="8" /></g>
+		<rect y="109" width="360" height="47" fill="#657478" />
+		<g fill="#e1c275"><rect x="45" y="116" width="63" height="30" rx="5" /><rect x="259" y="116" width="63" height="30" rx="5" /></g>
+		<g fill="#516d79"><rect x="60" y="120" width="24" height="22" rx="3" /><rect x="274" y="120" width="24" height="22" rx="3" /></g>
+		<image href={sarah.src} x="155" y="58" width="50" height="50" />
+	</>}
+	{id === 'sarah-swings' && <>
+		<circle cx="295" cy="40" r="23" fill="#fff3d0" />
+		<path d="M0 180l50-65 70 65 70-90 60 90 55-75 55 75" fill="#aac7b0" />
+		<path d="M206 0v28l-62 82 M316 0v56" fill="none" stroke="#816b4c" stroke-width="3" />
+		<circle cx="206" cy="28" r="7" fill="#557d66" /><circle cx="316" cy="56" r="7" fill="#d3a449" />
+		<image href={sarah.src} x="117" y="85" width="54" height="54" />
+	</>}
+	{id === 'sarah-stacks' && <>
+		<circle cx="290" cy="46" r="25" fill="#fff0d7" />
+		<rect x="95" y="148" width="170" height="24" rx="2" fill="#739fa3" />
+		<rect x="105" y="124" width="150" height="24" rx="2" fill="#7892ab" />
+		<rect x="112" y="100" width="143" height="24" rx="2" fill="#8c87ad" />
+		<rect x="65" y="25" width="143" height="24" rx="2" fill="#ab85ac" />
+		<image href={sarah.src} x="162" y="53" width="48" height="48" />
+	</>}
+	{id === 'sarah-rolls' && <>
+		<circle cx="285" cy="45" r="23" fill="#fff9e8" /><circle cx="48" cy="194" r="110" fill="#c4d3ac" />
+		<path d="M0 139h192v41H0 M259 113h101v67H259" fill="#b7a183" />
+		<path d="M0 139h192 M259 113h101" stroke="#7e9e6e" stroke-width="9" />
+		<path d="M145 133h35" stroke="#d67d58" stroke-width="7" />
+		<circle cx="128" cy="106" r="27" fill="#f3fbecd0" stroke="#577e72" stroke-width="2" />
+		<image href={sarah.src} x="106" y="84" width="44" height="44" />
+		<path d="M287 64l4 9 10 1-8 7 2 10-8-5-9 5 2-10-8-7 11-1z" fill="#dca549" />
+	</>}
+</svg>
+<style>.preview-art { display: block; width: 100%; height: auto; image-rendering: pixelated; }</style>

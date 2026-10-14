@@ -1,4 +1,5 @@
 ---
+import CollectionPreview from './CollectionPreview.astro';
 import sarah from '../../games/sarah-jumps/assets/sprites/player-jumping-flipped.png';
 import { birdSprite } from '../../games/flappy-sarah/Sprite';
 import type { ArcadeGameId } from '../../games/arcade/catalog';
@@ -8,7 +9,7 @@ const jumping = gameId === 'sarah-jumps';
 const gradientId = `sky-${gameId}`;
 const { body, head, size, bodyCrop: bc, bodyPlacement: bp, headCrop: hc, headPlacement: hp } = birdSprite;
 ---
-<svg viewBox="0 0 360 180" aria-hidden="true" class="game-preview">
+{gameId !== 'sarah-jumps' && gameId !== 'flappy-sarah' ? <CollectionPreview gameId={gameId} /> : <svg viewBox="0 0 360 180" aria-hidden="true" class="game-preview">
 	<defs>
 		<linearGradient id={gradientId} x2="0" y2="1">
 			<stop stop-color={jumping ? '#c3e4eb' : '#cbd9ee'} />
@@ -42,7 +43,7 @@ const { body, head, size, bodyCrop: bc, bodyPlacement: bp, headCrop: hc, headPla
 			</svg>
 		</svg>
 	</>}
-</svg>
+</svg>}
 <style>
 	.game-preview { display: block; width: 100%; height: auto; }
 </style>

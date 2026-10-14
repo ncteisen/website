@@ -25,7 +25,7 @@ const game = getGame(Astro.props.gameId);
 				<a class="back-link" href={ARCADE_PATH}>← Sarah Arcade</a>
 				<h1>{game.title}</h1>
 			</header>
-			<section class="game" data-game={game.id} aria-label={`${game.title} game`} data-state="ready">
+			<section class="game" data-game={game.id} data-collection={'instructions' in game ? '' : undefined} aria-label={`${game.title} game`} data-state="ready">
 				<div class="game-window">
 					<canvas id="gameCanvas" width="400" height="600" tabindex="0" aria-label={game.canvasLabel} aria-describedby="controls-text">
 						{game.title} needs a browser with canvas support.
@@ -40,16 +40,25 @@ const game = getGame(Astro.props.gameId);
 							<h2 data-title hidden></h2>
 							<p data-description hidden></p>
 							{game.input === 'steer' && <p class="touch-guide"><strong>Keep a finger on the game.</strong><br />Slide left or right to steer.<br /><span>Sarah jumps automatically.</span></p>}
+							{'instructions' in game && <p class="game-guide">{game.instructions}</p>}
 							<button class="primary" data-start disabled>Loading…</button>
 							<button class="share" data-share hidden>Share score</button>
 						</div>
 					</div>
 				</div>
-				<div class="steering" aria-label={game.input === 'steer' ? 'Movement controls' : 'Flight controls'}>
+				<div class="steering" aria-label="Game controls">
 					{game.input === 'steer' ? <>
 						<button data-move="-1" aria-label="Move left">← <span>Left</span></button>
 						<button data-move="1" aria-label="Move right"><span>Right</span> →</button>
-					</> : <button data-flap aria-label="Flap">↑ <span>Flap</span></button>}
+					</> : game.input === 'flap' ? <button data-flap aria-label="Flap">↑ <span>Flap</span></button> : game.input === 'hop' ? <>
+						<button data-action="left" aria-label="Hop left">←</button>
+						<button data-action="up" aria-label="Hop forward">↑</button>
+						<button data-action="down" aria-label="Hop back">↓</button>
+						<button data-action="right" aria-label="Hop right">→</button>
+					</> : game.input === 'ski' || game.input === 'roll' ? <>
+						<button data-action="left" aria-label="Move left">← <span>Left</span></button>
+						<button data-action="right" aria-label="Move right"><span>Right</span> →</button>
+					</> : <button data-action="primary" aria-label={game.input === 'swing' ? 'Grab rope' : 'Drop block'}><span>{game.input === 'swing' ? 'Hold to grab · Release to fly' : 'Drop block'}</span></button>}
 				</div>
 				<div class="game-footer">
 					<p id="controls-text"><span class="touch-hint">{game.touchHint}</span><span class="key-hint">{game.keyboardHint}</span></p>

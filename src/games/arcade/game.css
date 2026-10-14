@@ -93,3 +93,25 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 	.touch-guide strong { font-weight: 600; }
 	.touch-guide span { font-size: 12px; color: #526e5d; }
 }
+
+/* Collection games share the full-height phone playfield and concise onboarding. */
+.game[data-collection][data-state="ready"] .panel { width: min(100%, 285px); padding: 18px; background: #faf7eff2; border-radius: 14px; }
+.game[data-collection][data-state="ready"] .overlay { inset: 50% 16px auto; padding: 0; background: transparent; }
+.game[data-collection][data-state="ready"] .game-guide { display: block; margin: 0 0 16px; font-size: 14px; line-height: 1.55; color: #3d5550; }
+.game[data-collection]:not([data-state="ready"]) .game-guide { display: none; }
+.game[data-game="sarah-stacks"] .primary { background: #71627e; }
+.game[data-game="sarah-stacks"] .hud { color: #665774; }
+.game[data-game="sarah-skis"] .primary { background: #3e6c7d; }
+.game[data-game="sarah-skis"] .hud { color: #365969; }
+.game[data-game="sarah-rolls"] .primary { background: #647a4d; }
+.game[data-game="sarah-rolls"][data-state="ready"] .overlay { top: 18%; }
+.game[data-game="crossy-sarah"] .hud { background: linear-gradient(#dce8c9f5, #dce8c900); }
+@media (max-width: 699px) and (orientation: portrait) {
+	.game[data-collection] .game-footer p { max-width: calc(100% - 70px); font-size: 10px; }
+	.game[data-collection] .hud { padding-top: 12px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+	.game[data-collection][data-state="ready"] .panel { padding: 10px; }
+	.game[data-collection][data-state="ready"] .game-guide { font-size: 11px; margin-bottom: 8px; }
+	.game[data-collection][data-state="ready"] .overlay { inset: 35% 10px auto; }
+}

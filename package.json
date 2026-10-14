@@ -13,7 +13,7 @@
     "astro": "astro",
     "resume": "bash scripts/resume-generator/build_resume.sh",
     "test:sarah-jumps": "node scripts/sarah-jumps/run-checks.mjs",
-    "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs"
+    "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs && node scripts/arcade/run-collection-checks.mjs"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",
