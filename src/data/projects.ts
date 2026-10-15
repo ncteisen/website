@@ -22,7 +22,7 @@ export const projects: Project[] = [
 	{
 		title: "Sarah's Puzzle",
 		description: 'Crossword puzzle I made to propose to my wife.',
-		href: 'http://sarahspuzzle.com/',
+		href: 'https://crosshare.org/crosswords/AF2NfVN7ek0Q5DWyIc19/sarahs-puzzle',
 		label: 'sarahs-puzzle',
 		external: true,
 		featured: true,
