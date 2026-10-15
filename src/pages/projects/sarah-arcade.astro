@@ -3,6 +3,7 @@ import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
 import IconLinks from '../../components/IconLinks.astro';
 import SocialPreview from '../../components/SocialPreview.astro';
 import GamePreview from '../../components/arcade/GamePreview.astro';
+import Leaderboards from '../../components/arcade/Leaderboards.astro';
 import { games, ARCADE_PATH } from '../../games/arcade/catalog';
 ---
 <html lang="en">
@@ -12,7 +13,7 @@ import { games, ARCADE_PATH } from '../../games/arcade/catalog';
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="theme-color" content="#0a0a0a" />
 		<title>Sarah Arcade | Noah Eisen</title>
-		<SocialPreview title="Sarah Arcade" description="Seven little games starring Sarah. Jump, fly, ski, hop, swing, stack, and roll." path={ARCADE_PATH} />
+		<SocialPreview title="Sarah Arcade" description="Six little games starring Sarah. Jump, fly, ski, hop, stack, and roll." path={ARCADE_PATH} />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
 		<UmamiAnalytics />
 	</head>
@@ -21,6 +22,7 @@ import { games, ARCADE_PATH } from '../../games/arcade/catalog';
 			<header>
 				<a class="back-link" href="/projects">← Back to Projects</a>
 				<h1>Sarah Arcade</h1>
+				<button class="leaderboards-link" type="button" data-open-board>High scores ↗</button>
 			</header>
 			<div class="games">
 				{games.map(game => (
@@ -35,6 +37,7 @@ import { games, ARCADE_PATH } from '../../games/arcade/catalog';
 				))}
 			</div>
 		</main>
+		<Leaderboards />
 		<script>
 			import { games } from '../../games/arcade/catalog';
 			import { readBest } from '../../games/arcade/storage';
@@ -59,6 +62,7 @@ import { games, ARCADE_PATH } from '../../games/arcade/catalog';
 	.back-link { display: flex; align-items: center; min-height: 32px; width: fit-content; color: #777; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
 	.back-link:hover { color: #aaa; }
 	h1 { font-size: 48px; line-height: 1; letter-spacing: -1.5px; font-weight: 700; text-transform: uppercase; margin: 12px 0 0; color: #eae7e0; }
+	.leaderboards-link { min-height: 44px; margin: 14px 0 -8px; padding: 8px 0; background: transparent; border: 0; color: #bfc7af; font: inherit; font-size: 13px; cursor: pointer; }
 	.games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 	.game-card { color: inherit; text-decoration: none; border: 1px solid #222; border-radius: 6px; overflow: hidden; background: #101010; transition: border-color 0.15s; }
 	.game-card:hover { border-color: #555; }

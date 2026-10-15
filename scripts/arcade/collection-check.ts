@@ -5,11 +5,10 @@ import { FixedStepLoop } from '../../src/games/arcade/FixedStepLoop';
 import { Skis } from '../../src/games/arcade/collection/Skis';
 import { Crossy } from '../../src/games/arcade/collection/Crossy';
 import { Stacks } from '../../src/games/arcade/collection/Stacks';
-import { Swings } from '../../src/games/arcade/collection/Swings';
 import { Rolls } from '../../src/games/arcade/collection/Rolls';
 import { pilot } from './collection-pilot';
 
-const ids: CollectionId[] = ['sarah-skis', 'crossy-sarah', 'sarah-swings', 'sarah-stacks', 'sarah-rolls'];
+const ids: CollectionId[] = ['sarah-skis', 'crossy-sarah', 'sarah-stacks', 'sarah-rolls'];
 function seeded(seed: number) { return () => { seed = (Math.imul(seed, 1664525) + 1013904223) | 0; return (seed >>> 0) / 4294967296; }; }
 function drive(world: CollectionWorld, dt: number) {
 	const command = pilot(world), controls = idleControls();
@@ -27,7 +26,6 @@ for (const id of ids) {
 			assert.ok(Number.isFinite(world.score) && world.score >= 0);
 			if (world.kind === 'sarah-skis') assert.ok(world.rows.length < 10 && world.tracks.length < 100);
 			if (world.kind === 'crossy-sarah') assert.ok(world.lanes.length < 35);
-			if (world.kind === 'sarah-swings') assert.ok(world.anchors.length < 10 && Number.isFinite(world.y));
 			if (world.kind === 'sarah-stacks') assert.ok(world.blocks.length <= 28 && world.offcuts.length <= 8);
 			if (world.kind === 'sarah-rolls') assert.ok(world.ledges.length < 10 && Number.isFinite(world.y));
 		}
@@ -58,9 +56,8 @@ const crossy = new Crossy(() => 0.5); crossy.row = 3; const road = crossy.lanes.
 const river = new Crossy(() => 0.5); river.row = 6; const water = river.lanes.find(l => l.row === 6)!; water.phase = 50; river.x = 220; river.update(1/120, idleControls()); assert.ok(river.ended, 'water between logs is a collision');
 const stack = new Stacks(); stack.moving.x = 399; stack.act('primary'); assert.ok(stack.ended, 'a missed drop ends the run');
 const perfect = new Stacks(); for (let i=0;i<3;i++) { perfect.cooldown = 0; perfect.moving.x = perfect.top.x; perfect.act('primary'); } assert.equal(perfect.top.width, 206, 'three perfect drops restore width');
-const swing = new Swings(); for (let i=0;i<600;i++) swing.update(1/120, idleControls()); assert.ok(swing.ended, 'missing a rope falls into the canyon');
 const roll = new Rolls(); roll.y = 800; roll.update(1/120, idleControls()); assert.ok(roll.ended, 'falling below the course ends a run');
-for (const world of [skis, crossy, river, stack, swing, roll]) { const snapshot = JSON.stringify(world); world.act('primary'); world.update(1, idleControls()); assert.equal(JSON.stringify(world), snapshot, 'finished worlds stay frozen'); }
+for (const world of [skis, crossy, river, stack, roll]) { const snapshot = JSON.stringify(world); world.act('primary'); world.update(1, idleControls()); assert.equal(JSON.stringify(world), snapshot, 'finished worlds stay frozen'); }
 console.log(JSON.stringify({ passed: true, collection: reports, refreshRates: [30,60,90,120,144] }));
 
 await import('./collection-input-check');

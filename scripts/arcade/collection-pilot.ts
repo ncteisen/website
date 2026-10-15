@@ -14,7 +14,6 @@ export function pilot(world: CollectionWorld): Pilot {
 	switch (world.kind) {
 		case 'sarah-skis': return { target: (world.rows.find(row => row.at > world.distance + 25) || world.rows[0]).center };
 		case 'sarah-rolls': return { axis: world.ledges.some(ledge => ledge.bumper && world.x >= ledge.x && world.x < ledge.x + 135 && world.y < ledge.y - 55) ? 0 : 1 };
-		case 'sarah-swings': return { action: world.attached ? world.x > world.attached.x + 45 && world.vy < 0 ? 'release' : undefined : 'primary' };
 		case 'sarah-stacks': return { action: !world.cooldown && Math.abs(world.moving.x - world.top.x) < 2 ? 'primary' : undefined };
 		case 'crossy-sarah': {
 			if (world.hop > 0) return {};

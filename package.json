@@ -14,7 +14,10 @@
     "resume": "bash scripts/resume-generator/build_resume.sh",
     "test:sarah-jumps": "node scripts/sarah-jumps/run-checks.mjs",
     "test:codewords": "node scripts/codewords/run-checks.mjs",
-    "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs && node scripts/arcade/run-collection-checks.mjs"
+    "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs && node scripts/arcade/run-collection-checks.mjs",
+    "dev:scores": "wrangler dev --config workers/arcade/wrangler.jsonc --var ALLOWED_ORIGINS:http://localhost:4321,http://127.0.0.1:4321",
+    "test:scores": "tsc -p workers/arcade/tsconfig.json && tsc -p scripts/arcade/tsconfig.scores.json && node scripts/arcade/check-scores.mjs && node scripts/arcade/check-score-client.mjs",
+    "deploy:scores": "wrangler d1 migrations apply DB --remote --config workers/arcade/wrangler.jsonc && wrangler deploy --config workers/arcade/wrangler.jsonc"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",
@@ -22,8 +25,11 @@
     "leaflet": "^1.9.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261015.1",
     "@types/leaflet": "^1.9.17",
     "@types/mapbox__polyline": "^1.0.5",
-    "esbuild": "0.27.7"
+    "esbuild": "0.27.7",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.151.0"
   }
 }

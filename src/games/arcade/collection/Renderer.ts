@@ -2,7 +2,6 @@ import sarah from '../../sarah-jumps/assets/sprites/player-jumping-flipped.png';
 import type { CollectionWorld } from './worlds';
 import type { Skis } from './Skis';
 import type { Crossy } from './Crossy';
-import type { Swings } from './Swings';
 import type { Stacks } from './Stacks';
 import type { Rolls } from './Rolls';
 import { mod } from './core';
@@ -78,7 +77,6 @@ export class Renderer {
 		switch (world.kind) {
 			case 'sarah-skis': this.skis(world); break;
 			case 'crossy-sarah': this.crossy(world); break;
-			case 'sarah-swings': this.swings(world); break;
 			case 'sarah-stacks': this.stacks(world); break;
 			case 'sarah-rolls': this.rolls(world); break;
 		}
@@ -146,27 +144,6 @@ export class Renderer {
 		const hop = Math.sin(alpha * Math.PI) * 12;
 		this.sprite(x, sy(row) + 19 - hop, 47, world.x < world.fromX);
 		if (world.time - world.lastProgress > 5) this.text('KEEP MOVING ↑', 200, this.height - 28, '#3e5944', 13);
-	}
-	private swings(world: Swings): void {
-		this.sky('#d3e6df', '#f4edcd');
-		const offset = this.height * 0.45 - 270;
-		this.circle(320, 110, 33, '#fff4ca');
-		for (let i = 0; i < 7; i++) {
-			const x = mod(i * 120 - world.camera * 0.16, 700) - 100;
-			this.poly([[x, this.height], [x + 55, this.height * 0.42 + i % 3 * 40], [x + 145, this.height]], '#a9c8b2');
-		}
-		this.rect(0, 590 + offset, 400, this.height, '#66877c');
-		for (let i = 0; i < 10; i++) { const x = mod(i * 73 - world.camera, 650) - 50; this.poly([[x, 620 + offset], [x + 25, 570 + offset], [x + 60, 620 + offset]], '#79988c'); }
-		const candidate = world.candidate();
-		for (const anchor of world.anchors) {
-			const x = anchor.x - world.camera, y = anchor.y + offset;
-			this.line([[x, 0], [x, y]], '#4b7564', 5); this.circle(x, y, 9, '#557d66');
-			this.circle(x, y, 4, '#e4d69b');
-			if (anchor === candidate && !world.attached) { this.ctx.strokeStyle = '#d3a449'; this.ctx.lineWidth = 3; this.ctx.beginPath(); this.ctx.arc(x, y, 16, 0, Math.PI * 2); this.ctx.stroke(); }
-		}
-		if (world.attached) this.line([[world.x - world.camera, world.y + offset - 13], [world.attached.x - world.camera, world.attached.y + offset]], '#806445', 3);
-		this.sprite(world.x - world.camera, world.y + offset + 22, 52, world.vx < 0, Math.max(-0.4, Math.min(0.4, world.vy / 1500)));
-		this.text(world.attached ? 'RELEASE TO FLY' : world.held ? 'REACHING…' : 'HOLD TO GRAB', 200, this.height - 28, '#3c6053', 12);
 	}
 	private stacks(world: Stacks): void {
 		this.sky('#ddd8eb', '#f6dfcf');

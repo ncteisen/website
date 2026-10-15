@@ -2,7 +2,7 @@ import { FixedStepLoop } from '../arcade/FixedStepLoop';
 import { readBest, saveBest } from '../arcade/storage';
 import { getGame } from '../arcade/catalog';
 import { GameAudio } from '../arcade/GameAudio';
-import { shareScore } from '../arcade/shareScore';
+import { recordRun } from '../arcade/scores';
 import { World } from './World';
 import { Renderer } from './Renderer';
 import { FlapInput } from './FlapInput';
@@ -31,7 +31,6 @@ export class FlappySarah {
 	private description: HTMLElement;
 	private startButton: HTMLButtonElement;
 	private pauseButton: HTMLButtonElement;
-	private shareButton: HTMLButtonElement;
 	private scoreLabel: HTMLElement;
 	private bestLabel: HTMLElement;
 	private status: HTMLElement;
@@ -48,7 +47,6 @@ export class FlappySarah {
 		this.description = find('[data-description]');
 		this.startButton = find<HTMLButtonElement>('[data-start]');
 		this.pauseButton = find<HTMLButtonElement>('[data-pause]');
-		this.shareButton = find<HTMLButtonElement>('[data-share]');
 		this.scoreLabel = find('[data-score]');
 		this.bestLabel = find('[data-best]');
 		this.status = find('[data-status]');
@@ -64,12 +62,6 @@ export class FlappySarah {
 			soundButton.textContent = this.audio.enabled ? 'Sound on' : 'Sound off';
 			soundButton.setAttribute('aria-pressed', String(this.audio.enabled));
 			if (this.audio.enabled) this.audio.unlock();
-		}, { signal });
-		this.shareButton.addEventListener('click', async () => {
-			this.shareButton.disabled = true;
-			const message = await shareScore('flappy-sarah', this.world.score);
-			if (!this.destroyed && this.state === 'over') this.status.textContent = message;
-			this.shareButton.disabled = false;
 		}, { signal });
 		document.addEventListener('visibilitychange', () => { if (document.hidden) this.pause(); }, { signal });
 		window.addEventListener('blur', () => this.pause(), { signal });
@@ -165,6 +157,7 @@ export class FlappySarah {
 
 	private endGame(): void {
 		this.state = 'over';
+		recordRun('flappy-sarah', this.world.score);
 		this.loop.stop();
 		this.audio.play('lose');
 		this.saveRecord();
@@ -182,7 +175,6 @@ export class FlappySarah {
 		this.description.textContent = description;
 		this.description.hidden = !description;
 		this.startButton.textContent = action;
-		this.shareButton.hidden = this.state !== 'over';
 		this.panel.hidden = false;
 		this.renderer.render(this.world);
 		this.status.textContent = `${title} ${description}`.trim();

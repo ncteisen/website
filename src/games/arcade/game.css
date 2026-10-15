@@ -30,7 +30,6 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 .panel p { font-size: 13px; line-height: 1.6; margin: 0 0 20px; color: #617668; }
 .primary { width: 100%; min-height: 48px; padding: 12px 20px; background: #294d3b; border: 0; border-radius: 10px; color: #f5f6e8; font-size: 15px; font-weight: 650; }
 .primary:active { background: #1c392a; transform: translateY(1px); }
-.share { display: block; margin: 10px auto -8px; min-height: 44px; padding: 8px; background: transparent; border: 0; color: #526e5d; font-size: 12px; }
 .touch-guide { display: none; }
 .steering { display: flex; gap: 8px; margin-top: 8px; }
 .steering button { display: flex; gap: 12px; align-items: center; justify-content: center; flex: 1; height: 46px; color: #bbb8b1; background: #111; border: 1px solid #262626; border-radius: 6px; font-size: 23px; touch-action: none; user-select: none; -webkit-user-select: none; }
@@ -39,6 +38,14 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 .game-footer { display: flex; justify-content: space-between; align-items: center; gap: 4px; color: #888; }
 .game-footer p { font-size: 10px; line-height: 1.4; margin: 0; }
 .sound { min-height: 44px; padding: 6px 0 6px 8px; color: #999; border: 0; background: transparent; font-size: 10px; white-space: nowrap; }
+.leaderboard-link { margin-left: auto; }
+.score-post { display: none; }
+.game[data-state="over"] .score-post { display: block; }
+.score-post button { width: 100%; min-height: 44px; margin-top: 8px; padding: 10px 16px; border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 28%, transparent); border-radius: 10px; background: transparent; color: inherit; font-size: 14px; font-weight: 600; }
+.score-post button:hover { background: #00000005; border-color: color-mix(in srgb, currentColor 45%, transparent); }
+.panel .score-post p { margin: 10px 0 0; font-size: 11px; line-height: 1.4; }
+.panel .score-post p:empty { display: none; }
+.game .panel .score-post p[data-saved="true"] { color: #77746e; font-size: 10px; }
 .touch-hint { display: none; }
 .sr-only { position: absolute; top: 0; margin: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .no-script { text-align: center; font-size: 13px; }
@@ -49,7 +56,6 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 	.panel { padding: 16px 12px; }
 	h2 { font-size: 23px; margin: 6px 0; }
 	.panel p { font-size: 12px; margin-bottom: 12px; }
-	.share { margin: 6px auto -6px; }
 }
 @media (min-width: 700px) {
 	.shell { --top-space: max(32px, env(safe-area-inset-top)); --bottom-space: max(24px, env(safe-area-inset-bottom)); --chrome-height: 236px; padding-left: 44px; padding-right: 44px; }
@@ -72,7 +78,7 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 .game[data-game="flappy-sarah"][data-state="ready"] .panel { margin: 0 auto; }
 .game[data-game="flappy-sarah"] .primary { background: #455d80; }
 .game[data-game="flappy-sarah"] .primary:active { background: #354866; }
-.game[data-game="flappy-sarah"] .panel p, .game[data-game="flappy-sarah"] .share { color: #5b6a80; }
+.game[data-game="flappy-sarah"] .panel p { color: #5b6a80; }
 
 /* Phones use the whole available viewport. Direct canvas input replaces the
    button row; the desktop keyboard/button layout remains available. */
@@ -107,11 +113,28 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 .game[data-game="sarah-rolls"][data-state="ready"] .overlay { top: 18%; }
 .game[data-game="crossy-sarah"] .hud { background: linear-gradient(#dce8c9f5, #dce8c900); }
 @media (max-width: 699px) and (orientation: portrait) {
-	.game[data-collection] .game-footer p { max-width: calc(100% - 70px); font-size: 10px; }
+	.game .game-footer p { max-width: calc(100% - 115px); font-size: 10px; }
 	.game[data-collection] .hud { padding-top: 12px; }
 }
 @media (orientation: landscape) and (max-height: 560px) {
 	.game[data-collection][data-state="ready"] .panel { padding: 10px; }
 	.game[data-collection][data-state="ready"] .game-guide { font-size: 11px; margin-bottom: 8px; }
 	.game[data-collection][data-state="ready"] .overlay { inset: 35% 10px auto; }
+}
+
+/* Give desktop play more room without changing either phone orientation. */
+@media (min-width: 900px) and (min-height: 561px) and (hover: hover) and (pointer: fine) {
+	.shell { --top-space: 24px; --bottom-space: 20px; --chrome-height: 108px; position: relative; width: min(100%, 1120px); }
+	header { position: absolute; top: var(--top-space); left: 44px; width: clamp(120px, calc((100% - 520px) / 2 - 68px), 200px); margin: 0; padding: 0; border: 0; }
+	h1 { margin: 12px 0 0; font-size: clamp(28px, 3vw, 36px); line-height: 1.05; }
+	.game { width: min(100%, 520px, calc((100svh - var(--chrome-height) - var(--top-space) - var(--bottom-space)) * 2 / 3)); }
+	.hud { padding: 14px 18px; gap: 24px; }
+	.hud span { font-size: 10px; }
+	.hud strong { font-size: 32px; }
+	.pause { width: 48px; height: 48px; }
+	.primary { min-height: 52px; font-size: 16px; }
+	.steering button { height: 56px; }
+	.steering button span, .game-footer p, .sound { font-size: 12px; }
+	.game[data-collection][data-state="ready"] .panel { width: min(100%, 320px); }
+	.game[data-collection][data-state="ready"] .game-guide { font-size: 15px; }
 }

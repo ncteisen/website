@@ -2,6 +2,7 @@
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import Leaderboards from '../components/arcade/Leaderboards.astro';
 import { ARCADE_PATH, getGame, type ArcadeGameId } from '../games/arcade/catalog';
 import '../games/arcade/game.css';
 interface Props { gameId: ArcadeGameId }
@@ -42,7 +43,7 @@ const game = getGame(Astro.props.gameId);
 							{game.input === 'steer' && <p class="touch-guide"><strong>Keep a finger on the game.</strong><br />Slide left or right to steer.<br /><span>Sarah jumps automatically.</span></p>}
 							{'instructions' in game && <p class="game-guide">{game.instructions}</p>}
 							<button class="primary" data-start disabled>Loading…</button>
-							<button class="share" data-share hidden>Share score</button>
+							<div class="score-post"><button type="button" data-open-board={game.id}>High scores</button><p data-score-sync aria-live="polite"></p></div>
 						</div>
 					</div>
 				</div>
@@ -58,16 +59,18 @@ const game = getGame(Astro.props.gameId);
 					</> : game.input === 'ski' || game.input === 'roll' ? <>
 						<button data-action="left" aria-label="Move left">← <span>Left</span></button>
 						<button data-action="right" aria-label="Move right"><span>Right</span> →</button>
-					</> : <button data-action="primary" aria-label={game.input === 'swing' ? 'Grab rope' : 'Drop block'}><span>{game.input === 'swing' ? 'Hold to grab · Release to fly' : 'Drop block'}</span></button>}
+					</> : <button data-action="primary" aria-label="Drop block"><span>Drop block</span></button>}
 				</div>
 				<div class="game-footer">
 					<p id="controls-text"><span class="touch-hint">{game.touchHint}</span><span class="key-hint">{game.keyboardHint}</span></p>
+					<button class="sound leaderboard-link" type="button" data-open-board={game.id}>Scores</button>
 					<button class="sound" data-sound aria-pressed="true">Sound on</button>
 				</div>
 				<p class="sr-only" data-status role="status" aria-live="polite"></p>
 				<noscript><p class="no-script">Turn on JavaScript to play {game.title}.</p></noscript>
 			</section>
 		</main>
+		<Leaderboards gameId={game.id} />
 		<slot />
 	</body>
 </html>

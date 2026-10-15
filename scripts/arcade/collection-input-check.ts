@@ -15,7 +15,7 @@ function dispatch(target: EventTarget, type: string, properties: Record<string, 
 	const event = new Event(type, { cancelable: true }); Object.assign(event, properties);
 	if (source) Object.defineProperty(event, 'target', { value: source }); target.dispatchEvent(event); return event;
 }
-for (const kind of ['sarah-skis', 'crossy-sarah', 'sarah-swings', 'sarah-stacks', 'sarah-rolls'] as CollectionId[]) {
+for (const kind of ['sarah-skis', 'crossy-sarah', 'sarah-stacks', 'sarah-rolls'] as CollectionId[]) {
 	const canvas = new ElementStub(), root = new ElementStub(); const actions: Action[] = []; let wakes = 0, pauses = 0;
 	const input = new Input(canvas as unknown as HTMLCanvasElement, root as unknown as HTMLElement, kind, action => actions.push(action), () => { wakes++; return true; }, () => pauses++);
 	const touch = { pointerId: 1, pointerType: 'touch', isPrimary: true, clientX: 300, clientY: 250 };
@@ -23,7 +23,7 @@ for (const kind of ['sarah-skis', 'crossy-sarah', 'sarah-swings', 'sarah-stacks'
 	dispatch(canvas, 'pointerdown', { ...touch, pointerId: 2, isPrimary: false }); assert.equal(wakes, 1, 'secondary touches are ignored');
 	if (kind === 'sarah-skis') { assert.equal(input.controls.target, 300); dispatch(canvas, 'pointermove', { ...touch, clientX: 80 }); assert.equal(input.controls.target, 80); }
 	if (kind === 'sarah-rolls') assert.equal(input.controls.axis, 1, 'right half rolls right');
-	if (kind === 'sarah-stacks' || kind === 'sarah-swings') assert.deepEqual(actions, ['primary'], 'one action on contact');
+	if (kind === 'sarah-stacks') assert.deepEqual(actions, ['primary'], 'one action on contact');
 	dispatch(root, 'pointerup', { ...touch, clientX: 210 }, canvas);
 	if (kind === 'crossy-sarah') assert.equal(actions[0], 'left', 'horizontal swipe hops sideways');
 	assert.equal(input.controls.axis, 0); assert.equal(input.controls.held, false); assert.equal(input.controls.target, null);

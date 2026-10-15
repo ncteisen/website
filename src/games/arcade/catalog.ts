@@ -48,18 +48,6 @@ export const games = [
 		canvasLabel: "Crossy Sarah playfield. Tap to hop forward; swipe left, right, or down. Land on logs and watch the railway signals. P pauses."
 	},
 	{
-		id: "sarah-swings",
-		title: "Sarah Swings",
-		path: "/projects/sarah-swings/",
-		description: "Catch a rope. Fly across the canyon.",
-		bestKey: "sarahSwingsHighScore",
-		input: "swing",
-		touchHint: "Hold to grab a rope. Release to fly.",
-		keyboardHint: "Hold Space or ↑ to grab · Release to fly · P to pause",
-		instructions: "Hold to grab the highlighted rope. Release as Sarah swings upward, then hold for the next rope.",
-		canvasLabel: "Sarah Swings playfield. Hold to grab the highlighted rope. Release as Sarah swings upward, then hold for the next rope. P pauses."
-	},
-	{
 		id: "sarah-stacks",
 		title: "Sarah Stacks",
 		path: "/projects/sarah-stacks/",

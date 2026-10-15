@@ -3,7 +3,7 @@ import sarah from '../../games/sarah-jumps/assets/sprites/player-jumping-flipped
 import type { ArcadeGameId } from '../../games/arcade/catalog';
 interface Props { gameId: ArcadeGameId }
 const { gameId: id } = Astro.props;
-const colors: Record<string, string> = { 'sarah-skis': '#e4eff1', 'crossy-sarah': '#b8d39e', 'sarah-swings': '#d7e7d8', 'sarah-stacks': '#e5dcec', 'sarah-rolls': '#ede5d1' };
+const colors: Record<string, string> = { 'sarah-skis': '#e4eff1', 'crossy-sarah': '#b8d39e', 'sarah-stacks': '#e5dcec', 'sarah-rolls': '#ede5d1' };
 ---
 <svg viewBox="0 0 360 180" aria-hidden="true" class="preview-art">
 	<rect width="360" height="180" fill={colors[id]} />
@@ -23,13 +23,6 @@ const colors: Record<string, string> = { 'sarah-skis': '#e4eff1', 'crossy-sarah'
 		<g fill="#e1c275"><rect x="45" y="116" width="63" height="30" rx="5" /><rect x="259" y="116" width="63" height="30" rx="5" /></g>
 		<g fill="#516d79"><rect x="60" y="120" width="24" height="22" rx="3" /><rect x="274" y="120" width="24" height="22" rx="3" /></g>
 		<image href={sarah.src} x="155" y="58" width="50" height="50" />
-	</>}
-	{id === 'sarah-swings' && <>
-		<circle cx="295" cy="40" r="23" fill="#fff3d0" />
-		<path d="M0 180l50-65 70 65 70-90 60 90 55-75 55 75" fill="#aac7b0" />
-		<path d="M206 0v28l-62 82 M316 0v56" fill="none" stroke="#816b4c" stroke-width="3" />
-		<circle cx="206" cy="28" r="7" fill="#557d66" /><circle cx="316" cy="56" r="7" fill="#d3a449" />
-		<image href={sarah.src} x="117" y="85" width="54" height="54" />
 	</>}
 	{id === 'sarah-stacks' && <>
 		<circle cx="290" cy="46" r="25" fill="#fff0d7" />

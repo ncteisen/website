@@ -22,7 +22,7 @@ export class Input {
 				else if (active || kind !== 'sarah-stacks') this.action(buttonAction);
 			} else {
 				this.position(event);
-				if (kind === 'sarah-swings' || (kind === 'sarah-stacks' && active)) this.action('primary');
+				if (kind === 'sarah-stacks' && active) this.action('primary');
 			}
 			this.syncAxis();
 		};
@@ -54,8 +54,7 @@ export class Input {
 			event.preventDefault(); if (event.repeat) return;
 			this.keys.add(event.code); this.syncAxis();
 			const active = this.wake();
-			if (kind === 'sarah-swings' && (action === 'primary' || action === 'up')) this.action('primary');
-			else if (kind !== 'sarah-stacks' || active) this.action(action);
+			if (kind !== 'sarah-stacks' || active) this.action(action);
 		}, { signal });
 		window.addEventListener('keyup', event => {
 			this.keys.delete(event.code); this.syncAxis();

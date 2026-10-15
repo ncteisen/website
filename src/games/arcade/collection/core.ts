@@ -1,4 +1,4 @@
-export type CollectionId = 'sarah-skis' | 'crossy-sarah' | 'sarah-swings' | 'sarah-stacks' | 'sarah-rolls';
+export type CollectionId = 'sarah-skis' | 'crossy-sarah' | 'sarah-stacks' | 'sarah-rolls';
 export type Action = 'left' | 'right' | 'up' | 'down' | 'primary' | 'release';
 export type Controls = { axis: number; target: number | null; held: boolean };
 export const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, value));

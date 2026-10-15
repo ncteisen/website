@@ -1,0 +1,92 @@
+---
+import { games, getGame, type ArcadeGameId } from '../../games/arcade/catalog';
+interface Props { gameId?: ArcadeGameId }
+const { gameId = 'sarah-jumps' } = Astro.props;
+---
+<dialog class="arcade-board" data-leaderboards aria-labelledby="board-title" data-initial-game={gameId}>
+	<div class="board-heading">
+		<h2 id="board-title">High scores</h2>
+		<button type="button" data-close-board aria-label="Close leaderboard"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+	</div>
+	<div class="board-game-picker" data-game-picker>
+		<button class="board-game-toggle" type="button" data-choose-game aria-expanded="false" aria-controls="board-game-options" aria-label={`Change game, currently ${getGame(gameId).title}`}>
+			<span data-current-game>{getGame(gameId).title}</span><span class="board-change">Change</span>
+		</button>
+		<div id="board-game-options" class="board-game-options" data-game-options role="group" aria-label="Choose a game" hidden>
+			{games.map(game => <button type="button" data-board-game={game.id} aria-pressed={game.id === gameId}>{game.title}<svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8 3 3 7-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></button>)}
+		</div>
+	</div>
+	<div class="board-periods" role="group" aria-label="Leaderboard period">
+		<button type="button" data-board-period="all" aria-pressed="true">All time</button>
+		<button type="button" data-board-period="week" aria-pressed="false">Last 7 days</button>
+	</div>
+	<div class="board-results" data-board-results data-view="loading">
+		<div class="board-columns" aria-hidden="true"><span>#</span><span>Player</span><span>Score</span></div>
+		<p data-board-status class="board-feedback" role="status">Loading scores…</p>
+		<ol data-board-list class="board-list" aria-label="Top scores"></ol>
+	</div>
+	<div class="board-bottom"><button type="button" data-refresh-board>Refresh</button></div>
+	<div class="board-player">
+		<div class="player-summary" data-player-summary hidden><div><span class="board-label">Nickname</span><strong data-player-name></strong></div><button type="button" data-edit-nickname>Edit</button></div>
+		<form data-nickname-form>
+			<label class="board-label" for="arcade-nickname">Public nickname</label>
+			<div class="nickname-row"><input id="arcade-nickname" name="nickname" maxlength="20" autocomplete="nickname" required /><button type="submit">Save</button></div>
+		</form>
+		<p class="board-feedback" data-profile-status role="status"></p>
+	</div>
+</dialog>
+<script>
+	import { initLeaderboards } from '../../games/arcade/leaderboards';
+	initLeaderboards();
+</script>
+<style is:global>
+	.arcade-board { box-sizing: border-box; width: min(460px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 28px; overflow-y: auto; overscroll-behavior: contain; border: 1px solid #333; border-radius: 6px; background: #101010; color: #e2dfd8; font: 14px/1.5 'DM Sans', sans-serif; color-scheme: dark; }
+	.arcade-board::backdrop { background: #000b; }
+	.arcade-board * { box-sizing: border-box; }
+	.arcade-board [hidden] { display: none !important; }
+	.arcade-board button, .arcade-board input { font: inherit; }
+	.arcade-board button { cursor: pointer; touch-action: manipulation; }
+	.arcade-board button:focus-visible, .arcade-board input:focus-visible { outline: 2px solid #aaa; outline-offset: 3px; }
+	.arcade-board .board-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+	.arcade-board h2 { margin: 0; color: #eae7e0; font-size: 32px; font-weight: 700; line-height: 1; letter-spacing: -1px; text-transform: uppercase; }
+	.arcade-board [data-close-board] { display: grid; place-items: center; flex: none; width: 44px; height: 44px; margin-right: -12px; padding: 0; border: 0; color: #999; background: none; }
+	.arcade-board [data-close-board]:hover { color: #eae7e0; }
+	.arcade-board .board-game-toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; padding: 0; border: 0; color: #e2dfd8; background: none; text-align: left; }
+	.arcade-board [data-current-game] { font-size: 18px; font-weight: 500; letter-spacing: -.3px; }
+	.arcade-board .board-change { flex: none; color: #999; font-size: 12px; }
+	.arcade-board .board-game-toggle:hover .board-change { color: #eae7e0; }
+	.arcade-board .board-game-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin: 8px 0 12px; }
+	.arcade-board .board-game-options button { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-width: 0; min-height: 44px; padding: 9px 10px; border: 1px solid #242424; border-radius: 4px; color: #999; background: none; text-align: left; font-size: 12px; line-height: 1.4; }
+	.arcade-board .board-game-options button svg { flex: none; visibility: hidden; }
+	.arcade-board .board-game-options button:hover { border-color: #555; color: #e2dfd8; }
+	.arcade-board .board-game-options button[aria-pressed="true"] { background: #1c1c1c; border-color: #555; color: #eae7e0; }
+	.arcade-board .board-game-options button[aria-pressed="true"] svg { visibility: visible; }
+	.arcade-board .board-periods { display: flex; gap: 24px; margin: 12px 0 24px; border-bottom: 1px solid #292929; }
+	.arcade-board .board-periods button { min-height: 44px; margin-bottom: -1px; padding: 8px 0; border: 0; border-bottom: 1px solid transparent; background: none; color: #999; font-size: 12px; }
+	.arcade-board .board-periods button[aria-pressed="true"] { color: #eae7e0; border-bottom-color: #e2dfd8; }
+	.arcade-board .board-columns, .arcade-board .board-list li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+	.arcade-board .board-columns { padding: 0 8px 10px; color: #999; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #242424; }
+	.arcade-board .board-list { list-style: none; padding: 0; margin: 0; }
+	.arcade-board .board-list li { min-height: 52px; padding: 12px 8px; border-bottom: 1px solid #242424; font-variant-numeric: tabular-nums; }
+	.arcade-board .board-list li[data-you] { background: #191919; }
+	.arcade-board .board-rank { color: #999; font-size: 12px; }
+	.arcade-board .board-name { overflow-wrap: anywhere; font-size: 14px; }
+	.arcade-board .board-you { display: inline-block; margin-left: 8px; color: #999; font-size: 10px; }
+	.arcade-board .board-list strong { margin: 0; color: #eae7e0; font-size: 18px; font-weight: 500; letter-spacing: -.3px; }
+	.arcade-board [data-board-status] { padding: 32px 8px; margin: 0; color: #999; font-size: 13px; text-align: center; }
+	.arcade-board .board-feedback:empty { display: none; }
+	.arcade-board .board-bottom { display: flex; justify-content: flex-end; margin: 4px 0 12px; }
+	.arcade-board [data-refresh-board], .arcade-board [data-edit-nickname] { min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: none; color: #999; font-size: 12px; }
+	.arcade-board [data-refresh-board]:hover, .arcade-board [data-edit-nickname]:hover { color: #eae7e0; }
+	.arcade-board .board-player { padding-top: 20px; border-top: 1px solid #292929; }
+	.arcade-board .board-label { display: block; color: #999; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+	.arcade-board .player-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+	.arcade-board .player-summary strong { display: block; margin: 4px 0 0; color: #e2dfd8; font-size: 14px; font-weight: 400; overflow-wrap: anywhere; }
+	.arcade-board .nickname-row { display: flex; gap: 8px; margin-top: 10px; }
+	.arcade-board input { flex: 1; width: 100%; min-width: 0; min-height: 44px; padding: 10px 12px; border: 1px solid #333; border-radius: 4px; color: #e2dfd8; background: #0a0a0a; font-size: 16px; }
+	.arcade-board .nickname-row button { flex: none; min-height: 44px; padding: 8px 16px; border: 1px solid #444; border-radius: 4px; background: #1c1c1c; color: #e2dfd8; font-size: 12px; }
+	.arcade-board .nickname-row button:hover { border-color: #777; }
+	.arcade-board button:disabled { opacity: .6; cursor: wait; }
+	.arcade-board [data-profile-status] { margin: 10px 0 0; color: #999; font-size: 12px; }
+	@media (max-width: 480px) { .arcade-board { padding: 20px; } .arcade-board h2 { font-size: 28px; } }
+</style>
