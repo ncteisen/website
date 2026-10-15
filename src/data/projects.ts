@@ -11,6 +11,15 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		title: 'Postal',
+		description: 'Turn your photos into postcards, printed and mailed.',
+		href: 'https://gopostal.cc/',
+		label: 'postal',
+		external: true,
+		featured: true,
+		accent: '#b6ad95',
+	},
+	{
 		title: "Sarah's Puzzle",
 		description: 'Crossword puzzle I made to propose to my wife.',
 		href: 'http://sarahspuzzle.com/',
@@ -53,7 +62,6 @@ export const projects: Project[] = [
 		label: 'codex-pets',
 		external: false,
 		featured: false,
-		featuredOnMobile: true,
 		accent: '#8f9f86',
 	},
 	{
@@ -80,7 +88,8 @@ export const projects: Project[] = [
 		href: 'https://playzingg.com/',
 		label: 'zingg',
 		external: true,
-		featured: true,
+		featured: false,
+		featuredOnMobile: true,
 		accent: '#b28ad6',
 	},
 

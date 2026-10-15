@@ -476,69 +476,54 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.projects-grid {
 				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 14px;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 24px;
 			}
 
 			.project-card {
 				text-decoration: none;
-				padding: 10px;
-				background: #111;
-				border: 1px solid #1c1c1c;
-				border-radius: 6px;
+				padding: 16px 0 20px;
+				border-top: 1px solid #222;
 				display: flex;
 				flex-direction: column;
-				gap: 14px;
-				min-height: 232px;
-				transition: background 0.15s, border-color 0.15s;
+				gap: 12px;
 			}
 
-			.project-card.mobile-feature {
-				display: none;
-			}
+			.project-card.mobile-feature { display: none; }
 
-			.project-card:hover {
-				background: #151515;
-				border-color: #2a2a2a;
-			}
-
-			.project-card:hover .project-card-visual,
-			.project-card:focus-visible .project-card-visual {
-				border-color: #2f2f2f;
-				transform: translateY(-1px);
+			.project-card:focus-visible {
+				outline: 1px solid #888;
+				outline-offset: 6px;
+				border-radius: 2px;
 			}
 
 			.project-card-visual {
-				aspect-ratio: 16 / 9;
-				width: 100%;
-				background:
-					linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 20%, #111), #0f0f0f 58%),
-					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 16px);
-				border: 1px solid #1c1c1c;
-				border-radius: 4px;
-				overflow: hidden;
-				position: relative;
+				width: 88px;
+				height: 56px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				transition: border-color 0.15s, transform 0.15s;
-			}
-
-			.project-card-body {
-				padding: 0 10px 10px;
 			}
 
 			.project-card-title {
 				font-size: 14px;
-				font-weight: 600;
-				color: #d4d0c8;
+				font-weight: 500;
+				color: #d8d5ce;
 				margin-bottom: 6px;
+				transition: color 0.15s;
 			}
+
+			.project-card:hover .project-card-title,
+			.project-card:focus-visible .project-card-title { color: #fff; }
 
 			.project-card-desc {
 				font-size: 12px;
-				color: #555;
+				color: #888;
 				line-height: 1.6;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.project-card-title { transition: none; }
 			}
 
 			/* === STATS === */
@@ -893,21 +878,13 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 				.projects-grid {
 					grid-template-columns: repeat(2, minmax(0, 1fr));
-					gap: 12px;
-				}
-
-				.project-card {
-					padding: 16px;
-					min-height: 210px;
+					gap: 0 20px;
 				}
 
 				.project-card.mobile-feature {
 					display: flex;
 				}
 
-				.project-card-visual--codex-pets :global(.project-diagram) {
-					transform: translateY(-12px) scale(0.82);
-				}
 
 				.stats-row {
 					display: grid;
@@ -1024,8 +1001,8 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 							data-umami-event-label={project.label}
 							style={`--project-accent: ${project.accent}`}
 						>
-							<div class={`project-card-visual project-card-visual--${project.label}`}>
-								<ProjectVisual label={project.label} />
+							<div class="project-card-visual">
+								<ProjectVisual label={project.label} subtle />
 							</div>
 							<div class="project-card-body">
 								<div class="project-card-title">{project.title}</div>

@@ -69,139 +69,98 @@ import { projects } from '../../data/projects';
 				max-width: 540px;
 			}
 
-			.section-label {
-				font-size: 10px;
-				letter-spacing: 4px;
-				text-transform: uppercase;
-				color: #444;
-				display: block;
-				margin-top: 52px;
-				margin-bottom: 20px;
-				padding-bottom: 16px;
-				border-bottom: 1px solid #1a1a1a;
+			.projects-list {
+				list-style: none;
+				margin-top: 36px;
+				border-top: 1px solid #222;
 			}
 
-			.projects-list {
-				display: flex;
-				flex-direction: column;
-				border-top: 1px solid #1a1a1a;
+			.projects-list li {
+				border-bottom: 1px solid #1a1a1a;
 			}
 
 			.project-entry {
-				text-decoration: none;
 				display: grid;
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 30px;
+				grid-template-columns: 88px 166px minmax(0, 1fr) 16px;
+				gap: 24px;
 				align-items: center;
+				padding: 16px 0;
 				color: inherit;
-				padding: 30px 0;
-				border-bottom: 1px solid #1a1a1a;
-			}
-
-			.project-entry:nth-child(even) .project-visual {
-				order: 2;
+				text-decoration: none;
 			}
 
 			.project-visual {
-				aspect-ratio: 16 / 9;
-				min-height: 170px;
-				background:
-					linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 22%, #111), #0f0f0f 58%),
-					repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 18px);
-				border: 1px solid #1c1c1c;
-				border-radius: 6px;
-				overflow: hidden;
-				position: relative;
+				height: 56px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 22px;
-				transition: border-color 0.15s, transform 0.15s;
-			}
-
-			.project-entry:hover .project-visual,
-			.project-entry:focus-visible .project-visual {
-				border-color: #2f2f2f;
-				transform: translateY(-2px);
-			}
-
-			.project-body {
-				max-width: 360px;
-				padding-left: 20px;
-				border-left: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
-			}
-
-			.project-entry:nth-child(even) .project-body {
-				justify-self: end;
-				text-align: right;
-				padding-left: 0;
-				padding-right: 20px;
-				border-left: 0;
-				border-right: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
 			}
 
 			.project-title {
-				font-size: 28px;
-				font-weight: 700;
-				letter-spacing: 0;
-				line-height: 1.05;
-				color: #eae7e0;
-				margin-bottom: 12px;
+				font-size: 17px;
+				font-weight: 500;
+				letter-spacing: -0.2px;
+				line-height: 1.5;
+				color: #d8d5ce;
+				transition: color 0.15s;
 			}
 
 			.project-desc {
-				font-size: 14px;
-				color: #777;
-				line-height: 1.7;
-				margin-bottom: 18px;
+				font-size: 13px;
+				color: #888;
+				line-height: 1.65;
 			}
 
-			.project-link {
-				font-size: 12px;
-				color: var(--project-accent);
-				font-weight: 600;
-				letter-spacing: 1px;
-				text-transform: uppercase;
+			.project-arrow {
+				font-size: 16px;
+				line-height: 1;
+				color: #666;
+				text-align: right;
+				transition: color 0.15s;
+			}
+
+			.project-entry:hover .project-title,
+			.project-entry:focus-visible .project-title { color: #fff; }
+
+			.project-entry:hover .project-arrow,
+			.project-entry:focus-visible .project-arrow { color: #d8d5ce; }
+
+			.project-entry:focus-visible,
+			.back-link:focus-visible {
+				outline: 1px solid #888;
+				outline-offset: 6px;
+				border-radius: 2px;
 			}
 
 			@media (max-width: 768px) {
 				.wrap { padding: 36px 24px 60px; }
 				.page-title { font-size: 36px; }
-
-				.projects-list {
-					gap: 38px;
-				}
+				.projects-list { margin-top: 28px; }
 
 				.project-entry {
-					grid-template-columns: 1fr;
-					gap: 18px;
-					padding: 28px 0;
-				}
-
-				.project-entry:nth-child(even) .project-visual {
-					order: 0;
+					grid-template-columns: minmax(0, 1fr) 68px;
+					gap: 5px 20px;
+					padding: 20px 0;
 				}
 
 				.project-visual {
-					min-height: 190px;
+					grid-column: 2;
+					grid-row: 1 / span 2;
+					height: 48px;
 				}
 
-				.project-body {
-					max-width: 100%;
+				.project-title { grid-column: 1; grid-row: 1; }
+
+				.project-desc {
+					grid-column: 1;
+					grid-row: 2;
 				}
 
-				.project-entry:nth-child(even) .project-body {
-					justify-self: stretch;
-					text-align: left;
-					padding-left: 20px;
-					padding-right: 0;
-					border-left: 2px solid color-mix(in srgb, var(--project-accent) 55%, #222);
-					border-right: 0;
-				}
+				.project-arrow { display: none; }
+			}
 
-				.project-title {
-					font-size: 24px;
-				}
+			@media (prefers-reduced-motion: reduce) {
+				.project-title, .project-arrow, .back-link { transition: none; }
 			}
 		</style>
 	</head>
@@ -213,10 +172,9 @@ import { projects } from '../../data/projects';
 				<p class="page-desc">A catalog of my side projects, games, and web experiments.</p>
 			</div>
 
-			<section>
-				<span class="section-label">All Projects</span>
-				<div class="projects-list">
-					{projects.map((project) => (
+			<ul class="projects-list" aria-label="Projects">
+				{projects.map((project) => (
+					<li>
 						<a
 							href={project.href}
 							class="project-entry"
@@ -227,18 +185,16 @@ import { projects } from '../../data/projects';
 							data-umami-event-area="projects"
 							data-umami-event-label={project.label}
 						>
-							<div class="project-visual">
-								<ProjectVisual label={project.label} />
+							<div class="project-visual" aria-hidden="true">
+								<ProjectVisual label={project.label} subtle />
 							</div>
-							<div class="project-body">
-								<h2 class="project-title">{project.title}</h2>
-								<p class="project-desc">{project.description}</p>
-								<span class="project-link">{project.external ? 'Visit project' : 'View project'} &rarr;</span>
-							</div>
+							<h2 class="project-title">{project.title}</h2>
+							<p class="project-desc">{project.description}</p>
+							<span class="project-arrow" aria-hidden="true">{project.external ? '↗' : '→'}</span>
 						</a>
-					))}
-				</div>
-			</section>
+					</li>
+				))}
+			</ul>
 		</main>
 	</body>
 </html>
