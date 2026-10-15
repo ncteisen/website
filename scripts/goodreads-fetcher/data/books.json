@@ -2119,7 +2119,7 @@
     "isbn": null,
     "num_pages": null,
     "book_published": "2022",
-    "average_rating": "4.38",
+    "average_rating": "4.37",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738578835l/60841708.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738578835l/60841708.jpg",
     "guid": "https://www.goodreads.com/review/show/7398914220?utm_medium=api&utm_source=rss"
@@ -3598,7 +3598,7 @@
     "isbn": "0226851761",
     "num_pages": null,
     "book_published": "1996",
-    "average_rating": "4.09",
+    "average_rating": "4.10",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347612688l/995029.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347612688l/995029.jpg",
     "guid": "https://www.goodreads.com/review/show/9010608440?utm_medium=api&utm_source=rss"
@@ -5095,8 +5095,8 @@
     "num_pages": null,
     "book_published": "1989",
     "average_rating": "4.27",
-    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746983261l/77566.jpg",
-    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746983261l/77566.jpg",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1792011177l/77566.jpg",
+    "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1792011177l/77566.jpg",
     "guid": "https://www.goodreads.com/review/show/4890523093?utm_medium=api&utm_source=rss"
   },
   {

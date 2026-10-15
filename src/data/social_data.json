@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14T14:58:31.720361",
+  "last_updated": "2026-10-15T14:48:40.516699",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -4873,7 +4873,7 @@
         "author": "Dan Simmons",
         "rating": 4,
         "read_at": "Sun, 31 Jul 2022 00:00:00 +0000",
-        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746983261l/77566.jpg",
+        "image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1792011177l/77566.jpg",
         "link": "https://www.goodreads.com/review/show/4890523093?utm_medium=api&utm_source=rss",
         "review": "Essentially a collection of six short stories within the structured narrative of a pilgrims journey. All of the stories were thought provoking, some more than others. I liked the last two the best"
       },
@@ -8683,11 +8683,11 @@
           "elevation_gain": 527654.0
         },
         "recent": {
-          "count": 19,
-          "distance": 101.8,
-          "moving_time": 56669,
-          "elapsed_time": 64116,
-          "elevation_gain": 8018.0
+          "count": 18,
+          "distance": 94.98,
+          "moving_time": 52611,
+          "elapsed_time": 59853,
+          "elevation_gain": 7087.0
         }
       },
       "biking": {
