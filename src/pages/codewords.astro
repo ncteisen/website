@@ -1,0 +1,37 @@
+---
+import IconLinks from '../components/IconLinks.astro';
+import SocialPreview from '../components/SocialPreview.astro';
+import { packs } from '../games/codewords/engine';
+import '../games/codewords/style.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#f4f1e9" />
+		<IconLinks />
+		<title>Codewords</title>
+		<SocialPreview title="Codewords" description="A team word game. Share a seed to play on the same board." path="/codewords/" />
+	</head>
+	<body>
+		<main>
+			<header class="toolbar">
+				<h1>codewords<span>.</span></h1>
+				<div class="scores" aria-label="Words remaining"><span class="red">Red <strong id="red-score">–</strong></span><span class="blue">Blue <strong id="blue-score">–</strong></span></div>
+				<form id="board-form" aria-label="Load a board">
+					<label class="seed-field" for="seed">Seed<input id="seed" name="seed" maxlength="48" autocomplete="off" autocapitalize="none" spellcheck="false" required /></label>
+					<label class="pack-field" for="word-pack">Words<select id="word-pack" name="pack">{Object.entries(packs).map(([key, pack]) => <option value={key}>{pack.name}</option>)}</select></label>
+					<button type="submit">Load</button>
+				</form>
+				<div class="tools"><button id="new-game" title="Start a board with a new random seed">New board</button><button id="timer" title="Start a 30-second timer; click again to cancel">Timer <span id="timer-label">0:30</span></button><button id="spymaster" aria-pressed="false">Spymaster</button></div>
+			</header>
+			<div id="board" class="board" role="group" aria-label="Word cards"></div>
+			<noscript><p>Enable JavaScript to play Codewords.</p></noscript>
+			<footer><span id="board-hint">Same seed + word set = same board.</span><span>Tap a card to mark it. Tap again to unmark.</span><a href="/projects/">All projects</a></footer>
+			<p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+		</main>
+		<script>import '../games/codewords/client';</script>
+	</body>
+</html>
