@@ -2051,7 +2051,7 @@
     "isbn": "0802165176",
     "num_pages": null,
     "book_published": "2025",
-    "average_rating": "4.13",
+    "average_rating": "4.12",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1745508457l/228110489.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1745508457l/228110489.jpg",
     "guid": "https://www.goodreads.com/review/show/8239143844?utm_medium=api&utm_source=rss"
@@ -3564,7 +3564,7 @@
     "isbn": "0593321464",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.05",
+    "average_rating": "4.04",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767777046l/245325201.jpg",
     "guid": "https://www.goodreads.com/review/show/8815306023?utm_medium=api&utm_source=rss"
@@ -3666,7 +3666,7 @@
     "isbn": "0063511630",
     "num_pages": null,
     "book_published": "2026",
-    "average_rating": "4.27",
+    "average_rating": "4.26",
     "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
     "book_large_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761863582l/242693052.jpg",
     "guid": "https://www.goodreads.com/review/show/8747238533?utm_medium=api&utm_source=rss"
@@ -5849,7 +5849,7 @@
   },
   {
     "book_id": "11",
-    "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
+    "title": "The Hitchhiker's Guide to the Galaxy (The Hitchhiker's Guide to the Galaxy, #1)",
     "author_name": "Douglas Adams",
     "user_rating": 5,
     "user_read_at": "Mon, 7 Jan 2019 00:00:00 +0000",

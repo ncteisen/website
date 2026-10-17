@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16T14:42:21.301008",
+  "last_updated": "2026-10-17T13:34:20.987202",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -5284,7 +5284,7 @@
         "review": ""
       },
       {
-        "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
+        "title": "The Hitchhiker's Guide to the Galaxy (The Hitchhiker's Guide to the Galaxy, #1)",
         "author": "Douglas Adams",
         "rating": 5,
         "read_at": "Mon, 7 Jan 2019 00:00:00 +0000",
@@ -8693,11 +8693,11 @@
           "elevation_gain": 528733.0
         },
         "recent": {
-          "count": 19,
-          "distance": 102.81,
-          "moving_time": 57215,
-          "elapsed_time": 64925,
-          "elevation_gain": 8166.0
+          "count": 18,
+          "distance": 99.61,
+          "moving_time": 55475,
+          "elapsed_time": 62509,
+          "elevation_gain": 8002.0
         }
       },
       "biking": {
