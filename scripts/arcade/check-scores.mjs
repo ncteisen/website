@@ -35,6 +35,14 @@ try {
 	assert.equal((await send('/runs', alice, { ...first, score: 90 })).status, 409);
 	assert.equal((await send('/runs', bob, first)).status, 409);
 	assert.equal((await board())[0].score, 20, 'Conflicting retry must not inflate best');
+	for (const game of ['sarah-skis', 'sarah-rolls']) {
+		const old = run(game, 9999);
+		await db.prepare('INSERT INTO runs(id, player_id, game, version, score) VALUES (?, ?, ?, ?, ?)').bind(old.id, alice.id, game, 1, old.score).run();
+		assert.equal((await send('/runs', alice, run(game, 100))).status, 400, 'Retired game versions cannot enter new boards');
+		assert.equal((await send('/runs', alice, { ...run(game, 75), version: 2 })).status, 200);
+		for (const period of ['all', 'week']) assert.deepEqual((await board(game, period)).map(entry => entry.score), [75], 'Boards use each game\'s current scoring rules');
+		assert.ok(await db.prepare('SELECT id FROM runs WHERE id = ?').bind(old.id).first(), 'Old scores remain stored');
+	}
 	await send('/runs', alice, run('sarah-jumps', 5));
 	await send('/runs', bob, run('sarah-jumps', 30));
 	assert.deepEqual((await board()).map(entry => [entry.nickname, entry.score]), [['Bob', 30], ['Alice', 20]]);

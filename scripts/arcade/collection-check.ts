@@ -31,7 +31,7 @@ for (const id of ids) {
 		}
 		if (world.ended) runsEnded++;
 		minScore = Math.min(minScore, world.score);
-		if (id !== 'crossy-sarah') assert.equal(world.ended, false, `${id} course ${seed} must be traversable`);
+		if (id !== 'crossy-sarah') assert.equal(world.ended, false, `${id} course ${seed} must be traversable at ${world.time.toFixed(1)}s: ${world.reason}`);
 		assert.ok(world.score > 5, `${id} course ${seed} makes progress`);
 	}
 	reports.push({ game: id, seeds: 50, secondsPerRun: 60, minScore, runsEnded });
@@ -43,10 +43,11 @@ globalThis.requestAnimationFrame = callback => { callbacks.set(++nextId, callbac
 globalThis.cancelAnimationFrame = id => { callbacks.delete(id); };
 function atRate(id: CollectionId, hz: number) {
 	const world = createWorld(id, seeded(42)); let renders = 0;
+	const seconds = id === 'sarah-skis' ? 120 : 12;
 	const loop = new FixedStepLoop(dt => drive(world, dt), () => renders++);
 	loop.start();
-	for (let i = 0; i <= hz * 12; i++) { const pending = [...callbacks.values()]; callbacks.clear(); for (const callback of pending) callback(i * 1000 / hz); }
-	loop.stop(); assert.equal(callbacks.size, 0); assert.equal(renders, hz * 12 + 1);
+	for (let i = 0; i <= hz * seconds; i++) { const pending = [...callbacks.values()]; callbacks.clear(); for (const callback of pending) callback(i * 1000 / hz); }
+	loop.stop(); assert.equal(callbacks.size, 0); assert.equal(renders, hz * seconds + 1);
 	return JSON.stringify(world);
 }
 for (const id of ids) { const reference = atRate(id, 60); for (const hz of [30, 90, 120, 144]) assert.equal(atRate(id, hz), reference, `${id} is stable at ${hz} Hz`); }
@@ -61,3 +62,5 @@ for (const world of [skis, crossy, river, stack, roll]) { const snapshot = JSON.
 console.log(JSON.stringify({ passed: true, collection: reports, refreshRates: [30,60,90,120,144] }));
 
 await import('./collection-input-check');
+await import('./skis-check');
+await import('./rolls-check');

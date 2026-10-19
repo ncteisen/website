@@ -1,5 +1,5 @@
 import type { ArcadeGameId } from './catalog';
-import { isRun, normalizeNickname, SCORE_VERSION, UUID, type Leaderboard, type Run } from './score-contract';
+import { isRun, normalizeNickname, SCORE_VERSIONS, UUID, type Leaderboard, type Run } from './score-contract';
 
 const API = (import.meta.env.PUBLIC_ARCADE_API_URL ?? 'https://sarah-arcade-scores.astro-test.workers.dev').replace(/\/$/, '');
 const PLAYER_KEY = 'sarahArcade.player.v1';
@@ -89,7 +89,7 @@ export async function setNickname(value: string): Promise<{ persistent: boolean 
 /** Called once at game over, never from pause, cleanup, or the animation tick. */
 export function recordRun(game: ArcadeGameId, score: number): void {
 	try {
-		const run: Run = { id: crypto.randomUUID(), game, score, version: SCORE_VERSION };
+		const run: Run = { id: crypto.randomUUID(), game, score, version: SCORE_VERSIONS[game] };
 		if (!isRun(run)) return;
 		const entry = { run, queuedAt: Date.now() };
 		memoryRuns.set(run.id, entry);

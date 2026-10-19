@@ -55,4 +55,4 @@ Publishing the frontend is a separate GitHub Pages release. The default API URL 
 
 Use the Cloudflare D1 console to inspect the `players`, `runs`, and `bests` tables. Set `players.blocked = 1` for a confirmed abusive player to hide all of their scores and reject further submissions. Use the exact player ID, not a nickname, because names can repeat. Resetting that flag restores visibility. Do not expose token hashes in public APIs or screenshots.
 
-If difficulty/scoring changes invalidate old comparisons, bump `SCORE_VERSION` in `src/games/arcade/score-contract.ts` and release the Worker and frontend together. Old runs remain stored but no longer appear in the current boards.
+If difficulty/scoring changes invalidate old comparisons, bump that game's entry in `SCORE_VERSIONS` in `src/games/arcade/score-contract.ts` and release the Worker and frontend together. Old runs remain stored but no longer appear in that game's current boards; other games keep their rankings. `/health` reports the active per-game versions in `scoreVersions`. Skis and Rolls use version 2 for their revised courses and scoring; the other four games remain on version 1.

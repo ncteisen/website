@@ -94,10 +94,28 @@ export class Renderer {
 			if (cy < -100 || cy > this.height + 100) continue;
 			for (const x of row.trees) this.tree(x, cy, true);
 			for (const side of [-1, 1]) {
-				const x = row.center + side * 58; this.rect(x, cy - 30, 3, 36, '#5a8093');
+				const x = row.center + side * (row.gateHalfWidth + 3); this.rect(x, cy - 30, 3, 36, '#5a8093');
 				this.poly([[x + 3, cy - 30], [x + 23, cy - 24], [x + 3, cy - 18]], '#e57b69');
 			}
 			if (row.ramp) { this.poly([[row.center - 25, cy - 55], [row.center + 25, cy - 55], [row.center + 19, cy - 76], [row.center - 19, cy - 76]], '#86bcc9'); this.line([[row.center - 17, cy - 67], [row.center, cy - 73], [row.center + 17, cy - 67]], '#edf8fb', 3); }
+		}
+		for (const ball of world.snowballs) {
+			const ahead = ball.at - world.distance;
+			const x = world.snowballX(ball), cy = y + ahead;
+			if (ahead > 0 && ahead < world.speed * 2 && (x < 16 || x > 384)) {
+				const edge = ball.direction > 0 ? 24 : 376;
+				const warningY = y + 95;
+				this.circle(edge, warningY, 17, '#d67565');
+				this.text(ball.direction > 0 ? '→' : '←', edge, warningY + 5, '#fffdf4', 20);
+				this.text('SNOWBALL', ball.direction > 0 ? 66 : 334, warningY + 33, '#9a5548', 10);
+			}
+			if (x < -24 || x > 424 || cy < -30 || cy > this.height + 30) continue;
+			this.line([[x - ball.direction * 32, cy + 46], [x - ball.direction * 15, cy + 23]], '#a6c8d7', 5);
+			this.circle(x + 3, cy + 7, 18, '#739c9c40');
+			this.circle(x, cy, 17, '#86afc2'); this.circle(x - 2, cy - 3, 14, '#fffdf5');
+			const spin = world.distance / 24 * ball.direction;
+			this.circle(x + Math.cos(spin) * 8, cy + Math.sin(spin) * 8, 3, '#bdd6e1');
+			this.circle(x - Math.cos(spin) * 7, cy - Math.sin(spin) * 7, 2, '#dcebf1');
 		}
 		const lift = Math.sin(world.air / 0.75 * Math.PI) * 36;
 		this.ctx.fillStyle = '#739c9c30'; this.ctx.beginPath(); this.ctx.ellipse(world.x, y + 7, 18, 6, 0, 0, Math.PI * 2); this.ctx.fill();
@@ -175,19 +193,49 @@ export class Renderer {
 		for (let i = 0; i < 8; i++) { const x = mod(i * 150 - world.camera * 0.15, 900) - 150; this.circle(x, this.height * 0.78, 125, i % 2 ? '#c5d3ac' : '#d2dcbb'); }
 		for (const ledge of world.ledges) {
 			const x = ledge.x - world.camera, y = ledge.y + offset;
-			this.rect(x, y, ledge.width, this.height, '#b7a183', 6); this.rect(x, y, ledge.width, 11, '#7e9e6e', 4);
+			if (ledge.collapsed) {
+				const fall = Math.min(200, ((ledge.crumble || 0) - 0.85) * 220);
+				for (let i = 0; i < 5; i++) this.rect(x + i * ledge.width / 5, y + fall + i * 8, 17, 9, '#b7a18388', 2);
+				continue;
+			}
+			this.rect(x, y, ledge.width, ledge.crumble !== undefined ? 22 : this.height, '#b7a183', 6); this.rect(x, y, ledge.width, 11, '#7e9e6e', 4);
 			this.rect(x + 8, y + 14, ledge.width - 16, 5, '#d0b99a', 2);
-			this.rect(x + ledge.width - 52, y - 4, 44, 7, '#d67d58', 2);
-			for (let i = 0; i < 3; i++) this.poly([[x + ledge.width - 47 + i * 12, y - 6], [x + ledge.width - 43 + i * 12, y - 12], [x + ledge.width - 39 + i * 12, y - 6]], '#edb975');
-			if (ledge.bumper) { const by = world.bumperY(ledge) + offset; this.line([[x + 110, y - 160], [x + 110, by]], '#b49c8150', 2); this.circle(x + 110, by, 14, '#be6459'); this.circle(x + 106, by - 4, 5, '#edb59d'); }
-			if (ledge.star) this.star(x + 55, y - 80);
+			if (ledge.crumble !== undefined) {
+				for (let i = 4; i < ledge.width - 5; i += 18) this.line([[x + i, y + 2], [x + i + 9, y + 10]], '#f1cd82', 4);
+				this.line([[x + ledge.width * 0.4, y + 10], [x + ledge.width * 0.5, y + 14], [x + ledge.width * 0.43, y + 18], [x + ledge.width * 0.54, y + 21]], '#8d725a', 2 + ledge.crumble * 3);
+				if (ledge.crumble > 0) this.rect(x, y - 6, ledge.width * Math.max(0, 1 - ledge.crumble / 0.85), 3, '#c97346', 1);
+			}
+			this.rect(x + ledge.width - 52, y - 4, 44, 7, ledge.boost ? '#c9952e' : '#d67d58', 2);
+			for (let i = 0; i < 3; i++) this.poly([[x + ledge.width - 47 + i * 12, y - 6], [x + ledge.width - 43 + i * 12, y - (ledge.boost ? 19 : 12)], [x + ledge.width - 39 + i * 12, y - 6]], ledge.boost ? '#ffe8a0' : '#edb975');
+			if (ledge.bumper) {
+				const bx = world.bumperX(ledge) - world.camera, by = world.bumperY(ledge) + offset;
+				this.line([[bx, y - 160], [bx, by]], '#b49c8180', 2); this.circle(bx, by, 14, '#be6459'); this.circle(bx - 4, by - 4, 5, '#edb59d');
+				const open = world.gateOpen(ledge);
+				this.rect(bx - 18, y + 16, 36, 4, open ? '#668c60' : '#be6459', 2);
+			}
+			for (const star of ledge.stars) if (!star.collected && !star.missed) this.star(star.x - world.camera, star.y + offset);
+		}
+		for (const spark of world.sparks) {
+			this.ctx.globalAlpha = spark.life / 0.4;
+			this.circle(spark.x - world.camera, spark.y + offset, 3, '#d89232');
+		}
+		this.ctx.globalAlpha = 1;
+		if (world.multiplier > 1) {
+			this.rect(329, 77, 55, 35, '#fff4d9dd', 12);
+			this.text(`×${world.multiplier}`, 356, 100, '#a66f20', 20);
 		}
 		const x = world.x - world.camera, y = world.y + offset;
+		if (world.boostTime > 0) {
+			for (let i = 1; i <= 3; i++) this.circle(x - i * 15, y + i * 3, 19 - i * 3, '#e7b44c30');
+		}
+		const stretch = Math.sin(world.springPulse / 0.24 * Math.PI) * 0.15;
+		this.ctx.save(); this.ctx.translate(x, y); this.ctx.scale(1 - stretch, 1 + stretch); this.ctx.translate(-x, -y);
 		this.circle(x, y, 25, '#ecf8ecb0');
 		this.sprite(x, y + 19, 39, world.vx < -15);
 		this.ctx.strokeStyle = '#577e72'; this.ctx.lineWidth = 2.5; this.ctx.beginPath(); this.ctx.arc(x, y, 24, 0, Math.PI * 2); this.ctx.stroke();
 		this.ctx.save(); this.ctx.translate(x, y); this.ctx.rotate(world.angle);
 		this.ctx.strokeStyle = '#7ea49490'; this.ctx.lineWidth = 2; this.ctx.beginPath(); this.ctx.ellipse(0, 0, 10, 24, 0, 0, Math.PI * 2); this.ctx.stroke(); this.ctx.restore();
 		this.line([[x - 15, y - 10], [x - 11, y - 16], [x - 5, y - 19]], '#fffdf3', 3);
+		this.ctx.restore();
 	}
 }

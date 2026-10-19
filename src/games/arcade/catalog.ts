@@ -32,8 +32,8 @@ export const games = [
 		input: "ski",
 		touchHint: "Hold and slide to steer through the flags.",
 		keyboardHint: "← → or A / D to steer · P to pause",
-		instructions: "Slide to steer. Go between flags for bonus points; blue ramps launch you over trees.",
-		canvasLabel: "Sarah Skis playfield. Slide to steer. Go between flags for bonus points; blue ramps launch you over trees. P pauses."
+		instructions: "Slide to steer. Pass flags for bonuses, dodge rolling snowballs, and use blue ramps to jump over hazards.",
+		canvasLabel: "Sarah Skis playfield. Slide to steer. Pass flags for bonuses. Edge arrows warn of rolling snowballs; blue ramps jump over hazards. P pauses."
 	},
 	{
 		id: "crossy-sarah",
@@ -63,13 +63,13 @@ export const games = [
 		id: "sarah-rolls",
 		title: "Sarah Rolls",
 		path: "/projects/sarah-rolls/",
-		description: "Roll over spring pads and collect stars.",
+		description: "Time the gates. Escape crumbling ledges.",
 		bestKey: "sarahRollsHighScore",
 		input: "roll",
 		touchHint: "Hold the right or left half of the game to roll.",
 		keyboardHint: "← → or A / D to roll · P to pause",
-		instructions: "Hold either side to roll. Build speed for orange spring pads; release to brake under red bumpers.",
-		canvasLabel: "Sarah Rolls playfield. Hold either side to roll. Build speed for orange spring pads; release to brake under red bumpers. P pauses."
+		instructions: "Hold either side to roll; release to brake. Wait for green at red gates. Keep moving on striped ledges—they crumble. Chain stars for up to ×5.",
+		canvasLabel: "Sarah Rolls playfield. Hold either side to roll; release to brake. Wait for green at red gates. Striped ledges crumble after landing. Golden springs launch farther; chain stars for up to five times the points. P pauses."
 	},
 ] as const;
 

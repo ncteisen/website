@@ -1,7 +1,15 @@
 import { games, type ArcadeGameId } from './catalog';
 
-// Bump when scoring or difficulty changes enough to need a fresh leaderboard.
+// Keep unaffected games on their existing boards when a game's rules change.
 export const SCORE_VERSION = 1;
+export const SCORE_VERSIONS: Record<ArcadeGameId, number> = {
+	'sarah-jumps': SCORE_VERSION,
+	'flappy-sarah': SCORE_VERSION,
+	'sarah-skis': 2,
+	'crossy-sarah': SCORE_VERSION,
+	'sarah-stacks': SCORE_VERSION,
+	'sarah-rolls': 2,
+};
 export const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export interface Run {
 	id: string;
@@ -28,5 +36,5 @@ export function isRun(value: unknown): value is Run {
 	const run = value as Run;
 	return typeof run.id === 'string' && UUID.test(run.id) && isGame(run.game)
 		&& Number.isSafeInteger(run.score) && run.score >= 0 && run.score <= 10_000_000
-		&& run.version === SCORE_VERSION;
+		&& run.version === SCORE_VERSIONS[run.game];
 }

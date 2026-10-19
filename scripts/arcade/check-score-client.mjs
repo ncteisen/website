@@ -69,4 +69,8 @@ const ephemeral = setup({ denyStorage: true });
 ephemeral.client.recordRun('sarah-stacks', 3);
 assert.equal((await ephemeral.client.setNickname('Guest')).persistent, false);
 assert.equal(ephemeral.submitted.size, 1, 'Storage denial does not stop play or session score submission');
+const versions = setup();
+for (const game of ['sarah-skis', 'sarah-rolls', 'sarah-jumps']) versions.client.recordRun(game, 20);
+await versions.client.setNickname('Version test');
+assert.deepEqual([...versions.submitted.values()].map(run => [run.game, run.version]), [['sarah-skis', 2], ['sarah-rolls', 2], ['sarah-jumps', 1]], 'Only changed games use new leaderboard versions');
 console.log('Score client checks passed: opt-in, identity persistence, offline queue, lost-response retries and storage denial.');

@@ -1,4 +1,4 @@
-import { isGame, isRun, normalizeNickname, SCORE_VERSION, UUID } from '../../src/games/arcade/score-contract';
+import { isGame, isRun, normalizeNickname, SCORE_VERSION, SCORE_VERSIONS, UUID } from '../../src/games/arcade/score-contract';
 
 interface Env {
 	DB: D1Database;
@@ -46,7 +46,7 @@ async function route(request: Request, env: Env): Promise<unknown> {
 	const url = new URL(request.url);
 	if (request.method === 'GET' && url.pathname === '/health') {
 		await env.DB.prepare('SELECT id FROM players LIMIT 1').first();
-		return { ok: true, version: SCORE_VERSION };
+		return { ok: true, version: SCORE_VERSION, scoreVersions: SCORE_VERSIONS };
 	}
 	if (request.method === 'GET' && url.pathname === '/leaderboard') {
 		const game = url.searchParams.get('game');
@@ -61,7 +61,7 @@ async function route(request: Request, env: Env): Promise<unknown> {
 				WHERE game = ? AND version = ? AND created_at >= unixepoch() - 604800 GROUP BY player_id
 			) SELECT p.id AS playerId, p.nickname, s.score FROM scores s JOIN players p ON p.id = s.player_id
 				WHERE p.blocked = 0 ORDER BY s.score DESC, p.id LIMIT 20`;
-		const { results } = await env.DB.prepare(query).bind(game, SCORE_VERSION).all();
+		const { results } = await env.DB.prepare(query).bind(game, SCORE_VERSIONS[game]).all();
 		return { entries: results };
 	}
 	if (request.method !== 'POST' || !['/players', '/runs'].includes(url.pathname)) throw new ApiError(404, 'Not found.');
