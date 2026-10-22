@@ -24,7 +24,7 @@ interface StravaActivity {
 	average_pace: number;
 	start_date: string;
 	start_date_local?: string;
-	map: { id: string; summary_polyline: string; resource_state: number };
+	map: { summary_polyline?: string };
 }
 
 const allActivities = socialData.strava.all_activities || [];

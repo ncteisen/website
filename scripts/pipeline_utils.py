@@ -86,9 +86,9 @@ def sanitize_review_html(value: object) -> str:
 def public_strava_activity(activity: dict) -> dict | None:
     """Fail closed and persist only the deliberately public activity projection.
 
-    Routes, coordinates, descriptions, physiology and provider/athlete metadata
-    are omitted. Broad OAuth scope cannot prove that cached routes respect map
-    visibility/privacy-zone settings, even when the activity is public.
+    The site owner permits summary routes for explicitly public activities.
+    Map IDs, separate coordinates, descriptions, physiology and provider/athlete
+    metadata are omitted. The frontend validates encoded route geometry.
     """
     if activity.get('visibility') != 'everyone' or activity.get('private') is not False:
         return None
@@ -107,7 +107,14 @@ def public_strava_activity(activity: dict) -> dict | None:
         'commute': activity.get('commute') is True,
         'private': False,
         'visibility': 'everyone',
+        'map': {},
     }
+    map_data = activity.get('map')
+    polyline = map_data.get('summary_polyline') if isinstance(map_data, dict) else None
+    # Match the frontend's size limit and encoded-polyline character range.
+    # Invalid/missing map data must never discard an otherwise public activity.
+    if isinstance(polyline, str) and 0 < len(polyline) <= 200_000 and all('?' <= character <= '~' for character in polyline):
+        result['map'] = {'summary_polyline': polyline}
     for key in ('distance', 'moving_time', 'elapsed_time', 'total_elevation_gain', 'average_speed'):
         value = activity.get(key, 0)
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:

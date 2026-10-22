@@ -1,5 +1,7 @@
 # Website audit fix status
 
+**Route-map follow-up:** the owner explicitly approved publishing route maps on October 22. Public activities now retain their summary route polylines for the homepage, activity log, and records pages. Nonpublic activities remain excluded, and unrelated provider metadata remains omitted. Earlier references below to route omission describe the initial release, before this approved restoration.
+
 The reproduced website defects from the [October 22 audit](/Users/ncteisen/git/website/docs/audits/2026-10-22-website-sweep.md) now have local code fixes and regression coverage. The public Strava cache and combined site data were regenerated offline through the updated scripts. Existing LLM copy, requirements changes, and untracked artwork/manga work were preserved.
 
 **Release configuration:** the `strava-sync` GitHub environment is provisioned with the three Strava credentials and a dedicated writer credential, restricted to the `master` branch. The release must verify a real Actions refresh and both Pages and Worker deployment. Existing public Git history, clones, and external caches remain outside this fix batch.

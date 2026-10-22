@@ -164,7 +164,7 @@ class StravaProcessor:
             'average_pace': round(pace_min_per_mile, 2),
             'start_date': activity['start_date'],
             'commute': activity.get('commute', False),
-            'map': {}
+            'map': activity['map']
         }
 
     def calculate_record_stats(self, activities: list[StravaActivity]) -> dict:

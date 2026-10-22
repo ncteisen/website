@@ -38,6 +38,9 @@ lf = load_module('letterboxd_fetch_test', SCRIPTS / 'letterboxd-fetcher/fetch_fi
 opt = load_module('favorites_opt_test', SCRIPTS / 'favorites/optimize_assets.py')
 covers = load_module('favorites_covers_test', SCRIPTS / 'favorites/fetch_covers.py')
 
+PUBLIC_ROUTE = '??_ibE_ibE'
+OTHER_ROUTE = '??_seK_seK'
+
 
 def activity(identity=1, **overrides):
     return {'id': identity, 'name': 'Synthetic activity', 'type': 'Ride',
@@ -78,22 +81,57 @@ def collector(monkeypatch, tmp_path):
     return result
 
 
-def test_public_projection_fails_closed_and_omits_private_fields():
-    source = [activity(map={'summary_polyline': 'synthetic-route'}, start_latlng=[1, 2],
-                       description='private detail', average_heartrate=100, athlete={'id': 4}),
-              activity(2, visibility='followers_only'), activity(3, private=True, visibility='only_me'),
-              activity(4, visibility=None), activity(5, private=None)]
+def test_public_projection_retains_public_route_and_omits_private_fields():
+    source = [activity(map={'id': 'provider-map-id', 'summary_polyline': PUBLIC_ROUTE,
+                           'polyline': OTHER_ROUTE, 'resource_state': 2},
+                       start_latlng=[1, 2], description='private detail',
+                       average_heartrate=100, athlete={'id': 4}),
+              activity(2, visibility='followers_only', map={'summary_polyline': OTHER_ROUTE}),
+              activity(3, private=True, visibility='only_me', map={'summary_polyline': OTHER_ROUTE}),
+              activity(4, visibility=None, map={'summary_polyline': OTHER_ROUTE}),
+              activity(5, private=None, map={'summary_polyline': OTHER_ROUTE})]
     public = public_strava_activities(source)
     assert len(public) == 1
-    assert not {'map', 'start_latlng', 'description', 'average_heartrate', 'athlete'} & public[0].keys()
+    assert public[0]['map'] == {'summary_polyline': PUBLIC_ROUTE}
+    assert not {'start_latlng', 'description', 'average_heartrate', 'athlete'} & public[0].keys()
+    assert public_strava_activities(public) == public
     processor = sp.StravaProcessor()
     processor.activities_data = source
     output = processor.get_recent_activities_data()
     assert len(output['all_activities']) == 1
+    assert output['all_activities'][0]['map'] == {'summary_polyline': PUBLIC_ROUTE}
     assert output['longest_ride']['id'] == 1
+    assert output['longest_ride']['map'] == {'summary_polyline': PUBLIC_ROUTE}
     assert output['stats']['biking']['all_time']['count'] == 1
-    assert 'synthetic-route' not in json.dumps(output)
+    assert OTHER_ROUTE not in json.dumps(output)
+    assert 'provider-map-id' not in json.dumps(output)
     assert 'private detail' not in json.dumps(output)
+
+
+@pytest.mark.parametrize('map_data', [
+    pytest.param(None, id='null-map'),
+    pytest.param([], id='list-map'),
+    pytest.param('not-a-map', id='string-map'),
+    pytest.param({}, id='missing-polyline'),
+    pytest.param({'summary_polyline': None}, id='null-polyline'),
+    pytest.param({'summary_polyline': 123}, id='numeric-polyline'),
+    pytest.param({'summary_polyline': []}, id='list-polyline'),
+    pytest.param({'summary_polyline': ''}, id='empty-polyline'),
+    pytest.param({'summary_polyline': 'invalid route'}, id='invalid-characters'),
+    pytest.param({'summary_polyline': PUBLIC_ROUTE + '\n'}, id='newline'),
+    pytest.param({'summary_polyline': '\u0080'}, id='non-ascii'),
+    pytest.param({'summary_polyline': '?' * 200_001}, id='oversized'),
+])
+def test_bad_maps_leave_public_activity_available_without_route(map_data):
+    projected = public_strava_activities([activity(map=map_data)])
+    assert len(projected) == 1 and projected[0]['map'] == {}
+    assert sp.StravaProcessor().format_activity(projected[0])['map'] == {}
+
+
+def test_missing_map_and_route_size_boundary():
+    assert public_strava_activities([activity()])[0]['map'] == {}
+    maximum_route = '??' * 100_000
+    assert public_strava_activities([activity(map={'summary_polyline': maximum_route})])[0]['map'] == {'summary_polyline': maximum_route}
 
 
 def test_short_commute_totals_are_consistent():
@@ -119,12 +157,19 @@ def test_incomplete_strava_fetch_never_replaces_cache(collector, monkeypatch, tm
     assert path.read_text() == '["old fixture"]'
 
 
-def test_full_strava_refresh_reconciles_deletions_and_privacy(collector, monkeypatch, tmp_path):
+def test_full_strava_refresh_reconciles_deletions_privacy_and_public_route(collector, monkeypatch, tmp_path):
     collector.existing_activities = [activity(1), activity(2), activity(3)]
-    monkeypatch.setattr(sf.requests, 'get', Mock(side_effect=[Response([activity(2, visibility='only_me', private=True), activity(3)]), Response([])]))
+    batch = [activity(2, visibility='only_me', private=True, map={'summary_polyline': OTHER_ROUTE}),
+             activity(3, map={'summary_polyline': PUBLIC_ROUTE, 'id': 'provider-map-id'})]
+    monkeypatch.setattr(sf.requests, 'get', Mock(side_effect=[Response(batch), Response([])]))
     collector.fetch_activities()
     path = tmp_path / 'public.json'; collector.update_and_save_activities(path)
-    assert [row['id'] for row in json.loads(path.read_text())] == [3]
+    saved = json.loads(path.read_text())
+    assert [row['id'] for row in saved] == [3]
+    assert saved[0]['map'] == {'summary_polyline': PUBLIC_ROUTE}
+    processor = sp.StravaProcessor()
+    processor.activities_data = saved
+    assert processor.get_recent_activities_data()['all_activities'][0]['map'] == {'summary_polyline': PUBLIC_ROUTE}
 
 
 def test_incremental_strava_reconciles_window_but_preserves_older(collector, monkeypatch, tmp_path):
@@ -144,12 +189,17 @@ def test_unexpected_empty_strava_requires_explicit_confirmation(collector, monke
     assert collector.fetch_complete and collector.activities == []
 
 
-def test_sanitize_cache_is_offline_and_removes_routes(tmp_path):
+def test_sanitize_cache_is_offline_and_retains_only_public_summary_routes(tmp_path):
     path = tmp_path / 'cache.json'
-    path.write_text(json.dumps([activity(map={'summary_polyline': 'fixture'}), activity(2, visibility='only_me')]))
+    source = [activity(map={'summary_polyline': PUBLIC_ROUTE, 'id': 'provider-map-id'}, start_latlng=[1, 2]),
+              activity(2, visibility='only_me', map={'summary_polyline': OTHER_ROUTE}),
+              activity(3, visibility='followers_only', map={'summary_polyline': OTHER_ROUTE})]
+    path.write_text(json.dumps(source))
     sf.sanitize_cache(path)
     data = json.loads(path.read_text())
-    assert len(data) == 1 and 'map' not in data[0]
+    assert len(data) == 1 and data[0]['map'] == {'summary_polyline': PUBLIC_ROUTE}
+    assert 'start_latlng' not in data[0]
+    assert OTHER_ROUTE not in path.read_text()
 
 
 def test_rotation_is_persisted_privately_and_used_next_time(collector, monkeypatch):

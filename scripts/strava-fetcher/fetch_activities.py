@@ -104,7 +104,7 @@ class StravaDataCollector:
         public = public_strava_activities(list(merged.values()))
         public.sort(key=lambda item: item['start_date'], reverse=True)
         atomic_write_json(filename or DATA_FILE, public)
-        logger.info('Saved %s public activities; routes and private provider metadata omitted', len(public))
+        logger.info('Saved %s public activities; public summary routes retained when available; private provider metadata omitted', len(public))
 
 
 def sanitize_cache(filename: str | Path = DATA_FILE) -> None:

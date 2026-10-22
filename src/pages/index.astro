@@ -126,11 +126,7 @@ interface StravaActivity {
 	start_date_local?: string;
 	description: string | null;
 	commute: boolean;
-	map: {
-		id: string;
-		summary_polyline: string;
-		resource_state: number;
-	};
+	map: { summary_polyline?: string };
 }
 
 interface ActivityTotals {
