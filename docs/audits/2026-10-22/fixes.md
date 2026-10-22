@@ -1,6 +1,6 @@
 # Website audit fix status
 
-**Route-map follow-up:** the owner explicitly approved publishing route maps on October 22. Public activities now retain their summary route polylines for the homepage, activity log, and records pages. Nonpublic activities remain excluded, and unrelated provider metadata remains omitted. Earlier references below to route omission describe the initial release, before this approved restoration.
+**Activity and route follow-up:** the owner explicitly approved publishing both Everyone and Followers activities with their summary routes on October 22. Only You activities, unknown visibility, and private-flagged activities remain excluded; unrelated provider metadata remains omitted. The initial Everyone-only filter had removed 110 Followers activities newer than May 25, producing the apparent stale-data cutoff despite successful refreshes. Earlier references below to the Everyone-only policy and route omission describe the initial release, before these approved restorations.
 
 The reproduced website defects from the [October 22 audit](/Users/ncteisen/git/website/docs/audits/2026-10-22-website-sweep.md) now have local code fixes and regression coverage. The public Strava cache and combined site data were regenerated offline through the updated scripts. Existing LLM copy, requirements changes, and untracked artwork/manga work were preserved.
 

@@ -104,7 +104,7 @@ class StravaDataCollector:
         public = public_strava_activities(list(merged.values()))
         public.sort(key=lambda item: item['start_date'], reverse=True)
         atomic_write_json(filename or DATA_FILE, public)
-        logger.info('Saved %s public activities; public summary routes retained when available; private provider metadata omitted', len(public))
+        logger.info('Saved %s website activities (Everyone and Followers); summary routes retained when available; private provider metadata omitted', len(public))
 
 
 def sanitize_cache(filename: str | Path = DATA_FILE) -> None:
@@ -116,7 +116,7 @@ def sanitize_cache(filename: str | Path = DATA_FILE) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description='Fetch a validated public-only Strava projection.')
+    parser = argparse.ArgumentParser(description='Fetch a validated website Strava projection (Everyone and Followers; excludes Only You).')
     parser.add_argument('--sanitize-cache', action='store_true', help='Sanitize the existing cache offline; no credentials or network required.')
     parser.add_argument('--incremental', action='store_true', help='Reconcile only the last 30 days. Normal full sync also removes older deletions.')
     parser.add_argument('--allow-empty-refresh', action='store_true', help='Explicitly allow an authoritative empty account response.')

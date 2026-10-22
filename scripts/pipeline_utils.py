@@ -83,14 +83,19 @@ def sanitize_review_html(value: object) -> str:
     return str(soup).strip()
 
 
+def is_publishable_strava_activity(activity: dict) -> bool:
+    """The owner permits Everyone and Followers activities on this website."""
+    return activity.get('private') is False and activity.get('visibility') in ('everyone', 'followers_only')
+
+
 def public_strava_activity(activity: dict) -> dict | None:
     """Fail closed and persist only the deliberately public activity projection.
 
-    The site owner permits summary routes for explicitly public activities.
+    The site owner permits summary routes for Everyone and Followers activities.
     Map IDs, separate coordinates, descriptions, physiology and provider/athlete
     metadata are omitted. The frontend validates encoded route geometry.
     """
-    if activity.get('visibility') != 'everyone' or activity.get('private') is not False:
+    if not is_publishable_strava_activity(activity):
         return None
     activity_id = activity.get('id')
     started = parse_date(activity.get('start_date'))
@@ -106,7 +111,7 @@ def public_strava_activity(activity: dict) -> dict | None:
         'start_date': started.isoformat().replace('+00:00', 'Z'),
         'commute': activity.get('commute') is True,
         'private': False,
-        'visibility': 'everyone',
+        'visibility': activity['visibility'],
         'map': {},
     }
     map_data = activity.get('map')

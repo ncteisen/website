@@ -229,12 +229,14 @@ class TestShouldIncludeActivity:
     def setup_method(self):
         self.processor = StravaProcessor()
 
-    def test_includes_non_commute(self):
-        activity = {'private': False, 'visibility': 'everyone', 'commute': False, 'distance': 100}
+    @pytest.mark.parametrize('visibility', ['everyone', 'followers_only'])
+    def test_includes_non_commute(self, visibility):
+        activity = {'private': False, 'visibility': visibility, 'commute': False, 'distance': 100}
         assert self.processor.should_include_activity(activity)
 
-    def test_excludes_short_commute(self):
-        activity = {'private': False, 'visibility': 'everyone', 'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES - 0.1) / METERS_TO_MILES}
+    @pytest.mark.parametrize('visibility', ['everyone', 'followers_only'])
+    def test_excludes_short_commute(self, visibility):
+        activity = {'private': False, 'visibility': visibility, 'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES - 0.1) / METERS_TO_MILES}
         assert not self.processor.should_include_activity(activity)
 
     def test_includes_long_commute(self):

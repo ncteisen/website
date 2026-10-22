@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 from typing import TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from pipeline_utils import public_strava_activities, public_strava_activity
+from pipeline_utils import is_publishable_strava_activity, public_strava_activities, public_strava_activity
 
 logger = logging.getLogger(__name__)
 
@@ -121,7 +121,7 @@ class StravaProcessor:
 
     def should_include_activity(self, activity: StravaActivity, exclude_commutes: bool = True) -> bool:
         """Return whether an activity should be included in public lists."""
-        if activity.get('visibility') != 'everyone' or activity.get('private') is not False:
+        if not is_publishable_strava_activity(activity):
             return False
         if not exclude_commutes or not activity.get('commute', False):
             return True
