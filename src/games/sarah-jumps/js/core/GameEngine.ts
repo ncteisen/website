@@ -4,7 +4,7 @@ import { World } from './World';
 import { Renderer } from './Renderer';
 import { InputHandler } from '../utils/InputHandler';
 import { GameAudio } from '../../../arcade/GameAudio';
-import { recordRun } from '../../../arcade/scores';
+import { cleanupFinish, finishRun } from '../../../arcade/finish';
 import { getGame } from '../../../arcade/catalog';
 
 export type GameState = 'loading' | 'ready' | 'playing' | 'paused' | 'over';
@@ -88,7 +88,7 @@ export class GameEngine {
 	}
 
 	startGame = (): void => {
-		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
+		if (this.destroyed || this.state === 'loading' || this.state === 'playing' || this.root.dataset.scoreEntry === 'required') return;
 		this.audio.unlock();
 		this.input.reset();
 		this.refreshBest();
@@ -162,13 +162,13 @@ export class GameEngine {
 
 	private endGame(): void {
 		this.state = 'over';
-		recordRun('sarah-jumps', this.world.score);
 		this.loop.stop();
 		this.input.reset();
 		this.audio.play('lose');
 		this.saveRecord();
 		this.pauseButton.disabled = true;
 		this.showPanel(this.world.score > this.runBest ? 'New best' : 'Game over', `Score: ${this.world.score} · Best: ${this.best}`, 'Play again');
+		finishRun(this.root, 'sarah-jumps', this.world.score);
 	}
 
 	private showPanel(title: string, description: string, action: string): void {
@@ -186,6 +186,7 @@ export class GameEngine {
 	}
 
 	cleanup(): void {
+		cleanupFinish(this.root);
 		this.destroyed = true;
 		this.saveRecord();
 		this.loop.stop();

@@ -2,7 +2,7 @@ import { FixedStepLoop } from '../arcade/FixedStepLoop';
 import { readBest, saveBest } from '../arcade/storage';
 import { getGame } from '../arcade/catalog';
 import { GameAudio } from '../arcade/GameAudio';
-import { recordRun } from '../arcade/scores';
+import { cleanupFinish, finishRun } from '../arcade/finish';
 import { World } from './World';
 import { Renderer } from './Renderer';
 import { FlapInput } from './FlapInput';
@@ -85,7 +85,7 @@ export class FlappySarah {
 	}
 
 	startGame = (): void => {
-		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
+		if (this.destroyed || this.state === 'loading' || this.state === 'playing' || this.root.dataset.scoreEntry === 'required') return;
 		this.audio.unlock();
 		this.refreshBest();
 		if (this.state !== 'paused') {
@@ -163,7 +163,6 @@ export class FlappySarah {
 
 	private endGame(): void {
 		this.state = 'over';
-		recordRun('flappy-sarah', this.world.score);
 		this.loop.stop();
 		this.audio.play('lose');
 		this.saveRecord();
@@ -172,6 +171,7 @@ export class FlappySarah {
 		this.retryAfter = performance.now() + 350;
 		this.pauseButton.disabled = true;
 		this.showPanel(this.world.score > this.runBest ? 'New best' : 'Game over', `Score: ${this.world.score} · Best: ${this.best}`, 'Play again');
+		finishRun(this.root, 'flappy-sarah', this.world.score);
 	}
 
 	private showPanel(title: string, description: string, action: string): void {
@@ -188,6 +188,7 @@ export class FlappySarah {
 	}
 
 	cleanup(): void {
+		cleanupFinish(this.root);
 		this.destroyed = true;
 		this.saveRecord();
 		this.loop.stop();

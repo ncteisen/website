@@ -1,3 +1,4 @@
+@import './cabinet.css';
 *, *::before, *::after { box-sizing: border-box; }
 html { background: #0a0a0a; }
 body { margin: 0; color: #e2dfd8; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
@@ -112,6 +113,34 @@ h2 { font-size: clamp(23px, 6vw, 32px); margin: 8px 0; font-weight: 750; letter-
 .game[data-game="sarah-rolls"] .primary { background: #647a4d; }
 .game[data-game="sarah-rolls"][data-state="ready"] .overlay { top: 18%; }
 .game[data-game="crossy-sarah"] .hud { background: linear-gradient(#dce8c9f5, #dce8c900); }
+
+/* The cabinet takes over at the end of a run. The playfield stays underneath. */
+.game .arcade-finish { display: none; }
+.game[data-state="over"] .overlay { inset: 0; overflow-y: auto; padding: 18px; background: #080c10d9; }
+.game[data-state="over"] .panel { width: 100%; max-width: 400px; justify-self: center; padding: 24px 18px; border: 1px solid #d8a34b66; border-radius: 4px; background: repeating-linear-gradient(0deg, #ffffff03 0 1px, transparent 1px 4px), #10130f; color: #f4c674; box-shadow: 0 0 32px #e4ad3610, inset 0 0 28px #0008; font-family: 'Courier New', monospace; }
+.game[data-state="over"] .panel > [data-title], .game[data-state="over"] .panel > [data-description], .game[data-state="over"] .touch-guide { display: none; }
+.game[data-state="over"] .arcade-finish { display: block; }
+.game[data-state="over"] .panel h2 { margin: 8px 0 12px; font: bold clamp(24px, 6vw, 34px)/1.1 'Courier New', monospace; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 14px #ffc35a66; }
+.game[data-state="over"] .arcade-finish .finish-kicker { margin: 0; color: #b9a686; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+.finish-score { display: block; margin: 0 0 4px; color: #ffe0a0; font-size: 48px; line-height: 1; font-variant-numeric: tabular-nums; text-shadow: 0 0 20px #ffbb4455; }
+.arcade-finish form { margin-top: 24px; }
+.arcade-finish label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.arcade-finish input { display: block; box-sizing: border-box; width: 196px; height: 68px; margin: 12px auto; padding: 6px 0 6px 14px; border: 0; border-bottom: 3px solid #e5b65e; border-radius: 0; background: #e4b3560a; color: #ffe0a0; font: bold 42px/1 'Courier New', monospace; letter-spacing: 14px; text-align: center; caret-color: #ffe0a0; text-transform: uppercase; }
+.arcade-finish input::placeholder { color: #716344; }
+.arcade-finish input:focus-visible { outline: 2px solid #f4c674; outline-offset: 5px; }
+.arcade-finish .finish-action { margin-top: 8px; }
+.finish-skip { display: block; min-width: 44px; min-height: 44px; margin: 4px auto -8px; padding: 8px 12px; border: 0; background: none; color: #b5ac96; font: 11px 'Courier New', monospace; cursor: pointer; }
+.finish-skip:hover { color: #ffe0a0; text-decoration: underline; text-underline-offset: 3px; }
+.game[data-state="over"] .primary, .finish-action { width: 100%; min-height: 46px; padding: 12px; border: 1px solid #e9ba65; border-radius: 2px; background: #edbf70; color: #171b12; font: bold 12px/1.4 'Courier New', monospace; letter-spacing: 1px; text-transform: uppercase; }
+.game[data-state="over"] .primary:hover, .finish-action:hover { background: #ffdaa0; }
+.game[data-score-entry="required"][data-state="over"] [data-start], .game[data-score-entry="required"][data-state="over"] .score-post { display: none; }
+.game[data-state="over"] .arcade-finish .finish-note { margin: 12px 0 0; color: #b5ac96; font-size: 11px; line-height: 1.5; }
+.game[data-state="over"] .arcade-finish .finish-standing { color: #f4c674; font-size: 13px; margin: 10px 0; }
+[data-finish-ranking] { margin-top: 22px; }
+.finish-refresh { min-height: 44px; border: 0; background: none; color: #b5ac96; font: 11px 'Courier New', monospace; text-decoration: underline; text-underline-offset: 4px; }
+.game[data-state="over"] .score-post button { border-radius: 2px; font: 11px 'Courier New', monospace; text-transform: uppercase; letter-spacing: 1px; }
+.game[data-state="over"] .score-post [data-score-sync] { display: none; }
+@media (max-height: 700px) { .game[data-state="over"] .overlay { align-items: start; padding: 10px; } .game[data-state="over"] .panel { padding: 16px; } .finish-score { font-size: 36px; } .arcade-finish form { margin-top: 16px; } }
 @media (max-width: 699px) and (orientation: portrait) {
 	.game .game-footer p { max-width: calc(100% - 115px); font-size: 10px; }
 	.game[data-collection] .hud { padding-top: 12px; }

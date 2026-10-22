@@ -27,10 +27,10 @@ const { gameId = 'sarah-jumps' } = Astro.props;
 	</div>
 	<div class="board-bottom"><button type="button" data-refresh-board>Refresh</button></div>
 	<div class="board-player">
-		<div class="player-summary" data-player-summary hidden><div><span class="board-label">Nickname</span><strong data-player-name></strong></div><button type="button" data-edit-nickname>Edit</button></div>
+		<div class="player-summary" data-player-summary hidden><div><span class="board-label">Player</span><strong data-player-name></strong></div><button type="button" data-edit-nickname>Edit</button></div>
 		<form data-nickname-form>
-			<label class="board-label" for="arcade-nickname">Public nickname</label>
-			<div class="nickname-row"><input id="arcade-nickname" name="nickname" maxlength="20" autocomplete="nickname" required /><button type="submit">Save</button></div>
+			<label class="board-label" for="arcade-nickname">Your three initials · public</label>
+			<div class="nickname-row"><input id="arcade-nickname" name="nickname" minlength="3" maxlength="3" pattern="[A-Za-z]{3}" autocomplete="off" autocapitalize="characters" spellcheck="false" required /><button type="submit">Save</button></div>
 		</form>
 		<p class="board-feedback" data-profile-status role="status"></p>
 	</div>
@@ -89,4 +89,10 @@ const { gameId = 'sarah-jumps' } = Astro.props;
 	.arcade-board button:disabled { opacity: .6; cursor: wait; }
 	.arcade-board [data-profile-status] { margin: 10px 0 0; color: #999; font-size: 12px; }
 	@media (max-width: 480px) { .arcade-board { padding: 20px; } .arcade-board h2 { font-size: 28px; } }
+	.arcade-board { border-color: #b28c4866; border-radius: 4px; background: repeating-linear-gradient(0deg, #ffffff03 0 1px, transparent 1px 4px), #10130f; color: #c5bea8; font-family: 'Courier New', monospace; box-shadow: 0 0 60px #e4ad3610; }
+	.arcade-board h2 { color: #f4c674; font-size: 28px; letter-spacing: 1px; text-shadow: 0 0 16px #e9ae4540; }
+	.arcade-board .board-list strong, .arcade-board .board-list li[data-rank="1"] { color: #f4c674; }
+	.arcade-board .board-list li[data-you] { background: #eabd6420; color: #ffe0a0; }
+	.arcade-board input { color: #ffe0a0; letter-spacing: 6px; text-transform: uppercase; }
+	.arcade-board .nickname-row button { color: #f4c674; border-color: #b28c4866; }
 </style>

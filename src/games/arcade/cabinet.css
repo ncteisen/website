@@ -1,0 +1,7 @@
+.cabinet-scores { list-style: none; padding: 0; margin: 16px 0; text-align: left; font: 600 13px/1.5 'Courier New', monospace; }
+.cabinet-scores li { display: grid; grid-template-columns: 25px minmax(0, 1fr) auto; gap: 8px; align-items: center; min-height: 32px; padding: 6px; border-bottom: 1px solid #c3ad7720; color: #c5bea8; }
+.cabinet-scores li > span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cabinet-scores li > span:first-child { color: #938366; }
+.cabinet-scores li:first-child { color: #f4c674; }
+.cabinet-scores li[data-you] { background: #eabd6420; color: #ffe0a0; outline: 1px solid #eabd6440; }
+.cabinet-scores strong { color: inherit; font-weight: inherit; font-variant-numeric: tabular-nums; }

@@ -2,7 +2,7 @@ import { FixedStepLoop } from '../FixedStepLoop';
 import { GameAudio } from '../GameAudio';
 import { getGame } from '../catalog';
 import { readBest, saveBest } from '../storage';
-import { recordRun } from '../scores';
+import { cleanupFinish, finishRun } from '../finish';
 import { createWorld, type CollectionWorld } from './worlds';
 import { Renderer } from './Renderer';
 import { Input } from './Input';
@@ -59,7 +59,7 @@ export class Game {
 		this.state = 'ready'; this.startButton.disabled = false; this.startButton.textContent = 'Play'; this.render();
 	}
 	start = (): void => {
-		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
+		if (this.destroyed || this.state === 'loading' || this.state === 'playing' || this.root.dataset.scoreEntry === 'required') return;
 		this.refreshBest();
 		if (this.state !== 'paused') { this.world = createWorld(this.id); this.runBest = this.best; this.lastEvent = 0; this.lastScore = -1; }
 		this.audio.unlock(); this.state = 'playing'; this.root.dataset.state = this.state;
@@ -73,9 +73,9 @@ export class Game {
 		this.world.update(dt, this.input.controls); this.syncScore();
 		if (this.world.events !== this.lastEvent) { this.lastEvent = this.world.events; this.audio.play('jump'); }
 		if (this.world.ended) {
-			recordRun(this.id, this.world.score);
 			this.state = 'over'; this.loop.stop(); this.input.clear(); this.audio.play('lose'); this.save(); this.pauseButton.disabled = true;
 			this.showPanel(this.world.score > this.runBest ? 'New best' : 'Game over', `${this.world.reason} Score: ${this.world.score} · Best: ${this.best}`, 'Play again');
+			finishRun(this.root, this.id, this.world.score);
 		}
 	};
 	private render = (): void => { this.frames++; this.renderer.render(this.world); };
@@ -94,5 +94,6 @@ export class Game {
 		this.panel.hidden = false; this.status.textContent = `${title}. ${description}`;
 		this.render(); if (!document.hidden && document.hasFocus()) this.startButton.focus({ preventScroll: true });
 	}
-	cleanup(): void { this.destroyed = true; this.save(); this.loop.stop(); this.input.cleanup(); this.observer.disconnect(); this.events.abort(); this.audio.cleanup(); }
+	cleanup(): void {
+		cleanupFinish(this.root); this.destroyed = true; this.save(); this.loop.stop(); this.input.cleanup(); this.observer.disconnect(); this.events.abort(); this.audio.cleanup(); }
 }

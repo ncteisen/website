@@ -1,0 +1,19 @@
+<section class="arcade-finish" data-finish hidden aria-label="Enter your high score">
+	<h2 data-finish-title>Game over</h2>
+	<strong class="finish-score" data-finish-score>0</strong>
+	<p class="finish-kicker">Points</p>
+	<form data-initials-form>
+		<label for="run-initials">Enter your initials</label>
+		<input id="run-initials" name="initials" aria-label="Three-letter initials" minlength="3" maxlength="3" pattern="[A-Za-z]{3}" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="AAA" />
+		<button class="finish-action" type="submit">Submit</button>
+		<p class="finish-note">Your initials and best score appear publicly.</p>
+		<button class="finish-skip" type="button" data-skip-score>Skip</button>
+	</form>
+	<div data-finish-ranking hidden>
+		<p class="finish-kicker">All-time high scores</p>
+		<p class="finish-standing" data-finish-standing role="status"></p>
+		<ol class="cabinet-scores" data-finish-list aria-label="High score rankings"></ol>
+		<p class="finish-note" data-finish-sync role="status"></p>
+		<button type="button" class="finish-refresh" data-finish-refresh>Refresh scores</button>
+	</div>
+</section>

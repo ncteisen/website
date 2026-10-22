@@ -40,7 +40,7 @@ export function initLeaderboards(): void {
 
 	function updateProfile(): void {
 		const player = getPlayer();
-		if (document.activeElement !== nickname) nickname.value = player?.nickname ?? '';
+		if (document.activeElement !== nickname) nickname.value = /^[A-Z]{3}$/.test(player?.nickname ?? '') ? player!.nickname : '';
 		submit.textContent = 'Save';
 		playerSummary.hidden = !player || editingNickname;
 		form.hidden = Boolean(player) && !editingNickname;
@@ -132,6 +132,7 @@ export function initLeaderboards(): void {
 	});
 	find('[data-edit-nickname]').addEventListener('click', () => { editingNickname = true; updateProfile(); nickname.focus(); nickname.select(); });
 	find('[data-refresh-board]').addEventListener('click', async () => { await flushScores(); await refresh(); });
+	nickname.addEventListener('input', () => { nickname.value = nickname.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3); });
 	form.addEventListener('submit', async event => {
 		event.preventDefault(); submit.disabled = true; storageWarning = '';
 		try {

@@ -2,6 +2,7 @@
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import ScoreEntry from '../components/arcade/ScoreEntry.astro';
 import Leaderboards from '../components/arcade/Leaderboards.astro';
 import { ARCADE_PATH, getGame, type ArcadeGameId } from '../games/arcade/catalog';
 import '../games/arcade/game.css';
@@ -42,6 +43,7 @@ const game = getGame(Astro.props.gameId);
 							<p data-description hidden></p>
 							{game.input === 'steer' && <p class="touch-guide"><strong>Keep a finger on the game.</strong><br />Slide left or right to steer.<br /><span>Sarah jumps automatically.</span></p>}
 							{'instructions' in game && <p class="game-guide">{game.instructions}</p>}
+							<ScoreEntry />
 							<button class="primary" data-start disabled>Loading…</button>
 							<div class="score-post"><button type="button" data-open-board={game.id}>High scores</button><p data-score-sync aria-live="polite"></p></div>
 						</div>
