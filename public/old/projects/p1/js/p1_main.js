@@ -37,6 +37,11 @@ $(document).ready(function () {
 		$('#old_text').append("<p>" + text)
 	}
 
+	// Commands are user text. Only authored story paragraphs may contain markup.
+	this.add_command = function(text) {
+		$('#old_text').append($('<p>').text(text))
+	}
+
 	// sends command to controller on enter
 	$("#cmd").keyup(function(event){
     	if(event.keyCode == 13){

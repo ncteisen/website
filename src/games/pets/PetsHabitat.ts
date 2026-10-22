@@ -72,6 +72,8 @@ export class PetsHabitat {
 	private worldHeight = 510;
 	private isReady = false;
 	private isDisposed = false;
+	private isPaused = false;
+	private hasStarted = false;
 
 	private readonly handleWindowResize = (): void => {
 		this.resizeCanvas();
@@ -94,6 +96,8 @@ export class PetsHabitat {
 	}
 
 	public start(): void {
+		if (this.hasStarted || this.isDisposed) return;
+		this.hasStarted = true;
 		this.resizeCanvas();
 		this.observeResize();
 		this.draw();
@@ -105,19 +109,35 @@ export class PetsHabitat {
 				this.spawnPets();
 				this.isReady = true;
 				this.canvas.dispatchEvent(new CustomEvent('pets-habitat:ready', { bubbles: true }));
-				this.lastTimestamp = performance.now();
-				this.animationFrame = window.requestAnimationFrame(this.tick);
+				if (!this.isPaused) this.resume();
 			})
 			.catch((error: unknown) => {
+				if (this.isDisposed) return;
 				console.error('Unable to load Codex pets.', error);
 				this.canvas.dispatchEvent(new CustomEvent('pets-habitat:error', { bubbles: true }));
 				this.drawErrorState();
 			});
 	}
 
+	public pause(): void {
+		this.isPaused = true;
+		window.cancelAnimationFrame(this.animationFrame);
+		this.animationFrame = 0;
+	}
+
+	public resume(): void {
+		if (this.isDisposed || !this.hasStarted) return;
+		this.isPaused = false;
+		this.resizeCanvas();
+		if (this.isReady && !this.animationFrame) {
+			this.lastTimestamp = performance.now();
+			this.animationFrame = window.requestAnimationFrame(this.tick);
+		}
+	}
+
 	public cleanup(): void {
 		this.isDisposed = true;
-		window.cancelAnimationFrame(this.animationFrame);
+		this.pause();
 		window.removeEventListener('resize', this.handleWindowResize);
 		this.resizeObserver?.disconnect();
 	}
@@ -211,7 +231,8 @@ export class PetsHabitat {
 	}
 
 	private readonly tick = (timestamp: number): void => {
-		if (this.isDisposed) return;
+		this.animationFrame = 0;
+		if (this.isDisposed || this.isPaused) return;
 
 		const deltaSeconds = Math.min((timestamp - this.lastTimestamp) / 1000, 0.05);
 		this.lastTimestamp = timestamp;

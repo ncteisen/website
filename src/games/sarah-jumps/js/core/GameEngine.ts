@@ -66,6 +66,8 @@ export class GameEngine {
 		window.addEventListener('blur', () => this.pause(), { signal });
 		// A bfcache restore retains this instance; never leave an old loop running.
 		window.addEventListener('pagehide', () => this.pause(), { signal });
+		window.addEventListener('pageshow', this.refreshBest, { signal });
+		window.addEventListener('storage', event => { if (!event.key || event.key === BEST_KEY) this.refreshBest(); }, { signal });
 		this.observer = new ResizeObserver(() => {
 			this.world.setViewport(this.renderer.resize());
 			this.renderer.render(this.world);
@@ -89,6 +91,7 @@ export class GameEngine {
 		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
 		this.audio.unlock();
 		this.input.reset();
+		this.refreshBest();
 		if (this.state !== 'paused') {
 			this.world = new World();
 			this.world.setViewport(this.renderer.viewportHeight);
@@ -133,10 +136,13 @@ export class GameEngine {
 	}
 
 	private saveRecord(): void {
-		if (this.world.score <= this.best) return;
-		this.best = this.world.score;
-		saveBest(BEST_KEY, this.best);
+		this.best = saveBest(BEST_KEY, Math.max(this.best, this.world.score));
+		this.bestLabel.textContent = String(this.best);
 	}
+	private refreshBest = (): void => {
+		this.best = Math.max(this.best, readBest(BEST_KEY));
+		this.bestLabel.textContent = String(Math.max(this.best, this.world.score));
+	};
 
 	pause(): void {
 		if (this.state !== 'playing') return;

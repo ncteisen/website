@@ -1,9 +1,9 @@
 import { dateMyGlobeMapPacks } from './dateMyGlobeMapPacks.ts';
 
-type Position = [number, number];
-type PolygonCoordinates = Position[][];
-type MultiPolygonCoordinates = PolygonCoordinates[];
-type LineStringCoordinates = Position[];
+type Position = readonly [number, number];
+type PolygonCoordinates = readonly (readonly Position[])[];
+type MultiPolygonCoordinates = readonly PolygonCoordinates[];
+type LineStringCoordinates = readonly Position[];
 
 export interface DateMyGlobeMapFeature {
 	type: 'Feature';
@@ -37,7 +37,7 @@ export interface DateMyGlobeMap {
 	type: 'FeatureCollection';
 	label: string;
 	note: string;
-	features: DateMyGlobeMapFeature[];
+	features: readonly DateMyGlobeMapFeature[];
 }
 
 export interface DateMyGlobeEvent {
@@ -60,6 +60,7 @@ export interface DateMyGlobeEvent {
 	checklistOrder?: number;
 	sourceConfidence?: 'primary' | 'reference' | 'derived';
 	dateWindowNote?: string;
+	beforeAnswerIsInconclusive?: boolean;
 	mapViewport?: {
 		west: number;
 		south: number;
@@ -100,7 +101,7 @@ const multiPolygon = (
 });
 
 const withChecklistMap = (event: DateMyGlobeEvent, index: number): DateMyGlobeEvent => {
-	const mapData = dateMyGlobeMapPacks[event.id as keyof typeof dateMyGlobeMapPacks] as Pick<DateMyGlobeEvent, 'mapViewport' | 'beforeMap' | 'afterMap' | 'mapSourceNote'> | undefined;
+	const mapData: Pick<DateMyGlobeEvent, 'mapViewport' | 'beforeMap' | 'afterMap' | 'mapSourceNote'> | undefined = dateMyGlobeMapPacks[event.id as keyof typeof dateMyGlobeMapPacks];
 	if (!mapData) {
 		throw new Error(`Missing Date My Globe map pack for ${event.id}`);
 	}
@@ -141,6 +142,8 @@ type ReferenceEventInput = {
 	region: string;
 	mode?: DateMyGlobeEvent['visualPlaceholder']['mode'];
 	source?: keyof typeof globeDatingSources;
+	beforeAnswerIsInconclusive?: boolean;
+	dateWindowNote?: string;
 };
 
 const referenceEvent = ({
@@ -154,6 +157,8 @@ const referenceEvent = ({
 	region,
 	mode = 'name-change',
 	source = 'oneWorld',
+	beforeAnswerIsInconclusive,
+	dateWindowNote,
 }: ReferenceEventInput): DateMyGlobeEvent => {
 	const sourceInfo = globeDatingSources[source];
 
@@ -167,6 +172,8 @@ const referenceEvent = ({
 		description,
 		sourceLabel: sourceInfo.label,
 		sourceUrl: sourceInfo.url,
+		beforeAnswerIsInconclusive,
+		dateWindowNote,
 		visualPlaceholder: {
 			mode,
 			beforeNote: beforeLabel,
@@ -3012,6 +3019,8 @@ const rawDateMyGlobeEvents: DateMyGlobeEvent[] = [
 		id: 'czechia-name',
 		name: 'Czechia short name adopted',
 		year: 2016,
+		beforeAnswerIsInconclusive: true,
+		dateWindowNote: 'Czech Republic is still a valid name. Choosing it does not establish an upper date bound.',
 		question: 'Does the globe use Czechia rather than Czech Republic?',
 		beforeLabel: 'Czech Republic',
 		afterLabel: 'Czechia',

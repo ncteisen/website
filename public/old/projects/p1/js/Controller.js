@@ -3,11 +3,15 @@ var Controller = function(view) {
 	// remembers where we are
 	this.room = 1
 
-	// create the rooms
-	this.room1 = new Room1(this)
-	this.room2 = new Room2(this)
-	this.room3 = new Room3(this)
-	this.room4 = new Room4(this)
+	// A replay needs fresh puzzle state in every room.
+	this.reset = function() {
+		this.room = 1
+		this.room1 = new Room1(this)
+		this.room2 = new Room2(this)
+		this.room3 = new Room3(this)
+		this.room4 = new Room4(this)
+	}
+	this.reset()
 
 	String.prototype.contains = function(str) {
 		
@@ -90,7 +94,7 @@ var Controller = function(view) {
 	this.run = function(resp) {
 
 		// users input --> output
-		view.add_paragraph_simple("> " + resp)
+		view.add_command("> " + resp)
 
 		resp = resp.toLowerCase();
 

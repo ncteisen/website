@@ -56,8 +56,8 @@ export const games = [
 		input: "stack",
 		touchHint: "Tap when the blocks line up.",
 		keyboardHint: "Space to drop · P to pause",
-		instructions: "Tap to drop the moving block. Three perfect drops in a row make your block wider.",
-		canvasLabel: "Sarah Stacks playfield. Tap to drop the moving block. Three perfect drops in a row make your block wider. P pauses."
+		instructions: "Tap to drop the moving block. Three perfect drops in a row restore some lost width.",
+		canvasLabel: "Sarah Stacks playfield. Tap to drop the moving block. Three perfect drops in a row restore some lost width. P pauses."
 	},
 	{
 		id: "sarah-rolls",

@@ -1,8 +1,11 @@
 ---
+import "../styles/tokens.css";
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import ProjectVisual from '../components/ProjectVisual.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import 'leaflet/dist/leaflet.css';
+import { formatDate, formatActivityDate } from '../lib/dates';
 import { projects } from '../data/projects';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
@@ -76,6 +79,7 @@ interface WorkExperience {
 	title: string;
 	location: string;
 	start_date: string;
+	start_date_local?: string;
 	end_date: string;
 	skip_pdf?: boolean;
 	skip_web?: boolean;
@@ -119,6 +123,7 @@ interface StravaActivity {
 	average_cadence: number | null;
 	average_watts: number | null;
 	start_date: string;
+	start_date_local?: string;
 	description: string | null;
 	commute: boolean;
 	map: {
@@ -186,10 +191,6 @@ const featuredBook = goodreadsData.recent_reviews[0];
 const totalMovies = letterboxdData.recent_reviews.length;
 const totalBooks = goodreadsData.recent_reviews.length;
 
-const formatDate = (dateStr: string): string => {
-	const d = new Date(dateStr);
-	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-};
 
 const formatTime = (seconds: number): string => {
 	const h = Math.floor(seconds / 3600);
@@ -216,8 +217,6 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			description="Engineer based in San Francisco working at OpenAI, with a decade of experience leading teams at Google, Waymo, Faire, and Roblox."
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 		<UmamiAnalytics />
 		<script define:vars={{ statsData }}>
 			window.__STATS_DATA__ = statsData;
@@ -248,7 +247,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				font-size: 10px;
 				letter-spacing: 4px;
 				text-transform: uppercase;
-				color: #444;
+				color: var(--text-muted);
 				margin-bottom: 28px;
 				display: block;
 			}
@@ -305,7 +304,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.hero-subtitle {
 				font-size: 13px;
-				color: #555;
+				color: var(--text-muted);
 				margin: 0 0 18px;
 				letter-spacing: 2px;
 				text-transform: uppercase;
@@ -352,7 +351,6 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			.career-item {
 				display: flex;
 				gap: 28px;
-				cursor: pointer;
 				border-top: 1px solid #181818;
 				padding: 22px 0;
 			}
@@ -379,8 +377,17 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				display: flex;
 				justify-content: space-between;
 				align-items: baseline;
-				margin-bottom: 3px;
+				margin-bottom: 8px;
+				width: 100%;
+				padding: 0;
+				border: 0;
+				background: transparent;
+				font: inherit;
+				text-align: left;
+				cursor: pointer;
 			}
+
+			.career-head:focus-visible { outline: 2px solid #5b8ef0; outline-offset: 3px; }
 
 			.career-company {
 				font-size: 18px;
@@ -393,7 +400,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.career-period {
 				font-size: 11px;
-				color: #444;
+				color: var(--text-muted);
 				letter-spacing: 1px;
 				display: flex;
 				align-items: center;
@@ -402,7 +409,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			}
 
 			.career-arrow {
-				color: #333;
+				color: var(--text-muted);
 				font-size: 14px;
 				transition: transform 0.2s, color 0.2s;
 				display: inline-block;
@@ -415,17 +422,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.career-role {
 				font-size: 13px;
-				color: #666;
-			}
-
-			.career-details {
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
-			}
-
-			.career-item.expanded .career-details {
-				max-height: 2000px;
+				color: var(--text-muted);
 			}
 
 			.career-details-inner {
@@ -552,14 +549,14 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				letter-spacing: 2px;
 				text-transform: uppercase;
 				font-weight: 500;
-				color: #2e2e2e;
+				color: var(--text-muted);
 				border-bottom: 1px solid transparent;
 				padding-bottom: 2px;
 				transition: color 0.15s, border-color 0.15s;
 			}
 
 			.period-btn.active {
-				color: #6a6a6a;
+				color: var(--text-muted);
 				border-bottom-color: #6a6a6a;
 			}
 
@@ -598,14 +595,14 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.stat-label {
 				font-size: 11px;
-				color: #555;
+				color: var(--text-muted);
 				letter-spacing: 0.3px;
 				transition: color 0.15s;
 			}
 
 			.stat-cell-link:hover .stat-label,
 			.stat-cell-link:focus-visible .stat-label {
-				color: #3a4f7a;
+				color: #5b8ef0;
 			}
 
 			.stat-divider {
@@ -632,7 +629,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			}
 
 			.review-card:hover .review-card-link {
-				color: #3a4f7a;
+				color: #5b8ef0;
 			}
 
 			.review-card-head {
@@ -663,7 +660,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.review-card-sub {
 				font-size: 12px;
-				color: #555;
+				color: var(--text-muted);
 				margin-bottom: 14px;
 				letter-spacing: 0.3px;
 			}
@@ -698,7 +695,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				display: inline-block;
 				margin-top: 12px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 0.5px;
 				transition: color 0.15s;
@@ -709,7 +706,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			/* === FOOTER === */
 			.site-footer {
 				font-size: 12px;
-				color: #333;
+				color: var(--text-muted);
 				text-align: center;
 			}
 
@@ -741,7 +738,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			}
 
 			.latest-activity-card:hover .latest-activity-link {
-				color: #3a4f7a;
+				color: #5b8ef0;
 			}
 
 			.latest-activity-map {
@@ -757,7 +754,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			:global(.latest-activity-map .leaflet-control-attribution) {
 				max-width: 100%;
 				background: #0a0a0a;
-				color: #626262;
+				color: var(--text-muted);
 				font-size: 8px;
 				line-height: 1.25;
 				padding: 2px 4px;
@@ -807,7 +804,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.latest-activity-date {
 				font-size: 11px;
-				color: #444;
+				color: var(--text-muted);
 				letter-spacing: 1px;
 			}
 
@@ -839,7 +836,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 			.latest-activity-stat-label {
 				font-size: 10px;
-				color: #555;
+				color: var(--text-muted);
 				letter-spacing: 1.5px;
 				text-transform: uppercase;
 			}
@@ -848,7 +845,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				display: inline-block;
 				margin-top: 12px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 0.5px;
 				transition: color 0.15s;
@@ -945,7 +942,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			<!-- CAREER -->
 			<section class="career">
 				<span class="section-label">Career</span>
-				{experiences.map((exp) => (
+				{experiences.map((exp, index) => (
 					<div
 						class="career-item"
 						data-career
@@ -955,16 +952,16 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 					>
 						<div class="career-bar"></div>
 						<div class="career-body">
-							<div class="career-head">
+							<button type="button" class="career-head" aria-expanded="false" aria-controls={`career-details-${index}`} disabled={!exp.hasDetails}>
 								<span class="career-company">{exp.company}</span>
 								<span class="career-period">
 									{exp.start_date} – {exp.end_date}
 									<span class="career-arrow">›</span>
 								</span>
-							</div>
+							</button>
 							<div class="career-role">{exp.title}</div>
 							{exp.hasDetails && (
-								<div class="career-details">
+								<div class="career-details" id={`career-details-${index}`} hidden>
 									<div class="career-details-inner">
 										{exp.detailsDescription && <p class="career-desc">{exp.detailsDescription}</p>}
 										{exp.items.length > 0 && (
@@ -1018,9 +1015,9 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				<div class="stats-header">
 					<span class="section-label" style="margin-bottom:0">By the Numbers</span>
 					<div class="period-toggle">
-						<button class="period-btn active" data-period="year">This Year</button>
+						<button class="period-btn active" data-period="year" aria-pressed="true">This Year</button>
 						<span class="period-sep">/</span>
-						<button class="period-btn" data-period="lifetime">Lifetime</button>
+						<button class="period-btn" data-period="lifetime" aria-pressed="false">Lifetime</button>
 					</div>
 				</div>
 				<div class="stats-row">
@@ -1056,11 +1053,11 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 					<div class="latest-activities-grid">
 						{latestRun && (
 							<a href={`https://www.strava.com/activities/${latestRun.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="latest-run">
-								<div class="latest-activity-map" id="latest-run-map" data-polyline={latestRun.map?.summary_polyline || ''}></div>
+								<div class="latest-activity-map" id="latest-run-map" data-polyline={latestRun.map?.summary_polyline || ''} hidden={!latestRun.map?.summary_polyline}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
 										<span class="latest-activity-badge run">RUN</span>
-										<span class="latest-activity-date">{formatDate(latestRun.start_date)}</span>
+										<span class="latest-activity-date">{formatActivityDate(latestRun)}</span>
 									</div>
 									<div class="latest-activity-title">{latestRun.name}</div>
 									<div class="latest-activity-stats">
@@ -1083,11 +1080,11 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 						)}
 						{latestBike && (
 							<a href={`https://www.strava.com/activities/${latestBike.id}`} target="_blank" rel="noopener noreferrer" class="latest-activity-card" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="latest-ride">
-								<div class="latest-activity-map" id="latest-bike-map" data-polyline={latestBike.map?.summary_polyline || ''}></div>
+								<div class="latest-activity-map" id="latest-bike-map" data-polyline={latestBike.map?.summary_polyline || ''} hidden={!latestBike.map?.summary_polyline}></div>
 								<div class="latest-activity-body">
 									<div class="latest-activity-meta">
 										<span class="latest-activity-badge ride">RIDE</span>
-										<span class="latest-activity-date">{formatDate(latestBike.start_date)}</span>
+										<span class="latest-activity-date">{formatActivityDate(latestBike)}</span>
 									</div>
 									<div class="latest-activity-title">{latestBike.name}</div>
 									<div class="latest-activity-stats">
@@ -1130,7 +1127,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 						</div>
 						<div class="review-card-sub">{featuredFilm?.watched_date ? formatDate(featuredFilm.watched_date) : ''}</div>
 						<div class="review-card-text" set:html={featuredFilm?.review} />
-						<span class="review-card-link">View on Letterboxd →</span>
+						<a class="review-card-link" href={featuredFilm?.link} target="_blank" rel="noopener noreferrer">View on Letterboxd →</a>
 					</div>
 					<div class="review-card" data-href={featuredBook?.link} data-umami-event="link_click" data-umami-event-area="journal" data-umami-event-label="featured-book">
 						<div class="review-card-head">
@@ -1141,7 +1138,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 						</div>
 						<div class="review-card-sub">{featuredBook?.read_at ? formatDate(featuredBook.read_at) : ''}</div>
 						<div class="review-card-text" set:html={featuredBook?.review} />
-						<span class="review-card-link">View on Goodreads →</span>
+						<a class="review-card-link" href={featuredBook?.link} target="_blank" rel="noopener noreferrer">View on Goodreads →</a>
 					</div>
 				</div>
 			</section>
@@ -1151,78 +1148,9 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 		</main>
 
 		<script>
-			import { CARTO_TILE_OPTIONS, CARTO_TILE_URL } from '../lib/cartoBasemap';
-
-			// Decode Google encoded polyline
-			const decodePolyline = (encoded: string): [number, number][] => {
-				const points: [number, number][] = [];
-				let index = 0;
-				let lat = 0;
-				let lng = 0;
-
-				while (index < encoded.length) {
-					let shift = 0;
-					let result = 0;
-					let byte: number;
-
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lat += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					shift = 0;
-					result = 0;
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lng += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					points.push([lat / 1e5, lng / 1e5]);
-				}
-
-				return points;
-			};
-
-			const initLatestActivityMaps = () => {
-				document.querySelectorAll('.latest-activity-map').forEach(el => {
-					const container = el as HTMLElement;
-					const polyline = container.dataset.polyline;
-					if (!polyline) return;
-
-					const points = decodePolyline(polyline);
-					if (points.length === 0) return;
-
-					const map = (window as any).L.map(container.id, {
-						zoomControl: false,
-						dragging: false,
-						scrollWheelZoom: false,
-						doubleClickZoom: false,
-						touchZoom: false,
-						boxZoom: false,
-						keyboard: false,
-					});
-
-					map.attributionControl.setPrefix(false);
-
-					(window as any).L.tileLayer(CARTO_TILE_URL, CARTO_TILE_OPTIONS).addTo(map);
-
-					const line = (window as any).L.polyline(points, {
-						color: '#5b8ef0',
-						weight: 3,
-						opacity: 0.9,
-					}).addTo(map);
-
-					map.fitBounds(line.getBounds(), { padding: [15, 15] });
-				});
-			};
+			import { initActivityMaps } from '../lib/activityMaps';
 
 			document.addEventListener('DOMContentLoaded', () => {
-				// Initialize latest activity maps
-				initLatestActivityMaps();
 
 				// Review card click-to-open (can't use <a> wrapper because reviews contain links)
 				document.querySelectorAll('.review-card[data-href]').forEach(card => {
@@ -1234,8 +1162,13 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 				// Career item expansion
 				document.querySelectorAll('[data-career]').forEach(item => {
-					item.addEventListener('click', () => {
-						item.classList.toggle('expanded');
+					const button = item.querySelector<HTMLButtonElement>('.career-head');
+					const details = item.querySelector<HTMLElement>('.career-details');
+					button?.addEventListener('click', () => {
+						if (!details) return;
+						const expanded = item.classList.toggle('expanded');
+						button.setAttribute('aria-expanded', String(expanded));
+						details.hidden = !expanded;
 					});
 				});
 
@@ -1261,6 +1194,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 
 					periodBtns.forEach(btn => {
 						btn.classList.toggle('active', (btn as HTMLElement).dataset.period === period);
+						btn.setAttribute('aria-pressed', String((btn as HTMLElement).dataset.period === period));
 					});
 				};
 
@@ -1270,6 +1204,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 					});
 				});
 
+				void initActivityMaps('.latest-activity-map');
 			});
 		</script>
 	</body>

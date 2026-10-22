@@ -15,10 +15,8 @@ var Room4 = function(controller) {
 		}
 
 		else {
-			controller.add_paragraph("You find yourself in a small dark room. It smells a " +
-				"little moldy, and you see some water pooled in dark puddle on the floor. " +
-				"There are no windows. You see one small door in front of you.")
-			controller.room = 1
+			controller.reset()
+			controller.room1.handle_look()
 		}
 
 	}

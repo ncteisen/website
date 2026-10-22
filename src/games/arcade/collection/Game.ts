@@ -49,6 +49,8 @@ export class Game {
 		sound.addEventListener('click', () => { this.audio.enabled = !this.audio.enabled; sound.textContent = this.audio.enabled ? 'Sound on' : 'Sound off'; sound.setAttribute('aria-pressed', String(this.audio.enabled)); if (this.audio.enabled) this.audio.unlock(); }, { signal });
 		document.addEventListener('visibilitychange', () => { if (document.hidden) this.pause(); }, { signal });
 		window.addEventListener('blur', () => this.pause(), { signal }); window.addEventListener('pagehide', () => this.pause(), { signal });
+		window.addEventListener('pageshow', this.refreshBest, { signal });
+		window.addEventListener('storage', event => { if (!event.key || event.key === getGame(id).bestKey) this.refreshBest(); }, { signal });
 		this.observer = new ResizeObserver(() => { this.renderer.resize(); this.render(); }); this.observer.observe(this.canvas);
 		this.renderer.resize(); this.render();
 	}
@@ -58,6 +60,7 @@ export class Game {
 	}
 	start = (): void => {
 		if (this.destroyed || this.state === 'loading' || this.state === 'playing') return;
+		this.refreshBest();
 		if (this.state !== 'paused') { this.world = createWorld(this.id); this.runBest = this.best; this.lastEvent = 0; this.lastScore = -1; }
 		this.audio.unlock(); this.state = 'playing'; this.root.dataset.state = this.state;
 		this.panel.hidden = true; this.status.textContent = ''; this.pauseButton.disabled = false; this.pauseButton.textContent = 'Ⅱ'; this.pauseButton.setAttribute('aria-label', 'Pause game');
@@ -77,7 +80,8 @@ export class Game {
 	};
 	private render = (): void => { this.frames++; this.renderer.render(this.world); };
 	private syncScore(): void { if (this.world.score === this.lastScore) return; this.lastScore = this.world.score; this.scoreLabel.textContent = String(this.world.score); this.bestLabel.textContent = String(Math.max(this.best, this.world.score)); }
-	private save(): void { if (this.world.score > this.best) { this.best = this.world.score; saveBest(getGame(this.id).bestKey, this.best); } }
+	private save(): void { this.best = saveBest(getGame(this.id).bestKey, Math.max(this.best, this.world.score)); this.bestLabel.textContent = String(this.best); }
+	private refreshBest = (): void => { this.best = Math.max(this.best, readBest(getGame(this.id).bestKey)); this.bestLabel.textContent = String(Math.max(this.best, this.world.score)); };
 	pause = (): void => {
 		if (this.state !== 'playing') return;
 		this.state = 'paused'; this.loop.stop(); this.input.clear(false);

@@ -1,7 +1,10 @@
 ---
+import "../styles/tokens.css";
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import 'leaflet/dist/leaflet.css';
+import { formatActivityDate } from '../lib/dates';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
@@ -20,6 +23,7 @@ interface StravaActivity {
 	elevation_gain: number;
 	average_pace: number;
 	start_date: string;
+	start_date_local?: string;
 	map: { id: string; summary_polyline: string; resource_state: number };
 }
 
@@ -31,10 +35,6 @@ const runCount = allActivities.filter(a => a.type === 'Run').length;
 const rideCount = allActivities.filter(a => a.type === 'Ride').length;
 const hikeCount = allActivities.filter(a => a.type === 'Hike').length;
 
-const formatDate = (dateStr: string): string => {
-	const d = new Date(dateStr);
-	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-};
 
 const formatTime = (seconds: number): string => {
 	const h = Math.floor(seconds / 3600);
@@ -76,8 +76,6 @@ const filterKey = (type: string): string => {
 			path="/activities/"
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 		<UmamiAnalytics />
 		<style>
 			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -95,10 +93,13 @@ const filterKey = (type: string): string => {
 				padding: 52px 44px 80px;
 			}
 
+			/* Route data is optional; let the summary use the whole row without it. */
+			.entry:has(.entry-map[hidden]) { grid-template-columns: 1fr; }
+
 			/* === HEADER === */
 			.back-link {
 				font-size: 11px;
-				color: #666;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 1px;
 				text-transform: uppercase;
@@ -122,7 +123,7 @@ const filterKey = (type: string): string => {
 
 			.page-desc {
 				font-size: 14px;
-				color: #777;
+				color: var(--text-muted);
 				margin: 0;
 				line-height: 1.7;
 				max-width: 520px;
@@ -130,7 +131,7 @@ const filterKey = (type: string): string => {
 
 			.page-sources {
 				font-size: 12px;
-				color: #444;
+				color: var(--text-muted);
 				margin: 10px 0 0;
 				letter-spacing: 0.3px;
 			}
@@ -148,7 +149,7 @@ const filterKey = (type: string): string => {
 				margin-top: 14px;
 				font-size: 12px;
 				letter-spacing: 1px;
-				color: #555;
+				color: var(--text-muted);
 				text-decoration: none;
 				transition: color 0.15s;
 			}
@@ -173,7 +174,7 @@ const filterKey = (type: string): string => {
 			.filter-btn {
 				background: transparent;
 				border: 1px solid #1c1c1c;
-				color: #666;
+				color: var(--text-muted);
 				padding: 8px 16px;
 				border-radius: 6px;
 				font-family: inherit;
@@ -195,7 +196,7 @@ const filterKey = (type: string): string => {
 
 			.filter-btn .count {
 				font-size: 10px;
-				color: #444;
+				color: var(--text-muted);
 			}
 
 			.filter-btn.active .count {
@@ -228,7 +229,7 @@ const filterKey = (type: string): string => {
 			:global(.entry-map .leaflet-control-attribution) {
 				max-width: 100%;
 				background: #0a0a0a;
-				color: #626262;
+				color: var(--text-muted);
 				font-size: 7px;
 				line-height: 1.2;
 				padding: 1px 3px;
@@ -280,7 +281,7 @@ const filterKey = (type: string): string => {
 
 			.entry-date {
 				font-size: 11px;
-				color: #444;
+				color: var(--text-muted);
 				letter-spacing: 1px;
 			}
 
@@ -312,7 +313,7 @@ const filterKey = (type: string): string => {
 
 			.entry-stat-label {
 				font-size: 10px;
-				color: #555;
+				color: var(--text-muted);
 				letter-spacing: 1.5px;
 				text-transform: uppercase;
 			}
@@ -321,7 +322,7 @@ const filterKey = (type: string): string => {
 				display: inline-block;
 				margin-top: 12px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 0.5px;
 				transition: color 0.15s;
@@ -334,13 +335,13 @@ const filterKey = (type: string): string => {
 				border-top: 1px solid #181818;
 				padding-top: 24px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				letter-spacing: 2px;
 				text-transform: uppercase;
 			}
 
 			.page-end a {
-				color: #555;
+				color: var(--text-muted);
 				text-decoration: none;
 				transition: color 0.15s;
 			}
@@ -355,7 +356,7 @@ const filterKey = (type: string): string => {
 				margin: 8px 0;
 				background: transparent;
 				border: 1px solid #1c1c1c;
-				color: #666;
+				color: var(--text-muted);
 				font-family: inherit;
 				font-size: 12px;
 				font-weight: 500;
@@ -372,7 +373,7 @@ const filterKey = (type: string): string => {
 			}
 
 			.load-more-btn .count {
-				color: #444;
+				color: var(--text-muted);
 				font-size: 10px;
 			}
 
@@ -418,7 +419,7 @@ const filterKey = (type: string): string => {
 			<div>
 				<a href="/" class="back-link" data-umami-event="link_click" data-umami-event-area="navigation" data-umami-event-label="home">← Back to Noah Eisen</a>
 				<h1 class="page-title">Activity Log</h1>
-				<p class="page-desc">Recent runs, rides, and hikes. Updated daily.</p>
+				<p class="page-desc">Public runs, rides, and hikes.</p>
 				<p class="page-sources">Sourced from my <a href="https://www.strava.com/athletes/ncteisen" target="_blank" rel="noopener noreferrer" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="strava-profile">Strava</a>.</p>
 				<a href="/records" class="page-sublink" data-umami-event="link_click" data-umami-event-area="activity" data-umami-event-label="records">Personal records →</a>
 			</div>
@@ -426,17 +427,17 @@ const filterKey = (type: string): string => {
 			<!-- RECENT ACTIVITIES -->
 			<h2 class="section-title">Last 100 Activities</h2>
 			<div class="filters">
-				<button class="filter-btn active" data-filter="all">
+				<button class="filter-btn active" data-filter="all" aria-pressed="true">
 					All <span class="count">{allActivities.length}</span>
 				</button>
-				<button class="filter-btn" data-filter="run">
+				<button class="filter-btn" data-filter="run" aria-pressed="false">
 					Runs <span class="count">{runCount}</span>
 				</button>
-				<button class="filter-btn" data-filter="ride">
+				<button class="filter-btn" data-filter="ride" aria-pressed="false">
 					Rides <span class="count">{rideCount}</span>
 				</button>
 				{hikeCount > 0 && (
-					<button class="filter-btn" data-filter="hike">
+					<button class="filter-btn" data-filter="hike" aria-pressed="false">
 						Hikes <span class="count">{hikeCount}</span>
 					</button>
 				)}
@@ -446,13 +447,13 @@ const filterKey = (type: string): string => {
 			<div class="entries">
 				{allActivities.map((activity, i) => (
 					<article class={`entry ${i >= INITIAL_SHOW ? 'hidden' : ''}`} data-entry-kind={filterKey(activity.type)} data-index={i}>
-						<div class="entry-map" id={`map-${activity.id}`} data-polyline={activity.map?.summary_polyline || ''}></div>
+						<div class="entry-map" id={`map-${activity.id}`} data-polyline={activity.map?.summary_polyline || ''} hidden={!activity.map?.summary_polyline}></div>
 						<div>
 							<div class="entry-meta">
 								<span class={`entry-badge ${typeClass(activity.type)}`}>
 									{typeLabel(activity.type)}
 								</span>
-								<span class="entry-date">{formatDate(activity.start_date)}</span>
+								<span class="entry-date">{formatActivityDate(activity)}</span>
 							</div>
 							<div class="entry-title">{activity.name}</div>
 							<div class="entry-stats">
@@ -487,81 +488,8 @@ const filterKey = (type: string): string => {
 		</main>
 
 		<script>
-			import { CARTO_TILE_OPTIONS, CARTO_TILE_URL } from '../lib/cartoBasemap';
-
-			// Decode Google encoded polyline
-			const decodePolyline = (encoded: string): [number, number][] => {
-				const points: [number, number][] = [];
-				let index = 0;
-				let lat = 0;
-				let lng = 0;
-
-				while (index < encoded.length) {
-					let shift = 0;
-					let result = 0;
-					let byte: number;
-
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lat += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					shift = 0;
-					result = 0;
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lng += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					points.push([lat / 1e5, lng / 1e5]);
-				}
-
-				return points;
-			};
-
-			const initMaps = () => {
-				const mapContainers = document.querySelectorAll('.entry-map');
-				mapContainers.forEach(container => {
-					const el = container as HTMLElement;
-					// Skip if already initialized
-					if (el.dataset.initialized === 'true') return;
-					// Skip if hidden
-					if (el.closest('.hidden')) return;
-
-					const polyline = el.dataset.polyline;
-					if (!polyline) return;
-
-					const points = decodePolyline(polyline);
-					if (points.length === 0) return;
-
-					const map = (window as any).L.map(el.id, {
-						zoomControl: false,
-						dragging: false,
-						scrollWheelZoom: false,
-						doubleClickZoom: false,
-						touchZoom: false,
-						boxZoom: false,
-						keyboard: false,
-					});
-
-					map.attributionControl.setPrefix(false);
-
-					(window as any).L.tileLayer(CARTO_TILE_URL, CARTO_TILE_OPTIONS).addTo(map);
-
-					const line = (window as any).L.polyline(points, {
-						color: '#5b8ef0',
-						weight: 3,
-						opacity: 0.9,
-					}).addTo(map);
-
-					map.fitBounds(line.getBounds(), { padding: [15, 15] });
-					el.dataset.initialized = 'true';
-				});
-			};
+			import { initActivityMaps } from '../lib/activityMaps';
+			const initMaps = () => { void initActivityMaps('.entry-map'); };
 
 			document.addEventListener('DOMContentLoaded', () => {
 				const LOAD_MORE_COUNT = 20;
@@ -609,7 +537,10 @@ const filterKey = (type: string): string => {
 				filterBtns.forEach(btn => {
 					btn.addEventListener('click', () => {
 						currentFilter = (btn as HTMLElement).dataset.filter || 'all';
-						filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+						filterBtns.forEach(b => {
+							b.classList.toggle('active', b === btn);
+							b.setAttribute('aria-pressed', String(b === btn));
+						});
 						visibleLimit = 20;
 						applyVisibility();
 					});

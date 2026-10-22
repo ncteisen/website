@@ -115,3 +115,5 @@ python scripts/favorites/optimize_assets.py
 ```
 
 After either script, run `npm run build` and verify `/favorites/` contains the changed title, URL, and cover path.
+
+The optimizer also updates `favorites.json`: a bare URL becomes an object with the same `url` and the new local `cover`, and an existing object receives that cover override. This pins the local asset so a later metadata scrape preserves it. Review and commit the source-config change together with the generated metadata and assets.

@@ -66,6 +66,12 @@ async function route(request: Request, env: Env): Promise<unknown> {
 	}
 	if (request.method !== 'POST' || !['/players', '/runs'].includes(url.pathname)) throw new ApiError(404, 'Not found.');
 	const auth = await identity(request);
+	const player = await env.DB.prepare('SELECT token_hash, blocked FROM players WHERE id = ?')
+		.bind(auth.id).first<{ token_hash: string; blocked: number }>();
+	if (player ? player.token_hash !== auth.hash || player.blocked !== 0 : url.pathname === '/runs') {
+		throw new ApiError(403, url.pathname === '/players' ? 'This player cannot be updated.' : 'This player cannot submit scores.');
+	}
+	// Public player IDs are not credentials. Invalid secrets must not spend the owner's quota.
 	if (!(await env.WRITE_LIMIT.limit({ key: `player:${auth.id}` })).success) throw new ApiError(429, 'Please wait a minute before trying again.');
 	const body = await readBody(request);
 	if (url.pathname === '/players') {
@@ -79,9 +85,6 @@ async function route(request: Request, env: Env): Promise<unknown> {
 		if (!result) throw new ApiError(403, 'This player cannot be updated.');
 		return { nickname };
 	}
-	const player = await env.DB.prepare('SELECT id FROM players WHERE id = ? AND token_hash = ? AND blocked = 0')
-		.bind(auth.id, auth.hash).first();
-	if (!player) throw new ApiError(403, 'This player cannot submit scores.');
 	if (!isRun(body)) throw new ApiError(400, 'Invalid score or outdated game version.');
 	await env.DB.prepare('INSERT INTO runs(id, player_id, game, version, score) VALUES (?, ?, ?, ?, ?) ON CONFLICT(id) DO NOTHING')
 		.bind(body.id, auth.id, body.game, body.version, body.score).run();

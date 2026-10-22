@@ -68,8 +68,11 @@ def favorite_cover_sources(items: list[Any]) -> dict[str, str]:
 
 
 def update_favorite_cover(items: list[Any], url: str, cover: str) -> None:
-    for item in items:
-        if isinstance(item, dict) and item.get('url') == url and item.get('cover'):
+    for index, item in enumerate(items):
+        if isinstance(item, str) and item == url:
+            items[index] = {'url': item, 'cover': cover}
+            return
+        if isinstance(item, dict) and item.get('url') == url:
             item['cover'] = cover
             return
 

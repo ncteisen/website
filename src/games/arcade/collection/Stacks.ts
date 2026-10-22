@@ -1,10 +1,11 @@
-import { World, type Action } from './core';
+import { World, clamp, mod, type Action } from './core';
+const MAX_WIDTH = 190;
 export type Block = { x: number; width: number; level: number };
 export type Offcut = Block & { y: number; vy: number; life: number };
 export class Stacks extends World {
 	readonly kind = 'sarah-stacks';
-	blocks: Block[] = [{ x: 105, width: 190, level: 0 }];
-	moving: Block = { x: 0, width: 190, level: 1 };
+	blocks: Block[] = [{ x: 105, width: MAX_WIDTH, level: 0 }];
+	moving: Block = { x: 0, width: MAX_WIDTH, level: 1 };
 	direction = 1;
 	combo = 0;
 	cooldown = 0;
@@ -18,8 +19,11 @@ export class Stacks extends World {
 		if (Math.abs(this.moving.x - top.x) <= 6) {
 			this.combo++;
 			left = top.x; right = top.x + top.width;
-			if (this.combo % 3 === 0) { left = Math.max(0, left - 8); right = Math.min(400, right + 8); }
-			this.announce(this.combo % 3 === 0 ? 'Perfect ×3 · wider block!' : 'Perfect!');
+			if (this.combo % 3 === 0) {
+				const width = Math.min(MAX_WIDTH, top.width + 16);
+				left = clamp(left - (width - top.width) / 2, 0, 400 - width); right = left + width;
+			}
+			this.announce(right - left > top.width ? 'Perfect ×3 · wider block!' : 'Perfect!');
 		} else {
 			this.combo = 0;
 			const cutLeft = this.moving.x < top.x;
@@ -36,9 +40,15 @@ export class Stacks extends World {
 	protected step(dt: number): void {
 		this.cooldown = Math.max(0, this.cooldown - dt);
 		if (!this.cooldown) {
-			this.moving.x += this.direction * (125 + Math.min(170, this.score * 7)) * dt;
-			if (this.moving.x < 0) { this.moving.x = -this.moving.x; this.direction = 1; }
-			if (this.moving.x + this.moving.width > 400) { this.moving.x = 800 - this.moving.width * 2 - this.moving.x; this.direction = -1; }
+			const travel = Math.max(0, 400 - this.moving.width);
+			if (travel === 0) this.moving.x = 0;
+			else {
+				// A folded phase handles either edge and even multiple crossings in one step.
+				const phase = mod((this.direction > 0 ? this.moving.x : 2 * travel - this.moving.x)
+					+ (125 + Math.min(170, this.score * 7)) * dt, 2 * travel);
+				this.moving.x = phase <= travel ? phase : 2 * travel - phase;
+				this.direction = phase < travel ? 1 : -1;
+			}
 		}
 		for (const cut of this.offcuts) { cut.vy += 850 * dt; cut.y += cut.vy * dt; cut.life -= dt; }
 		this.offcuts = this.offcuts.filter(cut => cut.life > 0);

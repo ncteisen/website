@@ -275,8 +275,12 @@ import IconLinks from '../../components/IconLinks.astro';
 
 				petsHabitat.start();
 
-				window.addEventListener('pagehide', () => {
-					petsHabitat.cleanup();
+				window.addEventListener('pagehide', (event) => {
+					if (event.persisted) petsHabitat.pause();
+					else petsHabitat.cleanup();
+				});
+				window.addEventListener('pageshow', (event) => {
+					if (event.persisted) petsHabitat.resume();
 				});
 			};
 

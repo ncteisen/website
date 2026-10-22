@@ -1,7 +1,9 @@
 ---
+import "../styles/tokens.css";
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import { formatDate } from '../lib/dates';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
@@ -99,10 +101,6 @@ const LOAD_MORE_COUNT = 20;
 const filmCount = allEntries.filter(e => e.kind === 'film').length;
 const bookCount = allEntries.filter(e => e.kind === 'book').length;
 
-const formatDate = (dateStr: string): string => {
-	const d = new Date(dateStr);
-	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-};
 ---
 
 <html lang="en">
@@ -138,7 +136,7 @@ const formatDate = (dateStr: string): string => {
 			/* === HEADER === */
 			.back-link {
 				font-size: 11px;
-				color: #666;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 1px;
 				text-transform: uppercase;
@@ -162,7 +160,7 @@ const formatDate = (dateStr: string): string => {
 
 			.journal-desc {
 				font-size: 14px;
-				color: #777;
+				color: var(--text-muted);
 				margin: 0;
 				line-height: 1.7;
 				max-width: 520px;
@@ -178,7 +176,7 @@ const formatDate = (dateStr: string): string => {
 
 			.journal-sources {
 				font-size: 12px;
-				color: #444;
+				color: var(--text-muted);
 				margin: 10px 0 0;
 				letter-spacing: 0.3px;
 			}
@@ -196,7 +194,7 @@ const formatDate = (dateStr: string): string => {
 				margin-top: 14px;
 				font-size: 12px;
 				letter-spacing: 1px;
-				color: #555;
+				color: var(--text-muted);
 				text-decoration: none;
 				transition: color 0.15s;
 			}
@@ -215,7 +213,7 @@ const formatDate = (dateStr: string): string => {
 			.filter-btn {
 				background: transparent;
 				border: 1px solid #1c1c1c;
-				color: #666;
+				color: var(--text-muted);
 				padding: 8px 16px;
 				border-radius: 6px;
 				font-family: inherit;
@@ -237,7 +235,7 @@ const formatDate = (dateStr: string): string => {
 
 			.filter-btn .count {
 				font-size: 10px;
-				color: #444;
+				color: var(--text-muted);
 			}
 
 			.filter-btn.active .count {
@@ -304,7 +302,7 @@ const formatDate = (dateStr: string): string => {
 
 			.entry-date {
 				font-size: 11px;
-				color: #444;
+				color: var(--text-muted);
 				letter-spacing: 1px;
 			}
 
@@ -337,7 +335,7 @@ const formatDate = (dateStr: string): string => {
 
 			.entry-subtitle {
 				font-size: 12px;
-				color: #666;
+				color: var(--text-muted);
 				margin-bottom: 12px;
 			}
 
@@ -369,7 +367,7 @@ const formatDate = (dateStr: string): string => {
 				display: inline-block;
 				margin-top: 10px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 0.5px;
 				transition: color 0.15s;
@@ -382,13 +380,13 @@ const formatDate = (dateStr: string): string => {
 				border-top: 1px solid #181818;
 				padding-top: 24px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				letter-spacing: 2px;
 				text-transform: uppercase;
 			}
 
 			.journal-end a {
-				color: #555;
+				color: var(--text-muted);
 				text-decoration: none;
 				transition: color 0.15s;
 			}
@@ -403,7 +401,7 @@ const formatDate = (dateStr: string): string => {
 				margin: 8px 0;
 				background: transparent;
 				border: 1px solid #1c1c1c;
-				color: #666;
+				color: var(--text-muted);
 				font-family: inherit;
 				font-size: 12px;
 				font-weight: 500;
@@ -420,7 +418,7 @@ const formatDate = (dateStr: string): string => {
 			}
 
 			.load-more-btn .count {
-				color: #444;
+				color: var(--text-muted);
 				font-size: 10px;
 			}
 
@@ -459,13 +457,13 @@ const formatDate = (dateStr: string): string => {
 
 			<!-- FILTERS -->
 			<div class="filters">
-				<button class="filter-btn active" data-filter="all">
+				<button class="filter-btn active" data-filter="all" aria-pressed="true">
 					All <span class="count">{allEntries.length}</span>
 				</button>
-				<button class="filter-btn" data-filter="film">
+				<button class="filter-btn" data-filter="film" aria-pressed="false">
 					Films <span class="count">{filmCount}</span>
 				</button>
-				<button class="filter-btn" data-filter="book">
+				<button class="filter-btn" data-filter="book" aria-pressed="false">
 					Books <span class="count">{bookCount}</span>
 				</button>
 			</div>
@@ -559,7 +557,10 @@ const formatDate = (dateStr: string): string => {
 				filterBtns.forEach(btn => {
 					btn.addEventListener('click', () => {
 						currentFilter = (btn as HTMLElement).dataset.filter || 'all';
-						filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+						filterBtns.forEach(b => {
+							b.classList.toggle('active', b === btn);
+							b.setAttribute('aria-pressed', String(b === btn));
+						});
 						visibleLimit = 20;
 						applyVisibility();
 					});

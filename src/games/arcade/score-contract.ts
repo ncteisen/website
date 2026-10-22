@@ -7,7 +7,7 @@ export const SCORE_VERSIONS: Record<ArcadeGameId, number> = {
 	'flappy-sarah': SCORE_VERSION,
 	'sarah-skis': 2,
 	'crossy-sarah': SCORE_VERSION,
-	'sarah-stacks': SCORE_VERSION,
+	'sarah-stacks': 2,
 	'sarah-rolls': 2,
 };
 export const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -31,10 +31,15 @@ export function isGame(value: unknown): value is ArcadeGameId {
 	return games.some(game => game.id === value);
 }
 
-export function isRun(value: unknown): value is Run {
+/** Stored records may use older or newer rules than this page's current bundle. */
+export function isStoredRun(value: unknown): value is Run {
 	if (!value || typeof value !== 'object') return false;
 	const run = value as Run;
 	return typeof run.id === 'string' && UUID.test(run.id) && isGame(run.game)
 		&& Number.isSafeInteger(run.score) && run.score >= 0 && run.score <= 10_000_000
-		&& run.version === SCORE_VERSIONS[run.game];
+		&& Number.isSafeInteger(run.version) && run.version >= 1;
+}
+
+export function isRun(value: unknown): value is Run {
+	return isStoredRun(value) && value.version === SCORE_VERSIONS[value.game];
 }

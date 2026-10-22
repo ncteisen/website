@@ -1,5 +1,5 @@
 import type { ArcadeGameId } from './catalog';
-import { isRun, normalizeNickname, SCORE_VERSIONS, UUID, type Leaderboard, type Run } from './score-contract';
+import { isRun, isStoredRun, normalizeNickname, SCORE_VERSIONS, UUID, type Leaderboard, type Run } from './score-contract';
 
 const API = (import.meta.env.PUBLIC_ARCADE_API_URL ?? 'https://sarah-arcade-scores.astro-test.workers.dev').replace(/\/$/, '');
 const PLAYER_KEY = 'sarahArcade.player.v1';
@@ -7,7 +7,11 @@ const RUN_PREFIX = 'sarahArcade.run.v1.';
 interface Player { id: string; token: string; nickname: string; }
 interface PendingRun { run: Run; queuedAt: number; }
 let memoryPlayer: Player | null = null;
+let playerWritePending = false;
+let playerStorageSnapshot: string | null | undefined;
 const memoryRuns = new Map<string, PendingRun>();
+// A readable record can survive removeItem failure. Do not post it again this session.
+const retiredRunIds = new Set<string>();
 let flushing: Promise<void> | null = null;
 let retryTimer: ReturnType<typeof setTimeout> | undefined;
 let retryDelay = 15_000;
@@ -22,35 +26,65 @@ function announce(value: string): void {
 
 export function getPlayer(): Player | null {
 	try {
-		const saved = JSON.parse(localStorage.getItem(PLAYER_KEY) ?? 'null');
-		if (saved && UUID.test(saved.id) && /^[\da-f]{64}$/.test(saved.token) && normalizeNickname(saved.nickname)) memoryPlayer = saved;
+		const stored = localStorage.getItem(PLAYER_KEY);
+		if (playerWritePending && (playerStorageSnapshot === undefined || stored === playerStorageSnapshot)) {
+			// A readable old value must not undo a rename whose write failed. Retry persistence.
+			if (memoryPlayer) storePlayer(memoryPlayer);
+			return memoryPlayer;
+		}
+		const saved = JSON.parse(stored ?? 'null');
+		if (saved && UUID.test(saved.id) && /^[\da-f]{64}$/.test(saved.token) && normalizeNickname(saved.nickname)) {
+			memoryPlayer = saved;
+			playerWritePending = false;
+		}
+		playerStorageSnapshot = stored;
 	} catch { /* Session-only identity when storage is unavailable. */ }
 	return memoryPlayer;
 }
 
 function storePlayer(player: Player): boolean {
 	memoryPlayer = player;
-	try { localStorage.setItem(PLAYER_KEY, JSON.stringify(player)); return true; } catch { return false; }
+	try {
+		const stored = JSON.stringify(player);
+		localStorage.setItem(PLAYER_KEY, stored); playerStorageSnapshot = stored; playerWritePending = false;
+		return true;
+	} catch { playerWritePending = true; return false; }
 }
 
 function pendingRuns(): PendingRun[] {
 	const entries = new Map(memoryRuns);
 	try {
-		for (let i = 0; i < localStorage.length; i++) {
-			const key = localStorage.key(i);
+		// Snapshot keys before pruning so removals cannot skip the next stored entry.
+		const keys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i));
+		for (const key of keys) {
 			if (!key?.startsWith(RUN_PREFIX)) continue;
+			const id = key.slice(RUN_PREFIX.length);
+			if (retiredRunIds.has(id)) { removeRun(id); continue; }
 			try {
 				const saved = JSON.parse(localStorage.getItem(key)!);
-				if (isRun(saved?.run) && key === RUN_PREFIX + saved.run.id && Number.isFinite(saved.queuedAt)) entries.set(saved.run.id, saved);
-			} catch { /* Ignore a corrupt queue entry. */ }
+				const run: unknown = saved?.run;
+				if (isStoredRun(run) && key === RUN_PREFIX + run.id && Number.isFinite(saved.queuedAt)
+					&& run.version >= SCORE_VERSIONS[run.game]) {
+					entries.set(run.id, { run, queuedAt: saved.queuedAt });
+					continue;
+				}
+			} catch { /* Corrupt and retired records cannot be posted by this bundle. */ }
+			try { localStorage.removeItem(key); } catch { /* Storage may be read-only. */ }
 		}
 	} catch { /* Retain the in-memory queue. */ }
-	return [...entries.values()].sort((a, b) => a.queuedAt - b.queuedAt);
+	const ordered = [...entries.values()].sort((a, b) => a.queuedAt - b.queuedAt);
+	for (const old of ordered.slice(0, -50)) removeRun(old.run.id);
+	// Preserve newer-version records from another tab, but never submit them under older rules.
+	return ordered.slice(-50).filter(entry => isRun(entry.run));
 }
 
 function removeRun(id: string): void {
 	memoryRuns.delete(id);
-	try { localStorage.removeItem(RUN_PREFIX + id); } catch { /* Already removed in memory. */ }
+	retiredRunIds.add(id);
+	try {
+		localStorage.removeItem(RUN_PREFIX + id);
+		retiredRunIds.delete(id);
+	} catch { /* Suppress the durable record until storage allows deletion. */ }
 }
 
 class RequestError extends Error {
@@ -95,13 +129,14 @@ export function recordRun(game: ArcadeGameId, score: number): void {
 		memoryRuns.set(run.id, entry);
 		try { localStorage.setItem(RUN_PREFIX + run.id, JSON.stringify(entry)); } catch { /* Retry in this session. */ }
 		// Bound offline storage. Keep the latest 50 completed runs, not arbitrary local high scores.
-		for (const old of pendingRuns().slice(0, -50)) removeRun(old.run.id);
+		pendingRuns();
 		if (!getPlayer()) announce('Choose a nickname to post your score.');
 		else void flushScores();
 	} catch { /* Score tracking must never prevent retrying a game. */ }
 }
 
 async function sync(): Promise<void> {
+	pendingRuns(); // Also prune retired records when loading a page before nickname opt-in.
 	const player = getPlayer();
 	if (!player || !API) return;
 	clearTimeout(retryTimer);

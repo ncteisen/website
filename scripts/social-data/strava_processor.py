@@ -3,8 +3,13 @@ from __future__ import annotations
 import os
 import json
 import logging
+import sys
+from pathlib import Path
 from datetime import datetime, timedelta, timezone
 from typing import TypedDict
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import public_strava_activities, public_strava_activity
 
 logger = logging.getLogger(__name__)
 
@@ -64,12 +69,12 @@ class StravaProcessor:
     def load_activities_data(self) -> list[StravaActivity]:
         """Load activities from the cached JSON file."""
         if self.activities_data is not None:
-            return self.activities_data
+            return public_strava_activities(self.activities_data)
             
         try:
             with open(self.activities_file, 'r') as f:
                 self.activities_data = json.load(f)
-            return self.activities_data
+            return public_strava_activities(self.activities_data)
         except FileNotFoundError:
             raise FileNotFoundError(
                 f"Activities file not found at {self.activities_file}. "
@@ -116,6 +121,8 @@ class StravaProcessor:
 
     def should_include_activity(self, activity: StravaActivity, exclude_commutes: bool = True) -> bool:
         """Return whether an activity should be included in public lists."""
+        if activity.get('visibility') != 'everyone' or activity.get('private') is not False:
+            return False
         if not exclude_commutes or not activity.get('commute', False):
             return True
 
@@ -136,6 +143,9 @@ class StravaProcessor:
 
     def format_activity(self, activity: StravaActivity) -> dict:
         """Format an activity into a consistent structure."""
+        activity = public_strava_activity(activity)
+        if activity is None:
+            raise ValueError('Cannot format a nonpublic activity')
         # Convert meters to miles
         distance_miles = activity.get('distance', 0) * METERS_TO_MILES
 
@@ -152,14 +162,9 @@ class StravaProcessor:
             'elapsed_time': activity.get('elapsed_time', 0),
             'elevation_gain': round(activity.get('total_elevation_gain', 0) * METERS_TO_FEET, 0),
             'average_pace': round(pace_min_per_mile, 2),
-            'average_heartrate': activity.get('average_heartrate'),
-            'max_heartrate': activity.get('max_heartrate'),
-            'average_cadence': activity.get('average_cadence'),
-            'average_watts': activity.get('average_watts'),
             'start_date': activity['start_date'],
-            'description': activity.get('description'),
             'commute': activity.get('commute', False),
-            'map': activity.get('map', {})
+            'map': {}
         }
 
     def calculate_record_stats(self, activities: list[StravaActivity]) -> dict:
@@ -190,7 +195,10 @@ class StravaProcessor:
         all_runs = self.get_activities_by_type('Run', exclude_commutes=True)
         all_bikes = self.get_activities_by_type('Ride', exclude_commutes=True)
         all_hikes = self.get_activities_by_type('Hike', exclude_commutes=True)
-        all_swims = self.get_activities_by_type('Swim', exclude_commutes=True)
+        # Lists hide short commutes; every statistics period uses all public activities.
+        stats_runs = self.get_activities_by_type('Run', exclude_commutes=False)
+        stats_bikes = self.get_activities_by_type('Ride', exclude_commutes=False)
+        all_swims = self.get_activities_by_type('Swim', exclude_commutes=False)
         
         # Sort by date and take latest N
         runs = sorted(all_runs, key=lambda x: x['start_date'], reverse=True)[:RECENT_ACTIVITY_LIMIT]
@@ -248,13 +256,13 @@ class StravaProcessor:
                 # Running stats
                 'running': {
                     'ytd': self.calculate_activity_totals(ytd_runs),
-                    'all_time': self.calculate_activity_totals(all_runs),
+                    'all_time': self.calculate_activity_totals(stats_runs),
                     'recent': self.calculate_activity_totals(recent_runs)
                 },
                 # Biking stats
                 'biking': {
                     'ytd': self.calculate_activity_totals(ytd_rides),
-                    'all_time': self.calculate_activity_totals(all_bikes),
+                    'all_time': self.calculate_activity_totals(stats_bikes),
                     'recent': self.calculate_activity_totals(recent_rides)
                 },
                 # Swimming stats

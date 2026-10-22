@@ -4,8 +4,13 @@ import json
 import logging
 import os
 import re
+import sys
+from pathlib import Path
 from datetime import date, datetime
 from email.utils import parsedate_to_datetime
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import date_sort_key, parse_date, sanitize_review_html
 
 logger = logging.getLogger(__name__)
 
@@ -38,8 +43,7 @@ def load_books_data() -> list[dict]:
     """Load books from the goodreads-fetcher data store."""
     resolved = os.path.normpath(BOOKS_DATA_FILE)
     if not os.path.exists(resolved):
-        logger.warning(f"Books data file not found: {resolved}")
-        return []
+        raise FileNotFoundError("Goodreads cache is missing; run its fetcher first")
     with open(resolved, 'r') as f:
         books = json.load(f)
     logger.info(f"Loaded {len(books)} books from data store")
@@ -50,19 +54,19 @@ def clean_review_html(text: str) -> str:
     """Strip leading/trailing <br/> tags from review HTML."""
     text = re.sub(r'^(<br\s*/?>)+', '', text)
     text = re.sub(r'(<br\s*/?>)+$', '', text)
-    return text.strip()
+    return sanitize_review_html(text)
 
 
 def convert_book_to_review(book: dict) -> dict:
     """Convert a raw book record to the review format used by the site."""
     return {
-        'title': book.get('title', ''),
-        'author': book.get('author_name', ''),
+        'title': book.get('title') or '',
+        'author': book.get('author_name') or '',
         'rating': book.get('user_rating', 0),
-        'read_at': book.get('user_read_at'),
+        'read_at': parse_date(book.get('user_read_at')).isoformat() if parse_date(book.get('user_read_at')) else None,
         'image_url': book.get('book_image_url', ''),
         'link': book.get('guid', ''),
-        'review': clean_review_html(book.get('user_review', '')),
+        'review': clean_review_html(book.get('user_review') or ''),
     }
 
 
@@ -79,10 +83,7 @@ def dedupe_reviews(reviews: list[dict]) -> list[dict]:
 
 def parse_read_at(date_str: str) -> datetime | None:
     """Parse an RFC 2822 date string into a datetime."""
-    try:
-        return parsedate_to_datetime(date_str)
-    except Exception:
-        return None
+    return parse_date(date_str)
 
 
 def calculate_stats(books: list[dict]) -> dict:
@@ -121,7 +122,7 @@ def get_goodreads_data() -> dict:
     # Filter out unrated books and books without read dates
     all_reviews = dedupe_reviews([r for r in reviews if r['rating'] > 0 and r['read_at']])
     all_reviews.sort(
-        key=lambda x: (x['read_at'] is None, parse_read_at(x['read_at']) or date.min),
+        key=lambda x: date_sort_key(x['read_at']),
         reverse=True,
     )
 
@@ -143,7 +144,6 @@ def main() -> None:
     print(f"Average rating: {stats['average_rating']}")
     print(f"Total reviews: {stats['total_reviews']}")
     print(f"Books this year: {stats['books_this_year']}")
-    print(f"Pages this year: {stats['pages_this_year']}")
     print(f"Recent reviews: {len(data['recent_reviews'])}")
 
 

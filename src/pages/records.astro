@@ -1,7 +1,10 @@
 ---
+import "../styles/tokens.css";
 import UmamiAnalytics from '../components/UmamiAnalytics.astro';
 import IconLinks from '../components/IconLinks.astro';
 import SocialPreview from '../components/SocialPreview.astro';
+import 'leaflet/dist/leaflet.css';
+import { formatActivityDate } from '../lib/dates';
 
 const socialDataModules = await import.meta.glob('../data/social_data.json');
 const socialData = (await socialDataModules['../data/social_data.json']()) as {
@@ -25,6 +28,7 @@ interface StravaActivity {
 	elevation_gain: number;
 	average_pace: number;
 	start_date: string;
+	start_date_local?: string;
 	map: { id: string; summary_polyline: string; resource_state: number };
 }
 
@@ -60,10 +64,6 @@ const rows: RecordRow[] = [
 	},
 ];
 
-const formatDate = (dateStr: string): string => {
-	const d = new Date(dateStr);
-	return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-};
 
 const formatTime = (seconds: number): string => {
 	const h = Math.floor(seconds / 3600);
@@ -87,8 +87,6 @@ const formatTime = (seconds: number): string => {
 			path="/records/"
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 		<UmamiAnalytics />
 		<style>
 			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,7 +117,7 @@ const formatTime = (seconds: number): string => {
 				display: inline-flex;
 				align-items: center;
 				gap: 8px;
-				color: #666;
+				color: var(--text-muted);
 				text-decoration: none;
 				font-size: 11px;
 				letter-spacing: 1px;
@@ -144,7 +142,7 @@ const formatTime = (seconds: number): string => {
 
 			.page-desc {
 				font-size: 14px;
-				color: #777;
+				color: var(--text-muted);
 				margin: 0;
 				line-height: 1.7;
 				max-width: 520px;
@@ -152,7 +150,7 @@ const formatTime = (seconds: number): string => {
 
 			.page-sources {
 				font-size: 12px;
-				color: #444;
+				color: var(--text-muted);
 				margin: 10px 0 0;
 				letter-spacing: 0.3px;
 			}
@@ -178,7 +176,7 @@ const formatTime = (seconds: number): string => {
 				font-size: 11px;
 				letter-spacing: 2px;
 				text-transform: uppercase;
-				color: #555;
+				color: var(--text-muted);
 				margin-bottom: 16px;
 				font-weight: 600;
 			}
@@ -203,7 +201,7 @@ const formatTime = (seconds: number): string => {
 			}
 
 			.record-card:hover .entry-link {
-				color: #3a4f7a;
+				color: #5b8ef0;
 			}
 
 			.record-card-header {
@@ -233,7 +231,7 @@ const formatTime = (seconds: number): string => {
 			:global(.record-card-map .leaflet-control-attribution) {
 				max-width: 100%;
 				background: #0a0a0a;
-				color: #626262;
+				color: var(--text-muted);
 				font-size: 8px;
 				line-height: 1.25;
 				padding: 2px 4px;
@@ -266,7 +264,7 @@ const formatTime = (seconds: number): string => {
 
 			.record-card-date {
 				font-size: 11px;
-				color: #444;
+				color: var(--text-muted);
 				letter-spacing: 1px;
 				margin-bottom: 12px;
 			}
@@ -291,7 +289,7 @@ const formatTime = (seconds: number): string => {
 
 			.entry-stat-label {
 				font-size: 10px;
-				color: #555;
+				color: var(--text-muted);
 				letter-spacing: 1.5px;
 				text-transform: uppercase;
 			}
@@ -300,7 +298,7 @@ const formatTime = (seconds: number): string => {
 				display: inline-block;
 				margin-top: 12px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				text-decoration: none;
 				letter-spacing: 0.5px;
 				transition: color 0.15s;
@@ -314,13 +312,13 @@ const formatTime = (seconds: number): string => {
 				padding-top: 24px;
 				margin-top: 36px;
 				font-size: 11px;
-				color: #333;
+				color: var(--text-muted);
 				letter-spacing: 2px;
 				text-transform: uppercase;
 			}
 
 			.page-end a {
-				color: #555;
+				color: var(--text-muted);
 				text-decoration: none;
 				transition: color 0.15s;
 			}
@@ -361,10 +359,10 @@ const formatTime = (seconds: number): string => {
 								<div class="record-card-header">
 									<span class="record-card-badge">Longest</span>
 								</div>
-								<div class="record-card-map" id={row.longestId} data-polyline={row.longest.map?.summary_polyline || ''}></div>
+								<div class="record-card-map" id={row.longestId} data-polyline={row.longest.map?.summary_polyline || ''} hidden={!row.longest.map?.summary_polyline}></div>
 								<div class="record-card-body">
 									<div class="record-card-title">{row.longest.name}</div>
-									<div class="record-card-date">{formatDate(row.longest.start_date)}</div>
+									<div class="record-card-date">{formatActivityDate(row.longest)}</div>
 									<div class="entry-stats">
 										<div class="entry-stat">
 											<span class="entry-stat-value">{row.longest.distance.toFixed(1)} mi</span>
@@ -388,10 +386,10 @@ const formatTime = (seconds: number): string => {
 								<div class="record-card-header">
 									<span class="record-card-badge">Most Elevation</span>
 								</div>
-								<div class="record-card-map" id={row.mostVertId} data-polyline={row.mostVert.map?.summary_polyline || ''}></div>
+								<div class="record-card-map" id={row.mostVertId} data-polyline={row.mostVert.map?.summary_polyline || ''} hidden={!row.mostVert.map?.summary_polyline}></div>
 								<div class="record-card-body">
 									<div class="record-card-title">{row.mostVert.name}</div>
-									<div class="record-card-date">{formatDate(row.mostVert.start_date)}</div>
+									<div class="record-card-date">{formatActivityDate(row.mostVert)}</div>
 									<div class="entry-stats">
 										<div class="entry-stat">
 											<span class="entry-stat-value">{row.mostVert.distance.toFixed(1)} mi</span>
@@ -420,40 +418,7 @@ const formatTime = (seconds: number): string => {
 		</main>
 
 		<script>
-			import { CARTO_TILE_OPTIONS, CARTO_TILE_URL } from '../lib/cartoBasemap';
-
-			const decodePolyline = (encoded: string): [number, number][] => {
-				const points: [number, number][] = [];
-				let index = 0;
-				let lat = 0;
-				let lng = 0;
-
-				while (index < encoded.length) {
-					let shift = 0;
-					let result = 0;
-					let byte: number;
-
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lat += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					shift = 0;
-					result = 0;
-					do {
-						byte = encoded.charCodeAt(index++) - 63;
-						result |= (byte & 0x1f) << shift;
-						shift += 5;
-					} while (byte >= 0x20);
-					lng += (result & 1) ? ~(result >> 1) : (result >> 1);
-
-					points.push([lat / 1e5, lng / 1e5]);
-				}
-
-				return points;
-			};
+			import { initActivityMaps } from '../lib/activityMaps';
 
 			document.addEventListener('DOMContentLoaded', () => {
 				// Record card click-to-open
@@ -464,37 +429,7 @@ const formatTime = (seconds: number): string => {
 					});
 				});
 
-				const mapContainers = document.querySelectorAll('.record-card-map');
-				mapContainers.forEach(container => {
-					const el = container as HTMLElement;
-					const polyline = el.dataset.polyline;
-					if (!polyline) return;
-
-					const points = decodePolyline(polyline);
-					if (points.length === 0) return;
-
-					const map = (window as any).L.map(el.id, {
-						zoomControl: false,
-						dragging: false,
-						scrollWheelZoom: false,
-						doubleClickZoom: false,
-						touchZoom: false,
-						boxZoom: false,
-						keyboard: false,
-					});
-
-					map.attributionControl.setPrefix(false);
-
-					(window as any).L.tileLayer(CARTO_TILE_URL, CARTO_TILE_OPTIONS).addTo(map);
-
-					const line = (window as any).L.polyline(points, {
-						color: '#5b8ef0',
-						weight: 3,
-						opacity: 0.9,
-					}).addTo(map);
-
-					map.fitBounds(line.getBounds(), { padding: [15, 15] });
-				});
+				void initActivityMaps('.record-card-map');
 			});
 		</script>
 	</body>

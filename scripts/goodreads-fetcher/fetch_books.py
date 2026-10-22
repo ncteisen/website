@@ -7,11 +7,16 @@ import json
 import time
 import logging
 import argparse
+import sys
+from pathlib import Path
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from email.utils import parsedate_to_datetime
 
 import requests
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import atomic_write_json, date_sort_key, parse_date, sanitize_review_html
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(SCRIPT_DIR, 'data', 'books.json')
@@ -33,6 +38,8 @@ class GoodreadsDataCollector:
         self.shelf = shelf
         self.existing_books = []
         self.fetched_books = []
+        self.fetch_complete = False
+        self.authoritative = False
 
     def load_existing_books(self) -> None:
         if os.path.exists(DATA_FILE):
@@ -80,10 +87,10 @@ class GoodreadsDataCollector:
             'title': title,
             'author_name': text('author_name'),
             'user_rating': user_rating,
-            'user_read_at': user_read_at,
+            'user_read_at': parse_date(user_read_at).isoformat() if parse_date(user_read_at) else None,
             'user_date_added': user_date_added,
             'user_shelves': text('user_shelves'),
-            'user_review': review_text,
+            'user_review': sanitize_review_html(review_text),
             'isbn': text('isbn'),
             'num_pages': text('num_pages'),
             'book_published': text('book_published'),
@@ -93,72 +100,56 @@ class GoodreadsDataCollector:
             'guid': text('guid'),
         }
 
-    def fetch_books(self) -> None:
-        is_backfill = self.full_refresh or len(self.existing_books) == 0
-        if is_backfill:
-            logger.info("Full refresh mode: fetching ALL pages")
-        else:
-            logger.info("Incremental mode: fetching page 1 only")
-        logger.info(f"Fetching shelf: {self.shelf or 'all'}")
-
-        page = 1
-        while True:
+    def fetch_books(self, *, max_pages: int = 200, allow_empty: bool = False) -> None:
+        self.fetch_complete = False
+        self.authoritative = self.shelf is None and (self.full_refresh or not self.existing_books)
+        paginated = self.full_refresh or not self.existing_books
+        staged = []
+        seen = set()
+        for page in range(1, max_pages + 1):
             params = {"per_page": 100, "page": page}
             if self.shelf:
-                params["shelf"] = self.shelf
-            logger.info(f"Fetching page {page}: {GOODREADS_RSS_URL}")
+                params['shelf'] = self.shelf
             response = requests.get(GOODREADS_RSS_URL, params=params, headers=HEADERS, timeout=30)
             response.raise_for_status()
-
-            root = ET.fromstring(response.content.decode('utf-8'))
+            root = ET.fromstring(response.content)
+            if root.find('channel') is None:
+                raise ValueError('Goodreads response is not an RSS channel')
             items = root.findall('.//item')
             if not items:
-                logger.info(f"No items on page {page}, done.")
-                break
-
+                if self.authoritative and self.existing_books and not staged and not allow_empty:
+                    raise RuntimeError('Refusing unexpected empty Goodreads full refresh; verify upstream before allowing it')
+                self.fetched_books = staged
+                self.fetch_complete = True
+                return
             for item in items:
                 book = self._parse_item(item)
-                if book['book_id']:
-                    self.fetched_books.append(book)
-
-            logger.info(f"Page {page}: fetched {len(items)} items")
-
-            if not is_backfill:
-                break
-
-            page += 1
+                if not book['book_id'] or book['book_id'] in seen:
+                    raise ValueError('Missing or repeated Goodreads identity; cache unchanged')
+                seen.add(book['book_id'])
+                staged.append(book)
+            if not paginated:
+                self.fetched_books = staged
+                self.fetch_complete = True
+                return
             time.sleep(1)
-
-        logger.info(f"Total fetched: {len(self.fetched_books)} books")
+        raise RuntimeError('Goodreads page limit reached before completion; cache unchanged')
 
     def update_and_save_books(self) -> None:
-        existing_dict = {b['book_id']: b for b in self.existing_books}
-        new_count = 0
-        updated_count = 0
-
-        for book in self.fetched_books:
-            if book['book_id'] in existing_dict:
-                existing_dict[book['book_id']] = book
-                updated_count += 1
-            else:
-                existing_dict[book['book_id']] = book
-                new_count += 1
-
-        all_books = list(existing_dict.values())
-        # Sort by read date descending
-        def parse_read_at(date_str: str) -> datetime:
-            try:
-                return parsedate_to_datetime(date_str)
-            except Exception:
-                return datetime.min
-
-        all_books.sort(key=lambda x: (x.get('user_read_at') is None, parse_read_at(x.get('user_read_at', ''))), reverse=True)
-
-        os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-        with open(DATA_FILE, 'w') as f:
-            json.dump(all_books, f, indent=2)
-
-        logger.info(f"Saved {len(all_books)} books ({new_count} new, {updated_count} updated)")
+        if not self.fetch_complete:
+            raise RuntimeError('Cannot save an incomplete Goodreads fetch')
+        existing = {} if self.authoritative else {b['book_id']: b for b in self.existing_books}
+        existing.update({b['book_id']: b for b in self.fetched_books})
+        books = []
+        for book in existing.values():
+            cleaned = dict(book)
+            parsed = parse_date(cleaned.get('user_read_at'))
+            cleaned['user_read_at'] = parsed.isoformat() if parsed else None
+            cleaned['user_review'] = sanitize_review_html(cleaned.get('user_review'))
+            books.append(cleaned)
+        books.sort(key=lambda item: date_sort_key(item.get('user_read_at')), reverse=True)
+        atomic_write_json(DATA_FILE, books)
+        logger.info('Saved %s Goodreads records', len(books))
 
 
 def main() -> None:
@@ -172,11 +163,12 @@ def main() -> None:
         "--shelf",
         help="Fetch a specific Goodreads shelf. Defaults to the account's all-shelf RSS feed.",
     )
+    parser.add_argument('--allow-empty-refresh', action='store_true', help='Allow a verified empty authoritative account response.')
     args = parser.parse_args()
 
     collector = GoodreadsDataCollector(full_refresh=args.full, shelf=args.shelf)
     collector.load_existing_books()
-    collector.fetch_books()
+    collector.fetch_books(allow_empty=args.allow_empty_refresh)
     collector.update_and_save_books()
 
 

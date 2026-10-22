@@ -752,7 +752,7 @@ const currentYear = new Date().getFullYear();
 
 					<div class="result-panel" id="result-panel" hidden>
 						<div class="result-main">
-							<h3 class="result-title">Your globe is likely from:</h3>
+							<h3 class="result-title" id="result-title">Your globe is likely from:</h3>
 							<p class="result-range" id="result-range"></p>
 							<p class="result-copy" id="result-copy"></p>
 							<div class="share-panel">
@@ -789,8 +789,12 @@ const currentYear = new Date().getFullYear();
 
 		<script type="application/json" id="date-my-globe-events" set:html={JSON.stringify(dateMyGlobeEvents)}></script>
 		<script>
+			import { applyGlobeConstraint, hasGlobeConflict, initialGlobeRange, nextGlobeEvent, parseGlobeAnswers } from '../../lib/dateMyGlobeChecklist';
+			import type { DateMyGlobeEvent } from '../../data/dateMyGlobeEvents';
+			import type { GlobeAnswer, GlobeRange } from '../../lib/dateMyGlobeChecklist';
+
 			const eventsElement = document.getElementById('date-my-globe-events');
-			const allEvents = JSON.parse(eventsElement?.textContent || '[]')
+			const allEvents = (JSON.parse(eventsElement?.textContent || '[]') as DateMyGlobeEvent[])
 				.sort((a, b) => (a.checklistOrder ?? a.year) - (b.checklistOrder ?? b.year) || a.id.localeCompare(b.id));
 			const events = allEvents
 				.filter((event) => event.includeInChecklist && event.beforeMap && event.afterMap)
@@ -813,6 +817,7 @@ const currentYear = new Date().getFullYear();
 			const beforeMapButton = document.getElementById('before-map-button');
 			const afterMapButton = document.getElementById('after-map-button');
 			const resultRange = document.getElementById('result-range');
+			const resultTitle = document.getElementById('result-title');
 			const resultCopy = document.getElementById('result-copy');
 			const lowerBound = document.getElementById('lower-bound');
 			const upperBound = document.getElementById('upper-bound');
@@ -827,33 +832,23 @@ const currentYear = new Date().getFullYear();
 				no: 'n',
 				unsure: 'u',
 			};
-			const answersByCode = {
-				y: 'yes',
-				n: 'no',
-				u: 'unsure',
-			};
 			const answerLabels = {
 				yes: 'After',
 				no: 'Before',
 				unsure: 'Unsure',
 			};
 
-			let earliestYear = minSupportedYear;
-			let latestYear = currentYear;
-			let earliestIndex = -1;
-			let latestIndex = events.length;
-			let currentEvent = null;
-			let lowerBoundEvent = null;
-			let upperBoundEvent = null;
-			let askedEventIds = new Set();
-			let skippedEvents = [];
-			let answerHistory = [];
+			let range = initialGlobeRange<DateMyGlobeEvent>(minSupportedYear, currentYear);
+			let currentEvent: DateMyGlobeEvent | null = null;
+			let askedEventIds = new Set<string>();
+			let answerHistory: { event: DateMyGlobeEvent; answer: GlobeAnswer; rangeAfter: GlobeRange<DateMyGlobeEvent> }[] = [];
 
 			function formatRange() {
-				return `${earliestYear}-${latestYear >= currentYear ? 'present' : latestYear}`;
+				return formatRangeSnapshot(range);
 			}
 
-			function formatRangeSnapshot(range) {
+			function formatRangeSnapshot(range: GlobeRange<DateMyGlobeEvent>) {
+				if (hasGlobeConflict(range)) return 'No matching date range';
 				return `${range.earliestYear}-${range.latestYear >= currentYear ? 'present' : range.latestYear}`;
 			}
 
@@ -866,21 +861,8 @@ const currentYear = new Date().getFullYear();
 				return Math.min(100, Math.max(0, ((year - mappedTimelineStartYear) / span) * 100));
 			}
 
-			function getCandidates() {
-				return events.filter((event) => (
-					!askedEventIds.has(event.id) &&
-					event.checklistIndex > earliestIndex &&
-					event.checklistIndex < latestIndex
-				));
-			}
-
 			function getNextEvent() {
-				const candidates = getCandidates();
-				if (!candidates.length) {
-					return null;
-				}
-
-				return candidates[Math.floor((candidates.length - 1) / 2)];
+				return nextGlobeEvent(events, askedEventIds, range);
 			}
 
 			function projectPoint(point, viewport) {
@@ -1108,7 +1090,7 @@ const currentYear = new Date().getFullYear();
 					questionTitle.textContent = currentEvent.question;
 				}
 				if (questionDescription) {
-					questionDescription.textContent = currentEvent.description;
+					questionDescription.textContent = [currentEvent.description, currentEvent.dateWindowNote].filter(Boolean).join(' ');
 				}
 				if (questionSource) {
 					if (currentEvent.sourceLabel && currentEvent.sourceUrl) {
@@ -1217,12 +1199,12 @@ const currentYear = new Date().getFullYear();
 					const left = getRangePercent(entry.rangeAfter.earliestYear);
 					const right = getRangePercent(entry.rangeAfter.latestYear);
 					window.style.left = `${left}%`;
-					window.style.width = `${Math.max(1.5, right - left)}%`;
+					window.style.width = hasGlobeConflict(entry.rangeAfter) ? '0%' : `${Math.max(1.5, right - left)}%`;
 					track.append(window);
 
 					const current = document.createElement('p');
 					current.className = 'answer-range-current';
-					current.textContent = `Possible after this answer: ${formatRangeSnapshot(entry.rangeAfter)}`;
+					current.textContent = `Possible after this answer: ${formatRangeSnapshot(entry.rangeAfter)}${entry.answer === 'no' && entry.event.beforeAnswerIsInconclusive ? '. This name does not establish an upper date bound.' : ''}`;
 
 					range.append(labels, track, current);
 
@@ -1242,19 +1224,24 @@ const currentYear = new Date().getFullYear();
 				if (resultRange) {
 					resultRange.textContent = formatRange();
 				}
+				if (resultTitle) {
+					resultTitle.textContent = hasGlobeConflict(range) ? 'These clues disagree:' : 'Your globe is likely from:';
+				}
 				if (resultCopy) {
-					resultCopy.textContent = `This range comes from the clearest confirmed before-and-after clues. It dates the political geography represented on the globe, which can be earlier than the date the object was manufactured.`;
+					resultCopy.textContent = hasGlobeConflict(range)
+						? 'The answers below do not share a date range. Check the conflicting clues and restart to revise them. Globes can also mix names and borders updated at different times.'
+						: 'This range dates the political geography represented on the globe, which can be earlier than manufacture. Clues are dated to the year, so a Before answer can include the year of the change.';
 				}
 				renderBound(
 					lowerBound,
 					'Earliest bound',
-					lowerBoundEvent,
+					range.lowerBoundEvent,
 					`No confirmed lower bound beyond the supported start year of ${minSupportedYear}.`
 				);
 				renderBound(
 					upperBound,
 					'Latest bound',
-					upperBoundEvent,
+					range.upperBoundEvent,
 					'No confirmed upper bound beyond the current event list.'
 				);
 				renderAnswerHistory();
@@ -1267,40 +1254,22 @@ const currentYear = new Date().getFullYear();
 				}
 			}
 
-			function applyAnswer(event, answer) {
+			function applyAnswer(event: DateMyGlobeEvent | null, answer: GlobeAnswer) {
 				if (!event || !answerCodes[answer] || askedEventIds.has(event.id)) {
 					return;
 				}
 
 				askedEventIds.add(event.id);
-
-				if (answer === 'yes') {
-					earliestIndex = Math.max(earliestIndex, event.checklistIndex);
-					earliestYear = Math.max(earliestYear, event.year);
-					lowerBoundEvent = event;
-				} else if (answer === 'no') {
-					latestIndex = Math.min(latestIndex, event.checklistIndex);
-					latestYear = Math.min(latestYear, event.year - 1);
-					upperBoundEvent = event;
-				} else {
-					skippedEvents.push(event);
-				}
-
-				if (latestYear < earliestYear) {
-					latestYear = earliestYear;
-				}
+				range = applyGlobeConstraint(range, event, answer);
 
 				answerHistory.push({
 					event,
 					answer,
-					rangeAfter: {
-						earliestYear,
-						latestYear,
-					},
+					rangeAfter: range,
 				});
 			}
 
-			function answerQuestion(answer) {
+			function answerQuestion(answer: GlobeAnswer) {
 				if (!currentEvent) {
 					return;
 				}
@@ -1310,15 +1279,9 @@ const currentYear = new Date().getFullYear();
 			}
 
 			function resetChecklistState() {
-				earliestYear = minSupportedYear;
-				latestYear = currentYear;
-				earliestIndex = -1;
-				latestIndex = events.length;
+				range = initialGlobeRange<DateMyGlobeEvent>(minSupportedYear, currentYear);
 				currentEvent = null;
-				lowerBoundEvent = null;
-				upperBoundEvent = null;
 				askedEventIds = new Set();
-				skippedEvents = [];
 				answerHistory = [];
 			}
 
@@ -1361,21 +1324,8 @@ const currentYear = new Date().getFullYear();
 
 				resetChecklistState();
 
-				const sharedAnswers = sharedState.split(',').map((entry) => {
-					const [eventId, code] = entry.split(':');
-					return {
-						eventId,
-						answer: answersByCode[code],
-					};
-				});
-
-				for (const sharedAnswer of sharedAnswers) {
-					const sharedEvent = eventsById.get(sharedAnswer.eventId);
-					if (!sharedEvent || !sharedAnswer.answer) {
-						continue;
-					}
-
-					applyAnswer(sharedEvent, sharedAnswer.answer);
+				for (const { event, answer } of parseGlobeAnswers(sharedState, eventsById)) {
+					applyAnswer(event, answer);
 				}
 
 				if (questionCard) {
@@ -1458,7 +1408,8 @@ const currentYear = new Date().getFullYear();
 
 			document.querySelectorAll('[data-answer]').forEach((button) => {
 				button.addEventListener('click', () => {
-					answerQuestion(button.getAttribute('data-answer'));
+					const answer = button.getAttribute('data-answer');
+					if (answer === 'yes' || answer === 'no' || answer === 'unsure') answerQuestion(answer);
 				});
 			});
 

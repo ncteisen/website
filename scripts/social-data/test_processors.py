@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+from datetime import date
 
 from goodreads_processor import calculate_stats as calculate_book_stats
 from goodreads_processor import clean_review_html, convert_book_to_review, dedupe_reviews
@@ -104,14 +105,14 @@ class TestCalculateBookStats:
                 'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)',
                 'author_name': 'J.K. Rowling',
                 'user_rating': 5,
-                'user_read_at': 'Tue, 12 May 2026 00:00:00 +0000',
+                'user_read_at': f'{date.today().year}-05-12T00:00:00+00:00',
                 'user_review': '',
             },
             {
                 'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)',
                 'author_name': 'J.K. Rowling',
                 'user_rating': 5,
-                'user_read_at': 'Tue, 12 May 2026 00:00:00 +0000',
+                'user_read_at': f'{date.today().year}-05-12T00:00:00+00:00',
                 'user_review': 'Full-cast Dolby audiobook.',
             },
         ]
@@ -169,6 +170,7 @@ class TestFormatActivity:
         activity = {
             'id': 1,
             'name': 'Morning Run',
+            'private': False, 'visibility': 'everyone',
             'type': 'Run',
             'distance': 5000,  # meters
             'moving_time': 1800,
@@ -188,6 +190,7 @@ class TestFormatActivity:
         activity = {
             'id': 2,
             'name': 'Rest',
+            'private': False, 'visibility': 'everyone',
             'type': 'Run',
             'distance': 0,
             'moving_time': 0,
@@ -227,13 +230,13 @@ class TestShouldIncludeActivity:
         self.processor = StravaProcessor()
 
     def test_includes_non_commute(self):
-        activity = {'commute': False, 'distance': 100}
+        activity = {'private': False, 'visibility': 'everyone', 'commute': False, 'distance': 100}
         assert self.processor.should_include_activity(activity)
 
     def test_excludes_short_commute(self):
-        activity = {'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES - 0.1) / METERS_TO_MILES}
+        activity = {'private': False, 'visibility': 'everyone', 'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES - 0.1) / METERS_TO_MILES}
         assert not self.processor.should_include_activity(activity)
 
     def test_includes_long_commute(self):
-        activity = {'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES + 0.1) / METERS_TO_MILES}
+        activity = {'private': False, 'visibility': 'everyone', 'commute': True, 'distance': (MIN_COMMUTE_DISTANCE_MILES + 0.1) / METERS_TO_MILES}
         assert self.processor.should_include_activity(activity)

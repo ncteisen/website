@@ -1,0 +1,14 @@
+
+> astro-test@0.0.1 test:arcade
+> npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs && node scripts/arcade/run-collection-checks.mjs
+
+
+> astro-test@0.0.1 test:sarah-jumps
+> node scripts/sarah-jumps/run-checks.mjs
+
+{"passed":true,"refreshRates":[30,60,90,120,144],"viewportHeights":[595,772,950],"seededCourses":100,"simulatedMinutes":150,"totalLandings":13885,"maxPlatforms":15,"jumpApex":"160.1"}
+{"passed":true,"game":"Flappy Sarah","refreshRates":[30,60,90,120,144],"viewportHeights":[595,772,950],"seededCourses":100,"simulatedMinutes":150,"totalPipes":6300,"maxPipes":4}
+{"passed":true,"collection":[{"game":"sarah-skis","seeds":50,"secondsPerRun":60,"minScore":1460,"runsEnded":0},{"game":"crossy-sarah","seeds":50,"secondsPerRun":60,"minScore":12,"runsEnded":36},{"game":"sarah-stacks","seeds":50,"secondsPerRun":60,"minScore":42,"runsEnded":0},{"game":"sarah-rolls","seeds":50,"secondsPerRun":60,"minScore":4751,"runsEnded":0}],"refreshRates":[30,60,90,120,144]}
+{"passed":true,"collectionInput":["touch capture","drag steering","swipe hopping","hold/release","cancellation","secondary touches","key repeat","pause","cleanup"]}
+{"passed":true,"skisProgression":{"courses":51,"secondsPerRun":180,"controls":["drag","keyboard"],"maximumSpeed":420}}
+{"passed":true,"rolls":{"seeds":50,"secondsPerRun":180,"boosts":1026,"bestMultiplier":5,"fullThrottleLosses":47,"checks":["star chain","miss reset","one-time collection","spring launches","timed gates","crumbling floors","braking","bounded effects"]}}

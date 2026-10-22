@@ -8,6 +8,9 @@ export function readBest(key: string): number {
 	}
 }
 
-export function saveBest(key: string, value: number): void {
-	try { localStorage.setItem(key, String(value)); } catch { /* Keep this session's best. */ }
+export function saveBest(key: string, value: number): number {
+	// Another open game may have saved a higher best since this controller mounted.
+	const best = Math.max(readBest(key), Number.isFinite(value) && value >= 0 ? Math.floor(value) : 0);
+	try { localStorage.setItem(key, String(best)); } catch { /* Keep this session's best. */ }
+	return best;
 }

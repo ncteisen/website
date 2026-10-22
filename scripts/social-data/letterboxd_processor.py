@@ -5,7 +5,12 @@ from __future__ import annotations
 import json
 import logging
 import os
+import sys
+from pathlib import Path
 from datetime import datetime, timezone
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import date_sort_key, sanitize_review_html
 
 logger = logging.getLogger(__name__)
 
@@ -20,8 +25,7 @@ def load_films_data() -> list[dict]:
     """Load films from the letterboxd-fetcher data store."""
     resolved = os.path.normpath(FILMS_DATA_FILE)
     if not os.path.exists(resolved):
-        logger.warning(f"Films data file not found: {resolved}")
-        return []
+        raise FileNotFoundError("Letterboxd cache is missing; run its fetcher first")
     with open(resolved, 'r') as f:
         films = json.load(f)
     logger.info(f"Loaded {len(films)} films from data store")
@@ -36,7 +40,7 @@ def convert_film_to_review(film: dict) -> dict:
         'rating': film.get('rating', 0),
         'watched_date': film.get('watched_date'),
         'is_rewatch': film.get('is_rewatch', False),
-        'review': film.get('review', ''),
+        'review': sanitize_review_html(film.get('review', '')),
         'image_url': film.get('image_url', ''),
         'link': film.get('link', ''),
     }
@@ -65,7 +69,7 @@ class LetterboxdProcessor:
         """Load films from data store and compute stats."""
         films = load_films_data()
         all_reviews = [convert_film_to_review(f) for f in films]
-        all_reviews.sort(key=lambda x: (x['watched_date'] is None, x['watched_date']), reverse=True)
+        all_reviews.sort(key=lambda x: date_sort_key(x['watched_date']), reverse=True)
 
         return {
             'username': self.username,

@@ -56,7 +56,25 @@ const airborne = new Skis(() => 0.5); airborne.x = airborne.rows[0].trees[0]; ai
 const crossy = new Crossy(() => 0.5); crossy.row = 3; const road = crossy.lanes.find(l => l.row === 3)!; road.phase = crossy.x; crossy.update(1/120, idleControls()); assert.ok(crossy.ended, 'cars collide');
 const river = new Crossy(() => 0.5); river.row = 6; const water = river.lanes.find(l => l.row === 6)!; water.phase = 50; river.x = 220; river.update(1/120, idleControls()); assert.ok(river.ended, 'water between logs is a collision');
 const stack = new Stacks(); stack.moving.x = 399; stack.act('primary'); assert.ok(stack.ended, 'a missed drop ends the run');
-const perfect = new Stacks(); for (let i=0;i<3;i++) { perfect.cooldown = 0; perfect.moving.x = perfect.top.x; perfect.act('primary'); } assert.equal(perfect.top.width, 206, 'three perfect drops restore width');
+const perfect = new Stacks(); perfect.top.width = 160; perfect.moving.width = 160;
+for (let i=0;i<3;i++) { perfect.cooldown = 0; perfect.moving.x = perfect.top.x; perfect.act('primary'); }
+assert.equal(perfect.top.width, 176, 'three perfect drops restore lost width');
+const longStack = new Stacks();
+for (let i = 0; i < 120 * 180; i++) {
+	longStack.update(1 / 120, idleControls());
+	assert.ok(longStack.moving.x >= 0 && longStack.moving.x + longStack.moving.width <= 400, 'moving blocks stay inside the playfield');
+	assert.ok(longStack.top.width <= 190, 'perfect bonuses cannot grow beyond the starting width');
+	// Include pauses between legal drops, rather than dropping immediately at every cooldown.
+	if (longStack.time > longStack.score * 1.5 && !longStack.cooldown && Math.abs(longStack.moving.x - longStack.top.x) < 2) longStack.act('primary');
+}
+assert.ok(longStack.score > 80 && !longStack.ended, 'perfect stacks remain playable well past the old full-width boundary');
+const wideStack = new Stacks(); wideStack.moving.width = 400;
+for (let i = 0; i < 240; i++) { wideStack.update(1 / 120, idleControls()); assert.equal(wideStack.moving.x, 0, 'zero travel never sends a block offscreen'); }
+const narrowTravel = new Stacks(); narrowTravel.moving.width = 399;
+for (let i = 0; i < 240; i++) {
+	narrowTravel.update(1 / 120, idleControls());
+	assert.ok(narrowTravel.moving.x >= 0 && narrowTravel.moving.x <= 1, 'multiple edge crossings in one tick stay bounded');
+}
 const roll = new Rolls(); roll.y = 800; roll.update(1/120, idleControls()); assert.ok(roll.ended, 'falling below the course ends a run');
 for (const world of [skis, crossy, river, stack, roll]) { const snapshot = JSON.stringify(world); world.act('primary'); world.update(1, idleControls()); assert.equal(JSON.stringify(world), snapshot, 'finished worlds stay frozen'); }
 console.log(JSON.stringify({ passed: true, collection: reports, refreshRates: [30,60,90,120,144] }));

@@ -2,50 +2,57 @@ name: Fetch Social Data
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # 3 AM Pacific (UTC-7/8)
-  workflow_dispatch:  # Allow manual triggering
+    - cron: '0 10 * * *'  # 3 AM PDT / 2 AM PST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One authoritative writer, including token rotation. Never cancel mid-refresh.
+concurrency:
+  group: social-data-writer
+  cancel-in-progress: false
 
 jobs:
   fetch-data:
     runs-on: ubuntu-latest
-    
+    # Environment secrets are read when this serialized job starts. Repository
+    # secrets are snapshotted earlier, when queued, and can hold a stale token.
+    environment: strava-sync
+    timeout-minutes: 20
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.12'
-    
-    - name: Install dependencies
+    - name: Install dependencies in virtualenv
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    
-    - name: Create .env file
-      run: |
-        echo "STRAVA_CLIENT_ID=${{ secrets.STRAVA_CLIENT_ID }}" > .env
-        echo "STRAVA_CLIENT_SECRET=${{ secrets.STRAVA_CLIENT_SECRET }}" >> .env
-        echo "STRAVA_REFRESH_TOKEN=${{ secrets.STRAVA_REFRESH_TOKEN }}" >> .env
-
-    - name: Fetch strava activities data
-      run: python scripts/strava-fetcher/fetch_activities.py
-
+        python -m venv .venv
+        .venv/bin/python -m pip install -r requirements.txt
+    - name: Validate offline pipeline behavior
+      run: .venv/bin/python -m pytest scripts/ -q
+    - name: Fetch public Strava projection with durable private token state
+      env:
+        STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+        STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+        STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        STRAVA_TOKEN_STATE_ENVIRONMENT: strava-sync
+        # Explicit setup required: fine-grained credential for this repository
+        # with Environments read/write. The token secret must exist in strava-sync.
+        STRAVA_TOKEN_STATE_WRITE_TOKEN: ${{ secrets.STRAVA_TOKEN_STATE_WRITE_TOKEN }}
+      run: .venv/bin/python scripts/strava-fetcher/fetch_activities.py
     - name: Fetch Goodreads books data
-      run: python scripts/goodreads-fetcher/fetch_books.py --full
-
+      run: .venv/bin/python scripts/goodreads-fetcher/fetch_books.py --full
     - name: Fetch Letterboxd films data
-      run: python scripts/letterboxd-fetcher/fetch_films.py
-
-    - name: Run social data orchestrator
-      run: python scripts/social-data/orchestrate.py
-    
-    - name: Clean up .env file
-      run: rm .env
-    
-    - name: Commit and push if changed
+      run: .venv/bin/python scripts/letterboxd-fetcher/fetch_films.py
+    - name: Build validated social data
+      run: .venv/bin/python scripts/social-data/orchestrate.py
+    - name: Commit public data if changed
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Social Data Fetcher Action"
         git add src/data/social_data.json scripts/strava-fetcher/data/activities.json scripts/goodreads-fetcher/data/books.json scripts/letterboxd-fetcher/data/films.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update social data and Strava activities [skip ci]" && git push)
+        if ! git diff --cached --quiet; then
+          git commit -m "Update public social data [skip ci]"
+          git push
+        fi

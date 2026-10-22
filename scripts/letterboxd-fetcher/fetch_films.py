@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import os
+import sys
+import argparse
+from pathlib import Path
 import json
 import logging
 import xml.etree.ElementTree as ET
 
 import requests
 from bs4 import BeautifulSoup
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import atomic_write_json, date_sort_key, sanitize_review_html
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(SCRIPT_DIR, 'data', 'films.json')
@@ -29,6 +35,7 @@ class LetterboxdDataCollector:
     def __init__(self):
         self.existing_films = []
         self.fetched_films = []
+        self.fetch_complete = False
 
     def load_existing_films(self) -> None:
         if os.path.exists(DATA_FILE):
@@ -72,7 +79,7 @@ class LetterboxdDataCollector:
                 while current and current.name == 'p':
                     review_paragraphs.append(current)
                     current = current.find_next_sibling()
-            review_text = ''.join(str(p) for p in review_paragraphs)
+            review_text = sanitize_review_html(''.join(str(p) for p in review_paragraphs))
 
             return {
                 'guid': guid,
@@ -91,21 +98,28 @@ class LetterboxdDataCollector:
             return None
 
     def fetch_films(self) -> None:
+        self.fetch_complete = False
+        self.fetched_films = []
         logger.info(f"Fetching RSS from {RSS_URL}")
         response = requests.get(RSS_URL, timeout=30)
         response.raise_for_status()
 
         root = ET.fromstring(response.content.decode('utf-8'))
         channel = root.find('channel')
+        if channel is None:
+            raise ValueError('Letterboxd response is not an RSS channel')
 
         for item in channel.findall('item'):
             film = self._parse_item(item)
             if film:
                 self.fetched_films.append(film)
 
+        self.fetch_complete = True
         logger.info(f"Fetched {len(self.fetched_films)} films from RSS")
 
     def update_and_save_films(self) -> None:
+        if not self.fetch_complete:
+            raise RuntimeError('Cannot save an incomplete Letterboxd fetch')
         existing_dict = {f['guid']: f for f in self.existing_films}
         new_count = 0
         updated_count = 0
@@ -119,19 +133,29 @@ class LetterboxdDataCollector:
                 new_count += 1
 
         all_films = list(existing_dict.values())
-        all_films.sort(key=lambda x: (x.get('watched_date') is None, x.get('watched_date', '')), reverse=True)
+        all_films.sort(key=lambda x: date_sort_key(x.get('watched_date')), reverse=True)
+        for film in all_films:
+            film['review'] = sanitize_review_html(film.get('review'))
 
-        os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
-        with open(DATA_FILE, 'w') as f:
-            json.dump(all_films, f, indent=2)
+        atomic_write_json(DATA_FILE, all_films)
 
         logger.info(f"Saved {len(all_films)} films ({new_count} new, {updated_count} updated)")
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description='Sync the recent RSS window; it is not an authoritative full history.')
+    parser.add_argument('--remove-guid', action='append', default=[], help='Remove a verified deleted entry from the local cache without fetching; repeat for multiple entries.')
+    args = parser.parse_args()
     collector = LetterboxdDataCollector()
     collector.load_existing_films()
-    collector.fetch_films()
+    if args.remove_guid:
+        existing_ids = {film['guid'] for film in collector.existing_films}
+        if not set(args.remove_guid) <= existing_ids:
+            raise ValueError('A requested removal does not exist; cache unchanged')
+        collector.existing_films = [film for film in collector.existing_films if film['guid'] not in args.remove_guid]
+        collector.fetch_complete = True
+    else:
+        collector.fetch_films()
     collector.update_and_save_films()
 
 

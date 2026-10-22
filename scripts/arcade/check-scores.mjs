@@ -35,7 +35,7 @@ try {
 	assert.equal((await send('/runs', alice, { ...first, score: 90 })).status, 409);
 	assert.equal((await send('/runs', bob, first)).status, 409);
 	assert.equal((await board())[0].score, 20, 'Conflicting retry must not inflate best');
-	for (const game of ['sarah-skis', 'sarah-rolls']) {
+	for (const game of ['sarah-skis', 'sarah-rolls', 'sarah-stacks']) {
 		const old = run(game, 9999);
 		await db.prepare('INSERT INTO runs(id, player_id, game, version, score) VALUES (?, ?, ?, ?, ?)').bind(old.id, alice.id, game, 1, old.score).run();
 		assert.equal((await send('/runs', alice, run(game, 100))).status, 400, 'Retired game versions cannot enter new boards');
@@ -66,6 +66,16 @@ try {
 	assert.equal((await send('/runs', alice, null, { method: 'OPTIONS' })).status, 204);
 	assert.equal((await send('/players', alice, null, { method: 'POST', body: '{broken' })).status, 400);
 	assert.equal((await send('/players', alice, { nickname: 'a'.repeat(3000) })).status, 413);
+	const protectedPlayer = player();
+	assert.equal((await send('/players', protectedPlayer, { nickname: 'Protected' })).status, 200);
+	const forged = { ...protectedPlayer, secret: randomBytes(32).toString('hex') };
+	for (let i = 0; i < 65; i++) {
+		const path = i % 2 ? '/runs' : '/players';
+		const body = path === '/runs' ? run('sarah-jumps', 1) : { nickname: 'Not the owner' };
+		assert.equal((await send(path, forged, body, { headers: { ...headers(forged), 'CF-Connecting-IP': '192.0.2.2' } })).status, 403, 'Wrong secrets cannot consume the public player ID write quota');
+	}
+	assert.equal((await send('/players', protectedPlayer, { nickname: 'Still protected' })).status, 200, 'The real owner can rename after forged requests');
+	assert.equal((await send('/runs', protectedPlayer, run('sarah-jumps', 1))).status, 200, 'The real owner can submit after forged requests');
 	const limited = player();
 	for (let i = 0; i < 65; i++) {
 		const response = await send('/players', limited, { nickname: 'Limit test' });

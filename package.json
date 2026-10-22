@@ -17,7 +17,10 @@
     "test:arcade": "npm run test:sarah-jumps && node scripts/arcade/run-checks.mjs && node scripts/arcade/run-collection-checks.mjs",
     "dev:scores": "wrangler dev --config workers/arcade/wrangler.jsonc --var ALLOWED_ORIGINS:http://localhost:4321,http://127.0.0.1:4321",
     "test:scores": "tsc -p workers/arcade/tsconfig.json && tsc -p scripts/arcade/tsconfig.scores.json && node scripts/arcade/check-scores.mjs && node scripts/arcade/check-score-client.mjs",
-    "deploy:scores": "wrangler d1 migrations apply DB --remote --config workers/arcade/wrangler.jsonc && wrangler deploy --config workers/arcade/wrangler.jsonc"
+    "deploy:scores": "wrangler d1 migrations apply DB --remote --config workers/arcade/wrangler.jsonc && wrangler deploy --config workers/arcade/wrangler.jsonc",
+    "check:types": "tsc --noEmit",
+    "test:site": "node scripts/site/run-checks.mjs",
+    "test:projects": "node scripts/projects/run-checks.mjs"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",

@@ -1,0 +1,39 @@
+name: Validate website
+
+on:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - name: Python environment
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements.txt
+      - run: npm run check:types
+      - run: npm run test:site
+      - run: npm run test:projects
+      - run: npm run test:arcade
+      - run: npm run test:scores
+      - run: npm run test:codewords
+      - run: .venv/bin/python -m pytest scripts/ -q
+      - run: npm run build
+      - run: npm run validate:date-my-globe
+      - run: npm run audit:date-my-globe-copy
+      - run: npm run audit:date-my-globe-maps

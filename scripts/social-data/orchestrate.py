@@ -4,8 +4,12 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline_utils import atomic_write_json
 
 from letterboxd_processor import create_letterboxd_processor
 from goodreads_processor import get_goodreads_data
@@ -19,7 +23,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-OUTPUT_DIR = Path('src/data')
+OUTPUT_DIR = Path(__file__).resolve().parents[2] / 'src' / 'data'
 OUTPUT_FILE = OUTPUT_DIR / 'social_data.json'
 
 def ensure_output_directory() -> None:
@@ -32,58 +36,28 @@ def ensure_output_directory() -> None:
         raise
 
 def save_data(data: dict) -> None:
-    """Save the fetched data to a JSON file."""
-    try:
-        with open(OUTPUT_FILE, 'w') as f:
-            json.dump(data, f, indent=2)
-        logger.info(f"Data saved successfully to {OUTPUT_FILE}")
-    except Exception as e:
-        logger.error(f"Failed to save data: {e}")
-        raise
+    """Replace the combined output only after every source passes validation."""
+    atomic_write_json(OUTPUT_FILE, data)
+    logger.info("Combined social data saved")
+
 
 def main() -> None:
-    """Main function to process and save social media data."""
-    try:
-        # Ensure output directory exists
-        ensure_output_directory()
+    # Any source failure aborts before the last-known-good output is replaced.
+    letterboxd = create_letterboxd_processor().get_data()
+    goodreads = get_goodreads_data()
+    strava = StravaProcessor().get_recent_activities_data()
+    for source, arrays in ((letterboxd, ('all_reviews', 'recent_reviews')),
+                           (goodreads, ('all_reviews', 'recent_reviews')),
+                           (strava, ('all_activities', 'recent_runs', 'recent_bikes', 'recent_hikes'))):
+        if not isinstance(source, dict) or not isinstance(source.get('stats'), dict):
+            raise ValueError('Invalid social data source schema')
+        if any(not isinstance(source.get(key), list) for key in arrays):
+            raise ValueError('Invalid social data source lists')
+    data = {'last_updated': datetime.now(timezone.utc).isoformat(),
+            'letterboxd': letterboxd, 'goodreads': goodreads, 'strava': strava}
+    ensure_output_directory()
+    save_data(data)
 
-        # Initialize data structure
-        data = {
-            'last_updated': datetime.utcnow().isoformat(),
-            'letterboxd': {},
-            'goodreads': {},
-            'strava': {},
-        }
-
-        # Process Letterboxd data
-        try:
-            letterboxd_processor = create_letterboxd_processor()
-            data['letterboxd'] = letterboxd_processor.get_data()
-            logger.info("Successfully processed Letterboxd data")
-        except Exception as e:
-            logger.error(f"Failed to process Letterboxd data: {e}")
-
-        # Process Goodreads data
-        try:
-            data['goodreads'] = get_goodreads_data()
-            logger.info("Successfully processed Goodreads data")
-        except Exception as e:
-            logger.error(f"Failed to process Goodreads data: {e}")
-
-        # Process Strava data
-        try:
-            strava_processor = StravaProcessor()
-            data['strava'] = strava_processor.get_recent_activities_data()
-            logger.info("Successfully processed Strava data")
-        except Exception as e:
-            logger.error(f"Failed to process Strava data: {e}")
-
-        # Save the data
-        save_data(data)
-
-    except Exception as e:
-        logger.error(f"An error occurred: {e}")
-        raise
 
 if __name__ == '__main__':
     main()

@@ -17,9 +17,20 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 jobs:
+  validate:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master')
+    uses: ./.github/workflows/validate.yml
+    permissions:
+      contents: read
   build:
+    needs: validate
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -35,6 +46,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
