@@ -1,7 +1,6 @@
-import { resolve } from 'node:path';
+import { loadGlobeEvents } from './load-events.mjs';
 
-const repoRoot = resolve(import.meta.dirname, '../..');
-const { dateMyGlobeEvents } = await import(resolve(repoRoot, 'src/data/dateMyGlobeEvents.ts'));
+const { dateMyGlobeEvents } = await loadGlobeEvents();
 
 const projectPoint = ([lon, lat], viewport) => [
 	((lon - viewport.west) / (viewport.east - viewport.west)) * 100,
