@@ -4085,7 +4085,7 @@
     "type": "Ride",
     "sport_type": "Ride",
     "start_date": "2025-08-28T14:21:06Z",
-    "commute": false,
+    "commute": true,
     "private": false,
     "visibility": "everyone",
     "distance": 35996.9,
