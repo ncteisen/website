@@ -88,3 +88,12 @@ The `strava-sync` environment and its four required secrets were provisioned on 
 The sanitized artifacts remove the old data from the current public site/repository snapshot when deployed. Existing Git history, clones, and external caches remain a separate privacy-remediation decision. Route maps remain omitted until a policy can verify endpoint masking and route visibility.
 
 The audit's broader opportunities—dependency upgrades, payload reduction, complete accessibility/transcript work, historical fact checking, and architectural cleanup—remain follow-up work. They were not presented as reproduced application bugs and were not folded into this fix batch.
+
+## Release verification — October 22
+
+- Fix commit `f5ffdb7`; Node 22.12 audit-loader correction `a630e60`. The full [Pages validation/build/deployment](https://github.com/ncteisen/website/actions/runs/39856791657) passed. The compatibility fix was also tested using the exact CI Node version locally.
+- Score Worker version `66b3cd26-c014-4f55-9336-03c44144a95d` deployed before Pages. Health reports Stacks version 2; all-time and weekly boards return 200 with the expected CORS policy. The existing sole D1 migration was verified applied with a SELECT-only query; no schema changes were needed.
+- Nine live website routes returned 200; eight emitted script assets matched the build using production public settings. Public activity checks found zero excluded activity links and zero populated route attributes. The live homepage keyboard disclosure expanded correctly.
+- Private token persistence succeeded in the first live attempt, but activity access rejected the local seed. The previously working repository grant was then transferred directly inside GitHub by a guarded [secret-only migration](https://github.com/ncteisen/website/actions/runs/39857294306), with no token values in output. Temporary migration workflows were removed afterward. The environment remains restricted to `master`, and CI owns refreshes.
+
+The first live attempt correctly failed before publishing partial data. Subsequent complete refresh and deployment results are available under the repository's Fetch Social Data and Deploy to GitHub Pages Actions runs. Existing public history remediation remains separate.
