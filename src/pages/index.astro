@@ -347,6 +347,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			.career-item {
 				display: flex;
 				gap: 28px;
+				cursor: pointer;
 				border-top: 1px solid #181818;
 				padding: 22px 0;
 			}
@@ -373,7 +374,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				display: flex;
 				justify-content: space-between;
 				align-items: baseline;
-				margin-bottom: 8px;
+				margin-bottom: 3px;
 				width: 100%;
 				padding: 0;
 				border: 0;
@@ -419,6 +420,16 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			.career-role {
 				font-size: 13px;
 				color: var(--text-muted);
+			}
+
+			.career-details {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+			}
+
+			.career-item.expanded .career-details {
+				max-height: 2000px;
 			}
 
 			.career-details-inner {
@@ -957,7 +968,7 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 							</button>
 							<div class="career-role">{exp.title}</div>
 							{exp.hasDetails && (
-								<div class="career-details" id={`career-details-${index}`} hidden>
+								<div class="career-details" id={`career-details-${index}`} inert>
 									<div class="career-details-inner">
 										{exp.detailsDescription && <p class="career-desc">{exp.detailsDescription}</p>}
 										{exp.items.length > 0 && (
@@ -1160,11 +1171,11 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 				document.querySelectorAll('[data-career]').forEach(item => {
 					const button = item.querySelector<HTMLButtonElement>('.career-head');
 					const details = item.querySelector<HTMLElement>('.career-details');
-					button?.addEventListener('click', () => {
-						if (!details) return;
+					item.addEventListener('click', (event) => {
+						if (!button || !details || (event.target as HTMLElement).closest('a')) return;
 						const expanded = item.classList.toggle('expanded');
 						button.setAttribute('aria-expanded', String(expanded));
-						details.hidden = !expanded;
+						details.inert = !expanded;
 					});
 				});
 

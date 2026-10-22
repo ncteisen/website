@@ -54,18 +54,22 @@ try {
 	// Exercise the actual homepage event wiring without loading optional maps.
 	const homepage = readFileSync('src/pages/index.astro', 'utf8');
 	assert.match(homepage, /class="career-head" aria-expanded="false" aria-controls=/);
-	assert.match(homepage, /class="career-details"[^>]+hidden/);
+	assert.match(homepage, /class="career-details"[^>]+inert/);
 	assert.equal((homepage.match(/<a class="review-card-link" href=/g) || []).length, 2);
 	const classes = new Set();
-	const button = { addEventListener: (_, callback) => button.click = callback, setAttribute: (key, value) => button[key] = value };
-	const details = { hidden: true };
-	const career = { querySelector: selector => selector === '.career-head' ? button : details, classList: { toggle: name => { if (classes.delete(name)) return false; classes.add(name); return true; } } };
+	const button = { setAttribute: (key, value) => button[key] = value };
+	const details = { inert: true };
+	const career = { addEventListener: (_, callback) => career.click = callback, querySelector: selector => selector === '.career-head' ? button : details, classList: { toggle: name => { if (classes.delete(name)) return false; classes.add(name); return true; } } };
 	let ready;
 	const context = vm.createContext({ document: { addEventListener: (_, callback) => ready = callback, querySelectorAll: selector => selector === '[data-career]' ? [career] : [] }, window: { __STATS_DATA__: {} }, initActivityMaps: async () => {} });
 	const script = homepage.match(/<script>([\s\S]*?)<\/script>/)[1].replace(/^\s*import .*;\s*$/gm, '');
 	vm.runInContext((await transform(script, { loader: 'ts' })).code, context);
-	ready(); button.click(); assert.equal(details.hidden, false); assert.equal(button['aria-expanded'], 'true');
-	button.click(); assert.equal(details.hidden, true); assert.equal(button['aria-expanded'], 'false');
+	ready();
+	const rowClick = { target: { closest: () => null } };
+	career.click(rowClick); assert.equal(details.inert, false); assert.equal(button['aria-expanded'], 'true');
+	career.click({ target: { closest: () => ({}) } });
+	assert.equal(details.inert, false, 'following a career link must not collapse its content');
+	career.click(rowClick); assert.equal(details.inert, true); assert.equal(button['aria-expanded'], 'false');
 
 	// Use actual legacy room handlers to solve twice in one session.
 	const story = [], commands = [];
