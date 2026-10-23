@@ -8,7 +8,7 @@ export const CARTO_TILE_URL = cartoBasemapKey
 export const CARTO_TILE_OPTIONS = {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	// Keep the street network behind the activity route visually.
-	opacity: 0.6,
+	opacity: 0.35,
 	maxZoom: 19,
 	subdomains: 'abcd',
 };
