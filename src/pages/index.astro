@@ -423,17 +423,26 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 			}
 
 			.career-details {
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
+				display: grid;
+				grid-template-rows: 0fr;
+				transition: grid-template-rows 0.3s ease;
 			}
 
 			.career-item.expanded .career-details {
-				max-height: 2000px;
+				grid-template-rows: 1fr;
 			}
 
 			.career-details-inner {
+				min-height: 0;
+				overflow: hidden;
+			}
+
+			.career-details-content {
 				padding-top: 24px;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.career-details, .career-arrow { transition: none; }
 			}
 
 			.career-desc {
@@ -970,14 +979,16 @@ const featuredProjects = projects.filter((project) => project.featured || projec
 							{exp.hasDetails && (
 								<div class="career-details" id={`career-details-${index}`} inert>
 									<div class="career-details-inner">
-										{exp.detailsDescription && <p class="career-desc">{exp.detailsDescription}</p>}
-										{exp.items.length > 0 && (
-											<ul class="career-bullets">
-												{exp.items.map((item) => (
-													<li set:html={item.web_text ?? item.text}></li>
-												))}
-											</ul>
-										)}
+										<div class="career-details-content">
+											{exp.detailsDescription && <p class="career-desc">{exp.detailsDescription}</p>}
+											{exp.items.length > 0 && (
+												<ul class="career-bullets">
+													{exp.items.map((item) => (
+														<li set:html={item.web_text ?? item.text}></li>
+													))}
+												</ul>
+											)}
+										</div>
 									</div>
 								</div>
 							)}
