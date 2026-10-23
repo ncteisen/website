@@ -479,6 +479,26 @@ def test_review_html_is_sanitized_at_both_processor_boundaries():
         assert 'noopener noreferrer' in cleaned
 
 
+@pytest.mark.parametrize('tag', ['s', 'del', 'strike'])
+def test_review_strikethrough_survives_fetch_cache_and_processors(tag, monkeypatch, tmp_path):
+    payload = f'<p><{tag} onclick="bad()" style="color:red"><em>old wording</em></{tag}> new wording<script>bad()</script></p>'
+    expected = f'<p><{tag}><em>old wording</em></{tag}> new wording</p>'
+    item = gf.ET.fromstring(f'<item><book_id>1</book_id><description><![CDATA[review: {payload}]]></description></item>')
+    collector = gf.GoodreadsDataCollector()
+    parsed = collector._parse_item(item)
+    assert parsed['user_review'] == expected
+    cache = tmp_path / 'books.json'
+    monkeypatch.setattr(gf, 'DATA_FILE', str(cache))
+    collector.fetched_books = [parsed]
+    collector.fetch_complete = True
+    collector.update_and_save_books()
+    saved = json.loads(cache.read_text())[0]
+    assert saved['user_review'] == expected
+    assert gp.convert_book_to_review(saved)['review'] == expected
+    assert lp.convert_film_to_review({'review': payload})['review'] == expected
+    assert sanitize_review_html(expected) == expected
+
+
 def test_favorite_optimization_survives_metadata_refresh(monkeypatch, tmp_path):
     items = ['https://example.com/book']
     opt.update_favorite_cover(items, items[0], '/images/favorites/books/fixture.jpg')

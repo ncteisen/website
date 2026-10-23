@@ -61,7 +61,7 @@ def sanitize_review_html(value: object) -> str:
     blocked = {'script', 'style', 'iframe', 'object', 'embed', 'svg', 'math',
                'form', 'input', 'button', 'template', 'link', 'meta', 'img',
                'video', 'audio', 'source'}
-    allowed = {'p', 'br', 'strong', 'em', 'b', 'i', 'u', 'blockquote', 'ul', 'ol', 'li', 'a'}
+    allowed = {'p', 'br', 'strong', 'em', 'b', 'i', 'u', 's', 'del', 'strike', 'blockquote', 'ul', 'ol', 'li', 'a'}
     for tag in list(soup.find_all(True)):
         if tag.name is None:
             continue
