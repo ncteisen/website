@@ -1,5 +1,23 @@
 [
   {
+    "id": 20705571838,
+    "name": "Afternoon Run",
+    "type": "Run",
+    "sport_type": "Run",
+    "start_date": "2026-10-23T22:17:49Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "{qpeFflhjVALFdAHf@@hAPlADhAF^Jd@@RLt@KdA?TFpAD\\@l@Dl@@r@B\\?RCPAv@Hf@DDFR@ZDV?`ADP?dAEh@Op@A\\DfAEh@?f@@HVz@P\\NRP`@Nt@Bz@HbA?XP`B@|@AtAFd@?THl@Nd@@REh@Bp@Af@T~ANl@Fh@Bf@C`@DnAANPp@@^QnA@j@F`@v@~BDf@?`@Gn@[z@CTBr@L`AFv@EPAT\\pAVz@R~AHnA?|@G~@ENCDWHc@@WKSOq@gAwAkB[Wa@COFQDa@T[ZULSTOPSj@Kb@Ij@?fANnBNtARbAd@|CNnBF~ALv@Nd@V\\`@Zh@Vf@d@R`@Vx@Vh@?h@K\\ATM\\I`ARk@?qAf@gBDYRgC\\yCLsBTiC"
+    },
+    "distance": 3753.1,
+    "moving_time": 1283,
+    "elapsed_time": 1336,
+    "total_elevation_gain": 49.0,
+    "average_speed": 2.925
+  },
+  {
     "id": 20689141834,
     "name": "Foggy dogs",
     "type": "Run",
