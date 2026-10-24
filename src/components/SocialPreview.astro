@@ -13,7 +13,7 @@ const {
 	image = '/images/og-image.png',
 } = Astro.props;
 
-const siteUrl = 'https://noaheisen.com';
+const siteUrl = Astro.site;
 const url = new URL(path, siteUrl).toString();
 const imageUrl = new URL(image, siteUrl).toString();
 ---

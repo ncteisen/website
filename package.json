@@ -23,6 +23,7 @@
     "test:projects": "node scripts/projects/run-checks.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@mapbox/polyline": "^1.2.1",
     "astro": "^6.2.2",
     "leaflet": "^1.9.4"
