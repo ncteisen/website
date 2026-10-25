@@ -1,5 +1,23 @@
 [
   {
+    "id": 20716051315,
+    "name": "Morning Run",
+    "type": "Run",
+    "sport_type": "Run",
+    "start_date": "2026-10-24T15:56:21Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "}h|eFx~pjVKr@EzAD\\Ph@MOSo@IcBLuBt@uD\\i@~@_@n@Or@DTCh@`ARpAB`BZzAWhAAZJ^\\XnA\\z@G~@a@^?RHJd@Qn@q@`@sAPaCl@m@Kq@B_@GMDEJBJZb@Tv@b@Pj@t@dBv@cCLu@KIF~@h@fA\\tARtA@f@UdAaBb@Kd@LV\\Hf@BhBEvBDd@Rf@zA`BHT?h@Kr@a@bAi@v@k@HsFA_@HwA~@wB~@_@\\c@|@y@j@u@hAIVAZp@pBFd@Ej@g@dAAb@L\\j@`@RXJ`@Av@GZe@p@mBbA[`@I\\a@pECd@Hh@b@`AjAvAtA`@zAVp@f@VhAG~BFnAh@`CZ\\nATd@VZ\\\\bAXb@NJ\\Dl@IjCk@pAy@hB[b@d@FlAj@lAd@b@hB~@PTb@VDz@]d@YF_BA[N]G^dA?NmAvAIQLy@_AvAG^DXJLZ?ZKJDNXzAo@j@IJp@eAv@_@v@?JRr@y@bB@d@MVDT?p@XfAJBLIX\\^n@r@jB\\\\dAj@Zr@b@lBFv@Ir@_@fAA\\F\\r@~ALnAOh@_Ax@SZi@hF[jAcBjCiBt@i@?}@U_@_@g@u@q@_@kA@s@]}@AiDgAi@G`CyP@m@PcBSgABMVMBSKcDHqCCw@CsBIEIBg@rASXaCrCyAbAw@tAODQOUi@_AcDCi@JcB?cAO}AUw@iAeA_@Sq@@cBb@_@Sc@m@Gm@D[N]tAmBnBoAlBgCNk@?QMYiBwA}@qAy@OcBFKGOYMg@Ce@Dm@No@j@gBf@eCHuAb@{ALaBU_A_@D_@Zy@@Y_@i@m@c@_@i@w@Kc@PkAMcAUq@q@e@uA]gA?iA{@MCcBb@sAP]Ao@WW]Ka@G_AJ{@IgAG[_@s@CU?OLc@KIq@Eu@@_@SLQ`@Cr@Yf@cA\\YxASp@kAt@q@ZcCb@o@b@[XJh@vAr@b@r@o@\\QjBKbDa@PQhAiBpCkDl@i@j@aAyCpAhAgBiAp@p@eCJMj@Wd@gAp@e@Te@\\Ws@NHSh@i@n@E\\FPY~@J`CKsB}@]q@_@Uc@gA_@mCM[Kk@Da@l@k@AQGBOQQe@g@X_@BGG"
+    },
+    "distance": 11270.7,
+    "moving_time": 4755,
+    "elapsed_time": 5064,
+    "total_elevation_gain": 459.0,
+    "average_speed": 2.37
+  },
+  {
     "id": 20705571838,
     "name": "Afternoon Run",
     "type": "Run",
