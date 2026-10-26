@@ -1,5 +1,23 @@
 [
   {
+    "id": 20733070785,
+    "name": "Alpine Dayum",
+    "type": "Ride",
+    "sport_type": "Ride",
+    "start_date": "2026-10-25T15:18:02Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "ewpeF|nhjVlKh`B|EdPOfGaHwEcBd@qBtD\\zLwDyBm~AzEkBkDaJf@}D~NqIxFoAzG{FfHnGhSyAfFdI~_@eJpMcLgD_PvGuWkN{BpDoH|AaIgAiHhDscCpNyG`DmF`PcJdHqCcAcDmHkPeCyAwEAqOmEiFgMjCoIyAwGdAwC|D[rI_OSg@mDqI}D_TFyI~E{HxMkS|m@iBxZuHpPs]z_@w]jTBhEqsAhkBw_BjP{p@iL~@wCoJyAyPqTsNS@~CfDhBkCW~CpIcBpLpFnFwGsCaCvOeJjB}@vHmI}BwFzFyDoBcFsGgGzDuQtR_DnI{JdEeg@sE_RlWyJbHma@~w@aLlAa_A`e@iFpGj@hJqYzJaQpDmDeCid@fIiEdIsCpa@_Cp@{E|KAnJiOlQeWdd@cFte@rHhCzBlFbNlJ~It@zAjJlHbKvDElRzIrKfPAvc@g@~PgCnDw@pTiCzBp@tOmBxD`SbQi@dHyEfEbA~DyAvHlGuFpFfH`EmIlIbCdFuE|Uz@dA~EyQjIsJhVvR_OpFfEq@|KtVsRpDrCdDq@dInCpFlKoB~FhCrDKbEwCvJ~IuBxC}IbD}@rAoGzFuAb@qFhC~B~D{A`BnA{BzFd@nGrMwIxAR|AjDxIeH|CDVfEnEn@zAvO{A|CpF~G|XuBgCEeAvDgHd@JfTdElGeF~I|BbC?hHoFdLxDhHZnHmE`Qr@gCbIoDwAvFyD`HcBc@eKnIpEoBtG~AlD_AbAmDdF{@xHyX}AmLpKsXbX_Mz^_W_@qFj]c{@|E{CnLLz@eGxKoEfHoJxEhEnAm@jCu[bHgKTcQ{GcSfEU|EvHdGjCdOwCa@sBwLBj@iDiD{GtFyKq@sFzEkA~HiQeHaHi\\gLwCiQkByAnAyD{LhAfPeOmAmCrE{I|AmPqIyHDqEaIeA[eHgKwAoGkHtKwB|NyT~BsIvLgFjQoQrD_PdDoC`GSnGyF`F}Pi@uExAoHvImAtLwTxGeB`JqJxLaArLaIv^]_O}PwGiA`AsRuD{EYaNbKmOgB_DoHApJcKTsJnDtBtWnApG{ErDu]WcVmQ}UhNeLqRkXnNeSk@qApDiAW}Ap\\ya@lImRxKqHrP{Hj^ka@bHqO`C_]rRam@jHuLhJ{EnR@xIvDh@pDbPDLmJvCiDjRf@xKiCrEpENtPzAlEbPfC|IfJfIkH~EyOtFgDddCwNnIoDbIlAdLcGbWzMbQmGlJzDlKyNcIy_@rAwFkGgNHmE`FsEzAgH`KqIdC{K|Ie@fC`D|~A{E~CpBs@qJfAyEbCsApEjF`BU`@iGgFcRSiRoGaq@nC_CmAcV"
+    },
+    "distance": 95511.6,
+    "moving_time": 17185,
+    "elapsed_time": 18870,
+    "total_elevation_gain": 1495.0,
+    "average_speed": 5.558
+  },
+  {
     "id": 20716051315,
     "name": "Morning Run",
     "type": "Run",
