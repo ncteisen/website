@@ -1,5 +1,23 @@
 [
   {
+    "id": 20751973070,
+    "name": "Morning Run",
+    "type": "Run",
+    "sport_type": "Run",
+    "start_date": "2026-10-27T13:51:34Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "sqpeF~khjVAVFX?JBNNb@HfACRIPEZ@ZJXD\\G`@Dz@Jr@PVDNBXNr@IR?`@@R@nABNCX@L?lAKz@Bh@VfAJ|CCp@Wz@?PDV@^Ad@G\\@XFf@\\p@DRXb@FXJRFVL|A?TLxAD~@?b@EhA?RN~@Dd@Nl@?RC^F`A@j@\\tBHz@@vBBl@Jj@@^A\\Ot@?`@T~@`@lATbA?ZG|@_@bACJJnAANW`@v@xBj@hCH|@HhBGnB?dBItB]lDMxBWdCKjBi@tG]hC[rAq@~Ds@bDShCGpBBbAP|C@tBLxCFf@P~@Tv@Pb@~AnCx@lAp@lAj@rA`@lBBRAl@Iv@WzAYhAObBJdA?jBGz@KVGx@FlAZfBL^Jh@?r@Pf@PV\\Hb@d@NFp@FXCVO\\GT?h@Hd@Ql@Mb@?`@B|@RH?NCl@EZINEXSBICSMI[?SMES@c@AS@Sh@iBLo@JqABMC[Fa@@[FYD}@MkA^wA@_@Ik@MSe@Si@Ic@A}@KYESKWI{@u@W[_@i@]o@Oe@KOMKIAKBIDGH?LPjAH~@LfCVnC@h@CZWnAOZG\\KXQV_@XQfAAVKhAERGPGFMFO@m@Gm@]Wc@MYGk@@aANuADaB?m@E[Ma@AMRsAPk@h@oCH_A?c@EU]qAk@sAw@yAiDyFOi@Gc@Qg@Gc@MeCB{CImE?w@JkCn@gF|@oEPoANs@\\}CPeCJcAJiBL}@PeCNqADmANyB@i@EsABy@Dc@?yAEs@_@cCW_AMk@Um@V[UeAGsABU\\aAHs@@UGe@k@sAYmA@k@LkA@i@AOGUI}@@UEeAAe@E[YaAKeA?kAI_@Bm@Q[Cs@Ow@?WL{AGs@?]E]?UE}@MuB[y@u@uAOk@@u@Ju@?MIU?]@MHYFk@@qBIwAKc@G{@A]Du@Em@@YOgBKcCSmB?[BMGoA@ICQM]?sAAKIKGg@AS?YIgA"
+    },
+    "distance": 10356.9,
+    "moving_time": 3379,
+    "elapsed_time": 3558,
+    "total_elevation_gain": 66.0,
+    "average_speed": 3.065
+  },
+  {
     "id": 20733070785,
     "name": "Alpine Dayum",
     "type": "Ride",
