@@ -7,8 +7,9 @@
 - Three phrases yield a match, a different angle, and a wildcard. Each request shuffles the catalog; the model prioritizes the combined mood and explicit constraints.
 - Read/loved and read/disliked reactions inform future requests. A skip excludes that book without implying a broader preference. Reacting immediately requests one replacement while keeping the other two picks.
 - Saved books, up to 100 reactions, and 60 recent recommendations stay in localStorage. A blocked store falls back to the current tab. Reset taste notes preserves saved books.
-- Sharing explicitly encodes only the three phrases and current results in a validated URL fragment. Opening it makes no AI request and does not import someone else's reactions. The static page has a generic social preview; the downloadable postcard is specific to the shared shelf. Text from the model or URL is always rendered with `textContent`.
-- This is an intentionally bounded first-edition catalog, not open-ended book search. Jackets are original typographic designs. Open Library links search for the title and author.
+- Sharing explicitly encodes only the three phrases and current results in a validated URL fragment. Opening it makes no AI request and does not import someone else's reactions. The static page has a generic social preview; the downloadable reading list includes the specific books and recommendation notes. Text from the model or URL is always rendered with `textContent`.
+- This is an intentionally bounded first-edition catalog, not open-ended book search. Results are plain bibliographic entries with short recommendation notes and reservations. Open Library links search for the title and author.
+- The interface uses restrained type, rules, and a single accent color. No simulated book jackets, decorative illustrations, marketing sections, generated mood names, or animated loading messages. Model instructions favor specific observations and candid reservations over promotional or whimsical prose.
 
 ## Privacy and cost controls
 

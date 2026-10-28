@@ -66,7 +66,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Next Read',
-		description: 'Three little phrases, three unexpected books. Find and share your reading mood.',
+		description: 'Book recommendations from three words or phrases.',
 		href: '/projects/next-read',
 		label: 'next-read',
 		external: false,
