@@ -33,13 +33,15 @@ try {
 	const worker = runtime.getWorker();
 	await worker.applyD1Migrations('DB');
 	const { DB } = await worker.getEnv();
-	const env = { DB, OPENAI_API_KEY: 'test-only', OPENAI_MODEL: 'gpt-4.1-mini', ALLOWED_ORIGINS: 'https://www.noaheisen.com', DAILY_LIMIT: '100', NETWORK_DAILY_LIMIT: '100', REQUEST_LIMIT: { limit: async () => ({ success: true }) } };
+	const env = { DB, OPENAI_API_KEY: 'test-only', OPENAI_MODEL: 'gpt-5.4', ALLOWED_ORIGINS: 'https://www.noaheisen.com', DAILY_LIMIT: '100', NETWORK_DAILY_LIMIT: '100', REQUEST_LIMIT: { limit: async () => ({ success: true }) } };
 	let calls = 0;
 	const provider = async (url, init) => {
 		calls++;
 		assert.equal(url, 'https://api.openai.com/v1/responses');
 		const body = JSON.parse(init.body);
 		assert.equal(body.store, false);
+		assert.equal(body.reasoning.effort, 'low');
+		assert.equal(body.max_output_tokens, 2000);
 		assert.equal(body.text.format.strict, true);
 		const request = JSON.parse(body.input);
 		const picks = request.catalog.slice(0, request.requestedRoles.length).map(book => ({ id: book.id, why: 'A specific connection.', nudge: 'Go slowly.' }));

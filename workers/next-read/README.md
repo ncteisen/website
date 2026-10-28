@@ -1,6 +1,6 @@
 # Next Read
 
-`/projects/next-read` is a static Astro page. This Worker uses the OpenAI Responses API to choose from an editorial catalog and write a specific, spoiler-free explanation for each choice. The current model is `gpt-4.1-mini`, configurable in Wrangler. No model-generated title/author is trusted: responses contain only catalog IDs, and are validated again on the server and client.
+`/projects/next-read` is a static Astro page. This Worker uses the OpenAI Responses API to choose from an editorial catalog and write a specific, spoiler-free explanation for each choice. The current model is `gpt-5.4` with low reasoning effort, configurable in Wrangler. No model-generated title/author is trusted: responses contain only catalog IDs, and are validated again on the server and client.
 
 ## Product behavior
 
@@ -15,7 +15,7 @@
 
 The API key exists only as the Worker secret `OPENAI_API_KEY`. Never use a `PUBLIC_` environment variable for it. OpenAI receives phrases, bounded reactions, and the catalog; the request sets `store: false`. The app does not log prompts or save reading profiles on the server. Do not interpret `store: false` as a guarantee of zero provider retention.
 
-An atomic D1 counter caps **all model attempts at 250/day UTC**, including failures. Each network gets 25/day, plus an approximate Cloudflare rate limit of 6/minute. The D1 limit works across locations; CORS and per-location limits alone are not spending protection. Network keys are daily SHA-256 hashes, not raw IPs; old buckets are pruned on requests after two days. These are pseudonymous usage counters, not strong anonymization. The fixed catalog, body limits, and 1,000-output-token limit bound request size. No automatic provider retries. Authentication is intentionally absent for this public prototype; the daily global cap bounds abuse but also means abuse can exhaust the public allowance.
+An atomic D1 counter caps **all model attempts at 250/day UTC**, including failures. Each network gets 25/day, plus an approximate Cloudflare rate limit of 6/minute. The D1 limit works across locations; CORS and per-location limits alone are not spending protection. Network keys are daily SHA-256 hashes, not raw IPs; old buckets are pruned on requests after two days. These are pseudonymous usage counters, not strong anonymization. The fixed catalog, body limits, and 2,000-output-token limit (including reasoning) bound request size. No automatic provider retries. Authentication is intentionally absent for this public prototype; the daily global cap bounds abuse but also means abuse can exhaust the public allowance.
 
 ## Local setup
 

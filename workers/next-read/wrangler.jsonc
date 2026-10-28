@@ -6,7 +6,7 @@
 	"workers_dev": true,
 	"vars": {
 		"ALLOWED_ORIGINS": "https://noaheisen.com,https://www.noaheisen.com",
-		"OPENAI_MODEL": "gpt-4.1-mini",
+		"OPENAI_MODEL": "gpt-5.4",
 		"DAILY_LIMIT": "250",
 		"NETWORK_DAILY_LIMIT": "25"
 	},
