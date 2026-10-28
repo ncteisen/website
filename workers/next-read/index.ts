@@ -112,8 +112,8 @@ export function createHandler(provider: typeof fetch = fetch, catalogProvider: t
 			if (!await reserve(env.DB, `network:${network}`, day, networkLimit)) return json({ error: 'This network has reached the daily request limit. Please try again tomorrow.' }, 429);
 			// D1's conditional update is atomic across all locations. Failed model
 			// attempts still count, so retries cannot bypass the daily spending bound.
-			// The expanded flow reserves both model calls before making either one.
-			if (!await reserve(env.DB, 'global', day, globalLimit, expanded ? 2 : 1)) return json({ error: 'The daily recommendation limit has been reached. Please try again tomorrow.' }, 429);
+			// The expanded flow reserves all three model calls before starting.
+			if (!await reserve(env.DB, 'global', day, globalLimit, expanded ? 3 : 1)) return json({ error: 'The daily recommendation limit has been reached. Please try again tomorrow.' }, 429);
 			if (expanded) {
 				await env.DB.prepare('DELETE FROM catalog_cache WHERE expires < ?').bind(Date.now()).run();
 				const shelf = await discover(input, env, provider, catalogProvider);
@@ -124,7 +124,7 @@ export function createHandler(provider: typeof fetch = fetch, catalogProvider: t
 				method: 'POST', signal: AbortSignal.timeout(30000),
 				headers: { Authorization: `Bearer ${env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
 				body: JSON.stringify({ model: env.OPENAI_MODEL, store: false, max_output_tokens: 2000,
-					...(env.OPENAI_MODEL.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {}),
+					...(/^gpt-[56]/.test(env.OPENAI_MODEL) ? { reasoning: { effort: 'low' } } : {}),
 					instructions, input: buildPrompt(input),
 					text: { format: { type: 'json_schema', name: 'reading_shelf', strict: true, schema: {
 						type: 'object', additionalProperties: false, required: ['title', 'picks'], properties: {

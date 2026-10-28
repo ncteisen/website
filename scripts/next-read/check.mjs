@@ -15,7 +15,7 @@ try {
 	const { createHandler, buildPrompt, eligibleBooks } = await import(pathToFileURL(join(directory, 'worker.mjs')));
 	const { parseRequest, parseShelf, encodeShelf, decodeShelf } = await import(pathToFileURL(join(directory, 'contract.mjs')));
 	const { books } = await import(pathToFileURL(join(directory, 'catalog.mjs')));
-	const { matchDocument, excludedBook } = await import(pathToFileURL(join(directory, 'lookup.mjs')));
+	const { Catalog, matchDocument, excludedBook, searchQuery } = await import(pathToFileURL(join(directory, 'lookup.mjs')));
 	const { parseDiscovery, selectGrounded } = await import(pathToFileURL(join(directory, 'discovery.mjs')));
 	assert.equal(new Set(books.map(b => b.id)).size, books.length);
 	assert(books.length >= 80);
@@ -35,7 +35,7 @@ try {
 	const worker = runtime.getWorker();
 	await worker.applyD1Migrations('DB');
 	const { DB } = await worker.getEnv();
-	const env = { DB, OPENAI_API_KEY: 'test-only', OPENAI_MODEL: 'gpt-5.4', ALLOWED_ORIGINS: 'https://www.noaheisen.com', DAILY_LIMIT: '100', NETWORK_DAILY_LIMIT: '100', REQUEST_LIMIT: { limit: async () => ({ success: true }) } };
+	const env = { DB, OPENAI_API_KEY: 'test-only', OPENAI_MODEL: 'gpt-6.1-sol', DISCOVERY_MODEL: 'gpt-6-luna', ALLOWED_ORIGINS: 'https://www.noaheisen.com', DAILY_LIMIT: '100', NETWORK_DAILY_LIMIT: '100', REQUEST_LIMIT: { limit: async () => ({ success: true }) } };
 	let calls = 0;
 	const provider = async (url, init) => {
 		calls++;
@@ -87,11 +87,16 @@ try {
 		cover_i: 100 + i, number_of_pages_median: 140 + i * 20, first_publish_year: 1980,
 		editions: { docs: [{ key: `/books/OL${3001 + i}M`, title, cover_i: 200 + i }] },
 	}));
-	const plan = { requirements: [{ phrase: 0, text: 'An island setting', strict: true }, { phrase: 1, text: 'Solitude', strict: false }, { phrase: 2, text: 'A short book', strict: true }], maxPages: 250, candidates: documents.map(doc => ({ title: doc.title, author: doc.author_name[0] })) };
+	const candidates = documents.map(doc => ({ title: doc.title, author: doc.author_name[0] }));
+	const plan = { requirements: [{ phrase: 0, text: 'An island setting', strict: true }, { phrase: 1, text: 'Solitude', strict: false }, { phrase: 2, text: 'A short book', strict: true }], maxPages: 250, queries: [{ groups: [['islands', 'island']] }, { groups: [['isolation'], ['islands']] }, { groups: [['remote islands']] }] };
 	assert(parseDiscovery(plan));
+	assert(!JSON.stringify(plan).includes(documents[0].title), 'Search planning contains no proposed books');
+	assert.equal(parseDiscovery({ ...plan, queries: [{ groups: [['title:injection']] }, ...plan.queries.slice(1)] }), null);
+	assert.equal(parseDiscovery({ ...plan, queries: [] }), null);
+	assert.equal(searchQuery(plan.queries[0], 250), '("islands" OR "island") AND number_of_pages_median:[1 TO 250]');
 	assert.equal(parseDiscovery({ ...plan, requirements: plan.requirements.slice(0, 2) }), null);
 	const description = 'A sailor lives alone on a remote island. A short novel.';
-	const verified = documents.map((doc, i) => ({ book: matchDocument(plan.candidates[i], doc), evidence: `Description: ${description}\nLength: about ${doc.number_of_pages_median} pages (catalog median; editions vary).` }));
+	const verified = documents.map((doc, i) => ({ book: matchDocument(candidates[i], doc), evidence: `Description: ${description}\nLength: about ${doc.number_of_pages_median} pages (catalog median; editions vary).` }));
 	const picksFor = records => records.map(({ book }) => ({ id: book.id, why: 'A sailor lives alone on an island.', nudge: 'Length varies by edition.', checks: [
 		{ requirement: 0, verdict: 'supported', support: 'on a remote island' },
 		{ requirement: 1, verdict: 'supported', support: 'lives alone' },
@@ -99,8 +104,8 @@ try {
 	] }));
 	assert.equal(matchDocument({ title: 'Invented', author: 'Author 0' }, documents[0]), null);
 	assert.equal(matchDocument({ title: documents[0].title, author: 'Wrong Person' }, documents[0]), null);
-	assert.equal(matchDocument(plan.candidates[0], { ...documents[0], key: 'https://evil.example/book' }), null);
-	const translated = matchDocument(plan.candidates[0], { ...documents[0], title: 'Original language title' });
+	assert.equal(matchDocument(candidates[0], { ...documents[0], key: 'https://evil.example/book' }), null);
+	const translated = matchDocument(candidates[0], { ...documents[0], title: 'Original language title' });
 	assert.equal(translated.title, 'The Far Shore', 'A matching edition establishes a translated title');
 	assert.equal(translated.coverId, 200, 'Prefer the cover of the matched edition');
 	assert(excludedBook(translated, { ...input, exclude: ['OL999W'], excludeBooks: [{ ...translated, id: 'OL999W' }] }), 'Duplicate works/editions are excluded by title and author too');
@@ -130,7 +135,9 @@ try {
 		const body = JSON.parse(init.body);
 		assert.equal(body.store, false);
 		const payload = JSON.parse(body.input);
-		const generated = body.text.format.name === 'discover_books' ? plan : { picks: picksFor(payload.catalog).slice(0, payload.reader.count) };
+		assert.equal(body.reasoning.effort, 'low');
+		assert.equal(body.model, body.text.format.name === 'select_books' ? 'gpt-6.1-sol' : 'gpt-6-luna');
+		const generated = body.text.format.name === 'discover_books' ? plan : body.text.format.name === 'rank_books' ? { ids: payload.catalog.map(item => item.book.id) } : { picks: picksFor(payload.catalog).slice(0, payload.reader.count) };
 		return Response.json({ status: 'completed', output: [{ content: [{ type: 'output_text', text: JSON.stringify(generated) }] }] });
 	};
 	const catalogProvider = async function (url, init) {
@@ -139,7 +146,11 @@ try {
 		catalogCalls++;
 		const parsed = new URL(url);
 		assert.equal(parsed.origin, 'https://openlibrary.org');
-		if (parsed.pathname === '/search.json') return Response.json({ docs: documents });
+		if (parsed.pathname === '/search.json') {
+			assert(!parsed.searchParams.get('q').includes('title:'), 'Discovery searches subjects, not model-supplied book names');
+			assert(!documents.some(doc => parsed.searchParams.get('q').includes(doc.title)));
+			return Response.json({ docs: parsed.searchParams.get('sort') === 'random' ? documents.slice(2) : documents.slice(0, 2) });
+		}
 		const doc = documents.find(d => parsed.pathname === `${d.key}.json`);
 		assert(doc);
 		return Response.json({ key: doc.key, description, subjects: ['Islands', 'Fiction'], authors: [{ author: { key: `/authors/${doc.author_key[0]}` } }] });
@@ -149,20 +160,37 @@ try {
 	await DB.prepare('DELETE FROM usage').run();
 	const expandedResponse = await sendExpanded();
 	assert.equal(expandedResponse.status, 200);
-	assert.equal((await expandedResponse.json()).version, 2);
-	assert.equal(expandedCalls, 2);
-	assert.equal(catalogCalls, 4);
+	const retrievedShelf = await expandedResponse.json();
+	assert.equal(retrievedShelf.version, 2);
+	assert(retrievedShelf.picks.some(pick => pick.id === 'OL1003W'), 'A book found only by the randomized catalog search can become a grounded recommendation');
+	assert.equal(expandedCalls, 3);
+	assert.equal(catalogCalls, 7);
 	const replacementV2 = await (await sendExpanded({ ...input, slot: 1, exclude: [translated.id], excludeBooks: [translated] })).json();
 	assert.equal(replacementV2.picks.length, 1);
 	assert.notEqual(replacementV2.picks[0].id, translated.id);
-	assert.equal(catalogCalls, 4, 'Public catalog responses are reused across requests');
+	assert.equal(catalogCalls, 7, 'Public catalog responses are reused across requests');
 	await DB.prepare('DELETE FROM usage').run();
 	expandedCalls = 0;
-	const parallel = await Promise.all(Array.from({ length: 6 }, () => sendExpanded(input, { ...env, DAILY_LIMIT: '5' })));
+	const parallel = await Promise.all(Array.from({ length: 6 }, () => sendExpanded(input, { ...env, DAILY_LIMIT: '7' })));
 	assert.equal(parallel.filter(r => r.status === 200).length, 2);
 	assert.equal(parallel.filter(r => r.status === 429).length, 4);
-	assert.equal(expandedCalls, 4, 'Reserve both stages atomically, never spend past the model-call cap');
-	console.log('Next Read checks passed: legacy compatibility, open-catalog identity, evidence and constraint checks, covers, shares, exclusions, replacements, caching, failures, CORS and atomic two-stage budgets.');
+	assert.equal(expandedCalls, 6, 'Reserve all three stages atomically, never spend past the model-call cap');
+	await DB.prepare('DELETE FROM usage').run();
+	let invalidRankingCalls = 0;
+	const invalidRankingHandler = createHandler(async (_url, init) => {
+		invalidRankingCalls++;
+		const value = JSON.parse(init.body).text.format.name === 'discover_books' ? plan : { ids: ['OL999999W'] };
+		return Response.json({ status: 'completed', output: [{ content: [{ type: 'output_text', text: JSON.stringify(value) }] }] });
+	}, catalogProvider);
+	const invalidRanking = await invalidRankingHandler(new Request('https://example.test/recommend-v2', { method: 'POST', headers: { Origin: 'https://www.noaheisen.com', 'Content-Type': 'application/json' }, body: JSON.stringify(input) }), env);
+	assert.equal(invalidRanking.status, 503);
+	assert.equal(invalidRankingCalls, 2, 'Ranking cannot introduce a title that was never retrieved');
+	await DB.prepare('DELETE FROM catalog_cache').run();
+	const mismatched = new Catalog(DB, async () => Response.json({ key: '/works/OL1001W', description, authors: [{ author: { key: '/authors/OL999A' } }] }), AbortSignal.timeout(10000));
+	assert.deepEqual(await mismatched.hydrate([{ book: translated, subjects: ['Islands'], authorKeys: ['OL2001A'], exploratory: true }]), [], 'A work must confirm the author from its search record');
+	const offlineCatalog = new Catalog(DB, async () => new Response('', { status: 503 }), AbortSignal.timeout(10000));
+	await assert.rejects(offlineCatalog.search(plan.queries, plan.maxPages, input), /NEXT_READ_CATALOG_UNAVAILABLE/, 'Catalog outages must not be reported as a lack of matching books');
+	console.log('Next Read checks passed: legacy compatibility, open-catalog identity, evidence and constraint checks, covers, shares, exclusions, replacements, caching, failures, CORS and catalog search, model routing and atomic three-stage budgets.');
 } finally {
 	await runtime.close();
 	await rm(directory, { recursive: true, force: true });

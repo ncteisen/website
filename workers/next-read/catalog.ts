@@ -2,6 +2,15 @@ import { isRecord, legacyBook, type BookDetails, type RecommendationRequest } fr
 
 export interface Candidate { title: string; author: string }
 export interface CatalogBook { book: BookDetails; evidence: string }
+export interface CatalogQuery { groups: string[][] }
+export interface SearchBook { book: BookDetails; subjects: string[]; authorKeys: string[]; exploratory: boolean }
+
+export function searchQuery(query: CatalogQuery, maxPages: number | null) {
+	// The model supplies words, never executable Solr syntax or URLs.
+	const quote = (term: string) => `"${term.replace(/[\\"]/g, ' ')}"`;
+	return query.groups.map(group => `(${group.map(quote).join(' OR ')})`).join(' AND ')
+		+ (maxPages === null ? '' : ` AND number_of_pages_median:[1 TO ${maxPages}]`);
+}
 
 export function normalize(value: string) {
 	return value.normalize('NFKD').replace(/\p{Diacritic}/gu, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -72,35 +81,47 @@ export class Catalog {
 		return data;
 	}
 
-	async verify(candidates: Candidate[], input: RecommendationRequest): Promise<CatalogBook[]> {
-		const matches: { book: BookDetails; doc: Record<string, unknown> }[] = [];
-		const quoted = (value: string) => `"${value.replace(/[\\"]/g, ' ')}"`;
-		// Small batched lookups keep one popular title's many duplicate records
-		// from crowding all the other proposed books out of the search response.
-		for (let offset = 0; offset < candidates.length; offset += 4) {
-			const batch = candidates.slice(offset, offset + 4);
-			const q = batch.map(candidate => `(title:${quoted(candidate.title)} AND author:${quoted(candidate.author)})`).join(' OR ');
-			const params = new URLSearchParams({ q, lang: 'en', limit: '40', fields: 'key,title,author_name,author_key,cover_i,first_publish_year,number_of_pages_median,subject,editions,editions.key,editions.title,editions.cover_i' });
-			const response = await this.get(`/search.json?${params}`);
-			if (!isRecord(response) || !Array.isArray(response.docs)) throw new Error('catalog shape');
-			for (const candidate of batch) {
-				for (const doc of response.docs) {
-					const book = matchDocument(candidate, doc);
-					if (!book || excludedBook(book, input) || matches.some(item => item.book.id === book.id || (sameTitle(item.book.title, book.title) && sameAuthor(item.book.author, book.author)))) continue;
-					matches.push({ book, doc });
-					break;
+	async search(queries: CatalogQuery[], maxPages: number | null, input: RecommendationRequest): Promise<SearchBook[]> {
+		const matches: SearchBook[] = [];
+		let completed = 0;
+		// Three complementary relevance searches plus a shuffled sample from the
+		// same subject searches. Randomness changes discovery, never the fit rules.
+		const lanes = [...queries.map(query => ({ q: searchQuery(query, maxPages), exploratory: false })),
+			{ q: queries.map(query => `(${searchQuery(query, maxPages)})`).join(' OR '), exploratory: true }];
+		for (const lane of lanes) {
+			const params = new URLSearchParams({ q: lane.q, lang: 'en', limit: '20', fields: 'key,title,author_name,author_key,cover_i,first_publish_year,number_of_pages_median,subject,editions,editions.key,editions.title,editions.cover_i' });
+			if (lane.exploratory) params.set('sort', 'random');
+			try {
+				const response = await this.get(`/search.json?${params}`);
+				if (!isRecord(response) || !Array.isArray(response.docs)) continue;
+				completed++;
+				for (const doc of response.docs.slice(0, 20)) {
+					if (!isRecord(doc) || !Array.isArray(doc.author_name) || !Array.isArray(doc.author_key)) continue;
+					const edition = isRecord(doc.editions) && Array.isArray(doc.editions.docs) ? doc.editions.docs.find(isRecord) : null;
+					const title = edition?.title || doc.title, author = doc.author_name[0];
+					if (typeof title !== 'string' || typeof author !== 'string') continue;
+					const book = matchDocument({ title, author }, doc);
+					if (!book || excludedBook(book, input) || (maxPages !== null && (book.pages === null || book.pages > maxPages))) continue;
+					if (matches.some(item => item.book.id === book.id || (sameTitle(item.book.title, book.title) && sameAuthor(item.book.author, book.author)))) continue;
+					const subjects = (Array.isArray(doc.subject) ? doc.subject : []).filter(s => typeof s === 'string').slice(0, 30).map(s => text(s, 100));
+					matches.push({ book, subjects, authorKeys: doc.author_key.filter(k => typeof k === 'string' && /^OL[1-9]\d*A$/.test(k)), exploratory: lane.exploratory });
 				}
-			}
+			} catch { this.signal.throwIfAborted(); /* Another search can still supply candidates. */ }
 		}
+		if (!completed) throw new Error('NEXT_READ_CATALOG_UNAVAILABLE');
+		return matches;
+	}
+
+	async hydrate(matches: SearchBook[]): Promise<CatalogBook[]> {
 		const verified: CatalogBook[] = [];
-		for (const { book, doc } of matches) {
+		for (const { book, subjects: searchSubjects, authorKeys } of matches.slice(0, 10)) {
 			try {
 				const work = await this.get(`/works/${book.id}.json`);
 				if (!isRecord(work) || work.key !== `/works/${book.id}`) continue;
 				const workAuthors = Array.isArray(work.authors) ? work.authors.filter(isRecord).map(a => isRecord(a.author) ? a.author.key : null) : [];
-				if (!Array.isArray(doc.author_key) || !doc.author_key.some(key => workAuthors.includes(`/authors/${key}`))) continue;
+				if (!authorKeys.some(key => workAuthors.includes(`/authors/${key}`))) continue;
 				const description = text(isRecord(work.description) ? work.description.value : work.description, 2600);
-				const subjects = (Array.isArray(work.subjects) ? work.subjects : Array.isArray(doc.subject) ? doc.subject : []).filter(s => typeof s === 'string').slice(0, 40).map(s => text(s, 100));
+				const subjects = (Array.isArray(work.subjects) ? work.subjects : searchSubjects).filter(s => typeof s === 'string').slice(0, 40).map(s => text(s, 100));
 				if (!description && subjects.length < 2) continue;
 				const evidence = [description && `Description: ${description}`, subjects.length && `Subjects: ${subjects.join('; ')}`, book.pages && `Length: about ${book.pages} pages (catalog median; editions vary).`, book.year && `First published: ${book.year}.`].filter(Boolean).join('\n');
 				verified.push({ book, evidence });

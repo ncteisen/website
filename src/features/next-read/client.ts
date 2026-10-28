@@ -175,7 +175,7 @@ async function handleRecommendation(slot: number | null = null) {
 		const exclude = [...new Set([...seen.slice(-60), ...currentIds])];
 		const response = await fetch(`${api}/recommend-v2`, {
 			method: 'POST', headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ phrases, feedback: feedback.map(item => ({ ...item, book: bookById.get(item.id) })), exclude, excludeBooks: exclude.map(id => bookById.get(id)).filter(Boolean), slot }), signal: AbortSignal.timeout(85000),
+			body: JSON.stringify({ phrases, feedback: feedback.map(item => ({ ...item, book: bookById.get(item.id) })), exclude, excludeBooks: exclude.map(id => bookById.get(id)).filter(Boolean), slot }), signal: AbortSignal.timeout(105000),
 		});
 		const data: unknown = await response.json();
 		if (!response.ok) throw new Error(isRecord(data) && typeof data.error === 'string' ? data.error : 'Recommendations are unavailable. Please try again.');
