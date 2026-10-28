@@ -1,5 +1,6 @@
 import { bookById, type Book } from './catalog';
 import { decodeShelf, encodeShelf, isRecord, parseShelf, type Feedback, type Pick, type Reaction, type Shelf } from './contract';
+import { createWaitingNote } from './loading';
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
 const form = $<HTMLFormElement>('mood-form');
@@ -122,7 +123,17 @@ function setBusy(value: boolean, slot: number | null) {
 	busy = value;
 	for (const control of document.querySelectorAll<HTMLButtonElement | HTMLInputElement>('#mood-form button, #mood-form input, #shuffle, #another-round, #remix, #reset-taste, .reaction-buttons button, #share-shelf')) control.disabled = value;
 	$('find-books').textContent = value ? 'Choosing books…' : 'Find books';
+	$('request-status').classList.toggle('waiting-announcement', value);
 	$('loading').hidden = !value || slot !== null;
+	if (value) {
+		const note = createWaitingNote(slot !== null);
+		if (slot === null) $('loading').replaceChildren(note);
+		else grid.children[slot]?.querySelector('.card-reactions')?.append(note);
+		note.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'nearest' });
+	} else {
+		$('loading').replaceChildren();
+		grid.querySelector('.waiting-note')?.remove();
+	}
 	if (slot !== null) grid.children[slot]?.setAttribute('aria-busy', String(value));
 	$('results').setAttribute('aria-busy', String(value));
 }
@@ -134,7 +145,7 @@ async function handleRecommendation(slot: number | null = null) {
 	if (phrases.some(phrase => !phrase)) { toast('Please enter all three words or phrases.'); fields.find(field => !field.value.trim())?.focus(); return; }
 	retrySlot = slot;
 	$('error-box').hidden = true;
-	$('request-status').textContent = slot === null ? '' : 'Finding a replacement…';
+	$('request-status').textContent = slot === null ? 'Choosing books…' : 'Finding a replacement…';
 	if (slot !== null) {
 		const panel = grid.children[slot]?.querySelector('.card-reactions');
 		panel?.querySelector('.retry-pick')?.remove();

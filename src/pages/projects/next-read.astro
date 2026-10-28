@@ -36,7 +36,7 @@ const api = import.meta.env.PUBLIC_NEXT_READ_API_URL ?? 'https://next-read.astro
 			</form>
 			<p id="request-status" class="request-status" role="status" aria-live="polite"></p>
 			<div id="error-box" class="error-box" role="alert" hidden><p id="error-message"></p><button id="retry" class="text-button">Try again</button></div>
-			<section id="loading" class="loading" aria-label="Finding books" hidden><p>Choosing books…</p></section>
+			<section id="loading" class="loading" aria-label="Finding books" hidden></section>
 			<section id="results" class="results" aria-labelledby="shelf-title" hidden>
 				<div id="shared-banner" class="shared-banner" hidden><p>Someone sent you these books.</p><button id="remix" class="text-button">Find my own suggestions</button></div>
 				<div class="results-heading"><div><h2 id="shelf-title" tabindex="-1">Three suggestions</h2><p id="shelf-phrases" class="shelf-phrases"></p></div><button id="share-shelf" class="text-button">Share this list</button></div>

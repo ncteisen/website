@@ -32,8 +32,31 @@
 	.primary-button:not(:disabled):hover { background: #582f2c; }
 	.request-status { color: var(--muted); font: 12px/1.6 var(--sans); margin-top: 22px; }
 	.request-status:empty { margin-top: 0; }
+	.request-status.waiting-announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 	.error-box { border-left: 2px solid var(--accent); padding: 2px 0 2px 17px; margin-top: 28px; font: 14px/1.65 var(--sans); max-width: 600px; }
-	.loading { padding-top: 49px; color: var(--muted); font-size: 17px; font-style: italic; }
+	.loading { padding-top: 35px; }
+	.waiting-note { max-width: 650px; padding-block: 24px 8px; border-top: 1px solid var(--line); }
+	.waiting-heading { display: flex; align-items: center; gap: 14px; color: var(--muted); font: 12px/1.6 var(--sans); }
+	.waiting-note figure { margin: 23px 0 0; }
+	.waiting-note blockquote { margin: 0; font: italic 21px/1.6 var(--serif); white-space: pre-line; text-wrap: pretty; }
+	.waiting-note figcaption { margin-top: 13px; color: var(--muted); font: 12px/1.7 var(--sans); }
+	.waiting-note cite { font-style: normal; }
+	.waiting-note a { text-decoration-color: var(--line); }
+	.waiting-note a:hover { text-decoration-color: var(--muted); }
+	.waiting-note-inline { margin-top: 18px; padding-top: 20px; }
+	.waiting-note-inline blockquote { font-size: 18px; }
+	.turning-book { position: relative; display: inline-block; flex: 0 0 32px; height: 23px; color: var(--accent); perspective: 90px; }
+	.turning-book::before, .turning-book::after, .turning-book > span { content: ''; position: absolute; top: 2px; width: 16px; height: 19px; border: 1px solid currentColor; background: var(--paper); }
+	.turning-book::before { left: 0; border-radius: 2px 0 0 1px; transform: skewY(8deg); }
+	.turning-book::after { left: 16px; border-radius: 0 2px 1px 0; transform: skewY(-8deg); }
+	.turning-book > span { z-index: 1; left: 16px; border-left: 0; border-radius: 0 2px 1px 0; transform-origin: left center; animation: turn-page 2.8s ease-in-out infinite; }
+	@keyframes turn-page {
+		0%, 15% { transform: rotateY(0deg) skewY(-8deg); }
+		75%, 100% { transform: rotateY(-180deg) skewY(-8deg); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.turning-book > span { animation: none; }
+	}
 	.results { margin-top: 68px; }
 	.shared-banner { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 35px; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; font: 13px/1.6 var(--sans); color: var(--muted); }
 	.results-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding-bottom: 26px; border-bottom: 1px solid var(--ink); }
