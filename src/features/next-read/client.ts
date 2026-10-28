@@ -1,5 +1,5 @@
-import { bookById, type Book } from './catalog';
-import { decodeShelf, encodeShelf, isRecord, parseShelf, type Feedback, type Pick, type Reaction, type Shelf } from './contract';
+import { books } from './catalog';
+import { decodeShelf, encodeShelf, isRecord, legacyBook, parseBook, parseShelf, type BookDetails, type Feedback, type Pick, type Reaction, type Shelf } from './contract';
 import { createWaitingNote } from './loading';
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -8,6 +8,7 @@ const fields = [1, 2, 3].map(n => $<HTMLInputElement>(`phrase-${n}`));
 const grid = $('book-grid');
 const api = document.body.dataset.api || '';
 const storageKey = 'next-read:v1';
+const bookById = new Map<string, BookDetails>(books.map(book => [book.id, legacyBook(book.id)!]));
 let shelf: Shelf | null = null;
 let busy = false;
 let retrySlot: number | null = null;
@@ -28,6 +29,7 @@ function toast(message: string) {
 try {
 	const stored: unknown = JSON.parse(localStorage.getItem(storageKey) || '{}');
 	if (isRecord(stored)) {
+		if (Array.isArray(stored.books)) for (const raw of stored.books.slice(0, 300)) { const book = parseBook(raw); if (book) bookById.set(book.id, book); }
 		if (Array.isArray(stored.saved)) saved = [...new Set(stored.saved.filter((id): id is string => typeof id === 'string' && bookById.has(id)))].slice(0, 100);
 		if (Array.isArray(stored.feedback)) feedback = stored.feedback.filter((item): item is Feedback => isRecord(item) && typeof item.id === 'string' && bookById.has(item.id) && ['liked', 'disliked', 'skip'].includes(String(item.reaction))).slice(-100);
 		if (Array.isArray(stored.seen)) seen = stored.seen.filter((id): id is string => typeof id === 'string' && bookById.has(id)).slice(-60);
@@ -37,7 +39,8 @@ try {
 function persist() {
 	$('saved-count').textContent = String(saved.length);
 	$('taste-count').textContent = feedback.length ? `(${feedback.length})` : '';
-	try { localStorage.setItem(storageKey, JSON.stringify({ saved, feedback, seen })); }
+	const retained = [...new Set([...saved, ...seen, ...feedback.map(item => item.id)])].map(id => bookById.get(id)).filter(Boolean);
+	try { localStorage.setItem(storageKey, JSON.stringify({ saved, feedback, seen, books: retained })); }
 	catch { toast('Browser storage is unavailable. Saved books and preferences will last for this visit only.'); }
 }
 
@@ -48,9 +51,9 @@ function element<K extends keyof HTMLElementTagNameMap>(tag: K, className = '', 
 	return node;
 }
 
-function bookLink(book: Book) {
+function bookLink(book: BookDetails) {
 	const link = element('a', '', 'Find an edition');
-	link.href = `https://openlibrary.org/search?q=${encodeURIComponent(`${book.title} ${book.author}`)}`;
+	link.href = /^OL\d+W$/.test(book.id) ? `https://openlibrary.org/works/${book.id}` : `https://openlibrary.org/search?q=${encodeURIComponent(`${book.title} ${book.author}`)}`;
 	link.target = '_blank';
 	link.rel = 'noopener noreferrer';
 	link.setAttribute('aria-label', `Find ${book.title} on Open Library`);
@@ -59,7 +62,7 @@ function bookLink(book: Book) {
 
 function handleSave(id: string) {
 	const wasSaved = saved.includes(id);
-	saved = wasSaved ? saved.filter(item => item !== id) : [...saved, id];
+	saved = wasSaved ? saved.filter(item => item !== id) : [...saved, id].slice(-100);
 	persist();
 	for (const button of document.querySelectorAll<HTMLButtonElement>(`[data-save="${id}"]`)) {
 		button.textContent = wasSaved ? 'Save' : 'Saved';
@@ -76,6 +79,16 @@ function createCard(pick: Pick, slot: number) {
 	const number = element('span', 'entry-number', String(slot + 1));
 	number.setAttribute('aria-hidden', 'true');
 	const body = element('div', 'book-body');
+	if (book.coverId) {
+		const cover = element('img', 'book-cover');
+		cover.alt = '';
+		cover.width = 92; cover.height = 138;
+		cover.loading = 'lazy'; cover.decoding = 'async'; cover.referrerPolicy = 'no-referrer';
+		cover.addEventListener('error', () => cover.remove(), { once: true });
+		cover.addEventListener('load', () => { if (cover.naturalWidth < 2) cover.remove(); }, { once: true });
+		cover.src = `https://covers.openlibrary.org/b/id/${book.coverId}-M.jpg?default=false`;
+		body.append(cover);
+	}
 	const title = element('h3', '', book.title);
 	title.tabIndex = -1;
 	body.append(title, element('p', 'book-author', book.author), element('p', 'book-why', pick.why), element('p', 'book-nudge', pick.nudge));
@@ -106,11 +119,13 @@ function createCard(pick: Pick, slot: number) {
 
 function renderShelf(focus = false, slot: number | null = null) {
 	if (!shelf) return;
+	for (const pick of shelf.picks) if (pick.book) bookById.set(pick.id, pick.book);
 	$('results').hidden = false;
-	$('shelf-title').textContent = 'Three suggestions';
+	$('shelf-title').textContent = ['', 'One suggestion', 'Two suggestions', 'Three suggestions'][shelf.picks.length];
+	$('match-note').textContent = shelf.picks.length < 3 ? 'Fewer than three this time. I couldn’t verify enough close matches to fill the list.' : '';
 	$('shelf-phrases').textContent = shelf.phrases.join(' / ');
 	$('shared-banner').hidden = !shared;
-	if (slot !== null && grid.children.length === 3) grid.children[slot].replaceWith(createCard(shelf.picks[slot], slot));
+	if (slot !== null && grid.children.length === shelf.picks.length) grid.children[slot].replaceWith(createCard(shelf.picks[slot], slot));
 	else grid.replaceChildren(...shelf.picks.map(createCard));
 	if (focus) {
 		const target = slot === null ? $('shelf-title') : grid.children[slot].querySelector('h3')!;
@@ -158,23 +173,24 @@ async function handleRecommendation(slot: number | null = null) {
 		// older unreacted-to books can return; explicit reactions never do.
 		const currentIds = shelf?.picks.map(pick => pick.id) || [];
 		const exclude = [...new Set([...seen.slice(-60), ...currentIds])];
-		const response = await fetch(`${api}/recommend`, {
+		const response = await fetch(`${api}/recommend-v2`, {
 			method: 'POST', headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ phrases, feedback, exclude, slot }), signal: AbortSignal.timeout(40000),
+			body: JSON.stringify({ phrases, feedback: feedback.map(item => ({ ...item, book: bookById.get(item.id) })), exclude, excludeBooks: exclude.map(id => bookById.get(id)).filter(Boolean), slot }), signal: AbortSignal.timeout(85000),
 		});
 		const data: unknown = await response.json();
 		if (!response.ok) throw new Error(isRecord(data) && typeof data.error === 'string' ? data.error : 'Recommendations are unavailable. Please try again.');
-		const result = parseShelf(data, slot === null ? 3 : 1);
+		const result = parseShelf(data, slot === null ? undefined : 1);
 		if (!result) throw new Error('The recommendations could not be read. Please try again.');
+		for (const pick of result.picks) if (pick.book) bookById.set(pick.id, pick.book);
 		if (slot !== null && shelf) {
-			shelf = { ...shelf, picks: shelf.picks.map((pick, index) => index === slot ? result.picks[0] : pick) };
+			shelf = { ...shelf, version: 2, picks: shelf.picks.map((pick, index) => index === slot ? result.picks[0] : { ...pick, book: bookById.get(pick.id)! }) };
 		} else shelf = result;
 		seen = [...new Set([...seen, ...result.picks.map(pick => pick.id)])].slice(-60);
 		shared = false;
 		history.replaceState(null, '', `${location.pathname}${location.search}`);
 		persist();
 		renderShelf(true, slot);
-		$('request-status').textContent = slot === null ? 'Three recommendations ready.' : 'Recommendation replaced.';
+		$('request-status').textContent = slot === null ? 'Recommendations ready.' : 'Recommendation replaced.';
 	} catch (error) {
 		$('error-message').textContent = error instanceof Error && !['TypeError', 'TimeoutError', 'AbortError'].includes(error.name) ? error.message : 'Could not connect. Please try again. Your current list is unchanged.';
 		$('error-box').hidden = false;

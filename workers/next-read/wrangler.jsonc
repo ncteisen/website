@@ -7,6 +7,7 @@
 	"vars": {
 		"ALLOWED_ORIGINS": "https://noaheisen.com,https://www.noaheisen.com",
 		"OPENAI_MODEL": "gpt-5.4",
+		"DISCOVERY_MODEL": "gpt-5.4-mini",
 		"DAILY_LIMIT": "250",
 		"NETWORK_DAILY_LIMIT": "25"
 	},

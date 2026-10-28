@@ -1,9 +1,11 @@
 import { books, bookById } from '../../src/features/next-read/catalog';
 import { isRecord, parseRequest, parseShelf, roles, type RecommendationRequest } from '../../src/features/next-read/contract';
+import { discover } from './discovery';
 
 export interface Env {
 	OPENAI_API_KEY?: string;
 	OPENAI_MODEL: string;
+	DISCOVERY_MODEL?: string;
 	ALLOWED_ORIGINS: string;
 	DAILY_LIMIT: string;
 	NETWORK_DAILY_LIMIT: string;
@@ -47,14 +49,15 @@ export function buildPrompt(input: RecommendationRequest) {
 	});
 }
 
-async function reserve(db: D1Database, bucket: string, day: string, limit: number): Promise<boolean> {
-	const row = await db.prepare(`INSERT INTO usage (bucket, day, calls) VALUES (?, ?, 1)
-		ON CONFLICT(bucket, day) DO UPDATE SET calls = calls + 1 WHERE calls < ? RETURNING calls`)
-		.bind(bucket, day, limit).first();
+async function reserve(db: D1Database, bucket: string, day: string, limit: number, units = 1): Promise<boolean> {
+	if (units > limit) return false;
+	const row = await db.prepare(`INSERT INTO usage (bucket, day, calls) VALUES (?, ?, ?)
+		ON CONFLICT(bucket, day) DO UPDATE SET calls = calls + excluded.calls WHERE calls + excluded.calls <= ? RETURNING calls`)
+		.bind(bucket, day, units, limit).first();
 	return row !== null;
 }
 
-async function readBody(request: Request) {
+async function readBody(request: Request, limit: number) {
 	const reader = request.body?.getReader();
 	if (!reader) throw new Error('body');
 	const chunks: Uint8Array[] = [];
@@ -63,7 +66,7 @@ async function readBody(request: Request) {
 		const { done, value } = await reader.read();
 		if (done) break;
 		size += value.byteLength;
-		if (size > 16000) { await reader.cancel(); throw new Error('large'); }
+		if (size > limit) { await reader.cancel(); throw new Error('large'); }
 		chunks.push(value);
 	}
 	const bytes = new Uint8Array(size);
@@ -72,7 +75,7 @@ async function readBody(request: Request) {
 	return JSON.parse(new TextDecoder().decode(bytes));
 }
 
-export function createHandler(provider: typeof fetch = fetch) {
+export function createHandler(provider: typeof fetch = fetch, catalogProvider: typeof fetch = fetch) {
 	return async (request: Request, env: Env): Promise<Response> => {
 		const origin = request.headers.get('Origin');
 		const allowed = env.ALLOWED_ORIGINS.split(',').includes(origin || '');
@@ -80,18 +83,19 @@ export function createHandler(provider: typeof fetch = fetch) {
 		if (allowed && origin) headers['Access-Control-Allow-Origin'] = origin;
 		const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers });
 		const path = new URL(request.url).pathname;
-		if (path === '/health' && request.method === 'GET') return json({ ok: true, ready: !!env.OPENAI_API_KEY, catalogSize: books.length });
+		if (path === '/health' && request.method === 'GET') return json({ ok: true, ready: !!env.OPENAI_API_KEY, catalog: 'Open Library', version: 2 });
 		if (!allowed) return json({ error: 'Please use Next Read on noaheisen.com.' }, 403);
-		if (path !== '/recommend') return json({ error: 'Not found.' }, 404);
+		const expanded = path === '/recommend-v2';
+		if (path !== '/recommend' && !expanded) return json({ error: 'Not found.' }, 404);
 		if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: { ...headers, 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400' } });
 		if (request.method !== 'POST') return json({ error: 'Use POST.' }, 405);
 		if (!request.headers.get('Content-Type')?.startsWith('application/json')) return json({ error: 'Please send JSON.' }, 415);
 		let input: RecommendationRequest | null;
-		try { input = parseRequest(await readBody(request)); }
+		try { input = parseRequest(await readBody(request, expanded ? 128000 : 16000)); }
 		catch (error) { return json({ error: error instanceof Error && error.message === 'large' ? 'That request is too large.' : 'The request could not be read. Please try again.' }, error instanceof Error && error.message === 'large' ? 413 : 400); }
 		if (!input) return json({ error: 'Give us three phrases, each under 71 characters.' }, 400);
 		const count = input.slot === null ? 3 : 1;
-		if (eligibleBooks(input).length < count) return json({ error: 'There aren’t enough unread books left in this selection. Clear preferences to start again.' }, 409);
+		if (!expanded && eligibleBooks(input).length < count) return json({ error: 'There aren’t enough unread books left in this selection. Clear preferences to start again.' }, 409);
 		if (!env.OPENAI_API_KEY) return json({ error: 'Recommendations are not available yet. Please try again later.' }, 503);
 		try {
 			const ip = request.headers.get('CF-Connecting-IP') || 'local';
@@ -108,7 +112,13 @@ export function createHandler(provider: typeof fetch = fetch) {
 			if (!await reserve(env.DB, `network:${network}`, day, networkLimit)) return json({ error: 'This network has reached the daily request limit. Please try again tomorrow.' }, 429);
 			// D1's conditional update is atomic across all locations. Failed model
 			// attempts still count, so retries cannot bypass the daily spending bound.
-			if (!await reserve(env.DB, 'global', day, globalLimit)) return json({ error: 'The daily recommendation limit has been reached. Please try again tomorrow.' }, 429);
+			// The expanded flow reserves both model calls before making either one.
+			if (!await reserve(env.DB, 'global', day, globalLimit, expanded ? 2 : 1)) return json({ error: 'The daily recommendation limit has been reached. Please try again tomorrow.' }, 429);
+			if (expanded) {
+				await env.DB.prepare('DELETE FROM catalog_cache WHERE expires < ?').bind(Date.now()).run();
+				const shelf = await discover(input, env, provider, catalogProvider);
+				return shelf ? json(shelf) : json({ error: 'I couldn’t verify a close enough match for these three phrases. Try changing one phrase or relaxing a constraint.' }, 422);
+			}
 			const candidateIds = eligibleBooks(input).map(book => book.id);
 			const response = await provider('https://api.openai.com/v1/responses', {
 				method: 'POST', signal: AbortSignal.timeout(30000),
@@ -134,8 +144,9 @@ export function createHandler(provider: typeof fetch = fetch) {
 			const shelf = parseShelf({ ...generated, version: 1, phrases: input.phrases }, count);
 			if (!shelf || shelf.picks.some(pick => !candidateIds.includes(pick.id))) throw new Error('invalid output');
 			return json(shelf);
-		} catch {
+		} catch (error) {
 			// Do not log prompts, reactions, keys, or provider response bodies.
+			if (error instanceof Error && /^NEXT_READ_[A-Z0-9_]+$/.test(error.message)) console.warn(error.message);
 			return json({ error: 'Recommendations are temporarily unavailable. Please try again in a moment.' }, 503);
 		}
 	};
