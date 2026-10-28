@@ -65,6 +65,15 @@ export const projects: Project[] = [
 		accent: '#8f9f86',
 	},
 	{
+		title: 'Next Read',
+		description: 'Three little phrases, three unexpected books. Find and share your reading mood.',
+		href: '/projects/next-read',
+		label: 'next-read',
+		external: false,
+		featured: false,
+		accent: '#a8b88c',
+	},
+	{
 		title: 'Date My Globe',
 		description: "A checklist for estimating a globe's age from visible borders and place names.",
 		href: '/projects/date-my-globe',

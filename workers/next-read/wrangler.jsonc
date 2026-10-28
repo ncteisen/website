@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "next-read",
+	"main": "index.ts",
+	"compatibility_date": "2026-10-14",
+	"workers_dev": true,
+	"vars": {
+		"ALLOWED_ORIGINS": "https://noaheisen.com,https://www.noaheisen.com",
+		"OPENAI_MODEL": "gpt-4.1-mini",
+		"DAILY_LIMIT": "250",
+		"NETWORK_DAILY_LIMIT": "25"
+	},
+	"d1_databases": [{
+		"binding": "DB",
+		"database_name": "next-read",
+		"database_id": "24d01e5d-bf34-44d5-9bb9-a3c1da341e3e",
+		"migrations_dir": "migrations"
+	}],
+	"ratelimits": [
+		{ "name": "REQUEST_LIMIT", "namespace_id": "104280001", "simple": { "limit": 6, "period": 60 } }
+	]
+}

@@ -29,6 +29,7 @@ jobs:
       - run: npm run check:types
       - run: npm run test:site
       - run: npm run test:projects
+      - run: npm run test:next-read
       - run: npm run test:arcade
       - run: npm run test:scores
       - run: npm run test:codewords

@@ -1,0 +1,83 @@
+import assert from 'node:assert/strict';
+import { build } from 'esbuild';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { createTestHarness } from 'wrangler';
+
+const directory = await mkdtemp(join(tmpdir(), 'next-read-check-'));
+const runtime = createTestHarness({ workers: [{ configPath: 'workers/next-read/wrangler.jsonc' }] });
+try {
+	for (const [name, input] of [['worker', 'workers/next-read/index.ts'], ['contract', 'src/features/next-read/contract.ts'], ['catalog', 'src/features/next-read/catalog.ts']]) {
+		await build({ entryPoints: [input], bundle: true, platform: 'node', format: 'esm', outfile: join(directory, `${name}.mjs`) });
+	}
+	const { createHandler, buildPrompt, eligibleBooks } = await import(pathToFileURL(join(directory, 'worker.mjs')));
+	const { parseRequest, parseShelf, encodeShelf, decodeShelf } = await import(pathToFileURL(join(directory, 'contract.mjs')));
+	const { books } = await import(pathToFileURL(join(directory, 'catalog.mjs')));
+	assert.equal(new Set(books.map(b => b.id)).size, books.length);
+	assert(books.length >= 80);
+	const input = { phrases: ['rainy Sundays', 'a little strange', 'found family'], feedback: [], exclude: [], slot: null };
+	assert(parseRequest(input));
+	for (const bad of [null, {}, { ...input, phrases: ['one'] }, { ...input, phrases: ['a', 'b', ' '] }, { ...input, phrases: ['a'.repeat(71), 'b', 'c'] }, { ...input, slot: 3 }, { ...input, feedback: [{ id: 'piranesi', reaction: 'maybe' }] }, { ...input, exclude: ['imaginary-book'] }]) assert.equal(parseRequest(bad), null);
+	const exclusions = { ...input, feedback: [{ id: 'piranesi', reaction: 'liked' }, { id: 'earthsea', reaction: 'skip' }], exclude: ['invisible-cities'] };
+	assert(!eligibleBooks(exclusions).some(b => ['piranesi', 'earthsea', 'invisible-cities'].includes(b.id)));
+	const prompt = JSON.parse(buildPrompt({ ...exclusions, slot: 2 }));
+	assert.deepEqual(prompt.requestedRoles, ['The wild card']);
+	assert.equal(prompt.reader.reactions[0].reaction, 'liked');
+	const shelf = { version: 1, title: 'Étrange & cozy 📚', phrases: ['雨', 'queer joy', '<script>alert(1)</script>'], picks: books.slice(0, 3).map(b => ({ id: b.id, why: 'A connection to your mood.', nudge: 'An honest caveat.' })) };
+	assert.deepEqual(decodeShelf(encodeShelf(shelf)), shelf, 'Unicode and literal HTML survive as text, without losing shared picks');
+	for (const invalid of ['', '!!!!', 'A'.repeat(13000), encodeShelf({ ...shelf, version: 2 }), encodeShelf({ ...shelf, picks: [...shelf.picks.slice(0, 2), shelf.picks[0]] }), encodeShelf({ ...shelf, picks: shelf.picks.map(p => ({ ...p, id: 'made-up' })) })]) assert.equal(decodeShelf(invalid), null);
+	assert.equal(parseShelf({ ...shelf, title: 'a'.repeat(91) }), null);
+	await runtime.listen();
+	const worker = runtime.getWorker();
+	await worker.applyD1Migrations('DB');
+	const { DB } = await worker.getEnv();
+	const env = { DB, OPENAI_API_KEY: 'test-only', OPENAI_MODEL: 'gpt-4.1-mini', ALLOWED_ORIGINS: 'https://www.noaheisen.com', DAILY_LIMIT: '100', NETWORK_DAILY_LIMIT: '100', REQUEST_LIMIT: { limit: async () => ({ success: true }) } };
+	let calls = 0;
+	const provider = async (url, init) => {
+		calls++;
+		assert.equal(url, 'https://api.openai.com/v1/responses');
+		const body = JSON.parse(init.body);
+		assert.equal(body.store, false);
+		assert.equal(body.text.format.strict, true);
+		const request = JSON.parse(body.input);
+		const picks = request.catalog.slice(0, request.requestedRoles.length).map(book => ({ id: book.id, why: 'A specific connection.', nudge: 'Go slowly.' }));
+		return Response.json({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({ title: 'A reading mood', picks }) }] }] });
+	};
+	const handle = createHandler(provider);
+	const send = (body = input, overrides = {}, environment = env, handler = handle) => handler(new Request('https://example.test/recommend', { method: 'POST', headers: { Origin: 'https://www.noaheisen.com', 'Content-Type': 'application/json', 'CF-Connecting-IP': '192.0.2.1' }, body: JSON.stringify(body), ...overrides }), environment);
+	assert.equal((await send({}, { headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' } })).status, 403);
+	assert.equal((await send({}, { body: '{bad' })).status, 400);
+	assert.equal((await send({}, { body: 'x'.repeat(16001) })).status, 413);
+	assert.equal((await send(input, {}, { ...env, OPENAI_API_KEY: undefined })).status, 503);
+	assert.equal((await send(input, {}, { ...env, REQUEST_LIMIT: { limit: async () => ({ success: false }) } })).status, 429);
+	assert.equal(calls, 0, 'Rejected requests must not spend model tokens');
+	const first = await send(exclusions);
+	assert.equal(first.status, 200);
+	assert.equal(first.headers.get('Access-Control-Allow-Origin'), 'https://www.noaheisen.com');
+	const result = await first.json();
+	assert(parseShelf(result));
+	assert(!result.picks.some(p => ['piranesi', 'earthsea', 'invisible-cities'].includes(p.id)));
+	const replacement = await (await send({ ...input, slot: 1 })).json();
+	assert.equal(replacement.picks.length, 1);
+	const corrupt = createHandler(async () => Response.json({ status: 'completed', output: [{ content: [{ type: 'output_text', text: JSON.stringify({ title: 'Bad result', picks: shelf.picks.map(p => ({ ...p, id: 'piranesi' })) }) }] }] }));
+	assert.equal((await send(input, {}, env, corrupt)).status, 503, 'Duplicate or excluded model IDs must fail closed');
+	const unavailable = createHandler(async () => { throw new Error('secret provider detail'); });
+	const failure = await send(input, {}, env, unavailable);
+	assert.equal(failure.status, 503);
+	assert(!(await failure.text()).includes('secret'));
+	await DB.prepare('DELETE FROM usage').run();
+	calls = 0;
+	const concurrent = await Promise.all(Array.from({ length: 12 }, () => send(input, {}, { ...env, DAILY_LIMIT: '5' })));
+	assert.equal(concurrent.filter(r => r.status === 200).length, 5, 'The global daily cap is atomic, including concurrent calls');
+	assert.equal(concurrent.filter(r => r.status === 429).length, 7);
+	assert.equal(calls, 5);
+	await DB.prepare('DELETE FROM usage').run();
+	assert.equal((await send(input, {}, { ...env, NETWORK_DAILY_LIMIT: '1' })).status, 200);
+	assert.equal((await send(input, {}, { ...env, NETWORK_DAILY_LIMIT: '1' })).status, 429);
+	console.log('Next Read checks passed: catalog, inputs, Unicode shares, exclusions, replacements, provider failures, CORS and atomic usage caps.');
+} finally {
+	await runtime.close();
+	await rm(directory, { recursive: true, force: true });
+}

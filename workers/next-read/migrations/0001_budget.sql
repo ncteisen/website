@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS usage (
+  bucket TEXT NOT NULL,
+  day TEXT NOT NULL,
+  calls INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (bucket, day)
+);

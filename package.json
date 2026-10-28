@@ -20,7 +20,10 @@
     "deploy:scores": "wrangler d1 migrations apply DB --remote --config workers/arcade/wrangler.jsonc && wrangler deploy --config workers/arcade/wrangler.jsonc",
     "check:types": "tsc --noEmit",
     "test:site": "node scripts/site/run-checks.mjs",
-    "test:projects": "node scripts/projects/run-checks.mjs"
+    "test:projects": "node scripts/projects/run-checks.mjs",
+    "dev:next-read": "wrangler dev --config workers/next-read/wrangler.jsonc --port 8788 --var ALLOWED_ORIGINS:http://localhost:4321,http://127.0.0.1:4321",
+    "test:next-read": "tsc -p workers/next-read/tsconfig.json && node scripts/next-read/check.mjs",
+    "deploy:next-read": "wrangler d1 migrations apply DB --remote --config workers/next-read/wrangler.jsonc && wrangler deploy --config workers/next-read/wrangler.jsonc"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
