@@ -21,6 +21,7 @@
     "check:types": "tsc --noEmit",
     "test:site": "node scripts/site/run-checks.mjs",
     "test:projects": "node scripts/projects/run-checks.mjs",
+    "test:apartment": "node scripts/apartment/check.mjs",
     "dev:next-read": "wrangler dev --config workers/next-read/wrangler.jsonc --port 8788 --var ALLOWED_ORIGINS:http://localhost:4321,http://127.0.0.1:4321",
     "test:next-read": "tsc -p workers/next-read/tsconfig.json && node scripts/next-read/check.mjs",
     "deploy:next-read": "wrangler d1 migrations apply DB --remote --config workers/next-read/wrangler.jsonc && wrangler deploy --config workers/next-read/wrangler.jsonc"
@@ -29,12 +30,14 @@
     "@astrojs/sitemap": "^3.7.4",
     "@mapbox/polyline": "^1.2.1",
     "astro": "^6.2.2",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261015.1",
     "@types/leaflet": "^1.9.17",
     "@types/mapbox__polyline": "^1.0.5",
+    "@types/three": "^0.180.0",
     "esbuild": "0.27.7",
     "typescript": "^7.0.2",
     "wrangler": "^4.151.0"

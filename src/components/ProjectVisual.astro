@@ -10,6 +10,14 @@ const { label, subtle = false } = Astro.props;
 ---
 
 <div class:list={['project-diagram', `project-diagram--${label}`, { 'project-diagram--subtle': subtle }]} aria-hidden="true">
+	{label === 'apartment' && (
+		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
+			<g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+				<path d="M40 77L108 37L181 78L114 119Z M40 77V49L108 10L181 51V78 M108 10V37 M40 49L114 91L181 51 M114 91V119" />
+				<path d="M73 57L141 96 M94 77L129 56 M141 55V82 M60 72L78 62L95 72L78 82Z M132 88L149 78L164 86L147 96Z" />
+			</g>
+		</svg>
+	)}
 	{label === 'postal' && (
 		<svg class="diagram-svg" viewBox="0 0 220 140" role="presentation">
 			<rect x="39" y="27" width="142" height="86" rx="3" class="postcard-outline" />

@@ -1,0 +1,59 @@
+---
+import IconLinks from '../../components/IconLinks.astro';
+import SocialPreview from '../../components/SocialPreview.astro';
+import UmamiAnalytics from '../../components/UmamiAnalytics.astro';
+import { rooms } from '../../features/apartment/layout';
+import '../../features/apartment/style.css';
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#f4f2eb" />
+		<title>The apartment | Noah Eisen</title>
+		<IconLinks />
+		<SocialPreview title="The apartment — in miniature" description="An interactive, photo-informed model of home. Explore the dollhouse, unfold the floor plan, or step inside." path="/projects/apartment/" />
+		<UmamiAnalytics />
+	</head>
+	<body>
+		<a class="skip-link" href="#viewer">Skip to apartment model</a>
+		<header class="page-header">
+			<a class="back" href="/projects/">← Projects</a>
+			<div class="heading"><div><p class="eyebrow">A study of home</p><h1>The apartment <span>in miniature.</span></h1></div><p class="intro">The bay windows. The long hallway.<br />All the little things that make a place ours.</p></div>
+		</header>
+		<main>
+			<section class="apartment" aria-label="Interactive apartment" id="apartment">
+				<div class="toolbar">
+					<div class="modes" role="group" aria-label="View mode">
+						<button type="button" data-mode="dollhouse" aria-pressed="true">Dollhouse</button>
+						<button type="button" data-mode="plan" aria-pressed="false">Floor plan</button>
+						<button type="button" data-mode="walk" aria-pressed="false">Walk through</button>
+					</div>
+					<div class="tools"><button type="button" id="reset-view" aria-label="Reset view">Reset view</button><button type="button" id="fullscreen">Expand ↗</button></div>
+				</div>
+				<div class="explorer">
+					<aside class="room-list" aria-label="Rooms"><p class="eyebrow">Look around</p><div class="room-buttons">{rooms.map((room, index) => <button type="button" data-room={room.id} aria-pressed="false"><span class="room-number">{String(index+1).padStart(2,'0')}</span>{room.name}<span class="room-arrow" aria-hidden="true">↗</span></button>)}</div><p class="room-note">Rebuilt from 93 photographs<br />and a handful of measurements.</p></aside>
+					<div class="viewport-wrap">
+						<div id="viewer" tabindex="0" role="region" aria-label="3D apartment. Use the view buttons and room list to explore. In walkthrough, use W A S D or arrow keys to move and drag to look." aria-describedby="view-help">
+							<div id="loading" role="status"><span class="loading-house" aria-hidden="true">⌂</span>Putting the rooms together…</div>
+							<div id="room-labels" aria-label="Room locations"></div>
+							<div id="fallback" hidden><h2>The 3D view couldn’t start</h2><p>Try a browser with WebGL enabled. You can still explore the room layout below.</p><svg viewBox="-8 -3 30 56" role="img" aria-label="Approximate floor plan: living and dining at the front, a central hallway past kitchen, WC and bath, office and bedroom at the rear.">{rooms.map(room => <g><rect x={room.bounds[0]} y={room.bounds[1]} width={room.bounds[2]-room.bounds[0]} height={room.bounds[3]-room.bounds[1]} /><text x={(room.bounds[0]+room.bounds[2])/2} y={(room.bounds[1]+room.bounds[3])/2}>{room.name}</text></g>)}</svg></div>
+						</div>
+						<div class="view-caption"><span id="current-room" aria-live="polite">The whole apartment</span><span id="view-help">Drag to orbit · scroll to zoom</span></div>
+						<div class="walk-controls" id="walk-controls" hidden role="group" aria-label="Walk controls"><button type="button" data-move="forward" aria-label="Walk forward">↑</button><div><button type="button" data-move="left" aria-label="Step left">←</button><button type="button" data-move="back" aria-label="Walk backward">↓</button><button type="button" data-move="right" aria-label="Step right">→</button></div></div>
+					</div>
+				</div>
+				<div class="settings">
+					<label class="wall-setting">Cutaway <input id="wall-height" type="range" min="0.4" max="8.75" step="0.05" value="3.1" /><output id="wall-value" for="wall-height">Low walls</output></label>
+					<div class="toggles"><label><input id="show-furniture" type="checkbox" checked /> Furniture</label><label><input id="show-labels" type="checkbox" checked /> Room names</label></div>
+					<button type="button" id="download-model">Download 3D model ↓</button>
+				</div>
+			</section>
+			<div class="below"><p id="room-detail" aria-live="polite">A roof-off view of the apartment. Choose a room to take a closer look.</p><details><summary>About this model</summary><p>A handcrafted reconstruction informed by 93 reference photographs, rather than a photogrammetric scan. The living room is 11.5 × 18 feet, the hallway is 21 feet long, the bay extends 19 inches, and the ceilings are approximately 8.75 feet high. Other dimensions and some wall positions are estimated. Furniture and decorative details are simplified.</p><p>In walkthrough mode, drag to look and use WASD, arrow keys, or the on-screen arrows to move. Choose a room to jump there. The downloaded GLB uses meters and includes the full walls and furnishings.</p></details></div>
+		</main>
+		<footer><a href="/">Noah Eisen</a><span>A familiar place, from a different perspective.</span></footer>
+		<noscript><p class="no-script">JavaScript is needed for the interactive model. The room list and model description are available above.</p></noscript>
+		<script>import '../../features/apartment/client';</script>
+	</body>
+</html>
