@@ -9,7 +9,16 @@ function canvasTexture(draw: (ctx: CanvasRenderingContext2D, size: number) => vo
 }
 let seed = 42;
 function random() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
-export function makeMaterials() {
+export function makeMaterials(loadPhotos = true) {
+	seed=42;
+	const loader=new THREE.TextureLoader();
+	function photo(name:string,repeat=false) {
+		const texture=loadPhotos?loader.load(`/images/apartment/${name}.webp`):new THREE.Texture();
+		texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=8;
+		if(repeat)texture.wrapS=texture.wrapT=THREE.MirroredRepeatWrapping;
+		return texture;
+	}
+	const photoMaterial=(name:string,roughness=.85,repeat=false)=>new THREE.MeshStandardMaterial({map:photo(name,repeat),roughness});
 	const woodTexture = canvasTexture((c, s) => {
 		c.fillStyle = '#a97d48'; c.fillRect(0, 0, s, s);
 		for (let row = 0; row < 16; row++) {
@@ -27,12 +36,20 @@ export function makeMaterials() {
 		for(let x=60;x<s-40;x+=48) for(let y=60;y<s-40;y+=48){c.beginPath();c.moveTo(x,y-17);c.lineTo(x+12,y);c.lineTo(x,y+17);c.lineTo(x-12,y);c.closePath();c.stroke();}
 	});
 	const tileTexture = canvasTexture((c,s)=>{c.fillStyle='#e5e2d7';c.fillRect(0,0,s,s);c.strokeStyle='#b5b7ab';c.lineWidth=3;for(let i=0;i<=s;i+=64){c.beginPath();c.moveTo(i,0);c.lineTo(i,s);c.stroke();c.beginPath();c.moveTo(0,i);c.lineTo(s,i);c.stroke();}});
+	const grain=photo('wood',true);grain.repeat.set(1,2);
+	const weave=photo('linen',true);weave.repeat.set(2,2);
 	const mat = (color: string, roughness = .8) => new THREE.MeshStandardMaterial({color,roughness});
+	const timber=(color:string)=>new THREE.MeshStandardMaterial({color,map:grain,roughness:.52,bumpMap:grain,bumpScale:.018});
+	const fabric=(color:string)=>new THREE.MeshStandardMaterial({color,map:weave,roughness:1,bumpMap:weave,bumpScale:.025});
 	return {
-		wall:mat('#b7b8ae'), ivory:mat('#efede1'), trim:mat('#e5e4da'), wood:mat('#79502c'), oak:mat('#b1844f'), darkWood:mat('#48382a'),
-		floor:new THREE.MeshStandardMaterial({map:woodTexture,roughness:.68}), rug:new THREE.MeshStandardMaterial({map:rugTexture,roughness:1}),
-		tile:new THREE.MeshStandardMaterial({map:tileTexture,roughness:.75}), sage:mat('#8b9478'), blue:mat('#899397'), sofa:mat('#969b91'),
-		white:mat('#eee9dc'), rust:mat('#b47858'), black:mat('#252b2c'), brass:mat('#a48a50',.35), chrome:mat('#b8c0be',.25),
+		wall:mat('#c4c1b8'), ivory:mat('#f0ede2'), trim:mat('#eeeae1'), wood:timber('#a88a66'), oak:timber('#d1bd99'), darkWood:timber('#66513e'),
+		floor:new THREE.MeshStandardMaterial({map:loadPhotos?grain:woodTexture,roughness:.48,bumpMap:grain,bumpScale:.025}), rug:loadPhotos?photoMaterial('rug',1,true):new THREE.MeshStandardMaterial({map:rugTexture,roughness:1}),
+		tile:new THREE.MeshStandardMaterial({map:tileTexture,roughness:.38}), sage:fabric('#8a9579'), blue:fabric('#72838b'), sofa:fabric('#dedcd4'),
+		fireplace:photoMaterial('fireplace'), fireplaceArt:photoMaterial('fireplace-art'), bookcase:photoMaterial('bookcase'), pianoArt:photoMaterial('piano-art'), buffet:photoMaterial('buffet'),
+		quilt:photoMaterial('quilt',1,true), bedroomRug:photoMaterial('bedroom-rug',1,true), curtain:photoMaterial('shower-curtain',1), officeCurtain:photoMaterial('office-curtain',1),
+		courtyard:new THREE.MeshBasicMaterial({map:photo('courtyard'),color:'#d9e1df'}),
+		bayView:new THREE.MeshBasicMaterial({map:photo('bay-view'),color:'#f5f2dd'}),
+		white:mat('#eee9dc'), rust:fabric('#c1845d'), black:mat('#222424'), brass:new THREE.MeshStandardMaterial({color:'#b69b60',metalness:.75,roughness:.3}), chrome:new THREE.MeshStandardMaterial({color:'#c7ceca',metalness:.85,roughness:.2}),
 		leaf:mat('#466b40'), leafLight:mat('#71854b'), soil:mat('#3e3326'), pot:mat('#c7b69c'), screen:mat('#252e32',.3),
 		glass:new THREE.MeshStandardMaterial({color:'#bad0cc',transparent:true,opacity:.27,roughness:.22,side:THREE.DoubleSide,depthWrite:false}),
 		lamp:new THREE.MeshStandardMaterial({color:'#f2e6bd',emissive:'#efcc89',emissiveIntensity:.28,roughness:.9}),

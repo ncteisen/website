@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { buildApartment } from './model';
-import { canStand, measured, rooms } from './layout';
+import { canStand, rooms } from './layout';
+import { lightApartment } from './lighting';
 
 type Mode = 'dollhouse' | 'plan' | 'walk';
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -26,15 +27,19 @@ function showFailure(message = 'The 3D view couldn’t start') {
 async function start() {
 	const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'default' });
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
-	renderer.setClearColor('#eeeee5');renderer.shadowMap.enabled = true;renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-	renderer.localClippingEnabled = true;renderer.toneMapping = THREE.ACESFilmicToneMapping;renderer.toneMappingExposure = 1.17;
+	renderer.setClearColor('#bdc7bf');renderer.shadowMap.enabled = true;renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+	renderer.localClippingEnabled = true;renderer.toneMapping = THREE.ACESFilmicToneMapping;renderer.toneMappingExposure = .94;
 	renderer.domElement.setAttribute('aria-hidden', 'true');viewer.prepend(renderer.domElement);
 	renderer.domElement.addEventListener('webglcontextlost', e => { e.preventDefault(); showFailure('The 3D view was interrupted. Reload to try again.'); });
 	const scene = new THREE.Scene();
-	scene.add(new THREE.HemisphereLight('#fffaf0', '#a5ac9c', 2.25));
-	const sun = new THREE.DirectionalLight('#fff4df', 3.2);sun.position.set(-18,42,-15);sun.target.position.set(6,0,25);scene.add(sun,sun.target);
-	sun.castShadow = true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-40;sun.shadow.camera.right=40;sun.shadow.camera.top=45;sun.shadow.camera.bottom=-45;sun.shadow.camera.far=130;sun.shadow.normalBias=.04;sun.shadow.bias=-.0002;
-	const fill = new THREE.DirectionalLight('#dce8ef', .75);fill.position.set(20,16,55);scene.add(fill);
+	const setLighting=lightApartment(scene,renderer);setLighting('day');
+	for(const button of document.querySelectorAll<HTMLButtonElement>('[data-light]'))button.addEventListener('click',()=>{
+		const setting=button.dataset.light as 'day'|'evening';setLighting(setting);host.dataset.light=setting;
+		document.querySelectorAll('[data-light]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+	});
+	let missingTextures=false;
+	const texturesReady=new Promise<void>(resolve=>{THREE.DefaultLoadingManager.onLoad=()=>resolve();});
+	THREE.DefaultLoadingManager.onError=()=>{missingTextures=true;};
 	const apartment = buildApartment();scene.add(apartment.root);
 	const ground = new THREE.Mesh(new THREE.PlaneGeometry(300,300),new THREE.ShadowMaterial({opacity:.13}));ground.rotation.x=-Math.PI/2;ground.position.y=-.34;ground.receiveShadow=true;scene.add(ground);
 	apartment.ceilings.traverse(o=>{if(o instanceof THREE.Mesh)o.castShadow=false;});
@@ -55,20 +60,20 @@ async function start() {
 		const aspect=viewer.clientWidth/Math.max(1,viewer.clientHeight);
 		const bounds=new THREE.Box3().setFromObject(apartment.root);
 		const target=bounds.getCenter(new THREE.Vector3());
-		const direction=new THREE.Vector3(aspect<1?.28:.65,1,.95).normalize();
+		const direction=new THREE.Vector3(aspect<1?.28:1.15,1.35,.95).normalize();
 		controls.target.copy(target);orbitCamera.position.copy(target).addScaledVector(direction,90);orbitCamera.zoom=1;controls.update();orbitCamera.updateMatrixWorld(true);
 		let maxX=0,maxY=0;
 		for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
 			const p=new THREE.Vector3(x,y,z).applyMatrix4(orbitCamera.matrixWorldInverse);maxX=Math.max(maxX,Math.abs(p.x));maxY=Math.max(maxY,Math.abs(p.y));
 		}
-		const halfH=Math.max(maxY,maxX/aspect)*1.13;
-		orbitCamera.left=-halfH*aspect;orbitCamera.right=halfH*aspect;orbitCamera.top=halfH;orbitCamera.bottom=-halfH;orbitCamera.updateProjectionMatrix();
-		planCamera.position.set(5.5,85,24.5);planControls.target.set(5.5,0,24.5);planCamera.zoom=1;planCamera.updateProjectionMatrix();planControls.update();
+		const halfH=Math.max(maxY,maxX/aspect)*1.4;
+		orbitCamera.left=-halfH*aspect;orbitCamera.right=halfH*aspect;orbitCamera.top=halfH*.84;orbitCamera.bottom=-halfH*1.16;orbitCamera.updateProjectionMatrix();
+		planCamera.position.set(-5.5,85,24.5);planControls.target.set(-5.5,0,24.5);planCamera.zoom=1;planCamera.updateProjectionMatrix();planControls.update();
 	}
 	function resize() {
 		const w=viewer.clientWidth,h=viewer.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);
-		walkCamera.aspect=w/h;walkCamera.updateProjectionMatrix();
-		const halfH=Math.max(29,15/(w/h));planCamera.left=-halfH*w/h;planCamera.right=halfH*w/h;planCamera.top=halfH;planCamera.bottom=-halfH;planCamera.updateProjectionMatrix();
+		walkCamera.aspect=w/h;walkCamera.fov=w/h<.75?88:68;walkCamera.updateProjectionMatrix();
+		const halfH=Math.max(43,16/(w/h));planCamera.left=-halfH*w/h;planCamera.right=halfH*w/h;planCamera.top=halfH*.86;planCamera.bottom=-halfH*1.14;planCamera.updateProjectionMatrix();
 		if(mode!=='walk') {const room=selected;fitWhole();if(room)selectRoom(room);}
 	}
 	function updateRoomButtons(){document.querySelectorAll<HTMLButtonElement>('[data-room]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.room===selected)));}
@@ -89,7 +94,7 @@ async function start() {
 		}
 	}
 	function updateWalls(){
-		apartment.clip.constant=mode==='walk'?measured.ceiling+.1:mode==='plan'?.4:Number(wallInput.value);
+		apartment.updateCutaway(camera.position,mode,Number(wallInput.value));
 		element('wall-value').textContent=Number(wallInput.value)>8.5?'Full walls':`${Number(wallInput.value).toFixed(1)} ft`;
 	}
 	function setMode(next:Mode){
@@ -102,7 +107,7 @@ async function start() {
 		help.textContent=next==='walk'?'Drag to look · WASD / arrows to walk':next==='plan'?'Drag to pan · scroll to zoom':'Drag to orbit · scroll to zoom';
 		updateWalls();
 		if(next==='walk')selectRoom(selected??'living');
-		else {selected=null;updateRoomButtons();caption.textContent='The whole apartment';detail.textContent=next==='plan'?'An overhead view. Room dimensions outside the measured living room and hallway are approximate.':'A roof-off view of the apartment. Choose a room to take a closer look.';fitWhole();}
+		else {selected=null;updateRoomButtons();caption.textContent='The whole apartment';detail.textContent=next==='plan'?'Room dimensions are approximate.':'Choose a room to look closer.';fitWhole();}
 	}
 	const furnishedBarriers=[...apartment.barriers,...apartment.furnitureBarriers];
 	function step(dt:number){
@@ -136,6 +141,13 @@ async function start() {
 	for(const button of document.querySelectorAll<HTMLButtonElement>('[data-room]'))button.addEventListener('click',()=>selectRoom(button.dataset.room!));
 	element('reset-view').addEventListener('click',()=>{selected=null;setMode(mode);});
 	wallInput.addEventListener('input',updateWalls);furnitureInput.addEventListener('change',()=>apartment.furniture.visible=furnitureInput.checked);labelsInput.addEventListener('change',()=>labels.hidden=!labelsInput.checked||mode==='walk');
+	const photoDialog=element<HTMLDialogElement>('photo-dialog');const aboutDialog=element<HTMLDialogElement>('about-dialog');
+	const photoSelect=element<HTMLSelectElement>('photo-select');
+	function updatePhoto(){const img=element<HTMLImageElement>('reference-photo');img.src=`/images/apartment/reference-${photoSelect.value}.webp`;img.alt=`${photoSelect.selectedOptions[0].text} reference photograph`;}
+	element('show-photos').addEventListener('click',()=>{if(selected&&Array.from(photoSelect.options).some(o=>o.value===selected)){photoSelect.value=selected;updatePhoto();}photoDialog.showModal();});
+	element('show-about').addEventListener('click',()=>aboutDialog.showModal());photoSelect.addEventListener('change',updatePhoto);
+	for(const button of document.querySelectorAll<HTMLButtonElement>('[data-close]'))button.addEventListener('click',()=>element<HTMLDialogElement>(button.dataset.close!).close());
+	for(const dialog of [photoDialog,aboutDialog])dialog.addEventListener('click',e=>{if(e.target===dialog){const rect=dialog.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)dialog.close();}});
 	const fullscreen=element<HTMLButtonElement>('fullscreen');if(!document.fullscreenEnabled)fullscreen.hidden=true;
 	fullscreen.addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await host.requestFullscreen();}catch{detail.textContent='Full-screen view is unavailable in this browser.';}});
 	document.addEventListener('fullscreenchange',()=>{fullscreen.textContent=document.fullscreenElement?'Exit expanded ↙':'Expand ↗';resize();});
@@ -143,7 +155,7 @@ async function start() {
 		const button=element<HTMLButtonElement>('download-model');button.disabled=true;button.textContent='Preparing model…';
 		try {
 			const {GLTFExporter}=await import('three/addons/exporters/GLTFExporter.js');
-			const exportRoot=apartment.root.clone(true);exportRoot.scale.setScalar(.3048);exportRoot.userData={units:'meters',source:'Photo-informed reconstruction; unmeasured dimensions are estimates.'};
+			const exportRoot=apartment.root.clone(true);exportRoot.scale.setScalar(.3048);exportRoot.userData={units:'meters',source:'Handcrafted photo-textured model; unmeasured dimensions are estimates.'};
 			exportRoot.traverse(o=>{o.visible=o.name!=='Ceilings';if(o instanceof THREE.Mesh){o.material=(o.material as THREE.Material).clone();o.material.clippingPlanes=[];}});
 			const result=await new GLTFExporter().parseAsync(exportRoot,{binary:true});
 			const url=URL.createObjectURL(new Blob([result as ArrayBuffer],{type:'model/gltf-binary'}));const a=document.createElement('a');a.href=url;a.download='the-apartment.glb';a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
@@ -161,9 +173,13 @@ async function start() {
 	new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;}).observe(viewer);
 	function frame(now:number){if(failed)return;requestAnimationFrame(frame);const dt=Math.min((now-last)/1000,.04);last=now;if(document.hidden||!inView)return;
 		if(transition){const t=Math.min((now-transition.start)/650,1),ease=t*t*(3-2*t);orbitCamera.position.lerpVectors(transition.from,transition.to,ease);controls.target.lerpVectors(transition.targetFrom,transition.targetTo,ease);if(t===1)transition=null;}
-		step(dt);if(mode==='dollhouse')controls.update();if(mode==='plan')planControls.update();renderer.render(scene,camera);drawLabels();
+		step(dt);if(mode==='dollhouse')controls.update();if(mode==='plan')planControls.update();updateWalls();renderer.render(scene,camera);drawLabels();
 	}
 	controls.addEventListener('start',()=>transition=null);
-	new ResizeObserver(resize).observe(viewer);resize();fitWhole();updateWalls();element('loading').hidden=true;host.dataset.ready='true';host.dataset.mode=mode;requestAnimationFrame(frame);
+	new ResizeObserver(resize).observe(viewer);resize();fitWhole();updateWalls();
+	await texturesReady;
+	element('loading').hidden=true;host.dataset.ready='true';host.dataset.mode=mode;
+	if(missingTextures)detail.textContent='Some photo textures could not load. Reload to try again.';
+	requestAnimationFrame(frame);
 }
 start().catch(error=>{console.error('Apartment initialization failed',error);showFailure();});
