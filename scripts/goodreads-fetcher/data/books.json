@@ -1,5 +1,17 @@
 [
   {
+    "book_id": "4406",
+    "title": "East of Eden",
+    "author_name": "John Steinbeck",
+    "user_rating": 5,
+    "user_read_at": "2026-11-07T00:00:00+00:00",
+    "user_date_added": "2026-11-11",
+    "user_shelves": "recommendations-hard",
+    "user_review": "Epic! Biblical!! Beautiful! Took me over two months to read but totally worth it. Makes me deep appreciate the west coast, America, free will, morality, and all that good stuff",
+    "book_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1639969375l/4406._SX98_.jpg",
+    "guid": "https://www.goodreads.com/review/show/9096306742"
+  },
+  {
     "book_id": "241126782",
     "title": "Land",
     "author_name": "Maggie O'Farrell",
