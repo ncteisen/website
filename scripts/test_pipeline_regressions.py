@@ -440,6 +440,89 @@ def test_goodreads_shelf_refresh_is_not_full_inventory(monkeypatch, tmp_path):
     assert len(json.loads(path.read_text())) == 1
 
 
+def test_goodreads_cached_only_avoids_network_preserves_data_and_reports_staleness(monkeypatch, tmp_path, capsys):
+    path = tmp_path / 'books.json'
+    original = json.dumps([book()], indent=4) + '\n'
+    path.write_text(original)
+    summary = tmp_path / 'summary.md'
+    summary.write_text('Earlier step\n')
+    monkeypatch.setattr(gf, 'DATA_FILE', str(path))
+    # The autouse no_network fixture fails this test if any HTTP call is made.
+    monkeypatch.setattr(sys, 'argv', ['fetch_books.py', '--cached-only'])
+    monkeypatch.setenv('GITHUB_ACTIONS', 'true')
+    monkeypatch.setenv('GITHUB_STEP_SUMMARY', str(summary))
+    gf.main()
+    assert path.read_text() == original
+    output = capsys.readouterr().out
+    assert '::notice title=Goodreads uses saved data::' in output
+    assert '::warning' not in output
+    assert summary.read_text().startswith('Earlier step\n')
+    assert 'NOT refreshed: Goodreads discontinued RSS in October 2026' in summary.read_text()
+    assert 'Keeping 1 cached books unchanged' in summary.read_text()
+
+
+def test_goodreads_unavailable_feed_fails_by_default(monkeypatch, tmp_path):
+    path = tmp_path / 'books.json'
+    path.write_text(json.dumps([book()]))
+    original = path.read_bytes()
+    monkeypatch.setattr(gf, 'DATA_FILE', str(path))
+    monkeypatch.setattr(gf.requests, 'get', Mock(return_value=Response(status=404)))
+    monkeypatch.setattr(sys, 'argv', ['fetch_books.py', '--full'])
+    with pytest.raises(gf.GoodreadsFeedUnavailable, match='not an empty bookshelf'):
+        gf.main()
+    assert path.read_bytes() == original
+
+
+@pytest.mark.parametrize('cache', [None, '[]', '{}', '[{}]', '["bad"]', 'invalid json'])
+def test_goodreads_cached_only_rejects_missing_or_invalid_cache(monkeypatch, tmp_path, cache):
+    path = tmp_path / 'books.json'
+    if cache is not None:
+        path.write_text(cache)
+    monkeypatch.setattr(gf, 'DATA_FILE', str(path))
+    monkeypatch.setattr(sys, 'argv', ['fetch_books.py', '--cached-only'])
+    with pytest.raises((RuntimeError, ValueError)):
+        gf.main()
+    assert (path.read_text() if path.exists() else None) == cache
+
+
+@pytest.mark.parametrize('failure', ['server', 'forbidden', 'timeout', 'html', 'late-404', 'empty'])
+def test_goodreads_explicit_fetch_does_not_hide_failures(monkeypatch, tmp_path, failure):
+    path = tmp_path / 'books.json'
+    path.write_text(json.dumps([book()]))
+    original = path.read_bytes()
+    xml = b'<rss><channel><item><book_id>2</book_id><title>New book</title></item></channel></rss>'
+    responses = {
+        'server': [Response(status=500)],
+        'forbidden': [Response(status=403)],
+        'timeout': [gf.requests.Timeout('Synthetic timeout')],
+        'html': [Response(content=b'<html><body>Sign in</body></html>')],
+        'late-404': [Response(content=xml), Response(status=404)],
+        'empty': [Response(content=b'<rss><channel/></rss>')],
+    }
+    monkeypatch.setattr(gf, 'DATA_FILE', str(path))
+    monkeypatch.setattr(gf.time, 'sleep', lambda _: None)
+    monkeypatch.setattr(gf.requests, 'get', Mock(side_effect=responses[failure]))
+    monkeypatch.setattr(sys, 'argv', ['fetch_books.py', '--full'])
+    with pytest.raises((RuntimeError, ValueError, gf.requests.Timeout)):
+        gf.main()
+    assert path.read_bytes() == original
+
+
+def test_goodreads_explicit_full_fetch_reconciles_inventory(monkeypatch, tmp_path, capsys):
+    path = tmp_path / 'books.json'
+    path.write_text(json.dumps([book('removed')]))
+    xml = b'<rss><channel><item><book_id>2</book_id><title>New book</title></item></channel></rss>'
+    get = Mock(side_effect=[Response(content=xml), Response(content=b'<rss><channel/></rss>')])
+    monkeypatch.setattr(gf, 'DATA_FILE', str(path))
+    monkeypatch.setattr(gf.time, 'sleep', lambda _: None)
+    monkeypatch.setattr(gf.requests, 'get', get)
+    monkeypatch.setattr(sys, 'argv', ['fetch_books.py', '--full'])
+    gf.main()
+    assert [row['book_id'] for row in json.loads(path.read_text())] == ['2']
+    assert [call.kwargs['params']['page'] for call in get.call_args_list] == [1, 2]
+    assert '::warning' not in capsys.readouterr().out
+
+
 @pytest.mark.parametrize('value', ['Mon, 01 Jun 2026 00:00:00 -0000', '2026-06-01', '2026-06-01T00:00:00Z'])
 def test_dates_are_consistent_aware_utc(value):
     assert parse_date(value) == datetime(2026, 6, 1, tzinfo=timezone.utc)

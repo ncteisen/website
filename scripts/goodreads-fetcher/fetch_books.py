@@ -32,6 +32,41 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
+class GoodreadsFeedUnavailable(RuntimeError):
+    def __init__(self, status_code: int):
+        self.status_code = status_code
+        super().__init__(
+            f'Goodreads RSS returned HTTP {status_code} on the first page. '
+            'Goodreads discontinued RSS in October 2026; this is not an empty bookshelf. '
+            'Use --cached-only to retain saved data. Cache unchanged.'
+        )
+
+
+def report_cached_books(books: list[dict]) -> None:
+    """Validate the saved inventory and make its stale status visible in CI."""
+    if not isinstance(books, list) or not books or any(
+        not isinstance(book, dict)
+        or not isinstance(book.get('book_id'), str) or not book['book_id']
+        or not isinstance(book.get('title'), str) or not book['title']
+        or type(book.get('user_rating')) is not int
+        or not 0 <= book['user_rating'] <= 5
+        for book in books
+    ):
+        raise RuntimeError('Cannot use Goodreads cached-only mode without a valid nonempty cache')
+    message = (
+        'Goodreads was NOT refreshed: Goodreads discontinued RSS in October 2026. '
+        f'Keeping {len(books)} cached books unchanged; new books and edits will not appear '
+        'until a replacement import is configured. Other social sources may continue refreshing.'
+    )
+    logger.info(message)
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        print(f'::notice title=Goodreads uses saved data::{message}')
+        summary = os.environ.get('GITHUB_STEP_SUMMARY')
+        if summary:
+            with open(summary, 'a', encoding='utf-8') as output:
+                output.write(f'### Goodreads: cached data retained\n\n{message}\n\n')
+
+
 class GoodreadsDataCollector:
     def __init__(self, full_refresh: bool = False, shelf: str | None = None):
         self.full_refresh = full_refresh
@@ -111,6 +146,8 @@ class GoodreadsDataCollector:
             if self.shelf:
                 params['shelf'] = self.shelf
             response = requests.get(GOODREADS_RSS_URL, params=params, headers=HEADERS, timeout=30)
+            if page == 1 and response.status_code in (404, 410):
+                raise GoodreadsFeedUnavailable(response.status_code)
             response.raise_for_status()
             root = ET.fromstring(response.content)
             if root.find('channel') is None:
@@ -164,10 +201,17 @@ def main() -> None:
         help="Fetch a specific Goodreads shelf. Defaults to the account's all-shelf RSS feed.",
     )
     parser.add_argument('--allow-empty-refresh', action='store_true', help='Allow a verified empty authoritative account response.')
+    parser.add_argument(
+        '--cached-only', action='store_true',
+        help='Validate and retain saved books without network access; Goodreads retired RSS in October 2026.',
+    )
     args = parser.parse_args()
 
     collector = GoodreadsDataCollector(full_refresh=args.full, shelf=args.shelf)
     collector.load_existing_books()
+    if args.cached_only:
+        report_cached_books(collector.existing_books)
+        return
     collector.fetch_books(allow_empty=args.allow_empty_refresh)
     collector.update_and_save_books()
 

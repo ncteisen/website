@@ -6,7 +6,7 @@ Combines data from Strava, Letterboxd, and Goodreads into a single `src/data/soc
 
 The pipeline has two stages:
 
-**Stage 1 — Fetchers** validate upstream data before replacing local JSON caches. Strava stores a minimal public projection and normally reconciles the complete inventory. Scheduled Goodreads runs also use a complete inventory; Letterboxd merges its recent RSS window.
+**Stage 1 — Fetchers** validate upstream data before replacing local JSON caches. Strava stores a minimal public projection and normally reconciles the complete inventory. Goodreads retains its last saved inventory following RSS retirement; Letterboxd merges its recent RSS window.
 
 **Stage 2 — Orchestrator** reads those JSON files, computes stats, and combines everything into the final output. Stage 2 makes no network calls — all data comes from the local JSON files produced by Stage 1.
 
@@ -16,8 +16,8 @@ External Sources          Fetchers (Stage 1)              Local JSON
 Strava API          ───>  strava-fetcher/                 activities.json
                           fetch_activities.py
 
-Goodreads RSS       ───>  goodreads-fetcher/              books.json
-                          fetch_books.py
+Saved Goodreads    ───>  goodreads-fetcher/              books.json
+inventory                 fetch_books.py --cached-only
 
 Letterboxd RSS      ───>  letterboxd-fetcher/             films.json
                           fetch_films.py
@@ -57,7 +57,7 @@ From the repo root (with venv activated):
 ```bash
 # Stage 1: Fetch fresh data
 python scripts/strava-fetcher/fetch_activities.py      # designated refresh owner only; see token persistence below
-python scripts/goodreads-fetcher/fetch_books.py --full
+python scripts/goodreads-fetcher/fetch_books.py --cached-only  # RSS retired; no new Goodreads data
 python scripts/letterboxd-fetcher/fetch_films.py
 
 # Stage 2: Combine into social_data.json
@@ -67,6 +67,12 @@ python scripts/social-data/orchestrate.py
 ## CI/CD
 
 GitHub Actions runs this pipeline daily at 10:00 UTC (3 AM PDT / 2 AM PST) via `.github/workflows/social-data-fetch.yml`. It runs all four scripts in sequence, then commits any changes to the data files.
+
+### Goodreads RSS retirement (October 2026)
+
+Goodreads [officially discontinued RSS in October 2026](https://www.goodreads.com/blog/show/20-more-rss-feeds), citing low usage and data security. Our daily request started returning HTTP 404 on October 28, after succeeding October 27. This was removal of the upstream feature, not a parsing regression. Goodreads directs users to [My Books Import & Export](https://www.goodreads.com/review/import) for shelves and reading history; that is not an automatic feed replacement.
+
+Scheduled runs use `--cached-only`: validate the existing nonempty book cache without network access or rewriting it. The run emits an informational GitHub Actions notice and step summary explicitly stating that Goodreads was **not refreshed**, while Strava and Letterboxd may continue. New Goodreads books, edits, and deletions will not appear until a replacement import is implemented. Missing or invalid caches still fail the job. The legacy RSS fetch path remains available for diagnostics without `--cached-only`, but the scheduled job no longer polls the retired endpoint.
 
 ## Public data boundary and safe refreshes
 

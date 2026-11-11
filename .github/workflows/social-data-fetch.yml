@@ -41,8 +41,10 @@ jobs:
         # with Environments read/write. The token secret must exist in strava-sync.
         STRAVA_TOKEN_STATE_WRITE_TOKEN: ${{ secrets.STRAVA_TOKEN_STATE_WRITE_TOKEN }}
       run: .venv/bin/python scripts/strava-fetcher/fetch_activities.py
-    - name: Fetch Goodreads books data
-      run: .venv/bin/python scripts/goodreads-fetcher/fetch_books.py --full
+    - name: Retain cached Goodreads books (RSS retired)
+      # https://www.goodreads.com/blog/show/20-more-rss-feeds
+      # RSS was retired in October 2026. Do not poll the removed endpoint.
+      run: .venv/bin/python scripts/goodreads-fetcher/fetch_books.py --cached-only
     - name: Fetch Letterboxd films data
       run: .venv/bin/python scripts/letterboxd-fetcher/fetch_films.py
     - name: Build validated social data
