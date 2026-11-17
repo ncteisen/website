@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-11-16T19:56:59.133681+00:00",
+  "last_updated": "2026-11-17T18:52:37.601018+00:00",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Dune",
+        "year": 2021,
+        "rating": 4.5,
+        "watched_date": "2026-11-15",
+        "is_rewatch": true,
+        "review": "<p>I try not to be a format dork, but I didn\u2019t have a chance to see this in IMAX when it came out, and I gotta say: what an incredible spectacle.</p><p>It felt like every other scene was showcasing some combo of brilliant costumes, beautiful shots, amazing visual effects and using every inch of the screen to do so.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/nx/8b/vs/gc/cDbNAY0KM84cxXhmj8f0dLWza3t-0-600-0-900-crop.jpg?v=49eed12751",
+        "link": "https://letterboxd.com/ncteisen/film/dune-2021/2/"
+      },
       {
         "title": "No Country for Old Men",
         "year": 2007,
@@ -4096,6 +4106,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Dune",
+        "year": 2021,
+        "rating": 4.5,
+        "watched_date": "2026-11-15",
+        "is_rewatch": true,
+        "review": "<p>I try not to be a format dork, but I didn\u2019t have a chance to see this in IMAX when it came out, and I gotta say: what an incredible spectacle.</p><p>It felt like every other scene was showcasing some combo of brilliant costumes, beautiful shots, amazing visual effects and using every inch of the screen to do so.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/nx/8b/vs/gc/cDbNAY0KM84cxXhmj8f0dLWza3t-0-600-0-900-crop.jpg?v=49eed12751",
+        "link": "https://letterboxd.com/ncteisen/film/dune-2021/2/"
+      },
+      {
         "title": "No Country for Old Men",
         "year": 2007,
         "rating": 4.5,
@@ -4164,21 +4184,11 @@
         "review": "<p>\u201cShe's beautiful, but she's a pill.\u201d</p><p>It\u2019s uncanny how all these Nora Ephron movies are about Sarah.</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/4/7/1/0/9/47109-you-ve-got-mail-0-600-0-900-crop.jpg?v=4a6ca4dba1",
         "link": "https://letterboxd.com/ncteisen/film/youve-got-mail/1/"
-      },
-      {
-        "title": "You Can See Everything",
-        "year": 2026,
-        "rating": 5.0,
-        "watched_date": "2026-10-15",
-        "is_rewatch": false,
-        "review": "<p>A mind-devouring Mandelbrot of a movie</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/6/2/9/4/4/3/1629443-you-can-see-everything-0-600-0-900-crop.jpg?v=84f6724d74",
-        "link": "https://letterboxd.com/ncteisen/film/you-can-see-everything/"
       }
     ],
     "stats": {
-      "total_films": 409,
-      "films_this_year": 73
+      "total_films": 410,
+      "films_this_year": 74
     }
   },
   "goodreads": {
@@ -7862,11 +7872,11 @@
           "elevation_gain": 538061.0
         },
         "recent": {
-          "count": 19,
-          "distance": 111.45,
-          "moving_time": 62683,
-          "elapsed_time": 73005,
-          "elevation_gain": 9022.0
+          "count": 18,
+          "distance": 107.2,
+          "moving_time": 60302,
+          "elapsed_time": 70260,
+          "elevation_gain": 8556.0
         }
       },
       "biking": {
