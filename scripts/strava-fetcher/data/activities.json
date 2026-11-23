@@ -1,5 +1,23 @@
 [
   {
+    "id": 21095871128,
+    "name": "Morning Run",
+    "type": "Run",
+    "sport_type": "Run",
+    "start_date": "2026-11-23T14:26:31Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "mglhGbmiqL[Ks@OYQc@My@?k@Ei@Ig@UQMSEOQGOCS?o@BSJc@Ba@FSHwAJqABc@Hc@D{ANeBFoBAcBKsB_@oCKo@a@_AK_@CYBKCSMa@k@mAOQQ[_@a@Q[Mm@?q@Do@FUFmADo@Ha@?w@NcADiAG{@O_AKWMg@]aAYk@m@y@}@w@SKQEKIWCqAFOEUMMQOe@Ia@IaA?k@BYEu@@{AH}@F_FPqB@{BHgAAk@DiANiCDUD{Bl@kEDm@A_@Eu@@i@Bm@XuADk@I{AIa@I_AE}CDy@AY@OFY@_@NgCRaALu@HYJy@ZiBBy@BMAe@Dc@I?CnCWbBSn@MdAY`BS~CMbADzDJxANrA@t@CJEt@U|A@rBMtBU|AWnA?lAEbAKh@G|AAlBCZ?v@IrBEx@QtBCvB@VCZFvBA|@B~ADb@Pp@FLNNTHl@HXBZAj@FVLTT`AfAl@`A^|@\\xADn@@fCId@AfAIx@EjBKfABhAH\\HPd@j@Xb@^z@Lv@Tr@ZzAHRXvATdBLfCCxCGbBQvB?b@SbBS|BKh@MhABn@FLJHTFPJVDr@ZXDJ?XDd@@XFdAf@HBV?"
+    },
+    "distance": 5344.0,
+    "moving_time": 1748,
+    "elapsed_time": 1771,
+    "total_elevation_gain": 59.0,
+    "average_speed": 3.057
+  },
+  {
     "id": 21086417989,
     "name": "Morning Run",
     "type": "Run",

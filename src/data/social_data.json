@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-11-22T17:30:02.203112+00:00",
+  "last_updated": "2026-11-23T21:50:14.956381+00:00",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Tuner",
+        "year": 2025,
+        "rating": 3.5,
+        "watched_date": "2026-11-22",
+        "is_rewatch": false,
+        "review": "<p>Solid, cute B-tier crime thriller.</p><p>Echos of Baby Driver and The Sound of Metal.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/8/7/8/1234878-tuner-0-600-0-900-crop.jpg?v=075156069b",
+        "link": "https://letterboxd.com/ncteisen/film/tuner/"
+      },
       {
         "title": "Arrival",
         "year": 2016,
@@ -4136,6 +4146,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Tuner",
+        "year": 2025,
+        "rating": 3.5,
+        "watched_date": "2026-11-22",
+        "is_rewatch": false,
+        "review": "<p>Solid, cute B-tier crime thriller.</p><p>Echos of Baby Driver and The Sound of Metal.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/8/7/8/1234878-tuner-0-600-0-900-crop.jpg?v=075156069b",
+        "link": "https://letterboxd.com/ncteisen/film/tuner/"
+      },
+      {
         "title": "Arrival",
         "year": 2016,
         "rating": 5.0,
@@ -4204,21 +4224,11 @@
         "review": "<p>Loved the tension in Oppenheim's directing. He is simultaneously empathetic and tender towards the strange people in the film, but also removed and judgemental (or was that just my judgement seeping through \ud83e\udd14)</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=fb4da1471b",
         "link": "https://letterboxd.com/ncteisen/film/spermworld/"
-      },
-      {
-        "title": "American Psycho",
-        "year": 2000,
-        "rating": 4.0,
-        "watched_date": "2026-10-31",
-        "is_rewatch": true,
-        "review": "<p><a href=\"https://www.youtube.com/watch?v=jOiFBk3Waig\" rel=\"noopener noreferrer\">www.youtube.com/watch?v=jOiFBk3Waig</a></p>",
-        "image_url": "https://a.ltrbxd.com/resized/sm/upload/5b/u9/av/il/ecoY7zJL6Ub3URP1oPhPfGflEjV-0-600-0-900-crop.jpg?v=8126850315",
-        "link": "https://letterboxd.com/ncteisen/film/american-psycho/"
       }
     ],
     "stats": {
-      "total_films": 413,
-      "films_this_year": 77
+      "total_films": 414,
+      "films_this_year": 78
     }
   },
   "goodreads": {
@@ -5929,6 +5939,21 @@
   "strava": {
     "all_activities": [
       {
+        "id": 21095871128,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 3.32,
+        "moving_time": 1748,
+        "elapsed_time": 1771,
+        "elevation_gain": 194.0,
+        "average_pace": 8.77,
+        "start_date": "2026-11-23T14:26:31Z",
+        "commute": false,
+        "map": {
+          "summary_polyline": "mglhGbmiqL[Ks@OYQc@My@?k@Ei@Ig@UQMSEOQGOCS?o@BSJc@Ba@FSHwAJqABc@Hc@D{ANeBFoBAcBKsB_@oCKo@a@_AK_@CYBKCSMa@k@mAOQQ[_@a@Q[Mm@?q@Do@FUFmADo@Ha@?w@NcADiAG{@O_AKWMg@]aAYk@m@y@}@w@SKQEKIWCqAFOEUMMQOe@Ia@IaA?k@BYEu@@{AH}@F_FPqB@{BHgAAk@DiANiCDUD{Bl@kEDm@A_@Eu@@i@Bm@XuADk@I{AIa@I_AE}CDy@AY@OFY@_@NgCRaALu@HYJy@ZiBBy@BMAe@Dc@I?CnCWbBSn@MdAY`BS~CMbADzDJxANrA@t@CJEt@U|A@rBMtBU|AWnA?lAEbAKh@G|AAlBCZ?v@IrBEx@QtBCvB@VCZFvBA|@B~ADb@Pp@FLNNTHl@HXBZAj@FVLTT`AfAl@`A^|@\\xADn@@fCId@AfAIx@EjBKfABhAH\\HPd@j@Xb@^z@Lv@Tr@ZzAHRXvATdBLfCCxCGbBQvB?b@SbBS|BKh@MhABn@FLJHTFPJVDr@ZXDJ?XDd@@XFdAf@HBV?"
+        }
+      },
+      {
         "id": 21086417989,
         "name": "Morning Run",
         "type": "Run",
@@ -7412,21 +7437,6 @@
         "map": {
           "summary_polyline": "kqpeFxkhjVLjAAz@Jp@CRBNA`@Hh@@`@BP?ZFj@Bl@N^Dx@DJFd@EhBBX@n@Sd@Fx@Ar@Bp@P|@@f@FdADR@d@Gz@UdA@n@B\\In@B`@Hl@JTRV`@bAZlCD|@LxA?`DPx@Dd@Np@Cj@Bp@?fANjAHVHt@BpACX?h@R`BEv@Ix@Jn@t@jCFh@?TE|@YdAA\\LrAV`AAl@Bd@TbARp@D`@PlBBXCTDp@Il@GPKJK?AGFM@OC[CMMIQNECIc@OUSQUe@CWIMMKKAMEi@Ia@Ci@[c@EM@QNOd@[\\ILMJUBQLINUbAUVG`@EJa@t@AV?^T|AFRVZ`@XBDDb@Z`AFd@V|@b@|FL~@JXV\\r@d@h@f@Tb@Zz@h@t@BPFHND^Kp@GTD^AQDHBN^FFLHB?ZQLOPcABSNo@B]RcB@m@A}@D]LKXMf@A`@DVIh@u@t@yAFQ@[Io@IW_@k@Sa@OoAY}@AMLiAZkAn@{Av@oAD]Bu@UcC?YKKOEYSi@oAe@g@OIu@?ISKiAEaAQoBIyB_@aEAg@G}@?]Ii@Iy@I}BKoBc@wFQcDU_BEu@Dy@QqASuDEU?[I_@GcAIaA{@oOQcBAg@U_DAe@KmBKw@QgDOoAWoE"
         }
-      },
-      {
-        "id": 18879166101,
-        "name": "\ud83d\udc36\ud83d\udc36\ud83d\udc36\ud83d\udc36",
-        "type": "Run",
-        "distance": 7.5,
-        "moving_time": 4587,
-        "elapsed_time": 5226,
-        "elevation_gain": 1112.0,
-        "average_pace": 10.19,
-        "start_date": "2026-06-11T13:41:42Z",
-        "commute": false,
-        "map": {
-          "summary_polyline": "clpeFnfhjV@TV`@F^NDLZKl@EfBDz@ItBHfA@hBj@|Gh@vJf@fEJbDLtA@dAFl@@r@XrB|@pP|@pL?`BHvAX~BVnEb@bARFbAU|Iy@zDq@~AE\\QTB`@Qv@CTOjAWpACzAWt@CxBs@dAAr@M~@CbASrAMXDbAKGRAjAZpA@ZRd@?x@FXHHLp@VPJVd@VXf@j@n@KUCc@_@m@@Y_@g@?QFEJ\\TRJb@`AbAb@P[lAZt@CJF\\Y^?bBEVf@N?^SF?Dd@RT]Hc@Kx@FAPYF{ARy@CSFaAGy@La@v@a@Ba@Cs@NSJBFNEl@PdAJhAAPYWK?PJZfAVRGFS?VR@HMRWA?HZRUP?FZGjAA|@l@e@?[HEBLB?JYAWZTC`@Na@PEPFN`@HFHGx@Lz@I\\q@a@c@\\?VMBKRWIoAA]JGCAIZYsAESO?Gn@Mg@_@iAiBPBd@f@f@Rj@BHQCIYDWMMc@k@c@iAyBk@@UCS`@WpAWv@B`@d@~AYr@L~@?VF@?t@TLzAWl@JTPX|@LD`@Q^I|@KRWLEf@Cb@v@H`@Ht@`@^l@TZC^W^s@\\Ud@Qx@Ev@[fAQd@WDQEOeA[sAq@w@{@Sm@Gg@BILHVh@d@He@y@KkBHy@Li@FsAm@gBEg@Hc@W{AKyAa@g@T{@HI|@O`@ULc@CMMc@Y]CS\\?BMNMBMLIb@j@XCf@ZLTLKPTZUt@zAVN`@OzA?^QP]B[Gi@UoAm@o@Ig@q@}@Gu@Ki@_AeBMm@m@a@c@aAAi@D[j@q@Dw@P{@?i@j@SGU[WCOBO`Dy@pB_AV[Dm@g@yAq@cAAP]j@ObAYnADLNFdAg@p@QTNM`@gChAgCl@[GOc@Dg@Pi@v@uAFy@SsAQqBOw@YWY@OLG\\@V\\|A?^KVmAhAS\\gA^m@`@yA`CsAfA_Ad@aBZmASEw@SoA]y@c@m@e@Y}DmAo@a@Ig@aBb@w@h@i@RsAPu@FoAIs@Sq@a@YCUYw@a@s@y@q@g@QCiDb@WLiC\\_D^a@A}Df@q@Vs@A{ARSJ}B^a@EwCj@_@mBQkCBw@]qBOsCYmC@WIy@e@gJQ}AGsBeA_MGcDg@aH"
-        }
       }
     ],
     "longest_run": {
@@ -7520,6 +7530,21 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 21095871128,
+        "name": "Morning Run",
+        "type": "Run",
+        "distance": 3.32,
+        "moving_time": 1748,
+        "elapsed_time": 1771,
+        "elevation_gain": 194.0,
+        "average_pace": 8.77,
+        "start_date": "2026-11-23T14:26:31Z",
+        "commute": false,
+        "map": {
+          "summary_polyline": "mglhGbmiqL[Ks@OYQc@My@?k@Ei@Ig@UQMSEOQGOCS?o@BSJc@Ba@FSHwAJqABc@Hc@D{ANeBFoBAcBKsB_@oCKo@a@_AK_@CYBKCSMa@k@mAOQQ[_@a@Q[Mm@?q@Do@FUFmADo@Ha@?w@NcADiAG{@O_AKWMg@]aAYk@m@y@}@w@SKQEKIWCqAFOEUMMQOe@Ia@IaA?k@BYEu@@{AH}@F_FPqB@{BHgAAk@DiANiCDUD{Bl@kEDm@A_@Eu@@i@Bm@XuADk@I{AIa@I_AE}CDy@AY@OFY@_@NgCRaALu@HYJy@ZiBBy@BMAe@Dc@I?CnCWbBSn@MdAY`BS~CMbADzDJxANrA@t@CJEt@U|A@rBMtBU|AWnA?lAEbAKh@G|AAlBCZ?v@IrBEx@QtBCvB@VCZFvBA|@B~ADb@Pp@FLNNTHl@HXBZAj@FVLTT`AfAl@`A^|@\\xADn@@fCId@AfAIx@EjBKfABhAH\\HPd@j@Xb@^z@Lv@Tr@ZzAHRXvATdBLfCCxCGbBQvB?b@SbBS|BKh@MhABn@FLJHTFPJVDr@ZXDJ?XDd@@XFdAf@HBV?"
+        }
+      },
       {
         "id": 21086417989,
         "name": "Morning Run",
@@ -7623,21 +7648,6 @@
         "commute": false,
         "map": {
           "summary_polyline": "grpeFnlhjVFf@LjDNv@@l@ATNbA?ZHh@?\\Bl@RrBLpB?t@Dj@Ej@Ar@L~@J^Ht@BjBGv@Sn@DZCJDj@@x@Gf@@PFRjA`CDVDbAR~ALdCCn@@`ACb@Lj@BXRp@Ct@Fv@An@VxA@RFJ@LB^CNBv@AX@d@PjADPGz@IZ@|@Tv@?Lb@pAJp@GpAUf@K`@LfBLb@Id@?^t@`DJ~@D~@Pb@BZSpCCtAGb@?n@En@Kt@KlBU~B]hDAZKbA]pEUjBOf@If@Gl@ELCZwApHKpAMxB@dALdCFdDAp@DdADl@Jp@Nr@Ph@Xb@Zl@RVr@rAd@t@bAlBd@lAFVNVJn@Bl@Cn@WzAa@hBU~ANhABpCEz@Mf@@DG\\Bt@XjAB\\JRN~@Cn@BJLZLLHDV@JBZd@RHZAl@Db@UNCv@LH?PCj@Od@El@Bt@Lp@Cl@KTCVKJKHYGMe@IMIGKCSDm@AYBQNWPq@?[VoADiAFc@FmA?s@@UEq@Vo@@MB}@Kc@ACc@Ik@UMAg@Bg@KAC}@OWKoAmAgAeBa@w@MGYLCJ@LHb@@\\Jp@Bn@^~DDrA?b@AVOp@@RFHHBB?JEHe@@i@F]JSV[x@O`@@v@GV@PFZXb@f@FPNxCGx@?^Gx@GZIl@]fA[n@UNQPUN_@LM?UJ]Go@OGICMIMCOKOC]O]As@XwC?_@Cc@E]KOKIGAIFM`@a@n@e@rAIv@Sp@G^EJGFODa@?WM[EOIYi@Mk@?aALiBAiA@k@M{APuAz@_EBa@Cy@Ok@Gm@IYi@sAo@mAUk@Ya@Ua@SUMWY_@m@eAAMSi@CSW_A?SGa@?uAKqCFkACuDHsCT{Bb@qCDe@J]f@gC@U^_BZ{B@a@LoA@k@XuDBw@p@sHFcABwAEyB@q@F]CY?a@Ew@QwAa@eBi@gBO{@PIDQKoAHa@Vm@HiAE_@Ia@k@aBKy@A]NeA@UO_CBkAAU@SMa@_@iBCyACUB_ACUQYK{@EkABW@{@CQAy@UeBEwAQu@a@kAc@}@Uw@Nw@Gy@Am@RgAFaACsBC]S}@Ec@?m@DU@OC}@OmBCw@Q_CAiAIe@@_@SgAAy@CI@c@GUEg@?c@KyA"
-        }
-      },
-      {
-        "id": 20981930961,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.05,
-        "moving_time": 3288,
-        "elapsed_time": 5512,
-        "elevation_gain": 233.0,
-        "average_pace": 9.06,
-        "start_date": "2026-11-13T14:38:09Z",
-        "commute": false,
-        "map": {
-          "summary_polyline": "{qpeFjlhjVDTJhCNnA?^DLCx@F`AEb@BJDVJbBFd@@\\VzBAv@D^ItAJbAHh@JxAArAGz@K^?XBl@GjBDTP^^p@Rb@J`@Jt@@h@L|@LvABhAEb@?tAJf@Df@Nf@ALDd@ArABr@Jj@BXR|@DfBAPRlBBd@SbB@ZDVVlAT^L^Lz@IbAYz@IZ?RF|@BXFRLb`@U|BEz@y@~Io@~D_BvI[dCCpA@`BHtFHlA@v@Jz@Z~A^bAPV@THNl@v@j@bAX\\DPbBhDVt@Hf@Hx@Aj@SlAWjAc@~CNnAApBG|@OtAHfATrATl@Fj@EZJ^F^PTb@BXb@PHRBj@?n@Q^E`@LP?VGPIr@Mf@Az@Tf@@~@Kn@OLMFO?IGIs@OCEGQCs@Du@d@uA^uCJ{CA]ES?UZuABa@C[I[MSg@Qk@KQ?g@EkASWKy@q@{@iA{@eBKKGCKAGBGH?RTdBLnBDfAZbCAf@Gj@a@hBKRe@t@Qf@Mp@MzAGXGD_@L[@u@KOCMK[m@Qq@CY@y@Jk@NuBAs@Q{@AMTgAh@sBNw@Jq@A{@IeAe@cBw@gBgAmBs@eAiAyBe@_BWmBCs@@k@Es@FmACoBBiAAaA@g@RiDPuA`AoFJy@Jc@b@yCh@yGFmBVcBPiBF}AFi@NsCTgBFaBMmAO_@KuAO_Ak@}BQg@WkAPGHKQmA@OFWP]Ne@Da@@]Oy@m@gBMu@A_@N_ABo@SwAAa@Dy@AUGg@[aBIKAMAqA@GCc@@u@CMGII[OqA@o@CG?o@Hk@Io@GU@KI{AWyAAi@IMMe@]k@[eA?WFy@M_BRm@FYA}@@y@A]GoAG_@Ce@Gw@BYA]Ek@Cy@OiB?e@MsA@IJENQKa@Eg@Og@Gk@Dy@E[Qo@BaAE]@c@Aq@EU"
         }
       }
     ],
@@ -7888,25 +7898,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 187,
-          "distance": 1070.65,
-          "moving_time": 647437,
-          "elapsed_time": 732453,
-          "elevation_gain": 104277.0
+          "count": 188,
+          "distance": 1073.97,
+          "moving_time": 649185,
+          "elapsed_time": 734224,
+          "elevation_gain": 104471.0
         },
         "all_time": {
-          "count": 1321,
-          "distance": 6944.17,
-          "moving_time": 3833305,
-          "elapsed_time": 4329223,
-          "elevation_gain": 538927.0
+          "count": 1322,
+          "distance": 6947.49,
+          "moving_time": 3835053,
+          "elapsed_time": 4330994,
+          "elevation_gain": 539121.0
         },
         "recent": {
-          "count": 20,
-          "distance": 119.91,
-          "moving_time": 65615,
-          "elapsed_time": 75825,
-          "elevation_gain": 7238.0
+          "count": 21,
+          "distance": 123.23,
+          "moving_time": 67363,
+          "elapsed_time": 77596,
+          "elevation_gain": 7431.0
         }
       },
       "biking": {
