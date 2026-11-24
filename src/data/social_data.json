@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-23T21:50:14.956381+00:00",
+  "last_updated": "2026-11-24T20:27:06.767019+00:00",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
@@ -80,7 +80,7 @@
         "watched_date": "2026-11-04",
         "is_rewatch": false,
         "review": "<p>Loved the tension in Oppenheim's directing. He is simultaneously empathetic and tender towards the strange people in the film, but also removed and judgemental (or was that just my judgement seeping through \ud83e\udd14)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=fb4da1471b",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=889869c133",
         "link": "https://letterboxd.com/ncteisen/film/spermworld/"
       },
       {
@@ -4222,7 +4222,7 @@
         "watched_date": "2026-11-04",
         "is_rewatch": false,
         "review": "<p>Loved the tension in Oppenheim's directing. He is simultaneously empathetic and tender towards the strange people in the film, but also removed and judgemental (or was that just my judgement seeping through \ud83e\udd14)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=fb4da1471b",
+        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=889869c133",
         "link": "https://letterboxd.com/ncteisen/film/spermworld/"
       }
     ],
@@ -7912,11 +7912,11 @@
           "elevation_gain": 539121.0
         },
         "recent": {
-          "count": 21,
-          "distance": 123.23,
-          "moving_time": 67363,
-          "elapsed_time": 77596,
-          "elevation_gain": 7431.0
+          "count": 20,
+          "distance": 116.8,
+          "moving_time": 63984,
+          "elapsed_time": 74038,
+          "elevation_gain": 7215.0
         }
       },
       "biking": {
