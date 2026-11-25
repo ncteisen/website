@@ -1,5 +1,23 @@
 [
   {
+    "id": 21121771600,
+    "name": "Hike w Challis -> Run w Sarah",
+    "type": "Run",
+    "sport_type": "Run",
+    "start_date": "2026-11-25T15:22:43Z",
+    "commute": false,
+    "private": false,
+    "visibility": "followers_only",
+    "map": {
+      "summary_polyline": "{flhGvliqLHOtCGfBo@d@YdBmBf@UjAeAWk@_@SSw@MGOSu@UKAIHSZUp@OJWGWDSCi@a@a@?mASy@Ey@YAe@Lm@?[Ru@@{@Fe@Vy@AiBr@gATo@`@uB?YRaCn@iAl@qA|A]Zg@OWQu@Ba@Lm@p@aArB{A`B]lAQdCCb@M|@i@NCh@?h@LT@lAoC^sAPoATi@POz@[XSbAoBX\\FT?NIHAaAGWIEAIp@}AFc@c@kBO{BUm@iBoDa@aAQYq@e@Q_@C[Fa@HWd@w@Jk@GsB[y@_@Oc@DiAj@y@NwA|@SFa@?k@KyAkAiB]q@a@e@e@RGFK]qCAo@Lk@|@sCN[h@o@p@aCd@q@TSPCd@Xh@UV?LDPPJ\\XFXh@Br@Kz@JD`@OJ@Pd@X\\?TSn@Hz@JNn@LPdA?PUh@{@tAa@Z}@`AGZHXJHjAWtAm@`@?^VHVFj@B`BKl@k@bAGf@B\\LVv@j@LRx@jBv@rAl@`BF^?~@Hn@\\lAHLGTBf@VdAXn@RfB\\n@vA~@h@RpAPd@EtAFf@Kf@}@d@c@~Bw@VAvAl@jDFpAZVNp@x@j@h@zAXz@d@`AVvBZR?^Ij@YfCi@p@AXBhA`@RVBXGnAFz@Jf@j@pALj@BhBXjDB~ANj@\\n@NhA@j@SlAAxAT`B\\v@Dt@Gz@@fBEz@FzBAZYx@o@bA[`AsAjBKf@E`ABx@XhDJp@E~BUx@c@nCa@t@Wr@U`AQnAs@xCg@r@k@|AiAlBeA|@uBx@o@bAGPKv@IzBQhAcA|AS~@]r@mFzGmBvFKb@AvBBz@Jx@_@tCOXo@j@m@hAMvA?n@[r@YnA_@`@u@Ru@b@If@g@nA[^MDWGYKEQXyBF}B^wBn@wBPgARuDHsDFcALk@BwBIw@[oAcAwCa@uBKiBJgCb@yBXyCf@aCXiBf@uAJm@zA{Cl@mCJkAMsDLaAVk@b@g@h@qADY`ByBfBoEd@s@h@wAfAeC@sAc@qAk@{DYkAS]Y[SKO@kChAc@\\yAt@eCHsAR_@Vk@r@i@^_AFkAPqBFkCx@cATqACsBo@_AMyBIcBJmCdA}@r@oAh@gBdAeBvAq@x@e@\\"
+    },
+    "distance": 11707.8,
+    "moving_time": 5017,
+    "elapsed_time": 5441,
+    "total_elevation_gain": 328.0,
+    "average_speed": 2.334
+  },
+  {
     "id": 21095871128,
     "name": "Morning Run",
     "type": "Run",

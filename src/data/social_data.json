@@ -1,8 +1,18 @@
 {
-  "last_updated": "2026-11-24T20:27:06.767019+00:00",
+  "last_updated": "2026-11-25T19:41:29.260213+00:00",
   "letterboxd": {
     "username": "ncteisen",
     "all_reviews": [
+      {
+        "title": "Trading Places",
+        "year": 1983,
+        "rating": 3.0,
+        "watched_date": "2026-11-23",
+        "is_rewatch": false,
+        "review": "<p>There are old comedies that age well and then there are John Landis movies.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/qa/o0/ac/wd/jaYll3wckw6HrvTq6s2Q0a4WTGV-0-600-0-900-crop.jpg?v=5eeb418746",
+        "link": "https://letterboxd.com/ncteisen/film/trading-places/"
+      },
       {
         "title": "Tuner",
         "year": 2025,
@@ -4146,6 +4156,16 @@
     ],
     "recent_reviews": [
       {
+        "title": "Trading Places",
+        "year": 1983,
+        "rating": 3.0,
+        "watched_date": "2026-11-23",
+        "is_rewatch": false,
+        "review": "<p>There are old comedies that age well and then there are John Landis movies.</p>",
+        "image_url": "https://a.ltrbxd.com/resized/sm/upload/qa/o0/ac/wd/jaYll3wckw6HrvTq6s2Q0a4WTGV-0-600-0-900-crop.jpg?v=5eeb418746",
+        "link": "https://letterboxd.com/ncteisen/film/trading-places/"
+      },
+      {
         "title": "Tuner",
         "year": 2025,
         "rating": 3.5,
@@ -4214,21 +4234,11 @@
         "review": "<p>Men only want three thing:<br/>- a best pal<br/>- their own podcast<br/>- to destabilize the occasional foreign government</p>",
         "image_url": "https://a.ltrbxd.com/resized/film-poster/8/0/2/6/3/2/802632-wild-horse-nine-0-600-0-900-crop.jpg?v=eade7a541c",
         "link": "https://letterboxd.com/ncteisen/film/wild-horse-nine/"
-      },
-      {
-        "title": "SPERMWORLD",
-        "year": 2024,
-        "rating": 3.5,
-        "watched_date": "2026-11-04",
-        "is_rewatch": false,
-        "review": "<p>Loved the tension in Oppenheim's directing. He is simultaneously empathetic and tender towards the strange people in the film, but also removed and judgemental (or was that just my judgement seeping through \ud83e\udd14)</p>",
-        "image_url": "https://a.ltrbxd.com/resized/film-poster/1/0/6/4/0/5/4/1064054-spermworld-0-600-0-900-crop.jpg?v=889869c133",
-        "link": "https://letterboxd.com/ncteisen/film/spermworld/"
       }
     ],
     "stats": {
-      "total_films": 414,
-      "films_this_year": 78
+      "total_films": 415,
+      "films_this_year": 79
     }
   },
   "goodreads": {
@@ -5939,6 +5949,21 @@
   "strava": {
     "all_activities": [
       {
+        "id": 21121771600,
+        "name": "Hike w Challis -> Run w Sarah",
+        "type": "Run",
+        "distance": 7.27,
+        "moving_time": 5017,
+        "elapsed_time": 5441,
+        "elevation_gain": 1076.0,
+        "average_pace": 11.49,
+        "start_date": "2026-11-25T15:22:43Z",
+        "commute": false,
+        "map": {
+          "summary_polyline": "{flhGvliqLHOtCGfBo@d@YdBmBf@UjAeAWk@_@SSw@MGOSu@UKAIHSZUp@OJWGWDSCi@a@a@?mASy@Ey@YAe@Lm@?[Ru@@{@Fe@Vy@AiBr@gATo@`@uB?YRaCn@iAl@qA|A]Zg@OWQu@Ba@Lm@p@aArB{A`B]lAQdCCb@M|@i@NCh@?h@LT@lAoC^sAPoATi@POz@[XSbAoBX\\FT?NIHAaAGWIEAIp@}AFc@c@kBO{BUm@iBoDa@aAQYq@e@Q_@C[Fa@HWd@w@Jk@GsB[y@_@Oc@DiAj@y@NwA|@SFa@?k@KyAkAiB]q@a@e@e@RGFK]qCAo@Lk@|@sCN[h@o@p@aCd@q@TSPCd@Xh@UV?LDPPJ\\XFXh@Br@Kz@JD`@OJ@Pd@X\\?TSn@Hz@JNn@LPdA?PUh@{@tAa@Z}@`AGZHXJHjAWtAm@`@?^VHVFj@B`BKl@k@bAGf@B\\LVv@j@LRx@jBv@rAl@`BF^?~@Hn@\\lAHLGTBf@VdAXn@RfB\\n@vA~@h@RpAPd@EtAFf@Kf@}@d@c@~Bw@VAvAl@jDFpAZVNp@x@j@h@zAXz@d@`AVvBZR?^Ij@YfCi@p@AXBhA`@RVBXGnAFz@Jf@j@pALj@BhBXjDB~ANj@\\n@NhA@j@SlAAxAT`B\\v@Dt@Gz@@fBEz@FzBAZYx@o@bA[`AsAjBKf@E`ABx@XhDJp@E~BUx@c@nCa@t@Wr@U`AQnAs@xCg@r@k@|AiAlBeA|@uBx@o@bAGPKv@IzBQhAcA|AS~@]r@mFzGmBvFKb@AvBBz@Jx@_@tCOXo@j@m@hAMvA?n@[r@YnA_@`@u@Ru@b@If@g@nA[^MDWGYKEQXyBF}B^wBn@wBPgARuDHsDFcALk@BwBIw@[oAcAwCa@uBKiBJgCb@yBXyCf@aCXiBf@uAJm@zA{Cl@mCJkAMsDLaAVk@b@g@h@qADY`ByBfBoEd@s@h@wAfAeC@sAc@qAk@{DYkAS]Y[SKO@kChAc@\\yAt@eCHsAR_@Vk@r@i@^_AFkAPqBFkCx@cATqACsBo@_AMyBIcBJmCdA}@r@oAh@gBdAeBvAq@x@e@\\"
+        }
+      },
+      {
         "id": 21095871128,
         "name": "Morning Run",
         "type": "Run",
@@ -7422,21 +7447,6 @@
         "map": {
           "summary_polyline": "amjdF~}ojVHu@S[cD_@Wy@PaCuBuBkAwBjCsKyE~FFyBz@wAPcEt@iC{BdAWk@BaCXgAvBg@zAiCg@@mAsBzAi@r@_AFw@e@sChA_C^j@nACw@pAhDWXkAZz@R_AFtBb@_BQpChA_Ce@xD{Af@n@xBOlCpAmCd@IGbAPMPsC~CeMb@s@vBe@h@}FFpF_@zA?fAz@vAsApARvAg@f@AbAtA~CxAa@\\dAj@b@v@c@nAwD{ArA{AkBjAl@d@OX}@_@LWo@~@{@i@q@Fi@ZOr@BPt@r@@PW]HQa@h@mCtBeA`@Dc@R[bAr@bAJv@b@DSYXmBRbBh@r@d@B_@q@Jo@xEgDqAzB|@dECmCbAqAn@Le@TEfAxAtANA]aAl@m@@z@|@t@We@Fi@dC}C[fA@dAlBFcAzCfAtAYlBR|@cBzBv@x@|ACNjBq@bBgAlAM_@LcAk@ZKQT]}@X?lAu@\\uBfFeDtDJtBgBnCa@zAwAR[rAiAlAw@m@{B^{Ac@Og@r@yA{Gz@]I}@uAM\\h@bAe@|@HbAQ|@v@Zf@dAHfAQNi@cAmAPQ{@q@_@?oBUU_Ax@}@rCq@CoAsBBoBmC]cAcAJw@e@j@OhBVd@u@_@nBtDa@Vj@tDo@d@d@t@kCq@o@VcA`BdBe@m@lAk@jD\\~Cp@t@SuBn@eAt@Md@Lo@`AEbBf@eA~@?a@fA^jA\\_ApFHkAx@Wt@f@tB`DnAVp@cAp@`@zBa@lCfArCbBzAb@BU{AX]lDv@iBd@FfCbEtBt@Ml@`GCtA|AtEPdDlDDbD}DfAk@z@`@Iu@l@m@KtAd@iBh@Qe@lBVj@Es@~@{A[fAHl@pApAt@@]t@^d@xABWrBk@r@LfB]jBz@h@lBC`BnGGgCw@k@g@_BuBBm@e@\\kBMgBn@q@Cu@Zw@aBKa@m@b@u@w@BoAkAKaA\\_A}@dBFv@YiA^uAe@Vk@bBLuAk@r@Hp@w@_@u@\\wDfEmBT_AYUkDwAoEFsAs@gGq@JE{@zAeErAe@h@fAfBUZ`Fj@yC^cG]eAu@Ex@k@o@q@k@n@iAk@SoBgBsAYaBg@c@qAYeD~@\\Wb@aDs@sEsAs@}C[gB{CyDYaBiAi@mA"
         }
-      },
-      {
-        "id": 18896701053,
-        "name": "The search continues for the best Adirondack chair of GGB",
-        "type": "Run",
-        "distance": 4.16,
-        "moving_time": 2167,
-        "elapsed_time": 2374,
-        "elevation_gain": 230.0,
-        "average_pace": 8.69,
-        "start_date": "2026-06-12T23:36:12Z",
-        "commute": false,
-        "map": {
-          "summary_polyline": "kqpeFxkhjVLjAAz@Jp@CRBNA`@Hh@@`@BP?ZFj@Bl@N^Dx@DJFd@EhBBX@n@Sd@Fx@Ar@Bp@P|@@f@FdADR@d@Gz@UdA@n@B\\In@B`@Hl@JTRV`@bAZlCD|@LxA?`DPx@Dd@Np@Cj@Bp@?fANjAHVHt@BpACX?h@R`BEv@Ix@Jn@t@jCFh@?TE|@YdAA\\LrAV`AAl@Bd@TbARp@D`@PlBBXCTDp@Il@GPKJK?AGFM@OC[CMMIQNECIc@OUSQUe@CWIMMKKAMEi@Ia@Ci@[c@EM@QNOd@[\\ILMJUBQLINUbAUVG`@EJa@t@AV?^T|AFRVZ`@XBDDb@Z`AFd@V|@b@|FL~@JXV\\r@d@h@f@Tb@Zz@h@t@BPFHND^Kp@GTD^AQDHBN^FFLHB?ZQLOPcABSNo@B]RcB@m@A}@D]LKXMf@A`@DVIh@u@t@yAFQ@[Io@IW_@k@Sa@OoAY}@AMLiAZkAn@{Av@oAD]Bu@UcC?YKKOEYSi@oAe@g@OIu@?ISKiAEaAQoBIyB_@aEAg@G}@?]Ii@Iy@I}BKoBc@wFQcDU_BEu@Dy@QqASuDEU?[I_@GcAIaA{@oOQcBAg@U_DAe@KmBKw@QgDOoAWoE"
-        }
       }
     ],
     "longest_run": {
@@ -7530,6 +7540,21 @@
       }
     },
     "recent_runs": [
+      {
+        "id": 21121771600,
+        "name": "Hike w Challis -> Run w Sarah",
+        "type": "Run",
+        "distance": 7.27,
+        "moving_time": 5017,
+        "elapsed_time": 5441,
+        "elevation_gain": 1076.0,
+        "average_pace": 11.49,
+        "start_date": "2026-11-25T15:22:43Z",
+        "commute": false,
+        "map": {
+          "summary_polyline": "{flhGvliqLHOtCGfBo@d@YdBmBf@UjAeAWk@_@SSw@MGOSu@UKAIHSZUp@OJWGWDSCi@a@a@?mASy@Ey@YAe@Lm@?[Ru@@{@Fe@Vy@AiBr@gATo@`@uB?YRaCn@iAl@qA|A]Zg@OWQu@Ba@Lm@p@aArB{A`B]lAQdCCb@M|@i@NCh@?h@LT@lAoC^sAPoATi@POz@[XSbAoBX\\FT?NIHAaAGWIEAIp@}AFc@c@kBO{BUm@iBoDa@aAQYq@e@Q_@C[Fa@HWd@w@Jk@GsB[y@_@Oc@DiAj@y@NwA|@SFa@?k@KyAkAiB]q@a@e@e@RGFK]qCAo@Lk@|@sCN[h@o@p@aCd@q@TSPCd@Xh@UV?LDPPJ\\XFXh@Br@Kz@JD`@OJ@Pd@X\\?TSn@Hz@JNn@LPdA?PUh@{@tAa@Z}@`AGZHXJHjAWtAm@`@?^VHVFj@B`BKl@k@bAGf@B\\LVv@j@LRx@jBv@rAl@`BF^?~@Hn@\\lAHLGTBf@VdAXn@RfB\\n@vA~@h@RpAPd@EtAFf@Kf@}@d@c@~Bw@VAvAl@jDFpAZVNp@x@j@h@zAXz@d@`AVvBZR?^Ij@YfCi@p@AXBhA`@RVBXGnAFz@Jf@j@pALj@BhBXjDB~ANj@\\n@NhA@j@SlAAxAT`B\\v@Dt@Gz@@fBEz@FzBAZYx@o@bA[`AsAjBKf@E`ABx@XhDJp@E~BUx@c@nCa@t@Wr@U`AQnAs@xCg@r@k@|AiAlBeA|@uBx@o@bAGPKv@IzBQhAcA|AS~@]r@mFzGmBvFKb@AvBBz@Jx@_@tCOXo@j@m@hAMvA?n@[r@YnA_@`@u@Ru@b@If@g@nA[^MDWGYKEQXyBF}B^wBn@wBPgARuDHsDFcALk@BwBIw@[oAcAwCa@uBKiBJgCb@yBXyCf@aCXiBf@uAJm@zA{Cl@mCJkAMsDLaAVk@b@g@h@qADY`ByBfBoEd@s@h@wAfAeC@sAc@qAk@{DYkAS]Y[SKO@kChAc@\\yAt@eCHsAR_@Vk@r@i@^_AFkAPqBFkCx@cATqACsBo@_AMyBIcBJmCdA}@r@oAh@gBdAeBvAq@x@e@\\"
+        }
+      },
       {
         "id": 21095871128,
         "name": "Morning Run",
@@ -7633,21 +7658,6 @@
         "commute": false,
         "map": {
           "summary_polyline": "oqpeFzkhjVC\\@TR|BQd@Ch@@DPXJ^Df@Gb@Dd@CT@NFJBJKj@DLHt@NZDj@@BBp@BD@PIVCVDV?TDZ@^GZ?JH^@TJ`@NtBAhBEVM^AVDhAGd@Ar@Hf@PVTf@R\\DZJZFZLjBR`A?f@FN@\\CnAIx@Lx@Db@Pl@Ad@GVBV?p@BR?PNh@D^FNAt@Rr@@lAJl@?TJr@?XGl@M^@b@BVNv@NZLL@TJV?RHh@Cl@EZIVS^AR@\\H~@H`@HNIPA`@Vx@LbARr@Ht@LpB@r@Gj@EXGJQHaA?UWQMo@o@kAiBg@]UC]J{@l@MFk@t@Qh@Q|@EfADr@v@jGDv@?JEHEBI@IAMGk@m@KCe@@IBCF@BH@VNLZ@RQd@^t@H^JPLJHDZHDFEf@KXCNDn@HVDd@MNUBEDALFf@LRTl@APKZ?TF\\T^@Z@f@Qj@CXB\\DVGhA?hANfCNj@Xv@NTJXRTDPAf@JhGHhBFl@Gh@a@r@IXCv@@TLt@Vn@h@x@RJRZNTJh@?r@Fl@ATSTGLWHSLWLGLAH@TDJ^f@XTHLLn@?^Ij@CpBEd@HnAOfE@XNbAFpERjAG`@?XIZE`@FP@l@BHJJBAF@LV?PG\\?RFNHJ?NL`@LRHDPRLFb@H\\SH?AUXYDOIi@m@kBa@eCW{BU_DAu@LsBjAmEP_@T_APk@^wAVyA@q@Ec@Kc@Qm@Ym@mA{Bg@u@IU[i@s@}@S_@GWUi@YqAIcAGaB@]KyBC}@@}BAo@Fw@?k@BeALuAVuBTaANcAPe@J{@Hc@NiAPw@b@yE\\{C\\oFPgBL}B@c@Fg@?oAC{@NeB?{@E_@ImAQmAi@wB_@_AJ{AG}@BUDWJUJ]Ju@?[EUM_@[k@CWQo@Ei@@i@Js@Au@Ow@Cy@BcAC{@WoAAWMo@@c@Cs@Bc@AOYuAGo@CoADwAOw@Ai@M_AA[IWCy@E_@q@mA_@wA@WD_@Bg@M}@AQP[DSDu@CiA@OKeBKg@Go@?KF_@?[Gi@@i@MkBC_AE_AESA_AIaAAu@E]Gc@E_BHUKaBCmA"
-        }
-      },
-      {
-        "id": 20988450421,
-        "name": "Morning Run",
-        "type": "Run",
-        "distance": 6.86,
-        "moving_time": 3632,
-        "elapsed_time": 3938,
-        "elevation_gain": 269.0,
-        "average_pace": 8.83,
-        "start_date": "2026-11-14T17:47:11Z",
-        "commute": false,
-        "map": {
-          "summary_polyline": "grpeFnlhjVFf@LjDNv@@l@ATNbA?ZHh@?\\Bl@RrBLpB?t@Dj@Ej@Ar@L~@J^Ht@BjBGv@Sn@DZCJDj@@x@Gf@@PFRjA`CDVDbAR~ALdCCn@@`ACb@Lj@BXRp@Ct@Fv@An@VxA@RFJ@LB^CNBv@AX@d@PjADPGz@IZ@|@Tv@?Lb@pAJp@GpAUf@K`@LfBLb@Id@?^t@`DJ~@D~@Pb@BZSpCCtAGb@?n@En@Kt@KlBU~B]hDAZKbA]pEUjBOf@If@Gl@ELCZwApHKpAMxB@dALdCFdDAp@DdADl@Jp@Nr@Ph@Xb@Zl@RVr@rAd@t@bAlBd@lAFVNVJn@Bl@Cn@WzAa@hBU~ANhABpCEz@Mf@@DG\\Bt@XjAB\\JRN~@Cn@BJLZLLHDV@JBZd@RHZAl@Db@UNCv@LH?PCj@Od@El@Bt@Lp@Cl@KTCVKJKHYGMe@IMIGKCSDm@AYBQNWPq@?[VoADiAFc@FmA?s@@UEq@Vo@@MB}@Kc@ACc@Ik@UMAg@Bg@KAC}@OWKoAmAgAeBa@w@MGYLCJ@LHb@@\\Jp@Bn@^~DDrA?b@AVOp@@RFHHBB?JEHe@@i@F]JSV[x@O`@@v@GV@PFZXb@f@FPNxCGx@?^Gx@GZIl@]fA[n@UNQPUN_@LM?UJ]Go@OGICMIMCOKOC]O]As@XwC?_@Cc@E]KOKIGAIFM`@a@n@e@rAIv@Sp@G^EJGFODa@?WM[EOIYi@Mk@?aALiBAiA@k@M{APuAz@_EBa@Cy@Ok@Gm@IYi@sAo@mAUk@Ya@Ua@SUMWY_@m@eAAMSi@CSW_A?SGa@?uAKqCFkACuDHsCT{Bb@qCDe@J]f@gC@U^_BZ{B@a@LoA@k@XuDBw@p@sHFcABwAEyB@q@F]CY?a@Ew@QwAa@eBi@gBO{@PIDQKoAHa@Vm@HiAE_@Ia@k@aBKy@A]NeA@UO_CBkAAU@SMa@_@iBCyACUB_ACUQYK{@EkABW@{@CQAy@UeBEwAQu@a@kAc@}@Uw@Nw@Gy@Am@RgAFaACsBC]S}@Ec@?m@DU@OC}@OmBCw@Q_CAiAIe@@_@SgAAy@CI@c@GUEg@?c@KyA"
         }
       }
     ],
@@ -7898,25 +7908,25 @@
     "stats": {
       "running": {
         "ytd": {
-          "count": 188,
-          "distance": 1073.97,
-          "moving_time": 649185,
-          "elapsed_time": 734224,
-          "elevation_gain": 104471.0
+          "count": 189,
+          "distance": 1081.24,
+          "moving_time": 654202,
+          "elapsed_time": 739665,
+          "elevation_gain": 105547.0
         },
         "all_time": {
-          "count": 1322,
-          "distance": 6947.49,
-          "moving_time": 3835053,
-          "elapsed_time": 4330994,
-          "elevation_gain": 539121.0
+          "count": 1323,
+          "distance": 6954.76,
+          "moving_time": 3840070,
+          "elapsed_time": 4336435,
+          "elevation_gain": 540197.0
         },
         "recent": {
-          "count": 20,
-          "distance": 116.8,
-          "moving_time": 63984,
-          "elapsed_time": 74038,
-          "elevation_gain": 7215.0
+          "count": 21,
+          "distance": 124.07,
+          "moving_time": 69001,
+          "elapsed_time": 79479,
+          "elevation_gain": 8291.0
         }
       },
       "biking": {
