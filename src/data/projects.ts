@@ -11,15 +11,6 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
-		title: 'The Apartment',
-		description: 'A furnished miniature of home. Orbit the dollhouse or step inside.',
-		href: '/projects/apartment/',
-		label: 'apartment',
-		external: false,
-		featured: false,
-		accent: '#97a185',
-	},
-	{
 		title: 'Postal',
 		description: 'Turn your photos into postcards, printed and mailed.',
 		href: 'https://gopostal.cc/',
