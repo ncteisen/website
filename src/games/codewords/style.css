@@ -43,6 +43,76 @@ select { width: 138px; padding: 9px 6px; font-size: 14px; }
 .card.key.neutral { background: #eeeee2; color: #626a50; border-color: #d3d7c5; }
 .card.key.assassin { background: #656d61; }
 .spy .card.selected .card-word { text-decoration: line-through; text-decoration-thickness: 1px; }
+.board-wrap { position: relative; }
+#celebration { position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: 7px; }
+.win-red { --win-color: #b94f3b; }
+.win-blue { --win-color: #32718a; }
+.win-assassin { --win-color: #30372f; }
+.ink-blast, .ink-blast::before, .ink-blast i { position: absolute; }
+.ink-blast::before {
+	content: ''; width: var(--blast-size); aspect-ratio: 1; border-radius: 50%;
+	background: radial-gradient(closest-side, transparent 47%, #10101460 72%, #060608ba 83%, transparent);
+	animation: ink-shockwave 600ms cubic-bezier(.12,.63,.3,1) both;
+}
+.ink-blast i {
+	height: 6px; background: #08090b; border-radius: 85% 45% 65% 55%;
+	animation: ink-splatter 720ms cubic-bezier(.12,.65,.3,1) both;
+}
+@keyframes ink-shockwave {
+	from { transform: translate(-50%, -50%) scale(.015); }
+	to { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+}
+@keyframes ink-splatter {
+	from { transform: rotate(var(--angle)) scaleX(.2); }
+	65% { opacity: 1; }
+	to { transform: rotate(var(--angle)) translateX(var(--travel)) scale(.65); opacity: 0; }
+}
+.ink-coat {
+	position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none;
+	background: linear-gradient(155deg, #08090bed, #0b0c10cf 42%, #141419ad);
+	animation: ink-coat 3.2s both;
+}
+.ink-coat canvas {
+	display: block; width: 100%; height: 94%; transform-origin: top;
+	animation: ink-drip 2.3s cubic-bezier(.2,.45,.25,1) both;
+}
+.ink-coat ~ .card-word, .ink-coat ~ .card-check {
+	animation: ink-lettering 3.2s both;
+}
+.ink-coat ~ .card-word { position: relative; }
+@keyframes ink-coat { 0%, 100% { opacity: 0; } 10%, 72% { opacity: 1; } }
+@keyframes ink-drip { from { transform: scaleY(.05); } to { transform: scaleY(1); } }
+@keyframes ink-lettering {
+	0%, 100% { color: inherit; }
+	10%, 72% { color: #fffdf5; text-shadow: 0 1px 3px #000; }
+}
+.win-badge {
+	position: absolute; left: 50%; top: 60%; transform: translate(-50%, -50%);
+	padding: 5px 16px; border: 2px solid #fffdf5; border-radius: 20px; box-shadow: 0 2px 5px #292d2726;
+	background: var(--win-color); color: white; font: 700 15px/1.2 'Space Grotesk', sans-serif;
+	white-space: nowrap; animation: win-badge 3.2s both;
+}
+.win-confetti {
+	position: absolute; top: -16px; width: 7px; height: 13px; border-radius: 2px;
+	background: var(--win-color); animation: win-fall 2s ease-in both;
+}
+.win-confetti:nth-child(3n) { border-radius: 50%; height: 7px; }
+.win-confetti:nth-child(3n + 1) { background: color-mix(in srgb, var(--win-color) 68%, white); }
+.win-ring {
+	position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+	animation: win-ripple 1s ease-out 2 both;
+}
+@keyframes win-badge { 0%, 100% { opacity: 0; } 8%, 86% { opacity: 1; } }
+@keyframes win-fall {
+	from { opacity: 0; transform: translateX(0) rotate(0); }
+	12%, 75% { opacity: 1; }
+	to { top: 104%; opacity: 0; transform: translateX(var(--drift)) rotate(var(--spin)); }
+}
+@keyframes win-ripple {
+	0%, 100% { opacity: 0; box-shadow: inset 0 0 0 0 var(--win-color); }
+	24% { opacity: 1; box-shadow: inset 0 0 0 4px var(--win-color), inset 0 0 0 6px #fffdf5bb; }
+}
+@media (prefers-reduced-motion: reduce) { .win-badge { animation: none; } }
 footer { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; font-size: 11px; color: #69745e; }
 footer a { color: inherit; white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }

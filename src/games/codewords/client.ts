@@ -1,4 +1,5 @@
 import { createGame, isPack, normalizeSeed, parseSave, remaining, restoreGame, toggleCard, type Pack } from './engine';
+import { clearCelebration, showCardEffect } from './celebration';
 
 const el = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
 const seedInput = el<HTMLInputElement>('seed');
@@ -40,7 +41,15 @@ const cards = game.cards.map((_, index) => {
 		render();
 		save();
 		const selected = game.cards[index];
-		announce(`${selected.word}: ${selected.selected ? `${labels[selected.identity]}, marked` : 'unmarked'}.`);
+		const identity = selected.identity;
+		let message = `${selected.word}: ${selected.selected ? `${labels[identity]}, marked` : 'unmarked'}.`;
+		if (selected.selected && identity === 'assassin') {
+			showCardEffect(identity, cards, index, 'Assassin');
+		} else if (selected.selected && (identity === 'red' || identity === 'blue') && remaining(game, identity) === 0) {
+			message = `${labels[identity]} wins!`;
+			showCardEffect(identity, cards, index, message);
+		}
+		announce(message);
 	});
 	card.addEventListener('keydown', event => {
 		if (event.repeat && (event.key === 'Enter' || event.key === ' ')) event.preventDefault();
@@ -84,6 +93,7 @@ function updateHint() {
 
 function loadBoard(seed: string, pack: Pack) {
 	if (game.seed !== seed || game.pack !== pack) {
+		clearCelebration();
 		game = createGame(seed, pack);
 		deadline = null;
 		renderTimer();

@@ -27,7 +27,10 @@ import '../games/codewords/style.css';
 				</form>
 				<div class="tools"><button id="new-game" title="Start a board with a new random seed">New board</button><button id="timer" title="Start a 30-second timer; click again to cancel">Timer <span id="timer-label">0:30</span></button><button id="spymaster" aria-pressed="false">Spymaster</button></div>
 			</header>
-			<div id="board" class="board" role="group" aria-label="Word cards"></div>
+			<div class="board-wrap">
+				<div id="board" class="board" role="group" aria-label="Word cards"></div>
+				<div id="celebration" aria-hidden="true"></div>
+			</div>
 			<noscript><p>Enable JavaScript to play Codewords.</p></noscript>
 			<footer><span id="board-hint">Same seed + word set = same board.</span><span>Tap a card to mark it. Tap again to unmark.</span><a href="/projects/">All projects</a></footer>
 			<p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
